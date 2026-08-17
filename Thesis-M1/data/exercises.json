@@ -1,0 +1,1540 @@
+{
+ "meta": {
+  "title": "SIKD Thesis M1 — 90 Active-Recall Exercises",
+  "total": 90,
+  "sections": [
+   {
+    "num": 1,
+    "title": "1. Channel physics — calculate",
+    "count": 18
+   },
+   {
+    "num": 2,
+    "title": "2. Geometry & orbits — calculate",
+    "count": 12
+   },
+   {
+    "num": 3,
+    "title": "3. Weather & availability",
+    "count": 12
+   },
+   {
+    "num": 4,
+    "title": "4. Key numbers & terms — fill in",
+    "count": 15
+   },
+   {
+    "num": 5,
+    "title": "5. Committee & literature — match",
+    "count": 15
+   },
+   {
+    "num": 6,
+    "title": "6. Reasoning, derivations & defense answers",
+    "count": 18
+   }
+  ]
+ },
+ "exercises": [
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Beam waist w0 = lambda/(2*thetaC), lambda=1550 nm, thetaC=10 urad. Compute w0 in metres.",
+   "given": "",
+   "answer": 0.0775,
+   "unit": "m",
+   "tol": 0.005,
+   "tolType": "rel",
+   "framework": "w0 = lambda/(2*thetaC); tighter divergence -> larger waist -> slower spreading.",
+   "steps": "w0 = 1550e-9/(2*10e-6) = 0.0775 m.",
+   "id": 1
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Spherical slant range at elevation 30 deg (zeta=60), H_S=550 km, R_E=6371 km. Give L in km.",
+   "given": "",
+   "answer": 992.778383,
+   "unit": "km",
+   "tol": 0.01,
+   "tolType": "rel",
+   "framework": "L = sqrt(R_E^2 sin^2 e + 2 R_E H_S + H_S^2) - R_E sin e; corrected from flat-Earth 1100 km.",
+   "steps": "eps=30: L = 992.8 km (NOT the flat-Earth H_S/cos(zeta)=1100 km).",
+   "id": 2
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Slant range at elevation 90 deg (satellite at zenith). Give L in km.",
+   "given": "",
+   "answer": 550.0,
+   "unit": "km",
+   "tol": 0.005,
+   "tolType": "rel",
+   "framework": "At zenith the slant range equals the satellite altitude.",
+   "steps": "eps=90: L = H_S = 550 km.",
+   "id": 3
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Beam radius wL at the receiver for elevation 45 deg. Give wL in metres.",
+   "given": "",
+   "answer": 4.769604,
+   "unit": "m",
+   "tol": 0.03,
+   "tolType": "rel",
+   "framework": "wL = w0*sqrt(1+(L*lambda/(pi*w0^2))^2); far-field grows ~linearly with L.",
+   "steps": "L(45)=749 km -> wL = 4.77 m.",
+   "id": 4
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Corrected normalized aperture nu_R = sqrt(pi/2)*a_R/wL at elevation 90 deg (a_R=5 cm). Give nu_R.",
+   "given": "",
+   "answer": 0.017893,
+   "unit": "(dimensionless)",
+   "tol": 0.03,
+   "tolType": "rel",
+   "framework": "nu_R uses sqrt(pi/2)=1.2533 (v3 fix), NOT sqrt(2); old value made hg optimistic by 1.05 dB.",
+   "steps": "nu_R = 1.2533*0.05/3.502 = 0.0179.",
+   "id": 5
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Geometric loss hg at elevation 45 deg, in dB (v3 corrected).",
+   "given": "",
+   "answer": -36.580447,
+   "unit": "dB",
+   "tol": 0.02,
+   "tolType": "abs",
+   "framework": "hg=[erf(nu_R)]^2; hg ~ 1/L^2 since nu_R<<1; dominant link-budget term (>30 dB).",
+   "steps": "hg(45 deg elev) = -36.6 dB.",
+   "id": 6
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Clear-air extinction sigma_clear at V=10 km, 1550 nm (Kruse/Kim, q=1.3). Give km^-1.",
+   "given": "",
+   "answer": 0.101728,
+   "unit": "km^-1",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "sigma=(3.912/V)(lambda/550)^(-q(V)); longer wavelength scatters less.",
+   "steps": "q(10)=1.3 -> sigma=0.1017 km^-1.",
+   "id": 7
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Rain extinction sigma_rain at R=30 mm/h (tropical Kone 2024: beta=0.509 R^0.63, sigma=beta/4.343). km^-1.",
+   "given": "",
+   "answer": 0.998882,
+   "unit": "km^-1",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "Power-law rho=0.63<1 -> sub-linear; 4.343=10/ln10 converts dB->Nepers.",
+   "steps": "beta=0.509*30^0.63=4.34 dB/km; sigma=0.999 km^-1.",
+   "id": 8
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Atmospheric transmission hl in dB at zeta=30 deg, V=10 km, clear (R=0). L_atm=H_atm/cos(zeta).",
+   "given": "",
+   "answer": -10.202881,
+   "unit": "dB",
+   "tol": 0.02,
+   "tolType": "abs",
+   "framework": "hl=exp(-sigma_total*L_atm); L_atm=(H_atm)/cos(zeta), H_atm=20 km.",
+   "steps": "L_atm=23.09 km; hl=exp(-0.1017*23.09)=0.0954 -> -10.2 dB.",
+   "id": 9
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "hl in dB at zeta=30 deg, V=10 km, WITH heavy rain R=30 mm/h. Show how much rain adds.",
+   "given": "",
+   "answer": -110.3868,
+   "unit": "dB",
+   "tol": 0.03,
+   "tolType": "abs",
+   "framework": "Rain adds ~100 dB vs clear -> near link cut; why cloud/heavy-rain ~ outage.",
+   "steps": "sigma_total=1.101; hl=exp(-1.101*23.09) -> ~-110 dB.",
+   "id": 10
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Atmospheric slant path L_atm at zeta=60 deg (elevation 30), H_atm=20 km. Give km.",
+   "given": "",
+   "answer": 40.0,
+   "unit": "km",
+   "tol": 0.01,
+   "tolType": "rel",
+   "framework": "L_atm=(H_atm-H_U)/cos(zeta); low passes traverse more atmosphere (1/cos).",
+   "steps": "L_atm=20/cos60=40 km (double the zenith value).",
+   "id": 11
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Binary entropy H2(0.11). Give the value (bits).",
+   "given": "",
+   "answer": 0.499916,
+   "unit": "bits",
+   "tol": 0.01,
+   "tolType": "rel",
+   "framework": "H2(p)=-p log2 p-(1-p)log2(1-p); H2(0.11)=0.4999 -> why SKR=0 near QBER 11%.",
+   "steps": "H2(0.11)=0.4999.",
+   "id": 12
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Normalized SKR = Psift*[1-2*H2(QBER)] at Psift=0.5, QBER=0.0002 (v3, fEC=1, chiE=0). Give bit/s/Hz.",
+   "given": "",
+   "answer": 0.497254,
+   "unit": "bit/s/Hz",
+   "tol": 0.03,
+   "tolType": "rel",
+   "framework": "SKR_norm=Psift[1-(1+fEC)H2(Q)-chiE]; EC-leakage term makes it hit 0 at Q~11%.",
+   "steps": "H2(2e-4)~0.0027; 1-2*0.0027=0.9946; *0.5=0.497.",
+   "id": 13
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Absolute SKR (Mbps) = SKR_norm * Rb, with SKR_norm=0.497 and Rb=1 Gbps. Give Mbps.",
+   "given": "",
+   "answer": 497.0,
+   "unit": "Mbps",
+   "tol": 0.03,
+   "tolType": "rel",
+   "framework": "SKR_bps=SKR_norm*Rb; v3 @45 deg ~ 61 Mbps.",
+   "steps": "0.497*1000 = 497 Mbps (illustrative; table value 61.4 uses the real Psift/QBER).",
+   "id": 14
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Shot-noise DC signal power P = 0.5*P_T*hg*hl (v3, NO m_K), P_T=1 W, hg=3.9e-4, hl=0.0954. Give W.",
+   "given": "",
+   "answer": 1.9e-05,
+   "unit": "W",
+   "tol": 0.03,
+   "tolType": "rel",
+   "framework": "v3 fix: shot noise uses total DC photocurrent, not the m_K-scaled key power (was 20x too small).",
+   "steps": "0.5*1*3.9e-4*0.0954 = 1.86e-5 W.",
+   "id": 15
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Cross-talk suppression factor 10^(-Iso/10) at Iso=15 dB. Give the linear factor.",
+   "given": "",
+   "answer": 0.031623,
+   "unit": "(linear)",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "sigma_CT^2 ~ 10^(-Iso/10)/8; better isolation cuts the dominant noise.",
+   "steps": "10^(-1.5)=0.0316.",
+   "id": 16
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Rytov scaling: sec^(11/6)(60 deg) / sec^(11/6)(30 deg). Give the ratio.",
+   "given": "",
+   "answer": 2.737544,
+   "unit": "(ratio)",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "sigma_R^2 ~ sec^(11/6)(zeta); turbulence worsens at low elevation.",
+   "steps": "(2/1.1547)^(11/6)=2.74.",
+   "id": 17
+  },
+  {
+   "type": "calc",
+   "section": "1. Channel physics — calculate",
+   "sectionNum": 1,
+   "prompt": "Convert hg=2.6e-4 (linear) to dB.",
+   "given": "",
+   "answer": -35.850267,
+   "unit": "dB",
+   "tol": 0.02,
+   "tolType": "abs",
+   "framework": "dB = 10 log10(linear); geometric loss ~ -36 dB.",
+   "steps": "10*log10(2.6e-4) = -35.8 dB.",
+   "id": 18
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Ground-coverage radius R_cov at 30 deg mask, H_S=550 km. Give km.",
+   "given": "",
+   "answer": 793.496646,
+   "unit": "km",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "R_cov=R_E*psi, psi=arccos(R_E/(R_E+h) cos e)-e; the 950 km 'radius' in old paper was slant range.",
+   "steps": "R_cov(30 deg)=793 km.",
+   "id": 19
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Ground-coverage radius at the 40 deg security mask. Give km.",
+   "given": "",
+   "answer": 573.417261,
+   "unit": "km",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "Stricter mask -> smaller footprint (~28% loss) but safer QBER.",
+   "steps": "R_cov(40 deg)=573 km.",
+   "id": 20
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Max station separation for a DUAL (shared-pass) city pair at 30 deg mask = 2*R_cov. Give km.",
+   "given": "",
+   "answer": 1586.993293,
+   "unit": "km",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "classify_pair: DUAL if distance <= 2*R_cov; the 14/14 split threshold.",
+   "steps": "2*793 = 1587 km.",
+   "id": 21
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Max DUAL separation at the 40 deg mask = 2*R_cov(40). Give km.",
+   "given": "",
+   "answer": 1146.834521,
+   "unit": "km",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "Stricter mask shrinks the DUAL threshold too.",
+   "steps": "2*573 = 1146 km.",
+   "id": 22
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Off-nadir angle eta at the satellite for elevation 30 deg. sin eta=R_E cos e/(R_E+h). Give deg.",
+   "given": "",
+   "answer": 52.863913,
+   "unit": "deg",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "Zero at zenith, grows as elevation drops; the transmit-side pointing angle.",
+   "steps": "sin eta=6371*cos30/6921=0.797 -> eta=52.8 deg.",
+   "id": 23
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Off-nadir angle at elevation 90 deg (zenith). Give deg.",
+   "given": "",
+   "answer": 0.0,
+   "unit": "deg",
+   "tol": 0.01,
+   "tolType": "abs",
+   "framework": "At the station's zenith the line of sight IS the nadir direction.",
+   "steps": "eta=0 deg.",
+   "id": 24
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Great-circle distance Hanoi (21.03N,105.85E) to HCMC (10.82N,106.63E) by haversine. Give km.",
+   "given": "",
+   "answer": 1138.34957,
+   "unit": "km",
+   "tol": 0.03,
+   "tolType": "rel",
+   "framework": "haversine is symmetric; DUAL/SF classification uses this distance.",
+   "steps": "~1140 km.",
+   "id": 25
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Is Hanoi-HCMC (dist above) DUAL at 30 deg mask? Enter the max DUAL separation it is compared against (km).",
+   "given": "",
+   "answer": 1586.993293,
+   "unit": "km",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "Compare distance (~1140 km) to 2*R_cov(30)=1587 km -> DUAL (1140<1587).",
+   "steps": "Threshold 1587 km; 1140<1587 -> DUAL.",
+   "id": 26
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Elevation angle if zenith angle zeta=55 deg. Give deg.",
+   "given": "",
+   "answer": 35,
+   "unit": "deg",
+   "tol": 0.001,
+   "tolType": "abs",
+   "framework": "elevation = 90 - zenith; the two complementary receive-side angles.",
+   "steps": "90-55 = 35 deg.",
+   "id": 27
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Pass frequency per day if 125 passes are seen in a 2-hour window. freq=count*(24/hours).",
+   "given": "",
+   "answer": 1500.0,
+   "unit": "passes/day",
+   "tol": 0.01,
+   "tolType": "rel",
+   "framework": "pass_frequency_per_day extrapolates the enumerated window.",
+   "steps": "125*12 = 1500 passes/day.",
+   "id": 28
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Number of unique city pairs among 8 ground stations = C(8,2). Give the count.",
+   "given": "",
+   "answer": 28,
+   "unit": "pairs",
+   "tol": 0.001,
+   "tolType": "abs",
+   "framework": "28 pairs to serve with 8 stations -> structural starvation.",
+   "steps": "8*7/2 = 28.",
+   "id": 29
+  },
+  {
+   "type": "calc",
+   "section": "2. Geometry & orbits — calculate",
+   "sectionNum": 2,
+   "prompt": "Footprint area reduction going 30->40 deg mask: 1-(R_cov40/R_cov30)^2, as a percentage.",
+   "given": "",
+   "answer": 47.778261,
+   "unit": "%",
+   "tol": 0.05,
+   "tolType": "rel",
+   "framework": "Area ~ radius^2; the security mask's coverage cost.",
+   "steps": "1-(573/793)^2 = ~48% area (about 28% radius).",
+   "id": 30
+  },
+  {
+   "type": "calc",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "Link availability A at Kuala Lumpur, November (P_cloud=0.893). A=1-P_cloud.",
+   "given": "",
+   "answer": 0.107,
+   "unit": "(fraction)",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "A=p_clear+p_rain=1-P_cloud; invariant to rain fraction; worst cell in the dataset.",
+   "steps": "A=1-0.893=0.107 (10.7%).",
+   "id": 31
+  },
+  {
+   "type": "calc",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "Link availability at Bangkok, February (P_cloud=0.035). Give fraction.",
+   "given": "",
+   "answer": 0.965,
+   "unit": "(fraction)",
+   "tol": 0.01,
+   "tolType": "rel",
+   "framework": "Best cell; A=1-P_cloud=0.965; driven by cloud, not rain.",
+   "steps": "A=0.965 (96.5%).",
+   "id": 32
+  },
+  {
+   "type": "calc",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "Hourly rain rate from R_month=313.2 mm, f_rain=0.15. R=R_month/(30*24*f_rain). mm/h.",
+   "given": "",
+   "answer": 2.9,
+   "unit": "mm/h",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "Tropical rain is intermittent; intensity concentrates in raining hours.",
+   "steps": "313.2/108 = 2.90 mm/h.",
+   "id": 33
+  },
+  {
+   "type": "calc",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "Same conversion with the real f_rain=0.30 instead of 0.15. mm/h.",
+   "given": "",
+   "answer": 1.45,
+   "unit": "mm/h",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "Larger f_rain spreads rain over more hours -> lower instantaneous intensity.",
+   "steps": "313.2/216 = 1.45 mm/h.",
+   "id": 34
+  },
+  {
+   "type": "calc",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "p_rain=min(f_rain,1-P_cloud) with f_rain=0.30, P_cloud=0.893. Give p_rain.",
+   "given": "",
+   "answer": 0.107,
+   "unit": "(fraction)",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "When cloud is very high, p_rain is capped by (1-P_cloud).",
+   "steps": "min(0.30,0.107)=0.107.",
+   "id": 35
+  },
+  {
+   "type": "calc",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "p_clear=max(0,1-P_cloud-p_rain) with P_cloud=0.5, f_rain=0.30. Give p_clear.",
+   "given": "",
+   "answer": 0.2,
+   "unit": "(fraction)",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "Three-state split; clear gets what's left after cloud and rain.",
+   "steps": "p_rain=0.30; p_clear=1-0.5-0.30=0.20.",
+   "id": 36
+  },
+  {
+   "type": "calc",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "Effective SKR = p_clear*SKR_clear + p_rain*SKR_rain, p_clear=0.20, SKR_clear=61, p_rain=0.30, SKR_rain=5 (Mbps).",
+   "given": "",
+   "answer": 13.7,
+   "unit": "Mbps",
+   "tol": 0.02,
+   "tolType": "rel",
+   "framework": "Cloud state contributes 0; weighted average over clear+rain.",
+   "steps": "0.20*61+0.30*5 = 13.7 Mbps.",
+   "id": 37
+  },
+  {
+   "type": "fill",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "What ERA5 cloud-cover percentage threshold defines a 'cloudy hour' (link outage)? Give the number with % sign.",
+   "given": "",
+   "answer": "85%",
+   "accept": [
+    "85%",
+    "85",
+    "85 percent",
+    "85 %"
+   ],
+   "unit": "%",
+   "framework": "CLOUD_OUTAGE_THRESHOLD=85%; a modelling choice with a sensitivity analysis.",
+   "id": 38
+  },
+  {
+   "type": "fill",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "How many years of ERA5/ERA5-Land reanalysis calibrate the weather model? Give the number.",
+   "given": "",
+   "answer": "10",
+   "accept": [
+    "10",
+    "10 years",
+    "ten",
+    "2015-2024",
+    "2015–2024"
+   ],
+   "unit": "years",
+   "framework": "2015-2024; long record captures interannual variability.",
+   "id": 39
+  },
+  {
+   "type": "fill",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "In which local-hour window is the combined cloud+rain 'best FSO window'? (e.g. 05-10h)",
+   "given": "",
+   "answer": "05-10h",
+   "accept": [
+    "05-10h",
+    "5-10",
+    "05:00-10:00",
+    "mid-morning",
+    "morning",
+    "5-10h",
+    "0510"
+   ],
+   "unit": "local",
+   "framework": "Cloud lowest mid-morning, rain peaks afternoon -> best window ~05-10h, in DAYLIGHT (day/night tension).",
+   "id": 40
+  },
+  {
+   "type": "fill",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "Which weather variable (not rain) governs tropical optical availability?",
+   "given": "",
+   "answer": "cloud",
+   "accept": [
+    "cloud",
+    "cloud cover",
+    "cloud outage",
+    "clouds"
+   ],
+   "unit": "",
+   "framework": "Cloud is total optical blockage; rain only attenuates. The core meteorological finding.",
+   "id": 41
+  },
+  {
+   "type": "fill",
+   "section": "3. Weather & availability",
+   "sectionNum": 3,
+   "prompt": "The tropical rain-attenuation law (alpha=0.509, rho=0.63) was measured in which city?",
+   "given": "",
+   "answer": "Abidjan",
+   "accept": [
+    "abidjan",
+    "abidjan cote d'ivoire",
+    "cote d'ivoire",
+    "ivory coast"
+   ],
+   "unit": "",
+   "framework": "Kone et al. 2024; real tropical FSO measurements, defensible under a remote-sensing examiner.",
+   "id": 42
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "v3 secret key rate at 45 deg elevation (give value with unit, e.g. '61.4 Mbps').",
+   "given": "",
+   "answer": "61.4 Mbps",
+   "accept": [
+    "61.4 mbps",
+    "61.4",
+    "61,4",
+    "61 mbps",
+    "61.371 mbps",
+    "61.4mbps",
+    "61371 kbps"
+   ],
+   "unit": "",
+   "framework": "Table 6.1 v3 at m_K=0.15; up from pre-v3 13.3 Mbps after the /8 cross-talk fix.",
+   "id": 43
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "v3 matching gain (ALG-1 vs ALG-0) in the dry season, as a percentage (e.g. +2.47%).",
+   "given": "",
+   "answer": "+2.47%",
+   "accept": [
+    "+2.47%",
+    "2.47%",
+    "2.47",
+    "+2.47",
+    "2.5%"
+   ],
+   "unit": "",
+   "framework": "Modest but real coordination gain over 620 enumerated days.",
+   "id": 44
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Sign of the weather-information gain (aware vs blind): positive or negative?",
+   "given": "",
+   "answer": "negative",
+   "accept": [
+    "negative",
+    "neg",
+    "-",
+    "minus",
+    "cost"
+   ],
+   "unit": "",
+   "framework": "-0.29%/-0.23%: weather-awareness re-assigns more -> handovers outweigh the benefit.",
+   "id": 45
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Fraction of days with at least one starved city pair (range, e.g. 91.6-96.5%).",
+   "given": "",
+   "answer": "91.6-96.5%",
+   "accept": [
+    "91.6-96.5%",
+    "91.6-96.5",
+    "92-96%",
+    "~92%",
+    "91.6",
+    "96.5"
+   ],
+   "unit": "",
+   "framework": "Structural (8 stations / 28 pairs), unchanged across every correction round.",
+   "id": 46
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Coverage radius at the 30 deg mask (km).",
+   "given": "",
+   "answer": "793 km",
+   "accept": [
+    "793 km",
+    "793",
+    "793km"
+   ],
+   "unit": "",
+   "framework": "Ground-track radius (NOT the 950 km slant range of the old paper).",
+   "id": 47
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Coverage radius at the 40 deg mask (km).",
+   "given": "",
+   "answer": "573 km",
+   "accept": [
+    "573 km",
+    "573",
+    "573km"
+   ],
+   "unit": "",
+   "framework": "~28% smaller footprint than 30 deg, for a safer QBER margin.",
+   "id": 48
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "How many DUAL city pairs (of 28) can share one satellite pass?",
+   "given": "",
+   "answer": "14",
+   "accept": [
+    "14",
+    "fourteen"
+   ],
+   "unit": "pairs",
+   "framework": "The other 14 are store-and-forward; a clean geographic split.",
+   "id": 49
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Number of real Starlink Shell-1 satellites used.",
+   "given": "",
+   "answer": "1019",
+   "accept": [
+    "1019",
+    "1,019",
+    "~1000",
+    "1000"
+   ],
+   "unit": "satellites",
+   "framework": "Filtered by inclination 53.15-53.22 deg; real, reproducible TLEs.",
+   "id": 50
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Shell-1 orbital inclination (deg).",
+   "given": "",
+   "answer": "53",
+   "accept": [
+    "53",
+    "53 deg",
+    "~53",
+    "53.15-53.22"
+   ],
+   "unit": "deg",
+   "framework": "Covers ~95% of world population incl. all ASEAN; launch-efficient from Cape Canaveral.",
+   "id": 51
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Satellite altitude assumed throughout (km).",
+   "given": "",
+   "answer": "550",
+   "accept": [
+    "550",
+    "550 km"
+   ],
+   "unit": "km",
+   "framework": "The channel model is parameterised for this single altitude.",
+   "id": 52
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "QKD carrier wavelength (nm).",
+   "given": "",
+   "answer": "1550",
+   "accept": [
+    "1550",
+    "1550 nm",
+    "1.55 um"
+   ],
+   "unit": "nm",
+   "framework": "Telecom C-band: eye-safe, low loss, mature components, weak aerosol scattering.",
+   "id": 53
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Corrected key modulation index m_K used in the thesis.",
+   "given": "",
+   "answer": "0.15",
+   "accept": [
+    "0.15",
+    ".15",
+    "0,15"
+   ],
+   "unit": "",
+   "framework": "Reset from 0.05 to the source manuscript's feasible value; drops QBER below 10^-3.",
+   "id": 54
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Filter isolation Iso between the key and data subcarriers (dB).",
+   "given": "",
+   "answer": "15 dB",
+   "accept": [
+    "15 db",
+    "15",
+    "15dB"
+   ],
+   "unit": "",
+   "framework": "Finite isolation lets the data channel leak in as cross-talk.",
+   "id": 55
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "Real acquisition/handover cost charged per handover (seconds).",
+   "given": "",
+   "answer": "30 s",
+   "accept": [
+    "30 s",
+    "30",
+    "30s",
+    "30 seconds"
+   ],
+   "unit": "",
+   "framework": "Every re-assignment loses 30 s of delivered key (v3).",
+   "id": 56
+  },
+  {
+   "type": "fill",
+   "section": "4. Key numbers & terms — fill in",
+   "sectionNum": 4,
+   "prompt": "BB84 QBER security threshold above which no secret key can be distilled (%).",
+   "given": "",
+   "answer": "11%",
+   "accept": [
+    "11%",
+    "11",
+    "~11"
+   ],
+   "unit": "",
+   "framework": "1-2*H2(Q)=0 at Q~0.11; the Shor-Preskill threshold.",
+   "id": 57
+  },
+  {
+   "type": "match",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Match each external examiner to their home research field.",
+   "left": [
+    "Guillaume Patanchon (APC)",
+    "Stephane Jacquemoud (IPGP)",
+    "Cyrille Rosset (IN2P3/APC)"
+   ],
+   "right": [
+    "CMB detector noise & component separation",
+    "Radiative transfer & remote sensing (PROSPECT)",
+    "Statistical significance (Planck isotropy)"
+   ],
+   "pairs": {
+    "Guillaume Patanchon (APC)": "CMB detector noise & component separation",
+    "Stephane Jacquemoud (IPGP)": "Radiative transfer & remote sensing (PROSPECT)",
+    "Cyrille Rosset (IN2P3/APC)": "Statistical significance (Planck isotropy)"
+   },
+   "leftLabel": "Examiner",
+   "rightLabel": "Field",
+   "framework": "Bridge each part of the thesis to the examiner's own field; they are space-science generalists, not QKD specialists.",
+   "id": 58
+  },
+  {
+   "type": "match",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Match each examiner to the bridge phrase you should use with them.",
+   "left": [
+    "Jacquemoud",
+    "Patanchon",
+    "Rosset"
+   ],
+   "right": [
+    "'Beer-Lambert = atmospheric correction / radiative transfer'",
+    "'detector noise budget & cross-talk = component separation'",
+    "'paired significance on a full enumeration + block bootstrap'"
+   ],
+   "pairs": {
+    "Jacquemoud": "'Beer-Lambert = atmospheric correction / radiative transfer'",
+    "Patanchon": "'detector noise budget & cross-talk = component separation'",
+    "Rosset": "'paired significance on a full enumeration + block bootstrap'"
+   },
+   "leftLabel": "Examiner",
+   "rightLabel": "Bridge",
+   "framework": "Speak each examiner's mother tongue; do not assume QKD fluency.",
+   "id": 59
+  },
+  {
+   "type": "match",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Match each examiner to their toughest predicted question.",
+   "left": [
+    "Jacquemoud",
+    "Patanchon",
+    "Rosset"
+   ],
+   "right": [
+    "Why is Beer-Lambert enough without multiple scattering?",
+    "Why does cross-talk dominate when the link is strong?",
+    "Is +2.5% significant or within day-to-day scatter?"
+   ],
+   "pairs": {
+    "Jacquemoud": "Why is Beer-Lambert enough without multiple scattering?",
+    "Patanchon": "Why does cross-talk dominate when the link is strong?",
+    "Rosset": "Is +2.5% significant or within day-to-day scatter?"
+   },
+   "leftLabel": "Examiner",
+   "rightLabel": "Trap question",
+   "framework": "The three trap questions; master the MECHANISM, not just the number.",
+   "id": 60
+  },
+  {
+   "type": "match",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Match each reference to its role in the thesis.",
+   "left": [
+    "Vu et al. 2022 (vu2022dtdd)",
+    "Kone et al. 2024 (kone2024tropical)",
+    "Polnik et al. 2020 (polnik2020scheduling)",
+    "Liao et al. 2017 (liao2017satellite)"
+   ],
+   "right": [
+    "Noise model & dual-threshold (BBM92 provenance)",
+    "Tropical rain-attenuation calibration",
+    "Nearest scheduling precedent",
+    "Micius: first satellite QKD from LEO"
+   ],
+   "pairs": {
+    "Vu et al. 2022 (vu2022dtdd)": "Noise model & dual-threshold (BBM92 provenance)",
+    "Kone et al. 2024 (kone2024tropical)": "Tropical rain-attenuation calibration",
+    "Polnik et al. 2020 (polnik2020scheduling)": "Nearest scheduling precedent",
+    "Liao et al. 2017 (liao2017satellite)": "Micius: first satellite QKD from LEO"
+   },
+   "leftLabel": "Reference",
+   "rightLabel": "Role",
+   "framework": "Each citation anchors one layer of the work; know which paper does what.",
+   "id": 61
+  },
+  {
+   "type": "match",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Match each reference to its role (set 2).",
+   "left": [
+    "Andrews & Phillips 2005",
+    "Leverrier 2015",
+    "Gruneisen et al. 2015",
+    "Open-Meteo / ERA5 (openmeteo2023)"
+   ],
+   "right": [
+    "Rytov variance & H-V turbulence profile",
+    "Composable CV-QKD proof (future work)",
+    "Daytime sky-access for QKD downlink",
+    "10-year real weather climatology"
+   ],
+   "pairs": {
+    "Andrews & Phillips 2005": "Rytov variance & H-V turbulence profile",
+    "Leverrier 2015": "Composable CV-QKD proof (future work)",
+    "Gruneisen et al. 2015": "Daytime sky-access for QKD downlink",
+    "Open-Meteo / ERA5 (openmeteo2023)": "10-year real weather climatology"
+   },
+   "leftLabel": "Reference",
+   "rightLabel": "Role",
+   "framework": "The physics, security, daytime, and weather anchors respectively.",
+   "id": 62
+  },
+  {
+   "type": "match",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Match each reference to its role (set 3 — SWaP, PAT & NTN).",
+   "left": [
+    "Schieler et al. 2023 (TBIRD)",
+    "Gerard et al. 2025 (PAT)",
+    "Farid & Hranilovic 2007",
+    "3GPP TR 38.821"
+   ],
+   "right": [
+    "Small-aperture SWaP comparison (0.4 m RX)",
+    "Pointing/Acquisition/Tracking delay -> 30 s handover",
+    "Pointing-error term omitted (hg = lower bound)",
+    "Non-terrestrial network (NTN) standardisation"
+   ],
+   "pairs": {
+    "Schieler et al. 2023 (TBIRD)": "Small-aperture SWaP comparison (0.4 m RX)",
+    "Gerard et al. 2025 (PAT)": "Pointing/Acquisition/Tracking delay -> 30 s handover",
+    "Farid & Hranilovic 2007": "Pointing-error term omitted (hg = lower bound)",
+    "3GPP TR 38.821": "Non-terrestrial network (NTN) standardisation"
+   },
+   "leftLabel": "Reference",
+   "rightLabel": "Role",
+   "framework": "The engineering/context anchors; each justifies one modelling choice or positioning.",
+   "id": 63
+  },
+  {
+   "type": "match",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Match each reference to its role (set 4 — QKD landscape).",
+   "left": [
+    "Bennett & Brassard 1984",
+    "Scarani et al. 2009",
+    "Li et al. 2025 (Jinan-1)",
+    "Toka et al. 2025"
+   ],
+   "right": [
+    "BB84 protocol (the SKR rate's basis)",
+    "Security of practical QKD",
+    "Microsatellite real-time QKD (cheap sats)",
+    "Weather-aware LEO routing (classical data)"
+   ],
+   "pairs": {
+    "Bennett & Brassard 1984": "BB84 protocol (the SKR rate's basis)",
+    "Scarani et al. 2009": "Security of practical QKD",
+    "Li et al. 2025 (Jinan-1)": "Microsatellite real-time QKD (cheap sats)",
+    "Toka et al. 2025": "Weather-aware LEO routing (classical data)"
+   },
+   "leftLabel": "Reference",
+   "rightLabel": "Role",
+   "framework": "Foundations, security framework, and the two nearest 'cheap-sats' / 'weather-aware' precedents.",
+   "id": 64
+  },
+  {
+   "type": "match",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Match each examiner to what they will most likely NOT probe deeply.",
+   "left": [
+    "Son Tong Si (USTH generalist)",
+    "Jacquemoud (remote sensing)",
+    "Rosset (statistics)"
+   ],
+   "right": [
+    "Deep QKD math (asks motivation/big picture)",
+    "The Hungarian algorithm internals",
+    "Beam-optics derivations"
+   ],
+   "pairs": {
+    "Son Tong Si (USTH generalist)": "Deep QKD math (asks motivation/big picture)",
+    "Jacquemoud (remote sensing)": "The Hungarian algorithm internals",
+    "Rosset (statistics)": "Beam-optics derivations"
+   },
+   "leftLabel": "Examiner",
+   "rightLabel": "Unlikely focus",
+   "framework": "Audience analysis: aim answers at each examiner's strengths, keep others high-level.",
+   "id": 65
+  },
+  {
+   "type": "fill",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Which examiner did the internal supervisor name as the likely primary reviewer? (surname)",
+   "given": "",
+   "answer": "Jacquemoud",
+   "accept": [
+    "jacquemoud",
+    "stephane jacquemoud"
+   ],
+   "unit": "",
+   "framework": "IPGP radiative-transfer expert; will scrutinise the atmospheric model most.",
+   "id": 66
+  },
+  {
+   "type": "fill",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Which classic model is Jacquemoud the author of? (acronym)",
+   "given": "",
+   "answer": "PROSPECT",
+   "accept": [
+    "prospect",
+    "prosail",
+    "prospect/prosail"
+   ],
+   "unit": "",
+   "framework": "Leaf radiative-transfer model 400-2500 nm; his home ground is extinction/attenuation.",
+   "id": 67
+  },
+  {
+   "type": "fill",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Which satellite mission is the canonical 'first satellite QKD from LEO' you cite in the motivation?",
+   "given": "",
+   "answer": "Micius",
+   "accept": [
+    "micius",
+    "liao 2017",
+    "liao"
+   ],
+   "unit": "",
+   "framework": "Liao et al. 2017, Nature 549:43; the existence proof QKD works from orbit.",
+   "id": 68
+  },
+  {
+   "type": "fill",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "How many real references are catalogued in the literature review?",
+   "given": "",
+   "answer": "34",
+   "accept": [
+    "34",
+    "thirty-four",
+    "~34"
+   ],
+   "unit": "references",
+   "framework": "Built directly from the thesis references.bib, mapped to role + examiner.",
+   "id": 69
+  },
+  {
+   "type": "fill",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "In one word, the strategy with this non-QKD panel: report results with ___ (integrity vs. spin).",
+   "given": "",
+   "answer": "integrity",
+   "accept": [
+    "integrity",
+    "honesty",
+    "transparency"
+   ],
+   "unit": "",
+   "framework": "Flag limitations proactively; the maturity signal that wins a science panel.",
+   "id": 70
+  },
+  {
+   "type": "fill",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Complete Jacquemoud's answer: 'I treat cloud as a ___ outage, so multiple scattering only refines an already-lost state.'",
+   "given": "",
+   "answer": "binary",
+   "accept": [
+    "binary",
+    "binary/ off",
+    "off"
+   ],
+   "unit": "",
+   "framework": "Concede Beer-Lambert is first-order; justify cloud=outage -> no multiple scattering needed.",
+   "id": 71
+  },
+  {
+   "type": "fill",
+   "section": "5. Committee & literature — match",
+   "sectionNum": 5,
+   "prompt": "Complete Rosset's answer: 'It is not a random sample — I ___ every day in two 10-year proxy months.'",
+   "given": "",
+   "answer": "enumerate",
+   "accept": [
+    "enumerate",
+    "enumerated",
+    "full enumeration",
+    "count"
+   ],
+   "unit": "",
+   "framework": "Full enumeration (620 days) -> no sampling error; paired day-by-day test isolates the ~2.5% effect.",
+   "id": 72
+  },
+  {
+   "type": "order",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Put the SIKD computation pipeline in the correct order.",
+   "items": [
+    "channel (hg, hl, sigmaX^2)",
+    "noise budget (4 terms)",
+    "dual-threshold (d0,d1)",
+    "Psift & QBER (Gauss-Hermite)",
+    "SKR (Shor-Preskill)"
+   ],
+   "correctOrder": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "framework": "compute_sikd_performance wrapper: each stage feeds the next; SKR is the end product.",
+   "id": 73
+  },
+  {
+   "type": "order",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Order the FSO channel factors as applied from transmitter to receiver.",
+   "items": [
+    "Transmitted power P_T",
+    "Geometric spreading h_g",
+    "Atmospheric attenuation h_l",
+    "Turbulence fading h_a",
+    "Received power"
+   ],
+   "correctOrder": [
+    0,
+    1,
+    2,
+    3,
+    4
+   ],
+   "framework": "h = h_g * h_l * h_a; three independent multiplicative loss mechanisms.",
+   "id": 74
+  },
+  {
+   "type": "order",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Order the three weather states by increasing severity of link impact.",
+   "items": [
+    "Clear (attenuation only)",
+    "Rain (added attenuation)",
+    "Cloud (link OFF)"
+   ],
+   "correctOrder": [
+    0,
+    1,
+    2
+   ],
+   "framework": "Three-state model; cloud is binary outage, not gradual attenuation.",
+   "id": 75
+  },
+  {
+   "type": "order",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Order the two-level scheduling problem's steps.",
+   "items": [
+    "Station-satellite matching (Hungarian)",
+    "Build matched pass table",
+    "Pair-key allocation (greedy/ILP/maxmin)",
+    "K_q = min(sideA, sideB)"
+   ],
+   "correctOrder": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "framework": "Level 1 matching -> level 2 allocation on a shared trusted-relay satellite.",
+   "id": 76
+  },
+  {
+   "type": "order",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Rank the v3 noise terms by when cross-talk dominates (weak link -> strong link).",
+   "items": [
+    "Thermal noise (floor, weak link)",
+    "Shot noise (grows with power)",
+    "Cross-talk (~P^2, strong link)"
+   ],
+   "correctOrder": [
+    0,
+    1,
+    2
+   ],
+   "framework": "Cross-talk ~ received power squared -> dominates exactly when the link is strongest.",
+   "id": 77
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Complete the identity that makes log-normal fading energy-conserving: mu_X = ____ (in terms of sigma_X^2).",
+   "given": "",
+   "answer": "-sigma_X^2",
+   "accept": [
+    "-sigma_x^2",
+    "-sigmax2",
+    "-sigma_x2",
+    "-sigmaX^2",
+    "minus sigma_x^2",
+    "-\\sigma_X^2",
+    "-sx2"
+   ],
+   "unit": "",
+   "framework": "E[e^{2X}]=exp(2 mu_X+2 sigma_X^2)=1 requires mu_X=-sigma_X^2 (unit-mean multiplicative fading).",
+   "id": 78
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "The secret-key formula reaches zero at QBER = ___ % (fEC=1, chiE=0). Give the percentage.",
+   "given": "",
+   "answer": "11%",
+   "accept": [
+    "11%",
+    "11",
+    "~11"
+   ],
+   "unit": "",
+   "framework": "1-2*H2(Q)=0 at Q~0.11; the term added in the v3 SKR fix restores this.",
+   "id": 79
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Cross-talk variance scales as received power to the power ___ (give the exponent).",
+   "given": "",
+   "answer": "2",
+   "accept": [
+    "2",
+    "squared",
+    "two",
+    "^2",
+    "P^2"
+   ],
+   "unit": "",
+   "framework": "sigma_CT^2 ~ (h_g h_l)^2 -> P^2; the counter-intuitive SIKD result.",
+   "id": 80
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "The v3 cross-talk coefficient changed from /2 to /___ (give the number).",
+   "given": "",
+   "answer": "8",
+   "accept": [
+    "8",
+    "/8",
+    "eight"
+   ],
+   "unit": "",
+   "framework": "Photocurrent's leading 1/2 makes amplitude (1/2)(...); variance A^2/2 -> /8.",
+   "id": 81
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Delivered pair key is a ___() over the pair path (one word/function), capping the gain.",
+   "given": "",
+   "answer": "min",
+   "accept": [
+    "min",
+    "minimum",
+    "min()"
+   ],
+   "unit": "",
+   "framework": "K_q=min(sideA,sideB); one weak link caps the improvement -> structural ceiling.",
+   "id": 82
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Complete the defense answer: 'Weather-awareness costs because it re-assigns more often and the extra ___ outweigh the benefit.'",
+   "given": "",
+   "answer": "handovers",
+   "accept": [
+    "handovers",
+    "handover",
+    "re-acquisitions",
+    "acquisitions"
+   ],
+   "unit": "",
+   "framework": "Measured mechanism (I counted the handovers directly), not a bug; small, same sign both seasons.",
+   "id": 83
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Complete: 'Pair-starvation is a ___-planning finding, not an algorithm failure.'",
+   "given": "",
+   "answer": "capacity",
+   "accept": [
+    "capacity",
+    "capacity-planning"
+   ],
+   "unit": "",
+   "framework": "8 stations cannot serve 28 pairs; the fix is more infrastructure.",
+   "id": 84
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Which algorithm solves the station-satellite matching EXACTLY? (name)",
+   "given": "",
+   "answer": "Hungarian",
+   "accept": [
+    "hungarian",
+    "hungarian algorithm",
+    "linear_sum_assignment"
+   ],
+   "unit": "",
+   "framework": "match_weather_aware uses scipy linear_sum_assignment on the negated weight matrix.",
+   "id": 85
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "In one word, the trusted-relay assumption requires the satellite node to be ___.",
+   "given": "",
+   "answer": "trusted",
+   "accept": [
+    "trusted",
+    "honest",
+    "not compromised",
+    "uncompromised"
+   ],
+   "unit": "",
+   "framework": "The relay learns both keys; security holds only if the relay itself is honest.",
+   "id": 86
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Complete the one-line thesis claim: 'Judge these networks at the ___ level, not by a single clear-sky link rate.'",
+   "given": "",
+   "answer": "network",
+   "accept": [
+    "network",
+    "network-level",
+    "system"
+   ],
+   "unit": "",
+   "framework": "The central claim; a shift in the unit of evaluation.",
+   "id": 87
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Vu et al. 2022 implements which protocol (not BB84)? Give the acronym.",
+   "given": "",
+   "answer": "BBM92",
+   "accept": [
+    "bbm92",
+    "bbm-92"
+   ],
+   "unit": "",
+   "framework": "The provenance caveat: the 11% BB84 bound is a borrowed, openly-stated assumption.",
+   "id": 88
+  },
+  {
+   "type": "order",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "Order the four v3 fixes by the stage they touch (channel -> receiver).",
+   "items": [
+    "erf coefficient sqrt(2)->sqrt(pi/2)",
+    "spherical slant range",
+    "Rytov 0.56->2.25",
+    "cross-talk /2->/8"
+   ],
+   "correctOrder": [
+    0,
+    1,
+    2,
+    3
+   ],
+   "framework": "Three geometric/turbulence fixes in the channel, then the receiver cross-talk fix (largest impact).",
+   "id": 89
+  },
+  {
+   "type": "fill",
+   "section": "6. Reasoning, derivations & defense answers",
+   "sectionNum": 6,
+   "prompt": "The daytime-background penalty is described as an 'order-of-___ estimate', not a proof. (one word)",
+   "given": "",
+   "answer": "magnitude",
+   "accept": [
+    "magnitude",
+    "order-of-magnitude"
+   ],
+   "unit": "",
+   "framework": "Honest confidence labelling; a plausibility bound from an FOV sweep, not a full simulation.",
+   "id": 90
+  }
+ ]
+}
