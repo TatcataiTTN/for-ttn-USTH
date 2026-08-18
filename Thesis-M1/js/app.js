@@ -153,6 +153,20 @@
     document.getElementById("content").innerHTML = html;
   }
 
+  function mediaHtml(media) {
+    if (!media || !media.length) return "";
+    var items = media.map(function (src) {
+      var name = src.split("/").pop();
+      if (/\.mp4$/i.test(src)) {
+        return '<figure class="q-media"><video class="q-media-vid" controls preload="none" src="' + src + '"></video>' +
+          '<figcaption>🎬 ' + esc(name) + ' · <a href="' + src + '" target="_blank" rel="noopener">open</a></figcaption></figure>';
+      }
+      return '<figure class="q-media"><a href="' + src + '" target="_blank" rel="noopener"><img class="q-media-img" loading="lazy" src="' + src + '" alt="' + esc(name) + '"></a>' +
+        '<figcaption>🖼️ ' + esc(name) + ' · <a href="' + src + '" target="_blank" rel="noopener">open full size</a></figcaption></figure>';
+    }).join("");
+    return '<div class="q-media-wrap">' + items + "</div>";
+  }
+
   /* ---------------- MCQ ---------------- */
   function renderMcq(pn, qi) {
     var list = BY_PERSP[pn];
@@ -162,7 +176,7 @@
     var prog = P_MCQ[q.id];
     var html = pageHead("P" + pn + " · " + esc(meta.title), "Question " + (qi + 1) + " of " + list.length + (q.group ? " · " + esc(q.group) : ""), st, pct);
     html += '<div class="qcard"><div class="qhead"><span class="qid">Q' + q.id + "</span>" + (q.group ? '<span class="qgroup">' + esc(q.group) + "</span>" : "") + "</div>";
-    html += '<div class="qtext">' + M(q.question) + '</div><div class="opts" id="opts">';
+    html += '<div class="qtext">' + M(q.question) + '</div>' + mediaHtml(q.media) + '<div class="opts" id="opts">';
     q.options.forEach(function (o) {
       var cls = "opt", mark = "";
       if (prog) { cls += " disabled"; if (o.key === q.answer) { cls += " correct"; mark = "✓"; } else if (o.key === prog.chosen) { cls += " wrong"; mark = "✗"; } }
@@ -521,7 +535,7 @@
   function reviewMcq(q, head) {
     var html = head + '<div class="qcard"><div class="qhead"><span class="qid">Q' + q.id + "</span>" +
       (q.group ? '<span class="qgroup">' + esc(q.group) + "</span>" : "") + "</div>" +
-      '<div class="qtext">' + M(q.question) + '</div><div class="opts" id="opts">';
+      '<div class="qtext">' + M(q.question) + '</div>' + mediaHtml(q.media) + '<div class="opts" id="opts">';
     q.options.forEach(function (o) {
       html += '<div class="opt" data-key="' + o.key + '"><span class="opt-key">' + o.key + '</span><span class="opt-text">' + M(o.text) + "</span></div>";
     });

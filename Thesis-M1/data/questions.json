@@ -8187,7 +8187,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`07_channel_performance_fig.py`; SKR is non-monotonic — cross-talk (∝P²) bites at high elevation while attenuation bites at low elevation, giving an interior peak."
+   "framework": "`07_channel_performance_fig.py`; SKR is non-monotonic — cross-talk (∝P²) bites at high elevation while attenuation bites at low elevation, giving an interior peak.",
+   "media": [
+    "assets/figures/fig06_channel_performance.png"
+   ]
   },
   {
    "id": 302,
@@ -8241,7 +8244,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`22_mK_mD_iso_sensitivity_figs.py`; this figure is the direct justification for resetting mₖ to 0.15."
+   "framework": "`22_mK_mD_iso_sensitivity_figs.py`; this figure is the direct justification for resetting mₖ to 0.15.",
+   "media": [
+    "assets/figures/figA3_psift_qber_vs_mK.png"
+   ]
   },
   {
    "id": 304,
@@ -8268,7 +8274,10 @@
     }
    ],
    "answer": "C",
-   "framework": "Better filtering relaxes the key-power requirement; the curve is shown for several mₐ values."
+   "framework": "Better filtering relaxes the key-power requirement; the curve is shown for several mₐ values.",
+   "media": [
+    "assets/figures/figA4_min_mK_vs_iso.png"
+   ]
   },
   {
    "id": 305,
@@ -8295,7 +8304,10 @@
     }
    ],
    "answer": "D",
-   "framework": "`evaluate_split` raises ValueError beyond the budget; the figure marks that region as physically meaningless."
+   "framework": "`evaluate_split` raises ValueError beyond the budget; the figure marks that region as physically meaningless.",
+   "media": [
+    "assets/figures/figA5_skr_contour_mD_mK.png"
+   ]
   },
   {
    "id": 306,
@@ -8322,7 +8334,10 @@
     }
    ],
    "answer": "A",
-   "framework": "`compute_BER_CC`; the figure shows the data-side benefit that trades against the key-side cost."
+   "framework": "`compute_BER_CC`; the figure shows the data-side benefit that trades against the key-side cost.",
+   "media": [
+    "assets/figures/figA2_ber_cc_vs_PT.png"
+   ]
   },
   {
    "id": 307,
@@ -8349,7 +8364,10 @@
     }
    ],
    "answer": "D",
-   "framework": "The three multiplicative channel factors in sequence."
+   "framework": "The three multiplicative channel factors in sequence.",
+   "media": [
+    "assets/figures/diagram_02_channel_model.png"
+   ]
   },
   {
    "id": 308,
@@ -8376,7 +8394,11 @@
     }
    ],
    "answer": "A",
-   "framework": "The SCM architecture; the shared detector is the cross-talk origin."
+   "framework": "The SCM architecture; the shared detector is the cross-talk origin.",
+   "media": [
+    "assets/figures/diagram_03_sikd_pipeline.png",
+    "assets/figures/diagram_07_sikd_block_diagram.png"
+   ]
   },
   {
    "id": 309,
@@ -8403,7 +8425,10 @@
     }
    ],
    "answer": "C",
-   "framework": "Motivates the 30-s handover penalty in scheduling."
+   "framework": "Motivates the 30-s handover penalty in scheduling.",
+   "media": [
+    "assets/figures/diagram_08_handover_aperture_concept.png"
+   ]
   },
   {
    "id": 310,
@@ -8457,7 +8482,10 @@
     }
    ],
    "answer": "D",
-   "framework": "`ASEAN_CLIMATE_DATA`; P_cloud = 0.893 there."
+   "framework": "`ASEAN_CLIMATE_DATA`; P_cloud = 0.893 there.",
+   "media": [
+    "assets/figures/fig01_availability_heatmap.png"
+   ]
   },
   {
    "id": 312,
@@ -8511,7 +8539,10 @@
     }
    ],
    "answer": "B",
-   "framework": "`load_hourly_climatology`; nocturnal stratus dissipates mid-morning."
+   "framework": "`load_hourly_climatology`; nocturnal stratus dissipates mid-morning.",
+   "media": [
+    "assets/figures/fig02a_diurnal_cloud_heatmap.png"
+   ]
   },
   {
    "id": 314,
@@ -8538,7 +8569,10 @@
     }
    ],
    "answer": "B",
-   "framework": "The figure that visualises the day/night tension."
+   "framework": "The figure that visualises the day/night tension.",
+   "media": [
+    "assets/figures/fig02b_diurnal_window.png"
+   ]
   },
   {
    "id": 315,
@@ -8592,7 +8626,10 @@
     }
    ],
    "answer": "D",
-   "framework": "`correlation_matrix`; high correlation limits site-diversity benefit."
+   "framework": "`correlation_matrix`; high correlation limits site-diversity benefit.",
+   "media": [
+    "assets/figures/fig03a_correlation_matrix.png"
+   ]
   },
   {
    "id": 317,
@@ -8619,7 +8656,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`joint_clear_probability`; a validation-against-literature figure."
+   "framework": "`joint_clear_probability`; a validation-against-literature figure.",
+   "media": [
+    "assets/figures/fig03b_joint_availability_dang2023.png"
+   ]
   },
   {
    "id": 318,
@@ -8646,7 +8686,10 @@
     }
    ],
    "answer": "C",
-   "framework": "The three-state model; cloud is binary outage."
+   "framework": "The three-state model; cloud is binary outage.",
+   "media": [
+    "assets/figures/diagram_04_weather_model.png"
+   ]
   },
   {
    "id": 319,
@@ -8673,7 +8716,10 @@
     }
    ],
    "answer": "C",
-   "framework": "Sensitivity analysis; guards against a threshold artefact."
+   "framework": "Sensitivity analysis; guards against a threshold artefact.",
+   "media": [
+    "assets/figures/figA1_cloud_threshold_sensitivity.png"
+   ]
   },
   {
    "id": 320,
@@ -8727,7 +8773,10 @@
     }
    ],
    "answer": "A",
-   "framework": "`classify_pair`; the geographic 14/14 split."
+   "framework": "`classify_pair`; the geographic 14/14 split.",
+   "media": [
+    "assets/figures/fig05_citypair_feasibility_map.png"
+   ]
   },
   {
    "id": 322,
@@ -8754,7 +8803,10 @@
     }
    ],
    "answer": "C",
-   "framework": "SGP4 propagation of ~1,019 real satellites."
+   "framework": "SGP4 propagation of ~1,019 real satellites.",
+   "media": [
+    "assets/figures/fig09a_asean_ground_tracks.png"
+   ]
   },
   {
    "id": 323,
@@ -8781,7 +8833,11 @@
     }
    ],
    "answer": "C",
-   "framework": "Concrete geometric examples of the two feasibility classes."
+   "framework": "Concrete geometric examples of the two feasibility classes.",
+   "media": [
+    "assets/figures/fig09a1_dual_example.png",
+    "assets/figures/fig09a2_sf_example.png"
+   ]
   },
   {
    "id": 324,
@@ -8808,7 +8864,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`extract_passes`; the arc peak is the max-elevation instant."
+   "framework": "`extract_passes`; the arc peak is the max-elevation instant.",
+   "media": [
+    "assets/figures/fig09b_elevation_vs_time.png"
+   ]
   },
   {
    "id": 325,
@@ -8835,7 +8894,10 @@
     }
    ],
    "answer": "D",
-   "framework": "`local_hour_peak`; used to cross-check against the weather window."
+   "framework": "`local_hour_peak`; used to cross-check against the weather window.",
+   "media": [
+    "assets/figures/fig04b_pass_hour_histogram.png"
+   ]
   },
   {
    "id": 326,
@@ -8862,7 +8924,10 @@
     }
    ],
    "answer": "A",
-   "framework": "Pass/coverage descriptive statistics."
+   "framework": "Pass/coverage descriptive statistics.",
+   "media": [
+    "assets/figures/fig09c_coverage_duration.png"
+   ]
   },
   {
    "id": 327,
@@ -8997,7 +9062,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`30_plot_fair_pairkey_comparison.py`; the +2.47%/−0.29% story in one bar chart."
+   "framework": "`30_plot_fair_pairkey_comparison.py`; the +2.47%/−0.29% story in one bar chart.",
+   "media": [
+    "assets/figures/fig16_fair_pairkey_comparison.png"
+   ]
   },
   {
    "id": 332,
@@ -9051,7 +9119,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`pair_key_totals` min(); the waterfall shows the structural ceiling."
+   "framework": "`pair_key_totals` min(); the waterfall shows the structural ceiling.",
+   "media": [
+    "assets/figures/fig15_alg2_waterfall.png"
+   ]
   },
   {
    "id": 334,
@@ -9078,7 +9149,10 @@
     }
    ],
    "answer": "A",
-   "framework": "`_segments_with_handover_cost`; the figure explains the ~2.7× undercount bug."
+   "framework": "`_segments_with_handover_cost`; the figure explains the ~2.7× undercount bug.",
+   "media": [
+    "assets/figures/fig14_hold_duration_distribution.png"
+   ]
   },
   {
    "id": 335,
@@ -9105,7 +9179,10 @@
     }
    ],
    "answer": "B",
-   "framework": "The CDF visualises how small the fair-comparison gaps are."
+   "framework": "The CDF visualises how small the fair-comparison gaps are.",
+   "media": [
+    "assets/figures/fig07_algorithm_comparison_cdf.png"
+   ]
   },
   {
    "id": 336,
@@ -9132,7 +9209,11 @@
     }
    ],
    "answer": "C",
-   "framework": "The fair-comparison discipline extends to these per-station figures."
+   "framework": "The fair-comparison discipline extends to these per-station figures.",
+   "media": [
+    "assets/figures/fig09d1_top_satellites_per_station.png",
+    "assets/figures/fig09d2_relay_hotspot_per_station.png"
+   ]
   },
   {
    "id": 337,
@@ -9159,7 +9240,10 @@
     }
    ],
    "answer": "A",
-   "framework": "Hub stations concentrate exchanges; others starve."
+   "framework": "Hub stations concentrate exchanges; others starve.",
+   "media": [
+    "assets/figures/fig09e_top5_pair_exchanges.png"
+   ]
   },
   {
    "id": 338,
@@ -9186,7 +9270,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`16_alg2_mipgap_sensitivity.py`; optimality validation."
+   "framework": "`16_alg2_mipgap_sensitivity.py`; optimality validation.",
+   "media": [
+    "assets/figures/figA2_mipgap_sensitivity.png"
+   ]
   },
   {
    "id": 339,
@@ -9213,7 +9300,10 @@
     }
    ],
    "answer": "D",
-   "framework": "The end-to-end scheduling architecture."
+   "framework": "The end-to-end scheduling architecture.",
+   "media": [
+    "assets/figures/diagram_10_scheduling_pipeline.png"
+   ]
   },
   {
    "id": 340,
@@ -9240,7 +9330,10 @@
     }
    ],
    "answer": "A",
-   "framework": "Site-diversity concept; the capacity-planning lever."
+   "framework": "Site-diversity concept; the capacity-planning lever.",
+   "media": [
+    "assets/figures/diagram_09_ground_diversity_concept.png"
+   ]
   },
   {
    "id": 341,
@@ -9321,7 +9414,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`isl_relay`; the ISL upgrade collapses the single-hop latency."
+   "framework": "`isl_relay`; the ISL upgrade collapses the single-hop latency.",
+   "media": [
+    "assets/figures/fig10_isl_relay_latency_heatmap.png"
+   ]
   },
   {
    "id": 344,
@@ -9348,7 +9444,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`isl_topology.build_isl_graph`; BFS runs on this graph."
+   "framework": "`isl_topology.build_isl_graph`; BFS runs on this graph.",
+   "media": [
+    "assets/figures/fig11_isl_graph_diagnostic.png"
+   ]
   },
   {
    "id": 345,
@@ -9375,7 +9474,10 @@
     }
    ],
    "answer": "B",
-   "framework": "`pareto_frontier`; non-dominated key-vs-data operating points."
+   "framework": "`pareto_frontier`; non-dominated key-vs-data operating points.",
+   "media": [
+    "assets/figures/fig12_powersplit_pareto.png"
+   ]
   },
   {
    "id": 346,
@@ -9429,7 +9531,10 @@
     }
    ],
    "answer": "A",
-   "framework": "`adaptive_split`; demand-driven allocation."
+   "framework": "`adaptive_split`; demand-driven allocation.",
+   "media": [
+    "assets/figures/fig13_powersplit_adaptive_gain.png"
+   ]
   },
   {
    "id": 348,
@@ -9456,7 +9561,10 @@
     }
    ],
    "answer": "A",
-   "framework": "Dr. Minh's \"selection, not routing\" framing."
+   "framework": "Dr. Minh's \"selection, not routing\" framing.",
+   "media": [
+    "assets/figures/diagram_05_satellite_routing.png"
+   ]
   },
   {
    "id": 349,
@@ -9564,7 +9672,10 @@
     }
    ],
    "answer": "C",
-   "framework": "`Satvis_Scenarios_and_Prototype.md`; an explainer for pass dynamics."
+   "framework": "`Satvis_Scenarios_and_Prototype.md`; an explainer for pass dynamics.",
+   "media": [
+    "assets/video/prototype_8station_skyview.mp4"
+   ]
   },
   {
    "id": 353,
@@ -9591,7 +9702,11 @@
     }
    ],
    "answer": "D",
-   "framework": "Visual counterpart to `fig05`/`fig09a1`/`fig09a2`/`fig10`."
+   "framework": "Visual counterpart to `fig05`/`fig09a1`/`fig09a2`/`fig10`.",
+   "media": [
+    "assets/video/prototype_dual_sf_isl_scenarios.mp4",
+    "assets/video/prototype_zoom_dual_sfisl.mp4"
+   ]
   },
   {
    "id": 354,
@@ -9618,7 +9733,10 @@
     }
    ],
    "answer": "A",
-   "framework": "Visualises R_cov and the footprint the mask defines."
+   "framework": "Visualises R_cov and the footprint the mask defines.",
+   "media": [
+    "assets/video/prototype_footprint_dome_beam.mp4"
+   ]
   },
   {
    "id": 355,
@@ -9645,7 +9763,10 @@
     }
    ],
    "answer": "A",
-   "framework": "Animates the pass-analysis concept."
+   "framework": "Animates the pass-analysis concept.",
+   "media": [
+    "assets/video/prototype_pass_formula_demo.mp4"
+   ]
   },
   {
    "id": 356,
