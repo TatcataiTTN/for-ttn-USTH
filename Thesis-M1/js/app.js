@@ -17,6 +17,7 @@
   var RESOURCES = [
     { file: "resources/SIKD_Formula_Guide_v3_Expanded.pdf", icon: "📘", title: "Formula Guide v3 (Expanded)", desc: "Corrected v3 physics, old→new table, basic → advanced." },
     { file: "resources/SIKD_Weather_Formula_Guide.pdf", icon: "📗", title: "Formula Guide (original, pre-v3)", desc: "Earlier 50-formula guide with many drill examples." },
+    { file: "resources/SIKD_90_Active_Recall_Exercises.pdf", icon: "🧮", title: "90 Active-Recall Exercises (PDF)", desc: "The 90 fill/calc/match/order items — questions then answer key with frameworks. Printable." },
     { file: "resources/SIKD_Exercises_Solutions.pdf", icon: "📐", title: "Exercises & Solutions", desc: "Worked problems by topic, full step-by-step solutions." },
     { file: "resources/SIKD_Practice_Exam_80MCQ.pdf", icon: "📝", title: "80-MCQ Practice Exam", desc: "A separate multiple-choice exam with answer grid." },
     { file: "resources/SIKD_Committee_Analysis.pdf", icon: "🎓", title: "Committee Analysis & Predicted Q&A", desc: "Examiner-by-examiner predicted questions and prepared answers." },
@@ -102,6 +103,10 @@
   function exStats(list) { var d = 0, c = 0; list.forEach(function (e) { var p = P_EX[e.id]; if (p) { d++; if (p.correct) c++; } }); return { done: d, correct: c, total: list.length }; }
   function setActive(key) { document.querySelectorAll(".nav-item").forEach(function (b) { b.classList.toggle("active", b.dataset.key === key); }); }
 
+  /* wrong-answer lists (recomputed live from progress) */
+  function wrongMcq() { return Q.questions.filter(function (q) { var p = P_MCQ[q.id]; return p && !p.correct; }); }
+  function wrongEx() { return X.exercises.filter(function (e) { var p = P_EX[e.id]; return p && !p.correct; }); }
+
   /* ---------------- router ---------------- */
   function route() {
     var h = location.hash || "#/";
@@ -109,6 +114,9 @@
     renderNav();
     if (h === "#/resources") { setActive(null); return renderResources(); }
     if (h === "#/frameworks") { setActive(null); return renderFrameworks(); }
+    if (h === "#/review") { setActive(null); return renderReviewHome(); }
+    var rv = h.match(/^#\/review\/(mcq|ex)\/(\d+)$/);
+    if (rv) { setActive(null); return renderReviewItem(rv[1], +rv[2]); }
     var mp = h.match(/^#\/p\/(\d+)(?:\/(\d+))?$/);
     if (mp && BY_PERSP[+mp[1]]) { setActive("mcq-" + mp[1]); return renderMcq(+mp[1], mp[2] ? +mp[2] : 0); }
     var me = h.match(/^#\/ex\/(\d+)(?:\/(\d+))?$/);
@@ -127,6 +135,7 @@
       '<div class="home-ctas">' +
       '<a class="home-cta" href="#/p/1/0">MCQ · 360 questions →</a>' +
       '<a class="home-cta alt" href="#/ex/1/0">Active recall · 90 →</a>' +
+      '<a class="home-cta ghost" href="#/review">Review wrong 🔁</a>' +
       '<a class="home-cta ghost" href="#/frameworks">Theory frameworks 🧠</a>' +
       "</div></div>";
     html += '<div class="two-col">';
@@ -436,6 +445,136 @@
   function fwItem(tag, prompt, fw) {
     return '<div class="fw-item"><div class="fw-q"><span class="fw-tag">' + tag + "</span> " + esc(prompt) + "</div>" +
       '<div class="fw-a">' + esc(fw) + "</div></div>";
+  }
+
+  /* ---------------- Review wrong answers ---------------- */
+  function renderReviewHome() {
+    var wm = wrongMcq(), we = wrongEx();
+    var html = '<a class="back-home" href="#/">← Back</a><div class="page-head"><h1>Review wrong answers 🔁</h1>' +
+      '<div class="ph-sub">Re-attempt only the items you got wrong. Fix one and it drops off the list.</div></div>';
+    if (!wm.length && !we.length) {
+      html += '<div class="qcard" style="text-align:center"><div class="qtext" style="margin:8px 0">🎉 Nothing to review — no wrong answers recorded.</div>' +
+        '<p class="cc-sub">Answer some questions first, then come back to drill the ones you miss.</p>' +
+        '<a class="btn btn-primary" href="#/p/1/0">Go to MCQ</a> <a class="btn btn-ghost" href="#/ex/1/0">Go to Recall</a></div>';
+      document.getElementById("content").innerHTML = html; return;
+    }
+    html += '<div class="home-ctas">';
+    if (wm.length) html += '<a class="home-cta" href="#/review/mcq/0">Review ' + wm.length + ' wrong MCQ →</a>';
+    if (we.length) html += '<a class="home-cta alt" href="#/review/ex/0">Review ' + we.length + ' wrong recall →</a>';
+    html += "</div>";
+    function listBlock(title, items, kind) {
+      if (!items.length) return "";
+      var h = '<div class="fw-group"><h3>' + title + " (" + items.length + ")</h3>";
+      items.forEach(function (it, i) {
+        var text = kind === "mcq" ? it.question : it.prompt;
+        var tag = (kind === "mcq" ? "Q" : "E") + it.id;
+        h += '<a class="fw-item" style="display:block;text-decoration:none" href="#/review/' + kind + "/" + i + '">' +
+          '<div class="fw-q"><span class="fw-tag">' + tag + "</span> " + esc(text) + "</div></a>";
+      });
+      return h + "</div>";
+    }
+    html += listBlock("Wrong MCQ", wm, "mcq") + listBlock("Wrong recall", we, "ex");
+    document.getElementById("content").innerHTML = html;
+  }
+
+  function renderReviewItem(kind, i) {
+    var list = kind === "mcq" ? wrongMcq() : wrongEx();
+    if (!list.length) {
+      document.getElementById("content").innerHTML =
+        '<a class="back-home" href="#/review">← Review</a><div class="qcard" style="text-align:center">' +
+        '<div class="qtext" style="margin:8px 0">🎉 All clear — no wrong ' + (kind === "mcq" ? "MCQ" : "recall") + ' left!</div>' +
+        '<a class="btn btn-primary" href="#/review">Back to review</a></div>';
+      return;
+    }
+    i = Math.max(0, Math.min(i, list.length - 1));
+    var it = list[i];
+    var head = '<a class="back-home" href="#/review">← Review</a>' +
+      '<div class="page-head"><h1>Review · wrong ' + (kind === "mcq" ? "MCQ" : "recall") + "</h1>" +
+      '<div class="ph-sub">' + list.length + " to fix · retrying " + (kind === "mcq" ? "Q" + it.id : "E" + it.id) + "</div></div>";
+
+    if (kind === "mcq") return reviewMcq(it, head);
+    return reviewEx(it, head);
+  }
+
+  function reviewPagerHtml() {
+    return '<a class="btn btn-ghost" href="#/review">Back to list</a>' +
+      '<button class="btn btn-primary" id="rev-next">Next wrong →</button>';
+  }
+  function wireReviewNext(kind) {
+    var btn = document.getElementById("rev-next");
+    if (!btn) return;
+    btn.onclick = function () {
+      var list = kind === "mcq" ? wrongMcq() : wrongEx();
+      if (!list.length) { location.hash = "#/review"; }
+      else { renderReviewItem(kind, 0); }  // re-render in place (hash may be unchanged)
+    };
+  }
+
+  function reviewMcq(q, head) {
+    var html = head + '<div class="qcard"><div class="qhead"><span class="qid">Q' + q.id + "</span>" +
+      (q.group ? '<span class="qgroup">' + esc(q.group) + "</span>" : "") + "</div>" +
+      '<div class="qtext">' + esc(q.question) + '</div><div class="opts" id="opts">';
+    q.options.forEach(function (o) {
+      html += '<div class="opt" data-key="' + o.key + '"><span class="opt-key">' + o.key + '</span><span class="opt-text">' + esc(o.text) + "</span></div>";
+    });
+    html += '</div><div class="qactions"><button class="btn btn-primary" id="submit-btn" disabled>Check answer</button>' +
+      '<span class="verdict" id="verdict"></span></div>' + frameworkBox(q.framework, false) +
+      '<div class="pager" id="rev-pager"></div></div>';
+    document.getElementById("content").innerHTML = html;
+    var selected = null, optsEl = document.getElementById("opts"), submitBtn = document.getElementById("submit-btn"),
+        verdict = document.getElementById("verdict"), fw = document.getElementById("framework");
+    optsEl.querySelectorAll(".opt").forEach(function (el) {
+      el.onclick = function () { selected = el.dataset.key; optsEl.querySelectorAll(".opt").forEach(function (x) { x.classList.remove("selected"); }); el.classList.add("selected"); submitBtn.disabled = false; };
+    });
+    submitBtn.onclick = function () {
+      if (!selected) return;
+      var correct = selected === q.answer;
+      P_MCQ[q.id] = { chosen: selected, correct: correct }; saveMcq();
+      optsEl.querySelectorAll(".opt").forEach(function (el) {
+        el.classList.add("disabled"); el.onclick = null; el.classList.remove("selected");
+        var k = el.dataset.key;
+        if (k === q.answer) { el.classList.add("correct"); el.insertAdjacentHTML("beforeend", '<span class="opt-mark">✓</span>'); }
+        else if (k === selected) { el.classList.add("wrong"); el.insertAdjacentHTML("beforeend", '<span class="opt-mark">✗</span>'); }
+      });
+      submitBtn.disabled = true;
+      verdict.textContent = correct ? "Fixed! Correct now." : "Still incorrect — answer: " + q.answer;
+      verdict.className = "verdict " + (correct ? "ok" : "bad");
+      fw.classList.add("show");
+      document.getElementById("rev-pager").innerHTML = reviewPagerHtml();
+      wireReviewNext("mcq");
+      renderNav();
+    };
+  }
+
+  function reviewEx(e, head) {
+    var typeLabel = { calc: "Calculation", fill: "Fill in the answer", match: "Drag to match", order: "Drag to order" }[e.type];
+    var html = head + '<div class="qcard"><div class="qhead"><span class="qid">E' + e.id + '</span><span class="qgroup">' + typeLabel + "</span></div>" +
+      '<div class="qtext">' + esc(e.prompt) + "</div>" + (e.given ? '<div class="given">Given: ' + esc(e.given) + "</div>" : "") +
+      bodyFor(e, null) +
+      '<div class="qactions"><button class="btn btn-primary" id="submit-btn">Check</button>' +
+      '<button class="btn btn-ghost" id="reveal-btn">Reveal answer</button><span class="verdict" id="verdict"></span></div>' +
+      frameworkBox(e.framework, false, e.steps) + '<div class="pager" id="rev-pager"></div></div>';
+    document.getElementById("content").innerHTML = html;
+    var submitBtn = document.getElementById("submit-btn"), revealBtn = document.getElementById("reveal-btn"),
+        verdict = document.getElementById("verdict"), fw = document.getElementById("framework");
+    function done(correct) {
+      P_EX[e.id] = { correct: correct }; saveEx();
+      verdict.textContent = correct ? "Fixed! Correct now." : "Still not right — correct answer shown below";
+      verdict.className = "verdict " + (correct ? "ok" : "bad");
+      submitBtn.disabled = true; revealBtn.disabled = true; fw.classList.add("show"); lockExercise(e);
+      document.getElementById("rev-pager").innerHTML = reviewPagerHtml();
+      wireReviewNext("ex");
+      renderNav();
+    }
+    if (e.type === "calc" || e.type === "fill") {
+      var inp = document.getElementById("ex-input");
+      inp.oninput = function () { submitBtn.disabled = !inp.value.trim(); };
+      submitBtn.disabled = true;
+      submitBtn.onclick = function () { var ok = e.type === "calc" ? gradeCalc(e, inp.value) : gradeFill(e, inp.value); inp.disabled = true; inp.classList.add(ok ? "good" : "bad"); if (!ok) showExpectedInline(e); done(ok); };
+      revealBtn.onclick = function () { showExpectedInline(e); inp.disabled = true; done(false); };
+      inp.addEventListener("keydown", function (ev) { if (ev.key === "Enter" && !submitBtn.disabled) submitBtn.click(); });
+    } else if (e.type === "match") { wireMatch(e, submitBtn); submitBtn.onclick = function () { done(gradeMatch(e)); }; revealBtn.onclick = function () { autoFillMatch(e); done(false); }; }
+    else if (e.type === "order") { wireOrder(); submitBtn.onclick = function () { done(gradeOrder(e)); }; revealBtn.onclick = function () { autoFillOrder(e); done(false); }; }
   }
 
   /* ---------------- shared bits ---------------- */
