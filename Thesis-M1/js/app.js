@@ -9,6 +9,8 @@
   var LS_EX = "sikd_m1_ex_v1";
   var Q = null;   // {meta, questions}
   var X = null;   // {meta, exercises}
+  var SYM = null; // {meta, symbols}
+  var M = (typeof mathify === "function") ? mathify : function (s) { return esc(s); }; // pretty-math
   var BY_PERSP = {};
   var BY_SEC = {};
   var P_MCQ = load(LS_MCQ);   // id -> {chosen, correct}
@@ -40,9 +42,10 @@
   function boot() {
     Promise.all([
       fetch("data/questions.json", { cache: "no-cache" }).then(chk),
-      fetch("data/exercises.json", { cache: "no-cache" }).then(chk)
+      fetch("data/exercises.json", { cache: "no-cache" }).then(chk),
+      fetch("data/symbols.json", { cache: "no-cache" }).then(chk)
     ]).then(function (r) {
-      Q = r[0]; X = r[1];
+      Q = r[0]; X = r[1]; SYM = r[2];
       Q.questions.forEach(function (q) { (BY_PERSP[q.perspective] = BY_PERSP[q.perspective] || []).push(q); });
       X.exercises.forEach(function (e) { (BY_SEC[e.sectionNum] = BY_SEC[e.sectionNum] || []).push(e); });
       window.addEventListener("hashchange", route);
@@ -115,6 +118,7 @@
     if (h === "#/resources") { setActive(null); return renderResources(); }
     if (h === "#/frameworks") { setActive(null); return renderFrameworks(); }
     if (h === "#/review") { setActive(null); return renderReviewHome(); }
+    if (h === "#/glossary") { setActive(null); return renderGlossary(); }
     var rv = h.match(/^#\/review\/(mcq|ex)\/(\d+)$/);
     if (rv) { setActive(null); return renderReviewItem(rv[1], +rv[2]); }
     var mp = h.match(/^#\/p\/(\d+)(?:\/(\d+))?$/);
@@ -158,17 +162,19 @@
     var prog = P_MCQ[q.id];
     var html = pageHead("P" + pn + " · " + esc(meta.title), "Question " + (qi + 1) + " of " + list.length + (q.group ? " · " + esc(q.group) : ""), st, pct);
     html += '<div class="qcard"><div class="qhead"><span class="qid">Q' + q.id + "</span>" + (q.group ? '<span class="qgroup">' + esc(q.group) + "</span>" : "") + "</div>";
-    html += '<div class="qtext">' + esc(q.question) + '</div><div class="opts" id="opts">';
+    html += '<div class="qtext">' + M(q.question) + '</div><div class="opts" id="opts">';
     q.options.forEach(function (o) {
       var cls = "opt", mark = "";
       if (prog) { cls += " disabled"; if (o.key === q.answer) { cls += " correct"; mark = "✓"; } else if (o.key === prog.chosen) { cls += " wrong"; mark = "✗"; } }
-      html += '<div class="' + cls + '" data-key="' + o.key + '"><span class="opt-key">' + o.key + "</span><span class=\"opt-text\">" + esc(o.text) + "</span>" + (mark ? '<span class="opt-mark">' + mark + "</span>" : "") + "</div>";
+      html += '<div class="' + cls + '" data-key="' + o.key + '"><span class="opt-key">' + o.key + "</span><span class=\"opt-text\">" + M(o.text) + "</span>" + (mark ? '<span class="opt-mark">' + mark + "</span>" : "") + "</div>";
     });
     html += "</div>";
-    html += '<div class="qactions"><button class="btn btn-primary" id="submit-btn"' + (prog ? " disabled" : "") + '>Check answer</button><span class="verdict" id="verdict"></span></div>';
+    html += '<div class="qactions"><button class="btn btn-primary" id="submit-btn"' + (prog ? " disabled" : "") + '>Check answer</button><button class="btn btn-ghost" id="sym-btn">📖 Explain symbols</button><span class="verdict" id="verdict"></span></div>';
     html += frameworkBox(q.framework, !!prog);
+    html += '<div id="sym-panel" class="sym-panel"></div>';
     html += "</div>" + pager("#/p/" + pn + "/", pn, qi, list.length, Q.meta.perspectives, "num", "#/ex/1/0");
     var content = document.getElementById("content"); content.innerHTML = html;
+    wireSymbolsButton(q.question + ' ' + q.options.map(function (o) { return o.text; }).join(' '));
 
     var verdict = document.getElementById("verdict"), fw = document.getElementById("framework"), submitBtn = document.getElementById("submit-btn");
     if (prog) { verdict.textContent = prog.correct ? "Correct" : "Incorrect — correct answer: " + q.answer; verdict.className = "verdict " + (prog.correct ? "ok" : "bad"); return; }
@@ -204,15 +210,17 @@
     var typeLabel = { calc: "Calculation", fill: "Fill in the answer", match: "Drag to match", order: "Drag to order" }[e.type];
     var html = pageHead("S" + sn + " · " + esc(cleanSec(meta.title)), "Exercise " + (xi + 1) + " of " + list.length + " · " + typeLabel, st, pct);
     html += '<div class="qcard"><div class="qhead"><span class="qid">E' + e.id + '</span><span class="qgroup">' + typeLabel + "</span></div>";
-    html += '<div class="qtext">' + esc(e.prompt) + "</div>";
-    if (e.given) html += '<div class="given">Given: ' + esc(e.given) + "</div>";
+    html += '<div class="qtext">' + M(e.prompt) + "</div>";
+    if (e.given) html += '<div class="given">Given: ' + M(e.given) + "</div>";
     html += bodyFor(e, prog);
     html += '<div class="qactions"><button class="btn btn-primary" id="submit-btn"' + (prog ? " disabled" : "") + ">Check</button>" +
-      '<button class="btn btn-ghost" id="reveal-btn"' + (prog ? " disabled" : "") + '>Reveal answer</button><span class="verdict" id="verdict"></span></div>';
+      '<button class="btn btn-ghost" id="reveal-btn"' + (prog ? " disabled" : "") + '>Reveal answer</button><button class="btn btn-ghost" id="sym-btn">📖 Explain symbols</button><span class="verdict" id="verdict"></span></div>';
     html += frameworkBox(e.framework, !!prog, e.steps);
+    html += '<div id="sym-panel" class="sym-panel"></div>';
     html += "</div>" + pager("#/ex/" + sn + "/", sn, xi, list.length, X.meta.sections, "num", "#/frameworks");
     document.getElementById("content").innerHTML = html;
     wireExercise(e, sn, !!prog);
+    wireSymbolsButton(e.prompt + ' ' + (e.given || ''));
   }
 
   function bodyFor(e, prog) {
@@ -220,13 +228,13 @@
       var val = prog ? esc(prog.given || "") : "";
       return '<div class="answer-row"><input type="text" id="ex-input" class="ex-input" autocomplete="off" ' +
         'placeholder="' + (e.type === "calc" ? "Type a number" : "Type your answer") + '" value="' + val + '"' + (prog ? " disabled" : "") + ">" +
-        (e.unit ? '<span class="ex-unit">' + esc(e.unit) + "</span>" : "") + "</div>";
+        (e.unit ? '<span class="ex-unit">' + M(e.unit) + "</span>" : "") + "</div>";
     }
     if (e.type === "match") {
       var right = shuffleSeeded(e.right.slice(), e.id);
-      var chips = right.map(function (r) { return '<div class="chip" draggable="true" data-val="' + esc(r) + '">' + esc(r) + "</div>"; }).join("");
+      var chips = right.map(function (r) { return '<div class="chip" draggable="true" data-val="' + esc(r) + '">' + M(r) + "</div>"; }).join("");
       var rows = e.left.map(function (l, i) {
-        return '<div class="match-row"><div class="match-left">' + esc(l) + '</div>' +
+        return '<div class="match-row"><div class="match-left">' + M(l) + '</div>' +
           '<div class="slot" data-left="' + esc(l) + '" data-idx="' + i + '"><span class="slot-ph">drop / tap a match</span></div></div>';
       }).join("");
       return '<div class="match-wrap"><div class="chip-pool" id="chip-pool">' + chips + "</div>" +
@@ -237,7 +245,7 @@
       var items = shuffleSeeded(e.items.map(function (t, i) { return { t: t, i: i }; }), e.id);
       var rows = items.map(function (o) {
         return '<div class="order-row" draggable="true" data-orig="' + o.i + '">' +
-          '<span class="order-handle">≡</span><span class="order-text">' + esc(o.t) + "</span>" +
+          '<span class="order-handle">≡</span><span class="order-text">' + M(o.t) + "</span>" +
           '<span class="order-btns"><button class="ord-up" title="up">▲</button><button class="ord-dn" title="down">▼</button></span></div>';
       }).join("");
       return '<div class="order-wrap" id="order-wrap">' + rows + '</div><div class="hint">Drag rows, or use ▲▼, to put them in the correct order (top = first).</div>';
@@ -371,7 +379,7 @@
     } else if (e.type === "order") {
       var wrap = document.getElementById("order-wrap");
       wrap.innerHTML = e.correctOrder.map(function (origIdx, pos) {
-        return '<div class="order-row static"><span class="order-num">' + (pos + 1) + '.</span><span class="order-text">' + esc(e.items[origIdx]) + "</span></div>";
+        return '<div class="order-row static"><span class="order-num">' + (pos + 1) + '.</span><span class="order-text">' + M(e.items[origIdx]) + "</span></div>";
       }).join("");
     }
   }
@@ -443,8 +451,8 @@
     };
   }
   function fwItem(tag, prompt, fw) {
-    return '<div class="fw-item"><div class="fw-q"><span class="fw-tag">' + tag + "</span> " + esc(prompt) + "</div>" +
-      '<div class="fw-a">' + esc(fw) + "</div></div>";
+    return '<div class="fw-item"><div class="fw-q"><span class="fw-tag">' + tag + "</span> " + M(prompt) + "</div>" +
+      '<div class="fw-a">' + M(fw) + "</div></div>";
   }
 
   /* ---------------- Review wrong answers ---------------- */
@@ -513,9 +521,9 @@
   function reviewMcq(q, head) {
     var html = head + '<div class="qcard"><div class="qhead"><span class="qid">Q' + q.id + "</span>" +
       (q.group ? '<span class="qgroup">' + esc(q.group) + "</span>" : "") + "</div>" +
-      '<div class="qtext">' + esc(q.question) + '</div><div class="opts" id="opts">';
+      '<div class="qtext">' + M(q.question) + '</div><div class="opts" id="opts">';
     q.options.forEach(function (o) {
-      html += '<div class="opt" data-key="' + o.key + '"><span class="opt-key">' + o.key + '</span><span class="opt-text">' + esc(o.text) + "</span></div>";
+      html += '<div class="opt" data-key="' + o.key + '"><span class="opt-key">' + o.key + '</span><span class="opt-text">' + M(o.text) + "</span></div>";
     });
     html += '</div><div class="qactions"><button class="btn btn-primary" id="submit-btn" disabled>Check answer</button>' +
       '<span class="verdict" id="verdict"></span></div>' + frameworkBox(q.framework, false) +
@@ -549,7 +557,7 @@
   function reviewEx(e, head) {
     var typeLabel = { calc: "Calculation", fill: "Fill in the answer", match: "Drag to match", order: "Drag to order" }[e.type];
     var html = head + '<div class="qcard"><div class="qhead"><span class="qid">E' + e.id + '</span><span class="qgroup">' + typeLabel + "</span></div>" +
-      '<div class="qtext">' + esc(e.prompt) + "</div>" + (e.given ? '<div class="given">Given: ' + esc(e.given) + "</div>" : "") +
+      '<div class="qtext">' + M(e.prompt) + "</div>" + (e.given ? '<div class="given">Given: ' + M(e.given) + "</div>" : "") +
       bodyFor(e, null) +
       '<div class="qactions"><button class="btn btn-primary" id="submit-btn">Check</button>' +
       '<button class="btn btn-ghost" id="reveal-btn">Reveal answer</button><span class="verdict" id="verdict"></span></div>' +
@@ -577,6 +585,53 @@
     else if (e.type === "order") { wireOrder(); submitBtn.onclick = function () { done(gradeOrder(e)); }; revealBtn.onclick = function () { autoFillOrder(e); done(false); }; }
   }
 
+  /* ---------------- Symbol glossary ---------------- */
+  function symbolsFor(text) {
+    if (!SYM) return [];
+    var low = " " + String(text).toLowerCase() + " ";
+    return SYM.symbols.filter(function (sy) {
+      return sy.keys.some(function (k) { return low.indexOf(k.toLowerCase()) >= 0; });
+    });
+  }
+  function symCard(sy) {
+    return '<div class="sym-card">' +
+      '<div class="sym-head"><span class="sym-glyph">' + M(sy.sym) + '</span>' +
+      '<span class="sym-name">' + esc(sy.name) + '</span></div>' +
+      '<div class="sym-row"><span class="sym-k">Meaning</span><span class="sym-v">' + M(sy.meaning) + '</span></div>' +
+      '<div class="sym-row"><span class="sym-k">This project</span><span class="sym-v">' + M(sy.value) + '</span></div>' +
+      '<div class="sym-row"><span class="sym-k">Typical range</span><span class="sym-v">' + M(sy.range) + '</span></div>' +
+      '<div class="sym-row"><span class="sym-k">Why</span><span class="sym-v">' + M(sy.why) + '</span></div>' +
+      '<div class="sym-row"><span class="sym-k">Across fields</span><span class="sym-v">' + M(sy.domain) + '</span></div>' +
+      '</div>';
+  }
+  function wireSymbolsButton(text) {
+    var btn = document.getElementById("sym-btn"), panel = document.getElementById("sym-panel");
+    if (!btn || !panel) return;
+    var list = symbolsFor(text);
+    if (!list.length) { btn.style.display = "none"; return; }
+    btn.textContent = "📖 Explain symbols (" + list.length + ")";
+    btn.onclick = function () {
+      if (panel.classList.contains("open")) { panel.classList.remove("open"); panel.innerHTML = ""; btn.classList.remove("on"); return; }
+      panel.innerHTML = '<div class="sym-panel-head">Quantities in this question — meaning, value, typical range &amp; why, and how the range differs across fields. <a href="#/glossary">Full glossary →</a></div>' +
+        list.map(symCard).join("");
+      panel.classList.add("open"); btn.classList.add("on");
+    };
+  }
+  function renderGlossary() {
+    var html = '<a class="back-home" href="#/">← Back</a><div class="page-head"><h1>Symbol glossary 📖</h1>' +
+      '<div class="ph-sub">Every physical quantity in the project: what it means, this project\'s value, the typical range and <em>why</em> it is chosen, and how that range differs for telecom / satellite / quantum work versus other fields.</div></div>';
+    html += '<input type="text" id="sym-search" class="fw-search" placeholder="Search a quantity (e.g. wavelength, QBER, cross-talk, turbulence)…">';
+    html += '<div id="sym-list" class="sym-grid">' + SYM.symbols.map(symCard).join("") + "</div>";
+    document.getElementById("content").innerHTML = html;
+    var search = document.getElementById("sym-search");
+    search.oninput = function () {
+      var t = search.value.toLowerCase().trim();
+      document.querySelectorAll("#sym-list .sym-card").forEach(function (c) {
+        c.style.display = (!t || c.textContent.toLowerCase().indexOf(t) >= 0) ? "" : "none";
+      });
+    };
+  }
+
   /* ---------------- shared bits ---------------- */
   function pageHead(title, sub, st, pct) {
     return '<div class="page-head"><h1>' + title + '</h1><div class="ph-sub">' + sub + "</div></div>" +
@@ -584,8 +639,8 @@
       '<div class="pb-num">' + st.done + "/" + st.total + " done" + (st.done ? " · " + Math.round(100 * st.correct / st.done) + "% correct" : "") + "</div></div>";
   }
   function frameworkBox(fw, show, steps) {
-    var s = steps ? '<div class="fw-steps">' + esc(steps) + "</div>" : "";
-    return '<div class="framework' + (show ? " show" : "") + '" id="framework"><div class="fw-label">Theory framework</div>' + esc(fw) + s + "</div>";
+    var s = steps ? '<div class="fw-steps">' + M(steps) + "</div>" : "";
+    return '<div class="framework' + (show ? " show" : "") + '" id="framework"><div class="fw-label">Theory framework</div>' + M(fw) + s + "</div>";
   }
   function pager(base, num, i, len, arr, key, nextModeHref) {
     var html = '<div class="pager">';

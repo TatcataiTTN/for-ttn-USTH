@@ -1,0 +1,245 @@
+{
+  "meta": { "title": "Physical-quantity glossary", "note": "Meaning, this project's value, the typical range and why it is chosen, and how that range differs for telecom / satellite / quantum work versus other fields." },
+  "symbols": [
+    {
+      "sym": "λ", "keys": ["lambda", "wavelength", "1550 nm"], "name": "Optical wavelength",
+      "meaning": "The carrier light's wavelength; sets diffraction, atmospheric scattering, and detector response.",
+      "value": "1550 nm (telecom C-band) throughout this project.",
+      "range": "Free-space optics: ~800 nm, ~1064 nm, or 1550 nm. This project fixes 1550 nm.",
+      "why": "1550 nm is eye-safe at higher power, sits in the atmosphere's low-loss window, scatters less off aerosols than visible light (Kruse/Kim exponent), and reuses mature, cheap telecom lasers/detectors/fibre.",
+      "domain": "Telecom/satellite FSO almost always pick 1550 nm for those reasons. General optics/astronomy span UV→IR freely; lidar often uses 532/1064 nm. Quantum labs sometimes prefer shorter wavelengths where single-photon detectors are most efficient — a tension this direct-detection design sidesteps."
+    },
+    {
+      "sym": "θ_C", "keys": ["thetaC", "theta_C", "divergence"], "name": "Beam divergence half-angle",
+      "meaning": "How fast the transmitted laser beam spreads; smaller means a tighter, farther-reaching beam.",
+      "value": "10 μrad.",
+      "range": "Satellite FSO: ~1–50 μrad.",
+      "why": "10 μrad keeps geometric spreading loss manageable at 550 km, but a tighter beam demands finer pointing (PAT), so it trades against pointing budget.",
+      "domain": "Satellite laser-comm lives in the microradian regime because links are thousands of km. RF antennas think in degrees (milliradians+); a laser pointer is ~1 mrad — 100× wider than this."
+    },
+    {
+      "sym": "w₀", "keys": ["w0", "beam waist"], "name": "Beam waist",
+      "meaning": "The beam's narrowest radius, at the transmitter: w₀ = λ/(2θ_C).",
+      "value": "≈ 0.0775 m (7.75 cm).",
+      "range": "Centimetre-scale for these parameters.",
+      "why": "Fixed by λ and θ_C; a smaller divergence gives a larger waist and slower far-field spreading.",
+      "domain": "A derived quantity specific to Gaussian-beam optics; RF engineering has no direct analogue."
+    },
+    {
+      "sym": "w_L", "keys": ["wL", "beam radius"], "name": "Beam radius at the receiver",
+      "meaning": "The spot radius after propagating the slant range L; grows ~linearly with distance.",
+      "value": "≈ 3.5 m (zenith) to ≈ 6.3 m (30° elevation).",
+      "range": "Metres, at LEO ranges.",
+      "why": "Because w_L (metres) ≫ aperture a_R (5 cm), only ~(a_R/w_L)² of the power is collected — the origin of the >30 dB geometric loss.",
+      "domain": "This metre-scale spot over a centimetre aperture is why FSO link budgets are dominated by geometry, unlike fibre (no spreading) or RF (much wider beams but larger antennas)."
+    },
+    {
+      "sym": "a_R", "keys": ["a_R", "aR", "aperture"], "name": "Receiver aperture radius",
+      "meaning": "Radius of the ground telescope collecting the beam.",
+      "value": "5 cm (10 cm diameter).",
+      "range": "Satellite FSO ground optics: a few cm (CubeSat-class, e.g. TBIRD ~0.2 m) up to ~1 m (Micius ground station).",
+      "why": "A small aperture is cheap/light and lets you deploy many stations, but collects a smaller fraction of the already-weak key signal — an unresolved SWaP trade-off here.",
+      "domain": "Astronomy uses metre-to-10-metre apertures for faint light; this project deliberately picks the small, cheap end to argue a multi-station network."
+    },
+    {
+      "sym": "h_g", "keys": ["h_g", "hg", "geometric"], "name": "Geometric spreading loss",
+      "meaning": "Fraction of transmitted power reaching the aperture, from beam spreading: h_g = [erf(ν_R)]².",
+      "value": "≈ −34 dB (zenith) to ≈ −39 dB (30° elevation).",
+      "range": "Tens of dB (very lossy) for LEO FSO.",
+      "why": "It scales ~1/L², so lower passes (longer range) are much worse; it is the single largest term in the link budget.",
+      "domain": "Uniquely severe in free-space optics; fibre has none, and RF free-space path loss, while large, is offset by high antenna gains."
+    },
+    {
+      "sym": "h_l", "keys": ["h_l", "hl", "beer-lambert", "atmospheric"], "name": "Atmospheric transmission",
+      "meaning": "Beer-Lambert transmission through the air: h_l = exp(−σ_total·L_atm).",
+      "value": "≈ −9 dB (clear, zenith) to ≈ −18 dB (clear, 30°); ~−100 dB in heavy rain.",
+      "range": "A few dB (clear) to link-killing (rain/fog).",
+      "why": "Set by visibility and rain rate along the slant path; low elevation lengthens the path (1/cos ζ).",
+      "domain": "Remote sensing / atmospheric science model exactly this extinction. In this project cloud is treated as a separate binary outage, not folded into h_l."
+    },
+    {
+      "sym": "σ_clear", "keys": ["sigma_clear", "kruse", "visibility"], "name": "Clear-air extinction coefficient",
+      "meaning": "Per-km attenuation from aerosols/molecules (Kruse/Kim): σ = (3.912/V)(λ/550)^(−q).",
+      "value": "≈ 0.10 km⁻¹ at V = 10 km, 1550 nm.",
+      "range": "~0.05 km⁻¹ (very clear) to several km⁻¹ (fog).",
+      "why": "Inversely tied to meteorological visibility V; the wavelength factor makes 1550 nm scatter less than visible.",
+      "domain": "A staple of atmospheric optics / lidar; identical machinery to remote-sensing atmospheric correction."
+    },
+    {
+      "sym": "σ_rain", "keys": ["sigma_rain", "rain"], "name": "Rain extinction coefficient",
+      "meaning": "Per-km attenuation from raindrops: β = αR^ρ (dB/km), σ_rain = β/4.343.",
+      "value": "α = 0.509, ρ = 0.63 (tropical, Koné 2024, Abidjan).",
+      "range": "0 (no rain) to ~1.4 km⁻¹ at 50 mm/h.",
+      "why": "The sub-linear exponent (ρ < 1) reflects Mie scattering by large drops; calibrated on real tropical measurements, not textbook constants.",
+      "domain": "Tropical FSO needs region-specific coefficients; temperate ITU rain models differ. RF rain fade (Ka-band) uses a related but distinct power law."
+    },
+    {
+      "sym": "R", "keys": ["R_mm_h", "rain rate", "R_month", "mm/h"], "name": "Rain rate",
+      "meaning": "Instantaneous rainfall intensity during raining hours.",
+      "value": "Converted from monthly totals: R = R_month/(30·24·f_rain).",
+      "range": "Light drizzle ~0.1 mm/h to tropical downpour 30–50+ mm/h.",
+      "why": "Tropical rain is intermittent, so monthly totals must be concentrated into the hours it actually rains (f_rain).",
+      "domain": "Meteorology/hydrology quantity; FSO and Ka-band RF both care because both suffer rain fade, unlike lower RF bands."
+    },
+    {
+      "sym": "V", "keys": ["visibility", "V_km", "V="], "name": "Meteorological visibility",
+      "meaning": "Horizontal distance at which contrast drops to a threshold; a proxy for aerosol load.",
+      "value": "Derived here as V = 15 − 10·P_cloud (no historical visibility record exists).",
+      "range": "≥ 10–50 km (clear) down to < 1 km (fog).",
+      "why": "It directly sets σ_clear; a derived estimate is used because ERA5 has no visibility variable.",
+      "domain": "A standard weather-station output; here it is inferred, a stated modelling limitation."
+    },
+    {
+      "sym": "H_S", "keys": ["H_S", "HS", "altitude"], "name": "Satellite altitude",
+      "meaning": "Height of the LEO satellite above the ground.",
+      "value": "550 km (Starlink Shell-1).",
+      "range": "LEO ~300–2000 km; this project fixes 550 km.",
+      "why": "The channel model is parameterised for one altitude; mixing shells would need altitude-dependent tables.",
+      "domain": "550 km is the modern mega-constellation sweet spot (low latency, manageable drag). GEO comms sit at 35 786 km; the ISS at ~400 km."
+    },
+    {
+      "sym": "ζ / ε", "keys": ["zeta", "elevation", "zenith"], "name": "Zenith / elevation angle",
+      "meaning": "ζ is measured from straight up; elevation ε = 90° − ζ is measured from the horizon.",
+      "value": "Operating range ε = 30°–90° (ζ = 0°–60°).",
+      "range": "Elevation masks of 20°–40° are common.",
+      "why": "Low elevation lengthens both the geometric range and the atmospheric path; a 30° (or safer 40°) mask bounds the loss and QBER.",
+      "domain": "Universal to any ground-to-space link (comms, GNSS, radio astronomy). GNSS often accepts 5–15°; QKD wants higher for signal quality."
+    },
+    {
+      "sym": "R_cov", "keys": ["R_cov", "coverage radius"], "name": "Ground-coverage radius",
+      "meaning": "Radius on the ground within which a station can see the satellite above the mask.",
+      "value": "793 km at 30°, 573 km at 40°.",
+      "range": "Hundreds of km for LEO.",
+      "why": "Sets which city pairs (within 2·R_cov) can share one pass — the DUAL/SF split.",
+      "domain": "A coverage-geometry staple; the same footprint idea underlies cellular NTN planning."
+    },
+    {
+      "sym": "σ_R²", "keys": ["sigma_R", "rytov"], "name": "Rytov variance (scintillation)",
+      "meaning": "Strength of turbulence-induced intensity fluctuations along the path.",
+      "value": "< 0.3 across the operating range (weak turbulence).",
+      "range": "< 0.3 weak (log-normal fading) ; ≳ 1 strong (Gamma-Gamma).",
+      "why": "The slant path to LEO stays weak, so log-normal fading applies; the v3 coefficient is 2.25 (plane-wave slant path).",
+      "domain": "Central to astronomy's 'seeing' and adaptive optics, and to FSO. Fibre and RF do not have optical scintillation."
+    },
+    {
+      "sym": "C_n²", "keys": ["Cn2", "C_n^2", "structure parameter"], "name": "Refractive-index structure parameter",
+      "meaning": "Local turbulence strength versus altitude (Hufnagel-Valley profile).",
+      "value": "Ground value C_n²(0) = 1.7×10⁻¹⁴ m⁻²ᐟ³ (moderate).",
+      "range": "Weak 10⁻¹⁷ · moderate ~10⁻¹⁴ · strong 10⁻¹³ m⁻²ᐟ³.",
+      "why": "The ground layer decays within ~500 m, so high-altitude wind (not C_n²(0)) dominates the LEO slant-path integral.",
+      "domain": "A term shared by astronomy (site seeing) and FSO; its exotic m⁻²ᐟ³ units come from Kolmogorov turbulence theory."
+    },
+    {
+      "sym": "P_T", "keys": ["P_T", "PT", "transmit power"], "name": "Transmit optical power",
+      "meaning": "Average optical power leaving the transmitter.",
+      "value": "1 W (30 dBm).",
+      "range": "Satellite laser-comm: ~0.1–5 W.",
+      "why": "1 W is a realistic small-payload figure; higher power eases the link budget but costs SWaP and raises cross-talk (which grows as P²).",
+      "domain": "Quantum single-photon QKD works at the femtowatt/photon level; this direct-detection SIKD design instead uses a strong classical-style carrier, which is why power is in watts, not photons."
+    },
+    {
+      "sym": "m_K", "keys": ["m_K", "mK", "modulation index"], "name": "Key-channel modulation index",
+      "meaning": "Depth of the quantum-key subcarrier's modulation.",
+      "value": "0.15 (corrected from 0.05 in v3).",
+      "range": "~0.1–0.2 feasible at 15 dB filter isolation.",
+      "why": "The source SIKD manuscript's feasible region opens for m_K ≳ 0.1; 0.15 drops QBER below even the 10⁻³ target while leaving budget for data.",
+      "domain": "A subcarrier-multiplexing parameter specific to this SIKD architecture; classical SCM systems tune it purely for SNR, here it also trades against the key's security."
+    },
+    {
+      "sym": "m_D", "keys": ["m_D", "mD", "data modulation"], "name": "Data-channel modulation index",
+      "meaning": "Depth of the classical data subcarrier's modulation.",
+      "value": "0.5.",
+      "range": "0.5–0.9 typical; constrained by m_K + m_D ≤ 1.",
+      "why": "Higher m_D raises data throughput but leaks more cross-talk into the key receiver (σ_CT² ∝ m_D²) — the core SIKD tension.",
+      "domain": "In plain SCM you would push m_D high for capacity; here it is capped because it directly attacks the quantum channel's QBER."
+    },
+    {
+      "sym": "Iso", "keys": ["Iso", "isolation"], "name": "Filter isolation",
+      "meaning": "How well the RF/optical filter separates the key and data subcarriers.",
+      "value": "15 dB.",
+      "range": "~10–30 dB for practical filters.",
+      "why": "Finite isolation lets the data channel leak in as cross-talk; better isolation directly lowers QBER (σ_CT² ∝ 10^(−Iso/10)).",
+      "domain": "A filter-engineering figure; its impact here is amplified because the leaked signal lands on a security-critical quantum channel."
+    },
+    {
+      "sym": "R_b", "keys": ["R_b", "Rb", "bit rate"], "name": "Raw bit rate",
+      "meaning": "Symbol/bit rate of the link; sets the noise bandwidth Δf = R_b/2.",
+      "value": "1 Gbps.",
+      "range": "Satellite FSO downlinks: Mbps to hundreds of Gbps (TBIRD hit 200 Gbps).",
+      "why": "It scales the absolute secret key rate (SKR_bps = SKR_norm·R_b) and the receiver noise bandwidth.",
+      "domain": "Comms-wide quantity; FSO reaches far higher rates than RF thanks to optical bandwidth."
+    },
+    {
+      "sym": "σ_N", "keys": ["sigma_N", "noise"], "name": "Receiver noise (std. dev.)",
+      "meaning": "Total electrical noise: shot + thermal + background + cross-talk.",
+      "value": "Sum of four variances; cross-talk dominates when the link is strong.",
+      "range": "Set by detector, temperature, bandwidth, and link strength.",
+      "why": "It sets the decision thresholds and hence QBER; the v3 cross-talk fix (/8) cut the dominant term four-fold.",
+      "domain": "Every receiver has shot+thermal noise; the cross-talk term is special to this shared-detector SIKD design and, unusually, grows with signal power (∝ P²)."
+    },
+    {
+      "sym": "σ_CT²", "keys": ["sigma_CT", "crosstalk", "cross-talk"], "name": "Cross-talk noise variance",
+      "meaning": "Data-channel power leaking into the key receiver: ∝ (R_e P_T m_D h_g h_l)²·10^(−Iso/10)/8.",
+      "value": "Ranges from ~0.5× to ~290× thermal noise across elevation.",
+      "range": "Grows as received power squared (P²).",
+      "why": "Because it scales as P², it dominates exactly when the link is strongest (high elevation) — a counter-intuitive, defining SIKD result.",
+      "domain": "Ordinary noise falls or is flat with signal; this term rising with signal is the signature quirk of multiplexing data and key on one detector."
+    },
+    {
+      "sym": "QBER", "keys": ["qber", "bit error"], "name": "Quantum bit error rate",
+      "meaning": "Fraction of sifted key bits where Bob disagrees with Alice; the master security indicator.",
+      "value": "< 0.02% across 30°–90° (v3, m_K = 0.15).",
+      "range": "Must stay below 11% (BB84) to distil any secret key; stricter protocols want ≤ 10⁻³.",
+      "why": "Eavesdropping and noise both raise QBER; below threshold a positive secret key survives after error correction and privacy amplification.",
+      "domain": "A QKD-specific metric with a hard security threshold — unlike a classical BER, where 10⁻³ is merely 'poor', here 11% is a wall."
+    },
+    {
+      "sym": "SKR", "keys": ["skr", "secret key rate", "SKR_norm"], "name": "Secret key rate",
+      "meaning": "Rate of provably-secret key bits: SKR_norm = P_sift[1 − 2H₂(QBER) − χ_E].",
+      "value": "≈ 61.4 Mbps at 45° elevation (v3).",
+      "range": "Zero at QBER ≈ 11%; up to tens of Mbps here.",
+      "why": "The mutual information minus error-correction leakage minus Eve's information; it collapses steeply near the QBER threshold.",
+      "domain": "The headline output of any QKD system. Real satellite QKD (Micius) delivered kbps; this direct-detection design models Mbps because it uses a strong carrier, not single photons."
+    },
+    {
+      "sym": "P_sift", "keys": ["P_sift", "Psift", "sift"], "name": "Sift probability",
+      "meaning": "Probability a received sample is confidently decoded (falls outside the dual-threshold guard zone).",
+      "value": "Averaged over turbulence by 20-point Gauss-Hermite quadrature.",
+      "range": "0 to 0.5 (half the samples are the key basis).",
+      "why": "A wider guard zone lowers errors but sifts out more samples — a yield-vs-error trade set by the threshold scale ζ_scale = 2.",
+      "domain": "Sifting is intrinsic to QKD (basis reconciliation / thresholding); no classical-comms analogue."
+    },
+    {
+      "sym": "χ_E", "keys": ["chi_E", "chiE", "holevo"], "name": "Eve's Holevo information",
+      "meaning": "The maximum information an eavesdropper can hold about the key.",
+      "value": "0 in the baseline (no eavesdropping assumed).",
+      "range": "0 (no attack) up to values that zero the SKR.",
+      "why": "It is what privacy amplification must remove; setting it to 0 characterises performance, not adversarial security.",
+      "domain": "A quantum-information quantity (Holevo bound); has no classical counterpart."
+    },
+    {
+      "sym": "H₂", "keys": ["H2", "binary entropy"], "name": "Binary entropy function",
+      "meaning": "H₂(p) = −p·log₂p − (1−p)·log₂(1−p); the information cost of a bit-flip probability p.",
+      "value": "H₂(0.11) ≈ 0.4999.",
+      "range": "0 (at p=0 or 1) to 1 (at p=0.5).",
+      "why": "It appears twice in the SKR bound (mutual information and error-correction leakage), which is why SKR hits zero at QBER ≈ 11%.",
+      "domain": "A Shannon-information staple used across coding theory; here it directly sets the QKD security threshold."
+    },
+    {
+      "sym": "P_cloud / A", "keys": ["P_cloud", "availability", "cloud"], "name": "Cloud probability & availability",
+      "meaning": "P_cloud is the fraction of hours with thick cloud (link off); availability A = 1 − P_cloud.",
+      "value": "A ranges 10.7% (Kuala Lumpur, Nov) to 96.5% (Bangkok, Feb).",
+      "range": "Wildly location/season dependent in the tropics.",
+      "why": "Thick cloud blocks the optical beam entirely, so availability is governed by cloud, not rain; A is invariant to the rain fraction.",
+      "domain": "Optical links treat cloud as total blockage; RF satcom passes through cloud almost unaffected — the fundamental reason tropical optical QKD is hard."
+    },
+    {
+      "sym": "c_h", "keys": ["handover", "acquisition", "30 s"], "name": "Handover / acquisition cost",
+      "meaning": "Time lost re-acquiring a satellite when a station switches links.",
+      "value": "30 s charged per handover.",
+      "range": "Real FSO acquisition: ~10–30 s.",
+      "why": "Every re-assignment loses delivered key; charging it fairly is why weather-aware scheduling shows a small net cost.",
+      "domain": "FSO needs seconds to re-acquire a narrow beam; RF beam-steering is far faster, so this penalty is an optical-link-specific concern."
+    }
+  ]
+}

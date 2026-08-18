@@ -198,3 +198,28 @@ a.nav-item{text-decoration:none}
 .fw-q{font-size:14.5px;color:var(--ink);margin-bottom:5px}
 .fw-tag{font-weight:bold;color:var(--accent2);font-size:12.5px}
 .fw-a{font-size:15px;border-left:3px solid var(--accent2);padding-left:11px;color:#26324a}
+
+/* ===== v3 additions: pretty math + symbol glossary ===== */
+.qtext sub, .opt-text sub, .framework sub, .fw-a sub, .sym-v sub, .given sub,
+.qtext sup, .opt-text sup, .framework sup, .fw-a sup, .sym-v sup, .given sup{
+  font-size:.72em; line-height:0}
+.qtext sub, .opt-text sub, .framework sub, .fw-a sub, .sym-v sub, .given sub{vertical-align:-0.25em}
+.qtext sup, .opt-text sup, .framework sup, .fw-a sup, .sym-v sup, .given sup{vertical-align:0.55em}
+.qtext, .given{font-variant-ligatures:none}
+
+/* symbols button state */
+#sym-btn.on{background:var(--accent);color:#fff;border-color:var(--accent)}
+.sym-panel{display:none;margin-top:14px}
+.sym-panel.open{display:block}
+.sym-panel-head{font-size:14px;color:var(--muted);margin-bottom:10px}
+.sym-panel-head a{color:var(--accent2);text-decoration:none;font-weight:bold}
+.sym-card{background:#fbfdff;border:1px solid var(--line);border-radius:12px;padding:14px 16px;margin-bottom:12px}
+.sym-head{display:flex;align-items:baseline;gap:12px;border-bottom:1px solid var(--line);padding-bottom:8px;margin-bottom:8px}
+.sym-glyph{font-size:22px;font-weight:bold;color:var(--accent);min-width:56px}
+.sym-name{font-size:16px;font-weight:bold;color:var(--ink)}
+.sym-row{display:grid;grid-template-columns:120px 1fr;gap:10px;font-size:14.5px;padding:4px 0}
+.sym-k{color:var(--accent2);font-weight:bold;font-size:12.5px;text-transform:uppercase;letter-spacing:.4px;padding-top:2px}
+.sym-v{color:#26324a;line-height:1.5}
+.sym-grid{margin-top:8px}
+@media(min-width:820px){.sym-grid{column-count:1}}
+@media(max-width:560px){.sym-row{grid-template-columns:1fr;gap:2px}.sym-k{padding-top:6px}}
