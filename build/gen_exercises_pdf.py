@@ -103,7 +103,10 @@ for s in secs:
         A(r"\noindent\textbf{E%d.} %s" % (e["id"], ans))
         if e.get("steps"):
             A(r"\\ \textit{%s}" % esc(e["steps"]))
-        A(r"\\ {\small\color{blue!50!black}Framework: %s}\par\vspace{4pt}" % esc(e["framework"]))
+        A(r"\\ {\small\color{blue!50!black}Framework: %s}" % esc(e["framework"]))
+        if e.get("detail"):
+            A(r"\\ {\small In detail: %s}" % esc(e["detail"]))
+        A(r"\par\vspace{5pt}")
     A(r"\vspace{2pt}")
 
 A(r"\end{document}")

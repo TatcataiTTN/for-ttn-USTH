@@ -48,7 +48,8 @@
    "tolType": "rel",
    "framework": "w0 = lambda/(2*thetaC); tighter divergence -> larger waist -> slower spreading.",
    "steps": "w0 = 1550e-9/(2*10e-6) = 0.0775 m.",
-   "id": 1
+   "id": 1,
+   "detail": "Method: the beam waist is fixed purely by wavelength and divergence, w0 = lambda/(2*thetaC) = 1550e-9/(2*10e-6) = 0.0775 m. Insight: a SMALLER divergence gives a LARGER waist, which then spreads more slowly in the far field — so w0 alone hints at how tight the beam stays. Connection: this is the very first number in the whole channel chain; everything downstream (wL, nu_R, hg) is built on it."
   },
   {
    "type": "calc",
@@ -62,7 +63,8 @@
    "tolType": "rel",
    "framework": "L = sqrt(R_E^2 sin^2 e + 2 R_E H_S + H_S^2) - R_E sin e; corrected from flat-Earth 1100 km.",
    "steps": "eps=30: L = 992.8 km (NOT the flat-Earth H_S/cos(zeta)=1100 km).",
-   "id": 2
+   "id": 2,
+   "detail": "Method: use the spherical-Earth law L = sqrt(R_E^2 sin^2(e) + 2 R_E H_S + H_S^2) - R_E sin(e) with e = 30 deg, giving 992.8 km. Why it matters: the pre-v3 code used the flat-Earth L = H_S/cos(zeta) = 1100 km — an 11% error that fed straight into wL and hg. Insight: at low elevation the curvature of the Earth genuinely shortens the geometric path versus the naive flat model, so the corrected loss is a little smaller."
   },
   {
    "type": "calc",
@@ -76,7 +78,8 @@
    "tolType": "rel",
    "framework": "At zenith the slant range equals the satellite altitude.",
    "steps": "eps=90: L = H_S = 550 km.",
-   "id": 3
+   "id": 3,
+   "detail": "Method: at the zenith (elevation 90 deg) the satellite is directly overhead, so the slant range collapses to the plain altitude, L = H_S = 550 km. This is the best-case geometry: shortest path, smallest spot, lowest loss. Use it as a sanity anchor — any slant-range formula MUST return 550 km here."
   },
   {
    "type": "calc",
@@ -90,7 +93,8 @@
    "tolType": "rel",
    "framework": "wL = w0*sqrt(1+(L*lambda/(pi*w0^2))^2); far-field grows ~linearly with L.",
    "steps": "L(45)=749 km -> wL = 4.77 m.",
-   "id": 4
+   "id": 4,
+   "detail": "Method: wL = w0*sqrt(1 + (L*lambda/(pi*w0^2))^2); with L = 749 km at 45 deg elevation this gives ~4.77 m. Insight: because the argument is >> 1, the square root is nearly linear in L, so the spot grows roughly proportionally to distance. Consequence: a 4.77 m spot over a 5 cm aperture is why almost none of the transmitted power is captured."
   },
   {
    "type": "calc",
@@ -104,7 +108,8 @@
    "tolType": "rel",
    "framework": "nu_R uses sqrt(pi/2)=1.2533 (v3 fix), NOT sqrt(2); old value made hg optimistic by 1.05 dB.",
    "steps": "nu_R = 1.2533*0.05/3.502 = 0.0179.",
-   "id": 5
+   "id": 5,
+   "detail": "Method: nu_R = sqrt(pi/2)*a_R/wL = 1.2533*0.05/3.502 = 0.0179 at the zenith. The v3 fix replaced the old sqrt(2) coefficient with sqrt(pi/2), read directly from Vu et al. 2022; the old value inflated hg by (1.4142/1.2533)^2 ~ 1.27x, i.e. +1.05 dB of imaginary gain. nu_R << 1 tells you the aperture captures only the tiny central tip of a huge Gaussian spot."
   },
   {
    "type": "calc",
@@ -118,7 +123,8 @@
    "tolType": "abs",
    "framework": "hg=[erf(nu_R)]^2; hg ~ 1/L^2 since nu_R<<1; dominant link-budget term (>30 dB).",
    "steps": "hg(45 deg elev) = -36.6 dB.",
-   "id": 6
+   "id": 6,
+   "detail": "Method: hg = [erf(nu_R)]^2; with nu_R tiny, erf(x) ~ (2/sqrt(pi)) x, so hg ~ nu_R^2 ~ 1/wL^2 ~ 1/L^2. Numerically hg(45 deg) = -36.6 dB. Insight: geometric spreading alone costs over 30 dB — it is the single largest term in the link budget, dwarfing atmosphere and turbulence. Design levers are aperture (hg ~ a_R^2) and divergence."
   },
   {
    "type": "calc",
@@ -132,7 +138,8 @@
    "tolType": "rel",
    "framework": "sigma=(3.912/V)(lambda/550)^(-q(V)); longer wavelength scatters less.",
    "steps": "q(10)=1.3 -> sigma=0.1017 km^-1.",
-   "id": 7
+   "id": 7,
+   "detail": "Method: Kruse/Kim gives sigma_clear = (3.912/V)(lambda/550)^(-q(V)); at V = 10 km, q = 1.3, so sigma = 0.1017 km^-1. The wavelength factor (lambda/550)^(-1.3) is < 1 for 1550 nm, meaning telecom light scatters LESS off aerosols than visible light — a quiet advantage of the C-band choice. This is the same extinction machinery a remote-sensing atmospheric correction uses."
   },
   {
    "type": "calc",
@@ -146,7 +153,8 @@
    "tolType": "rel",
    "framework": "Power-law rho=0.63<1 -> sub-linear; 4.343=10/ln10 converts dB->Nepers.",
    "steps": "beta=0.509*30^0.63=4.34 dB/km; sigma=0.999 km^-1.",
-   "id": 8
+   "id": 8,
+   "detail": "Method: tropical rain uses beta = alpha*R^rho dB/km with alpha = 0.509, rho = 0.63 (Kone 2024, Abidjan), then sigma = beta/4.343; at R = 30 mm/h this is ~1.0 km^-1. Insight: rho < 1 makes attenuation SUB-linear — 5x more rain gives only 5^0.63 ~ 2.8x more loss, a Mie-scattering signature of large drops. The 4.343 = 10/ln(10) converts dB to natural-log (Nepers) so it fits the exp() in Beer-Lambert."
   },
   {
    "type": "calc",
@@ -160,7 +168,8 @@
    "tolType": "abs",
    "framework": "hl=exp(-sigma_total*L_atm); L_atm=(H_atm)/cos(zeta), H_atm=20 km.",
    "steps": "L_atm=23.09 km; hl=exp(-0.1017*23.09)=0.0954 -> -10.2 dB.",
-   "id": 9
+   "id": 9,
+   "detail": "Method: L_atm = H_atm/cos(zeta) = 20/cos(30) = 23.09 km; hl = exp(-sigma_total*L_atm) = exp(-0.1017*23.09) = 0.0954, i.e. -10.2 dB. This is a clear-sky, moderate-visibility loss — modest next to the >30 dB of geometric spreading. Note the 1/cos(zeta): every degree lower in elevation lengthens the air path and compounds the loss."
   },
   {
    "type": "calc",
@@ -174,7 +183,8 @@
    "tolType": "abs",
    "framework": "Rain adds ~100 dB vs clear -> near link cut; why cloud/heavy-rain ~ outage.",
    "steps": "sigma_total=1.101; hl=exp(-1.101*23.09) -> ~-110 dB.",
-   "id": 10
+   "id": 10,
+   "detail": "Method: add the rain term — sigma_total = 0.1017 + 0.999 = 1.101 km^-1, so hl = exp(-1.101*23.09) ~ -110 dB. That is ~100 dB WORSE than clear sky: heavy rain effectively severs the optical link. This is exactly why the weather model treats heavy precipitation and thick cloud as near-outage rather than a gentle fade."
   },
   {
    "type": "calc",
@@ -188,7 +198,8 @@
    "tolType": "rel",
    "framework": "L_atm=(H_atm-H_U)/cos(zeta); low passes traverse more atmosphere (1/cos).",
    "steps": "L_atm=20/cos60=40 km (double the zenith value).",
-   "id": 11
+   "id": 11,
+   "detail": "Method: L_atm = (H_atm - H_U)/cos(zeta) = 20/cos(60) = 40 km at 30 deg elevation, double the 20 km zenith path. The 1/cos(zeta) geometry is the reason low passes suffer far more attenuation AND more turbulence. It is also why a higher elevation mask (40 deg) trades coverage for a cleaner channel."
   },
   {
    "type": "calc",
@@ -202,7 +213,8 @@
    "tolType": "rel",
    "framework": "H2(p)=-p log2 p-(1-p)log2(1-p); H2(0.11)=0.4999 -> why SKR=0 near QBER 11%.",
    "steps": "H2(0.11)=0.4999.",
-   "id": 12
+   "id": 12,
+   "detail": "Method: H2(0.11) = -0.11 log2(0.11) - 0.89 log2(0.89) = 0.4999. Why this number matters: it is almost exactly 0.5, so 1 - 2*H2(0.11) ~ 0 — the reason the secret-key rate vanishes right at QBER = 11%. Binary entropy is the information cost of a bit-flip probability; here it doubles as the security cliff."
   },
   {
    "type": "calc",
@@ -216,7 +228,8 @@
    "tolType": "rel",
    "framework": "SKR_norm=Psift[1-(1+fEC)H2(Q)-chiE]; EC-leakage term makes it hit 0 at Q~11%.",
    "steps": "H2(2e-4)~0.0027; 1-2*0.0027=0.9946; *0.5=0.497.",
-   "id": 13
+   "id": 13,
+   "detail": "Method: the v3 secret-key rate is SKR_norm = Psift*[1 - (1+fEC)H2(Q) - chiE]; at fEC = 1, chiE = 0 it becomes Psift*[1 - 2*H2(Q)]. With Q = 0.0002, H2 ~ 0.0027, so 1 - 2*0.0027 = 0.9946, times Psift = 0.5 gives ~0.497. Insight: at the corrected sub-0.02% QBER almost every sifted bit becomes secret key — the opposite of the pre-v3 story where low elevations breached threshold."
   },
   {
    "type": "calc",
@@ -230,7 +243,8 @@
    "tolType": "rel",
    "framework": "SKR_bps=SKR_norm*Rb; v3 @45 deg ~ 61 Mbps.",
    "steps": "0.497*1000 = 497 Mbps (illustrative; table value 61.4 uses the real Psift/QBER).",
-   "id": 14
+   "id": 14,
+   "detail": "Method: the normalized rate (bit/s/Hz) is scaled by the raw bit rate: SKR_bps = SKR_norm*Rb = 0.497*1e9 = 497 Mbps (illustrative). The real 61.4 Mbps table value uses the true Psift and QBER at 45 deg, but the scaling idea is identical. This is how an abstract information-theoretic fraction becomes an engineering throughput."
   },
   {
    "type": "calc",
@@ -244,7 +258,8 @@
    "tolType": "rel",
    "framework": "v3 fix: shot noise uses total DC photocurrent, not the m_K-scaled key power (was 20x too small).",
    "steps": "0.5*1*3.9e-4*0.0954 = 1.86e-5 W.",
-   "id": 15
+   "id": 15,
+   "detail": "Method: shot noise is driven by the TOTAL DC photocurrent, P = 0.5*P_T*hg*hl (NOT scaled by m_K). The v3 fix removed a stray m_K = 0.05 factor that had understated shot noise ~20x. Physically the shared photodetector sees the full received power; the key and data are only separated AFTER detection by the RF filter, so no single subcarrier's depth sets the shot noise."
   },
   {
    "type": "calc",
@@ -258,7 +273,8 @@
    "tolType": "rel",
    "framework": "sigma_CT^2 ~ 10^(-Iso/10)/8; better isolation cuts the dominant noise.",
    "steps": "10^(-1.5)=0.0316.",
-   "id": 16
+   "id": 16,
+   "detail": "Method: 10^(-Iso/10) = 10^(-1.5) = 0.0316 — the fraction of leaked data power that survives the 15 dB filter. It multiplies the cross-talk variance, so every extra 10 dB of isolation cuts cross-talk tenfold. Because cross-talk is the dominant noise at high elevation, filter isolation is a direct QBER lever, not a second-order detail."
   },
   {
    "type": "calc",
@@ -272,7 +288,8 @@
    "tolType": "rel",
    "framework": "sigma_R^2 ~ sec^(11/6)(zeta); turbulence worsens at low elevation.",
    "steps": "(2/1.1547)^(11/6)=2.74.",
-   "id": 17
+   "id": 17,
+   "detail": "Method: the Rytov variance carries a sec^(11/6)(zeta) factor, so the ratio between 60 and 30 deg zenith is (2/1.1547)^(11/6) = 2.74. The integral part is unchanged when only zeta varies, which is a nice self-check that the angular and vertical dependencies factorise. Practically: turbulence-induced scintillation worsens steeply as the satellite drops toward the horizon."
   },
   {
    "type": "calc",
@@ -286,7 +303,8 @@
    "tolType": "abs",
    "framework": "dB = 10 log10(linear); geometric loss ~ -36 dB.",
    "steps": "10*log10(2.6e-4) = -35.8 dB.",
-   "id": 18
+   "id": 18,
+   "detail": "Method: dB = 10*log10(linear); 10*log10(2.6e-4) = -35.85 dB. Master this conversion — the whole link budget is bookkept in dB because the multiplicative losses (hg*hl*ha) become an easy SUM in dB. A factor of 2 is +3 dB, a factor of 10 is +10 dB; internalising those makes link budgets mental arithmetic."
   },
   {
    "type": "calc",
@@ -300,7 +318,8 @@
    "tolType": "rel",
    "framework": "R_cov=R_E*psi, psi=arccos(R_E/(R_E+h) cos e)-e; the 950 km 'radius' in old paper was slant range.",
    "steps": "R_cov(30 deg)=793 km.",
-   "id": 19
+   "id": 19,
+   "detail": "Method: R_cov = R_E*psi with psi = arccos(R_E/(R_E+h)*cos(e)) - e; at a 30 deg mask this gives 793 km. Note: the old paper mislabelled 950 km (the SLANT range) as the ground radius — the true footprint on the ground is smaller. This radius decides which cities a single pass can physically reach."
   },
   {
    "type": "calc",
@@ -314,7 +333,8 @@
    "tolType": "rel",
    "framework": "Stricter mask -> smaller footprint (~28% loss) but safer QBER.",
    "steps": "R_cov(40 deg)=573 km.",
-   "id": 20
+   "id": 20,
+   "detail": "Method: same formula at a 40 deg mask gives 573 km. The stricter security mask shrinks the footprint by ~28% in radius (~48% in area) versus 30 deg. That is the concrete price of insisting on higher-elevation, cleaner-QBER passes — fewer city pairs can be served at once."
   },
   {
    "type": "calc",
@@ -328,7 +348,8 @@
    "tolType": "rel",
    "framework": "classify_pair: DUAL if distance <= 2*R_cov; the 14/14 split threshold.",
    "steps": "2*793 = 1587 km.",
-   "id": 21
+   "id": 21,
+   "detail": "Method: two stations can share one pass only if both footprint circles overlap, i.e. their separation is at most 2*R_cov = 1587 km at the 30 deg mask. This single threshold is what splits the 28 ASEAN city pairs into DUAL versus store-and-forward. Geometry, not scheduling, sets this ceiling."
   },
   {
    "type": "calc",
@@ -342,7 +363,8 @@
    "tolType": "rel",
    "framework": "Stricter mask shrinks the DUAL threshold too.",
    "steps": "2*573 = 1146 km.",
-   "id": 22
+   "id": 22,
+   "detail": "Method: at the 40 deg mask the DUAL threshold tightens to 2*573 = 1146 km. So raising the mask not only shrinks coverage but also RECLASSIFIES some previously-DUAL pairs as store-and-forward. It is a clean example of how a security choice cascades into the network topology."
   },
   {
    "type": "calc",
@@ -356,7 +378,8 @@
    "tolType": "rel",
    "framework": "Zero at zenith, grows as elevation drops; the transmit-side pointing angle.",
    "steps": "sin eta=6371*cos30/6921=0.797 -> eta=52.8 deg.",
-   "id": 23
+   "id": 23,
+   "detail": "Method: the transmit-side pointing angle obeys sin(eta) = R_E cos(e)/(R_E+h); at 30 deg elevation eta = 52.9 deg. It is the angle from nadir the satellite must slew to. Larger off-nadir angles (low passes) stress the pointing/acquisition/tracking system and are part of why low elevations are costly."
   },
   {
    "type": "calc",
@@ -370,7 +393,8 @@
    "tolType": "abs",
    "framework": "At the station's zenith the line of sight IS the nadir direction.",
    "steps": "eta=0 deg.",
-   "id": 24
+   "id": 24,
+   "detail": "Method: at the zenith (elevation 90) the ground station lies directly below the satellite, so the line of sight IS the nadir direction and eta = 0. This is the pointing-easy, loss-minimal geometry. It anchors the off-nadir formula the same way L = H_S anchors the slant range."
   },
   {
    "type": "calc",
@@ -384,7 +408,8 @@
    "tolType": "rel",
    "framework": "haversine is symmetric; DUAL/SF classification uses this distance.",
    "steps": "~1140 km.",
-   "id": 25
+   "id": 25,
+   "detail": "Method: the haversine formula gives the great-circle distance Hanoi-HCMC ~1138 km. It depends only on the two lat/lon pairs and is symmetric, so it is used to CLASSIFY pairs (DUAL/SF). Contrast with store-and-forward LATENCY, which is directional because it depends on the satellite's ascending/descending heading."
   },
   {
    "type": "calc",
@@ -398,7 +423,8 @@
    "tolType": "rel",
    "framework": "Compare distance (~1140 km) to 2*R_cov(30)=1587 km -> DUAL (1140<1587).",
    "steps": "Threshold 1587 km; 1140<1587 -> DUAL.",
-   "id": 26
+   "id": 26,
+   "detail": "Method: compare the 1138 km distance to the DUAL threshold 2*R_cov(30) = 1587 km; since 1138 < 1587, Hanoi-HCMC is a DUAL pair. This is exactly the test build_pairwise_matrices runs for all 28 pairs. It shows the two anchor cities of the study can be served by one satellite pass."
   },
   {
    "type": "calc",
@@ -412,7 +438,8 @@
    "tolType": "abs",
    "framework": "elevation = 90 - zenith; the two complementary receive-side angles.",
    "steps": "90-55 = 35 deg.",
-   "id": 27
+   "id": 27,
+   "detail": "Method: elevation and zenith are complementary, elevation = 90 - zenith = 35 deg. Keeping the two straight avoids a common sign error, since the physics formulas mix them (attenuation uses zeta, coverage uses elevation e). Always state which one you mean."
   },
   {
    "type": "calc",
@@ -426,7 +453,8 @@
    "tolType": "rel",
    "framework": "pass_frequency_per_day extrapolates the enumerated window.",
    "steps": "125*12 = 1500 passes/day.",
-   "id": 28
+   "id": 28,
+   "detail": "Method: extrapolate the observed count over the window, freq = count*(24/hours) = 125*12 = 1500 passes/day/station. The huge pass frequency (with only ~3 satellites simultaneously visible and ~204 s per pass) reflects how fast LEO satellites sweep past low-latitude ASEAN. Frequent-but-short passes shape the scheduling problem."
   },
   {
    "type": "calc",
@@ -440,7 +468,8 @@
    "tolType": "abs",
    "framework": "28 pairs to serve with 8 stations -> structural starvation.",
    "steps": "8*7/2 = 28.",
-   "id": 29
+   "id": 29,
+   "detail": "Method: pairs among 8 stations = C(8,2) = 8*7/2 = 28. This tiny combinatorial fact is the root of pair-starvation: 8 stations must feed 28 city pairs, so on most days at least one pair is starved regardless of algorithm. Capacity, not cleverness, is the binding constraint."
   },
   {
    "type": "calc",
@@ -454,7 +483,8 @@
    "tolType": "rel",
    "framework": "Area ~ radius^2; the security mask's coverage cost.",
    "steps": "1-(573/793)^2 = ~48% area (about 28% radius).",
-   "id": 30
+   "id": 30,
+   "detail": "Method: coverage AREA scales as radius^2, so going 30->40 deg cuts area by 1-(573/793)^2 ~ 48% (about 28% in radius). This quantifies the security-vs-coverage trade: a safer QBER margin costs roughly half the instantaneous footprint. It is a headline number for justifying the 30 deg operating choice."
   },
   {
    "type": "calc",
@@ -468,7 +498,8 @@
    "tolType": "rel",
    "framework": "A=p_clear+p_rain=1-P_cloud; invariant to rain fraction; worst cell in the dataset.",
    "steps": "A=1-0.893=0.107 (10.7%).",
-   "id": 31
+   "id": 31,
+   "detail": "Method: availability is simply A = 1 - P_cloud; Kuala Lumpur in November has P_cloud = 0.893, so A = 0.107 (10.7%) — the WORST cell in the dataset. Insight: A is invariant to the rain fraction (rain only moves probability between the clear and rain states), so cloud alone governs it. This is the empirical core of the 'cloud, not rain' finding."
   },
   {
    "type": "calc",
@@ -482,7 +513,8 @@
    "tolType": "rel",
    "framework": "Best cell; A=1-P_cloud=0.965; driven by cloud, not rain.",
    "steps": "A=0.965 (96.5%).",
-   "id": 32
+   "id": 32,
+   "detail": "Method: A = 1 - 0.035 = 0.965 (96.5%) at Bangkok in February — the BEST cell. Together with the KL extreme it bookends the headline 10.7%-96.5% range. That both extremes are tropical ASEAN cities in the same constellation shows how strongly local climate, not orbit, dictates optical availability."
   },
   {
    "type": "calc",
@@ -496,7 +528,8 @@
    "tolType": "rel",
    "framework": "Tropical rain is intermittent; intensity concentrates in raining hours.",
    "steps": "313.2/108 = 2.90 mm/h.",
-   "id": 33
+   "id": 33,
+   "detail": "Method: convert a monthly total to an instantaneous rate by spreading it over the raining hours only, R = R_month/(30*24*f_rain) = 313.2/108 = 2.90 mm/h at f_rain = 0.15. If you divided by all hours you would badly underestimate the intensity, since tropical rain is intermittent and heavy. The f_rain fraction is the bridge between climatology and channel physics."
   },
   {
    "type": "calc",
@@ -510,7 +543,8 @@
    "tolType": "rel",
    "framework": "Larger f_rain spreads rain over more hours -> lower instantaneous intensity.",
    "steps": "313.2/216 = 1.45 mm/h.",
-   "id": 34
+   "id": 34,
+   "detail": "Method: with the real f_rain = 0.30 the same monthly total gives R = 313.2/216 = 1.45 mm/h — half the value. Larger f_rain means the rain is spread over more hours, so each raining hour is gentler. This is why the flat 0.15 assumption was replaced by real per-city/month fractions from ERA5."
   },
   {
    "type": "calc",
@@ -524,7 +558,8 @@
    "tolType": "rel",
    "framework": "When cloud is very high, p_rain is capped by (1-P_cloud).",
    "steps": "min(0.30,0.107)=0.107.",
-   "id": 35
+   "id": 35,
+   "detail": "Method: p_rain = min(f_rain, 1 - P_cloud) = min(0.30, 0.107) = 0.107 at Kuala Lumpur in November. The min() caps rain by the non-cloud time available: if it is cloudy 89% of the time, there is at most 11% left for any rain state. This coupling keeps the three probabilities consistent."
   },
   {
    "type": "calc",
@@ -538,7 +573,8 @@
    "tolType": "rel",
    "framework": "Three-state split; clear gets what's left after cloud and rain.",
    "steps": "p_rain=0.30; p_clear=1-0.5-0.30=0.20.",
-   "id": 36
+   "id": 36,
+   "detail": "Method: p_clear = max(0, 1 - P_cloud - p_rain) = 1 - 0.5 - 0.30 = 0.20. The three states partition the month: clear + rain + cloud = 1. Clear gets whatever is left after cloud (link off) and rain (attenuated) are removed."
   },
   {
    "type": "calc",
@@ -552,7 +588,8 @@
    "tolType": "rel",
    "framework": "Cloud state contributes 0; weighted average over clear+rain.",
    "steps": "0.20*61+0.30*5 = 13.7 Mbps.",
-   "id": 37
+   "id": 37,
+   "detail": "Method: SKR_eff = p_clear*SKR_clear + p_rain*SKR_rain = 0.20*61 + 0.30*5 = 13.7 Mbps; the cloud state contributes zero. This weighted average is how a single-link clear-sky rate becomes a realistic delivered rate. It also shows why availability (which state you are in) matters more than the peak SKR."
   },
   {
    "type": "fill",
@@ -569,7 +606,8 @@
    ],
    "unit": "%",
    "framework": "CLOUD_OUTAGE_THRESHOLD=85%; a modelling choice with a sensitivity analysis.",
-   "id": 38
+   "id": 38,
+   "detail": "The 85% total-cloud-cover threshold (CLOUD_OUTAGE_THRESHOLD) defines a 'cloudy hour' where the optical link is treated as OFF. It is a modelling choice, not a law of nature, so Annex A sweeps it to show the headline conclusions are robust to reasonable changes. Choosing a threshold is exactly the kind of assumption a careful reviewer probes — hence the sensitivity analysis."
   },
   {
    "type": "fill",
@@ -587,7 +625,8 @@
    ],
    "unit": "years",
    "framework": "2015-2024; long record captures interannual variability.",
-   "id": 39
+   "id": 39,
+   "detail": "Ten years (2015-2024) of hourly ERA5/ERA5-Land reanalysis calibrate the weather model. A decade is long enough to average out interannual variability (the 6-year version differed by up to 0.12 in P_cloud), which is why the record was extended. Real reanalysis, not hand-tuned numbers, is what lets the availability claims stand up to a remote-sensing examiner."
   },
   {
    "type": "fill",
@@ -607,7 +646,8 @@
    ],
    "unit": "local",
    "framework": "Cloud lowest mid-morning, rain peaks afternoon -> best window ~05-10h, in DAYLIGHT (day/night tension).",
-   "id": 40
+   "id": 40,
+   "detail": "The best combined cloud+rain window is mid-morning, roughly 05:00-10:00 local — in DAYLIGHT. This is because total cloud peaks near dawn/overnight and dissipates by mid-morning, while convective rain peaks in the afternoon; the two minima overlap mid-morning. It creates the unresolved day/night tension: the clearest sky is exactly when a QKD receiver most fears background sunlight."
   },
   {
    "type": "fill",
@@ -624,7 +664,8 @@
    ],
    "unit": "",
    "framework": "Cloud is total optical blockage; rain only attenuates. The core meteorological finding.",
-   "id": 41
+   "id": 41,
+   "detail": "Cloud, not rain, governs tropical optical availability, because at optical wavelengths thick cloud is total blockage while rain only attenuates. This is the single most important meteorological finding of the thesis and the reason RF satcom (which passes through cloud) and optical QKD behave so differently in the tropics. Availability A = 1 - P_cloud makes the dependence explicit."
   },
   {
    "type": "fill",
@@ -641,7 +682,8 @@
    ],
    "unit": "",
    "framework": "Kone et al. 2024; real tropical FSO measurements, defensible under a remote-sensing examiner.",
-   "id": 42
+   "id": 42,
+   "detail": "The rain-attenuation coefficients alpha = 0.509, rho = 0.63 come from real FSO measurements in Abidjan, Cote d'Ivoire (Kone et al. 2024) — a genuinely tropical site. Using measured tropical constants rather than temperate ITU defaults is a deliberate, defensible choice a geophysics/remote-sensing examiner will respect. It anchors the rain model to data."
   },
   {
    "type": "fill",
@@ -661,7 +703,8 @@
    ],
    "unit": "",
    "framework": "Table 6.1 v3 at m_K=0.15; up from pre-v3 13.3 Mbps after the /8 cross-talk fix.",
-   "id": 43
+   "id": 43,
+   "detail": "The v3 secret key rate at 45 deg elevation is ~61.4 Mbps (up from the pre-v3 13.3 Mbps). The jump came mainly from the cross-talk /8 fix, which quartered the dominant noise, plus resetting m_K to 0.15. Remember this as the headline single-link number — but always follow it with the caveat that delivered NETWORK key is far lower once weather and scheduling are applied."
   },
   {
    "type": "fill",
@@ -679,7 +722,8 @@
    ],
    "unit": "",
    "framework": "Modest but real coordination gain over 620 enumerated days.",
-   "id": 44
+   "id": 44,
+   "detail": "Coordinating the 8 stations (ALG-1 vs the naive ALG-0 baseline) gains +2.47% in the dry season, over a fair full-enumeration of 620 real days. It is deliberately modest and honest: the min()-bottleneck along each pair path caps how much any matching can help. State the baseline in the same breath as the gain — that fairness is the point."
   },
   {
    "type": "fill",
@@ -697,7 +741,8 @@
    ],
    "unit": "",
    "framework": "-0.29%/-0.23%: weather-awareness re-assigns more -> handovers outweigh the benefit.",
-   "id": 45
+   "id": 45,
+   "detail": "The weather-information gain is NEGATIVE (about -0.29%/-0.23%): adding weather-awareness on top of coordination slightly COSTS delivered key. Mechanism: a weather-aware scheduler re-assigns stations more often, and each re-assignment burns a real 30 s acquisition handover that outweighs the benefit of chasing a clearer satellite. It is a measured effect (handovers were counted directly), robust in sign across seasons and m_K values — a genuine, non-obvious finding, not a bug."
   },
   {
    "type": "fill",
@@ -716,7 +761,8 @@
    ],
    "unit": "",
    "framework": "Structural (8 stations / 28 pairs), unchanged across every correction round.",
-   "id": 46
+   "id": 46,
+   "detail": "On 91.6-96.5% of days at least one of the 28 city pairs receives ZERO usable key, regardless of algorithm. This pair-starvation is structural — 8 stations cannot feed 28 pairs — and stayed essentially unchanged through every physics correction, which is exactly what confirms it is a capacity limit, not a formula artefact. The engineering fix is more ground stations, not smarter scheduling."
   },
   {
    "type": "fill",
@@ -732,7 +778,8 @@
    ],
    "unit": "",
    "framework": "Ground-track radius (NOT the 950 km slant range of the old paper).",
-   "id": 47
+   "id": 47,
+   "detail": "The ground-coverage radius at the 30 deg mask is 793 km. Do not confuse it with the ~950 km SLANT range the original paper text mislabelled — the footprint on the ground is smaller than the line-of-sight distance. This radius, doubled, is the DUAL/SF threshold."
   },
   {
    "type": "fill",
@@ -748,7 +795,8 @@
    ],
    "unit": "",
    "framework": "~28% smaller footprint than 30 deg, for a safer QBER margin.",
-   "id": 48
+   "id": 48,
+   "detail": "At the 40 deg security mask the coverage radius drops to 573 km. The 30->40 deg tightening is the coverage-vs-security trade: ~28% less radius for a QBER margin that keeps low passes secure. Knowing both numbers lets you argue either operating point."
   },
   {
    "type": "fill",
@@ -763,7 +811,8 @@
    ],
    "unit": "pairs",
    "framework": "The other 14 are store-and-forward; a clean geographic split.",
-   "id": 49
+   "id": 49,
+   "detail": "14 of the 28 pairs are DUAL (both cities fit under one satellite pass); the other 14 need store-and-forward relay. The clean 14/14 split is set purely by geography and the coverage radius, and it is a ceiling no scheduler can lift. It frames the whole scheduling problem: half the pairs are 'easy', half need a trusted relay."
   },
   {
    "type": "fill",
@@ -780,7 +829,8 @@
    ],
    "unit": "satellites",
    "framework": "Filtered by inclination 53.15-53.22 deg; real, reproducible TLEs.",
-   "id": 50
+   "id": 50,
+   "detail": "1,019 real Starlink Shell-1 satellites are used, filtered from the live catalogue by inclination 53.15-53.22 deg. Using ONE homogeneous shell keeps the single-altitude channel model valid and the analysis reproducible; the trade-off is ignoring ~9,000 other satellites, which the thesis flags as future work. The honest defense answer is 'my model is parameterised for one altitude', not 'this shell is special to ASEAN'."
   },
   {
    "type": "fill",
@@ -797,7 +847,8 @@
    ],
    "unit": "deg",
    "framework": "Covers ~95% of world population incl. all ASEAN; launch-efficient from Cape Canaveral.",
-   "id": 51
+   "id": 51,
+   "detail": "Shell-1's inclination is ~53 deg, so its satellites reach a maximum latitude of 53 deg N/S — covering ~95% of the world population, including all of ASEAN. SpaceX chose 53 deg for launch efficiency from Cape Canaveral and market coverage, not for ASEAN specifically. At low ASEAN latitudes the satellites sweep fast overhead, giving many short passes."
   },
   {
    "type": "fill",
@@ -812,7 +863,8 @@
    ],
    "unit": "km",
    "framework": "The channel model is parameterised for this single altitude.",
-   "id": 52
+   "id": 52,
+   "detail": "The satellite altitude is fixed at 550 km throughout — the Shell-1 value and the modern mega-constellation sweet spot (low latency, manageable drag). The channel model is calibrated for this one altitude, which is precisely why multi-shell analysis would need altitude-dependent SKR tables. For reference, GEO comms sit at 35,786 km and the ISS at ~400 km."
   },
   {
    "type": "fill",
@@ -828,7 +880,8 @@
    ],
    "unit": "nm",
    "framework": "Telecom C-band: eye-safe, low loss, mature components, weak aerosol scattering.",
-   "id": 53
+   "id": 53,
+   "detail": "The carrier wavelength is 1550 nm (telecom C-band). It is eye-safe at higher power, sits in a low-loss atmospheric window, scatters less off aerosols than visible light, and reuses cheap mature telecom optics — four independent reasons the whole field converges on it. A quantum lab optimising for single-photon-detector efficiency might pick shorter wavelengths, a tension this direct-detection design avoids."
   },
   {
    "type": "fill",
@@ -844,7 +897,8 @@
    ],
    "unit": "",
    "framework": "Reset from 0.05 to the source manuscript's feasible value; drops QBER below 10^-3.",
-   "id": 54
+   "id": 54,
+   "detail": "The corrected key modulation index is m_K = 0.15, reset from an earlier 0.05. The source SIKD manuscript's own feasible region opens for m_K >= 0.1 at 15 dB isolation, and 0.15 pushes QBER below even the stricter 10^-3 target while leaving power for the data channel. This single parameter change is one of the two reasons v3 QBER is so much lower than pre-v3."
   },
   {
    "type": "fill",
@@ -860,7 +914,8 @@
    ],
    "unit": "",
    "framework": "Finite isolation lets the data channel leak in as cross-talk.",
-   "id": 55
+   "id": 55,
+   "detail": "Filter isolation is 15 dB. It quantifies how well the RF/optical filter separates the key and data subcarriers; the finite value is exactly why the data channel leaks into the key receiver as cross-talk. Because cross-talk dominates at high elevation, this 15 dB is one of the most consequential system parameters in the design."
   },
   {
    "type": "fill",
@@ -877,7 +932,8 @@
    ],
    "unit": "",
    "framework": "Every re-assignment loses 30 s of delivered key (v3).",
-   "id": 56
+   "id": 56,
+   "detail": "Every handover is charged its real 30 s acquisition/re-tracking cost. This is what makes the weather-information comparison fair: a scheduler that re-assigns more often must pay for the key lost during each 30 s re-acquisition. Charging it honestly is why weather-awareness shows a small net COST rather than a free gain."
   },
   {
    "type": "fill",
@@ -893,7 +949,8 @@
    ],
    "unit": "",
    "framework": "1-2*H2(Q)=0 at Q~0.11; the Shor-Preskill threshold.",
-   "id": 57
+   "id": 57,
+   "detail": "The BB84 security threshold is QBER = 11%: above it, no positive secret key can be distilled. Mathematically 1 - 2*H2(Q) hits zero there, which is why the error-correction leakage term had to be added to the v3 SKR formula. Unlike a classical BER (where 10^-3 is merely 'poor'), 11% here is a hard wall."
   },
   {
    "type": "match",
@@ -918,7 +975,8 @@
    "leftLabel": "Examiner",
    "rightLabel": "Field",
    "framework": "Bridge each part of the thesis to the examiner's own field; they are space-science generalists, not QKD specialists.",
-   "id": 58
+   "id": 58,
+   "detail": "Patanchon (APC) is a CMB detector-noise and component-separation expert; Jacquemoud (IPGP) is a radiative-transfer/remote-sensing authority (author of PROSPECT); Rosset (IN2P3/APC) works on Planck statistical significance. The strategy is to bridge each part of your thesis to the examiner's OWN field, since none of them are QKD specialists. Getting these mappings automatic lets you tailor answers on the fly."
   },
   {
    "type": "match",
@@ -943,7 +1001,8 @@
    "leftLabel": "Examiner",
    "rightLabel": "Bridge",
    "framework": "Speak each examiner's mother tongue; do not assume QKD fluency.",
-   "id": 59
+   "id": 59,
+   "detail": "For Jacquemoud, frame the atmosphere as 'Beer-Lambert = atmospheric correction / radiative transfer'; for Patanchon, frame the receiver as a 'noise budget with cross-talk = component separation'; for Rosset, frame the result as 'paired significance on a full enumeration + block bootstrap'. Speaking each examiner's mother tongue turns unfamiliar QKD into familiar territory. Rehearse these three one-liners until they are reflexive."
   },
   {
    "type": "match",
@@ -968,7 +1027,8 @@
    "leftLabel": "Examiner",
    "rightLabel": "Trap question",
    "framework": "The three trap questions; master the MECHANISM, not just the number.",
-   "id": 60
+   "id": 60,
+   "detail": "The three trap questions map one-to-one to the examiners: Jacquemoud will ask why Beer-Lambert suffices without multiple scattering; Patanchon why cross-talk dominates a STRONG link; Rosset whether +2.5% is significant or just scatter. Master the MECHANISM behind each answer, not the number — that is what a science panel tests. These three are the highest-leverage items to over-prepare."
   },
   {
    "type": "match",
@@ -996,7 +1056,8 @@
    "leftLabel": "Reference",
    "rightLabel": "Role",
    "framework": "Each citation anchors one layer of the work; know which paper does what.",
-   "id": 61
+   "id": 61,
+   "detail": "Vu et al. 2022 supplies the noise model and dual-threshold rule (its BBM92 provenance is the honest caveat); Kone 2024 supplies the tropical rain calibration; Polnik 2020 is the nearest scheduling precedent; Liao 2017 is Micius, the first satellite QKD from LEO. Knowing which paper anchors which layer lets you cite precisely under pressure. Precise citation is a credibility signal to a research panel."
   },
   {
    "type": "match",
@@ -1024,7 +1085,8 @@
    "leftLabel": "Reference",
    "rightLabel": "Role",
    "framework": "The physics, security, daytime, and weather anchors respectively.",
-   "id": 62
+   "id": 62,
+   "detail": "Andrews & Phillips 2005 anchors the Rytov variance and H-V turbulence profile; Leverrier 2015 is the composable-security proof you cite as future work; Gruneisen 2015 is the daytime sky-access reference for the day/night tension; Open-Meteo/ERA5 is the 10-year weather source. These four cover the physics, security, daytime, and weather corners of the argument. Each is a ready answer to a 'where did that come from?' challenge."
   },
   {
    "type": "match",
@@ -1052,7 +1114,8 @@
    "leftLabel": "Reference",
    "rightLabel": "Role",
    "framework": "The engineering/context anchors; each justifies one modelling choice or positioning.",
-   "id": 63
+   "id": 63,
+   "detail": "Schieler 2023 (TBIRD) justifies the small-aperture SWaP regime; Gerard 2025 (PAT) justifies charging a 30 s handover; Farid & Hranilovic 2007 covers the pointing-error term you deliberately omit (so hg is a lower bound); 3GPP TR 38.821 frames the non-terrestrial-network context. These are the engineering-choice anchors: each one defends a specific modelling decision. Have them ready for 'why did you assume X?' questions."
   },
   {
    "type": "match",
@@ -1080,7 +1143,8 @@
    "leftLabel": "Reference",
    "rightLabel": "Role",
    "framework": "Foundations, security framework, and the two nearest 'cheap-sats' / 'weather-aware' precedents.",
-   "id": 64
+   "id": 64,
+   "detail": "Bennett & Brassard 1984 is BB84 (the basis of your SKR rate); Scarani 2009 is the practical-security framework; Li 2025 (Jinan-1) is microsatellite real-time QKD (cheap sats); Toka 2025 is weather-aware LEO routing for classical data. Together they place your work in the QKD landscape: foundations, security, the cheap-sat trend, and the weather-aware precedent. This mapping answers 'how is this different from prior work?'."
   },
   {
    "type": "match",
@@ -1105,7 +1169,8 @@
    "leftLabel": "Examiner",
    "rightLabel": "Unlikely focus",
    "framework": "Audience analysis: aim answers at each examiner's strengths, keep others high-level.",
-   "id": 65
+   "id": 65,
+   "detail": "Son Tong Si (a USTH generalist) is unlikely to probe deep QKD math and will instead ask motivation and big-picture questions; Jacquemoud will not dwell on the Hungarian algorithm; Rosset will not chase beam-optics derivations. Knowing what each examiner will NOT focus on lets you pitch each answer at the right depth. Aim answers at strengths, keep the rest high-level."
   },
   {
    "type": "fill",
@@ -1120,7 +1185,8 @@
    ],
    "unit": "",
    "framework": "IPGP radiative-transfer expert; will scrutinise the atmospheric model most.",
-   "id": 66
+   "id": 66,
+   "detail": "The internal supervisor named Jacquemoud (IPGP) as the likely primary reviewer. As a radiative-transfer/remote-sensing expert he will scrutinise the atmospheric model most closely, so the Beer-Lambert, visibility, rain, and ERA5 parts must be airtight. Prepare his three likely questions (single-scattering, visibility model, ERA5 cloud threshold) first."
   },
   {
    "type": "fill",
@@ -1136,7 +1202,8 @@
    ],
    "unit": "",
    "framework": "Leaf radiative-transfer model 400-2500 nm; his home ground is extinction/attenuation.",
-   "id": 67
+   "id": 67,
+   "detail": "Jacquemoud is the author of PROSPECT (and PROSAIL), the classic leaf radiative-transfer models spanning 400-2500 nm. His home ground is optical extinction/attenuation through a scattering-absorbing medium — exactly the physics of your h_l term. Framing your atmosphere as 'the same radiative transfer you pioneered' is the strongest possible bridge to him."
   },
   {
    "type": "fill",
@@ -1152,7 +1219,8 @@
    ],
    "unit": "",
    "framework": "Liao et al. 2017, Nature 549:43; the existence proof QKD works from orbit.",
-   "id": 68
+   "id": 68,
+   "detail": "Micius (Liao et al. 2017, Nature) is the canonical first satellite QKD from LEO — the existence proof that space QKD works. Cite it in the motivation to establish that the idea is proven, then pivot to your distinct question: a NETWORK of cheap tropical stations under real cloud, not a single clean high-power link. It legitimises the field while setting up your novelty."
   },
   {
    "type": "fill",
@@ -1168,7 +1236,8 @@
    ],
    "unit": "references",
    "framework": "Built directly from the thesis references.bib, mapped to role + examiner.",
-   "id": 69
+   "id": 69,
+   "detail": "34 real references are catalogued in the literature review, built directly from the thesis references.bib and mapped to both their role in the work and the examiner they speak to. Knowing the count and structure signals you have genuinely surveyed the field. It also means any 'have you considered X?' likely already has a slot in your map."
   },
   {
    "type": "fill",
@@ -1184,7 +1253,8 @@
    ],
    "unit": "",
    "framework": "Flag limitations proactively; the maturity signal that wins a science panel.",
-   "id": 70
+   "id": 70,
+   "detail": "With a non-QKD panel the winning strategy is INTEGRITY: report fairly-compared results, flag limitations proactively (the negative weather gain, the day/night tension, the borrowed BB84 threshold), and never oversell. A science committee rewards a mature, honest account over a big headline number. Leading with your own caveats disarms the toughest questions."
   },
   {
    "type": "fill",
@@ -1200,7 +1270,8 @@
    ],
    "unit": "",
    "framework": "Concede Beer-Lambert is first-order; justify cloud=outage -> no multiple scattering needed.",
-   "id": 71
+   "id": 71,
+   "detail": "Jacquemoud's prepared answer: 'I treat cloud as a BINARY outage, so multiple scattering only refines an already-lost state.' You concede Beer-Lambert is a single-scattering, first-order model, then justify that for clear/rain a narrow line-of-sight beam is extinction-dominated, and for cloud the link is simply off. This turns a potential weakness into a defensible modelling choice."
   },
   {
    "type": "fill",
@@ -1217,7 +1288,8 @@
    ],
    "unit": "",
    "framework": "Full enumeration (620 days) -> no sampling error; paired day-by-day test isolates the ~2.5% effect.",
-   "id": 72
+   "id": 72,
+   "detail": "Rosset's prepared answer: 'It is not a random sample — I ENUMERATE every day in two 10-year proxy months (620 days), so there is no sampling error in the mean.' You then add the paired day-by-day test (same weather, only the algorithm changes) that isolates the ~2.5% effect, and the block bootstrap that handles autocorrelation. This is the statistically literate defense of a small number."
   },
   {
    "type": "order",
@@ -1239,7 +1311,8 @@
     4
    ],
    "framework": "compute_sikd_performance wrapper: each stage feeds the next; SKR is the end product.",
-   "id": 73
+   "id": 73,
+   "detail": "The SIKD pipeline runs channel (hg, hl, sigmaX^2) -> noise budget -> dual-threshold (d0,d1) -> Psift & QBER (Gauss-Hermite) -> SKR. Each stage strictly feeds the next: you cannot set thresholds without the noise, or get QBER without the thresholds. Knowing the order lets you locate any question ('where does turbulence enter?') on the chain instantly."
   },
   {
    "type": "order",
@@ -1261,7 +1334,8 @@
     4
    ],
    "framework": "h = h_g * h_l * h_a; three independent multiplicative loss mechanisms.",
-   "id": 74
+   "id": 74,
+   "detail": "The FSO channel factors apply in physical order from the transmitter: P_T -> geometric spreading h_g -> atmospheric attenuation h_l -> turbulence fading h_a -> received power. They multiply (h = h_g*h_l*h_a) because they are independent loss mechanisms acting in sequence along the beam. In dB they simply add, which is why link budgets are done in dB."
   },
   {
    "type": "order",
@@ -1279,7 +1353,8 @@
     2
    ],
    "framework": "Three-state model; cloud is binary outage, not gradual attenuation.",
-   "id": 75
+   "id": 75,
+   "detail": "The three weather states rank by increasing severity: clear (attenuation only) -> rain (added attenuation) -> cloud (link OFF). Cloud is a binary outage, not a deeper fade, which is the modelling decision that makes availability A = 1 - P_cloud. Ordering them clarifies why cloud, not rain, dominates."
   },
   {
    "type": "order",
@@ -1299,7 +1374,8 @@
     3
    ],
    "framework": "Level 1 matching -> level 2 allocation on a shared trusted-relay satellite.",
-   "id": 76
+   "id": 76,
+   "detail": "Scheduling is two nested levels in order: station-satellite matching (Hungarian) -> build the matched pass table -> pair-key allocation (greedy/ILP/maxmin) -> compute K_q = min(sideA, sideB). Level 1 decides who tracks whom; level 2 routes the resulting key to city pairs on a shared trusted relay. The min() at the end is where the structural bottleneck lives."
   },
   {
    "type": "order",
@@ -1317,7 +1393,8 @@
     2
    ],
    "framework": "Cross-talk ~ received power squared -> dominates exactly when the link is strongest.",
-   "id": 77
+   "id": 77,
+   "detail": "Rank the noise terms by when each dominates from weak to strong link: thermal noise (the floor, when the signal is weak) -> shot noise (grows with power) -> cross-talk (~P^2, dominant when the link is STRONGEST). The counter-intuitive part is that a stronger link brings proportionally MORE cross-talk, so 'thermal-dominated' is only true near 30 deg. This ordering is the essence of the SIKD noise story."
   },
   {
    "type": "fill",
@@ -1337,7 +1414,8 @@
    ],
    "unit": "",
    "framework": "E[e^{2X}]=exp(2 mu_X+2 sigma_X^2)=1 requires mu_X=-sigma_X^2 (unit-mean multiplicative fading).",
-   "id": 78
+   "id": 78,
+   "detail": "For log-normal fading h_a = exp(2X) with X ~ N(mu_X, sigma_X^2), setting mu_X = -sigma_X^2 forces E[h_a] = 1. Derivation: E[e^{2X}] = exp(2 mu_X + 2 sigma_X^2), which equals 1 only when mu_X = -sigma_X^2. This is the energy-conservation condition — turbulence should redistribute intensity, not add or remove average power."
   },
   {
    "type": "fill",
@@ -1353,7 +1431,8 @@
    ],
    "unit": "",
    "framework": "1-2*H2(Q)=0 at Q~0.11; the term added in the v3 SKR fix restores this.",
-   "id": 79
+   "id": 79,
+   "detail": "The secret-key formula reaches zero at QBER = 11% because 1 - 2*H2(0.11) ~ 0. The factor of 2 comes from subtracting BOTH the mutual-information deficit H2(Q) and the error-correction leakage f_EC*H2(Q); the v3 fix added the missing leakage term so the rate correctly hits zero at the Shor-Preskill threshold instead of at 50%. It is the single most important line of the SKR derivation."
   },
   {
    "type": "fill",
@@ -1371,7 +1450,8 @@
    ],
    "unit": "",
    "framework": "sigma_CT^2 ~ (h_g h_l)^2 -> P^2; the counter-intuitive SIKD result.",
-   "id": 80
+   "id": 80,
+   "detail": "Cross-talk variance scales as received power SQUARED (P^2), because sigma_CT^2 ~ (h_g h_l)^2 while the key signal scales as h_g h_l (power 1). The consequence is profound: cross-talk dominates exactly when the link is strong, the opposite of ordinary noise. This single exponent is the defining quirk of multiplexing data and key on one detector."
   },
   {
    "type": "fill",
@@ -1387,7 +1467,8 @@
    ],
    "unit": "",
    "framework": "Photocurrent's leading 1/2 makes amplitude (1/2)(...); variance A^2/2 -> /8.",
-   "id": 81
+   "id": 81,
+   "detail": "The v3 cross-talk coefficient changed from /2 to /8. Reason: the photocurrent carries a leading 1/2, so the leaking data sinusoid has amplitude (1/2)*Re*P_T*m_D*h_g*h_l, and the variance of a sinusoid of amplitude A is A^2/2 — giving (...)^2/8, a factor of 4 (+6 dB) smaller than the old /2. This was the single highest-impact fix: it quartered the dominant noise and roughly quartered QBER."
   },
   {
    "type": "fill",
@@ -1403,7 +1484,8 @@
    ],
    "unit": "",
    "framework": "K_q=min(sideA,sideB); one weak link caps the improvement -> structural ceiling.",
-   "id": 82
+   "id": 82,
+   "detail": "Delivered pair key is a MIN() over the pair path: K_q = min(sideA total, sideB total), under the trusted-relay model where the satellite XORs both stations' keys. A pair can only use as much key as its WORSE-served side received, so one weak link caps everything. This min() is the structural ceiling that limits how much any scheduling cleverness can help."
   },
   {
    "type": "fill",
@@ -1420,7 +1502,8 @@
    ],
    "unit": "",
    "framework": "Measured mechanism (I counted the handovers directly), not a bug; small, same sign both seasons.",
-   "id": 83
+   "id": 83,
+   "detail": "Weather-awareness costs because it re-assigns stations more often, and the extra HANDOVERS (each a real 30 s re-acquisition) outweigh the benefit of chasing a clearer satellite. The mechanism was measured directly by counting handovers, not inferred, which is why the small negative gain is credible rather than a bug. Deliver this answer confidently, not defensively."
   },
   {
    "type": "fill",
@@ -1435,7 +1518,8 @@
    ],
    "unit": "",
    "framework": "8 stations cannot serve 28 pairs; the fix is more infrastructure.",
-   "id": 84
+   "id": 84,
+   "detail": "Pair-starvation is a CAPACITY-planning finding, not an algorithm failure: 8 ground stations physically cannot serve 28 city pairs, so some pair is starved on most days no matter how it is scheduled. The remedy is more infrastructure (stations, or de-correlated sites), which is a concrete engineering recommendation for an operator. Framing it as capacity planning turns a 'weakness' into a useful result."
   },
   {
    "type": "fill",
@@ -1451,7 +1535,8 @@
    ],
    "unit": "",
    "framework": "match_weather_aware uses scipy linear_sum_assignment on the negated weight matrix.",
-   "id": 85
+   "id": 85,
+   "detail": "The station-satellite matching is solved EXACTLY by the Hungarian algorithm (scipy linear_sum_assignment) on the negated weight matrix, giving the globally optimal max-weight bipartite matching each step. 'Exact' matters: it means the modest coordination gain is not an artefact of a weak heuristic — even optimal matching helps only ~2.5%. That strengthens the structural-limit argument."
   },
   {
    "type": "fill",
@@ -1468,7 +1553,8 @@
    ],
    "unit": "",
    "framework": "The relay learns both keys; security holds only if the relay itself is honest.",
-   "id": 86
+   "id": 86,
+   "detail": "The trusted-relay assumption requires the satellite node to be TRUSTED (honest, not compromised), because the relay learns both stations' keys before broadcasting their XOR. Security therefore holds only under that trust; a composable proof for this model is listed as future work. Stating this openly is part of the honest framing the panel rewards."
   },
   {
    "type": "fill",
@@ -1484,7 +1570,8 @@
    ],
    "unit": "",
    "framework": "The central claim; a shift in the unit of evaluation.",
-   "id": 87
+   "id": 87,
+   "detail": "The one-line thesis claim: judge these networks at the NETWORK level (fairly-compared scheduling outcomes under real weather and orbits), not by a single idealised clear-sky link rate. It reframes the unit of evaluation from a physics-lab number to an operational, network-wide one. Ending your defense on this sentence ties every result together."
   },
   {
    "type": "fill",
@@ -1499,7 +1586,8 @@
    ],
    "unit": "",
    "framework": "The provenance caveat: the 11% BB84 bound is a borrowed, openly-stated assumption.",
-   "id": 88
+   "id": 88,
+   "detail": "Vu et al. 2022 implements BBM92 (entanglement-based), not BB84, with a design target QBER <= 10^-3. Your model borrows its noise/threshold machinery but applies the wider 11% BB84 bound — an explicit, openly-stated assumption, not an inherited result. After the v3 corrections your QBER sits below even the stricter 10^-3, so the operating points are secure under either threshold, which turns the caveat into a strength."
   },
   {
    "type": "order",
@@ -1519,7 +1607,8 @@
     3
    ],
    "framework": "Three geometric/turbulence fixes in the channel, then the receiver cross-talk fix (largest impact).",
-   "id": 89
+   "id": 89,
+   "detail": "Order the four v3 fixes by stage from channel to receiver: erf coefficient sqrt(2)->sqrt(pi/2) -> spherical slant range -> Rytov 0.56->2.25 -> cross-talk /2->/8. The first three are geometric/turbulence corrections in the channel; the last is the receiver cross-talk fix, which had the largest numerical impact. Knowing the sequence lets you explain how a single formula error cascades through the whole pipeline."
   },
   {
    "type": "fill",
@@ -1534,7 +1623,8 @@
    ],
    "unit": "",
    "framework": "Honest confidence labelling; a plausibility bound from an FOV sweep, not a full simulation.",
-   "id": 90
+   "id": 90,
+   "detail": "The daytime-background penalty is described as an 'order-of-MAGNITUDE estimate', not a proof. An FOV sweep suggests the penalty may be small for this PIN/direct-detection receiver (unlike a photon counter), but a full daytime-background simulation is explicitly future work. Labelling the confidence level honestly — estimate versus proof — is exactly the scientific care a panel looks for."
   }
  ]
 }

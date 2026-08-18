@@ -229,7 +229,7 @@
     html += bodyFor(e, prog);
     html += '<div class="qactions"><button class="btn btn-primary" id="submit-btn"' + (prog ? " disabled" : "") + ">Check</button>" +
       '<button class="btn btn-ghost" id="reveal-btn"' + (prog ? " disabled" : "") + '>Reveal answer</button><button class="btn btn-ghost" id="sym-btn">📖 Explain symbols</button><span class="verdict" id="verdict"></span></div>';
-    html += frameworkBox(e.framework, !!prog, e.steps);
+    html += frameworkBox(e.framework, !!prog, e.steps, e.detail);
     html += '<div id="sym-panel" class="sym-panel"></div>';
     html += "</div>" + pager("#/ex/" + sn + "/", sn, xi, list.length, X.meta.sections, "num", "#/frameworks");
     document.getElementById("content").innerHTML = html;
@@ -575,7 +575,7 @@
       bodyFor(e, null) +
       '<div class="qactions"><button class="btn btn-primary" id="submit-btn">Check</button>' +
       '<button class="btn btn-ghost" id="reveal-btn">Reveal answer</button><span class="verdict" id="verdict"></span></div>' +
-      frameworkBox(e.framework, false, e.steps) + '<div class="pager" id="rev-pager"></div></div>';
+      frameworkBox(e.framework, false, e.steps, e.detail) + '<div class="pager" id="rev-pager"></div></div>';
     document.getElementById("content").innerHTML = html;
     var submitBtn = document.getElementById("submit-btn"), revealBtn = document.getElementById("reveal-btn"),
         verdict = document.getElementById("verdict"), fw = document.getElementById("framework");
@@ -652,9 +652,10 @@
       '<div class="persp-bar"><div class="pb-prog"><div class="pb-track"><div class="pb-fill" style="width:' + pct + '%"></div></div></div>' +
       '<div class="pb-num">' + st.done + "/" + st.total + " done" + (st.done ? " · " + Math.round(100 * st.correct / st.done) + "% correct" : "") + "</div></div>";
   }
-  function frameworkBox(fw, show, steps) {
+  function frameworkBox(fw, show, steps, detail) {
     var s = steps ? '<div class="fw-steps">' + M(steps) + "</div>" : "";
-    return '<div class="framework' + (show ? " show" : "") + '" id="framework"><div class="fw-label">Theory framework</div>' + M(fw) + s + "</div>";
+    var d = detail ? '<div class="fw-detail"><div class="fw-label">In detail</div>' + M(detail) + "</div>" : "";
+    return '<div class="framework' + (show ? " show" : "") + '" id="framework"><div class="fw-label">Theory framework</div>' + M(fw) + s + d + "</div>";
   }
   function pager(base, num, i, len, arr, key, nextModeHref) {
     var html = '<div class="pager">';

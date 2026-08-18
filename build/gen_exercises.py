@@ -4,6 +4,9 @@ exercises.json. Numeric answers for `calc` items are COMPUTED here from the real
 v3 formulas (never hand-typed), so a typo cannot silently produce a wrong key."""
 import json
 import math
+import os as _os, sys as _sys
+_sys.path.insert(0, _os.path.dirname(_os.path.abspath(__file__)))
+from exercise_details import DETAILS
 
 OUT = "/Users/tuannghiat/for-ttn-USTH/Thesis-M1/data/exercises.json"
 
@@ -397,6 +400,11 @@ for e in ex:
                          "count": sum(1 for x in ex if x["sectionNum"] == e["sectionNum"])})
 
 assert len(ex) == 90, f"expected 90, got {len(ex)}"
+# attach rich per-exercise explanations
+_missing=[e["id"] for e in ex if e["id"] not in DETAILS]
+if _missing: raise SystemExit(f"DETAILS missing for ids {_missing}")
+for e in ex:
+    e["detail"] = DETAILS[e["id"]]
 payload = {"meta": {"title": "SIKD Thesis M1 — 90 Active-Recall Exercises",
                     "total": len(ex), "sections": sections}, "exercises": ex}
 json.dump(payload, open(OUT, "w", encoding="utf-8"), ensure_ascii=False, indent=1)
