@@ -1,0 +1,105 @@
+\part{Thesis Annexes (transcribed)}
+
+\section{Reproducibility and code structure}
+Every numeric result traces to a numbered script writing two artifacts per run: a \texttt{verify} file (one key number per line) and a \texttt{provenance} file (exact parameters, input hashes, formulas). The codebase (\texttt{05\_Code\_v3/}) holds 13 standalone modules, 47 numbered analysis scripts, 13 test files (325 tests, all passing), and four data subdirectories (\texttt{raw/}, \texttt{intermediate/}, \texttt{verify/} --- 35 files, \texttt{provenance/}). A single orchestrator \texttt{scripts/run\_all.py} runs every step in dependency order and cross-checks every \texttt{verify} number against the compiled text so the two cannot silently drift. The slowest step is the 620-day full-enumeration comparison (12--45 min); everything else is seconds to minutes.
+
+\subsection{Core simulation modules}
+\begin{center}\small\renewcommand{\arraystretch}{1.15}
+\begin{longtable}{@{}p{0.28\textwidth}p{0.62\textwidth}@{}}
+\toprule \textbf{Module} & \textbf{Responsibility} \\ \midrule \endhead
+\texttt{orbital\_mechanics.py} & TLE parsing, SGP4 propagation, ground-station coordinates, visible-satellite queries \\
+\texttt{channel\_model.py} & Geometric spreading $h_g$, atmospheric attenuation $h_l$, turbulence $\sigma_X^2$ \\
+\texttt{weather\_model.py} & Three-state model; $P_\text{cloud}/f_\text{rain}/V/R$ by city and month \\
+\texttt{weather\_stats.py} & Hourly climatology, diurnal decomposition, inter-city correlation \\
+\texttt{sikd\_performance.py} & Noise model, DT/DD thresholds, $P_\text{sift}$/QBER (Gauss--Hermite), SKR \\
+\texttt{schedulers.py} & ALG-0/1/2, Hungarian matching, greedy and MILP pair allocation \\
+\texttt{routing.py} & Orchestration: per-pass SKR + scheduling pipeline \\
+\texttt{link\_geometry.py} & Coverage radius, slant range, symmetric dual-downlink feasibility \\
+\texttt{citypair\_feasibility.py} & Directed single-hop store-and-forward latency \\
+\texttt{isl\_topology.py} & ISL mesh graph (RAAN plane-clustering, ``+Grid'' 4-neighbor) \\
+\texttt{isl\_relay.py} & Multi-hop relay: time-optimal (BFS) and capacity-optimal routing \\
+\texttt{sikd\_powersplit.py} & Adaptive $m_K/m_D$ power-split, Pareto frontier, real-pass gain \\
+\bottomrule
+\end{longtable}\end{center}
+
+\section{Extended SIKD signal model}
+\textbf{Why subcarrier multiplexing.} One optical carrier has far more bandwidth than either a low-rate key channel or a high-rate data channel needs alone; SCM assigns them distinct RF subcarriers $f_1$ (key) and $f_2\gg f_1$ (data) before intensity-modulating the same carrier. The transmitted intensity is $P_s(t)=P_T[1+m_K s_K(t)+m_D s_D(t)]$ with $m_K\ll m_D$: the quantum channel only needs enough depth to sift a key near the noise floor, while the data channel is provisioned for throughput. Direct detection recovers exactly the photocurrent $i_r(t)$; an RF bandpass filter at $f_1$ isolates the key subcarrier before the dual-threshold stage.
+
+\textbf{Why the classical channel is not free.} A bandpass filter at $f_1$ has finite stopband rejection $I_\text{so}$ against energy at $f_2$, so a fraction of the data power reaches the key receiver as cross-talk $\sigma_\text{CT}^2=(R_e P_T m_D h_g h_l)^2\,10^{-I_\text{so}/10}/8$, growing with the \emph{square} of received power. Raising data throughput ($m_D$) therefore directly raises the key channel's QBER --- the mechanism by which cross-talk dominates precisely when the link is otherwise strongest. The noise model, dual-threshold rule, sift probability and QBER are all reproducible from Vu et al.\ (2022); only the system-level choice to multiplex a classical payload alongside QKD on one carrier rests on the internal manuscript (Vu, 2025).
+
+\section{Numerical results: full robustness detail}
+
+\subsection{Inter-city correlation}
+Site diversity helps only if weather states are not perfectly correlated. Same-monsoon neighbours correlate positively (Hanoi--Da Nang $r=0.499$ in July; Singapore--Kuala Lumpur $r=0.754$ dry, $0.689$ wet --- the strongest). Cities on opposite sides of the monsoon reversal can correlate \emph{negatively} (Hanoi--Jakarta $r=-0.231$ in July), which is more valuable for diversity than a weak positive correlation.
+
+\subsection{Joint availability vs.\ the closest prior model}
+\begin{center}\small
+\begin{tabular}{@{}lccc@{}}\toprule
+Sites & This work & Nguyen et al.\ (2023) & Difference \\ \midrule
+Hanoi alone & 53.2\% & 81.9\% & $-28.7$ pp \\
++ Da Nang & 78.2\% & 96.9\% & $-18.7$ pp \\
++ Ho Chi Minh City & 85.6\% & 99.4\% & $-13.8$ pp \\ \bottomrule
+\end{tabular}\end{center}
+The absolute gap comes largely from the binary 85\% cloud threshold vs.\ a continuous Gamma-attenuation model. Sweeping the threshold narrows but does not close the gap (1-site gap: 45.3 pp at 70\%, 34.3 at 80\%, 28.7 at 85\%, 22.1 at 90\%), an honest, quantified limitation of the binary-outage approach.
+
+\subsection{Statistical significance and autocorrelation}
+Paired significance at the final $m_K=0.15$ operating point (raw network key, 310 days/season):
+\begin{center}\small
+\begin{tabular}{@{}llcccl@{}}\toprule
+Comparison & Season & Mean & Std.\ & 95\% CI (bootstrap) \\ \midrule
+Matching gain & Dry & $-6.658\%$ & 3.195 pp & $[-6.799,-6.514]$ \\
+Matching gain & Wet & $-7.983\%$ & 3.944 pp & $[-8.133,-7.827]$ \\
+Weather-info & Dry & $-1.400\%$ & 0.557 pp & $[-1.426,-1.374]$ \\
+Weather-info & Wet & $-1.310\%$ & 0.674 pp & $[-1.341,-1.278]$ \\ \bottomrule
+\end{tabular}\end{center}
+A paired $t$-test rejects zero gain at $p<10^{-106}$; a paired bootstrap (10{,}000 resamples) gives CIs excluding zero. These are \emph{raw-network-key} figures (handover charged directly against total throughput), which differ in sign from the fair pair-key metric --- a genuine difference in what each metric measures. Lag-1 autocorrelation of the daily gain series ($+0.453/+0.185$ matching dry/wet; $+0.114/+0.213$ weather-info) exceeds the $\pm0.113$ white-noise band, so a 7-day moving-block and a year-cluster bootstrap were run; they widen intervals by $\sim$15--60\% but all four still exclude zero. The $p<10^{-106}$ should be read as overstated (it assumes 310 independent days), but the qualitative claim --- both gains real, non-zero, correctly signed --- survives the most conservative check.
+
+\subsection{Handover-cost characterization}
+\begin{center}\small
+\begin{tabular}{@{}lcccc@{}}\toprule
+& \multicolumn{2}{c}{Handovers/day} & \multicolumn{2}{c}{Key lost} \\
+Algorithm & Dry & Wet & Dry & Wet \\ \midrule
+ALG-0 & 5{,}695 & 5{,}695 & 28.6\% & 28.6\% \\
+ALG-1-blind & 6{,}176 & 6{,}176 & 31.4\% & 31.8\% \\
+ALG-1-aware & 6{,}375 & 6{,}368 & 32.3\% & 32.5\% \\ \bottomrule
+\end{tabular}\end{center}
+Visibility segments have median duration 3.3 s, far shorter than a 30 s handover, so a handover's delay spans several segments; carry-over accounting charges the full delay across all of them. Weather-awareness raises handovers ($6{,}176\to6{,}375$/day), the mechanism behind its small net cost.
+
+\subsection{ALG-2 optimality benchmark}
+\begin{center}\small
+\begin{tabular}{@{}lc@{}}\toprule Quantity & Value \\ \midrule
+Days proven optimal within 60 s / 2\% & 30 of 30 \\
+Mean MILP solve time & 2.3 s \\
+Mean gap, greedy vs.\ optimum & 1.03\% \\
+Worst-case gap & 4.56\% \\
+Starved pair-instances (greedy / MILP / max-min) & 373 / 642 / 332 of 840 \\ \bottomrule
+\end{tabular}\end{center}
+Greedy is within 1.03\% of the proven MILP optimum but leaves \emph{fewer} pairs starved, because exact throughput-maximization concentrates key into already-well-served pairs. The three algorithms line up exactly as their objectives predict (642 MILP-exact, 373 greedy, 332 max-min starved), so the reported pair-starvation is a conservative estimate, not a heuristic artifact.
+
+\subsection{Development history of the weather-awareness estimate}
+\begin{center}\small\renewcommand{\arraystretch}{1.2}
+\begin{tabular}{@{}p{0.56\textwidth}p{0.38\textwidth}@{}}\toprule
+Methodology & Reported gain \\ \midrule
+Hand-estimated weather, synthetic TLE & $+25$ to $+40\%$ \\
+Real ERA5, synthetic TLE & $+52$ to $+56\%$ \\
+Real ERA5, real TLE, ``sticky'' baseline & $+86$ to $+109\%$ (artifact) \\
+Real ERA5, real TLE, per-step baseline, 1 station & $+0\%$ (identity) \\
+Naive multi-station vs.\ single-station & $+85$ to $+678\%$ (retracted) \\
+Fair, fixed-network-size, pair-key metric & $-1.20$ to $-0.78\%$ \\
+Corrected SKR formula, $m_K=0.05$ & sign flips \\
+Corrected SKR and $m_K=0.15$ & $+1.92/+1.96\%$ match; $-1.35/-1.21\%$ w-info \\
+\textbf{+ geometric ($\nu_R$, spherical) and cross-talk fixes (final)} & $\mathbf{+2.47/+2.48\%}$ \textbf{match}; $\mathbf{-0.29/-0.23\%}$ \textbf{w-info} \\ \bottomrule
+\end{tabular}\end{center}
+The retracted $+678\%$ conflated two independent effects: the value of \emph{having more stations} (raises throughput almost regardless of policy) and the value of \emph{weather-aware scheduling}. The general lesson, applied throughout: before ranking groups, verify they are equivalent in every dimension except the one under test --- including which of a scheduler's own capabilities each side may use.
+
+\subsection{Physical-layer corrections}
+\textbf{SKR formula.} The printed $\text{SKR}_\text{norm}=P_\text{sift}[1-H_2(\text{QBER})-\chi_E]$ omitted the error-correction leakage and reached zero only at QBER $=50\%$, inconsistent with the asserted 11\% threshold; the corrected $P_\text{sift}[1-2H_2(\text{QBER})-\chi_E]$ (ideal reconciliation) vanishes at $\approx$11\%. \textbf{Shot noise} previously scaled with $m_K$ rather than the total DC current (negligible, since cross-talk dominates by $\sim$3 orders). \textbf{Rytov coefficient} $0.56\to2.25$ (fourfold scintillation, still weak-regime). \textbf{$m_K$} $0.05\to0.15$: the source manuscript's own feasibility sweep shows the low-QBER region opens only for $m_K\gtrsim0.1$ at $I_\text{so}=15$ dB; raising it recovers the full $30$--$90^\circ$ range and the tens-of-Mbps SKR. All corrections are in \texttt{05\_Code\_v3}; see \texttt{IMPACT\_EVALUATION.md} for the before/after list.
+
+\section{Equatorial-season robustness and publications}
+\textbf{Equatorial robustness.} Availability was re-checked for three near-equatorial cities (Singapore, Kuala Lumpur, Jakarta) across January/April/July/October; the ``cloud-not-rain'' conclusion and the 10.7--96.5\% span hold across the seasonal cycle, confirming the finding is not an artifact of the two proxy months.
+
+\textbf{Publication plan.} The work targets (i) a conference paper (GLOBECOM-class workshop) on reliability and service continuity for secure NTN under tropical weather, and (ii) a journal extension on the joint key--data trade-off (Pareto, adaptive power-split, scheduling), with the corrected v3 numbers as the canonical results.
+
+\section*{Sources}
+\addcontentsline{toc}{section}{Sources}
+Curated formulas and derivations: \texttt{05\_Code\_v3/modules/} and \texttt{Tu-hoc/SIKD\_Satellite\_QKD/Study\_Materials/}. Thesis annexes: \texttt{10\_Thesis\_Shorten\_v2/sections/annex\_a..e}. Question bank and glossary generated from \texttt{symbols.json}, \texttt{exercises.json}, \texttt{questions.json}. Live site: \url{https://tatcataittn.github.io/for-ttn-USTH/Thesis-M1}.
