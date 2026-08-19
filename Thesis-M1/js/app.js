@@ -18,6 +18,7 @@
 
   var RESOURCES = [
     { file: "resources/SIKD_Formula_Guide_v3_Expanded.pdf", icon: "📘", title: "Formula Guide v3 (Expanded)", desc: "Corrected v3 physics, old→new table, basic → advanced." },
+    { file: "resources/SIKD_Annex_Compendium.pdf", icon: "📎", title: "Annex — Formula & Implementation Compendium", desc: "Every formula, coefficient, glossary and website-implementation index in one document." },
     { file: "resources/SIKD_Weather_Formula_Guide.pdf", icon: "📗", title: "Formula Guide (original, pre-v3)", desc: "Earlier 50-formula guide with many drill examples." },
     { file: "resources/SIKD_90_Active_Recall_Exercises.pdf", icon: "🧮", title: "90 Active-Recall Exercises (PDF)", desc: "The 90 fill/calc/match/order items — questions then answer key with frameworks. Printable." },
     { file: "resources/SIKD_Exercises_Solutions.pdf", icon: "📐", title: "Exercises & Solutions", desc: "Worked problems by topic, full step-by-step solutions." },
