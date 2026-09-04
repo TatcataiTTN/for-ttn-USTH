@@ -1,0 +1,683 @@
+<!doctype html>
+<html lang="vi">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>VSEO6 — Satellite Altimetry for Continental Water Monitoring</title>
+<style>
+:root{
+  --bg:#0b1220; --panel:#101b30; --panel2:#132140; --line:#25406b;
+  --ink:#eaf0ff; --ink-dim:#9fb2d6; --accent:#4fd1c5; --accent2:#f2b84b;
+  --nadir:#7aa7ff; --swot:#4fd1c5; --danger:#ff7a7a; --good:#7ee08a;
+  --sw: 1160px;
+}
+*{box-sizing:border-box}
+html,body{margin:0;height:100%;background:var(--bg);color:var(--ink);
+  font-family:"Segoe UI",system-ui,-apple-system,Helvetica,Arial,sans-serif;overflow:hidden}
+#deck{position:relative;width:100vw;height:100vh;display:flex;
+  transition:transform .45s cubic-bezier(.65,0,.35,1)}
+.slide{flex:0 0 100vw;height:100vh;display:flex;flex-direction:column;
+  align-items:center;justify-content:center;padding:48px 64px;position:relative}
+.slide-inner{width:100%;max-width:var(--sw)}
+.eyebrow{color:var(--accent);font-size:15px;letter-spacing:.12em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+h1{font-size:40px;line-height:1.2;margin:0 0 18px;font-weight:800;letter-spacing:-.01em}
+h2{font-size:29px;line-height:1.3;margin:0 0 22px;font-weight:800;letter-spacing:-.01em;color:var(--ink)}
+p.lead{font-size:18px;color:var(--ink-dim);line-height:1.6;max-width:820px}
+.grid2{display:grid;grid-template-columns:1fr 1fr;gap:34px;align-items:center}
+.grid3{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 22px}
+.card h3{margin:0 0 8px;font-size:16px;color:var(--accent2)}
+.card p{margin:0;font-size:14.5px;color:var(--ink-dim);line-height:1.55}
+ul.bullets{margin:0;padding-left:20px;font-size:16px;line-height:1.75;color:var(--ink)}
+ul.bullets li{margin-bottom:8px}
+ul.bullets b{color:var(--accent2)}
+.pill{display:inline-block;background:var(--panel2);border:1px solid var(--line);border-radius:999px;
+  padding:4px 12px;font-size:12.5px;color:var(--ink-dim);margin-right:6px}
+.tag{display:inline-block;background:rgba(79,209,197,.15);color:var(--accent);border:1px solid rgba(79,209,197,.4);
+  border-radius:7px;padding:2px 9px;font-size:12px;font-weight:700;letter-spacing:.04em}
+.tag.warn{background:rgba(255,122,122,.12);color:var(--danger);border-color:rgba(255,122,122,.35)}
+.tag.good{background:rgba(126,224,138,.12);color:var(--good);border-color:rgba(126,224,138,.35)}
+.footcite{position:absolute;bottom:26px;left:64px;right:64px;font-size:11.5px;color:#5c6f96;
+  border-top:1px solid var(--line);padding-top:8px}
+.footcite a{color:#7d92c2}
+.slidenum{position:absolute;bottom:26px;right:64px;font-size:12px;color:#5c6f96}
+.progress{position:fixed;top:0;left:0;height:3px;background:var(--accent);z-index:50;transition:width .4s}
+.navhint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-size:11px;color:#425079;
+  letter-spacing:.05em;z-index:50}
+.center{text-align:center}
+.cover .kicker{color:var(--accent2);font-size:15px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:16px}
+.cover h1{font-size:52px}
+.cover .sub{font-size:19px;color:var(--ink-dim);max-width:760px;margin:0 auto 26px}
+.cover .meta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap;margin-top:18px}
+
+/* ---- schedule grid ---- */
+.sched-grid{display:grid;grid-template-columns:repeat(5,1fr);gap:12px;margin-top:10px}
+.sched-day{background:var(--panel);border:1px solid var(--line);border-radius:12px;padding:14px 12px;font-size:12.5px}
+.sched-day .d{font-weight:800;color:var(--accent2);margin-bottom:2px;font-size:13px}
+.sched-day .t{color:var(--ink-dim);margin-bottom:8px;font-size:11.5px}
+.sched-day ul{margin:0;padding-left:14px;line-height:1.55;color:var(--ink)}
+
+/* ---- module nav / roadmap ---- */
+.roadmap{display:flex;flex-direction:column;gap:10px}
+.rstep{display:flex;align-items:center;gap:16px;background:var(--panel);border:1px solid var(--line);
+  border-radius:12px;padding:12px 18px}
+.rstep .n{flex:0 0 34px;height:34px;border-radius:50%;background:var(--panel2);border:1px solid var(--accent);
+  color:var(--accent);display:flex;align-items:center;justify-content:center;font-weight:800;font-size:14px}
+.rstep .t{font-size:15.5px;font-weight:700}
+.rstep .s{font-size:12.5px;color:var(--ink-dim)}
+
+/* ---- speaker cards ---- */
+.spk{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:18px 20px}
+.spk h3{margin:0 0 3px;font-size:16.5px;color:var(--ink)}
+.spk .aff{font-size:12.5px;color:var(--accent);margin-bottom:8px}
+.spk ul{margin:0;padding-left:16px;font-size:12px;line-height:1.55;color:var(--ink-dim)}
+
+/* ---- SVG diagram scaffolding ---- */
+.diagram{background:var(--panel);border:1px solid var(--line);border-radius:16px;padding:18px}
+svg text{font-family:inherit}
+.lbl{fill:var(--ink);font-size:13px}
+.lbl-dim{fill:var(--ink-dim);font-size:11.5px}
+.lbl-accent{fill:var(--accent);font-size:12px;font-weight:700}
+
+/* radar pulse: nadir round trip */
+@keyframes pulseDown{
+  0%{ transform:translateY(0); opacity:1; }
+  48%{ transform:translateY(150px); opacity:1; }
+  50%{ transform:translateY(150px); opacity:0; }
+  100%{ transform:translateY(150px); opacity:0; }
+}
+@keyframes pulseUp{
+  0%{ transform:translateY(150px); opacity:0; }
+  50%{ transform:translateY(150px); opacity:0; }
+  52%{ transform:translateY(150px); opacity:1; }
+  100%{ transform:translateY(0); opacity:1; }
+}
+.pulse-down{animation:pulseDown 2.6s ease-in-out infinite}
+.pulse-up{animation:pulseUp 2.6s ease-in-out infinite}
+
+/* satellite moving along track (KaRIn) */
+@keyframes flyRight{
+  0%{ transform:translateX(0); }
+  100%{ transform:translateX(430px); }
+}
+.fly{animation:flyRight 6s linear infinite}
+
+/* EnKF cycle: rotating highlight around loop, translate-based (no rotation-direction ambiguity) */
+@keyframes dashFlow{ to{ stroke-dashoffset:-200; } }
+.flow-line{stroke-dasharray:6 6; animation:dashFlow 3s linear infinite}
+
+.fadein{animation:fadeIn .6s ease both}
+@keyframes fadeIn{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)}}
+</style>
+</head>
+<body>
+<div class="progress" id="progress"></div>
+<div id="deck"></div>
+<div class="navhint">← → hoặc Space để chuyển slide &nbsp;·&nbsp; số slide hiện tại ở góc dưới phải</div>
+
+<script>
+/* ============ SLIDE CONTENT ============ */
+const SLIDES = [];
+function slide(html){ SLIDES.push(html); }
+function wrap(inner, cite){
+  return '<div class="slide-inner">' + inner + '</div>' +
+    (cite ? '<div class="footcite">Nguồn: ' + cite + '</div>' : '');
+}
+
+/* ---------- 1. Cover ---------- */
+slide(`
+<div class="slide-inner cover center fadein">
+  <div class="kicker">The 6th Vietnam School of Earth Observation</div>
+  <h1>VSEO6 — Satellite Altimetry</h1>
+  <div class="sub">A Tool for Continental Water Monitoring — tài liệu lý thuyết tự học trước khóa học,
+  tổng hợp từ chương trình giảng dạy chính thức và hồ sơ công bố khoa học của giảng viên.</div>
+  <div class="meta">
+    <span class="pill">📍 ICISE, Quy Nhơn</span>
+    <span class="pill">🗓️ 7–12 tháng 9, 2026</span>
+    <span class="pill">🏛️ Rencontres du Vietnam · đối tác UNESCO</span>
+  </div>
+</div>`);
+
+/* ---------- 2. Course overview ---------- */
+slide(wrap(`
+  <div class="eyebrow">Tổng quan hội thảo</div>
+  <h1>Trang bị kỹ năng giám sát nước lục địa bằng vệ tinh, từ dữ liệu thô tới ứng dụng thực tế</h1>
+  <div class="grid2" style="margin-top:20px">
+    <ul class="bullets">
+      <li><b>Đối tượng:</b> nhà nghiên cứu trẻ, kỹ sư, giáo dục viên muốn phát triển kỹ năng satellite altimetry cho continental waters</li>
+      <li><b>Tổ chức:</b> Rencontres du Vietnam (sáng lập 1993 bởi GS. Trần Thanh Vân), đối tác chính thức UNESCO</li>
+      <li><b>Địa điểm:</b> ICISE — International Centre for Interdisciplinary Science Education, Quy Nhơn</li>
+      <li><b>Đầu mối:</b> Dr. Laetitia Gal — laetitia.gal@hydro-matters.fr</li>
+    </ul>
+    <div class="card">
+      <h3>5 năng lực đầu ra</h3>
+      <p>① Xử lý dữ liệu vệ tinh thô &nbsp;② Tạo/trực quan hóa chuỗi thời gian mực nước
+      &nbsp;③ Sử dụng dữ liệu Copernicus &amp; SWOT &nbsp;④ Ứng dụng giám sát tài nguyên nước &amp; thảm họa
+      &nbsp;⑤ Tích hợp vệ tinh vào mô hình thủy văn (data assimilation)</p>
+    </div>
+  </div>
+`, 'icisequynhon.com/conferences/2026/VSEO-6/'));
+
+/* ---------- 3. Schedule grid ---------- */
+function schedDay(d,t,items){
+  return `<div class="sched-day"><div class="d">${d}</div><div class="t">${t}</div><ul>${items.map(x=>'<li>'+x+'</li>').join('')}</ul></div>`;
+}
+slide(wrap(`
+  <div class="eyebrow">Lịch trình</div>
+  <h1>5 ngày, 5 chủ đề nối tiếp — từ altimetry cổ điển tới ứng dụng thảm họa</h1>
+  <div class="sched-grid">
+    ${schedDay('T2 · 7/9','Khai mạc + Nadir',[
+      'Khai mạc; giới thiệu USTH/CNES/VNSC/PSA/MRC',
+      'Tổng quan Nadir altimetry',
+      'Thực hành: tải & phân tích dữ liệu Nadir'])}
+    ${schedDay('T3 · 8/9','SWOT Mission',[
+      'Tổng quan SWOT + sản phẩm dữ liệu',
+      'Thực hành: tải, trích xuất, trực quan hóa',
+      'Ứng dụng SWOT & thảo luận'])}
+    ${schedDay('T4 · 9/9','Thực địa + Mô hình',[
+      'Thực địa: quan sát mực nước hồ chứa',
+      'Chuyển tiếp dữ liệu vệ tinh → mô hình thủy văn',
+      'Thực hành mô phỏng'])}
+    ${schedDay('T5 · 10/9','hydroweb.next + DA',[
+      'Giới thiệu hydroweb.next',
+      'Nguyên lý đồng hóa dữ liệu',
+      'Thực hành đồng hóa dữ liệu'])}
+    ${schedDay('T6 · 11/9','Flood + Bế mạc',[
+      'Giám sát lũ lụt & quản lý thảm họa',
+      'Thực hành: trường hợp lũ lụt',
+      'Bàn tròn / phản hồi / bế mạc'])}
+  </div>
+`, 'icisequynhon.com/conferences/2026/VSEO-6/program.html'));
+
+/* ---------- 4. Roadmap of modules ---------- */
+slide(wrap(`
+  <div class="eyebrow">Lộ trình học</div>
+  <h1>7 module lý thuyết bám sát đúng trình tự chương trình giảng dạy</h1>
+  <div class="roadmap">
+    <div class="rstep"><div class="n">1</div><div><div class="t">Nadir Satellite Altimetry</div><div class="s">Nguyên lý radar time-of-flight, virtual station, hạn chế độ phủ</div></div></div>
+    <div class="rstep"><div class="n">2</div><div><div class="t">SWOT Mission</div><div class="s">KaRIn wide-swath, elevation–slope–width, ước tính discharge</div></div></div>
+    <div class="rstep"><div class="n">3</div><div><div class="t">Copernicus &amp; Sentinel</div><div class="s">SAR Sentinel-1, quang học Sentinel-2, chính sách dữ liệu mở</div></div></div>
+    <div class="rstep"><div class="n">4</div><div><div class="t">hydroweb.next</div><div class="s">Nền tảng tập trung hóa dữ liệu thủy văn vệ tinh (CNES/Theia)</div></div></div>
+    <div class="rstep"><div class="n">5</div><div><div class="t">Data Assimilation</div><div class="s">Ensemble Kalman Filter, đồng hóa quan trắc vào mô hình routing</div></div></div>
+    <div class="rstep"><div class="n">6</div><div><div class="t">Flood &amp; Transboundary Monitoring</div><div class="s">SAR + SWOT cho lũ lụt; quản lý sông Mekong xuyên biên giới</div></div></div>
+    <div class="rstep"><div class="n">7</div><div><div class="t">Tổ chức &amp; Giảng viên</div><div class="s">Ai dạy gì, công tác ở đâu, công bố khoa học tiêu biểu</div></div></div>
+  </div>
+`));
+
+/* ---------- 5. Module 1a: Nadir principle ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 1 · Nadir Altimetry</div>
+  <h1>Radar nhìn thẳng xuống đo thời gian bay đi–về để suy ra cao độ mặt nước</h1>
+  <div class="grid2">
+    <ul class="bullets">
+      <li>Vệ tinh phát xung radar <b>thẳng xuống (nadir)</b>, đo <b>thời gian bay đi–về (time-of-flight)</b> của tín hiệu</li>
+      <li>Khoảng cách vệ tinh–mặt nước = (thời gian × vận tốc ánh sáng) / 2</li>
+      <li>Biết quỹ đạo vệ tinh chính xác ⇒ suy ra <b>cao độ tuyệt đối</b> mặt nước</li>
+      <li>Công nghệ cổ điển: TOPEX/Poseidon (1992) → Jason 1/2/3 → Sentinel-6</li>
+    </ul>
+    <div class="diagram">
+      <svg viewBox="0 0 340 220" width="100%">
+        <rect x="0" y="185" width="340" height="35" fill="#0c1830"/>
+        <text x="170" y="207" text-anchor="middle" class="lbl-dim">mặt nước sông</text>
+        <g transform="translate(150,20)">
+          <rect x="-14" y="-10" width="28" height="18" rx="3" fill="#1b2c52" stroke="var(--nadir)"/>
+          <text x="0" y="-16" text-anchor="middle" class="lbl-accent" style="fill:var(--nadir)">vệ tinh</text>
+          <line x1="0" y1="8" x2="0" y2="165" stroke="#28406e" stroke-width="1" stroke-dasharray="3 4"/>
+          <circle class="pulse-down" cx="0" cy="8" r="5" fill="var(--nadir)"/>
+          <circle class="pulse-up" cx="0" cy="8" r="5" fill="var(--accent2)"/>
+        </g>
+        <text x="170" y="118" text-anchor="middle" class="lbl-dim" font-size="11">Δt = thời gian đi (xanh) + về (vàng)</text>
+      </svg>
+    </div>
+  </div>
+`, 'eoportal.org/satellite-missions/swot · nguyên lý altimetry cổ điển'));
+
+/* ---------- 6. Module 1b: virtual station & limits ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 1 · Nadir Altimetry</div>
+  <h1>Chỉ đo được tại nơi vệt bay cắt sông — đây là giới hạn cốt lõi của nadir</h1>
+  <div class="grid2">
+    <div class="diagram">
+      <svg viewBox="0 0 340 220" width="100%">
+        <path d="M20,190 C120,120 180,80 320,20" stroke="#28406e" stroke-width="10" fill="none" opacity=".5"/>
+        <text x="30" y="205" class="lbl-dim" font-size="11">sông</text>
+        <line x1="60" y1="10" x2="60" y2="210" stroke="var(--nadir)" stroke-width="2"/>
+        <line x1="180" y1="10" x2="180" y2="210" stroke="var(--nadir)" stroke-width="2"/>
+        <line x1="280" y1="10" x2="280" y2="210" stroke="var(--nadir)" stroke-width="2"/>
+        <text x="60" y="20" text-anchor="middle" class="lbl-accent" style="fill:var(--nadir)">vệt bay</text>
+        <circle cx="72" cy="163" r="5" fill="var(--accent2)"/>
+        <circle cx="180" cy="97" r="5" fill="var(--accent2)"/>
+        <circle cx="280" cy="45" r="5" fill="var(--accent2)"/>
+        <text x="72" y="182" text-anchor="middle" class="lbl-dim" font-size="10">virtual<br/>station</text>
+        <text x="180" y="116" text-anchor="middle" class="lbl-dim" font-size="10">virtual station</text>
+        <text x="280" y="64" text-anchor="middle" class="lbl-dim" font-size="10">virtual station</text>
+      </svg>
+      <div class="center" style="margin-top:6px"><span class="tag warn">chỉ có dữ liệu tại 3 điểm rời rạc trên toàn con sông</span></div>
+    </div>
+    <ul class="bullets">
+      <li><b>Virtual station:</b> điểm giao cắt giữa vệt bay vệ tinh và một sông/hồ — nơi duy nhất có chuỗi thời gian mực nước</li>
+      <li>Chu kỳ lặp quỹ đạo (10–35 ngày) quyết định <b>tần suất lấy mẫu</b> tại mỗi điểm</li>
+      <li>Sản phẩm: chuỗi thời gian cao độ mực nước (water level time series) tại từng virtual station</li>
+      <li><b>Không</b> cho ảnh 2D của mặt nước — không đo trực tiếp độ rộng hay độ dốc</li>
+    </ul>
+  </div>
+`));
+
+/* ---------- 7. Module 2a: SWOT overview ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 2 · SWOT Mission</div>
+  <h1>SWOT — bước nhảy vọt từ "điểm đo" sang "ảnh 2D" của mặt nước</h1>
+  <div class="grid3">
+    <div class="card"><h3>Tên đầy đủ</h3><p>Surface Water and Ocean Topography — hợp tác NASA–CNES, đóng góp từ CSA và UKSA</p></div>
+    <div class="card"><h3>Phóng</h3><p>16/12/2022, tên lửa SpaceX Falcon 9 từ Vandenberg</p></div>
+    <div class="card"><h3>Chu kỳ khoa học</h3><p>Quỹ đạo lặp ~21 ngày, phủ hơn 90% diện tích nước bề mặt Trái Đất</p></div>
+  </div>
+  <p class="lead" style="margin-top:22px">Thiết bị chủ lực <b style="color:var(--accent)">KaRIn</b> (Ka-band Radar Interferometer) lần đầu tiên
+  cho phép đo <b>wide-swath</b> — quét một dải rộng thay vì chỉ một đường hẹp như altimetry cổ điển.</p>
+`, 'eoportal.org/satellite-missions/swot · jpl.nasa.gov/swot'));
+
+/* ---------- 8. Module 2b: KaRIn swath architecture ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 2 · SWOT Mission</div>
+  <h1>KaRIn quét hai dải 50 km hai bên, có một khoảng trống ngay tại đường nadir</h1>
+  <div class="grid2">
+    <div class="diagram">
+      <svg viewBox="0 0 360 220" width="100%">
+        <rect x="60" y="10" width="60" height="200" fill="var(--swot)" opacity=".18"/>
+        <rect x="240" y="10" width="60" height="200" fill="var(--swot)" opacity=".18"/>
+        <line x1="180" y1="10" x2="180" y2="210" stroke="#28406e" stroke-width="2" stroke-dasharray="4 4"/>
+        <text x="180" y="8" text-anchor="middle" class="lbl-dim" font-size="10">nadir track (gap ~20km)</text>
+        <text x="90" y="8" text-anchor="middle" class="lbl-accent" style="fill:var(--swot)">50 km</text>
+        <text x="270" y="8" text-anchor="middle" class="lbl-accent" style="fill:var(--swot)">50 km</text>
+        <g class="fly">
+          <rect x="-15" y="95" width="30" height="16" rx="3" fill="#1b2c52" stroke="var(--nadir)"/>
+        </g>
+        <text x="180" y="230" text-anchor="middle" class="lbl-dim" font-size="11">hướng bay của vệ tinh →</text>
+      </svg>
+      <div class="center" style="margin-top:6px"><span class="tag good">120 km tổng dải quét mỗi lần bay qua</span></div>
+    </div>
+    <ul class="bullets">
+      <li>KaRIn đo đồng thời 3 đại lượng trên toàn dải: <b>cao độ, độ dốc, độ rộng</b> mặt nước</li>
+      <li>Sản phẩm L2 HR chính: <b>RiverSP</b> (River Single-Pass) và <b>PIXC</b> (pixel cloud)</li>
+      <li>Vì đo theo diện thay vì điểm, sai số có <b>cấu trúc không gian tương quan</b> — cần kỹ thuật giảm sai số chuyên biệt trước khi đồng hóa (nghiên cứu của Jacques Verron, CNRS/LEGOS, về đồng hóa dữ liệu wide-swath)</li>
+    </ul>
+  </div>
+`));
+
+/* ---------- 9. Module 2c: SWOT vs Nadir comparison ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 2 · SWOT Mission</div>
+  <h1>Đối chiếu trực tiếp: điểm rời rạc theo thời gian, hay ảnh liên tục theo không gian?</h1>
+  <div class="grid2">
+    <div class="diagram">
+      <h3 style="margin:0 0 10px;color:var(--nadir);font-size:14px">Nadir altimetry (cổ điển)</h3>
+      <svg viewBox="0 0 320 90" width="100%">
+        <rect x="0" y="60" width="320" height="20" fill="#0c1830"/>
+        <line x1="30" y1="10" x2="30" y2="70" stroke="var(--nadir)" stroke-width="2"/>
+        <circle cx="30" cy="66" r="4" fill="var(--accent2)"/>
+      </svg>
+      <p style="font-size:12.5px;color:var(--ink-dim);margin:6px 0 18px">1 đường hẹp · 1 điểm dữ liệu / lần bay qua</p>
+      <h3 style="margin:0 0 10px;color:var(--swot);font-size:14px">SWOT / KaRIn (wide-swath)</h3>
+      <svg viewBox="0 0 320 90" width="100%">
+        <rect x="0" y="60" width="320" height="20" fill="#0c1830"/>
+        <rect x="10" y="10" width="80" height="60" fill="var(--swot)" opacity=".25"/>
+        <rect x="230" y="10" width="80" height="60" fill="var(--swot)" opacity=".25"/>
+      </svg>
+      <p style="font-size:12.5px;color:var(--ink-dim);margin:6px 0 0">dải rộng 120 km · ảnh 2D đầy đủ elevation/slope/width</p>
+    </div>
+    <table style="width:100%;border-collapse:collapse;font-size:13.5px">
+      <tr style="color:var(--accent2)"><td style="padding:8px 6px"><b>Tiêu chí</b></td><td style="padding:8px 6px"><b>Nadir</b></td><td style="padding:8px 6px"><b>SWOT</b></td></tr>
+      <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Độ phủ ngang</td><td style="padding:8px 6px;color:var(--ink-dim)">1 đường ~300m</td><td style="padding:8px 6px;color:var(--ink-dim)">120 km</td></tr>
+      <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Đo trực tiếp</td><td style="padding:8px 6px;color:var(--ink-dim)">Cao độ</td><td style="padding:8px 6px;color:var(--ink-dim)">Cao độ + độ dốc + độ rộng</td></tr>
+      <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Ước tính discharge</td><td style="padding:8px 6px;color:var(--ink-dim)">Gián tiếp, cần rating curve</td><td style="padding:8px 6px;color:var(--ink-dim)">Trực tiếp hơn qua mô hình thủy lực</td></tr>
+      <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Chuỗi lịch sử</td><td style="padding:8px 6px;color:var(--ink-dim)">Dài (từ 1992)</td><td style="padding:8px 6px;color:var(--ink-dim)">Ngắn (từ 2022)</td></tr>
+    </table>
+  </div>
+`));
+
+/* ---------- 10. Module 2d: discharge estimation ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 2 · SWOT Mission</div>
+  <h1>Ba đại lượng đo được là đầu vào trực tiếp cho công thức thủy lực ước tính lưu lượng</h1>
+  <div class="grid2">
+    <div class="diagram">
+      <svg viewBox="0 0 340 140" width="100%">
+        <g font-size="13">
+          <rect x="10" y="10" width="90" height="40" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+          <text x="55" y="34" text-anchor="middle" class="lbl">Elevation</text>
+          <rect x="10" y="60" width="90" height="40" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+          <text x="55" y="84" text-anchor="middle" class="lbl">Slope</text>
+          <rect x="10" y="110" width="90" height="24" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+          <text x="55" y="126" text-anchor="middle" class="lbl" font-size="12">Width</text>
+          <path d="M100,30 L150,65" stroke="var(--ink-dim)" fill="none"/>
+          <path d="M100,80 L150,68" stroke="var(--ink-dim)" fill="none"/>
+          <path d="M100,122 L150,72" stroke="var(--ink-dim)" fill="none"/>
+          <rect x="150" y="45" width="90" height="46" rx="10" fill="rgba(79,209,197,.15)" stroke="var(--accent)"/>
+          <text x="195" y="63" text-anchor="middle" class="lbl-accent">Mô hình</text>
+          <text x="195" y="79" text-anchor="middle" class="lbl-accent">thủy lực</text>
+          <path d="M240,68 L300,68" stroke="var(--accent2)" stroke-width="2" marker-end="url(#arrow)"/>
+          <rect x="245" y="52" width="90" height="32" rx="8" fill="rgba(242,184,75,.15)" stroke="var(--accent2)"/>
+          <text x="290" y="72" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)">Discharge Q</text>
+        </g>
+        <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--accent2)"/></marker></defs>
+      </svg>
+    </div>
+    <ul class="bullets">
+      <li>Nadir altimetry chỉ cho <b>elevation</b> tại điểm rời rạc ⇒ discharge phải suy từ <em>rating curve</em> lịch sử (gián tiếp)</li>
+      <li>SWOT cho cả 3 biến trên <b>toàn bộ đoạn sông</b> ⇒ có thể chạy mô hình thủy lực kiểu Manning để ước tính lưu lượng mà không cần rating curve tại chỗ</li>
+      <li>Đây là lý do SWOT có giá trị đặc biệt cho các sông <b>không có trạm đo</b> hoặc số liệu không được chia sẻ (ví dụ hạ lưu Mekong)</li>
+    </ul>
+  </div>
+`, 'Nguyên lý tổng quát — xem hồ sơ Adrien Paris (Hydro Matters) tại slide Giảng viên'));
+
+/* ---------- 10b. Toán học nền tảng: 4 phương trình cốt lõi ---------- */
+slide(wrap(`
+  <div class="eyebrow">Toán học nền tảng</div>
+  <h1>Bốn phương trình xuyên suốt khóa học — từ đo khoảng cách đến ước tính lưu lượng</h1>
+  <div class="grid2">
+    <div class="card">
+      <h3>① Range equation (nadir altimetry)</h3>
+      <p style="font-family:Cambria,'Times New Roman',serif;font-size:15px">R = c · Δt / 2</p>
+      <p style="color:var(--ink-dim);font-size:12.5px">c: vận tốc ánh sáng · Δt: thời gian đi–về của xung radar. Độ cao: h = H<sub>sat</sub> − (R + Σ hiệu chỉnh khí quyển)</p>
+    </div>
+    <div class="card">
+      <h3>② KaRIn — pha → góc nhìn → độ cao</h3>
+      <p style="font-family:Cambria,'Times New Roman',serif;font-size:15px">Δφ = k·B·sin(θ) &nbsp;·&nbsp; h = H − r₁cos(θ)</p>
+      <p style="color:var(--ink-dim);font-size:12.5px">B = baseline 10m giữa 2 ăng-ten · θ: góc nhìn suy từ độ lệch pha Δφ</p>
+    </div>
+    <div class="card">
+      <h3>③ Manning — lưu lượng từ W, h, S</h3>
+      <p style="font-family:Cambria,'Times New Roman',serif;font-size:15px">V = (1/n)·R<sub>h</sub><sup>2/3</sup>·S<sup>1/2</sup> &nbsp;·&nbsp; Q = A·V</p>
+      <p style="color:var(--ink-dim);font-size:12.5px">A (mặt cắt ướt) và n (nhám) là ẩn số — suy luận bằng BAM/AMHG từ chuỗi W-h-S của SWOT</p>
+    </div>
+    <div class="card">
+      <h3>④ Kalman gain — lõi của data assimilation</h3>
+      <p style="font-family:Cambria,'Times New Roman',serif;font-size:15px">K = P·H<sup>T</sup>(H·P·H<sup>T</sup> + R)<sup>−1</sup></p>
+      <p style="color:var(--ink-dim);font-size:12.5px">P lớn (mô hình bất định) so với R nhỏ (quan sát tốt) ⇒ K lớn ⇒ tin quan sát hơn. EnKF thay P bằng hiệp phương sai mẫu từ N ensemble khi P quá lớn để tính tường minh.</p>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:16px">Chi tiết từng phương trình + nguồn trích dẫn: mục <b>1.7–1.14</b> trong <code>01_ly_thuyet_va_giang_vien.md</code> và tab "Lý thuyết" trên website luyện tập.</p>
+`));
+
+/* ---------- 11. Module 3: Copernicus & Sentinel ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 3 · Copernicus &amp; Sentinel</div>
+  <h1>SAR nhìn xuyên mây, quang học nhìn màu sắc — hai cảm biến bổ sung cho nhau</h1>
+  <div class="grid2">
+    <div class="card">
+      <h3>Sentinel-1 · SAR</h3>
+      <p>Radar khẩu độ tổng hợp, hoạt động <b>cả ngày lẫn đêm</b> và <b>xuyên mây</b> — lý tưởng lập bản đồ ngập lụt khẩn cấp khi trời mưa/nhiều mây (điều kiện điển hình khi lũ xảy ra).</p>
+    </div>
+    <div class="card">
+      <h3>Sentinel-2 · Quang học</h3>
+      <p>Ảnh đa phổ độ phân giải cao, chỉ dùng được khi <b>quang mây, ban ngày</b> — dùng cho SurfWater (diện tích mặt nước) khi điều kiện khí quyển cho phép.</p>
+    </div>
+  </div>
+  <ul class="bullets" style="margin-top:22px">
+    <li>Copernicus = chương trình quan sát Trái Đất của Liên minh Châu Âu, chính sách <b>dữ liệu mở, miễn phí</b></li>
+    <li>Sentinel-6 (Michael Freilich) là <b>nadir altimeter</b> kế thừa dòng Jason — không phải wide-swath như SWOT</li>
+    <li>Kết hợp Sentinel-1 (mở rộng vùng ngập) + SWOT (cao độ/độ dốc mặt nước) là nền tảng cho module Flood Monitoring (Module 6)</li>
+  </ul>
+`, 'copernicus.eu · eoportal.org'));
+
+/* ---------- 12. Module 4: hydroweb.next ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 4 · hydroweb.next</div>
+  <h1>Một cổng dữ liệu duy nhất, gỡ bỏ 3 rào cản: định dạng, phân tán, chi phí xử lý</h1>
+  <div class="diagram">
+    <svg viewBox="0 0 760 150" width="100%">
+      <g font-size="12.5">
+        <rect x="10" y="15" width="150" height="34" rx="8" fill="var(--panel2)" stroke="var(--nadir)"/>
+        <text x="85" y="36" text-anchor="middle" class="lbl">Nadir altimeters</text>
+        <rect x="10" y="58" width="150" height="34" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+        <text x="85" y="79" text-anchor="middle" class="lbl">SWOT (KaRIn)</text>
+        <rect x="10" y="101" width="150" height="34" rx="8" fill="var(--panel2)" stroke="var(--accent2)"/>
+        <text x="85" y="122" text-anchor="middle" class="lbl">Sentinel-1/2</text>
+
+        <path class="flow-line" d="M160,32 C220,32 220,73 280,73" stroke="var(--ink-dim)" fill="none"/>
+        <path class="flow-line" d="M160,75 L280,75" stroke="var(--ink-dim)" fill="none"/>
+        <path class="flow-line" d="M160,118 C220,118 220,77 280,77" stroke="var(--ink-dim)" fill="none"/>
+
+        <rect x="280" y="45" width="140" height="60" rx="10" fill="rgba(242,184,75,.12)" stroke="var(--accent2)"/>
+        <text x="350" y="70" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)">Theia</text>
+        <text x="350" y="86" text-anchor="middle" class="lbl-dim" font-size="11">production centers</text>
+
+        <path class="flow-line" d="M420,75 L490,75" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow2)"/>
+        <rect x="490" y="35" width="150" height="80" rx="10" fill="rgba(79,209,197,.12)" stroke="var(--accent)"/>
+        <text x="565" y="65" text-anchor="middle" class="lbl-accent">hydroweb.next</text>
+        <text x="565" y="83" text-anchor="middle" class="lbl-dim" font-size="11">WebGIS mở, catalog</text>
+        <text x="565" y="98" text-anchor="middle" class="lbl-dim" font-size="11">SurfWater · water level</text>
+
+        <path class="flow-line" d="M640,75 L710,75" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow2)"/>
+        <rect x="640" y="55" width="0" height="0"/>
+        <text x="720" y="70" class="lbl" font-size="12">Nhà</text>
+        <text x="720" y="86" class="lbl" font-size="12">thủy văn</text>
+        <text x="720" y="102" class="lbl" font-size="12">học</text>
+      </g>
+      <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-dim)"/></marker></defs>
+    </svg>
+  </div>
+  <ul class="bullets" style="margin-top:18px">
+    <li>Ra đời nhờ chương trình <b>SWOT Early Adopters</b> và hạ tầng Data Terra/Theia</li>
+    <li>Sản phẩm THEIA river/lake water level — một số chuỗi dài <b>hơn 30 năm</b> (kế thừa từ TOPEX/Poseidon 1992)</li>
+    <li>Ngoài mực nước còn có <b>Let It Snow</b> (tuyết phủ) và <b>OBS2CO</b> (chất lượng nước) từ Sentinel-2</li>
+  </ul>
+`, 'aviso.altimetry.fr · theia-land.fr'));
+
+/* ---------- 13. Module 5a: data assimilation principle ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 5 · Data Assimilation</div>
+  <h1>Mô hình số trị luôn tích lũy sai số — quan trắc vệ tinh kéo nó về gần thực tế</h1>
+  <div class="grid2">
+    <div class="diagram">
+      <svg viewBox="0 0 340 160" width="100%">
+        <g font-size="12.5">
+          <path d="M20,120 C90,60 150,140 220,50" stroke="var(--nadir)" stroke-width="2" fill="none"/>
+          <text x="30" y="112" class="lbl-dim" style="fill:var(--nadir)" font-size="11">mô hình (dự báo thuần)</text>
+          <path d="M20,120 C90,90 150,95 220,75" stroke="var(--accent)" stroke-width="2.5" fill="none"/>
+          <text x="160" y="100" class="lbl-accent" font-size="11">sau đồng hóa</text>
+          <circle cx="90" cy="88" r="4" fill="var(--accent2)"/>
+          <circle cx="160" cy="93" r="4" fill="var(--accent2)"/>
+          <circle cx="220" cy="80" r="4" fill="var(--accent2)"/>
+          <text x="90" y="76" text-anchor="middle" class="lbl-dim" font-size="10">quan trắc</text>
+        </g>
+      </svg>
+      <div class="center"><span class="tag good">quan trắc "kéo" quỹ đạo mô hình về gần thực tế hơn theo thời gian</span></div>
+    </div>
+    <ul class="bullets">
+      <li><b>Data assimilation:</b> kết hợp có trọng số giữa quan trắc vệ tinh và dự báo mô hình để hiệu chỉnh trạng thái/tham số theo thời gian thực</li>
+      <li>Không có đồng hóa: sai số do bất định tham số/điều kiện biên tích lũy dần, mô hình lệch xa thực tế</li>
+      <li>Ứng dụng: đồng hóa dị thường cao độ mặt nước (nadir hoặc wide-swath) vào mô hình <b>river routing</b> quy mô lớn</li>
+    </ul>
+  </div>
+`, 'Charlotte Emery (LEGOS/CNES) & Jacques Verron (CNRS/LEGOS) — xem hồ sơ giảng viên'));
+
+/* ---------- 14. Module 5b: EnKF cycle ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 5 · Data Assimilation</div>
+  <h1>Ensemble Kalman Filter: một vòng lặp dự báo → so khớp quan trắc → hiệu chỉnh</h1>
+  <div class="diagram">
+    <svg viewBox="0 0 720 190" width="100%">
+      <g font-size="12.5">
+        <rect x="20" y="70" width="150" height="50" rx="10" fill="var(--panel2)" stroke="var(--nadir)"/>
+        <text x="95" y="91" text-anchor="middle" class="lbl">Ensemble dự báo</text>
+        <text x="95" y="107" text-anchor="middle" class="lbl-dim" font-size="10.5">(mô hình thủy văn)</text>
+
+        <path class="flow-line" d="M170,95 L270,95" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow3)"/>
+        <rect x="270" y="70" width="160" height="50" rx="10" fill="rgba(242,184,75,.12)" stroke="var(--accent2)"/>
+        <text x="350" y="91" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)">So khớp quan trắc</text>
+        <text x="350" y="107" text-anchor="middle" class="lbl-dim" font-size="10.5">(SWOT / nadir elevation)</text>
+
+        <path class="flow-line" d="M430,95 L540,95" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow3)"/>
+        <rect x="540" y="70" width="160" height="50" rx="10" fill="rgba(79,209,197,.12)" stroke="var(--accent)"/>
+        <text x="620" y="91" text-anchor="middle" class="lbl-accent">Trạng thái hiệu chỉnh</text>
+        <text x="620" y="107" text-anchor="middle" class="lbl-dim" font-size="10.5">(analysis)</text>
+
+        <path class="flow-line" d="M620,120 C620,170 95,170 95,120" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow3)"/>
+        <text x="357" y="185" text-anchor="middle" class="lbl-dim" font-size="11">quay lại làm điểm khởi đầu cho chu kỳ dự báo tiếp theo</text>
+      </g>
+      <defs><marker id="arrow3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-dim)"/></marker></defs>
+    </svg>
+  </div>
+  <ul class="bullets" style="margin-top:16px">
+    <li>Jacques Verron (CNRS/LEGOS) là một trong những người đặt nền móng cho kỹ thuật (Ensemble) Kalman Filter ứng dụng vào đồng hóa dữ liệu altimetry đại dương, từ những năm 1990</li>
+    <li>Dữ liệu wide-swath (SWOT) có <b>sai số cấu trúc không gian</b> (không độc lập từng pixel) — cần kỹ thuật giảm sai số tương quan riêng trước khi đưa vào vòng lặp đồng hóa</li>
+  </ul>
+`, 'J. Verron (1990), JGR: Oceans · xem đầy đủ nguồn ở slide Giảng viên'));
+
+/* ---------- 15. Module 6a: flood monitoring ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 6 · Flood &amp; Transboundary Monitoring</div>
+  <h1>SAR vẽ ranh giới ngập, SWOT đo cao độ — kết hợp cho bức tranh lũ lụt đầy đủ</h1>
+  <div class="grid2">
+    <ul class="bullets">
+      <li>Sentinel-1 SAR: xuyên mây/mưa, lập bản đồ <b>diện tích ngập</b> gần thời gian thực</li>
+      <li>SWOT: đo <b>cao độ và độ dốc</b> mặt nước ngập, giúp ước tính khối lượng nước và xu hướng lan rộng</li>
+      <li>Kết hợp 2 nguồn ⇒ vừa biết <em>ngập đến đâu</em> vừa biết <em>ngập sâu bao nhiêu</em></li>
+    </ul>
+    <div class="diagram">
+      <svg viewBox="0 0 320 150" width="100%">
+        <rect x="10" y="10" width="140" height="130" rx="8" fill="var(--panel2)" stroke="var(--nadir)"/>
+        <text x="80" y="30" text-anchor="middle" class="lbl-accent" style="fill:var(--nadir)">SAR</text>
+        <path d="M25,110 C50,70 90,120 135,60" fill="none" stroke="var(--nadir)" stroke-width="14" opacity=".35"/>
+        <text x="80" y="145" text-anchor="middle" class="lbl-dim" font-size="10.5">vùng ngập (mặt nạ)</text>
+
+        <rect x="170" y="10" width="140" height="130" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+        <text x="240" y="30" text-anchor="middle" class="lbl-accent" style="fill:var(--swot)">SWOT</text>
+        <path d="M185,110 C210,70 250,120 295,60" fill="none" stroke="var(--swot)" stroke-width="14" opacity=".35"/>
+        <line x1="185" y1="118" x2="295" y2="55" stroke="var(--accent2)" stroke-width="2" stroke-dasharray="3 3"/>
+        <text x="240" y="145" text-anchor="middle" class="lbl-dim" font-size="10.5">cao độ + độ dốc mặt ngập</text>
+      </svg>
+    </div>
+  </div>
+`));
+
+/* ---------- 16. Module 6b: Mekong transboundary ---------- */
+slide(wrap(`
+  <div class="eyebrow">Module 6 · Flood &amp; Transboundary Monitoring</div>
+  <h1>Ở lưu vực xuyên biên giới, dữ liệu vệ tinh là cơ sở chung không phụ thuộc chia sẻ số liệu quốc gia</h1>
+  <div class="diagram">
+    <svg viewBox="0 0 760 140" width="100%">
+      <g font-size="12">
+        <text x="380" y="20" text-anchor="middle" class="lbl-accent">Vệ tinh (SWOT / Nadir / SAR) — độc lập với biên giới</text>
+        <path d="M40,90 C200,50 300,110 460,60 C560,30 660,80 720,60" stroke="#28406e" stroke-width="10" fill="none" opacity=".5"/>
+        <g font-size="11">
+          <rect x="30" y="95" width="90" height="26" rx="6" fill="var(--panel2)" stroke="var(--line)"/>
+          <text x="75" y="112" text-anchor="middle" class="lbl-dim">Lào</text>
+          <rect x="180" y="95" width="110" height="26" rx="6" fill="var(--panel2)" stroke="var(--line)"/>
+          <text x="235" y="112" text-anchor="middle" class="lbl-dim">Thái Lan</text>
+          <rect x="360" y="95" width="120" height="26" rx="6" fill="var(--panel2)" stroke="var(--line)"/>
+          <text x="420" y="112" text-anchor="middle" class="lbl-dim">Campuchia</text>
+          <rect x="560" y="95" width="140" height="26" rx="6" fill="var(--panel2)" stroke="var(--line)"/>
+          <text x="630" y="112" text-anchor="middle" class="lbl-dim">Việt Nam</text>
+        </g>
+        <circle cx="90" cy="72" r="4" fill="var(--accent2)"/>
+        <circle cx="260" cy="82" r="4" fill="var(--accent2)"/>
+        <circle cx="440" cy="66" r="4" fill="var(--accent2)"/>
+        <circle cx="630" cy="70" r="4" fill="var(--accent2)"/>
+        <text x="380" y="135" text-anchor="middle" class="lbl-dim" font-size="10.5">● virtual gauge — số liệu nhất quán trên toàn lưu vực, kể cả nơi thiếu trạm đo mặt đất</text>
+      </g>
+    </svg>
+  </div>
+  <ul class="bullets" style="margin-top:16px">
+    <li><b>MRC</b> (Mekong River Commission): tổ chức liên chính phủ quản lý sông Mê Kông xuyên biên giới, đại diện trong VSEO6 bởi Mathias Boun Hen</li>
+    <li>Dữ liệu in-situ thường không được chia sẻ đầy đủ xuyên biên giới vì lý do chủ quyền/an ninh nước — vệ tinh cung cấp một nguồn quan sát trung lập, nhất quán trên toàn lưu vực</li>
+  </ul>
+`));
+
+/* ---------- 17. Speakers 1 ---------- */
+function spk(name, aff, pubs){
+  return `<div class="spk"><h3>${name}</h3><div class="aff">${aff}</div><ul>${pubs.map(p=>'<li>'+p+'</li>').join('')}</ul></div>`;
+}
+slide(wrap(`
+  <div class="eyebrow">Giảng viên chính (1/2)</div>
+  <h1>Nhóm altimetry &amp; đồng hóa dữ liệu — Hydro Matters, LEGOS/CNRS</h1>
+  <div class="grid2">
+    ${spk('Dr. Laetitia Gal','Hydro Matters · điều phối chính khóa học',[
+      'Larnier et al. (2025), Channel Parameters &amp; Discharge at River Network Scale via SWOT — Water Resources Research',
+      'Tham gia cal/val SWOT tại Brazil (khảo sát hồ chứa nông nghiệp bán khô hạn)'])}
+    ${spk('Adrien Paris','Hydro Matters / Ocean Next · cựu LEGOS, Đại học Toulouse III',[
+      'Hydro-climatology study of the Ogooué River basin using hydrological modeling and satellite altimetry',
+      'Kỹ sư cơ khí (ENSAM) chuyển hướng sang thủy văn không gian'])}
+    ${spk('Charlotte Emery','LEGOS / CNES (hiện cùng CS-Group)',[
+      'Updates from hydroweb.next and AVISO (2025), SWOT Applications Meeting',
+      'Variance-based Sensitivity Analysis... Ensemble-based SWOT-like DA Experiments, AGU 2015'])}
+    ${spk('Jacques Verron','CNRS / LEGOS Toulouse · cựu LGGE, Đại học Joseph Fourier Grenoble',[
+      'Verron (1990), Altimeter data assimilation into an ocean circulation model — JGR: Oceans',
+      'Joint altimetric and in-situ data assimilation using GRACE MDT — Ocean Dynamics'])}
+  </div>
+`));
+
+/* ---------- 18. Speakers 2 ---------- */
+slide(wrap(`
+  <div class="eyebrow">Giảng viên chính (2/2)</div>
+  <h1>Nhóm khu vực &amp; tổ chức đối tác — Việt Nam, Philippines, và các diễn giả khác</h1>
+  <div class="grid2">
+    ${spk('TS. Binh Pham Duc','USTH — Đại học Khoa học &amp; Công nghệ Hà Nội',[
+      'Monitoring Tonle Sap Lake water volume using Sentinel-1 + satellite altimetry, J. Water &amp; Climate Change 2023',
+      'Monitoring lake volume — case study Thac Mo Reservoir (Vietnam), Remote Sensing 2022'])}
+    ${spk('Ariel Blanco','PSA / PhilSA · Director IV, Space Information Infrastructure Bureau',[
+      'Towards Nationwide Mapping of Seagrasses in the Philippines (dự án BlueCARES, Sentinel-2)',
+      'Coral Bleaching Detection Using PRISMA Hyperspectral Imagery, Calatagan'])}
+    ${spk('Denis Fourmeau &amp; Jean Tran Thanh Van','Đồng chủ trì khai mạc · Rencontres du Vietnam',[
+      'Jean Tran Thanh Van: người sáng lập Rencontres du Vietnam (1993), đối tác chính thức UNESCO'])}
+    ${spk('Linda Tomasini · Pham Thi Mai Thy · Mathias Boun Hen · Daniel Moreira · Sabrine Amzil','Đại diện CNES · VNSC · MRC · SWOT overview · SWOT &amp; flood monitoring',[
+      'Vai trò xác nhận theo chương trình chính thức; chưa tìm được hồ sơ công bố khoa học công khai đủ tin cậy để liệt kê — tránh suy đoán'])}
+  </div>
+`));
+
+/* ---------- 19. Closing ---------- */
+slide(wrap(`
+  <div class="eyebrow">Tổng kết</div>
+  <h1>Sẵn sàng cho VSEO6 — ôn tập trắc nghiệm và theo dõi lịch trình đầy đủ tại đây</h1>
+  <div class="grid2" style="margin-top:10px">
+    <div class="card">
+      <h3>🌐 Website luyện tập tự chấm điểm</h3>
+      <p>31 câu hỏi trắc nghiệm bao phủ Nadir altimetry, SWOT/KaRIn, data assimilation (Kalman/EnKF), Manning &amp; discharge, geoid, tổ chức đối tác, chương trình và giảng viên — chấm điểm hoàn toàn trong trình duyệt.</p>
+      <p style="margin-top:10px;color:var(--accent)">tatcataittn.github.io/for-ttn-USTH/VSEO-6/</p>
+    </div>
+    <div class="card">
+      <h3>📄 Tài liệu lý thuyết đầy đủ</h3>
+      <p>01_ly_thuyet_va_giang_vien.md — toàn bộ nội dung nền tảng khoa học, chương trình chi tiết và nguồn trích dẫn.</p>
+    </div>
+  </div>
+  <p class="lead" style="margin-top:26px">Liên hệ khóa học: Dr. Laetitia Gal — laetitia.gal@hydro-matters.fr &nbsp;·&nbsp; ICISE, Quy Nhơn, 7–12/9/2026</p>
+`));
+
+/* ============ ENGINE ============ */
+const deck = document.getElementById('deck');
+SLIDES.forEach(html => {
+  const div = document.createElement('div');
+  div.className = 'slide';
+  div.innerHTML = html;
+  deck.appendChild(div);
+});
+let idx = 0;
+const total = SLIDES.length;
+function render(){
+  deck.style.transform = `translateX(-${idx*100}vw)`;
+  document.getElementById('progress').style.width = ((idx+1)/total*100) + '%';
+  const cur = deck.children[idx];
+  let num = cur.querySelector('.slidenum');
+  deck.querySelectorAll('.slidenum').forEach(e=>e.remove());
+  const n = document.createElement('div');
+  n.className = 'slidenum';
+  n.textContent = (idx+1) + ' / ' + total;
+  cur.appendChild(n);
+  cur.querySelectorAll('.fadein').forEach(el=>{ el.style.animation='none'; void el.offsetWidth; el.style.animation=''; });
+}
+function go(delta){ idx = Math.max(0, Math.min(total-1, idx+delta)); render(); }
+document.addEventListener('keydown', e=>{
+  if (['ArrowRight','PageDown',' '].includes(e.key)) { go(1); e.preventDefault(); }
+  else if (['ArrowLeft','PageUp'].includes(e.key)) { go(-1); e.preventDefault(); }
+  else if (e.key === 'Home') { idx=0; render(); }
+  else if (e.key === 'End') { idx=total-1; render(); }
+});
+document.addEventListener('click', e=>{
+  const w = window.innerWidth;
+  if (e.clientX > w*0.6) go(1); else if (e.clientX < w*0.4) go(-1);
+});
+render();
+</script>
+</body>
+</html>

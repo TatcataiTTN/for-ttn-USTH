@@ -6,7 +6,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Đo nhiệt độ bề mặt nước bằng cảm biến hồng ngoại"
+        "text": "Dùng hai ăng-ten radar giao thoa quét một dải rộng 120 km"
       },
       {
         "letter": "B",
@@ -14,7 +14,7 @@
       },
       {
         "letter": "C",
-        "text": "Dùng hai ăng-ten radar giao thoa quét một dải rộng 120 km"
+        "text": "Đo nhiệt độ bề mặt nước bằng cảm biến hồng ngoại"
       },
       {
         "letter": "D",
@@ -31,7 +31,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Không được các cơ quan vũ trụ như CNES, NASA hỗ trợ"
+        "text": "Không có chuỗi thời gian dài, dữ liệu mới bắt đầu từ 2022"
       },
       {
         "letter": "B",
@@ -43,7 +43,7 @@
       },
       {
         "letter": "D",
-        "text": "Không có chuỗi thời gian dài, dữ liệu mới bắt đầu từ 2022"
+        "text": "Không được các cơ quan vũ trụ như CNES, NASA hỗ trợ"
       }
     ],
     "correct": "B",
@@ -56,11 +56,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "NASA và CNES (cùng CSA, UKSA)"
+        "text": "Chỉ riêng ESA (Cơ quan Vũ trụ Châu Âu)"
       },
       {
         "letter": "B",
-        "text": "Chỉ riêng ESA (Cơ quan Vũ trụ Châu Âu)"
+        "text": "USTH và Mekong River Commission"
       },
       {
         "letter": "C",
@@ -68,10 +68,10 @@
       },
       {
         "letter": "D",
-        "text": "USTH và Mekong River Commission"
+        "text": "NASA và CNES (cùng CSA, UKSA)"
       }
     ],
-    "correct": "A",
+    "correct": "D",
     "explain": "SWOT là sứ mệnh hợp tác NASA–CNES, phóng ngày 16/12/2022."
   },
   {
@@ -81,22 +81,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Cảm biến quang học đa phổ chụp ảnh mặt nước"
-      },
-      {
-        "letter": "B",
         "text": "Interferometry băng Ka với hai ăng-ten radar ở hai đầu cần dài 10m, quét dải rộng 120km"
       },
       {
-        "letter": "C",
+        "letter": "B",
         "text": "Một ăng-ten radar duy nhất đo thẳng xuống dưới vệ tinh"
+      },
+      {
+        "letter": "C",
+        "text": "Cảm biến quang học đa phổ chụp ảnh mặt nước"
       },
       {
         "letter": "D",
         "text": "LIDAR laser đo khoảng cách bằng ánh sáng"
       }
     ],
-    "correct": "B",
+    "correct": "A",
     "explain": "KaRIn (Ka-band Radar Interferometer) là bước nhảy vọt từ đo điểm sang bản đồ 2D mực nước."
   },
   {
@@ -106,22 +106,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Khoảng 21 ngày; sông rộng hơn khoảng 100 mét"
+        "text": "Khoảng 90 ngày; chỉ sông rộng hơn 5 km"
       },
       {
         "letter": "B",
-        "text": "Khoảng 6 giờ; chỉ hồ chứa lớn hơn 10 km²"
-      },
-      {
-        "letter": "C",
         "text": "Khoảng 1 ngày; mọi con sông bất kể độ rộng"
       },
       {
+        "letter": "C",
+        "text": "Khoảng 6 giờ; chỉ hồ chứa lớn hơn 10 km²"
+      },
+      {
         "letter": "D",
-        "text": "Khoảng 90 ngày; chỉ sông rộng hơn 5 km"
+        "text": "Khoảng 21 ngày; sông rộng hơn khoảng 100 mét"
       }
     ],
-    "correct": "A",
+    "correct": "D",
     "explain": "SWOT quan sát lại sau ~21 ngày, đo sông > 100m và vùng nước > 250×250m."
   },
   {
@@ -131,11 +131,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "CNES, chỉ dành riêng cho nghiên cứu nội bộ Pháp"
+        "text": "NASA, cung cấp dữ liệu trả phí qua vệ tinh Landsat"
       },
       {
         "letter": "B",
-        "text": "NASA, cung cấp dữ liệu trả phí qua vệ tinh Landsat"
+        "text": "Mekong River Commission, chỉ phủ khu vực Đông Nam Á"
       },
       {
         "letter": "C",
@@ -143,7 +143,7 @@
       },
       {
         "letter": "D",
-        "text": "Mekong River Commission, chỉ phủ khu vực Đông Nam Á"
+        "text": "CNES, chỉ dành riêng cho nghiên cứu nội bộ Pháp"
       }
     ],
     "correct": "C",
@@ -156,22 +156,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Ứng dụng di động cảnh báo lũ cho người dân"
+        "text": "Một mô hình thủy văn số trị chạy trên siêu máy tính"
       },
       {
         "letter": "B",
-        "text": "Nền tảng dữ liệu mở do CNES/Theia vận hành, gộp dữ liệu nadir + SWOT thành chuỗi thời gian sẵn dùng"
+        "text": "Ứng dụng di động cảnh báo lũ cho người dân"
       },
       {
         "letter": "C",
-        "text": "Một mô hình thủy văn số trị chạy trên siêu máy tính"
+        "text": "Nền tảng dữ liệu mở do CNES/Theia vận hành, gộp dữ liệu nadir + SWOT thành chuỗi thời gian sẵn dùng"
       },
       {
         "letter": "D",
         "text": "Vệ tinh radar thế hệ mới thay thế SWOT"
       }
     ],
-    "correct": "B",
+    "correct": "C",
     "explain": "Hydroweb-next giúp người dùng lấy chuỗi thời gian mực nước mà không cần tự xử lý dữ liệu thô."
   },
   {
@@ -181,22 +181,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Ariel Blanco"
-      },
-      {
-        "letter": "B",
-        "text": "Jacques Verron"
-      },
-      {
-        "letter": "C",
         "text": "Binh Pham Duc"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Charlotte Emery"
+      },
+      {
+        "letter": "C",
+        "text": "Jacques Verron"
+      },
+      {
+        "letter": "D",
+        "text": "Ariel Blanco"
       }
     ],
-    "correct": "D",
+    "correct": "B",
     "explain": "Charlotte Emery (LEGOS/CNES) phụ trách buổi sáng thứ Năm 10/9 về Hydroweb-next."
   },
   {
@@ -206,22 +206,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Việc gộp nhiều ảnh vệ tinh khác nhau thành một ảnh có độ phân giải cao hơn"
-      },
-      {
-        "letter": "B",
-        "text": "Kỹ thuật nén dữ liệu vệ tinh để giảm dung lượng lưu trữ"
-      },
-      {
-        "letter": "C",
         "text": "Kết hợp có trọng số giữa đầu ra mô hình số và quan sát thực đo để ước lượng trạng thái hệ thống chính xác hơn"
       },
       {
-        "letter": "D",
+        "letter": "B",
         "text": "Quá trình hiệu chỉnh quỹ đạo vệ tinh cho đúng với lịch bay dự kiến"
+      },
+      {
+        "letter": "C",
+        "text": "Kỹ thuật nén dữ liệu vệ tinh để giảm dung lượng lưu trữ"
+      },
+      {
+        "letter": "D",
+        "text": "Việc gộp nhiều ảnh vệ tinh khác nhau thành một ảnh có độ phân giải cao hơn"
       }
     ],
-    "correct": "C",
+    "correct": "A",
     "explain": "Data assimilation dùng kỹ thuật như Kalman filter/Ensemble Kalman Filter, trọng số theo độ bất định mỗi nguồn."
   },
   {
@@ -256,11 +256,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Kalman filter / Ensemble Kalman Filter"
+        "text": "Thuật toán mã hóa RSA"
       },
       {
         "letter": "B",
-        "text": "Cây quyết định (decision tree)"
+        "text": "Kalman filter / Ensemble Kalman Filter"
       },
       {
         "letter": "C",
@@ -268,10 +268,10 @@
       },
       {
         "letter": "D",
-        "text": "Thuật toán mã hóa RSA"
+        "text": "Cây quyết định (decision tree)"
       }
     ],
-    "correct": "A",
+    "correct": "B",
     "explain": "Verron là người tiên phong áp dụng (Ensemble) Kalman Filter cho đồng hóa dữ liệu altimetry."
   },
   {
@@ -281,11 +281,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Vì Mekong River Commission sở hữu vệ tinh riêng của mình"
+        "text": "Vì chỉ có vệ tinh mới đo được các con sông có chiều rộng lớn hơn 1km"
       },
       {
         "letter": "B",
-        "text": "Vì dữ liệu vệ tinh luôn chính xác hơn tuyệt đối so với trạm đo tại chỗ"
+        "text": "Vì Mekong River Commission sở hữu vệ tinh riêng của mình"
       },
       {
         "letter": "C",
@@ -293,7 +293,7 @@
       },
       {
         "letter": "D",
-        "text": "Vì chỉ có vệ tinh mới đo được các con sông có chiều rộng lớn hơn 1km"
+        "text": "Vì dữ liệu vệ tinh luôn chính xác hơn tuyệt đối so với trạm đo tại chỗ"
       }
     ],
     "correct": "C",
@@ -306,7 +306,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Mekong River Commission — tổ chức liên chính phủ quản lý sông Mê Kông xuyên biên giới"
+        "text": "Mekong Research Consortium — nhóm nghiên cứu học thuật tư nhân"
       },
       {
         "letter": "B",
@@ -314,14 +314,14 @@
       },
       {
         "letter": "C",
-        "text": "Mekong Research Consortium — nhóm nghiên cứu học thuật tư nhân"
+        "text": "Mekong River Commission — tổ chức liên chính phủ quản lý sông Mê Kông xuyên biên giới"
       },
       {
         "letter": "D",
         "text": "Ministry of Rural and Climate affairs — bộ quản lý khí hậu Việt Nam"
       }
     ],
-    "correct": "A",
+    "correct": "C",
     "explain": "MRC là tổ chức liên chính phủ, đại diện bởi Mathias Boun Hen trong phần giới thiệu tổ chức."
   },
   {
@@ -331,7 +331,7 @@
     "options": [
       {
         "letter": "A",
-        "text": "Cơ quan vũ trụ quốc gia Việt Nam, đại diện bởi Pham Thi Mai Thy"
+        "text": "Đơn vị vận hành vệ tinh SWOT tại Đông Nam Á"
       },
       {
         "letter": "B",
@@ -339,14 +339,14 @@
       },
       {
         "letter": "C",
-        "text": "Đơn vị Việt Nam về viễn thám nước, đại diện bởi TS. Binh Pham Duc"
+        "text": "Cơ quan vũ trụ quốc gia Việt Nam, đại diện bởi Pham Thi Mai Thy"
       },
       {
         "letter": "D",
-        "text": "Đơn vị vận hành vệ tinh SWOT tại Đông Nam Á"
+        "text": "Đơn vị Việt Nam về viễn thám nước, đại diện bởi TS. Binh Pham Duc"
       }
     ],
-    "correct": "C",
+    "correct": "D",
     "explain": "USTH (Đại học Khoa học & Công nghệ Hà Nội) — Binh Pham Duc nghiên cứu viễn thám hồ/sông tại Việt Nam."
   },
   {
@@ -356,22 +356,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Philippines — CNES hợp tác với PhilSA đo cỏ biển"
+        "text": "Pháp — CNES đồng vận hành sứ mệnh SWOT cùng NASA và vận hành Hydroweb-next"
       },
       {
         "letter": "B",
-        "text": "Canada — CNES tương đương với CSA"
+        "text": "Philippines — CNES hợp tác với PhilSA đo cỏ biển"
       },
       {
         "letter": "C",
-        "text": "Việt Nam — CNES là tên cũ của VNSC"
+        "text": "Canada — CNES tương đương với CSA"
       },
       {
         "letter": "D",
-        "text": "Pháp — CNES đồng vận hành sứ mệnh SWOT cùng NASA và vận hành Hydroweb-next"
+        "text": "Việt Nam — CNES là tên cũ của VNSC"
       }
     ],
-    "correct": "D",
+    "correct": "A",
     "explain": "CNES (Centre National d'Études Spatiales) là cơ quan vũ trụ Pháp."
   },
   {
@@ -381,22 +381,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Vietnam Natural Sciences Council — hội đồng khoa học tự nhiên Việt Nam"
+        "text": "Vietnam National Space Center — Trung tâm Vũ trụ Việt Nam"
       },
       {
         "letter": "B",
-        "text": "Viện Nghiên cứu Sông Cửu Long"
-      },
-      {
-        "letter": "C",
         "text": "Một công ty tư nhân về ảnh vệ tinh thương mại"
       },
       {
+        "letter": "C",
+        "text": "Vietnam Natural Sciences Council — hội đồng khoa học tự nhiên Việt Nam"
+      },
+      {
         "letter": "D",
-        "text": "Vietnam National Space Center — Trung tâm Vũ trụ Việt Nam"
+        "text": "Viện Nghiên cứu Sông Cửu Long"
       }
     ],
-    "correct": "D",
+    "correct": "A",
     "explain": "Đại diện VNSC trong chương trình khai mạc là Pham Thi Mai Thy."
   },
   {
@@ -414,14 +414,14 @@
       },
       {
         "letter": "C",
-        "text": "Thái Lan (Public Space Agency) — đại diện Sabrine Amzil"
+        "text": "Philippines (Philippine Space Agency) — đại diện Ariel Blanco"
       },
       {
         "letter": "D",
-        "text": "Philippines (Philippine Space Agency) — đại diện Ariel Blanco"
+        "text": "Thái Lan (Public Space Agency) — đại diện Sabrine Amzil"
       }
     ],
-    "correct": "D",
+    "correct": "C",
     "explain": "Ariel Blanco là Director IV/PhilSA, chuyên viễn thám biển/nước (seagrass, coral bleaching)."
   },
   {
@@ -431,22 +431,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Bàn tròn tổng kết và bế mạc khóa học"
-      },
-      {
-        "letter": "B",
-        "text": "Giới thiệu và thực hành Hydroweb-next"
-      },
-      {
-        "letter": "C",
         "text": "Thực địa quan sát mực nước hồ chứa"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Bàn tròn tổng kết và bế mạc khóa học"
+      },
+      {
+        "letter": "C",
         "text": "Tổng quan sứ mệnh Nadir altimetry và thực hành tải/phân tích dữ liệu Nadir"
+      },
+      {
+        "letter": "D",
+        "text": "Giới thiệu và thực hành Hydroweb-next"
       }
     ],
-    "correct": "D",
+    "correct": "C",
     "explain": "Buổi sáng thứ Hai là khai mạc + giới thiệu tổ chức; buổi chiều là Nadir altimetry."
   },
   {
@@ -456,22 +456,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Thứ Ba 8/9 — khảo sát vùng ngập lũ ở đồng bằng sông Cửu Long"
-      },
-      {
-        "letter": "B",
         "text": "Thứ Hai 7/9 — tham quan phòng thí nghiệm ICISE"
       },
       {
+        "letter": "B",
+        "text": "Thứ Sáu 11/9 — tham quan trụ sở Mekong River Commission"
+      },
+      {
         "letter": "C",
-        "text": "Thứ Tư 9/9 — quan sát mực nước hồ chứa tại thực địa"
+        "text": "Thứ Ba 8/9 — khảo sát vùng ngập lũ ở đồng bằng sông Cửu Long"
       },
       {
         "letter": "D",
-        "text": "Thứ Sáu 11/9 — tham quan trụ sở Mekong River Commission"
+        "text": "Thứ Tư 9/9 — quan sát mực nước hồ chứa tại thực địa"
       }
     ],
-    "correct": "C",
+    "correct": "D",
     "explain": "Sáng thứ Tư (9/9) dành trọn cho thực địa hồ chứa, chiều chuyển sang lý thuyết mô hình thủy văn."
   },
   {
@@ -485,11 +485,11 @@
       },
       {
         "letter": "B",
-        "text": "Nguyên lý đồng hóa dữ liệu cơ bản"
+        "text": "Giới thiệu tổng quan sứ mệnh SWOT"
       },
       {
         "letter": "C",
-        "text": "Giới thiệu tổng quan sứ mệnh SWOT"
+        "text": "Nguyên lý đồng hóa dữ liệu cơ bản"
       },
       {
         "letter": "D",
@@ -506,22 +506,22 @@
     "options": [
       {
         "letter": "A",
-        "text": "Thứ Ba 8/9"
-      },
-      {
-        "letter": "B",
-        "text": "Thứ Hai 7/9"
-      },
-      {
-        "letter": "C",
         "text": "Thứ Năm 10/9"
       },
       {
-        "letter": "D",
+        "letter": "B",
+        "text": "Thứ Ba 8/9"
+      },
+      {
+        "letter": "C",
         "text": "Thứ Tư 9/9"
+      },
+      {
+        "letter": "D",
+        "text": "Thứ Hai 7/9"
       }
     ],
-    "correct": "A",
+    "correct": "B",
     "explain": "Daniel Moreira, Sabrine Amzil, Binh Pham Duc giảng tổng quan SWOT sáng thứ Ba."
   },
   {
@@ -531,11 +531,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Chuyên gia công nghệ thông tin tại Google"
+        "text": "Bác sĩ thú y chuyên về sinh thái sông"
       },
       {
         "letter": "B",
-        "text": "Kỹ sư cơ khí (tốt nghiệp ENSAM)"
+        "text": "Chuyên gia công nghệ thông tin tại Google"
       },
       {
         "letter": "C",
@@ -543,10 +543,10 @@
       },
       {
         "letter": "D",
-        "text": "Bác sĩ thú y chuyên về sinh thái sông"
+        "text": "Kỹ sư cơ khí (tốt nghiệp ENSAM)"
       }
     ],
-    "correct": "B",
+    "correct": "D",
     "explain": "Adrien Paris tốt nghiệp ENSAM (cơ khí) rồi chuyển hướng nghiên cứu thủy văn/altimetry."
   },
   {
@@ -556,11 +556,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "PhilSA — lập bản đồ cỏ biển ở Philippines"
+        "text": "Mekong River Commission — vận hành trạm đo tại Lào"
       },
       {
         "letter": "B",
-        "text": "Mekong River Commission — vận hành trạm đo tại Lào"
+        "text": "Hydro Matters — tham gia hoạt động cal/val (hiệu chỉnh/xác thực) SWOT tại Brazil"
       },
       {
         "letter": "C",
@@ -568,10 +568,10 @@
       },
       {
         "letter": "D",
-        "text": "Hydro Matters — tham gia hoạt động cal/val (hiệu chỉnh/xác thực) SWOT tại Brazil"
+        "text": "PhilSA — lập bản đồ cỏ biển ở Philippines"
       }
     ],
-    "correct": "D",
+    "correct": "B",
     "explain": "Laetitia Gal (Hydro Matters) khảo sát địa hình hồ chứa nông nghiệp bán khô hạn tại Brazil cho SWOT cal/val."
   },
   {
@@ -581,11 +581,11 @@
     "options": [
       {
         "letter": "A",
-        "text": "Hồ Victoria (Đông Phi) và hồ Chad"
+        "text": "Hồ Tonle Sap (Campuchia) và hồ chứa Thác Mơ (Việt Nam)"
       },
       {
         "letter": "B",
-        "text": "Hồ Tonle Sap (Campuchia) và hồ chứa Thác Mơ (Việt Nam)"
+        "text": "Hồ Geneva (Thụy Sĩ) và hồ Como (Ý)"
       },
       {
         "letter": "C",
@@ -593,10 +593,185 @@
       },
       {
         "letter": "D",
-        "text": "Hồ Geneva (Thụy Sĩ) và hồ Como (Ý)"
+        "text": "Hồ Victoria (Đông Phi) và hồ Chad"
+      }
+    ],
+    "correct": "A",
+    "explain": "Binh Pham Duc công bố về Tonle Sap (Sentinel-1 + altimetry) và Thác Mơ (Remote Sensing 2022)."
+  },
+  {
+    "id": "math-range-eq",
+    "topic": "Toán học nền tảng",
+    "question": "Phương trình khoảng cách (range equation) cơ bản của radar altimetry cổ điển là gì?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "R = g · t² / 2 (áp dụng công thức rơi tự do)"
+      },
+      {
+        "letter": "B",
+        "text": "R = c · Δt / 2 (c: vận tốc ánh sáng, Δt: thời gian đi–về của xung radar)"
+      },
+      {
+        "letter": "C",
+        "text": "R = k · B · sin(θ) (công thức của giao thoa kế KaRIn)"
+      },
+      {
+        "letter": "D",
+        "text": "R = c · Δt (không chia đôi vì chỉ tính chiều đi)"
       }
     ],
     "correct": "B",
-    "explain": "Binh Pham Duc công bố về Tonle Sap (Sentinel-1 + altimetry) và Thác Mơ (Remote Sensing 2022)."
+    "explain": "Xung radar đi xuống rồi phản xạ về, nên khoảng cách bằng nửa quãng đường ứng với thời gian đo được: R = c·Δt/2."
+  },
+  {
+    "id": "math-corrections",
+    "topic": "Toán học nền tảng",
+    "question": "Trong 3 hiệu chỉnh địa vật lý của altimetry cổ điển, hiệu chỉnh nào biến động mạnh nhất và khó mô hình hoá nhất?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Tầng đối lưu khô (dry troposphere) — biến động mạnh nhất vì phụ thuộc áp suất"
+      },
+      {
+        "letter": "B",
+        "text": "Thủy triều cực — luôn lớn hơn 1 mét với mọi vị trí trên Trái Đất"
+      },
+      {
+        "letter": "C",
+        "text": "Tầng điện ly (ionosphere) — không thể đo được bằng bất kỳ cách nào"
+      },
+      {
+        "letter": "D",
+        "text": "Tầng đối lưu ướt (wet troposphere) — phụ thuộc hơi nước, biến động theo thời tiết"
+      }
+    ],
+    "correct": "D",
+    "explain": "Dry troposphere ổn định (mô hình từ áp suất bề mặt), ionosphere đo được bằng kết hợp 2 tần số; wet troposphere là khó nhất vì hơi nước biến động nhanh, khó dự báo."
+  },
+  {
+    "id": "math-karin-phase",
+    "topic": "Toán học nền tảng",
+    "question": "KaRIn (SWOT) suy ra độ cao mặt nước bằng cách nào, khác gì so với altimetry cổ điển?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Vẫn đo thời gian đi–về của xung radar như altimetry cổ điển, chỉ khác ở việc dùng 2 ăng-ten dự phòng"
+      },
+      {
+        "letter": "B",
+        "text": "Đo độ lệch pha giữa 2 ăng-ten cách nhau baseline 10m, suy ra góc nhìn rồi ra độ cao — không đo trực tiếp khoảng cách"
+      },
+      {
+        "letter": "C",
+        "text": "Đo trực tiếp bằng laser giữa vệ tinh và mặt nước (LiDAR), không dùng radar"
+      },
+      {
+        "letter": "D",
+        "text": "Dùng Doppler shift của tín hiệu phản xạ để suy ra vận tốc rồi tích phân ra độ cao"
+      }
+    ],
+    "correct": "B",
+    "explain": "KaRIn là giao thoa kế (interferometer): Δφ = kB·sin(θ) cho góc nhìn θ, rồi h = H − r₁·cos(θ) cho độ cao — một cơ chế đo hoàn toàn khác altimetry nadir cổ điển."
+  },
+  {
+    "id": "math-manning",
+    "topic": "Toán học nền tảng",
+    "question": "Vì sao SWOT không thể đo lưu lượng dòng chảy (discharge, Q) trực tiếp mà phải suy luận qua mô hình như Manning/AMHG?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Vì lưu lượng chỉ có thể đo bằng cách đặt cảm biến chìm dưới nước, vệ tinh không làm được về nguyên tắc vật lý"
+      },
+      {
+        "letter": "B",
+        "text": "Vì độ phân giải KaRIn quá thô để phân biệt được các sông nhỏ hơn 10km bề rộng"
+      },
+      {
+        "letter": "C",
+        "text": "Vì KaRIn chỉ hoạt động trên đại dương, không thể quét sông nội địa"
+      },
+      {
+        "letter": "D",
+        "text": "SWOT chỉ đo W, h, S mặt nước — diện tích mặt cắt A và hệ số nhám n trong phương trình Manning không đo được trực tiếp"
+      }
+    ],
+    "correct": "D",
+    "explain": "Q = A·V và V = (1/n)·Rh^(2/3)·S^(1/2) (Manning) — A và n là ẩn số cần suy luận (ví dụ bằng Bayesian AMHG-Manning/BAM) từ chuỗi thời gian W-h-S mà SWOT đo được."
+  },
+  {
+    "id": "math-kalman-gain",
+    "topic": "Toán học nền tảng",
+    "question": "Trong công thức Kalman gain K = P·Hᵀ(H·P·Hᵀ + R)⁻¹, điều gì xảy ra khi mô hình có độ bất định P rất lớn so với sai số quan sát R?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Phương trình không xác định (undefined) khi P lớn hơn R"
+      },
+      {
+        "letter": "B",
+        "text": "K tiến gần giá trị lớn — bước phân tích nghiêng mạnh về phía tin tưởng quan sát thực đo hơn là mô hình"
+      },
+      {
+        "letter": "C",
+        "text": "K tiến về 0 — bước phân tích bỏ qua hoàn toàn quan sát, chỉ tin mô hình"
+      },
+      {
+        "letter": "D",
+        "text": "K không phụ thuộc vào P hay R, luôn cố định bằng 0.5"
+      }
+    ],
+    "correct": "B",
+    "explain": "K = P Hᵀ(HPHᵀ+R)⁻¹ — P lớn (mô hình kém tin cậy) so với R nhỏ (quan sát tốt) khiến K lớn, nghĩa là phân tích nghiêng về phía quan sát y."
+  },
+  {
+    "id": "math-enkf-why",
+    "topic": "Toán học nền tảng",
+    "question": "Vì sao các bài toán đồng hóa dữ liệu thủy văn quy mô lớn dùng Ensemble Kalman Filter (EnKF) thay vì Kalman Filter chuẩn?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Vì EnKF không cần dữ liệu quan sát, chỉ cần mô hình số"
+      },
+      {
+        "letter": "B",
+        "text": "Vì EnKF rẻ hơn về bản quyền phần mềm so với Kalman Filter chuẩn"
+      },
+      {
+        "letter": "C",
+        "text": "Vì Kalman Filter chuẩn chỉ áp dụng được cho hệ tuyến tính một chiều (1D), còn EnKF cho phép chạy trên GPU"
+      },
+      {
+        "letter": "D",
+        "text": "Ma trận hiệp phương sai P quá lớn để tính tường minh — EnKF ước lượng P bằng hiệp phương sai mẫu từ N thành viên ensemble"
+      }
+    ],
+    "correct": "D",
+    "explain": "Với mô hình lưu vực có hàng nghìn/triệu biến trạng thái, ma trận P không thể lưu trữ/tính tường minh — EnKF xấp xỉ P bằng hiệp phương sai mẫu từ N thành viên ensemble."
+  },
+  {
+    "id": "math-geoid",
+    "topic": "Toán học nền tảng",
+    "question": "Vì sao độ cao đo trực tiếp bởi vệ tinh altimetry (so với ellipsoid) không thể so sánh ngay với số liệu trạm đo tại chỗ (so với mực nước biển)?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cần hiệu chỉnh qua mô hình geoid — ellipsoid là mặt toán học, còn mực nước biển bám theo geoid (bề mặt đẳng thế trọng lực)"
+      },
+      {
+        "letter": "B",
+        "text": "Không cần hiệu chỉnh gì — hai hệ quy chiếu vốn trùng nhau ở mọi nơi trên Trái Đất"
+      },
+      {
+        "letter": "C",
+        "text": "Vì ellipsoid và geoid chỉ khác nhau ở khu vực gần cực, còn ở vùng nhiệt đới như Việt Nam thì trùng khớp"
+      },
+      {
+        "letter": "D",
+        "text": "Vì trạm đo tại chỗ luôn có sai số lớn hơn vệ tinh nên không thể so sánh được về nguyên tắc"
+      }
+    ],
+    "correct": "A",
+    "explain": "H = h_ellipsoid − N_geoid, với N_geoid tra từ mô hình geoid toàn cầu (ví dụ EGM2008) — bỏ qua bước này là nguồn lỗi phổ biến khi validate dữ liệu vệ tinh với thực địa."
   }
 ]
