@@ -108,6 +108,50 @@ svg text{font-family:inherit}
 
 .fadein{animation:fadeIn .6s ease both}
 @keyframes fadeIn{from{opacity:0; transform:translateY(8px)} to{opacity:1; transform:translateY(0)}}
+
+/* ---- module divider (section title) ---- */
+.divider{width:100%;text-align:center}
+.divider .modnum{display:inline-flex;width:64px;height:64px;border-radius:50%;background:var(--panel2);
+  border:2px solid var(--accent);color:var(--accent);align-items:center;justify-content:center;
+  font-size:26px;font-weight:800;margin-bottom:18px}
+.divider .kicker{color:var(--accent2);font-size:14px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;margin-bottom:10px}
+.divider h1{font-size:44px;max-width:900px;margin:0 auto 16px}
+.divider .sub{font-size:17px;color:var(--ink-dim);max-width:760px;margin:0 auto}
+.modmap{display:flex;justify-content:center;gap:8px;margin-top:28px;flex-wrap:wrap}
+.modmap span{padding:5px 12px;border-radius:999px;font-size:12px;background:var(--panel);
+  border:1px solid var(--line);color:var(--ink-dim)}
+.modmap span.cur{background:rgba(79,209,197,.15);color:var(--accent);border-color:var(--accent);font-weight:700}
+
+/* ---- equation / formula display ---- */
+.eqn-box{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:20px 26px;margin:14px 0}
+.eqn-box .eqn{font-family:Cambria,"Times New Roman",serif;font-size:22px;color:var(--accent2);font-weight:700;text-align:center}
+.eqn-box .eqn-note{font-size:12.5px;color:var(--ink-dim);margin-top:10px;text-align:center;line-height:1.5}
+.eqn-inline{font-family:Cambria,"Times New Roman",serif;color:var(--accent2);font-weight:700}
+
+/* ---- worked example ---- */
+.example-box{background:var(--panel2);border:1px dashed var(--accent);border-radius:14px;padding:18px 22px}
+.example-box .tag-ex{display:inline-block;background:rgba(79,209,197,.15);color:var(--accent);border:1px solid rgba(79,209,197,.4);
+  border-radius:7px;padding:2px 10px;font-size:11.5px;font-weight:700;letter-spacing:.05em;margin-bottom:10px}
+.example-box .step{font-size:14.5px;line-height:1.7;color:var(--ink);margin-bottom:4px}
+.example-box .step b{color:var(--accent2)}
+
+/* ---- pitfall / common mistake ---- */
+.pitfall{background:rgba(255,122,122,.08);border:1px solid rgba(255,122,122,.35);border-radius:14px;padding:18px 22px}
+.pitfall .tag-warn{display:inline-block;background:rgba(255,122,122,.15);color:var(--danger);border:1px solid rgba(255,122,122,.4);
+  border-radius:7px;padding:2px 10px;font-size:11.5px;font-weight:700;letter-spacing:.05em;margin-bottom:10px}
+
+/* ---- self-check / checkpoint ---- */
+.checkpoint{background:var(--panel);border:1px solid var(--accent);border-radius:14px;padding:18px 22px;margin-bottom:12px}
+.checkpoint .q{font-size:15px;font-weight:700;color:var(--ink);margin-bottom:8px}
+.checkpoint .a{font-size:13.5px;color:var(--accent);line-height:1.6}
+.checkpoint .a::before{content:"→ "; color:var(--accent2)}
+
+/* ---- summary recap list ---- */
+.recap-item{display:flex;gap:12px;align-items:flex-start;background:var(--panel);border:1px solid var(--line);
+  border-radius:12px;padding:12px 16px;margin-bottom:8px}
+.recap-item .ico{flex:0 0 auto;font-size:18px}
+.recap-item .txt{font-size:14px;color:var(--ink-dim);line-height:1.55}
+.recap-item .txt b{color:var(--ink)}
 </style>
 </head>
 <body>
@@ -124,524 +168,949 @@ function wrap(inner, cite){
     (cite ? '<div class="footcite">Nguồn: ' + cite + '</div>' : '');
 }
 
-/* ---------- 1. Cover ---------- */
+
 slide(`
 <div class="slide-inner cover center fadein">
-  <div class="kicker">The 6th Vietnam School of Earth Observation</div>
-  <h1>VSEO6 — Satellite Altimetry</h1>
-  <div class="sub">A Tool for Continental Water Monitoring — tài liệu lý thuyết tự học trước khóa học,
-  tổng hợp từ chương trình giảng dạy chính thức và hồ sơ công bố khoa học của giảng viên.</div>
-  <div class="meta">
-    <span class="pill">📍 ICISE, Quy Nhơn</span>
-    <span class="pill">🗓️ 7–12 tháng 9, 2026</span>
-    <span class="pill">🏛️ Rencontres du Vietnam · đối tác UNESCO</span>
-  </div>
-</div>`);
+  <div class="kicker">Bộ slide kiến thức — không phải slide giới thiệu trường</div>
+  <h1>Satellite Altimetry cho giám sát nước lục địa</h1>
+  <p class="sub">6 module — mỗi module: định nghĩa → phương trình → ví dụ tính tay → sơ đồ → sản phẩm dữ liệu thực → sai lầm thường gặp → tự kiểm tra → tóm tắt.</p>
+  <div class="modmap"><span>1 · Nadir Altimetry</span><span>2 · SWOT / KaRIn</span><span>3 · Hydroweb-next</span><span>4 · Discharge (Q)</span><span>5 · Data Assimilation</span><span>6 · Flood & Xuyên biên giới</span></div>
+</div>
+`);
 
-/* ---------- 2. Course overview ---------- */
 slide(wrap(`
-  <div class="eyebrow">Tổng quan hội thảo</div>
-  <h1>Trang bị kỹ năng giám sát nước lục địa bằng vệ tinh, từ dữ liệu thô tới ứng dụng thực tế</h1>
-  <div class="grid2" style="margin-top:20px">
-    <ul class="bullets">
-      <li><b>Đối tượng:</b> nhà nghiên cứu trẻ, kỹ sư, giáo dục viên muốn phát triển kỹ năng satellite altimetry cho continental waters</li>
-      <li><b>Tổ chức:</b> Rencontres du Vietnam (sáng lập 1993 bởi GS. Trần Thanh Vân), đối tác chính thức UNESCO</li>
-      <li><b>Địa điểm:</b> ICISE — International Centre for Interdisciplinary Science Education, Quy Nhơn</li>
-      <li><b>Đầu mối:</b> Dr. Laetitia Gal — laetitia.gal@hydro-matters.fr</li>
-    </ul>
-    <div class="card">
-      <h3>5 năng lực đầu ra</h3>
-      <p>① Xử lý dữ liệu vệ tinh thô &nbsp;② Tạo/trực quan hóa chuỗi thời gian mực nước
-      &nbsp;③ Sử dụng dữ liệu Copernicus &amp; SWOT &nbsp;④ Ứng dụng giám sát tài nguyên nước &amp; thảm họa
-      &nbsp;⑤ Tích hợp vệ tinh vào mô hình thủy văn (data assimilation)</p>
-    </div>
-  </div>
-`, 'icisequynhon.com/conferences/2026/VSEO-6/'));
-
-/* ---------- 3. Schedule grid ---------- */
-function schedDay(d,t,items){
-  return `<div class="sched-day"><div class="d">${d}</div><div class="t">${t}</div><ul>${items.map(x=>'<li>'+x+'</li>').join('')}</ul></div>`;
-}
-slide(wrap(`
-  <div class="eyebrow">Lịch trình</div>
-  <h1>5 ngày, 5 chủ đề nối tiếp — từ altimetry cổ điển tới ứng dụng thảm họa</h1>
-  <div class="sched-grid">
-    ${schedDay('T2 · 7/9','Khai mạc + Nadir',[
-      'Khai mạc; giới thiệu USTH/CNES/VNSC/PSA/MRC',
-      'Tổng quan Nadir altimetry',
-      'Thực hành: tải & phân tích dữ liệu Nadir'])}
-    ${schedDay('T3 · 8/9','SWOT Mission',[
-      'Tổng quan SWOT + sản phẩm dữ liệu',
-      'Thực hành: tải, trích xuất, trực quan hóa',
-      'Ứng dụng SWOT & thảo luận'])}
-    ${schedDay('T4 · 9/9','Thực địa + Mô hình',[
-      'Thực địa: quan sát mực nước hồ chứa',
-      'Chuyển tiếp dữ liệu vệ tinh → mô hình thủy văn',
-      'Thực hành mô phỏng'])}
-    ${schedDay('T5 · 10/9','hydroweb.next + DA',[
-      'Giới thiệu hydroweb.next',
-      'Nguyên lý đồng hóa dữ liệu',
-      'Thực hành đồng hóa dữ liệu'])}
-    ${schedDay('T6 · 11/9','Flood + Bế mạc',[
-      'Giám sát lũ lụt & quản lý thảm họa',
-      'Thực hành: trường hợp lũ lụt',
-      'Bàn tròn / phản hồi / bế mạc'])}
-  </div>
-`, 'icisequynhon.com/conferences/2026/VSEO-6/program.html'));
-
-/* ---------- 4. Roadmap of modules ---------- */
-slide(wrap(`
-  <div class="eyebrow">Lộ trình học</div>
-  <h1>7 module lý thuyết bám sát đúng trình tự chương trình giảng dạy</h1>
-  <div class="roadmap">
-    <div class="rstep"><div class="n">1</div><div><div class="t">Nadir Satellite Altimetry</div><div class="s">Nguyên lý radar time-of-flight, virtual station, hạn chế độ phủ</div></div></div>
-    <div class="rstep"><div class="n">2</div><div><div class="t">SWOT Mission</div><div class="s">KaRIn wide-swath, elevation–slope–width, ước tính discharge</div></div></div>
-    <div class="rstep"><div class="n">3</div><div><div class="t">Copernicus &amp; Sentinel</div><div class="s">SAR Sentinel-1, quang học Sentinel-2, chính sách dữ liệu mở</div></div></div>
-    <div class="rstep"><div class="n">4</div><div><div class="t">hydroweb.next</div><div class="s">Nền tảng tập trung hóa dữ liệu thủy văn vệ tinh (CNES/Theia)</div></div></div>
-    <div class="rstep"><div class="n">5</div><div><div class="t">Data Assimilation</div><div class="s">Ensemble Kalman Filter, đồng hóa quan trắc vào mô hình routing</div></div></div>
-    <div class="rstep"><div class="n">6</div><div><div class="t">Flood &amp; Transboundary Monitoring</div><div class="s">SAR + SWOT cho lũ lụt; quản lý sông Mekong xuyên biên giới</div></div></div>
-    <div class="rstep"><div class="n">7</div><div><div class="t">Tổ chức &amp; Giảng viên</div><div class="s">Ai dạy gì, công tác ở đâu, công bố khoa học tiêu biểu</div></div></div>
-  </div>
+<div class="slide-inner divider fadein"><div class="modnum">1</div><div class="kicker">Kiến thức nền tảng VSEO6</div><h1>Nadir (Radar) Altimetry</h1><p class="sub">Kỹ thuật đo cao cổ điển bằng radar thẳng đứng — nền tảng của mọi phép đo cao vệ tinh sau này.</p><div class="modmap"><span class="cur">1 · Nadir Altimetry</span><span class="">2 · SWOT / KaRIn</span><span class="">3 · Hydroweb-next</span><span class="">4 · Discharge (Q)</span><span class="">5 · Data Assimilation</span><span class="">6 · Flood & Xuyên biên giới</span></div></div>
 `));
 
-/* ---------- 5. Module 1a: Nadir principle ---------- */
 slide(wrap(`
-  <div class="eyebrow">Module 1 · Nadir Altimetry</div>
-  <h1>Radar nhìn thẳng xuống đo thời gian bay đi–về để suy ra cao độ mặt nước</h1>
-  <div class="grid2">
-    <ul class="bullets">
-      <li>Vệ tinh phát xung radar <b>thẳng xuống (nadir)</b>, đo <b>thời gian bay đi–về (time-of-flight)</b> của tín hiệu</li>
-      <li>Khoảng cách vệ tinh–mặt nước = (thời gian × vận tốc ánh sáng) / 2</li>
-      <li>Biết quỹ đạo vệ tinh chính xác ⇒ suy ra <b>cao độ tuyệt đối</b> mặt nước</li>
-      <li>Công nghệ cổ điển: TOPEX/Poseidon (1992) → Jason 1/2/3 → Sentinel-6</li>
-    </ul>
-    <div class="diagram">
-      <svg viewBox="0 0 340 220" width="100%">
-        <rect x="0" y="185" width="340" height="35" fill="#0c1830"/>
-        <text x="170" y="207" text-anchor="middle" class="lbl-dim">mặt nước sông</text>
-        <g transform="translate(150,20)">
-          <rect x="-14" y="-10" width="28" height="18" rx="3" fill="#1b2c52" stroke="var(--nadir)"/>
-          <text x="0" y="-16" text-anchor="middle" class="lbl-accent" style="fill:var(--nadir)">vệ tinh</text>
-          <line x1="0" y1="8" x2="0" y2="165" stroke="#28406e" stroke-width="1" stroke-dasharray="3 4"/>
-          <circle class="pulse-down" cx="0" cy="8" r="5" fill="var(--nadir)"/>
-          <circle class="pulse-up" cx="0" cy="8" r="5" fill="var(--accent2)"/>
-        </g>
-        <text x="170" y="118" text-anchor="middle" class="lbl-dim" font-size="11">Δt = thời gian đi (xanh) + về (vàng)</text>
-      </svg>
-    </div>
-  </div>
-`, 'eoportal.org/satellite-missions/swot · nguyên lý altimetry cổ điển'));
-
-/* ---------- 6. Module 1b: virtual station & limits ---------- */
-slide(wrap(`
-  <div class="eyebrow">Module 1 · Nadir Altimetry</div>
-  <h1>Chỉ đo được tại nơi vệt bay cắt sông — đây là giới hạn cốt lõi của nadir</h1>
-  <div class="grid2">
-    <div class="diagram">
-      <svg viewBox="0 0 340 220" width="100%">
-        <path d="M20,190 C120,120 180,80 320,20" stroke="#28406e" stroke-width="10" fill="none" opacity=".5"/>
-        <text x="30" y="205" class="lbl-dim" font-size="11">sông</text>
-        <line x1="60" y1="10" x2="60" y2="210" stroke="var(--nadir)" stroke-width="2"/>
-        <line x1="180" y1="10" x2="180" y2="210" stroke="var(--nadir)" stroke-width="2"/>
-        <line x1="280" y1="10" x2="280" y2="210" stroke="var(--nadir)" stroke-width="2"/>
-        <text x="60" y="20" text-anchor="middle" class="lbl-accent" style="fill:var(--nadir)">vệt bay</text>
-        <circle cx="72" cy="163" r="5" fill="var(--accent2)"/>
-        <circle cx="180" cy="97" r="5" fill="var(--accent2)"/>
-        <circle cx="280" cy="45" r="5" fill="var(--accent2)"/>
-        <text x="72" y="182" text-anchor="middle" class="lbl-dim" font-size="10">virtual<br/>station</text>
-        <text x="180" y="116" text-anchor="middle" class="lbl-dim" font-size="10">virtual station</text>
-        <text x="280" y="64" text-anchor="middle" class="lbl-dim" font-size="10">virtual station</text>
-      </svg>
-      <div class="center" style="margin-top:6px"><span class="tag warn">chỉ có dữ liệu tại 3 điểm rời rạc trên toàn con sông</span></div>
-    </div>
-    <ul class="bullets">
-      <li><b>Virtual station:</b> điểm giao cắt giữa vệt bay vệ tinh và một sông/hồ — nơi duy nhất có chuỗi thời gian mực nước</li>
-      <li>Chu kỳ lặp quỹ đạo (10–35 ngày) quyết định <b>tần suất lấy mẫu</b> tại mỗi điểm</li>
-      <li>Sản phẩm: chuỗi thời gian cao độ mực nước (water level time series) tại từng virtual station</li>
-      <li><b>Không</b> cho ảnh 2D của mặt nước — không đo trực tiếp độ rộng hay độ dốc</li>
-    </ul>
-  </div>
-`));
-
-/* ---------- 7. Module 2a: SWOT overview ---------- */
-slide(wrap(`
-  <div class="eyebrow">Module 2 · SWOT Mission</div>
-  <h1>SWOT — bước nhảy vọt từ "điểm đo" sang "ảnh 2D" của mặt nước</h1>
-  <div class="grid3">
-    <div class="card"><h3>Tên đầy đủ</h3><p>Surface Water and Ocean Topography — hợp tác NASA–CNES, đóng góp từ CSA và UKSA</p></div>
-    <div class="card"><h3>Phóng</h3><p>16/12/2022, tên lửa SpaceX Falcon 9 từ Vandenberg</p></div>
-    <div class="card"><h3>Chu kỳ khoa học</h3><p>Quỹ đạo lặp ~21 ngày, phủ hơn 90% diện tích nước bề mặt Trái Đất</p></div>
-  </div>
-  <p class="lead" style="margin-top:22px">Thiết bị chủ lực <b style="color:var(--accent)">KaRIn</b> (Ka-band Radar Interferometer) lần đầu tiên
-  cho phép đo <b>wide-swath</b> — quét một dải rộng thay vì chỉ một đường hẹp như altimetry cổ điển.</p>
-`, 'eoportal.org/satellite-missions/swot · jpl.nasa.gov/swot'));
-
-/* ---------- 8. Module 2b: KaRIn swath architecture ---------- */
-slide(wrap(`
-  <div class="eyebrow">Module 2 · SWOT Mission</div>
-  <h1>KaRIn quét hai dải 50 km hai bên, có một khoảng trống ngay tại đường nadir</h1>
-  <div class="grid2">
-    <div class="diagram">
-      <svg viewBox="0 0 360 220" width="100%">
-        <rect x="60" y="10" width="60" height="200" fill="var(--swot)" opacity=".18"/>
-        <rect x="240" y="10" width="60" height="200" fill="var(--swot)" opacity=".18"/>
-        <line x1="180" y1="10" x2="180" y2="210" stroke="#28406e" stroke-width="2" stroke-dasharray="4 4"/>
-        <text x="180" y="8" text-anchor="middle" class="lbl-dim" font-size="10">nadir track (gap ~20km)</text>
-        <text x="90" y="8" text-anchor="middle" class="lbl-accent" style="fill:var(--swot)">50 km</text>
-        <text x="270" y="8" text-anchor="middle" class="lbl-accent" style="fill:var(--swot)">50 km</text>
-        <g class="fly">
-          <rect x="-15" y="95" width="30" height="16" rx="3" fill="#1b2c52" stroke="var(--nadir)"/>
-        </g>
-        <text x="180" y="230" text-anchor="middle" class="lbl-dim" font-size="11">hướng bay của vệ tinh →</text>
-      </svg>
-      <div class="center" style="margin-top:6px"><span class="tag good">120 km tổng dải quét mỗi lần bay qua</span></div>
-    </div>
-    <ul class="bullets">
-      <li>KaRIn đo đồng thời 3 đại lượng trên toàn dải: <b>cao độ, độ dốc, độ rộng</b> mặt nước</li>
-      <li>Sản phẩm L2 HR chính: <b>RiverSP</b> (River Single-Pass) và <b>PIXC</b> (pixel cloud)</li>
-      <li>Vì đo theo diện thay vì điểm, sai số có <b>cấu trúc không gian tương quan</b> — cần kỹ thuật giảm sai số chuyên biệt trước khi đồng hóa (nghiên cứu của Jacques Verron, CNRS/LEGOS, về đồng hóa dữ liệu wide-swath)</li>
-    </ul>
-  </div>
-`));
-
-/* ---------- 9. Module 2c: SWOT vs Nadir comparison ---------- */
-slide(wrap(`
-  <div class="eyebrow">Module 2 · SWOT Mission</div>
-  <h1>Đối chiếu trực tiếp: điểm rời rạc theo thời gian, hay ảnh liên tục theo không gian?</h1>
-  <div class="grid2">
-    <div class="diagram">
-      <h3 style="margin:0 0 10px;color:var(--nadir);font-size:14px">Nadir altimetry (cổ điển)</h3>
-      <svg viewBox="0 0 320 90" width="100%">
-        <rect x="0" y="60" width="320" height="20" fill="#0c1830"/>
-        <line x1="30" y1="10" x2="30" y2="70" stroke="var(--nadir)" stroke-width="2"/>
-        <circle cx="30" cy="66" r="4" fill="var(--accent2)"/>
-      </svg>
-      <p style="font-size:12.5px;color:var(--ink-dim);margin:6px 0 18px">1 đường hẹp · 1 điểm dữ liệu / lần bay qua</p>
-      <h3 style="margin:0 0 10px;color:var(--swot);font-size:14px">SWOT / KaRIn (wide-swath)</h3>
-      <svg viewBox="0 0 320 90" width="100%">
-        <rect x="0" y="60" width="320" height="20" fill="#0c1830"/>
-        <rect x="10" y="10" width="80" height="60" fill="var(--swot)" opacity=".25"/>
-        <rect x="230" y="10" width="80" height="60" fill="var(--swot)" opacity=".25"/>
-      </svg>
-      <p style="font-size:12.5px;color:var(--ink-dim);margin:6px 0 0">dải rộng 120 km · ảnh 2D đầy đủ elevation/slope/width</p>
-    </div>
-    <table style="width:100%;border-collapse:collapse;font-size:13.5px">
-      <tr style="color:var(--accent2)"><td style="padding:8px 6px"><b>Tiêu chí</b></td><td style="padding:8px 6px"><b>Nadir</b></td><td style="padding:8px 6px"><b>SWOT</b></td></tr>
-      <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Độ phủ ngang</td><td style="padding:8px 6px;color:var(--ink-dim)">1 đường ~300m</td><td style="padding:8px 6px;color:var(--ink-dim)">120 km</td></tr>
-      <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Đo trực tiếp</td><td style="padding:8px 6px;color:var(--ink-dim)">Cao độ</td><td style="padding:8px 6px;color:var(--ink-dim)">Cao độ + độ dốc + độ rộng</td></tr>
-      <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Ước tính discharge</td><td style="padding:8px 6px;color:var(--ink-dim)">Gián tiếp, cần rating curve</td><td style="padding:8px 6px;color:var(--ink-dim)">Trực tiếp hơn qua mô hình thủy lực</td></tr>
-      <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Chuỗi lịch sử</td><td style="padding:8px 6px;color:var(--ink-dim)">Dài (từ 1992)</td><td style="padding:8px 6px;color:var(--ink-dim)">Ngắn (từ 2022)</td></tr>
-    </table>
-  </div>
-`));
-
-/* ---------- 10. Module 2d: discharge estimation ---------- */
-slide(wrap(`
-  <div class="eyebrow">Module 2 · SWOT Mission</div>
-  <h1>Ba đại lượng đo được là đầu vào trực tiếp cho công thức thủy lực ước tính lưu lượng</h1>
-  <div class="grid2">
-    <div class="diagram">
-      <svg viewBox="0 0 340 140" width="100%">
-        <g font-size="13">
-          <rect x="10" y="10" width="90" height="40" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
-          <text x="55" y="34" text-anchor="middle" class="lbl">Elevation</text>
-          <rect x="10" y="60" width="90" height="40" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
-          <text x="55" y="84" text-anchor="middle" class="lbl">Slope</text>
-          <rect x="10" y="110" width="90" height="24" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
-          <text x="55" y="126" text-anchor="middle" class="lbl" font-size="12">Width</text>
-          <path d="M100,30 L150,65" stroke="var(--ink-dim)" fill="none"/>
-          <path d="M100,80 L150,68" stroke="var(--ink-dim)" fill="none"/>
-          <path d="M100,122 L150,72" stroke="var(--ink-dim)" fill="none"/>
-          <rect x="150" y="45" width="90" height="46" rx="10" fill="rgba(79,209,197,.15)" stroke="var(--accent)"/>
-          <text x="195" y="63" text-anchor="middle" class="lbl-accent">Mô hình</text>
-          <text x="195" y="79" text-anchor="middle" class="lbl-accent">thủy lực</text>
-          <path d="M240,68 L300,68" stroke="var(--accent2)" stroke-width="2" marker-end="url(#arrow)"/>
-          <rect x="245" y="52" width="90" height="32" rx="8" fill="rgba(242,184,75,.15)" stroke="var(--accent2)"/>
-          <text x="290" y="72" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)">Discharge Q</text>
-        </g>
-        <defs><marker id="arrow" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--accent2)"/></marker></defs>
-      </svg>
-    </div>
-    <ul class="bullets">
-      <li>Nadir altimetry chỉ cho <b>elevation</b> tại điểm rời rạc ⇒ discharge phải suy từ <em>rating curve</em> lịch sử (gián tiếp)</li>
-      <li>SWOT cho cả 3 biến trên <b>toàn bộ đoạn sông</b> ⇒ có thể chạy mô hình thủy lực kiểu Manning để ước tính lưu lượng mà không cần rating curve tại chỗ</li>
-      <li>Đây là lý do SWOT có giá trị đặc biệt cho các sông <b>không có trạm đo</b> hoặc số liệu không được chia sẻ (ví dụ hạ lưu Mekong)</li>
-    </ul>
-  </div>
-`, 'Nguyên lý tổng quát — xem hồ sơ Adrien Paris (Hydro Matters) tại slide Giảng viên'));
-
-/* ---------- 10b. Toán học nền tảng: 4 phương trình cốt lõi ---------- */
-slide(wrap(`
-  <div class="eyebrow">Toán học nền tảng</div>
-  <h1>Bốn phương trình xuyên suốt khóa học — từ đo khoảng cách đến ước tính lưu lượng</h1>
-  <div class="grid2">
-    <div class="card">
-      <h3>① Range equation (nadir altimetry)</h3>
-      <p style="font-family:Cambria,'Times New Roman',serif;font-size:15px">R = c · Δt / 2</p>
-      <p style="color:var(--ink-dim);font-size:12.5px">c: vận tốc ánh sáng · Δt: thời gian đi–về của xung radar. Độ cao: h = H<sub>sat</sub> − (R + Σ hiệu chỉnh khí quyển)</p>
-    </div>
-    <div class="card">
-      <h3>② KaRIn — pha → góc nhìn → độ cao</h3>
-      <p style="font-family:Cambria,'Times New Roman',serif;font-size:15px">Δφ = k·B·sin(θ) &nbsp;·&nbsp; h = H − r₁cos(θ)</p>
-      <p style="color:var(--ink-dim);font-size:12.5px">B = baseline 10m giữa 2 ăng-ten · θ: góc nhìn suy từ độ lệch pha Δφ</p>
-    </div>
-    <div class="card">
-      <h3>③ Manning — lưu lượng từ W, h, S</h3>
-      <p style="font-family:Cambria,'Times New Roman',serif;font-size:15px">V = (1/n)·R<sub>h</sub><sup>2/3</sup>·S<sup>1/2</sup> &nbsp;·&nbsp; Q = A·V</p>
-      <p style="color:var(--ink-dim);font-size:12.5px">A (mặt cắt ướt) và n (nhám) là ẩn số — suy luận bằng BAM/AMHG từ chuỗi W-h-S của SWOT</p>
-    </div>
-    <div class="card">
-      <h3>④ Kalman gain — lõi của data assimilation</h3>
-      <p style="font-family:Cambria,'Times New Roman',serif;font-size:15px">K = P·H<sup>T</sup>(H·P·H<sup>T</sup> + R)<sup>−1</sup></p>
-      <p style="color:var(--ink-dim);font-size:12.5px">P lớn (mô hình bất định) so với R nhỏ (quan sát tốt) ⇒ K lớn ⇒ tin quan sát hơn. EnKF thay P bằng hiệp phương sai mẫu từ N ensemble khi P quá lớn để tính tường minh.</p>
-    </div>
-  </div>
-  <p class="lead" style="margin-top:16px">Chi tiết từng phương trình + nguồn trích dẫn: mục <b>1.7–1.14</b> trong <code>01_ly_thuyet_va_giang_vien.md</code> và tab "Lý thuyết" trên website luyện tập.</p>
-`));
-
-/* ---------- 11. Module 3: Copernicus & Sentinel ---------- */
-slide(wrap(`
-  <div class="eyebrow">Module 3 · Copernicus &amp; Sentinel</div>
-  <h1>SAR nhìn xuyên mây, quang học nhìn màu sắc — hai cảm biến bổ sung cho nhau</h1>
-  <div class="grid2">
-    <div class="card">
-      <h3>Sentinel-1 · SAR</h3>
-      <p>Radar khẩu độ tổng hợp, hoạt động <b>cả ngày lẫn đêm</b> và <b>xuyên mây</b> — lý tưởng lập bản đồ ngập lụt khẩn cấp khi trời mưa/nhiều mây (điều kiện điển hình khi lũ xảy ra).</p>
-    </div>
-    <div class="card">
-      <h3>Sentinel-2 · Quang học</h3>
-      <p>Ảnh đa phổ độ phân giải cao, chỉ dùng được khi <b>quang mây, ban ngày</b> — dùng cho SurfWater (diện tích mặt nước) khi điều kiện khí quyển cho phép.</p>
-    </div>
-  </div>
-  <ul class="bullets" style="margin-top:22px">
-    <li>Copernicus = chương trình quan sát Trái Đất của Liên minh Châu Âu, chính sách <b>dữ liệu mở, miễn phí</b></li>
-    <li>Sentinel-6 (Michael Freilich) là <b>nadir altimeter</b> kế thừa dòng Jason — không phải wide-swath như SWOT</li>
-    <li>Kết hợp Sentinel-1 (mở rộng vùng ngập) + SWOT (cao độ/độ dốc mặt nước) là nền tảng cho module Flood Monitoring (Module 6)</li>
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Định nghĩa: đo khoảng cách bằng thời gian bay của xung radar</h1>
+<div class="grid2">
+  <ul class="bullets">
+    <li>Vệ tinh mang một <b>altimeter radar</b> phát xung xuống thẳng theo phương <b>nadir</b> (thẳng đứng dưới chân vệ tinh)</li>
+    <li>Xung phản xạ lại từ mặt nước/đất, ăng-ten thu lại tín hiệu</li>
+    <li>Đo <b>thời gian đi–về</b> Δt của xung → suy ra khoảng cách vệ tinh–bề mặt R</li>
+    <li>Kết hợp R với độ cao quỹ đạo vệ tinh (biết chính xác từ hệ thống định vị) → độ cao bề mặt h</li>
   </ul>
-`, 'copernicus.eu · eoportal.org'));
-
-/* ---------- 12. Module 4: hydroweb.next ---------- */
-slide(wrap(`
-  <div class="eyebrow">Module 4 · hydroweb.next</div>
-  <h1>Một cổng dữ liệu duy nhất, gỡ bỏ 3 rào cản: định dạng, phân tán, chi phí xử lý</h1>
   <div class="diagram">
-    <svg viewBox="0 0 760 150" width="100%">
-      <g font-size="12.5">
-        <rect x="10" y="15" width="150" height="34" rx="8" fill="var(--panel2)" stroke="var(--nadir)"/>
-        <text x="85" y="36" text-anchor="middle" class="lbl">Nadir altimeters</text>
-        <rect x="10" y="58" width="150" height="34" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
-        <text x="85" y="79" text-anchor="middle" class="lbl">SWOT (KaRIn)</text>
-        <rect x="10" y="101" width="150" height="34" rx="8" fill="var(--panel2)" stroke="var(--accent2)"/>
-        <text x="85" y="122" text-anchor="middle" class="lbl">Sentinel-1/2</text>
-
-        <path class="flow-line" d="M160,32 C220,32 220,73 280,73" stroke="var(--ink-dim)" fill="none"/>
-        <path class="flow-line" d="M160,75 L280,75" stroke="var(--ink-dim)" fill="none"/>
-        <path class="flow-line" d="M160,118 C220,118 220,77 280,77" stroke="var(--ink-dim)" fill="none"/>
-
-        <rect x="280" y="45" width="140" height="60" rx="10" fill="rgba(242,184,75,.12)" stroke="var(--accent2)"/>
-        <text x="350" y="70" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)">Theia</text>
-        <text x="350" y="86" text-anchor="middle" class="lbl-dim" font-size="11">production centers</text>
-
-        <path class="flow-line" d="M420,75 L490,75" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow2)"/>
-        <rect x="490" y="35" width="150" height="80" rx="10" fill="rgba(79,209,197,.12)" stroke="var(--accent)"/>
-        <text x="565" y="65" text-anchor="middle" class="lbl-accent">hydroweb.next</text>
-        <text x="565" y="83" text-anchor="middle" class="lbl-dim" font-size="11">WebGIS mở, catalog</text>
-        <text x="565" y="98" text-anchor="middle" class="lbl-dim" font-size="11">SurfWater · water level</text>
-
-        <path class="flow-line" d="M640,75 L710,75" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow2)"/>
-        <rect x="640" y="55" width="0" height="0"/>
-        <text x="720" y="70" class="lbl" font-size="12">Nhà</text>
-        <text x="720" y="86" class="lbl" font-size="12">thủy văn</text>
-        <text x="720" y="102" class="lbl" font-size="12">học</text>
-      </g>
-      <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-dim)"/></marker></defs>
+    <svg viewBox="0 0 300 220" width="100%">
+      <rect x="0" y="190" width="300" height="30" fill="#0c1830"/>
+      <rect x="120" y="20" width="60" height="24" rx="4" fill="#1b2c52" stroke="var(--nadir)"/>
+      <text x="150" y="36" text-anchor="middle" class="lbl" font-size="11">vệ tinh</text>
+      <line x1="150" y1="44" x2="150" y2="170" stroke="var(--nadir)" stroke-width="2" stroke-dasharray="3 4" class="pulse-down"/>
+      <line x1="150" y1="170" x2="150" y2="44" stroke="var(--accent)" stroke-width="2" stroke-dasharray="3 4" class="pulse-up"/>
+      <text x="160" y="110" class="lbl-dim" font-size="11">R</text>
+      <text x="150" y="205" text-anchor="middle" class="lbl-dim" font-size="11">mặt nước</text>
     </svg>
+    <p class="center" style="font-size:12px;color:var(--ink-dim);margin-top:6px">Xung radar đi xuống rồi phản xạ về — thời gian Δt tỉ lệ với 2×R</p>
   </div>
-  <ul class="bullets" style="margin-top:18px">
-    <li>Ra đời nhờ chương trình <b>SWOT Early Adopters</b> và hạ tầng Data Terra/Theia</li>
-    <li>Sản phẩm THEIA river/lake water level — một số chuỗi dài <b>hơn 30 năm</b> (kế thừa từ TOPEX/Poseidon 1992)</li>
-    <li>Ngoài mực nước còn có <b>Let It Snow</b> (tuyết phủ) và <b>OBS2CO</b> (chất lượng nước) từ Sentinel-2</li>
-  </ul>
-`, 'aviso.altimetry.fr · theia-land.fr'));
+</div>
+`));
 
-/* ---------- 13. Module 5a: data assimilation principle ---------- */
 slide(wrap(`
-  <div class="eyebrow">Module 5 · Data Assimilation</div>
-  <h1>Mô hình số trị luôn tích lũy sai số — quan trắc vệ tinh kéo nó về gần thực tế</h1>
-  <div class="grid2">
-    <div class="diagram">
-      <svg viewBox="0 0 340 160" width="100%">
-        <g font-size="12.5">
-          <path d="M20,120 C90,60 150,140 220,50" stroke="var(--nadir)" stroke-width="2" fill="none"/>
-          <text x="30" y="112" class="lbl-dim" style="fill:var(--nadir)" font-size="11">mô hình (dự báo thuần)</text>
-          <path d="M20,120 C90,90 150,95 220,75" stroke="var(--accent)" stroke-width="2.5" fill="none"/>
-          <text x="160" y="100" class="lbl-accent" font-size="11">sau đồng hóa</text>
-          <circle cx="90" cy="88" r="4" fill="var(--accent2)"/>
-          <circle cx="160" cy="93" r="4" fill="var(--accent2)"/>
-          <circle cx="220" cy="80" r="4" fill="var(--accent2)"/>
-          <text x="90" y="76" text-anchor="middle" class="lbl-dim" font-size="10">quan trắc</text>
-        </g>
-      </svg>
-      <div class="center"><span class="tag good">quan trắc "kéo" quỹ đạo mô hình về gần thực tế hơn theo thời gian</span></div>
-    </div>
-    <ul class="bullets">
-      <li><b>Data assimilation:</b> kết hợp có trọng số giữa quan trắc vệ tinh và dự báo mô hình để hiệu chỉnh trạng thái/tham số theo thời gian thực</li>
-      <li>Không có đồng hóa: sai số do bất định tham số/điều kiện biên tích lũy dần, mô hình lệch xa thực tế</li>
-      <li>Ứng dụng: đồng hóa dị thường cao độ mặt nước (nadir hoặc wide-swath) vào mô hình <b>river routing</b> quy mô lớn</li>
-    </ul>
-  </div>
-`, 'Charlotte Emery (LEGOS/CNES) & Jacques Verron (CNRS/LEGOS) — xem hồ sơ giảng viên'));
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Phương trình khoảng cách (range equation)</h1>
+<div class="eqn-box"><div class="eqn">R = c · &Delta;t / 2</div><div class="eqn-note">c: vận tốc ánh sáng (3×10⁸ m/s) · Δt: thời gian đi–về đo được bởi altimeter</div></div>
+<ul class="bullets"><li>Chia đôi vì xung đi <b>xuống rồi lại về</b> — Δt là tổng thời gian cả hai chiều</li><li>Δt cỡ vài phần nghìn giây (altimeter bay ở độ cao ~800–1300 km)</li><li>R đo được ở đây là <b>khoảng cách thô</b> — chưa phải độ cao mặt nước, cần thêm bước tiếp theo</li></ul>
+`));
 
-/* ---------- 14. Module 5b: EnKF cycle ---------- */
 slide(wrap(`
-  <div class="eyebrow">Module 5 · Data Assimilation</div>
-  <h1>Ensemble Kalman Filter: một vòng lặp dự báo → so khớp quan trắc → hiệu chỉnh</h1>
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Từ khoảng cách R ra độ cao mặt nước h</h1>
+<div class="eqn-box"><div class="eqn">h = H<sub>sat</sub> &minus; (R + &Sigma; hiệu chỉnh)</div><div class="eqn-note">H_sat: độ cao quỹ đạo vệ tinh so với ellipsoid tham chiếu — biết chính xác cỡ cm nhờ precise orbit determination (POD)</div></div>
+<ul class="bullets"><li>H_sat không đo bằng altimeter — mà bằng hệ thống định vị quỹ đạo riêng (GPS/DORIS trên vệ tinh + trạm mặt đất)</li><li>R phải cộng thêm các <b>hiệu chỉnh địa vật lý</b> (khí quyển, thủy triều...) trước khi trừ — xem slide sau</li><li>h cuối cùng là độ cao so với <b>ellipsoid</b> — không phải mực nước biển thực (xem Module 1, slide geoid)</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Retracking — vì sao không dùng thẳng thời gian tín hiệu thô</h1>
+<ul class="bullets"><li>Xung phản xạ tạo ra một <b>dạng sóng (waveform)</b> theo thời gian, không phải một điểm thời gian duy nhất</li><li>Bộ theo dõi trên vệ tinh (onboard tracker) chỉ khóa gần đúng — cần xử lý lại dưới mặt đất để xác định chính xác điểm xung <i>chạm tới bề mặt</i></li><li><b>Retracking</b>: khớp một mô hình toán học với waveform thực đo để tìm lại điểm mốc thời gian chính xác hơn</li><li>Trên đại dương rộng, phẳng: waveform gần chuẩn (mô hình Brown). Trên sông/hồ hẹp: waveform bị méo bởi bờ, thảm thực vật — cần retracker chuyên biệt</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Hai retracker khác nhau cho hai loại bề mặt</h1>
+<div class="grid2">
+  <div class="card"><h3>Brown model (đại dương)</h3><p>Giả định mặt biển thống kê phẳng, phân bố Gauss độ cao sóng — cho waveform "chuẩn" một đỉnh trơn. Phù hợp mặt nước rộng, đồng nhất.</p></div>
+  <div class="card"><h3>OCOG / Threshold retracker (nước lục địa)</h3><p>Không giả định dạng sóng cụ thể — tìm trọng tâm năng lượng (OCOG) hoặc ngưỡng % biên độ đỉnh. Chịu được waveform nhiễu, nhiều đỉnh do bờ sông/thực vật.</p></div>
+</div>
+<div class="pitfall"><span class="tag-warn">Sai lầm thường gặp</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Dùng retracker chuẩn đại dương (Brown) cho sông hẹp &lt;1km sẽ cho kết quả sai lệch hệ thống — vì giả định nền tảng (mặt phẳng rộng) không đúng với hình học sông.</p></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Ví dụ tính tay: từ Δt ra R</h1>
+<div class="example-box"><span class="tag-ex">Ví dụ</span><div class="step">Cho: altimeter đo được Δt = 5.34 ms = 5.34×10⁻³ s</div><div class="step">Áp dụng: <b>R = c·Δt/2</b> = (3×10⁸ m/s × 5.34×10⁻³ s) / 2</div><div class="step">= (1 602 000 m) / 2 = <b>801 000 m ≈ 801 km</b></div><div class="step">Nếu H_sat (quỹ đạo) = 803 km và tổng hiệu chỉnh ≈ +0.3 m: h = 803 000 − (801 000 + 0.3) ≈ <b>1 999.7 m</b> so với ellipsoid</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Waveform: hình dạng tín hiệu phản xạ nói lên điều gì</h1>
+<div class="diagram">
+  <svg viewBox="0 0 360 140" width="100%">
+    <polyline points="10,120 60,118 100,60 130,30 160,45 200,75 260,95 340,105" fill="none" stroke="var(--nadir)" stroke-width="2.5"/>
+    <text x="100" y="20" class="lbl-dim" font-size="10">Đại dương (Brown): 1 đỉnh, sườn trơn</text>
+  </svg>
+</div>
+<ul class="bullets"><li>Trục ngang: thời gian (~ khoảng cách) · Trục dọc: năng lượng phản xạ nhận về</li><li>Waveform đại dương: tăng dốc rồi giảm dần trơn tru — mô hình Brown khớp tốt, điểm nửa-năng-lượng (half-power point) xác định rõ ràng</li><li>Waveform sông/hồ hẹp: nhiều đỉnh, răng cưa do phản xạ từ bờ + thảm thực vật xen kẽ mặt nước phẳng — cần OCOG/threshold retracker (slide trước) thay vì Brown model</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Bảng tổng hợp sai số — precision budget</h1>
+<table style="width:100%;border-collapse:collapse;font-size:13.5px">
+  <tr style="color:var(--accent2)"><td style="padding:8px 6px"><b>Nguồn sai số</b></td><td style="padding:8px 6px"><b>Độ lớn điển hình</b></td><td style="padding:8px 6px"><b>Đặc điểm</b></td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Tầng đối lưu khô</td><td style="padding:8px 6px;color:var(--ink-dim)">~2.3 m</td><td style="padding:8px 6px;color:var(--ink-dim)">Ổn định, mô hình hoá tốt</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Tầng đối lưu ướt</td><td style="padding:8px 6px;color:var(--ink-dim)">Vài cm–dm</td><td style="padding:8px 6px;color:var(--ink-dim)">Biến động nhanh, khó nhất</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Tầng điện ly</td><td style="padding:8px 6px;color:var(--ink-dim)">2–8 cm</td><td style="padding:8px 6px;color:var(--ink-dim)">Sửa bằng dual-frequency</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Sai số quỹ đạo (POD)</td><td style="padding:8px 6px;color:var(--ink-dim)">Cỡ cm</td><td style="padding:8px 6px;color:var(--ink-dim)">Đã cải thiện mạnh từ thời TOPEX (dm) xuống Jason/Sentinel (cm)</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Retracking (sông/hồ)</td><td style="padding:8px 6px;color:var(--ink-dim)">Vài cm–dm</td><td style="padding:8px 6px;color:var(--ink-dim)">Phụ thuộc độ rộng sông, thực vật ven bờ</td></tr>
+</table>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Đo dual-frequency: vì sao cần 2 băng tần cùng lúc</h1>
+<ul class="bullets"><li>Đa số altimeter mang <b>2 tần số</b> đồng thời — vd Ku-band (~13.6 GHz) và C-band (~5.3 GHz) trên dòng Jason/Sentinel-6</li><li>Hiệu chỉnh điện ly phụ thuộc <b>nghịch đảo bình phương tần số</b> — đo cùng lúc 2 tần số cho phép giải hệ 2 phương trình, tách được phần trễ do điện ly ra khỏi khoảng cách thật</li><li>Không có dual-frequency, phải dùng mô hình điện ly toàn cầu (kém chính xác hơn đo trực tiếp) — đây là lý do vì sao thiết kế 2 tần số gần như bắt buộc với altimeter độ chính xác cao</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Ba hiệu chỉnh địa vật lý bắt buộc trước khi tính h</h1>
+<div class="grid3">
+  <div class="card"><h3>Tầng đối lưu khô</h3><p>~2.3 m, tính trực tiếp từ áp suất khí quyển bề mặt tại điểm đo — <b>ổn định, mô hình hoá tốt</b>, sai số dư rất nhỏ.</p></div>
+  <div class="card"><h3>Tầng đối lưu ướt</h3><p>Vài cm–decimet, phụ thuộc <b>hơi nước</b> khí quyển — biến động nhanh theo thời tiết, đây là hiệu chỉnh <b>khó và bất định nhất</b>.</p></div>
+  <div class="card"><h3>Tầng điện ly</h3><p>2–8 cm, phụ thuộc tần số radar — đo bằng cách <b>kết hợp 2 băng tần</b> (vd Ku + C/S) để tách phần phụ thuộc tần số ra khỏi tín hiệu.</p></div>
+</div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Ground track: vì sao độ phủ không gian rất thưa</h1>
+<div class="grid2">
   <div class="diagram">
-    <svg viewBox="0 0 720 190" width="100%">
-      <g font-size="12.5">
-        <rect x="20" y="70" width="150" height="50" rx="10" fill="var(--panel2)" stroke="var(--nadir)"/>
-        <text x="95" y="91" text-anchor="middle" class="lbl">Ensemble dự báo</text>
-        <text x="95" y="107" text-anchor="middle" class="lbl-dim" font-size="10.5">(mô hình thủy văn)</text>
-
-        <path class="flow-line" d="M170,95 L270,95" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow3)"/>
-        <rect x="270" y="70" width="160" height="50" rx="10" fill="rgba(242,184,75,.12)" stroke="var(--accent2)"/>
-        <text x="350" y="91" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)">So khớp quan trắc</text>
-        <text x="350" y="107" text-anchor="middle" class="lbl-dim" font-size="10.5">(SWOT / nadir elevation)</text>
-
-        <path class="flow-line" d="M430,95 L540,95" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow3)"/>
-        <rect x="540" y="70" width="160" height="50" rx="10" fill="rgba(79,209,197,.12)" stroke="var(--accent)"/>
-        <text x="620" y="91" text-anchor="middle" class="lbl-accent">Trạng thái hiệu chỉnh</text>
-        <text x="620" y="107" text-anchor="middle" class="lbl-dim" font-size="10.5">(analysis)</text>
-
-        <path class="flow-line" d="M620,120 C620,170 95,170 95,120" stroke="var(--ink-dim)" fill="none" marker-end="url(#arrow3)"/>
-        <text x="357" y="185" text-anchor="middle" class="lbl-dim" font-size="11">quay lại làm điểm khởi đầu cho chu kỳ dự báo tiếp theo</text>
-      </g>
-      <defs><marker id="arrow3" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--ink-dim)"/></marker></defs>
+    <svg viewBox="0 0 300 200" width="100%">
+      <path d="M20,20 Q150,60 60,120 T280,180" stroke="#3a5488" stroke-width="10" fill="none" opacity=".5"/>
+      <path d="M40,180 Q160,60 260,20" stroke="var(--nadir)" stroke-width="3" fill="none"/>
+      <circle cx="128" cy="103" r="5" fill="var(--accent2)"/>
+      <text x="140" y="95" class="lbl-accent" font-size="11">điểm giao cắt</text>
     </svg>
+    <p class="center" style="font-size:11.5px;color:var(--ink-dim);margin-top:4px">Sông (dải xanh mờ) × vệt bay vệ tinh (đường thẳng) — chỉ có dữ liệu tại giao điểm</p>
   </div>
-  <ul class="bullets" style="margin-top:16px">
-    <li>Jacques Verron (CNRS/LEGOS) là một trong những người đặt nền móng cho kỹ thuật (Ensemble) Kalman Filter ứng dụng vào đồng hóa dữ liệu altimetry đại dương, từ những năm 1990</li>
-    <li>Dữ liệu wide-swath (SWOT) có <b>sai số cấu trúc không gian</b> (không độc lập từng pixel) — cần kỹ thuật giảm sai số tương quan riêng trước khi đưa vào vòng lặp đồng hóa</li>
-  </ul>
-`, 'J. Verron (1990), JGR: Oceans · xem đầy đủ nguồn ở slide Giảng viên'));
-
-/* ---------- 15. Module 6a: flood monitoring ---------- */
-slide(wrap(`
-  <div class="eyebrow">Module 6 · Flood &amp; Transboundary Monitoring</div>
-  <h1>SAR vẽ ranh giới ngập, SWOT đo cao độ — kết hợp cho bức tranh lũ lụt đầy đủ</h1>
-  <div class="grid2">
-    <ul class="bullets">
-      <li>Sentinel-1 SAR: xuyên mây/mưa, lập bản đồ <b>diện tích ngập</b> gần thời gian thực</li>
-      <li>SWOT: đo <b>cao độ và độ dốc</b> mặt nước ngập, giúp ước tính khối lượng nước và xu hướng lan rộng</li>
-      <li>Kết hợp 2 nguồn ⇒ vừa biết <em>ngập đến đâu</em> vừa biết <em>ngập sâu bao nhiêu</em></li>
-    </ul>
-    <div class="diagram">
-      <svg viewBox="0 0 320 150" width="100%">
-        <rect x="10" y="10" width="140" height="130" rx="8" fill="var(--panel2)" stroke="var(--nadir)"/>
-        <text x="80" y="30" text-anchor="middle" class="lbl-accent" style="fill:var(--nadir)">SAR</text>
-        <path d="M25,110 C50,70 90,120 135,60" fill="none" stroke="var(--nadir)" stroke-width="14" opacity=".35"/>
-        <text x="80" y="145" text-anchor="middle" class="lbl-dim" font-size="10.5">vùng ngập (mặt nạ)</text>
-
-        <rect x="170" y="10" width="140" height="130" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
-        <text x="240" y="30" text-anchor="middle" class="lbl-accent" style="fill:var(--swot)">SWOT</text>
-        <path d="M185,110 C210,70 250,120 295,60" fill="none" stroke="var(--swot)" stroke-width="14" opacity=".35"/>
-        <line x1="185" y1="118" x2="295" y2="55" stroke="var(--accent2)" stroke-width="2" stroke-dasharray="3 3"/>
-        <text x="240" y="145" text-anchor="middle" class="lbl-dim" font-size="10.5">cao độ + độ dốc mặt ngập</text>
-      </svg>
-    </div>
-  </div>
+  <ul class="bullets"><li>Altimeter chỉ đo được dọc theo một <b>vệt hẹp</b> (ground track) vài km ngay dưới đường bay</li><li>Với sông/hồ: dữ liệu chỉ tồn tại tại các <b>điểm giao cắt cố định</b> giữa quỹ đạo và thân nước</li><li>Số điểm giao cắt trên một con sông phụ thuộc hình học quỹ đạo — có thể chỉ 1–2 điểm cho cả nghìn km sông</li><li>Bù lại: mỗi điểm giao cắt có <b>chuỗi thời gian rất dài</b> vì lặp lại theo chu kỳ quỹ đạo cố định</li></ul>
+</div>
 `));
 
-/* ---------- 16. Module 6b: Mekong transboundary ---------- */
 slide(wrap(`
-  <div class="eyebrow">Module 6 · Flood &amp; Transboundary Monitoring</div>
-  <h1>Ở lưu vực xuyên biên giới, dữ liệu vệ tinh là cơ sở chung không phụ thuộc chia sẻ số liệu quốc gia</h1>
-  <div class="diagram">
-    <svg viewBox="0 0 760 140" width="100%">
-      <g font-size="12">
-        <text x="380" y="20" text-anchor="middle" class="lbl-accent">Vệ tinh (SWOT / Nadir / SAR) — độc lập với biên giới</text>
-        <path d="M40,90 C200,50 300,110 460,60 C560,30 660,80 720,60" stroke="#28406e" stroke-width="10" fill="none" opacity=".5"/>
-        <g font-size="11">
-          <rect x="30" y="95" width="90" height="26" rx="6" fill="var(--panel2)" stroke="var(--line)"/>
-          <text x="75" y="112" text-anchor="middle" class="lbl-dim">Lào</text>
-          <rect x="180" y="95" width="110" height="26" rx="6" fill="var(--panel2)" stroke="var(--line)"/>
-          <text x="235" y="112" text-anchor="middle" class="lbl-dim">Thái Lan</text>
-          <rect x="360" y="95" width="120" height="26" rx="6" fill="var(--panel2)" stroke="var(--line)"/>
-          <text x="420" y="112" text-anchor="middle" class="lbl-dim">Campuchia</text>
-          <rect x="560" y="95" width="140" height="26" rx="6" fill="var(--panel2)" stroke="var(--line)"/>
-          <text x="630" y="112" text-anchor="middle" class="lbl-dim">Việt Nam</text>
-        </g>
-        <circle cx="90" cy="72" r="4" fill="var(--accent2)"/>
-        <circle cx="260" cy="82" r="4" fill="var(--accent2)"/>
-        <circle cx="440" cy="66" r="4" fill="var(--accent2)"/>
-        <circle cx="630" cy="70" r="4" fill="var(--accent2)"/>
-        <text x="380" y="135" text-anchor="middle" class="lbl-dim" font-size="10.5">● virtual gauge — số liệu nhất quán trên toàn lưu vực, kể cả nơi thiếu trạm đo mặt đất</text>
-      </g>
-    </svg>
-  </div>
-  <ul class="bullets" style="margin-top:16px">
-    <li><b>MRC</b> (Mekong River Commission): tổ chức liên chính phủ quản lý sông Mê Kông xuyên biên giới, đại diện trong VSEO6 bởi Mathias Boun Hen</li>
-    <li>Dữ liệu in-situ thường không được chia sẻ đầy đủ xuyên biên giới vì lý do chủ quyền/an ninh nước — vệ tinh cung cấp một nguồn quan sát trung lập, nhất quán trên toàn lưu vực</li>
-  </ul>
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Dòng thời gian: hơn 30 năm phát triển liên tục</h1>
+<ul class="bullets"><li><b>1992</b> — TOPEX/Poseidon: sứ mệnh đầu tiên chứng minh độ chính xác cm cho đo cao đại dương, đặt nền móng cho mọi altimeter sau này</li><li><b>2001, 2008, 2016</b> — Jason-1, Jason-2, Jason-3: kế thừa cùng quỹ đạo tham chiếu, nối dài chuỗi thời gian liên tục</li><li><b>2016 (Sentinel-3A), 2018 (3B)</b> — Copernicus bổ sung mật độ quan trắc, quỹ đạo khác Jason để tăng số điểm giao cắt với sông/hồ</li><li><b>2020</b> — Sentinel-6 Michael Freilich: kế thừa vị trí Jason-3, dual-frequency Ku/C-band cải tiến</li><li><b>2022</b> — SWOT bổ sung kỹ thuật wide-swath (Module 2) — không thay thế mà <b>bổ sung</b> cho chuỗi nadir dài hạn</li></ul>
 `));
 
-/* ---------- 17. Speakers 1 ---------- */
-function spk(name, aff, pubs){
-  return `<div class="spk"><h3>${name}</h3><div class="aff">${aff}</div><ul>${pubs.map(p=>'<li>'+p+'</li>').join('')}</ul></div>`;
-}
 slide(wrap(`
-  <div class="eyebrow">Giảng viên chính (1/2)</div>
-  <h1>Nhóm altimetry &amp; đồng hóa dữ liệu — Hydro Matters, LEGOS/CNRS</h1>
-  <div class="grid2">
-    ${spk('Dr. Laetitia Gal','Hydro Matters · điều phối chính khóa học',[
-      'Larnier et al. (2025), Channel Parameters &amp; Discharge at River Network Scale via SWOT — Water Resources Research',
-      'Tham gia cal/val SWOT tại Brazil (khảo sát hồ chứa nông nghiệp bán khô hạn)'])}
-    ${spk('Adrien Paris','Hydro Matters / Ocean Next · cựu LEGOS, Đại học Toulouse III',[
-      'Hydro-climatology study of the Ogooué River basin using hydrological modeling and satellite altimetry',
-      'Kỹ sư cơ khí (ENSAM) chuyển hướng sang thủy văn không gian'])}
-    ${spk('Charlotte Emery','LEGOS / CNES (hiện cùng CS-Group)',[
-      'Updates from hydroweb.next and AVISO (2025), SWOT Applications Meeting',
-      'Variance-based Sensitivity Analysis... Ensemble-based SWOT-like DA Experiments, AGU 2015'])}
-    ${spk('Jacques Verron','CNRS / LEGOS Toulouse · cựu LGGE, Đại học Joseph Fourier Grenoble',[
-      'Verron (1990), Altimeter data assimilation into an ocean circulation model — JGR: Oceans',
-      'Joint altimetric and in-situ data assimilation using GRACE MDT — Ocean Dynamics'])}
-  </div>
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Thực hành trong khóa học: tải & phân tích dữ liệu nadir</h1>
+<ul class="bullets"><li>Buổi thực hành ngày khai giảng: học viên tự tải dữ liệu GDR cho một điểm giao cắt sông/hồ cụ thể</li><li>Quy trình thực tế: chọn vệ tinh + chu kỳ lặp → lọc theo bounding box khu vực quan tâm → trích chuỗi thời gian tại điểm giao cắt → áp toàn bộ hiệu chỉnh (Module 1, các slide trước) → vẽ biểu đồ mực nước theo thời gian</li><li>Đây chính là quy trình nền, sẽ được lặp lại ở Module 3 (Hydroweb-next) nhưng với dữ liệu đã qua xử lý sẵn, không cần tự áp hiệu chỉnh từ đầu</li></ul>
 `));
 
-/* ---------- 18. Speakers 2 ---------- */
 slide(wrap(`
-  <div class="eyebrow">Giảng viên chính (2/2)</div>
-  <h1>Nhóm khu vực &amp; tổ chức đối tác — Việt Nam, Philippines, và các diễn giả khác</h1>
-  <div class="grid2">
-    ${spk('TS. Binh Pham Duc','USTH — Đại học Khoa học &amp; Công nghệ Hà Nội',[
-      'Monitoring Tonle Sap Lake water volume using Sentinel-1 + satellite altimetry, J. Water &amp; Climate Change 2023',
-      'Monitoring lake volume — case study Thac Mo Reservoir (Vietnam), Remote Sensing 2022'])}
-    ${spk('Ariel Blanco','PSA / PhilSA · Director IV, Space Information Infrastructure Bureau',[
-      'Towards Nationwide Mapping of Seagrasses in the Philippines (dự án BlueCARES, Sentinel-2)',
-      'Coral Bleaching Detection Using PRISMA Hyperspectral Imagery, Calatagan'])}
-    ${spk('Denis Fourmeau &amp; Jean Tran Thanh Van','Đồng chủ trì khai mạc · Rencontres du Vietnam',[
-      'Jean Tran Thanh Van: người sáng lập Rencontres du Vietnam (1993), đối tác chính thức UNESCO'])}
-    ${spk('Linda Tomasini · Pham Thi Mai Thy · Mathias Boun Hen · Daniel Moreira · Sabrine Amzil','Đại diện CNES · VNSC · MRC · SWOT overview · SWOT &amp; flood monitoring',[
-      'Vai trò xác nhận theo chương trình chính thức; chưa tìm được hồ sơ công bố khoa học công khai đủ tin cậy để liệt kê — tránh suy đoán'])}
-  </div>
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Chuỗi thời gian dài — giá trị cốt lõi của nadir altimetry</h1>
+<ul class="bullets"><li><b>TOPEX/Poseidon</b> (1992) → <b>Jason-1/2/3</b> → <b>Sentinel-6 Michael Freilich</b>: một dòng vệ tinh kế thừa cùng quỹ đạo tham chiếu, giữ chuỗi đo liên tục hơn 30 năm</li><li><b>Sentinel-3A/3B</b> (Copernicus): altimeter hoạt động song song, quỹ đạo khác, tăng mật độ điểm giao cắt</li><li>Chuỗi dài cho phép phát hiện <b>xu hướng dài hạn</b> (biến đổi khí hậu, sụt giảm hồ chứa theo thập kỷ) mà một lần đo SWOT (từ 2022) không thể cho biết</li></ul>
+<div class="pitfall"><span class="tag-warn">Lưu ý khi kết hợp dữ liệu</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Mỗi vệ tinh có quỹ đạo, tần số, độ chính xác khác nhau — ghép chuỗi thời gian đa vệ tinh cần hiệu chỉnh chênh lệch hệ thống (bias) giữa các mission trước khi coi là một chuỗi liên tục.</p></div>
 `));
 
-/* ---------- 19. Closing ---------- */
 slide(wrap(`
-  <div class="eyebrow">Tổng kết</div>
-  <h1>Sẵn sàng cho VSEO6 — ôn tập trắc nghiệm và theo dõi lịch trình đầy đủ tại đây</h1>
-  <div class="grid2" style="margin-top:10px">
-    <div class="card">
-      <h3>🌐 Website luyện tập tự chấm điểm</h3>
-      <p>31 câu hỏi trắc nghiệm bao phủ Nadir altimetry, SWOT/KaRIn, data assimilation (Kalman/EnKF), Manning &amp; discharge, geoid, tổ chức đối tác, chương trình và giảng viên — chấm điểm hoàn toàn trong trình duyệt.</p>
-      <p style="margin-top:10px;color:var(--accent)">tatcataittn.github.io/for-ttn-USTH/VSEO-6/</p>
-    </div>
-    <div class="card">
-      <h3>📄 Tài liệu lý thuyết đầy đủ</h3>
-      <p>01_ly_thuyet_va_giang_vien.md — toàn bộ nội dung nền tảng khoa học, chương trình chi tiết và nguồn trích dẫn.</p>
-    </div>
-  </div>
-  <p class="lead" style="margin-top:26px">Liên hệ khóa học: Dr. Laetitia Gal — laetitia.gal@hydro-matters.fr &nbsp;·&nbsp; ICISE, Quy Nhơn, 7–12/9/2026</p>
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Datum thẳng đứng: ellipsoid vs geoid</h1>
+<div class="eqn-box"><div class="eqn">H (độ cao chính) = h<sub>ellipsoid</sub> &minus; N<sub>geoid</sub></div><div class="eqn-note">N_geoid: độ lệch geoid–ellipsoid tại vị trí đó, tra từ mô hình toàn cầu (vd EGM2008)</div></div>
+<ul class="bullets"><li>Độ cao h ra từ range equation là so với <b>ellipsoid</b> — một mặt toán học trơn (vd WGS84), không phải mực nước biển thực</li><li><b>Geoid</b>: bề mặt đẳng thế trọng lực, xấp xỉ mực nước biển trung bình nếu bỏ qua gió/dòng chảy — gồ ghề hơn ellipsoid vì phản ánh phân bố khối lượng Trái Đất thật</li><li>Trạm đo tại chỗ (in-situ gauge) thường báo cáo theo datum địa phương gần geoid — <b>không thể so trực tiếp</b> với h_ellipsoid nếu chưa quy đổi</li></ul>
+<div class="pitfall"><span class="tag-warn">Sai lầm thường gặp</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">So sánh trực tiếp độ cao vệ tinh (ellipsoid) với số liệu trạm đo (datum địa phương) mà không quy đổi qua geoid — chênh lệch có thể vài mét, bị hiểu nhầm là 'lỗi vệ tinh'.</p></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Sản phẩm dữ liệu & ứng dụng thực tế</h1>
+<ul class="bullets"><li>Sản phẩm chuẩn: <b>GDR</b> (Geophysical Data Record) — chuỗi độ cao dọc theo vệt bay, đã áp mọi hiệu chỉnh</li><li>Với hồ/hồ chứa: trích chuỗi thời gian tại đúng điểm giao cắt qua nhiều chu kỳ lặp lại</li><li>Ví dụ thực tế trong khóa học: TS. Binh Pham Duc (USTH) dùng Sentinel-1 kết hợp altimetry để giám sát biến động thể tích <b>hồ Tonle Sap</b> (Campuchia) và hồ chứa <b>Thác Mơ</b> (Việt Nam)</li></ul>
+`, 'Pham Duc Binh et al., J. Water &amp; Climate Change 2023 · Remote Sensing 2022'));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Sai lầm thường gặp #1 — nhầm lẫn hệ quy chiếu</h1>
+<div class="pitfall"><span class="tag-warn">Ellipsoid ≠ geoid ≠ datum địa phương</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Ba mặt tham chiếu khác nhau cho ba con số 'độ cao' khác nhau tại cùng một điểm — luôn ghi rõ đang dùng datum nào trước khi so sánh nguồn dữ liệu khác nhau, đặc biệt khi kết hợp vệ tinh + trạm đo tại chỗ.</p></div>
+<div class="pitfall"><span class="tag-warn">Bỏ qua hiệu chỉnh khí quyển ướt</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Vì đây là hiệu chỉnh biến động nhanh nhất, bỏ qua hoặc dùng giá trị khí hậu trung bình thay vì giá trị tức thời có thể gây sai số cm–dm ngẫu nhiên theo thời gian, làm nhiễu chuỗi thời gian mực nước.</p></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Nadir Altimetry</div>
+<h1>Tự kiểm tra</h1>
+<div class="checkpoint"><div class="q">❓ Vì sao công thức range equation chia cho 2?</div><div class="a">Vì xung radar đi xuống RỒI phản xạ về — Δt đo được là tổng thời gian cả hai chiều, nên R (một chiều) = c·Δt/2.</div></div><div class="checkpoint"><div class="q">❓ Retracker OCOG khác gì Brown model?</div><div class="a">Brown model giả định waveform một đỉnh trơn của mặt biển rộng; OCOG/threshold không giả định dạng cụ thể, chịu được waveform nhiễu nhiều đỉnh của sông/hồ hẹp.</div></div><div class="checkpoint"><div class="q">❓ Vì sao nadir altimetry có độ phủ không gian thưa nhưng chuỗi thời gian dài?</div><div class="a">Vì chỉ đo dọc 1 vệt hẹp cố định (ít điểm giao cắt với sông/hồ) nhưng quỹ đạo lặp lại đều đặn qua nhiều thập kỷ tại đúng các điểm đó.</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 1 · Tóm tắt</div>
+<h1>Ba điều cốt lõi mang sang các module sau</h1>
+<div class="recap-item"><span class="ico">📐</span><span class="txt"><b>R = c·Δt/2</b> rồi <b>h = H_sat − (R + hiệu chỉnh)</b> — công thức nền tảng của mọi phép đo altimetry, kể cả KaRIn (Module 2) chỉ khác ở cách suy ra R.</span></div><div class="recap-item"><span class="ico">🌊</span><span class="txt">Nadir altimetry đo <b>tại điểm</b>, dọc vệt hẹp, độ phủ thưa — đây chính là lý do SWOT/KaRIn (Module 2) ra đời để đo theo <b>diện</b>.</span></div><div class="recap-item"><span class="ico">📏</span><span class="txt">Luôn phân biệt <b>ellipsoid vs geoid vs datum địa phương</b> — sai lầm datum là nguồn lỗi phổ biến nhất khi kết hợp dữ liệu đa nguồn xuyên suốt khóa học.</span></div>
+`));
+
+slide(wrap(`
+<div class="slide-inner divider fadein"><div class="modnum">2</div><div class="kicker">Kiến thức nền tảng VSEO6</div><h1>SWOT — Surface Water and Ocean Topography</h1><p class="sub">Từ đo một điểm rời rạc sang bản đồ 2D độ phân giải cao bằng giao thoa radar.</p><div class="modmap"><span class="">1 · Nadir Altimetry</span><span class="cur">2 · SWOT / KaRIn</span><span class="">3 · Hydroweb-next</span><span class="">4 · Discharge (Q)</span><span class="">5 · Data Assimilation</span><span class="">6 · Flood & Xuyên biên giới</span></div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Tổng quan sứ mệnh</h1>
+<div class="grid3">
+  <div class="card"><h3>Tên đầy đủ</h3><p>Surface Water and Ocean Topography — hợp tác NASA–CNES, đóng góp từ CSA và UKSA</p></div>
+  <div class="card"><h3>Phóng</h3><p>16/12/2022, tên lửa SpaceX Falcon 9 từ Vandenberg</p></div>
+  <div class="card"><h3>Chu kỳ khoa học</h3><p>Quỹ đạo lặp ~21 ngày, phủ hơn 90% diện tích nước bề mặt Trái Đất</p></div>
+</div>
+<p class="lead" style="margin-top:22px">Thiết bị chủ lực <b style="color:var(--accent)">KaRIn</b> (Ka-band Radar Interferometer) lần đầu tiên cho phép đo <b>wide-swath</b> — quét một dải rộng thay vì chỉ một đường hẹp như altimetry cổ điển (Module 1).</p>
+`, 'NASA SWOT · CNES SWOT · eoPortal SWOT'));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Vì sao cần wide-swath — nhắc lại giới hạn của Module 1</h1>
+<ul class="bullets"><li>Nadir altimetry: 1 vệt hẹp, dữ liệu chỉ tại điểm giao cắt cố định — <b>không thấy được toàn bộ hình dạng mặt nước</b></li><li>Không đo được <b>độ dốc mặt nước</b> dọc sông (cần thiết để ước tính dòng chảy — xem Module 4)</li><li>Không phát hiện được thay đổi hình học sông (mở rộng/thu hẹp theo mùa lũ) trừ tại đúng điểm giao cắt</li><li>→ Cần một cảm biến quét <b>toàn bộ diện tích</b> mặt nước, không chỉ một đường</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Phần cứng KaRIn: hai ăng-ten, một cần dài 10m</h1>
+<ul class="bullets"><li><b>Ka-band Radar Interferometer</b>: hai ăng-ten radar giống hệt nhau, gắn ở hai đầu một cần cứng (boom) dài <b>10 mét</b></li><li>Cả hai ăng-ten cùng phát/thu tín hiệu từ cùng một điểm trên mặt đất, nhưng từ hai vị trí hơi lệch nhau</li><li>Khoảng cách giữa hai ăng-ten gọi là <b>đường nền (baseline) B</b> = 10 m — thông số hình học cố định, đã biết chính xác</li><li>Hoạt động ở băng tần Ka (~35.75 GHz) — bước sóng ngắn cho độ phân giải không gian cao</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Nguyên lý giao thoa (interferometry): đo pha, không đo thời gian</h1>
+<ul class="bullets"><li>Khác nadir altimetry (đo Δt trực tiếp) — KaRIn đo <b>độ lệch pha Δφ</b> giữa tín hiệu nhận về ở 2 ăng-ten</li><li>Vì 2 ăng-ten ở 2 vị trí khác nhau, quãng đường tín hiệu đi về có sai khác nhỏ → sinh ra lệch pha</li><li>Độ lệch pha này mã hoá <b>góc nhìn (look angle) θ</b> tới điểm đo — từ θ suy ra được độ cao</li><li>Đây là kỹ thuật mượn từ InSAR (Interferometric SAR) dùng trong đo biến dạng mặt đất, áp dụng lần đầu cho đo cao mặt nước ở quy mô toàn cầu</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Phương trình pha → góc nhìn → độ cao</h1>
+<div class="eqn-box"><div class="eqn">&Delta;&phi; = k · B · sin(&theta;)</div><div class="eqn-note">k = 2π/λ (số sóng, λ: bước sóng Ka-band) · B: baseline 10m · θ: góc nhìn</div></div>
+<div class="eqn-box"><div class="eqn">h = H &minus; r<sub>1</sub> · cos(&theta;)</div><div class="eqn-note">H: độ cao vệ tinh · r₁: khoảng cách từ ăng-ten 1 tới điểm đo</div></div>
+<ul class="bullets"><li>Bước 1: đo Δφ trực tiếp từ 2 kênh thu → giải phương trình đầu tiên ra θ</li><li>Bước 2: thay θ vào phương trình thứ hai, cùng r₁ (đo qua thời gian bay như nadir altimetry) → ra h</li></ul>
+`, 'KaRIn — Measurement principle, processing and data specificities'));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Sơ đồ hình học: baseline, góc nhìn, độ cao</h1>
+<div class="diagram" style="max-width:480px;margin:0 auto">
+  <svg viewBox="0 0 360 200" width="100%">
+    <rect x="140" y="20" width="12" height="12" fill="var(--panel2)" stroke="var(--nadir)"/>
+    <rect x="200" y="20" width="12" height="12" fill="var(--panel2)" stroke="var(--swot)"/>
+    <line x1="146" y1="26" x2="206" y2="26" stroke="var(--ink-dim)" stroke-width="1.5"/>
+    <text x="176" y="16" text-anchor="middle" class="lbl-dim" font-size="10">baseline B = 10m</text>
+    <line x1="146" y1="26" x2="80" y2="170" stroke="var(--nadir)" stroke-width="2"/>
+    <line x1="206" y1="26" x2="80" y2="170" stroke="var(--swot)" stroke-width="2" stroke-dasharray="3 3"/>
+    <text x="60" y="185" class="lbl" font-size="11">điểm đo (nước)</text>
+    <text x="100" y="90" class="lbl-dim" font-size="10">r₁</text>
+    <path d="M146,40 A20,20 0 0 1 156,55" fill="none" stroke="var(--accent2)" stroke-width="1.5"/>
+    <text x="158" y="52" class="lbl-accent" font-size="10">θ</text>
+  </svg>
+  <p class="center" style="font-size:11.5px;color:var(--ink-dim);margin-top:4px">Hai ăng-ten (vuông) cách nhau B, cùng nhìn một điểm nước — lệch pha giữa 2 đường tín hiệu → θ → h</p>
+</div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Phase ambiguity — vì sao cần “gỡ mơ hồ pha”</h1>
+<ul class="bullets"><li>Pha chỉ đo được <b>modulo 2π</b> — thiết bị không phân biệt được Δφ và Δφ + 2π, Δφ + 4π, ...</li><li>Một chênh lệch 2π trong pha tương ứng với một khoảng chênh độ cao cố định gọi là <b>độ cao mơ hồ (altitude of ambiguity) E_a</b></li><li>Xử lý mặt đất phải thực hiện <b>phase unwrapping</b> (gỡ mơ hồ pha) — dùng thông tin lân cận không gian để chọn đúng "chu kỳ 2π" nào là thực</li><li>Đây là một bước xử lý phức tạp, dễ sai ở vùng địa hình gồ ghề hoặc mặt nước bị ngắt quãng bởi thực vật/đảo</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Hình học quét: 2 dải 50km, một khoảng trống ở giữa</h1>
+<div class="diagram" style="max-width:460px;margin:0 auto">
+  <svg viewBox="0 0 360 220" width="100%">
+    <rect x="60" y="10" width="60" height="200" fill="var(--swot)" opacity=".18"/>
+    <rect x="240" y="10" width="60" height="200" fill="var(--swot)" opacity=".18"/>
+    <line x1="180" y1="10" x2="180" y2="210" stroke="#28406e" stroke-width="2" stroke-dasharray="4 4"/>
+    <text x="180" y="8" text-anchor="middle" class="lbl-dim" font-size="10">nadir track (gap ~20km)</text>
+    <text x="90" y="8" text-anchor="middle" class="lbl-accent" style="fill:var(--swot)">50 km</text>
+    <text x="270" y="8" text-anchor="middle" class="lbl-accent" style="fill:var(--swot)">50 km</text>
+    <g class="fly"><rect x="-15" y="95" width="30" height="16" rx="3" fill="#1b2c52" stroke="var(--nadir)"/></g>
+    <text x="180" y="230" text-anchor="middle" class="lbl-dim" font-size="11">hướng bay của vệ tinh →</text>
+  </svg>
+  <div class="center" style="margin-top:6px"><span class="tag good">120 km tổng dải quét mỗi lần bay qua</span></div>
+</div>
+<ul class="bullets"><li>Vùng gần đường nadir (~20km) không được quét bằng KaRIn — vẫn dùng một altimeter nadir phụ trợ trên chính SWOT tại đó</li><li>Độ phân giải: gần dải (near-range) mịn hơn xa dải (far-range) — trade-off hình học interferometry</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Quỹ đạo SWOT & instrument nadir phụ trợ</h1>
+<ul class="bullets"><li>Quỹ đạo: nghiêng ~78°, phủ vĩ độ từ khoảng 78°N tới 78°S — bao gồm gần như toàn bộ lưu vực sông lớn trên Trái Đất</li><li>Chu kỳ khoa học lặp lại <b>~21 ngày</b> — trong một chu kỳ, hầu hết điểm trên bề mặt được quan sát 1–2 lần bởi dải quét KaRIn</li><li>SWOT còn mang một <b>altimeter nadir cổ điển</b> (kế thừa công nghệ Poseidon) hoạt động dọc đúng đường bay — vừa lấp khoảng trống ~20km giữa 2 dải KaRIn, vừa dùng để đối chiếu chéo (cross-calibration) với dòng Jason/Sentinel-6 (Module 1)</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Ví dụ tính tay: từ Δφ ra θ (đơn giản hoá)</h1>
+<div class="example-box"><span class="tag-ex">Ví dụ (số liệu minh hoạ, đơn giản hoá)</span><div class="step">Cho: bước sóng Ka-band λ ≈ 0.0084 m (tần số ~35.75 GHz) → k = 2π/λ ≈ 748 rad/m</div><div class="step">Cho: baseline B = 10 m, đo được Δφ = 0.6 rad</div><div class="step">Áp dụng: <b>sin(θ) = Δφ / (k·B)</b> = 0.6 / (748 × 10) ≈ 0.0000802</div><div class="step">→ θ ≈ 0.0046° — góc rất nhỏ vì λ Ka-band cực ngắn khiến hệ đo cực nhạy với sai lệch pha nhỏ</div><div class="step">Đây là lý do vì sao đo pha chính xác đến mili-radian là bắt buộc để đạt độ chính xác độ cao cỡ cm–dm</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Độ chính xác & vai trò cal/val</h1>
+<ul class="bullets"><li>Độ chính xác độ cao: cỡ <b>centimet</b> trên đại dương rộng, <b>decimet</b> trên sông/hồ (bề mặt nhỏ hơn, nhiễu tương đối lớn hơn)</li><li>Đo được sông rộng hơn <b>~100 m</b> và hồ/vùng ngập > 250×250 m</li><li><b>Cal/val</b> (calibration/validation): so sánh số đo SWOT với khảo sát thực địa độc lập để xác nhận độ chính xác thực tế — vd Dr. Laetitia Gal (Hydro Matters) tham gia khảo sát địa hình hồ chứa nông nghiệp bán khô hạn tại Brazil cho SWOT cal/val</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Bảng đối chiếu trực tiếp: Nadir vs SWOT</h1>
+<table style="width:100%;border-collapse:collapse;font-size:13.5px">
+  <tr style="color:var(--accent2)"><td style="padding:8px 6px"><b>Tiêu chí</b></td><td style="padding:8px 6px"><b>Nadir (Module 1)</b></td><td style="padding:8px 6px"><b>SWOT/KaRIn</b></td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Cơ chế đo</td><td style="padding:8px 6px;color:var(--ink-dim)">Thời gian bay Δt</td><td style="padding:8px 6px;color:var(--ink-dim)">Lệch pha giao thoa Δφ</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Độ phủ ngang</td><td style="padding:8px 6px;color:var(--ink-dim)">1 đường ~300m</td><td style="padding:8px 6px;color:var(--ink-dim)">120 km (2×50km)</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Đo trực tiếp</td><td style="padding:8px 6px;color:var(--ink-dim)">Cao độ</td><td style="padding:8px 6px;color:var(--ink-dim)">Cao độ + độ dốc + độ rộng</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Chuỗi lịch sử</td><td style="padding:8px 6px;color:var(--ink-dim)">Dài (từ 1992)</td><td style="padding:8px 6px;color:var(--ink-dim)">Ngắn (từ 2022)</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Sai số quan sát</td><td style="padding:8px 6px;color:var(--ink-dim)">Gần độc lập theo điểm</td><td style="padding:8px 6px;color:var(--ink-dim)">Tương quan không gian (xem Module 5)</td></tr>
+</table>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Sai lầm thường gặp #1 — nhầm SWOT đo trực tiếp lưu lượng</h1>
+<div class="pitfall"><span class="tag-warn">SWOT KHÔNG đo discharge Q trực tiếp</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">SWOT chỉ đo độ rộng W, độ cao h, độ dốc S của mặt nước. Lưu lượng Q phải được suy luận qua mô hình thủy lực (Manning/AMHG) — xem chi tiết ở Module 4. Đây là nhầm lẫn phổ biến nhất khi mới tiếp cận dữ liệu SWOT.</p></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Sai lầm thường gặp #2 — bỏ qua cấu trúc sai số tương quan</h1>
+<div class="pitfall"><span class="tag-warn">Sai số KaRIn không độc lập theo từng pixel</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Vì đo theo diện (wide-swath) thay vì theo điểm, sai số của các pixel lân cận có cấu trúc không gian tương quan (không nhiễu trắng độc lập như altimetry cổ điển). Coi mỗi pixel là một quan sát độc lập khi đồng hóa dữ liệu (Module 5) sẽ đánh giá sai độ tin cậy — cần kỹ thuật giảm sai số tương quan chuyên biệt trước.</p></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Trade-off độ phân giải: near-range vs far-range</h1>
+<ul class="bullets"><li>Độ phân giải cross-track (ngang dải quét) <b>không đồng đều</b>: mịn hơn ở phần dải gần đường nadir (near-range, ~5-10m), thô hơn ở rìa xa (far-range, tới ~60-70m)</li><li>Nguyên nhân hình học: góc tới (incidence angle) tăng dần từ gần ra xa dải, làm độ nhạy phân giải khoảng cách theo phương ngang giảm dần</li><li>Hệ quả thực hành: một con sông hẹp nằm ở rìa xa dải quét sẽ được đo với độ chính xác thấp hơn cùng con sông đó nếu nằm ở phần gần dải — cần lưu ý khi so sánh chất lượng dữ liệu giữa các lần bay qua khác nhau</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Hạn chế thực tế: thảm thực vật & layover</h1>
+<ul class="bullets"><li>Thảm thực vật ngập nước/ven bờ có thể phản xạ tín hiệu radar gây nhiễu, làm PIXC (Module 3) lẫn pixel "nước giả"</li><li><b>Layover</b>: ở địa hình dốc/núi, tín hiệu từ sườn gần vệ tinh và sườn xa có thể chồng lấn trong cùng một ô thu — gây méo vị trí biểu kiến</li><li>Đây là lý do các thuật toán xử lý L2 HR (PIXCVec, Module 3) cần bước lọc/phân loại pixel trước khi tạo sản phẩm sông/hồ cuối cùng</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Case study: SWOT trên sông Ganga</h1>
+<ul class="bullets"><li>Nghiên cứu của nhóm Hydro Matters/LEGOS (2025) áp dụng dữ liệu SWOT wide-swath cho sông Ganga (Ấn Độ) — một trong những con sông lớn, nhiều phù sa, khó quan sát bằng cảm biến quang học truyền thống</li><li>Minh hoạ trực tiếp giá trị của độ phủ 2D: theo dõi được biến động độ rộng và độ dốc dọc toàn bộ đoạn sông qua các mùa, không chỉ tại vài điểm giao cắt</li></ul>
+`, 'Larnier et al. (2025), Water Resources Research'));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · SWOT</div>
+<h1>Tự kiểm tra</h1>
+<div class="checkpoint"><div class="q">❓ KaRIn đo đại lượng vật lý nào trực tiếp, khác gì altimetry cổ điển?</div><div class="a">KaRIn đo độ lệch PHA (Δφ) giữa 2 ăng-ten cách nhau baseline 10m; altimetry cổ điển đo THỜI GIAN bay Δt của một ăng-ten duy nhất.</div></div><div class="checkpoint"><div class="q">❓ Vì sao cần "gỡ mơ hồ pha" (phase unwrapping)?</div><div class="a">Vì pha chỉ đo được modulo 2π — không phân biệt được các giá trị Δφ, Δφ+2π, Δφ+4π... nên cần xử lý bổ sung để chọn đúng chu kỳ thực.</div></div><div class="checkpoint"><div class="q">❓ SWOT có đo lưu lượng dòng chảy Q trực tiếp không?</div><div class="a">Không — chỉ đo W, h, S. Q phải suy luận qua mô hình thủy lực như Manning/AMHG (Module 4).</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 2 · Tóm tắt</div>
+<h1>Ba điều cốt lõi mang sang các module sau</h1>
+<div class="recap-item"><span class="ico">📡</span><span class="txt"><b>Δφ = kB·sin(θ)</b> rồi <b>h = H − r₁cos(θ)</b> — cơ chế đo hoàn toàn khác Module 1 (pha thay vì thời gian), nhưng cùng mục tiêu: ra độ cao h.</span></div><div class="recap-item"><span class="ico">🗺️</span><span class="txt">SWOT đo <b>W, h, S theo diện</b> — ba biến này chính là đầu vào của mô hình ước tính lưu lượng ở Module 4.</span></div><div class="recap-item"><span class="ico">🔗</span><span class="txt">Sai số KaRIn <b>tương quan không gian</b> — chi tiết kỹ thuật xử lý việc này nằm ở Module 5 (Data Assimilation/EnKF).</span></div>
+`));
+
+slide(wrap(`
+<div class="slide-inner divider fadein"><div class="modnum">3</div><div class="kicker">Kiến thức nền tảng VSEO6</div><h1>Hydroweb-next & Sản phẩm dữ liệu</h1><p class="sub">Từ pixel thô của KaRIn đến chuỗi thời gian mực nước sẵn sàng dùng cho một con sông cụ thể.</p><div class="modmap"><span class="">1 · Nadir Altimetry</span><span class="">2 · SWOT / KaRIn</span><span class="cur">3 · Hydroweb-next</span><span class="">4 · Discharge (Q)</span><span class="">5 · Data Assimilation</span><span class="">6 · Flood & Xuyên biên giới</span></div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Vấn đề trước khi có cổng dữ liệu thống nhất</h1>
+<ul class="bullets"><li>Dữ liệu thủy văn vệ tinh đến từ <b>nhiều sứ mệnh khác nhau</b> (nadir cổ điển, SWOT, Sentinel-3) — mỗi sứ mệnh có định dạng file, hệ quy chiếu, quy ước đặt tên riêng</li><li>Muốn có một chuỗi thời gian mực nước liên tục cho một hồ, nhà nghiên cứu trước đây phải <b>tự tải, tự xử lý, tự ghép</b> nhiều nguồn — tốn thời gian, dễ sai sót</li><li>→ <b>hydroweb.next</b> (CNES/Theia) ra đời để giải quyết chính vấn đề này: một cổng dữ liệu duy nhất, đã chuẩn hoá</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Kiến trúc: gộp nhiều nguồn thành một định dạng thống nhất</h1>
+<div class="diagram">
+  <svg viewBox="0 0 760 150" width="100%">
+    <g font-size="12.5">
+      <rect x="10" y="15" width="150" height="34" rx="8" fill="var(--panel2)" stroke="var(--nadir)"/>
+      <text x="85" y="36" text-anchor="middle" class="lbl">Nadir altimeters</text>
+      <rect x="10" y="58" width="150" height="34" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+      <text x="85" y="79" text-anchor="middle" class="lbl">SWOT (KaRIn)</text>
+      <rect x="10" y="101" width="150" height="34" rx="8" fill="var(--panel2)" stroke="var(--accent2)"/>
+      <text x="85" y="122" text-anchor="middle" class="lbl">Sentinel-1/2</text>
+      <path class="flow-line" d="M160,32 C220,32 220,73 280,73" stroke="var(--ink-dim)" fill="none"/>
+      <path class="flow-line" d="M160,75 L280,75" stroke="var(--ink-dim)" fill="none"/>
+      <path class="flow-line" d="M160,118 C220,118 220,77 280,77" stroke="var(--ink-dim)" fill="none"/>
+      <rect x="285" y="50" width="160" height="50" rx="10" fill="rgba(79,209,197,.15)" stroke="var(--accent)"/>
+      <text x="365" y="70" text-anchor="middle" class="lbl-accent">hydroweb.next</text>
+      <text x="365" y="86" text-anchor="middle" class="lbl-accent" font-size="11">chuẩn hoá + gộp</text>
+      <path d="M445,75 L520,75" stroke="var(--accent2)" stroke-width="2"/>
+      <rect x="525" y="55" width="220" height="40" rx="8" fill="rgba(242,184,75,.15)" stroke="var(--accent2)"/>
+      <text x="635" y="79" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)">Chuỗi thời gian sẵn dùng / sông, hồ</text>
+    </g>
+  </svg>
+</div>
+`, 'hydroweb.next.theia-land.fr · GitHub CNES/py-hydroweb'));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>L2_HR_PIXC — pixel cloud, dữ liệu nền chưa gán</h1>
+<ul class="bullets"><li><b>Pixel Cloud</b>: tập hợp phi cấu trúc mọi pixel KaRIn phát hiện có nước, chưa biết pixel nào thuộc sông/hồ nào</li><li>Độ phân giải gốc: <b>~15–25 m</b> (cross-track) × <b>~5–10 m</b> (along-track) — mịn hơn nhiều so với một điểm giao cắt nadir</li><li>Đây là dữ liệu <b>thô nhất</b> trong chuỗi xử lý L2 HR — nền tảng để sinh mọi sản phẩm cấp cao hơn</li></ul>
+`, 'NASA PO.DAAC — SWOT L2 HR PIXC'));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>L2_HR_PIXCVec — lọc nhiễu & gán vào cơ sở dữ liệu tham chiếu</h1>
+<ul class="bullets"><li>Bước xử lý tiếp theo: lọc pixel nhiễu (layover, thảm thực vật — xem Module 2), định vị lại chính xác hơn theo ràng buộc độ cao</li><li>Mỗi pixel còn lại được <b>gán vào một đối tượng cụ thể</b> — sông hoặc hồ — dựa trên <b>Prior River & Lake Database (PRD/PLD)</b></li><li>PRD/PLD: cơ sở dữ liệu tham chiếu toàn cầu về hình học sông/hồ, xây dựng trước từ ảnh vệ tinh quang học độ phân giải cao — đóng vai trò "bản đồ nền" để KaRIn biết đang nhìn vào con sông nào</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>L2_HR_RiverSP — sản phẩm vector cấp sông</h1>
+<ul class="bullets"><li><b>Node</b>: điểm dọc theo tim sông, khoảng cách ~200 m — mỗi Node có độ cao mặt nước riêng</li><li><b>Reach</b>: đoạn sông dài ~10 km, gộp nhiều Node — cho độ cao trung bình, <b>độ dốc mặt nước</b>, độ rộng trung bình của cả đoạn</li><li>Reach chính là đơn vị không gian dùng để ước tính lưu lượng dòng chảy ở Module 4 (cần cả W, h, S trên cùng một đoạn)</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>L2_HR_LakeSP — sản phẩm vector cấp hồ</h1>
+<ul class="bullets"><li><b>Obs</b> (Observed): hồ được quan sát trực tiếp trong lần bay qua này</li><li><b>Prior</b>: đối tượng có trong PLD nhưng không quan sát được lần này (mây che, ngoài dải quét...)</li><li><b>Unassigned</b>: vùng nước phát hiện được nhưng chưa khớp với đối tượng nào trong PLD — có thể là hồ mới hình thành hoặc lỗi phân loại</li></ul>
+`, 'Theia — SWOT rivers/lakes/floodplains'));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Sơ đồ luồng xử lý: từ pixel thô đến sản phẩm cuối</h1>
+<div class="diagram">
+  <svg viewBox="0 0 740 100" width="100%">
+    <g font-size="12">
+      <rect x="10" y="30" width="120" height="40" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+      <text x="70" y="54" text-anchor="middle" class="lbl">PIXC</text>
+      <path d="M130,50 L190,50" stroke="var(--accent2)" stroke-width="2"/>
+      <rect x="195" y="30" width="140" height="40" rx="8" fill="var(--panel2)" stroke="var(--accent)"/>
+      <text x="265" y="54" text-anchor="middle" class="lbl">PIXCVec (+ PRD/PLD)</text>
+      <path d="M335,50 L395,50" stroke="var(--accent2)" stroke-width="2"/>
+      <rect x="400" y="10" width="150" height="34" rx="8" fill="rgba(79,209,197,.15)" stroke="var(--swot)"/>
+      <text x="475" y="32" text-anchor="middle" class="lbl-accent">RiverSP (Node/Reach)</text>
+      <rect x="400" y="55" width="150" height="34" rx="8" fill="rgba(242,184,75,.15)" stroke="var(--accent2)"/>
+      <text x="475" y="77" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)">LakeSP (Obs/Prior)</text>
+    </g>
+  </svg>
+</div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Truy cập dữ liệu thực hành: API & thư viện Python</h1>
+<ul class="bullets"><li><b>py-hydroweb</b> (GitHub CNES): thư viện Python chính thức để tìm kiếm, tải dữ liệu hydroweb.next theo khu vực/thời gian quan tâm mà không cần thao tác thủ công qua giao diện web</li><li>Quy trình chuẩn: xác định bounding box khu vực → chọn loại sản phẩm (RiverSP/LakeSP) → chọn khoảng thời gian → tải về dưới dạng file có cấu trúc sẵn (netCDF/shapefile), sẵn sàng nạp vào Python/QGIS</li></ul>
+`, 'GitHub CNES/py-hydroweb'));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Ví dụ thực hành: trích chuỗi thời gian mực nước một hồ</h1>
+<div class="example-box"><span class="tag-ex">Quy trình</span><div class="step"><b>1.</b> Xác định ID hồ trong Prior Lake Database (PLD) — hoặc lọc theo tọa độ/tên khu vực</div><div class="step"><b>2.</b> Truy vấn tất cả bản ghi LakeSP (Obs) khớp ID đó qua toàn bộ lịch sử SWOT hiện có</div><div class="step"><b>3.</b> Ghép các giá trị độ cao mặt hồ theo thời gian quan sát → chuỗi thời gian mực nước</div><div class="step"><b>4.</b> Với sông: lặp lại quy trình tương tự trên một Reach cụ thể trong RiverSP, lấy thêm độ dốc S để dùng ở Module 4</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>AVISO — cổng dữ liệu chị em cho hải dương học</h1>
+<ul class="bullets"><li><b>AVISO</b> (Archiving, Validation and Interpretation of Satellite Oceanographic data): cổng dữ liệu altimetry đại dương lâu đời của CNES, tiền thân về mặt kiến trúc cho hydroweb.next</li><li>hydroweb.next tập trung vào <b>nước lục địa</b> (sông, hồ, hồ chứa, vùng ngập); AVISO tập trung <b>đại dương</b> (mực nước biển, dòng chảy địa chuyển) — cùng hạ tầng CNES, thường được nhắc chung trong các bản cập nhật kỹ thuật</li><li>Charlotte Emery trình bày cập nhật đồng thời cho cả hai cổng tại SWOT Applications Meeting 2025 — phản ánh sự liên thông giữa hai lĩnh vực hải dương và thủy văn lục địa</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Định dạng file thực tế: netCDF & shapefile</h1>
+<ul class="bullets"><li>Sản phẩm PIXC/PIXCVec: định dạng <b>netCDF</b> — mảng đa chiều có metadata gắn kèm (tọa độ, thời gian, biến số, đơn vị) trong cùng một file</li><li>Sản phẩm RiverSP/LakeSP: thường đi kèm dạng <b>shapefile/GeoPackage</b> (vector địa lý) — mở trực tiếp được trong QGIS/ArcGIS để trực quan hoá trên bản đồ</li><li>Việc chuẩn hoá định dạng theo chuẩn CF-convention (Climate and Forecast) giúp các công cụ phân tích phổ biến (xarray, GDAL) đọc được ngay không cần viết parser riêng cho từng sứ mệnh</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Sentinel-3 SRAL — nguồn nadir chính tích hợp trong hydroweb-next</h1>
+<ul class="bullets"><li><b>SRAL</b> (SAR Radar Altimeter) trên Sentinel-3A/3B: altimeter dual-frequency Ku/C-band, hoạt động ở chế độ SAR cho độ phân giải along-track mịn hơn altimeter xung thường (Module 1)</li><li>Chu kỳ lặp lại quỹ đạo: <b>27 ngày</b> — khác với 21 ngày của SWOT, giúp tăng tổng số lần quan sát khi kết hợp cả hai nguồn qua hydroweb.next</li><li>Đây là nguồn dữ liệu nadir <b>đang hoạt động</b> chính, dùng song song với SWOT trong hầu hết các bài thực hành của khóa học</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Chính sách dữ liệu mở & khả năng tái lập kết quả</h1>
+<ul class="bullets"><li>CNES/Theia duy trì chính sách <b>dữ liệu mở, miễn phí</b> cho toàn bộ sản phẩm hydroweb.next — không yêu cầu giấy phép thương mại</li><li>Mã nguồn xử lý (py-hydroweb) cũng công khai trên GitHub — cho phép người dùng <b>tái lập chính xác</b> quy trình tải/xử lý dữ liệu, một yêu cầu quan trọng trong nghiên cứu khoa học có thể kiểm chứng (reproducibility)</li><li>Đây là mô hình đối lập với việc mỗi nhóm nghiên cứu tự viết pipeline xử lý riêng — giảm rủi ro sai khác kết quả do khác biệt trong xử lý dữ liệu thô</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Tích hợp Sentinel-3 nadir cùng SWOT trong một cổng</h1>
+<ul class="bullets"><li>hydroweb.next không chỉ chứa dữ liệu SWOT — còn tích hợp <b>chuỗi nadir cổ điển</b> (Sentinel-3, Jason...) đã xử lý sẵn cho cùng vị trí (Module 1)</li><li>Cho phép nhà nghiên cứu <b>nối dài chuỗi thời gian</b>: dùng nadir cho giai đoạn trước 2022, chuyển sang SWOT cho độ chi tiết không gian cao hơn từ 2022 trở đi</li><li>Đây là công cụ thực hành chính trong buổi giảng của Charlotte Emery (10/9): "Updates from hydroweb.next and AVISO"</li></ul>
+`, 'Charlotte Emery (2025), SWOT Applications Meeting'));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Vì sao cần chuẩn hoá đa sứ mệnh (multi-mission)</h1>
+<ul class="bullets"><li>Mỗi sứ mệnh có <b>bias hệ thống</b> riêng (do thiết kế phần cứng, quỹ đạo, thuật toán xử lý khác nhau)</li><li>Nếu ghép trực tiếp chuỗi thời gian từ 2 sứ mệnh mà không hiệu chỉnh, sẽ xuất hiện một <b>bước nhảy giả</b> (artificial jump) tại thời điểm chuyển đổi — dễ bị hiểu nhầm là biến động thủy văn thật</li><li>hydroweb.next áp sẵn các hiệu chỉnh chuẩn hoá liên sứ mệnh này, giảm gánh nặng xử lý cho người dùng cuối</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Chỉ số chất lượng dữ liệu (quality flags)</h1>
+<ul class="bullets"><li>Mỗi bản ghi Node/Reach/Obs đi kèm <b>cờ chất lượng</b> (quality flag) — vd: bị che một phần bởi mây/thực vật, độ tin cậy phân loại nước thấp, số pixel hợp lệ ít...</li><li>Luôn <b>lọc theo quality flag</b> trước khi dùng dữ liệu cho phân tích định lượng — bỏ qua bước này là nguyên nhân phổ biến của các "giá trị ngoại lai" (outlier) khó giải thích trong chuỗi thời gian</li></ul>
+<div class="pitfall"><span class="tag-warn">Sai lầm thường gặp</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Dùng trực tiếp PIXC (dữ liệu thô, chưa lọc/gán) để phân tích một con sông cụ thể thay vì RiverSP (đã xử lý, đã gán Reach) — PIXC lẫn cả pixel nhiễu và không có cấu trúc Node/Reach sẵn sàng cho tính toán thủy văn.</p></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Độ trễ dữ liệu: near-real-time vs archive</h1>
+<ul class="bullets"><li>Sản phẩm <b>archive</b> (đã qua kiểm định đầy đủ): độ trễ vài tuần đến vài tháng sau khi bay qua — độ chính xác cao nhất</li><li>Một số luồng <b>near-real-time</b> có độ trễ ngắn hơn nhiều nhưng đánh đổi bằng việc dùng dữ liệu quỹ đạo/hiệu chỉnh sơ bộ, chưa hoàn thiện — phù hợp cảnh báo sớm hơn là nghiên cứu định lượng chính xác</li><li>Lựa chọn luồng dữ liệu phụ thuộc mục đích: nghiên cứu xu hướng dài hạn → archive; giám sát lũ khẩn cấp (Module 6) → cân nhắc near-real-time dù độ chính xác thấp hơn</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Hydroweb-next</div>
+<h1>Tự kiểm tra</h1>
+<div class="checkpoint"><div class="q">❓ PIXC khác PIXCVec ở điểm nào?</div><div class="a">PIXC là pixel thô chưa gán đối tượng; PIXCVec đã lọc nhiễu, định vị lại chính xác hơn và gán mỗi pixel vào sông/hồ cụ thể trong PRD/PLD.</div></div><div class="checkpoint"><div class="q">❓ Node và Reach trong RiverSP khác nhau thế nào?</div><div class="a">Node là điểm dọc sông (~200m), mỗi điểm có độ cao riêng; Reach là đoạn sông dài hơn (~10km) gộp nhiều Node, cho thêm độ dốc S và độ rộng trung bình.</div></div><div class="checkpoint"><div class="q">❓ Vì sao không nên ghép trực tiếp chuỗi thời gian từ 2 sứ mệnh khác nhau?</div><div class="a">Vì mỗi sứ mệnh có bias hệ thống riêng — ghép trực tiếp có thể tạo ra một bước nhảy giả tại thời điểm chuyển đổi, dễ nhầm là biến động thủy văn thật.</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 3 · Tóm tắt</div>
+<h1>Ba điều cốt lõi mang sang các module sau</h1>
+<div class="recap-item"><span class="ico">🗂️</span><span class="txt">Chuỗi xử lý <b>PIXC → PIXCVec → RiverSP/LakeSP</b> biến pixel thô thành dữ liệu sông/hồ có cấu trúc — Reach là đơn vị sẽ dùng trực tiếp ở Module 4.</span></div><div class="recap-item"><span class="ico">🔌</span><span class="txt">hydroweb.next là <b>cổng truy cập thống nhất</b> đa sứ mệnh (nadir + SWOT) — công cụ thực hành cho mọi ví dụ tính toán ở các module tiếp theo.</span></div><div class="recap-item"><span class="ico">🚩</span><span class="txt">Luôn kiểm tra <b>quality flag</b> trước khi dùng dữ liệu — nguyên tắc áp dụng xuyên suốt mọi phân tích định lượng phía sau.</span></div>
+`));
+
+slide(wrap(`
+<div class="slide-inner divider fadein"><div class="modnum">4</div><div class="kicker">Kiến thức nền tảng VSEO6</div><h1>Ước tính lưu lượng dòng chảy (Discharge)</h1><p class="sub">Từ ba đại lượng vệ tinh đo được (W, h, S) đến con số Q mà nhà quản lý nước thực sự cần.</p><div class="modmap"><span class="">1 · Nadir Altimetry</span><span class="">2 · SWOT / KaRIn</span><span class="">3 · Hydroweb-next</span><span class="cur">4 · Discharge (Q)</span><span class="">5 · Data Assimilation</span><span class="">6 · Flood & Xuyên biên giới</span></div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Discharge Q là gì, và vì sao là đại lượng quan trọng nhất</h1>
+<ul class="bullets"><li><b>Discharge (lưu lượng)</b> Q: thể tích nước chảy qua một mặt cắt sông trong một đơn vị thời gian, đơn vị m³/s</li><li>Đây là đại lượng mà các cơ quan quản lý nước, dự báo lũ, vận hành hồ chứa <b>thực sự cần</b> — không phải bản thân độ cao mặt nước</li><li>Trạm đo tại chỗ (in-situ gauge) truyền thống đo Q bằng <b>rating curve</b>: quan hệ thực nghiệm giữa mực nước tại trạm và Q đo trực tiếp (tốn công, cần đo nhiều lần theo thời gian để xây dựng đường cong)</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Vì sao vệ tinh không đo Q trực tiếp — nhắc lại từ Module 1 & 2</h1>
+<ul class="bullets"><li>Nadir altimetry (Module 1) chỉ cho <b>độ cao tại điểm</b> — muốn ra Q cần rating curve xây từ số liệu tại chỗ, tức vẫn phụ thuộc trạm đo vật lý</li><li>SWOT/KaRIn (Module 2) cho <b>độ cao h, độ dốc S, độ rộng W</b> trên toàn đoạn sông — nhiều hơn nadir, nhưng vẫn <b>không phải chính Q</b></li><li>→ Cần một <b>mô hình thủy lực</b> chuyển đổi (W, h, S) thành Q mà không cần đo trực tiếp tốc độ dòng chảy — đây là nội dung cốt lõi của Module 4</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Phương trình liên tục: Q = A·V</h1>
+<div class="eqn-box"><div class="eqn">Q = A · V</div><div class="eqn-note">A: diện tích mặt cắt ướt (m²) · V: vận tốc trung bình dòng chảy (m/s)</div></div>
+<ul class="bullets"><li>Đây là định nghĩa cơ bản nhất của lưu lượng — thể tích/giây bằng diện tích mặt cắt nhân vận tốc trung bình qua mặt cắt đó</li><li>Vấn đề: vệ tinh không đo được <b>A</b> (cần biết hình dạng đáy sông, ẩn dưới mặt nước) cũng không đo được <b>V</b> trực tiếp</li><li>Cần thêm một phương trình thứ hai liên hệ V với các đại lượng <b>quan sát được</b> (W, h, S) — đó là phương trình Manning</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Phương trình Manning: liên hệ vận tốc với độ dốc</h1>
+<div class="eqn-box"><div class="eqn">V = (1/n) · R<sub>h</sub><sup>2/3</sup> · S<sup>1/2</sup></div><div class="eqn-note">n: hệ số nhám Manning (phụ thuộc vật liệu đáy/bờ sông) · R_h: bán kính thủy lực ≈ A/chu vi ướt · S: độ dốc mặt nước</div></div>
+<ul class="bullets"><li>Phương trình thực nghiệm kinh điển trong thủy lực học kênh hở, dùng từ hơn 100 năm nay cho sông/kênh mương</li><li><b>S</b> (độ dốc mặt nước dọc sông) chính là đại lượng SWOT đo trực tiếp được (Module 2) — đây là lý do SWOT có giá trị đặc biệt cho bài toán này</li><li><b>R_h</b> với sông rộng gần đúng bằng độ sâu trung bình — vẫn cần liên hệ với W, h quan sát được</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Vấn đề cốt lõi: A và n là ẩn số, không quan sát được</h1>
+<div class="pitfall"><span class="tag-warn">Hai ẩn số then chốt</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Diện tích mặt cắt ướt A phụ thuộc hình dạng đáy sông (bathymetry) — vệ tinh không nhìn xuyên qua nước để đo. Hệ số nhám n phụ thuộc vật liệu đáy/bờ, thực vật — cũng không đo trực tiếp từ ảnh vệ tinh một cách đáng tin cậy. Cả hai đều phải SUY LUẬN từ chuỗi thời gian W-h-S mà SWOT cung cấp.</p></div>
+<ul class="bullets"><li>Ý tưởng chung của mọi thuật toán discharge cho SWOT: dùng nhiều lần quan sát (W, h, S) theo thời gian tại cùng một đoạn sông để <b>ràng buộc ngược</b> giá trị A và n ẩn, dựa trên giả định chúng ổn định hoặc biến đổi có quy luật</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Hydraulic geometry cổ điển — nền tảng ý tưởng AMHG</h1>
+<div class="eqn-box"><div class="eqn">W = a·Q<sup>b</sup>,&nbsp; D = c·Q<sup>f</sup>,&nbsp; V = k·Q<sup>m</sup></div><div class="eqn-note">Leopold & Maddock (1953): độ rộng W, độ sâu D, vận tốc V biến đổi theo lũy thừa của Q tại một mặt cắt cố định (at-a-station)</div></div>
+<ul class="bullets"><li>Quan hệ này được quan sát thực nghiệm là khá ổn định tại một mặt cắt sông cụ thể qua các mức lưu lượng khác nhau</li><li>Ý tưởng mở rộng của AMHG: nếu quan hệ này biết trước (hoặc suy luận được) tại nhiều mặt cắt dọc sông, có thể dùng đo lường W (từ SWOT) để suy ngược ra Q mà không cần đo A, V trực tiếp</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>AMHG — At-Many-stations Hydraulic Geometry</h1>
+<ul class="bullets"><li>Ý tưởng chính: tại các <b>mặt cắt lân cận nhau</b> dọc cùng một đoạn sông không có nhánh vào/ra lớn, lưu lượng Q phải <b>xấp xỉ bằng nhau</b> tại cùng một thời điểm (bảo toàn khối lượng)</li><li>Ràng buộc "Q bằng nhau giữa các mặt cắt lân cận" giúp <b>giảm một nửa số tham số</b> cần ước lượng — thay vì giải độc lập từng mặt cắt, giải đồng thời cho cả đoạn sông</li><li>Hạn chế đã biết: độ chính xác thấp nếu tham số hydraulic geometry tại-một-mặt-cắt (AHG) thực tế lệch nhiều so với giả định lý thuyết</li></ul>
+`, 'Hagemann et al. 2017, BAM — Water Resources Research'));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>BAM — Bayesian AMHG-Manning: kết hợp cả hai hướng</h1>
+<ul class="bullets"><li><b>BAM</b> (Bayesian AMHG-Manning): kết hợp ràng buộc AMHG (slide trước) với phương trình Manning trong một khung suy luận <b>Bayes</b></li><li>Thay vì tìm một giá trị Q duy nhất, BAM ước lượng một <b>phân bố xác suất</b> cho Q — phản ánh đúng bản chất bất định của bài toán (nhiều tổ hợp A, n khác nhau có thể cho cùng một quan sát W-h-S)</li><li>Test trên 19 con sông thực tế cho thấy BAM cải thiện độ chính xác so với dùng riêng lẻ AMHG hoặc Manning cổ điển</li></ul>
+`, 'Hagemann et al. 2017, WRR'));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Sơ đồ luồng suy luận: từ 3 quan sát đến Q</h1>
+<div class="diagram">
+  <svg viewBox="0 0 340 140" width="100%">
+    <g font-size="13">
+      <rect x="10" y="10" width="90" height="40" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+      <text x="55" y="34" text-anchor="middle" class="lbl">Elevation h</text>
+      <rect x="10" y="60" width="90" height="40" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+      <text x="55" y="84" text-anchor="middle" class="lbl">Slope S</text>
+      <rect x="10" y="110" width="90" height="24" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+      <text x="55" y="126" text-anchor="middle" class="lbl" font-size="12">Width W</text>
+      <path d="M100,30 L150,65" stroke="var(--ink-dim)" fill="none"/>
+      <path d="M100,80 L150,68" stroke="var(--ink-dim)" fill="none"/>
+      <path d="M100,122 L150,72" stroke="var(--ink-dim)" fill="none"/>
+      <rect x="150" y="45" width="90" height="46" rx="10" fill="rgba(79,209,197,.15)" stroke="var(--accent)"/>
+      <text x="195" y="63" text-anchor="middle" class="lbl-accent">BAM /</text>
+      <text x="195" y="79" text-anchor="middle" class="lbl-accent">AMHG-Manning</text>
+      <path d="M240,68 L300,68" stroke="var(--accent2)" stroke-width="2" marker-end="url(#arrow2)"/>
+      <rect x="245" y="52" width="90" height="32" rx="8" fill="rgba(242,184,75,.15)" stroke="var(--accent2)"/>
+      <text x="290" y="72" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)">Discharge Q</text>
+    </g>
+    <defs><marker id="arrow2" markerWidth="8" markerHeight="8" refX="6" refY="3" orient="auto"><path d="M0,0 L6,3 L0,6 Z" fill="var(--accent2)"/></marker></defs>
+  </svg>
+</div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>MetroMan & MFG — hai hướng thuật toán khác của đội khoa học SWOT</h1>
+<ul class="bullets"><li><b>MetroMan</b> (Metropolis Manning): dùng thuật toán Markov Chain Monte Carlo (Metropolis-Hastings) để suy luận đồng thời tham số Manning ẩn từ chuỗi thời gian W-h-S — về bản chất cũng là suy luận Bayes như BAM nhưng khác kỹ thuật lấy mẫu</li><li><b>MFG</b> (Mean Flow and Geomorphology): tận dụng thêm thông tin hình thái sông trung bình dài hạn (từ ảnh vệ tinh quang học lịch sử) làm ràng buộc bổ sung, giảm phụ thuộc hoàn toàn vào riêng dữ liệu SWOT</li><li>Đội khoa học thủy văn SWOT chạy <b>song song nhiều thuật toán</b> (BAM, MetroMan, MFG, AMHG thuần...) rồi so sánh/tổng hợp — không có một thuật toán "đúng duy nhất" cho mọi loại sông</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>So sánh hai cách tiếp cận ước tính Q</h1>
+<table style="width:100%;border-collapse:collapse;font-size:13.5px">
+  <tr style="color:var(--accent2)"><td style="padding:8px 6px"><b>Tiêu chí</b></td><td style="padding:8px 6px"><b>Rating curve (trạm đo, Module 1)</b></td><td style="padding:8px 6px"><b>BAM/AMHG (SWOT, Module 4)</b></td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Cần đo Q trực tiếp trước?</td><td style="padding:8px 6px;color:var(--ink-dim)">Có — để xây đường cong</td><td style="padding:8px 6px;color:var(--ink-dim)">Không bắt buộc</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Phạm vi áp dụng</td><td style="padding:8px 6px;color:var(--ink-dim)">Chỉ tại đúng vị trí trạm</td><td style="padding:8px 6px;color:var(--ink-dim)">Toàn bộ đoạn sông trong dải quét</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Độ chính xác điển hình</td><td style="padding:8px 6px;color:var(--ink-dim)">Cao (5-10%) nếu đường cong tốt</td><td style="padding:8px 6px;color:var(--ink-dim)">Thấp hơn (vài chục %)</td></tr>
+  <tr style="border-top:1px solid var(--line)"><td style="padding:8px 6px">Hoạt động ở sông không trạm đo?</td><td style="padding:8px 6px;color:var(--ink-dim)">Không thể</td><td style="padding:8px 6px;color:var(--ink-dim)">Có — giá trị cốt lõi</td></tr>
+</table>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Độ tin cậy tăng dần theo số lần quan sát</h1>
+<ul class="bullets"><li>Một lần quan sát (W, h, S) duy nhất cho một khoảng ước tính Q rất rộng — quá nhiều tổ hợp (A, n) khác nhau có thể khớp</li><li>Càng tích lũy nhiều lần bay qua (nhiều chu kỳ 21 ngày của SWOT), khoảng bất định của tham số ẩn (A, n) càng <b>thu hẹp dần</b> — đây là lý do các thuật toán Bayes (BAM, MetroMan) thiết kế để xử lý <b>toàn bộ chuỗi thời gian cùng lúc</b>, không chỉ một lần đo đơn lẻ</li><li>Hệ quả thực tiễn: ước tính Q ngay sau khi SWOT phóng (dữ liệu ngắn) kém tin cậy hơn nhiều so với ước tính sau vài năm tích lũy quan sát tại cùng một đoạn sông</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Ví dụ tính tay: ước lượng Q gần đúng bằng Manning</h1>
+<div class="example-box"><span class="tag-ex">Ví dụ (số liệu minh hoạ, đơn giản hoá)</span><div class="step">Cho: một Reach sông có W = 150 m, độ sâu trung bình ước tính D ≈ 3 m, độ dốc mặt nước S = 0.0001 (đo bởi SWOT), hệ số nhám giả định n = 0.03 (đáy cát/sỏi tự nhiên)</div><div class="step">Tính R_h ≈ D = 3 m (gần đúng vì sông rất rộng so với sâu)</div><div class="step">Áp dụng Manning: <b>V = (1/0.03) × 3^(2/3) × 0.0001^(1/2)</b> ≈ 33.3 × 2.08 × 0.01 ≈ <b>0.69 m/s</b></div><div class="step">Diện tích mặt cắt ước tính A ≈ W × D = 150 × 3 = 450 m²</div><div class="step"><b>Q = A × V ≈ 450 × 0.69 ≈ 310 m³/s</b></div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Độ bất định trong ước tính Q từ vệ tinh</h1>
+<ul class="bullets"><li>Sai số ước tính Q từ phương pháp vệ tinh (BAM/MetroMan) thường ở mức <b>vài chục phần trăm</b> so với đo trực tiếp tại trạm — cao hơn nhiều so với sai số đo độ cao (cm-dm)</li><li>Nguồn bất định chính: giả định hệ số nhám n cố định, sai số ước tính A gián tiếp qua W-h, và số lần quan sát còn hạn chế (chu kỳ 21 ngày của SWOT)</li><li>Với sông có <b>trạm đo tại chỗ song song</b>, có thể hiệu chỉnh (calibrate) tham số ẩn — độ chính xác cải thiện đáng kể so với ước tính hoàn toàn không có tham chiếu</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Validation: đối chiếu Q vệ tinh với Q trạm đo</h1>
+<ul class="bullets"><li>Bước bắt buộc trước khi tin dùng kết quả: so sánh chuỗi Q ước tính từ SWOT với chuỗi Q đo trực tiếp tại các trạm có sẵn (nơi còn hoạt động)</li><li>Các chỉ số đánh giá phổ biến: NSE (Nash-Sutcliffe Efficiency), RMSE tương đối, hệ số tương quan theo thời gian</li><li>Nghịch lý thực tế: chính những con sông <b>cần SWOT nhất</b> (không có trạm đo, xuyên biên giới — xem Module 6) lại là nơi <b>khó validate nhất</b> vì thiếu số liệu tham chiếu độc lập</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Sai lầm thường gặp — giả định hệ số nhám cố định</h1>
+<div class="pitfall"><span class="tag-warn">n không thực sự cố định theo mùa/mực nước</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Hệ số nhám Manning n trong thực tế thay đổi theo mùa (thực vật ven sông phát triển/rụng lá), theo mực nước (đáy sông gồ ghề hơn khi nước thấp lộ ra nhiều chướng ngại), và theo trầm tích di chuyển. Coi n là hằng số trong toàn bộ chuỗi thời gian là nguồn sai số hệ thống phổ biến, đặc biệt ở sông vùng nhiệt đới có biến động mùa mạnh như lưu vực Mekong.</p></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Ứng dụng đặc biệt quan trọng: sông không có trạm đo</h1>
+<ul class="bullets"><li>Phần lớn giá trị thực tiễn của các thuật toán Module 4 nằm ở các <b>lưu vực không có trạm đo (ungauged basins)</b> hoặc số liệu không được công khai/chia sẻ</li><li>Ví dụ điển hình: hạ lưu <b>Mekong</b> — nhiều đoạn sông xuyên biên giới thiếu trạm đo đồng bộ giữa các quốc gia (liên hệ trực tiếp Module 6)</li><li>Với các sông này, ước tính Q hoàn toàn dựa vào (W, h, S) quan sát được cộng với giả định hình học/nhám hợp lý — không có cách nào khác để có số liệu định lượng</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Discharge</div>
+<h1>Tự kiểm tra</h1>
+<div class="checkpoint"><div class="q">❓ Vì sao cần cả phương trình liên tục Q=AV lẫn phương trình Manning?</div><div class="a">Vì Q=AV có 2 ẩn số (A, V) không quan sát trực tiếp được; Manning cho một phương trình thứ hai liên hệ V với S (đo được từ SWOT) và R_h, giúp giảm số ẩn cần suy luận.</div></div><div class="checkpoint"><div class="q">❓ AMHG giảm số tham số cần ước lượng bằng cách nào?</div><div class="a">Bằng cách ràng buộc lưu lượng Q phải xấp xỉ bằng nhau giữa các mặt cắt lân cận dọc cùng đoạn sông (bảo toàn khối lượng), giảm một nửa số tham số hydraulic geometry cần giải.</div></div><div class="checkpoint"><div class="q">❓ Vì sao khó validate Q vệ tinh chính ở những nơi cần nó nhất?</div><div class="a">Vì các sông không có trạm đo hoặc không chia sẻ số liệu (ungauged/transboundary) chính là nơi thiếu số liệu tham chiếu độc lập để so sánh/kiểm chứng kết quả ước tính từ vệ tinh.</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 4 · Tóm tắt</div>
+<h1>Ba điều cốt lõi mang sang các module sau</h1>
+<div class="recap-item"><span class="ico">🧮</span><span class="txt"><b>Q = A·V</b> và <b>V=(1/n)Rh^(2/3)S^(1/2)</b> — hai phương trình cốt lõi; A và n là ẩn số phải suy luận từ chuỗi W-h-S mà SWOT (Module 2) cung cấp qua nhiều lần quan sát.</span></div><div class="recap-item"><span class="ico">📊</span><span class="txt">BAM/AMHG là các thuật toán suy luận thống kê (Bayes) — cùng triết lý với Data Assimilation ở Module 5: kết hợp mô hình vật lý với quan sát có bất định.</span></div><div class="recap-item"><span class="ico">🌏</span><span class="txt">Giá trị lớn nhất nằm ở sông <b>không trạm đo/xuyên biên giới</b> — cầu nối trực tiếp sang ứng dụng thực tế ở Module 6 (Mekong).</span></div>
+`));
+
+slide(wrap(`
+<div class="slide-inner divider fadein"><div class="modnum">5</div><div class="kicker">Kiến thức nền tảng VSEO6</div><h1>Data Assimilation — Kalman Filter & EnKF</h1><p class="sub">Kết hợp tối ưu giữa mô hình số và quan sát vệ tinh — lõi toán học đứng sau mọi dự báo thủy văn hiện đại.</p><div class="modmap"><span class="">1 · Nadir Altimetry</span><span class="">2 · SWOT / KaRIn</span><span class="">3 · Hydroweb-next</span><span class="">4 · Discharge (Q)</span><span class="cur">5 · Data Assimilation</span><span class="">6 · Flood & Xuyên biên giới</span></div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Định nghĩa: kết hợp tối ưu mô hình và quan sát</h1>
+<ul class="bullets"><li><b>Data assimilation</b> (đồng hóa dữ liệu): kỹ thuật toán học kết hợp (a) đầu ra <b>mô hình số</b> (mô hình thủy văn/thủy lực dự báo dòng chảy) với (b) <b>quan sát thực đo</b> (độ cao/độ dốc/độ rộng từ Module 1-2, lưu lượng từ Module 4)</li><li>Kết hợp có <b>trọng số theo độ bất định</b> của từng nguồn — không phải đơn giản lấy trung bình cộng</li><li>Kết quả: một ước lượng trạng thái hệ thống <b>chính xác hơn</b> cả hai nguồn đứng riêng lẻ</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Sơ đồ chu kỳ: forecast → analysis → forecast</h1>
+<div class="diagram" style="max-width:460px;margin:0 auto">
+  <svg viewBox="0 0 360 220" width="100%">
+    <circle cx="180" cy="110" r="80" fill="none" stroke="var(--line)" stroke-width="1"/>
+    <path class="flow-line" d="M180,30 A80,80 0 1 1 179,30" fill="none" stroke="var(--accent)" stroke-width="2.5"/>
+    <rect x="140" y="10" width="80" height="34" rx="8" fill="var(--panel2)" stroke="var(--nadir)"/>
+    <text x="180" y="32" text-anchor="middle" class="lbl" font-size="12">Forecast (mô hình)</text>
+    <rect x="250" y="93" width="90" height="34" rx="8" fill="var(--panel2)" stroke="var(--swot)"/>
+    <text x="295" y="115" text-anchor="middle" class="lbl" font-size="11">+ Quan sát y</text>
+    <rect x="140" y="176" width="80" height="34" rx="8" fill="rgba(79,209,197,.15)" stroke="var(--accent)"/>
+    <text x="180" y="198" text-anchor="middle" class="lbl-accent" font-size="12">Analysis</text>
+    <rect x="20" y="93" width="90" height="34" rx="8" fill="var(--panel2)" stroke="var(--line)"/>
+    <text x="65" y="115" text-anchor="middle" class="lbl" font-size="11">Chạy tiếp mô hình</text>
+  </svg>
+  <p class="center" style="font-size:11.5px;color:var(--ink-dim);margin-top:4px">Vòng lặp liên tục: mỗi khi có quan sát mới, mô hình được "hiệu chỉnh lại" trước khi dự báo tiếp</p>
+</div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>State vector z — trạng thái hệ thống cần ước lượng</h1>
+<ul class="bullets"><li><b>State vector z</b>: tập hợp mọi biến mô tả trạng thái hệ thống thủy văn tại một thời điểm — vd mực nước tại mọi Node dọc sông (Module 3), lưu lượng tại mọi Reach, độ ẩm đất trong mô hình thủy văn</li><li>Với một lưu vực lớn, z có thể có <b>hàng nghìn đến hàng triệu thành phần</b> — đây chính là nguồn gốc thách thức tính toán sẽ dẫn tới EnKF (slide sau)</li><li>Mục tiêu của data assimilation: ước lượng z chính xác nhất có thể tại mọi thời điểm, dùng cả mô hình lẫn quan sát</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Kalman Filter — giả định nền tảng</h1>
+<ul class="bullets"><li>Giả định mô hình <b>tuyến tính</b> (hoặc gần tuyến tính) và sai số tuân theo <b>phân bố Gauss</b></li><li>Dưới giả định này, kết hợp tối ưu (theo nghĩa phương sai nhỏ nhất) giữa dự báo và quan sát có <b>công thức đóng (closed-form)</b> — không cần thử nhiều phương án, tính trực tiếp ra kết quả tối ưu</li><li>Đây là lý do Kalman Filter trở thành công cụ chuẩn trong dẫn đường tên lửa, định vị vệ tinh, và sau này là khoa học khí hậu/thủy văn</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Phương trình phân tích (analysis step)</h1>
+<div class="eqn-box"><div class="eqn">z<sup>a</sup> = z<sup>f</sup> + K(y &minus; H·z<sup>f</sup>)</div><div class="eqn-note">z^f: trạng thái dự báo (forecast) · y: quan sát (vd mực nước từ altimetry) · H: toán tử quan sát · z^a: trạng thái sau phân tích</div></div>
+<ul class="bullets"><li><b>H</b> (observation operator): "dịch" trạng thái mô hình sang không gian có thể so sánh trực tiếp với quan sát — vd nếu z là mực nước tại Node nhưng y đo tại vị trí khác, H nội suy không gian</li><li><b>(y − H·z^f)</b> gọi là <b>innovation</b> — chênh lệch giữa quan sát thực và dự báo mô hình, chính là "tín hiệu mới" mà quan sát mang lại</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Hệ số Kalman (Kalman gain) K</h1>
+<div class="eqn-box"><div class="eqn">K = P·H<sup>T</sup> (H·P·H<sup>T</sup> + R)<sup>&minus;1</sup></div><div class="eqn-note">P: hiệp phương sai sai số dự báo (độ bất định mô hình) · R: hiệp phương sai sai số quan sát</div></div>
+<ul class="bullets"><li>K quyết định <b>bao nhiêu phần trăm</b> của innovation được đưa vào cập nhật trạng thái</li><li>Nếu mô hình rất bất định (P lớn) so với quan sát rất tin cậy (R nhỏ) → K lớn → phân tích nghiêng mạnh về phía quan sát</li><li>Nếu ngược lại (mô hình tin cậy hơn quan sát) → K nhỏ → giữ nguyên gần với dự báo mô hình</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Ví dụ tính tay: tính K cho một biến số vô hướng</h1>
+<div class="example-box"><span class="tag-ex">Ví dụ (đơn giản hoá về trường hợp 1 biến, không phải ma trận)</span><div class="step">Cho: mô hình dự báo mực nước z^f = 5.0 m, độ bất định (phương sai) P = 0.25 m² (độ lệch chuẩn 0.5m)</div><div class="step">Quan sát SWOT: y = 5.3 m, độ bất định quan sát R = 0.01 m² (độ lệch chuẩn 0.1m, khá tin cậy)</div><div class="step">Giả sử H = 1 (quan sát trực tiếp cùng biến): <b>K = P/(P+R)</b> = 0.25/(0.25+0.01) ≈ <b>0.962</b></div><div class="step">z^a = z^f + K(y − z^f) = 5.0 + 0.962×(5.3−5.0) = 5.0 + 0.289 ≈ <b>5.29 m</b></div><div class="step">K gần 1 vì quan sát tin cậy hơn hẳn mô hình — kết quả phân tích rất gần với quan sát y</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Giới hạn của Kalman Filter chuẩn cho bài toán lớn</h1>
+<div class="pitfall"><span class="tag-warn">P không thể tính tường minh ở quy mô lớn</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Với một lưu vực có z chứa hàng nghìn/triệu thành phần (slide state vector), ma trận hiệp phương sai P có kích thước (số thành phần)² — quá lớn để lưu trữ và cập nhật trực tiếp bằng bộ nhớ/tính toán thông thường.</p></div>
+<ul class="bullets"><li>→ Cần một phương pháp <b>xấp xỉ P</b> mà không cần tính tường minh toàn bộ ma trận — đây chính là động lực ra đời của Ensemble Kalman Filter</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Ensemble Kalman Filter (EnKF) — ý tưởng cốt lõi</h1>
+<ul class="bullets"><li>Thay vì tính P tường minh, chạy <b>N bản sao mô hình song song</b> (ensemble), mỗi bản có nhiễu động ban đầu/tham số khác nhau một chút</li><li>Độ phân tán giữa N thành viên ensemble tại một thời điểm chính là ước lượng <b>hiệp phương sai mẫu</b> — thay thế cho P mà không cần công thức giải tích</li><li>N thường từ vài chục đến vài trăm — nhỏ hơn rất nhiều so với kích thước đầy đủ của P, nhưng đủ để nắm bắt cấu trúc bất định quan trọng nhất</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Phương trình EnKF: forecast & analysis</h1>
+<div class="eqn-box"><div class="eqn">z<sub>i</sub><sup>f</sup> = M(z<sub>i</sub>), &nbsp; i = 1…N</div><div class="eqn-note">Bước forecast: mỗi thành viên ensemble chạy qua mô hình động lực M độc lập</div></div>
+<div class="eqn-box"><div class="eqn">K<sub>j</sub> = Ĉ<sub>j</sub>·H<sub>j</sub><sup>T</sup> (H<sub>j</sub>·Ĉ<sub>j</sub>·H<sub>j</sub><sup>T</sup> + &Gamma;<sub>j</sub>)<sup>&minus;1</sup></div><div class="eqn-note">Bước analysis: Ĉ_j là hiệp phương sai MẪU tính từ ensemble dự báo (thay cho P) · Γ_j: hiệp phương sai sai số quan sát</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Sơ đồ ensemble: N thành viên chạy song song</h1>
+<div class="diagram" style="max-width:560px;margin:0 auto">
+  <svg viewBox="0 0 440 160" width="100%">
+    <g font-size="11">
+      <line x1="20" y1="30" x2="320" y2="30" stroke="var(--nadir)" stroke-width="1.5" opacity=".7"/>
+      <line x1="20" y1="60" x2="320" y2="70" stroke="var(--nadir)" stroke-width="1.5" opacity=".7"/>
+      <line x1="20" y1="90" x2="320" y2="60" stroke="var(--nadir)" stroke-width="1.5" opacity=".7"/>
+      <line x1="20" y1="120" x2="320" y2="95" stroke="var(--nadir)" stroke-width="1.5" opacity=".7"/>
+      <text x="20" y="20" class="lbl-dim">N thành viên ensemble (t)</text>
+      <line x1="320" y1="20" x2="320" y2="130" stroke="var(--accent2)" stroke-width="2"/>
+      <text x="330" y="65" class="lbl-accent" style="fill:var(--accent2)">độ phân tán</text>
+      <text x="330" y="80" class="lbl-accent" style="fill:var(--accent2)">≈ P mẫu</text>
+    </g>
+  </svg>
+  <p class="center" style="font-size:11.5px;color:var(--ink-dim);margin-top:4px">Mỗi đường là một thành viên mô hình — độ "toè ra" của bó đường tại thời điểm quan sát chính là hiệp phương sai ước lượng</p>
+</div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Perturbed observation — vì sao mỗi thành viên cập nhật khác nhau</h1>
+<ul class="bullets"><li>Trong EnKF, mỗi thành viên ensemble không cập nhật với đúng một giá trị quan sát y — mà với <b>y + nhiễu ngẫu nhiên</b> lấy mẫu từ phân bố sai số quan sát</li><li>Kỹ thuật <b>perturbed observation</b> này đảm bảo độ phân tán ensemble SAU khi cập nhật vẫn phản ánh đúng độ bất định còn lại — nếu dùng chung một y cho mọi thành viên, ensemble sẽ bị "co hẹp" giả tạo (underestimate uncertainty)</li></ul>
+`, 'Reichle et al. 2002, EnKF trong thủy văn — Monthly Weather Review'));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Sai số tương quan không gian của SWOT — thách thức riêng</h1>
+<ul class="bullets"><li>Nhắc lại Module 2: sai số quan sát KaRIn <b>có cấu trúc tương quan không gian</b> — các pixel/Node lân cận không có sai số độc lập như altimetry cổ điển</li><li>Hệ quả: ma trận hiệp phương sai sai số quan sát <b>Γ không thể coi là ma trận đường chéo đơn giản</b> (mỗi quan sát độc lập) — cần mô hình hoá tường minh phần ngoài đường chéo (off-diagonal)</li><li>Nếu bỏ qua tương quan này (giả định sai Γ đường chéo), thuật toán sẽ <b>đánh giá quá cao độ tin cậy</b> của quan sát SWOT, khiến K quá lớn một cách không chính đáng</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Kỹ thuật giảm sai số tương quan trước khi đồng hoá</h1>
+<ul class="bullets"><li>Trước khi đưa dữ liệu SWOT vào vòng lặp EnKF, cần bước tiền xử lý <b>ước lượng và giảm phần sai số tương quan</b> — vd phân tách sai số thành phần biến đổi chậm theo không gian (dễ tương quan) và phần nhiễu độc lập từng pixel</li><li>Đây là một hướng nghiên cứu đang tích cực phát triển, kết hợp giữa thống kê không gian (geostatistics) và lý thuyết lọc Kalman cổ điển</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Jacques Verron — từ hải dương học đến thủy văn lục địa</h1>
+<ul class="bullets"><li>Jacques Verron (CNRS/LEGOS) là một trong những người đặt nền móng ứng dụng Kalman/Ensemble Kalman Filter cho đồng hoá dữ liệu <b>altimetry đại dương</b> từ đầu những năm 1990 (cùng thời kỳ TOPEX/Poseidon, Module 1)</li><li>Công trình nền tảng: <i>"Altimeter data assimilation into an ocean circulation model"</i> (JGR: Oceans, 1990) — một trong các ứng dụng sớm nhất của lọc Kalman cho dữ liệu vệ tinh đại dương</li><li>Hướng nghiên cứu hiện tại: mở rộng cùng khung lý thuyết đó sang <b>thủy văn lục địa</b> với dữ liệu wide-swath SWOT — thách thức riêng là sai số tương quan không gian (slide trước), khác biệt so với bối cảnh đại dương gốc</li></ul>
+`, 'Verron (1990), JGR: Oceans'));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Ứng dụng thực tế: cập nhật mô hình thủy văn bằng SWOT</h1>
+<ul class="bullets"><li>Mô hình thủy văn/thủy lực quy mô lưu vực dự báo dòng chảy dựa trên mưa, bốc hơi, địa hình — nhưng tích lũy sai số theo thời gian nếu không được "neo" lại bằng quan sát thực</li><li>Mỗi khi SWOT bay qua một đoạn sông (chu kỳ 21 ngày, Module 2), EnKF cập nhật lại trạng thái mô hình (mực nước, có thể cả lưu lượng — Module 4) tại đúng đoạn đó</li><li>Giữa hai lần quan sát, mô hình tiếp tục chạy dự báo — chu kỳ forecast/analysis lặp lại liên tục (slide sơ đồ đầu module)</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Sai lầm thường gặp — bỏ qua bias hệ thống trước khi đồng hoá</h1>
+<div class="pitfall"><span class="tag-warn">Đồng hoá dữ liệu có bias chưa hiệu chỉnh</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Kalman Filter/EnKF giả định sai số không thiên lệch (zero-mean) — nếu quan sát hoặc mô hình có bias hệ thống chưa được phát hiện/hiệu chỉnh (vd sai lệch datum từ Module 1, hoặc mô hình thủy văn có xu hướng dự báo thấp/cao một cách nhất quán), bộ lọc sẽ hội tụ về một giá trị SAI một cách tự tin — tệ hơn cả việc không đồng hoá gì.</p></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Data Assimilation</div>
+<h1>Tự kiểm tra</h1>
+<div class="checkpoint"><div class="q">❓ Kalman gain K lớn khi nào, nhỏ khi nào?</div><div class="a">K lớn khi mô hình rất bất định (P lớn) so với quan sát tin cậy (R nhỏ) — phân tích nghiêng về quan sát. K nhỏ khi ngược lại — giữ gần dự báo mô hình.</div></div><div class="checkpoint"><div class="q">❓ EnKF giải quyết vấn đề gì mà Kalman Filter chuẩn không làm được?</div><div class="a">EnKF tránh phải tính tường minh ma trận hiệp phương sai P cực lớn ở bài toán quy mô lưu vực, bằng cách xấp xỉ P bằng hiệp phương sai mẫu từ N thành viên ensemble chạy song song.</div></div><div class="checkpoint"><div class="q">❓ Vì sao sai số tương quan không gian của SWOT là một thách thức riêng cho EnKF?</div><div class="a">Vì ma trận Γ (sai số quan sát) không thể coi là đường chéo đơn giản — bỏ qua tương quan này khiến thuật toán đánh giá quá cao độ tin cậy quan sát, làm K lớn sai lệch.</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 5 · Tóm tắt</div>
+<h1>Ba điều cốt lõi mang sang Module 6</h1>
+<div class="recap-item"><span class="ico">⚖️</span><span class="txt"><b>K = PHᵀ(HPHᵀ+R)⁻¹</b> là công thức trọng tâm — cân bằng giữa tin mô hình và tin quan sát, dùng lại nguyên lý này ở mọi ứng dụng dự báo lũ (Module 6).</span></div><div class="recap-item"><span class="ico">🎲</span><span class="txt">EnKF (ensemble) là công cụ thực tế duy nhất khả thi cho bài toán quy mô lưu vực lớn — nền tảng cho các hệ thống dự báo lũ vận hành thời gian thực.</span></div><div class="recap-item"><span class="ico">🔗</span><span class="txt">Sai số tương quan không gian của SWOT (Module 2) đòi hỏi xử lý đặc biệt trước khi đồng hoá — một lĩnh vực nghiên cứu đang mở, liên hệ trực tiếp thách thức giám sát xuyên biên giới ở Module 6.</span></div>
+`));
+
+slide(wrap(`
+<div class="slide-inner divider fadein"><div class="modnum">6</div><div class="kicker">Kiến thức nền tảng VSEO6</div><h1>Flood Monitoring & Quản lý xuyên biên giới</h1><p class="sub">Nơi mọi kỹ thuật từ 5 module trước hội tụ thành ứng dụng thực tế — giám sát lũ và chia sẻ nước công bằng giữa các quốc gia.</p><div class="modmap"><span class="">1 · Nadir Altimetry</span><span class="">2 · SWOT / KaRIn</span><span class="">3 · Hydroweb-next</span><span class="">4 · Discharge (Q)</span><span class="">5 · Data Assimilation</span><span class="cur">6 · Flood & Xuyên biên giới</span></div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Giám sát lũ bằng vệ tinh — tổng quan phương pháp</h1>
+<ul class="bullets"><li>Ba loại cảm biến chính bổ sung cho nhau: <b>SAR</b> (Sentinel-1, xuyên mây), <b>quang học</b> (Sentinel-2, khi quang mây), và <b>altimetry cao độ/độ dốc</b> (Module 1-2)</li><li>Lũ thường xảy ra cùng lúc với <b>mây dày</b> — đây là lý do SAR đóng vai trò trung tâm trong giám sát lũ khẩn cấp, bất chấp thời tiết</li><li>Kết hợp cả ba nguồn cho bức tranh đầy đủ: <b>ranh giới vùng ngập</b> (SAR/quang học) + <b>độ sâu/độ dốc nước lũ</b> (altimetry)</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>SAR (Sentinel-1): nguyên lý phát hiện ngập lụt</h1>
+<ul class="bullets"><li>Radar khẩu độ tổng hợp (Synthetic Aperture Radar) tự phát tín hiệu và thu tín hiệu phản xạ — hoạt động <b>cả ngày lẫn đêm</b>, <b>xuyên qua mây</b> (khác quang học)</li><li>Nguyên lý phát hiện nước: mặt nước phẳng phản xạ tín hiệu radar theo kiểu <b>gương (specular)</b> — hầu hết năng lượng bật ra xa ăng-ten thay vì phản xạ ngược lại → tín hiệu thu về (backscatter) <b>rất thấp</b>, tương phản rõ với mặt đất gồ ghề xung quanh</li><li>Thuật toán cơ bản: ngưỡng hoá (thresholding) ảnh backscatter — vùng có giá trị dưới ngưỡng được gán nhãn "nước"</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Hạn chế thực tế của SAR trong lập bản đồ ngập</h1>
+<div class="pitfall"><span class="tag-warn">Hai nguồn nhiễu chính</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">① Double-bounce trong đô thị: tín hiệu radar phản xạ 2 lần giữa mặt nước và tường nhà tạo tín hiệu MẠNH bất thường tại khu ngập đô thị, dễ bị nhầm là không có nước. ② Gió mạnh làm gợn sóng mặt nước, phá vỡ phản xạ specular, khiến vùng ngập bị đánh giá THẤP hơn thực tế (backscatter tăng giả tạo).</p></div>
+<ul class="bullets"><li>Thảm thực vật ngập một phần (lúa nước, rừng ngập mặn) cũng cho tín hiệu phức tạp — không đơn thuần là ngưỡng cao/thấp</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Quang học (Sentinel-2) bổ sung khi điều kiện cho phép</h1>
+<ul class="bullets"><li>Ảnh đa phổ độ phân giải cao (10-20m) — nước hấp thụ mạnh ánh sáng cận hồng ngoại (NIR), tạo tương phản rõ với đất/thực vật trong chỉ số như NDWI (Normalized Difference Water Index)</li><li>Hạn chế: chỉ dùng được khi <b>quang mây và ban ngày</b> — chính là điều kiện thường KHÔNG có khi lũ đang xảy ra</li><li>Giá trị chính: xác nhận/tinh chỉnh ranh giới ngập lụt SAU khi mây tan, hoặc giám sát diện tích mặt nước theo mùa (không cần khẩn cấp)</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Kết hợp SAR + SWOT: mở rộng vùng ngập + cao độ</h1>
+<ul class="bullets"><li>SAR/quang học cho <b>ranh giới 2D</b> của vùng ngập — nhưng không cho biết nước sâu bao nhiêu</li><li>SWOT/KaRIn (Module 2) cho <b>cao độ và độ dốc</b> mặt nước trên vùng ngập — kết hợp với ranh giới SAR có thể ước tính <b>thể tích nước lũ</b>, không chỉ diện tích</li><li>Đây là nền tảng cho module chương trình "Flood monitoring" (buổi giảng của Sabrine Amzil, Adrien Paris) — kết hợp đa cảm biến thay vì dùng riêng lẻ</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Hệ thống cảnh báo sớm — vai trò tốc độ dữ liệu</h1>
+<ul class="bullets"><li>Một hệ thống cảnh báo lũ hữu ích cần dữ liệu đủ <b>nhanh</b> so với tốc độ nước lên — không chỉ đủ chính xác</li><li>Chuỗi xử lý lý tưởng: quan trắc vệ tinh → xử lý gần thời gian thực (near-real-time, Module 3) → đồng hoá vào mô hình dự báo (Module 5) → phát cảnh báo trước khi đỉnh lũ tới</li><li>Đánh đổi cố hữu: dữ liệu near-real-time có độ chính xác thấp hơn archive (Module 3) — chấp nhận đánh đổi này là cần thiết cho mục đích cảnh báo sớm</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Sông xuyên biên giới — định nghĩa & thách thức cốt lõi</h1>
+<ul class="bullets"><li><b>Sông xuyên biên giới (transboundary river)</b>: lưu vực chảy qua từ 2 quốc gia trở lên — hơn 40% diện tích đất liền toàn cầu nằm trong các lưu vực xuyên biên giới</li><li>Thách thức cốt lõi: dữ liệu <b>in-situ (trạm đo tại chỗ)</b> thường KHÔNG được chia sẻ đầy đủ giữa các quốc gia vì lý do <b>chủ quyền và an ninh nguồn nước</b></li><li>Hệ quả: các quốc gia hạ lưu thường thiếu thông tin về vận hành hồ chứa/lượng nước xả từ thượng lưu — gây bất lợi trong quản lý rủi ro lũ/hạn</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Mekong River Commission (MRC)</h1>
+<ul class="bullets"><li><b>MRC</b>: tổ chức liên chính phủ điều phối quản lý sông Mê Kông xuyên biên giới, với <b>4 thành viên chính thức</b> — Thái Lan, Lào, Campuchia, Việt Nam (Trung Quốc và Myanmar là đối tác đối thoại, không phải thành viên đầy đủ)</li><li>Vai trò: chia sẻ thông tin thủy văn, điều phối vận hành các dự án trên dòng chính, đàm phán trong các tình huống hạn hán/lũ lụt liên quốc gia</li><li>Đại diện trong chương trình VSEO6: Mathias Boun Hen — minh hoạ trực tiếp mối liên hệ giữa nội dung khóa học và một tổ chức quản lý nước thực tế trong khu vực</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Vì sao vệ tinh là nguồn quan sát trung lập</h1>
+<ul class="bullets"><li>Dữ liệu vệ tinh (altimetry Module 1-2, SAR/quang học đầu Module 6) <b>không phụ thuộc việc quốc gia nào đồng ý chia sẻ dữ liệu trạm đo của mình</b> — vệ tinh quan sát toàn bộ lưu vực như nhau, bất kể biên giới</li><li>Cung cấp một <b>cơ sở thông tin chung, nhất quán</b> mà mọi bên liên quan có thể tham chiếu, giảm bất cân xứng thông tin giữa thượng lưu và hạ lưu</li><li>Không thay thế hoàn toàn nhu cầu hợp tác chính trị — nhưng giảm đáng kể một rào cản kỹ thuật cố hữu của quản lý xuyên biên giới</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Virtual gauge — trạm đo ảo bằng dữ liệu vệ tinh</h1>
+<ul class="bullets"><li><b>Virtual gauge</b>: khái niệm dùng chuỗi thời gian mực nước/lưu lượng từ vệ tinh (Module 1, 2, 4) để đóng vai trò như một "trạm đo" tại vị trí không có thiết bị vật lý</li><li>Áp dụng đặc biệt hữu ích tại các vị trí <b>nhạy cảm chiến lược</b> — vd ngay hạ lưu một đập thủy điện lớn — nơi việc lắp trạm đo vật lý có thể gặp trở ngại ngoại giao/hậu cần</li><li>Tăng tính minh bạch: các bên hạ lưu có thể tự theo dõi biến động mực nước/lưu lượng gần đập mà không cần phụ thuộc số liệu do quốc gia thượng lưu công bố</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Kết hợp Module 4: giám sát vận hành hồ chứa thượng nguồn</h1>
+<ul class="bullets"><li>Dùng SWOT (LakeSP, Module 3) để theo dõi <b>biến động thể tích hồ chứa</b> thượng nguồn theo thời gian — suy ra được lượng nước tích/xả gần đúng</li><li>Kết hợp ước tính lưu lượng hạ lưu đập (Module 4, BAM/AMHG) — có thể ước lượng gián tiếp <b>quy luật vận hành thực tế</b> của một đập, ngay cả khi đơn vị vận hành không công bố lịch xả nước</li><li>Đây là ứng dụng thực tế trực tiếp nhất kết nối Module 2 (đo hồ), Module 3 (sản phẩm dữ liệu), và Module 4 (suy luận lưu lượng) vào một bài toán quản lý xuyên biên giới cụ thể</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Kết hợp Module 5: dự báo lũ xuyên biên giới</h1>
+<ul class="bullets"><li>Mô hình thủy văn dự báo lũ cho hạ lưu cần biết trạng thái dòng chảy ở thượng lưu — nhưng nếu số liệu thượng lưu không được chia sẻ, mô hình phải dựa hoàn toàn vào quan sát vệ tinh</li><li>Data assimilation (Module 5, EnKF) cho phép <b>cập nhật liên tục</b> trạng thái mô hình dự báo bằng quan sát vệ tinh mới nhất tại các điểm dọc sông xuyên biên giới — kể cả không có dữ liệu trạm đo tại chỗ ở phía thượng lưu</li><li>Đây là lý do vì sao Module 5 (lý thuyết) và Module 6 (ứng dụng) luôn được giảng dạy nối tiếp nhau trong khóa học (thứ Năm → thứ Sáu trong chương trình gốc)</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Case study: dự án StockWater giám sát hồ chứa</h1>
+<ul class="bullets"><li>Dự án <b>StockWater</b> (CNES/SCO — Space Climate Observatory/SWOT Downstream): dùng dữ liệu SWOT để giám sát dung tích nước các hồ chứa nông nghiệp, đặc biệt tại vùng bán khô hạn</li><li>Kết hợp trực tiếp kỹ thuật LakeSP (Module 3) với nhu cầu thực tế: nhà quản lý nông nghiệp cần biết lượng nước tưới tiêu còn lại mà không cần khảo sát thực địa từng hồ</li><li>Minh hoạ mô hình "downstream application": lấy sản phẩm khoa học SWOT chuẩn và đóng gói thành công cụ vận hành cho người dùng cuối không chuyên về viễn thám</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Case study: nhận diện lòng sông bằng PIXC — sông Rhine</h1>
+<ul class="bullets"><li>Nghiên cứu của nhóm Sabrine Amzil (Université de Strasbourg/SERTIT) dùng trực tiếp <b>L2_HR_PIXC</b> (Module 3, dữ liệu pixel thô) để nhận diện ranh giới lòng sông cho sông Rhine</li><li>Minh hoạ một ứng dụng thực tế đi <b>ngược lại pipeline chuẩn</b>: thay vì dùng RiverSP đã xử lý sẵn, quay lại dữ liệu PIXC gốc khi cần độ chi tiết không gian cao hơn mức Node/Reach cung cấp — đánh đổi lấy khối lượng xử lý lớn hơn</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Thách thức: độ trễ dữ liệu vs tốc độ lũ lên</h1>
+<ul class="bullets"><li>SWOT có chu kỳ lặp lại <b>~21 ngày</b> (Module 2) — với một trận lũ diễn biến trong vài ngày, tần suất quan sát này <b>không đủ nhanh</b> để theo dõi liên tục toàn bộ diễn biến</li><li>SAR (Sentinel-1) có chu kỳ lặp ngắn hơn (6-12 ngày tùy cấu hình) — phù hợp hơn cho giám sát lũ nhưng vẫn không phải "liên tục"</li><li>→ Vệ tinh đơn lẻ không thể thay thế hoàn toàn dự báo mô hình số — vai trò thực sự là <b>hiệu chỉnh định kỳ</b> (Module 5) một mô hình chạy liên tục giữa các lần quan sát</li></ul>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Sai lầm thường gặp — kỳ vọng SWOT như một hệ thống giám sát liên tục</h1>
+<div class="pitfall"><span class="tag-warn">SWOT không phải cảm biến thời gian thực</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">Với chu kỳ lặp lại 21 ngày, SWOT phù hợp cho nghiên cứu xu hướng, hiệu chỉnh mô hình định kỳ, và giám sát dài hạn — không phù hợp làm nguồn dữ liệu DUY NHẤT cho một hệ thống cảnh báo lũ khẩn cấp cần thông tin theo giờ/ngày. Luôn kết hợp với SAR tần suất cao hơn và mô hình số chạy liên tục.</p></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Tổng hợp: sơ đồ tích hợp toàn bộ 6 module</h1>
+<div class="diagram">
+  <svg viewBox="0 0 820 130" width="100%">
+    <g font-size="11.5">
+      <rect x="10" y="10" width="110" height="34" rx="7" fill="var(--panel2)" stroke="var(--nadir)"/>
+      <text x="65" y="32" text-anchor="middle" class="lbl">M1 Nadir</text>
+      <rect x="10" y="55" width="110" height="34" rx="7" fill="var(--panel2)" stroke="var(--swot)"/>
+      <text x="65" y="77" text-anchor="middle" class="lbl">M2 SWOT</text>
+      <path d="M120,27 L200,50" stroke="var(--ink-dim)" fill="none"/>
+      <path d="M120,72 L200,55" stroke="var(--ink-dim)" fill="none"/>
+      <rect x="205" y="35" width="110" height="34" rx="7" fill="var(--panel2)" stroke="var(--accent)"/>
+      <text x="260" y="57" text-anchor="middle" class="lbl">M3 Hydroweb</text>
+      <path d="M315,52 L400,52" stroke="var(--ink-dim)" fill="none"/>
+      <rect x="405" y="10" width="110" height="34" rx="7" fill="var(--panel2)" stroke="var(--accent2)"/>
+      <text x="460" y="32" text-anchor="middle" class="lbl">M4 Discharge</text>
+      <rect x="405" y="55" width="110" height="34" rx="7" fill="var(--panel2)" stroke="var(--accent)"/>
+      <text x="460" y="77" text-anchor="middle" class="lbl">M5 Assim.</text>
+      <path d="M515,27 L600,50" stroke="var(--ink-dim)" fill="none"/>
+      <path d="M515,72 L600,55" stroke="var(--ink-dim)" fill="none"/>
+      <rect x="605" y="30" width="205" height="46" rx="8" fill="rgba(242,184,75,.15)" stroke="var(--accent2)"/>
+      <text x="707" y="50" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)" font-size="11">M6 Flood &amp;</text>
+      <text x="707" y="65" text-anchor="middle" class="lbl-accent" style="fill:var(--accent2)" font-size="11">Xuyên biên giới</text>
+    </g>
+  </svg>
+</div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Flood & Transboundary</div>
+<h1>Tự kiểm tra</h1>
+<div class="checkpoint"><div class="q">❓ Vì sao SAR là công cụ chính cho giám sát lũ khẩn cấp thay vì quang học?</div><div class="a">Vì SAR hoạt động cả ngày/đêm và xuyên mây, trong khi lũ thường xảy ra cùng mây dày khiến quang học (Sentinel-2) không dùng được đúng lúc cần nhất.</div></div><div class="checkpoint"><div class="q">❓ Virtual gauge là gì và tại sao có ích cho quản lý xuyên biên giới?</div><div class="a">Là dùng chuỗi thời gian vệ tinh làm 'trạm đo ảo' tại nơi không có thiết bị vật lý — hữu ích ở các vị trí nhạy cảm như ngay hạ lưu đập, tăng minh bạch mà không cần trạm đo do quốc gia thượng lưu vận hành.</div></div><div class="checkpoint"><div class="q">❓ Vì sao chu kỳ 21 ngày của SWOT không đủ cho cảnh báo lũ khẩn cấp một mình?</div><div class="a">Vì lũ diễn biến trong vài ngày, nhanh hơn nhiều so với tần suất quan sát 21 ngày — cần kết hợp SAR tần suất cao hơn và mô hình số chạy liên tục, được SWOT hiệu chỉnh định kỳ (Module 5).</div></div>
+`));
+
+slide(wrap(`
+<div class="eyebrow">Module 6 · Tóm tắt toàn khóa</div>
+<h1>Bốn phương trình xuyên suốt 6 module</h1>
+<div class="grid2">
+  <div class="card"><h3>① Range equation (M1)</h3><p style="font-family:Cambria,'Times New Roman',serif;font-size:15px;color:var(--accent2)">R = c·Δt/2</p></div>
+  <div class="card"><h3>② KaRIn phase (M2)</h3><p style="font-family:Cambria,'Times New Roman',serif;font-size:15px;color:var(--accent2)">Δφ = kB·sin(θ)</p></div>
+  <div class="card"><h3>③ Manning (M4)</h3><p style="font-family:Cambria,'Times New Roman',serif;font-size:15px;color:var(--accent2)">Q=A·V, V=(1/n)Rh^(2/3)S^(1/2)</p></div>
+  <div class="card"><h3>④ Kalman gain (M5)</h3><p style="font-family:Cambria,'Times New Roman',serif;font-size:15px;color:var(--accent2)">K=PHᵀ(HPHᵀ+R)⁻¹</p></div>
+</div>
+<p class="lead" style="margin-top:20px">Toàn bộ chi tiết, nguồn trích dẫn và 31 câu hỏi tự luyện tập: <b style="color:var(--accent)">tatcataittn.github.io/for-ttn-USTH/VSEO-6/</b></p>
 `));
 
 /* ============ ENGINE ============ */
