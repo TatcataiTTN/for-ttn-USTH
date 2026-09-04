@@ -3,31 +3,104 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>VSEO6 — Satellite Altimetry Study Space</title>
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' rx='18' fill='%23146e5e'/%3E%3Ctext x='50' y='68' font-size='54' text-anchor='middle' fill='white' font-family='Georgia,serif'%3E%F0%9F%9B%B0%EF%B8%8F%3C/text%3E%3C/svg%3E">
+<title>VSEO6 — Satellite Altimetry for Continental Water Monitoring</title>
 <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-<div id="app">
-  <aside id="sidebar">
+<header class="topbar">
+  <div class="topbar-inner">
     <div class="brand">
-      <div class="brand-title">VSEO6</div>
-      <div class="brand-sub">Satellite Altimetry — A Tool for<br>Continental Water Monitoring</div>
+      <span class="brand-mark">VSEO6</span>
+      <span class="brand-sub">Satellite Altimetry · Continental Water Monitoring</span>
     </div>
-    <div id="overall-progress" class="overall-progress"></div>
-    <nav id="nav"></nav>
-    <div class="side-foot">
-      <a href="#/schedule" class="res-link">🗓️ Lịch trình đầy đủ</a>
-      <a href="#/speakers" class="res-link">🎓 Giảng viên & công bố</a>
-      <a href="#/review" class="res-link">🔁 Ôn lại câu sai</a>
-      <button id="reset-btn" class="reset-btn" title="Xóa toàn bộ tiến độ đã lưu">Xóa tiến độ</button>
-      <div class="foot-note">Tiến độ lưu trong trình duyệt này (localStorage). Không có server, không tài khoản.</div>
+    <nav class="tabs" id="tabs">
+      <a href="#overview" data-tab="overview">Tổng quan</a>
+      <a href="#program" data-tab="program">Chương trình</a>
+      <a href="#theory" data-tab="theory">Lý thuyết</a>
+      <a href="#lecturers" data-tab="lecturers">Giảng viên</a>
+      <a href="#quiz" data-tab="quiz">Luyện tập</a>
+    </nav>
+  </div>
+</header>
+
+<main id="app">
+
+<section id="view-overview" class="view">
+  <div class="hero">
+    <h1>The 6th Vietnam School of Earth Observation</h1>
+    <p class="hero-sub">Satellite Altimetry: A Tool for Continental Water Monitoring</p>
+    <div class="hero-meta">
+      <span>📅 7–11 tháng 9, 2026</span>
+      <span>📍 ICISE, Quy Nhơn, Việt Nam</span>
+      <span>🏛️ Tổ chức: Rencontres du Vietnam (đối tác UNESCO)</span>
     </div>
-  </aside>
-  <main id="main">
-    <div id="content"><div class="loading">Đang tải ngân hàng câu hỏi…</div></div>
-  </main>
-</div>
+  </div>
+
+  <div class="card-grid">
+    <div class="card">
+      <h3>Mục tiêu</h3>
+      <p>Thúc đẩy trao đổi quốc tế Việt Nam – thế giới trong khoa học giáo dục, tập trung vào giám sát nước lục địa bằng vệ tinh (satellite-based continental waters monitoring).</p>
+    </div>
+    <div class="card">
+      <h3>Đối tượng</h3>
+      <p>Nhà nghiên cứu trẻ, kỹ sư, giáo dục viên muốn phát triển hoặc nâng cao kỹ năng về satellite altimetry cho continental waters.</p>
+    </div>
+    <div class="card">
+      <h3>Vì sao khóa học này tồn tại</h3>
+      <p>Trạm đo tại chỗ tốn kém, thưa thớt, gần như vắng bóng ở lưu vực sông xuyên biên giới (ví dụ Mekong). Đo cao vệ tinh cung cấp dữ liệu độc lập với biên giới quốc gia.</p>
+    </div>
+  </div>
+
+  <h2 class="section-title">Mạch nội dung khóa học</h2>
+  <ol class="pipeline">
+    <li><strong>Nadir altimetry</strong> — đo cao cổ điển theo vệt hẹp → chuỗi thời gian tại điểm giao cắt sông/vệ tinh.</li>
+    <li><strong>SWOT</strong> — đo cao wide-swath thế hệ mới → bản đồ mực nước 2D độ phân giải cao.</li>
+    <li><strong>Data assimilation</strong> — tích hợp cả hai vào mô hình thủy văn để dự báo/tái phân tích dòng chảy.</li>
+    <li><strong>Ứng dụng</strong> — giám sát lũ lụt và quản lý sông xuyên biên giới (liên hệ Mekong River Commission).</li>
+  </ol>
+
+  <h2 class="section-title">6 tổ chức đối tác</h2>
+  <div class="org-grid">
+    <div class="org">USTH<span>Việt Nam — viễn thám nước</span></div>
+    <div class="org">CNES<span>Pháp — vận hành SWOT, Hydroweb-next</span></div>
+    <div class="org">VNSC<span>Trung tâm Vũ trụ Việt Nam</span></div>
+    <div class="org">PSA / PhilSA<span>Philippines — viễn thám biển</span></div>
+    <div class="org">MRC<span>Mekong River Commission</span></div>
+    <div class="org">ICISE<span>Đơn vị tổ chức, đối tác UNESCO</span></div>
+  </div>
+
+  <p class="source-note">Nguồn: <a href="https://www.icisequynhon.com/conferences/2026/VSEO-6/" target="_blank" rel="noopener">icisequynhon.com/conferences/2026/VSEO-6</a></p>
+</section>
+
+<section id="view-program" class="view hidden">
+  <h1>Chương trình chi tiết</h1>
+  <div id="program-days"></div>
+</section>
+
+<section id="view-theory" class="view hidden">
+  <h1>Nền tảng khoa học</h1>
+  <p class="lead">Nhấn vào từng khái niệm để mở rộng nội dung.</p>
+  <div id="theory-list" class="accordion"></div>
+</section>
+
+<section id="view-lecturers" class="view hidden">
+  <h1>Hồ sơ giảng viên</h1>
+  <div id="lecturer-list" class="lect-grid"></div>
+</section>
+
+<section id="view-quiz" class="view hidden">
+  <h1>Luyện tập — Quiz trắc nghiệm</h1>
+  <p class="lead">24 câu hỏi về Nadir altimetry, SWOT, data assimilation, các tổ chức đối tác, chương trình và giảng viên. Chấm điểm hoàn toàn trong trình duyệt của bạn.</p>
+  <div id="quiz-root"></div>
+</section>
+
+</main>
+
+<footer class="footer">
+  <p>Tài liệu tổng hợp phục vụ tự học — dựa trên nội dung công khai từ trang chính thức VSEO6 (ICISE Quy Nhơn). Tiến độ quiz lưu cục bộ trong trình duyệt (localStorage), không gửi lên server nào.</p>
+</footer>
+
+<script src="js/data-content.js"></script>
 <script src="js/app.js"></script>
 </body>
 </html>

@@ -1,1398 +1,602 @@
-{
- "meta": {
-  "title": "VSEO6 — Satellite Altimetry for Continental Water Monitoring",
-  "total": 52,
-  "perspectives": [
-   {
-    "num": 1,
-    "title": "Nadir Satellite Altimetry",
-    "count": 8
-   },
-   {
-    "num": 2,
-    "title": "SWOT Mission",
-    "count": 10
-   },
-   {
-    "num": 3,
-    "title": "Copernicus Programme & Sentinel Data",
-    "count": 6
-   },
-   {
-    "num": 4,
-    "title": "hydroweb.next Platform",
-    "count": 6
-   },
-   {
-    "num": 5,
-    "title": "Data Assimilation trong Thủy văn học",
-    "count": 8
-   },
-   {
-    "num": 6,
-    "title": "Flood Monitoring & Transboundary River Management",
-    "count": 6
-   },
-   {
-    "num": 7,
-    "title": "Tổ chức, Chương trình & Giảng viên VSEO6",
-    "count": 8
-   }
-  ],
-  "source": "source_questions.md"
- },
- "questions": [
+[
   {
-   "id": 1,
-   "perspective": 1,
-   "perspectiveTitle": "Nadir Satellite Altimetry",
-   "question": "Nguyên lý cơ bản của radar altimetry nadir là gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Đo cường độ ánh sáng phản xạ từ mặt nước bằng cảm biến quang học"
-    },
-    {
-     "key": "B",
-     "text": "Đo độ mặn nước bằng cảm biến vi sóng thụ động"
-    },
-    {
-     "key": "C",
-     "text": "Đo nhiệt độ bề mặt nước bằng cảm biến hồng ngoại nhiệt"
-    },
-    {
-     "key": "D",
-     "text": "Đo thời gian bay đi–về của xung radar phát thẳng xuống (nadir) để tính khoảng cách vệ tinh–mặt nước"
-    }
-   ],
-   "answer": "D",
-   "framework": "Altimetry nadir = radar chủ động đo time-of-flight của xung phát thẳng xuống, suy ra khoảng cách rồi ra cao độ mặt nước."
+    "id": "nadir-def",
+    "topic": "Nadir altimetry",
+    "question": "Nadir altimetry đo độ cao mặt nước bằng cách nào?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Đo nhiệt độ bề mặt nước bằng cảm biến hồng ngoại"
+      },
+      {
+        "letter": "B",
+        "text": "Phát xung radar thẳng xuống dưới vệ tinh và đo thời gian phản xạ về"
+      },
+      {
+        "letter": "C",
+        "text": "Dùng hai ăng-ten radar giao thoa quét một dải rộng 120 km"
+      },
+      {
+        "letter": "D",
+        "text": "Chụp ảnh quang học mặt nước rồi ước lượng độ cao từ bóng đổ"
+      }
+    ],
+    "correct": "B",
+    "explain": "Nadir altimetry là kỹ thuật radar cổ điển: đo khoảng cách vệ tinh–mặt nước theo phương thẳng đứng."
   },
   {
-   "id": 2,
-   "perspective": 1,
-   "perspectiveTitle": "Nadir Satellite Altimetry",
-   "question": "\"Virtual station\" trong nadir altimetry là gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Trung tâm điều khiển mặt đất của vệ tinh"
-    },
-    {
-     "key": "B",
-     "text": "Trạm đo mưa vệ tinh"
-    },
-    {
-     "key": "C",
-     "text": "Điểm giao cắt giữa vệt bay (ground track) của vệ tinh và một con sông/hồ, nơi chuỗi thời gian mực nước được trích xuất"
-    },
-    {
-     "key": "D",
-     "text": "Trạm khí tượng ảo mô phỏng bằng AI"
-    }
-   ],
-   "answer": "C",
-   "framework": "Vì nadir chỉ đo dọc một đường hẹp, dữ liệu thủy văn chỉ có tại các điểm vệt bay cắt ngang sông/hồ — gọi là virtual station."
+    "id": "nadir-limit",
+    "topic": "Nadir altimetry",
+    "question": "Hạn chế lớn nhất của nadir altimetry so với SWOT là gì?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Không được các cơ quan vũ trụ như CNES, NASA hỗ trợ"
+      },
+      {
+        "letter": "B",
+        "text": "Chỉ đo được dọc theo một vệt hẹp (ground track), độ phủ không gian thưa"
+      },
+      {
+        "letter": "C",
+        "text": "Không thể đo được sông hay hồ, chỉ đo được đại dương"
+      },
+      {
+        "letter": "D",
+        "text": "Không có chuỗi thời gian dài, dữ liệu mới bắt đầu từ 2022"
+      }
+    ],
+    "correct": "B",
+    "explain": "Nadir chỉ có dữ liệu tại các điểm giao cắt cố định giữa quỹ đạo vệ tinh và thân nước."
   },
   {
-   "id": 3,
-   "perspective": 1,
-   "perspectiveTitle": "Nadir Satellite Altimetry",
-   "question": "Hạn chế chính của nadir altimetry so với công nghệ wide-swath (như SWOT) là gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Không đo được cao độ tuyệt đối"
-    },
-    {
-     "key": "B",
-     "text": "Không thể đo hồ, chỉ đo sông"
-    },
-    {
-     "key": "C",
-     "text": "Chỉ hoạt động ban ngày"
-    },
-    {
-     "key": "D",
-     "text": "Độ phủ không gian thưa — chỉ đo tại các điểm vệt bay cắt sông, không cho ảnh 2D toàn bộ mặt nước"
-    }
-   ],
-   "answer": "D",
-   "framework": "Nadir cho time series tại điểm rời rạc; wide-swath (SWOT/KaRIn) cho ảnh 2D liên tục của mặt nước."
+    "id": "swot-def",
+    "topic": "SWOT",
+    "question": "SWOT (Surface Water and Ocean Topography) là hợp tác giữa những cơ quan nào?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "NASA và CNES (cùng CSA, UKSA)"
+      },
+      {
+        "letter": "B",
+        "text": "Chỉ riêng ESA (Cơ quan Vũ trụ Châu Âu)"
+      },
+      {
+        "letter": "C",
+        "text": "Google Earth Engine và Copernicus"
+      },
+      {
+        "letter": "D",
+        "text": "USTH và Mekong River Commission"
+      }
+    ],
+    "correct": "A",
+    "explain": "SWOT là sứ mệnh hợp tác NASA–CNES, phóng ngày 16/12/2022."
   },
   {
-   "id": 4,
-   "perspective": 1,
-   "perspectiveTitle": "Nadir Satellite Altimetry",
-   "question": "Các sứ mệnh nadir altimetry tiêu biểu trong lịch sử gồm:",
-   "options": [
-    {
-     "key": "A",
-     "text": "GRACE, GRACE-FO"
-    },
-    {
-     "key": "B",
-     "text": "Landsat, MODIS, VIIRS"
-    },
-    {
-     "key": "C",
-     "text": "QuikSCAT, ASCAT"
-    },
-    {
-     "key": "D",
-     "text": "TOPEX/Poseidon, Jason series, Sentinel-6"
-    }
-   ],
-   "answer": "D",
-   "framework": "Chuỗi TOPEX/Poseidon → Jason-1/2/3 → Sentinel-6 là dòng sứ mệnh altimetry nadir đại dương/lục địa kế thừa liên tục từ 1992."
+    "id": "swot-karin",
+    "topic": "SWOT",
+    "question": "Thiết bị KaRIn trên vệ tinh SWOT hoạt động theo nguyên lý nào?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cảm biến quang học đa phổ chụp ảnh mặt nước"
+      },
+      {
+        "letter": "B",
+        "text": "Interferometry băng Ka với hai ăng-ten radar ở hai đầu cần dài 10m, quét dải rộng 120km"
+      },
+      {
+        "letter": "C",
+        "text": "Một ăng-ten radar duy nhất đo thẳng xuống dưới vệ tinh"
+      },
+      {
+        "letter": "D",
+        "text": "LIDAR laser đo khoảng cách bằng ánh sáng"
+      }
+    ],
+    "correct": "B",
+    "explain": "KaRIn (Ka-band Radar Interferometer) là bước nhảy vọt từ đo điểm sang bản đồ 2D mực nước."
   },
   {
-   "id": 5,
-   "perspective": 1,
-   "perspectiveTitle": "Nadir Satellite Altimetry",
-   "question": "Chu kỳ lặp lại (revisit) của một vệ tinh nadir altimetry quyết định điều gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Độ phân giải không gian ngang của ảnh"
-    },
-    {
-     "key": "B",
-     "text": "Độ chính xác đo độ mặn"
-    },
-    {
-     "key": "C",
-     "text": "Màu sắc hiển thị trên bản đồ"
-    },
-    {
-     "key": "D",
-     "text": "Tần suất một virtual station có thêm một điểm dữ liệu mới trong chuỗi thời gian mực nước"
-    }
-   ],
-   "answer": "D",
-   "framework": "Quỹ đạo lặp cố định (vd 10 hoặc 35 ngày) quyết định tần suất lấy mẫu time series tại mỗi virtual station."
+    "id": "swot-coverage",
+    "topic": "SWOT",
+    "question": "SWOT phủ lại một điểm quan sát sau khoảng bao lâu, và đo được sông rộng tối thiểu bao nhiêu mét?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Khoảng 21 ngày; sông rộng hơn khoảng 100 mét"
+      },
+      {
+        "letter": "B",
+        "text": "Khoảng 6 giờ; chỉ hồ chứa lớn hơn 10 km²"
+      },
+      {
+        "letter": "C",
+        "text": "Khoảng 1 ngày; mọi con sông bất kể độ rộng"
+      },
+      {
+        "letter": "D",
+        "text": "Khoảng 90 ngày; chỉ sông rộng hơn 5 km"
+      }
+    ],
+    "correct": "A",
+    "explain": "SWOT quan sát lại sau ~21 ngày, đo sông > 100m và vùng nước > 250×250m."
   },
   {
-   "id": 6,
-   "perspective": 1,
-   "perspectiveTitle": "Nadir Satellite Altimetry",
-   "question": "Trong chương trình VSEO6, buổi \"Tổng quan sứ mệnh Nadir / Dữ liệu\" do ai trình bày?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Daniel Moreira, Sabrine Amzil"
-    },
-    {
-     "key": "B",
-     "text": "Adrien Paris, Laetitia Gal"
-    },
-    {
-     "key": "C",
-     "text": "Ariel Blanco, Mathias Boun Hen"
-    },
-    {
-     "key": "D",
-     "text": "Charlotte Emery, Jacques Verron"
-    }
-   ],
-   "answer": "B",
-   "framework": "Theo chương trình ngày Thứ Hai 7/9, phiên 13:30–15:00 \"Tổng quan sứ mệnh Nadir\" do Adrien Paris và Laetitia Gal trình bày."
+    "id": "copernicus-def",
+    "topic": "Copernicus",
+    "question": "Copernicus là chương trình quan sát Trái Đất do ai vận hành, cung cấp dữ liệu qua họ vệ tinh nào?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "CNES, chỉ dành riêng cho nghiên cứu nội bộ Pháp"
+      },
+      {
+        "letter": "B",
+        "text": "NASA, cung cấp dữ liệu trả phí qua vệ tinh Landsat"
+      },
+      {
+        "letter": "C",
+        "text": "Liên minh Châu Âu/ESA, cung cấp dữ liệu mở miễn phí qua họ vệ tinh Sentinel"
+      },
+      {
+        "letter": "D",
+        "text": "Mekong River Commission, chỉ phủ khu vực Đông Nam Á"
+      }
+    ],
+    "correct": "C",
+    "explain": "Copernicus (EU/ESA) cung cấp dữ liệu Sentinel mở, miễn phí; Sentinel-3 là nguồn nadir altimetry chính đang hoạt động."
   },
   {
-   "id": 7,
-   "perspective": 1,
-   "perspectiveTitle": "Nadir Satellite Altimetry",
-   "question": "Sản phẩm chính rút ra từ dữ liệu nadir altimetry cho một con sông là gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Tốc độ dòng chảy bề mặt tức thời trên toàn bộ chiều rộng sông"
-    },
-    {
-     "key": "B",
-     "text": "Chuỗi thời gian cao độ mực nước tại virtual station"
-    },
-    {
-     "key": "C",
-     "text": "Bản đồ thực vật ven sông"
-    },
-    {
-     "key": "D",
-     "text": "Nhiệt độ nước theo độ sâu"
-    }
-   ],
-   "answer": "B",
-   "framework": "Sản phẩm cốt lõi của nadir altimetry thủy văn là time series mực nước (water level) tại từng virtual station."
+    "id": "hydroweb-def",
+    "topic": "Hydroweb-next",
+    "question": "Hydroweb-next (hydroweb.next) là gì?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ứng dụng di động cảnh báo lũ cho người dân"
+      },
+      {
+        "letter": "B",
+        "text": "Nền tảng dữ liệu mở do CNES/Theia vận hành, gộp dữ liệu nadir + SWOT thành chuỗi thời gian sẵn dùng"
+      },
+      {
+        "letter": "C",
+        "text": "Một mô hình thủy văn số trị chạy trên siêu máy tính"
+      },
+      {
+        "letter": "D",
+        "text": "Vệ tinh radar thế hệ mới thay thế SWOT"
+      }
+    ],
+    "correct": "B",
+    "explain": "Hydroweb-next giúp người dùng lấy chuỗi thời gian mực nước mà không cần tự xử lý dữ liệu thô."
   },
   {
-   "id": 8,
-   "perspective": 1,
-   "perspectiveTitle": "Nadir Satellite Altimetry",
-   "question": "Vì sao dữ liệu in-situ (trạm đo thủy văn mặt đất) ngày càng khan hiếm, khiến vai trò của nadir altimetry tăng lên?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Vì trạm đo mặt đất bị cấm trên toàn cầu"
-    },
-    {
-     "key": "B",
-     "text": "Vì vệ tinh rẻ hơn xây trạm đo 100 lần"
-    },
-    {
-     "key": "C",
-     "text": "Vì chi phí vận hành/bảo trì mạng lưới trạm đo giảm dần theo thời gian ở nhiều nước, và chia sẻ dữ liệu xuyên biên giới gặp rào cản chính trị"
-    },
-    {
-     "key": "D",
-     "text": "Vì trạm đo mặt đất không đo được mực nước"
-    }
-   ],
-   "answer": "C",
-   "framework": "Theo nghiên cứu của A. Paris và cộng sự, mạng lưới in-situ suy giảm và rào cản chia sẻ dữ liệu xuyên biên giới là động lực chính thúc đẩy altimetry vệ tinh thay thế/bổ sung."
+    "id": "hydroweb-speaker",
+    "topic": "Hydroweb-next",
+    "question": "Ai trình bày phần giới thiệu và thực hành Hydroweb-next trong chương trình VSEO6?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Ariel Blanco"
+      },
+      {
+        "letter": "B",
+        "text": "Jacques Verron"
+      },
+      {
+        "letter": "C",
+        "text": "Binh Pham Duc"
+      },
+      {
+        "letter": "D",
+        "text": "Charlotte Emery"
+      }
+    ],
+    "correct": "D",
+    "explain": "Charlotte Emery (LEGOS/CNES) phụ trách buổi sáng thứ Năm 10/9 về Hydroweb-next."
   },
   {
-   "id": 9,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "SWOT là viết tắt của cụm từ nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Surface Water and Ocean Topography"
-    },
-    {
-     "key": "B",
-     "text": "Satellite Water Ocean Tracking"
-    },
-    {
-     "key": "C",
-     "text": "Space Water Optical Telemetry"
-    },
-    {
-     "key": "D",
-     "text": "Surface Weather Observation Technology"
-    }
-   ],
-   "answer": "A",
-   "framework": "SWOT = Surface Water and Ocean Topography, sứ mệnh hợp tác NASA–CNES."
+    "id": "da-def",
+    "topic": "Data assimilation",
+    "question": "Data assimilation (đồng hóa dữ liệu) trong bối cảnh khóa học là gì?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Việc gộp nhiều ảnh vệ tinh khác nhau thành một ảnh có độ phân giải cao hơn"
+      },
+      {
+        "letter": "B",
+        "text": "Kỹ thuật nén dữ liệu vệ tinh để giảm dung lượng lưu trữ"
+      },
+      {
+        "letter": "C",
+        "text": "Kết hợp có trọng số giữa đầu ra mô hình số và quan sát thực đo để ước lượng trạng thái hệ thống chính xác hơn"
+      },
+      {
+        "letter": "D",
+        "text": "Quá trình hiệu chỉnh quỹ đạo vệ tinh cho đúng với lịch bay dự kiến"
+      }
+    ],
+    "correct": "C",
+    "explain": "Data assimilation dùng kỹ thuật như Kalman filter/Ensemble Kalman Filter, trọng số theo độ bất định mỗi nguồn."
   },
   {
-   "id": 10,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "SWOT là hợp tác giữa các cơ quan không gian nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "NASA và CNES (có đóng góp CSA, UKSA)"
-    },
-    {
-     "key": "B",
-     "text": "Roscosmos và CNSA"
-    },
-    {
-     "key": "C",
-     "text": "Chỉ riêng ESA"
-    },
-    {
-     "key": "D",
-     "text": "JAXA và ISRO"
-    }
-   ],
-   "answer": "A",
-   "framework": "SWOT do NASA và CNES phát triển chính, với đóng góp của Canadian Space Agency (CSA) và UK Space Agency (UKSA)."
+    "id": "da-speaker",
+    "topic": "Data assimilation",
+    "question": "Ai là nhà khoa học kỳ cựu về đồng hóa dữ liệu hải dương học, giảng nguyên lý data assimilation trong VSEO6?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Denis Fourmeau"
+      },
+      {
+        "letter": "B",
+        "text": "Adrien Paris"
+      },
+      {
+        "letter": "C",
+        "text": "Jacques Verron"
+      },
+      {
+        "letter": "D",
+        "text": "Daniel Moreira"
+      }
+    ],
+    "correct": "C",
+    "explain": "Jacques Verron (CNRS/LEGOS) là người đặt nền móng đồng hóa dữ liệu altimetry vào mô hình đại dương."
   },
   {
-   "id": 11,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "Thiết bị chủ lực của SWOT là gì và có đặc điểm gì đột phá?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Cảm biến hồng ngoại nhiệt độ nước"
-    },
-    {
-     "key": "B",
-     "text": "KaRIn — radar giao thoa băng Ka, đo wide-swath (dải rộng 120 km) thay vì chỉ một đường nadir"
-    },
-    {
-     "key": "C",
-     "text": "LIDAR quang học đo độ cao mây"
-    },
-    {
-     "key": "D",
-     "text": "Máy đo gió tán xạ (scatterometer)"
-    }
-   ],
-   "answer": "B",
-   "framework": "KaRIn (Ka-band Radar Interferometer) là bước nhảy công nghệ: đo đồng thời cao độ, độ dốc, độ rộng mặt nước trên dải quét rộng, không chỉ một đường hẹp như altimetry cổ điển."
+    "id": "da-technique",
+    "topic": "Data assimilation",
+    "question": "Kỹ thuật toán học kinh điển nào thường dùng trong đồng hóa dữ liệu hải dương/thủy văn?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Kalman filter / Ensemble Kalman Filter"
+      },
+      {
+        "letter": "B",
+        "text": "Cây quyết định (decision tree)"
+      },
+      {
+        "letter": "C",
+        "text": "Biến đổi Fourier nhanh (FFT) thuần túy"
+      },
+      {
+        "letter": "D",
+        "text": "Thuật toán mã hóa RSA"
+      }
+    ],
+    "correct": "A",
+    "explain": "Verron là người tiên phong áp dụng (Ensemble) Kalman Filter cho đồng hóa dữ liệu altimetry."
   },
   {
-   "id": 12,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "Dải quét (swath) của KaRIn trên SWOT rộng bao nhiêu và có đặc điểm gì ở giữa?",
-   "options": [
-    {
-     "key": "A",
-     "text": "500 km, phủ liên tục không gián đoạn"
-    },
-    {
-     "key": "B",
-     "text": "120 km tổng cộng (hai dải 50 km hai bên), có khoảng trống (gap) ở giữa dọc theo vệt bay (nadir track)"
-    },
-    {
-     "key": "C",
-     "text": "10 km, chỉ đo được sông rất hẹp"
-    },
-    {
-     "key": "D",
-     "text": "1000 km, toàn cầu mỗi lần bay"
-    }
-   ],
-   "answer": "B",
-   "framework": "KaRIn quét hai dải 50 km hai bên vệt bay, tổng 120 km, với một khoảng trống ở giữa đúng tại đường nadir."
+    "id": "transboundary-def",
+    "topic": "Quản lý xuyên biên giới",
+    "question": "Tại sao dữ liệu vệ tinh đặc biệt hữu ích cho quản lý sông xuyên biên giới như Mekong?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Vì Mekong River Commission sở hữu vệ tinh riêng của mình"
+      },
+      {
+        "letter": "B",
+        "text": "Vì dữ liệu vệ tinh luôn chính xác hơn tuyệt đối so với trạm đo tại chỗ"
+      },
+      {
+        "letter": "C",
+        "text": "Vì nó cung cấp nguồn quan sát trung lập, nhất quán xuyên biên giới, không phụ thuộc việc các quốc gia chia sẻ dữ liệu in-situ"
+      },
+      {
+        "letter": "D",
+        "text": "Vì chỉ có vệ tinh mới đo được các con sông có chiều rộng lớn hơn 1km"
+      }
+    ],
+    "correct": "C",
+    "explain": "Dữ liệu in-situ thường không được chia sẻ đầy đủ xuyên biên giới vì lý do chủ quyền/an ninh nước."
   },
   {
-   "id": 13,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "SWOT phóng vào thời gian nào và bằng phương tiện phóng nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "2010, tàu con thoi Space Shuttle"
-    },
-    {
-     "key": "B",
-     "text": "2025, tên lửa Long March"
-    },
-    {
-     "key": "C",
-     "text": "2018, tên lửa Ariane 5"
-    },
-    {
-     "key": "D",
-     "text": "16/12/2022, tên lửa SpaceX Falcon 9"
-    }
-   ],
-   "answer": "D",
-   "framework": "SWOT phóng ngày 16/12/2022 bằng Falcon 9 từ Vandenberg."
+    "id": "mrc-def",
+    "topic": "Tổ chức",
+    "question": "MRC là viết tắt của tổ chức nào, và vai trò của nó trong VSEO6 là gì?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Mekong River Commission — tổ chức liên chính phủ quản lý sông Mê Kông xuyên biên giới"
+      },
+      {
+        "letter": "B",
+        "text": "Marine Remote sensing Center — trung tâm viễn thám biển của Philippines"
+      },
+      {
+        "letter": "C",
+        "text": "Mekong Research Consortium — nhóm nghiên cứu học thuật tư nhân"
+      },
+      {
+        "letter": "D",
+        "text": "Ministry of Rural and Climate affairs — bộ quản lý khí hậu Việt Nam"
+      }
+    ],
+    "correct": "A",
+    "explain": "MRC là tổ chức liên chính phủ, đại diện bởi Mathias Boun Hen trong phần giới thiệu tổ chức."
   },
   {
-   "id": 14,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "Ba đại lượng chính mà KaRIn đo đồng thời trên mặt nước sông/hồ là gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Gió, sóng, dòng chảy ngầm"
-    },
-    {
-     "key": "B",
-     "text": "Cao độ (elevation), độ dốc (slope), độ rộng (width) mặt nước"
-    },
-    {
-     "key": "C",
-     "text": "Nhiệt độ, độ mặn, độ đục"
-    },
-    {
-     "key": "D",
-     "text": "pH, oxy hòa tan, chất diệp lục"
-    }
-   ],
-   "answer": "B",
-   "framework": "Bộ ba elevation–slope–width là đầu vào để tính lưu lượng dòng chảy (discharge) qua công thức thủy lực kiểu Manning."
+    "id": "org-usth",
+    "topic": "Tổ chức",
+    "question": "USTH trong VSEO6 đóng vai trò gì và ai là đại diện nghiên cứu chính?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Cơ quan vũ trụ quốc gia Việt Nam, đại diện bởi Pham Thi Mai Thy"
+      },
+      {
+        "letter": "B",
+        "text": "Tổ chức tài trợ tài chính chính cho toàn bộ khóa học"
+      },
+      {
+        "letter": "C",
+        "text": "Đơn vị Việt Nam về viễn thám nước, đại diện bởi TS. Binh Pham Duc"
+      },
+      {
+        "letter": "D",
+        "text": "Đơn vị vận hành vệ tinh SWOT tại Đông Nam Á"
+      }
+    ],
+    "correct": "C",
+    "explain": "USTH (Đại học Khoa học & Công nghệ Hà Nội) — Binh Pham Duc nghiên cứu viễn thám hồ/sông tại Việt Nam."
   },
   {
-   "id": 15,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "Vì sao SWOT có thể ước tính được lưu lượng dòng chảy (discharge) sông mà nadir altimetry cổ điển không làm được trực tiếp?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Vì SWOT đo đồng thời cao độ + độ dốc + độ rộng, đủ input cho công thức thủy lực ước tính discharge; nadir chỉ có cao độ tại điểm rời rạc"
-    },
-    {
-     "key": "B",
-     "text": "Vì SWOT đo trực tiếp tốc độ dòng chảy bằng Doppler"
-    },
-    {
-     "key": "C",
-     "text": "Vì SWOT bay thấp hơn nên nhìn rõ dòng nước hơn"
-    },
-    {
-     "key": "D",
-     "text": "Vì SWOT dùng camera quang học độ phân giải cao"
-    }
-   ],
-   "answer": "A",
-   "framework": "Discharge ước tính gián tiếp qua mô hình thủy lực cần tối thiểu elevation, slope, width — chỉ wide-swath altimetry mới cung cấp đủ cả ba theo không gian."
+    "id": "org-cnes",
+    "topic": "Tổ chức",
+    "question": "CNES là cơ quan vũ trụ của quốc gia nào, và liên quan gì đến SWOT?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Philippines — CNES hợp tác với PhilSA đo cỏ biển"
+      },
+      {
+        "letter": "B",
+        "text": "Canada — CNES tương đương với CSA"
+      },
+      {
+        "letter": "C",
+        "text": "Việt Nam — CNES là tên cũ của VNSC"
+      },
+      {
+        "letter": "D",
+        "text": "Pháp — CNES đồng vận hành sứ mệnh SWOT cùng NASA và vận hành Hydroweb-next"
+      }
+    ],
+    "correct": "D",
+    "explain": "CNES (Centre National d'Études Spatiales) là cơ quan vũ trụ Pháp."
   },
   {
-   "id": 16,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "Sản phẩm dữ liệu SWOT cấp L2 HR liên quan sông thường được gọi là gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "MODIS NDVI"
-    },
-    {
-     "key": "B",
-     "text": "Sentinel-1 GRD"
-    },
-    {
-     "key": "C",
-     "text": "Landsat Collection 2"
-    },
-    {
-     "key": "D",
-     "text": "RiverSP / PIXC (pixel cloud)"
-    }
-   ],
-   "answer": "D",
-   "framework": "RiverSP (River Single-Pass) và PIXC (pixel cloud) là các sản phẩm L2 HR chính của SWOT dùng cho phân tích sông."
+    "id": "org-vnsc",
+    "topic": "Tổ chức",
+    "question": "VNSC là gì?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Vietnam Natural Sciences Council — hội đồng khoa học tự nhiên Việt Nam"
+      },
+      {
+        "letter": "B",
+        "text": "Viện Nghiên cứu Sông Cửu Long"
+      },
+      {
+        "letter": "C",
+        "text": "Một công ty tư nhân về ảnh vệ tinh thương mại"
+      },
+      {
+        "letter": "D",
+        "text": "Vietnam National Space Center — Trung tâm Vũ trụ Việt Nam"
+      }
+    ],
+    "correct": "D",
+    "explain": "Đại diện VNSC trong chương trình khai mạc là Pham Thi Mai Thy."
   },
   {
-   "id": 17,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "Chu kỳ lặp lại quỹ đạo khoa học của SWOT là bao nhiêu ngày?",
-   "options": [
-    {
-     "key": "A",
-     "text": "100 ngày"
-    },
-    {
-     "key": "B",
-     "text": "365 ngày"
-    },
-    {
-     "key": "C",
-     "text": "21 ngày"
-    },
-    {
-     "key": "D",
-     "text": "5 ngày"
-    }
-   ],
-   "answer": "C",
-   "framework": "Quỹ đạo khoa học SWOT có chu kỳ lặp 21 ngày, phủ ~0.5% diện tích Trái Đất mỗi giờ."
+    "id": "org-psa",
+    "topic": "Tổ chức",
+    "question": "PSA/PhilSA trong chương trình VSEO6 là cơ quan của quốc gia nào và đại diện là ai?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Indonesia (Pacific Space Alliance) — đại diện Daniel Moreira"
+      },
+      {
+        "letter": "B",
+        "text": "Nhật Bản (Pacific Satellite Association) — đại diện Denis Fourmeau"
+      },
+      {
+        "letter": "C",
+        "text": "Thái Lan (Public Space Agency) — đại diện Sabrine Amzil"
+      },
+      {
+        "letter": "D",
+        "text": "Philippines (Philippine Space Agency) — đại diện Ariel Blanco"
+      }
+    ],
+    "correct": "D",
+    "explain": "Ariel Blanco là Director IV/PhilSA, chuyên viễn thám biển/nước (seagrass, coral bleaching)."
   },
   {
-   "id": 18,
-   "perspective": 2,
-   "perspectiveTitle": "SWOT Mission",
-   "question": "Theo chương trình VSEO6, ai trình bày \"Tổng quan SWOT + sản phẩm dữ liệu\"?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Charlotte Emery, Jacques Verron"
-    },
-    {
-     "key": "B",
-     "text": "Jean Tran Thanh Van, Denis Fourmeau"
-    },
-    {
-     "key": "C",
-     "text": "Daniel Moreira, Sabrine Amzil, Binh Pham Duc"
-    },
-    {
-     "key": "D",
-     "text": "Pham Thi Mai Thy, Ariel Blanco"
-    }
-   ],
-   "answer": "C",
-   "framework": "Sáng Thứ Ba 8/9 (08:30–10:00), Daniel Moreira, Sabrine Amzil và Binh Pham Duc trình bày tổng quan SWOT."
+    "id": "prog-day1",
+    "topic": "Chương trình",
+    "question": "Ngày đầu tiên (thứ Hai 7/9) của VSEO6 tập trung chủ yếu vào nội dung nào (buổi chiều)?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Bàn tròn tổng kết và bế mạc khóa học"
+      },
+      {
+        "letter": "B",
+        "text": "Giới thiệu và thực hành Hydroweb-next"
+      },
+      {
+        "letter": "C",
+        "text": "Thực địa quan sát mực nước hồ chứa"
+      },
+      {
+        "letter": "D",
+        "text": "Tổng quan sứ mệnh Nadir altimetry và thực hành tải/phân tích dữ liệu Nadir"
+      }
+    ],
+    "correct": "D",
+    "explain": "Buổi sáng thứ Hai là khai mạc + giới thiệu tổ chức; buổi chiều là Nadir altimetry."
   },
   {
-   "id": 19,
-   "perspective": 3,
-   "perspectiveTitle": "Copernicus Programme & Sentinel Data",
-   "question": "Copernicus là chương trình quan sát Trái Đất của tổ chức nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Cơ quan Vũ trụ Nhật Bản (JAXA)"
-    },
-    {
-     "key": "B",
-     "text": "NASA (Hoa Kỳ)"
-    },
-    {
-     "key": "C",
-     "text": "Liên minh Châu Âu (EU/ESA)"
-    },
-    {
-     "key": "D",
-     "text": "Cơ quan Vũ trụ Nga (Roscosmos)"
-    }
-   ],
-   "answer": "C",
-   "framework": "Copernicus là chương trình quan sát Trái Đất hàng đầu của Liên minh Châu Âu, vận hành với ESA."
+    "id": "prog-day3",
+    "topic": "Chương trình",
+    "question": "Hoạt động thực địa (field trip) trong VSEO6 diễn ra vào ngày nào, nội dung gì?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Thứ Ba 8/9 — khảo sát vùng ngập lũ ở đồng bằng sông Cửu Long"
+      },
+      {
+        "letter": "B",
+        "text": "Thứ Hai 7/9 — tham quan phòng thí nghiệm ICISE"
+      },
+      {
+        "letter": "C",
+        "text": "Thứ Tư 9/9 — quan sát mực nước hồ chứa tại thực địa"
+      },
+      {
+        "letter": "D",
+        "text": "Thứ Sáu 11/9 — tham quan trụ sở Mekong River Commission"
+      }
+    ],
+    "correct": "C",
+    "explain": "Sáng thứ Tư (9/9) dành trọn cho thực địa hồ chứa, chiều chuyển sang lý thuyết mô hình thủy văn."
   },
   {
-   "id": 20,
-   "perspective": 3,
-   "perspectiveTitle": "Copernicus Programme & Sentinel Data",
-   "question": "Vệ tinh Sentinel-1 sử dụng loại cảm biến nào, phù hợp cho việc gì trong giám sát nước?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Radar khẩu độ tổng hợp (SAR), hoạt động cả ngày/đêm và xuyên mây — dùng lập bản đồ diện tích ngập lụt"
-    },
-    {
-     "key": "B",
-     "text": "Cảm biến hồng ngoại nhiệt, đo nhiệt độ mặt biển"
-    },
-    {
-     "key": "C",
-     "text": "Cảm biến quang học VNIR, chỉ dùng ban ngày quang mây"
-    },
-    {
-     "key": "D",
-     "text": "LIDAR, đo độ cao rừng"
-    }
-   ],
-   "answer": "A",
-   "framework": "SAR của Sentinel-1 không phụ thuộc ánh sáng mặt trời hay mây — lý tưởng để lập bản đồ ngập lụt nhanh trong điều kiện thời tiết xấu (thường đi kèm mưa lớn/bão)."
+    "id": "prog-day5",
+    "topic": "Chương trình",
+    "question": "Chủ đề chính của ngày cuối (thứ Sáu 11/9) là gì?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Giám sát lũ lụt và quản lý thảm họa, kèm bài tập tình huống lũ lụt thực tế"
+      },
+      {
+        "letter": "B",
+        "text": "Nguyên lý đồng hóa dữ liệu cơ bản"
+      },
+      {
+        "letter": "C",
+        "text": "Giới thiệu tổng quan sứ mệnh SWOT"
+      },
+      {
+        "letter": "D",
+        "text": "Khai mạc và giới thiệu 6 tổ chức đối tác"
+      }
+    ],
+    "correct": "A",
+    "explain": "Sabrine Amzil và Adrien Paris giảng flood monitoring buổi sáng, bàn tròn bế mạc buổi chiều."
   },
   {
-   "id": 21,
-   "perspective": 3,
-   "perspectiveTitle": "Copernicus Programme & Sentinel Data",
-   "question": "Sản phẩm \"SurfWater\" trong hệ sinh thái dữ liệu Theia/hydroweb.next được tạo từ nguồn dữ liệu vệ tinh nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "SWOT KaRIn only"
-    },
-    {
-     "key": "B",
-     "text": "Landsat 5 only"
-    },
-    {
-     "key": "C",
-     "text": "GRACE-FO"
-    },
-    {
-     "key": "D",
-     "text": "Sentinel-1 và Sentinel-2"
-    }
-   ],
-   "answer": "D",
-   "framework": "SurfWater (diện tích mặt nước) do các trung tâm sản xuất Theia vận hành từ ảnh Sentinel-1 (SAR) và Sentinel-2 (quang học)."
+    "id": "prog-swot-day",
+    "topic": "Chương trình",
+    "question": "Chủ đề SWOT mission được giảng dạy chính vào ngày nào trong tuần?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Thứ Ba 8/9"
+      },
+      {
+        "letter": "B",
+        "text": "Thứ Hai 7/9"
+      },
+      {
+        "letter": "C",
+        "text": "Thứ Năm 10/9"
+      },
+      {
+        "letter": "D",
+        "text": "Thứ Tư 9/9"
+      }
+    ],
+    "correct": "A",
+    "explain": "Daniel Moreira, Sabrine Amzil, Binh Pham Duc giảng tổng quan SWOT sáng thứ Ba."
   },
   {
-   "id": 22,
-   "perspective": 3,
-   "perspectiveTitle": "Copernicus Programme & Sentinel Data",
-   "question": "Sentinel-6 (Michael Freilich) thuộc loại altimetry nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Wide-swath giống SWOT/KaRIn"
-    },
-    {
-     "key": "B",
-     "text": "Altimetry laser (LIDAR)"
-    },
-    {
-     "key": "C",
-     "text": "Altimetry thụ động không phát tín hiệu"
-    },
-    {
-     "key": "D",
-     "text": "Nadir altimetry, kế thừa dòng Jason"
-    }
-   ],
-   "answer": "D",
-   "framework": "Sentinel-6 tiếp nối chuỗi TOPEX–Jason, là radar altimeter nadir băng Ku/C, không phải công nghệ wide-swath như SWOT."
+    "id": "lect-adrien",
+    "topic": "Giảng viên",
+    "question": "Adrien Paris có nền tảng học thuật ban đầu là gì trước khi chuyển sang thủy văn không gian?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Chuyên gia công nghệ thông tin tại Google"
+      },
+      {
+        "letter": "B",
+        "text": "Kỹ sư cơ khí (tốt nghiệp ENSAM)"
+      },
+      {
+        "letter": "C",
+        "text": "Kỹ sư hàng không vũ trụ tại CNES"
+      },
+      {
+        "letter": "D",
+        "text": "Bác sĩ thú y chuyên về sinh thái sông"
+      }
+    ],
+    "correct": "B",
+    "explain": "Adrien Paris tốt nghiệp ENSAM (cơ khí) rồi chuyển hướng nghiên cứu thủy văn/altimetry."
   },
   {
-   "id": 23,
-   "perspective": 3,
-   "perspectiveTitle": "Copernicus Programme & Sentinel Data",
-   "question": "Vì sao dữ liệu Copernicus (Sentinel) được xem là phù hợp cho các nước đang phát triển như Việt Nam trong giám sát tài nguyên nước?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Vì chỉ Việt Nam mới được quyền truy cập"
-    },
-    {
-     "key": "B",
-     "text": "Vì chính sách mở, miễn phí, độ phủ toàn cầu và tần suất lặp lại thường xuyên"
-    },
-    {
-     "key": "C",
-     "text": "Vì Copernicus chỉ hoạt động ở châu Âu"
-    },
-    {
-     "key": "D",
-     "text": "Vì dữ liệu Copernicus có độ phân giải thấp hơn ảnh máy bay nên dễ xử lý"
-    }
-   ],
-   "answer": "B",
-   "framework": "Chính sách \"free & open data\" của Copernicus là lý do chính khiến nó trở thành nguồn dữ liệu chủ lực cho các trung tâm ít nguồn lực."
+    "id": "lect-laetitia",
+    "topic": "Giảng viên",
+    "question": "Dr. Laetitia Gal, người điều phối chính VSEO6, thuộc tổ chức nào và từng tham gia hoạt động gì với SWOT?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "PhilSA — lập bản đồ cỏ biển ở Philippines"
+      },
+      {
+        "letter": "B",
+        "text": "Mekong River Commission — vận hành trạm đo tại Lào"
+      },
+      {
+        "letter": "C",
+        "text": "NASA JPL — thiết kế phần cứng vệ tinh SWOT"
+      },
+      {
+        "letter": "D",
+        "text": "Hydro Matters — tham gia hoạt động cal/val (hiệu chỉnh/xác thực) SWOT tại Brazil"
+      }
+    ],
+    "correct": "D",
+    "explain": "Laetitia Gal (Hydro Matters) khảo sát địa hình hồ chứa nông nghiệp bán khô hạn tại Brazil cho SWOT cal/val."
   },
   {
-   "id": 24,
-   "perspective": 3,
-   "perspectiveTitle": "Copernicus Programme & Sentinel Data",
-   "question": "Trong bối cảnh VSEO6, dữ liệu Copernicus được kết hợp cùng SWOT để phục vụ ứng dụng nào là chủ yếu?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Giám sát lũ lụt và quản lý thảm họa (kết hợp SAR Sentinel-1 + wide-swath SWOT)"
-    },
-    {
-     "key": "B",
-     "text": "Giám sát núi lửa"
-    },
-    {
-     "key": "C",
-     "text": "Giám sát rừng nhiệt đới Amazon riêng biệt, không liên quan nước"
-    },
-    {
-     "key": "D",
-     "text": "Dự báo động đất"
-    }
-   ],
-   "answer": "A",
-   "framework": "Chương trình VSEO6 nêu rõ ứng dụng giám sát lũ lụt dựa trên kết hợp SAR (mở rộng vùng ngập) và SWOT (cao độ/độ dốc mặt nước)."
-  },
-  {
-   "id": 25,
-   "perspective": 4,
-   "perspectiveTitle": "hydroweb.next Platform",
-   "question": "hydroweb.next là nền tảng gì và do tổ chức nào phát triển?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Phần mềm mô phỏng khí hậu của NOAA"
-    },
-    {
-     "key": "B",
-     "text": "Ứng dụng thời tiết thương mại của tư nhân Mỹ"
-    },
-    {
-     "key": "C",
-     "text": "Nền tảng WebGIS mở cho thủy văn học, do CNES/Theia phát triển"
-    },
-    {
-     "key": "D",
-     "text": "Cơ sở dữ liệu bản đồ địa chính Việt Nam"
-    }
-   ],
-   "answer": "C",
-   "framework": "hydroweb.next là nền tảng open-data WebGIS do CNES phối hợp hạ tầng Data Terra/Theia xây dựng, dành cho cộng đồng thủy văn học."
-  },
-  {
-   "id": 26,
-   "perspective": 4,
-   "perspectiveTitle": "hydroweb.next Platform",
-   "question": "hydroweb.next ra đời gắn liền với chương trình nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Chương trình Apollo"
-    },
-    {
-     "key": "B",
-     "text": "Chương trình SWOT Early Adopters"
-    },
-    {
-     "key": "C",
-     "text": "Chương trình ISS"
-    },
-    {
-     "key": "D",
-     "text": "Chương trình Artemis"
-    }
-   ],
-   "answer": "B",
-   "framework": "Nền tảng phát triển nhờ động lực từ chương trình SWOT Early Adopters và hạ tầng Theia/Data Terra."
-  },
-  {
-   "id": 27,
-   "perspective": 4,
-   "perspectiveTitle": "hydroweb.next Platform",
-   "question": "Mục tiêu chính hydroweb.next muốn giải quyết là gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Gỡ bỏ rào cản: định dạng dữ liệu không đồng nhất, điểm truy cập phân tán, chi phí xử lý cao"
-    },
-    {
-     "key": "B",
-     "text": "Thay thế hoàn toàn các mô hình thủy văn số trị"
-    },
-    {
-     "key": "C",
-     "text": "Tăng độ phân giải ảnh vệ tinh lên gấp 10 lần"
-    },
-    {
-     "key": "D",
-     "text": "Cung cấp dịch vụ dự báo thời tiết 15 ngày"
-    }
-   ],
-   "answer": "A",
-   "framework": "hydroweb.next tập trung hóa dữ liệu, chuẩn hóa định dạng, và giảm chi phí xử lý cho nhà thủy văn học — đúng 3 rào cản được nêu trong tài liệu công bố nền tảng."
-  },
-  {
-   "id": 28,
-   "perspective": 4,
-   "perspectiveTitle": "hydroweb.next Platform",
-   "question": "Sản phẩm \"THEIA river/lake water level\" trên hydroweb.next có đặc điểm gì về độ dài chuỗi thời gian?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Chỉ có dữ liệu 1 năm gần nhất"
-    },
-    {
-     "key": "B",
-     "text": "Chỉ cập nhật 1 lần/năm"
-    },
-    {
-     "key": "C",
-     "text": "Một số chuỗi có thể dài hơn 30 năm"
-    },
-    {
-     "key": "D",
-     "text": "Không có dữ liệu lịch sử, chỉ real-time"
-    }
-   ],
-   "answer": "C",
-   "framework": "Nhờ kế thừa liên tục các sứ mệnh nadir altimetry từ TOPEX/Poseidon 1992, một số chuỗi mực nước sông/hồ trên hydroweb.next dài hơn 30 năm."
-  },
-  {
-   "id": 29,
-   "perspective": 4,
-   "perspectiveTitle": "hydroweb.next Platform",
-   "question": "Ngoài mực nước sông/hồ, hydroweb.next còn cung cấp sản phẩm nào sau đây?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Let It Snow (tuyết phủ) và OBS2CO (chất lượng nước) từ Sentinel-2"
-    },
-    {
-     "key": "B",
-     "text": "Dữ liệu giá nông sản"
-    },
-    {
-     "key": "C",
-     "text": "Bản đồ địa chấn"
-    },
-    {
-     "key": "D",
-     "text": "Dự báo bão 10 ngày"
-    }
-   ],
-   "answer": "A",
-   "framework": "Ngoài SurfWater/water level, hydroweb.next tích hợp Let It Snow (tuyết) và OBS2CO (chất lượng nước) — đều xử lý từ Sentinel-2."
-  },
-  {
-   "id": 30,
-   "perspective": 4,
-   "perspectiveTitle": "hydroweb.next Platform",
-   "question": "Theo chương trình VSEO6, ai giới thiệu hydroweb.next?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Charlotte Emery"
-    },
-    {
-     "key": "B",
-     "text": "Ariel Blanco"
-    },
-    {
-     "key": "C",
-     "text": "Jean Tran Thanh Van"
-    },
-    {
-     "key": "D",
-     "text": "Mathias Boun Hen"
-    }
-   ],
-   "answer": "A",
-   "framework": "Sáng Thứ Năm 10/9 (08:30–10:00), Charlotte Emery giới thiệu hydroweb.next."
-  },
-  {
-   "id": 31,
-   "perspective": 5,
-   "perspectiveTitle": "Data Assimilation trong Thủy văn học",
-   "question": "Data assimilation (đồng hóa dữ liệu) trong thủy văn học là gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Kỹ thuật ghép nhiều ảnh vệ tinh thành một ảnh toàn cảnh (mosaic)"
-    },
-    {
-     "key": "B",
-     "text": "Kỹ thuật nén dữ liệu ảnh vệ tinh để giảm dung lượng lưu trữ"
-    },
-    {
-     "key": "C",
-     "text": "Kỹ thuật kết hợp quan trắc vệ tinh với mô hình số trị để hiệu chỉnh trạng thái/tham số mô hình theo thời gian thực"
-    },
-    {
-     "key": "D",
-     "text": "Kỹ thuật mã hóa dữ liệu để bảo mật truyền tin vệ tinh"
-    }
-   ],
-   "answer": "C",
-   "framework": "Data assimilation = kết hợp có trọng số giữa quan trắc và dự báo mô hình để giảm sai số ước tính trạng thái hệ thống (ở đây là mực nước/lưu lượng)."
-  },
-  {
-   "id": 32,
-   "perspective": 5,
-   "perspectiveTitle": "Data Assimilation trong Thủy văn học",
-   "question": "Phương pháp đồng hóa dữ liệu phổ biến được nền tảng SEQUOIA (LEGOS) sử dụng là gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Random Forest"
-    },
-    {
-     "key": "B",
-     "text": "Support Vector Machine"
-    },
-    {
-     "key": "C",
-     "text": "Ensemble Kalman Filter (EnKF)"
-    },
-    {
-     "key": "D",
-     "text": "Fourier Transform thuần túy"
-    }
-   ],
-   "answer": "C",
-   "framework": "SEQUOIA tại LEGOS dùng kernel Ensemble Kalman Filter (EnKF) — phương pháp đồng hóa dựa trên tập hợp (ensemble) các mô phỏng để ước tính sai số."
-  },
-  {
-   "id": 33,
-   "perspective": 5,
-   "perspectiveTitle": "Data Assimilation trong Thủy văn học",
-   "question": "Trong nghiên cứu của Charlotte Emery và cộng sự (HESS 2020), dữ liệu gì được đồng hóa vào mô hình định tuyến dòng chảy quy mô lớn?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Dữ liệu gió bề mặt biển"
-    },
-    {
-     "key": "B",
-     "text": "Dị thường cao độ mặt nước từ wide-swath altimetry (SWOT-like)"
-    },
-    {
-     "key": "C",
-     "text": "Dữ liệu nhiệt độ không khí"
-    },
-    {
-     "key": "D",
-     "text": "Dữ liệu độ ẩm đất từ radar"
-    }
-   ],
-   "answer": "B",
-   "framework": "Nghiên cứu \"Assimilation of wide-swath altimetry water elevation anomalies...\" đồng hóa dị thường cao độ mặt nước để hiệu chỉnh tham số mô hình river routing quy mô lớn."
-  },
-  {
-   "id": 34,
-   "perspective": 5,
-   "perspectiveTitle": "Data Assimilation trong Thủy văn học",
-   "question": "Vì sao cần đồng hóa dữ liệu thay vì chỉ chạy mô hình thủy văn thuần túy (không dùng quan trắc)?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Vì mô hình thuần túy không thể chạy trên máy tính hiện đại"
-    },
-    {
-     "key": "B",
-     "text": "Vì mô hình số trị luôn tích lũy sai số theo thời gian do bất định về tham số/điều kiện biên; quan trắc vệ tinh giúp \"kéo\" mô hình về gần thực tế hơn"
-    },
-    {
-     "key": "C",
-     "text": "Vì mô hình thuần túy luôn chính xác hơn quan trắc nên không cần"
-    },
-    {
-     "key": "D",
-     "text": "Vì luật pháp quốc tế yêu cầu bắt buộc dùng vệ tinh"
-    }
-   ],
-   "answer": "B",
-   "framework": "Mọi mô hình số trị có sai số tích lũy; đồng hóa định kỳ đưa mô hình về gần trạng thái quan trắc thực, cải thiện độ tin cậy dự báo."
-  },
-  {
-   "id": 35,
-   "perspective": 5,
-   "perspectiveTitle": "Data Assimilation trong Thủy văn học",
-   "question": "Công trình của Jacques Verron về \"Wide-Swath Altimetric Satellite Data Assimilation With Correlated-Error Reduction\" (Frontiers in Marine Science, 2020) giải quyết vấn đề gì đặc thù của dữ liệu wide-swath?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Sai số ngẫu nhiên độc lập từng điểm ảnh, dễ lọc bằng trung bình đơn giản"
-    },
-    {
-     "key": "B",
-     "text": "Thiếu hoàn toàn dữ liệu ở vùng xích đạo"
-    },
-    {
-     "key": "C",
-     "text": "Sai số có cấu trúc không gian (correlated/structured errors) đặc trưng của swath rộng, cần kỹ thuật giảm sai số chuyên biệt"
-    },
-    {
-     "key": "D",
-     "text": "Độ trễ truyền dữ liệu vệ tinh quá lớn (>24h)"
-    }
-   ],
-   "answer": "C",
-   "framework": "Dữ liệu wide-swath (KaRIn) có sai số cấu trúc theo không gian (không độc lập từng pixel như nadir), nên cần các kỹ thuật giảm sai số tương quan chuyên biệt trước khi đồng hóa."
-  },
-  {
-   "id": 36,
-   "perspective": 5,
-   "perspectiveTitle": "Data Assimilation trong Thủy văn học",
-   "question": "\"Ocean Next\" và LEGOS, nơi Jacques Verron công tác, đặt tại thành phố nào của Pháp?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Paris"
-    },
-    {
-     "key": "B",
-     "text": "Toulouse"
-    },
-    {
-     "key": "C",
-     "text": "Grenoble"
-    },
-    {
-     "key": "D",
-     "text": "Marseille"
-    }
-   ],
-   "answer": "C",
-   "framework": "Jacques Verron gắn với Université Grenoble Alpes / CNRS / IRD / IGE và Ocean Next, đều tại Grenoble (LEGOS ở Toulouse là nơi nền tảng SEQUOIA phát triển)."
-  },
-  {
-   "id": 37,
-   "perspective": 5,
-   "perspectiveTitle": "Data Assimilation trong Thủy văn học",
-   "question": "Theo chương trình VSEO6, buổi \"Nguyên lý đồng hóa dữ liệu\" do ai đồng trình bày?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Charlotte Emery, Jacques Verron"
-    },
-    {
-     "key": "B",
-     "text": "Adrien Paris, Laetitia Gal"
-    },
-    {
-     "key": "C",
-     "text": "Binh Pham Duc, Linda Tomasini"
-    },
-    {
-     "key": "D",
-     "text": "Sabrine Amzil, Ariel Blanco"
-    }
-   ],
-   "answer": "A",
-   "framework": "Chiều Thứ Năm 10/9 (13:30–15:00), Charlotte Emery và Jacques Verron cùng trình bày nguyên lý đồng hóa dữ liệu."
-  },
-  {
-   "id": 38,
-   "perspective": 5,
-   "perspectiveTitle": "Data Assimilation trong Thủy văn học",
-   "question": "Đồng hóa dữ liệu altimetry mang lại lợi ích thực tiễn nào rõ nhất cho quản lý tài nguyên nước xuyên biên giới?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Tăng tốc độ truyền hình ảnh vệ tinh về mặt đất"
-    },
-    {
-     "key": "B",
-     "text": "Giảm giá vé máy bay khảo sát thực địa"
-    },
-    {
-     "key": "C",
-     "text": "Loại bỏ hoàn toàn nhu cầu mô hình thủy văn"
-    },
-    {
-     "key": "D",
-     "text": "Cải thiện độ tin cậy ước tính lưu lượng/mực nước ở các đoạn sông thiếu trạm đo mặt đất hoặc số liệu không được chia sẻ giữa các quốc gia"
-    }
-   ],
-   "answer": "D",
-   "framework": "Ở các lưu vực xuyên biên giới (như Mekong), số liệu in-situ thường không được chia sẻ đầy đủ — đồng hóa dữ liệu vệ tinh độc lập giúp các bên có ước tính đáng tin cậy hơn mà không phụ thuộc số liệu quốc gia khác."
-  },
-  {
-   "id": 39,
-   "perspective": 6,
-   "perspectiveTitle": "Flood Monitoring & Transboundary River Management",
-   "question": "Vì sao SAR Sentinel-1 thường được ưu tiên hơn ảnh quang học để lập bản đồ ngập lụt khẩn cấp?",
-   "options": [
-    {
-     "key": "A",
-     "text": "SAR chỉ hoạt động vào ban đêm nên tránh nhiễu mặt trời"
-    },
-    {
-     "key": "B",
-     "text": "SAR rẻ hơn ảnh quang học"
-    },
-    {
-     "key": "C",
-     "text": "SAR xuyên qua mây và không cần ánh sáng mặt trời, trong khi lũ lụt thường đi kèm mây dày/mưa lớn khiến ảnh quang học vô dụng"
-    },
-    {
-     "key": "D",
-     "text": "SAR có độ phân giải màu tốt hơn"
-    }
-   ],
-   "answer": "C",
-   "framework": "Điều kiện thời tiết khi lũ xảy ra (mây dày, mưa) làm ảnh quang học không dùng được; SAR không phụ thuộc ánh sáng/mây nên là công cụ chính cho flood mapping khẩn cấp."
-  },
-  {
-   "id": 40,
-   "perspective": 6,
-   "perspectiveTitle": "Flood Monitoring & Transboundary River Management",
-   "question": "MRC (Mekong River Commission) gồm những quốc gia thành viên nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Việt Nam, Trung Quốc, Myanmar, Thái Lan"
-    },
-    {
-     "key": "B",
-     "text": "Thái Lan, Myanmar, Lào, Trung Quốc"
-    },
-    {
-     "key": "C",
-     "text": "Việt Nam, Lào, Campuchia, Trung Quốc"
-    },
-    {
-     "key": "D",
-     "text": "Việt Nam, Lào, Campuchia, Thái Lan"
-    }
-   ],
-   "answer": "D",
-   "framework": "MRC gồm 4 nước hạ lưu Mekong: Thái Lan, Lào, Campuchia, Việt Nam (Trung Quốc và Myanmar là đối tác đối thoại, không phải thành viên chính thức)."
-  },
-  {
-   "id": 41,
-   "perspective": 6,
-   "perspectiveTitle": "Flood Monitoring & Transboundary River Management",
-   "question": "Công cụ \"Mekong Dam Monitor\" sử dụng viễn thám để làm gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Giám sát chất lượng không khí quanh đập"
-    },
-    {
-     "key": "B",
-     "text": "Dự báo giá điện thủy điện"
-    },
-    {
-     "key": "C",
-     "text": "Kiểm tra kết cấu bê tông đập bằng radar xuyên đất"
-    },
-    {
-     "key": "D",
-     "text": "Tạo \"virtual gauge\" tại đập/hồ chứa để theo dõi độc lập chỉ số môi trường/thủy văn hàng tuần trên toàn lưu vực"
-    }
-   ],
-   "answer": "D",
-   "framework": "Mekong Dam Monitor dùng viễn thám/GIS tạo \"virtual gauge\" tại các đập, cung cấp báo cáo môi trường hàng tuần độc lập với số liệu do quốc gia vận hành đập cung cấp."
-  },
-  {
-   "id": 42,
-   "perspective": 6,
-   "perspectiveTitle": "Flood Monitoring & Transboundary River Management",
-   "question": "Vì sao viễn thám vệ tinh đặc biệt có giá trị trong quản lý sông xuyên biên giới như Mekong?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Vì nó cung cấp số liệu độc lập, nhất quán trên toàn lưu vực bất kể biên giới quốc gia, tăng minh bạch và năng lực đàm phán giữa các bên"
-    },
-    {
-     "key": "B",
-     "text": "Vì chỉ vệ tinh mới đo được nhiệt độ nước"
-    },
-    {
-     "key": "C",
-     "text": "Vì vệ tinh miễn phí hoàn toàn cho mọi ứng dụng"
-    },
-    {
-     "key": "D",
-     "text": "Vì vệ tinh có thể thay thế hoàn toàn ngoại giao giữa các nước"
-    }
-   ],
-   "answer": "A",
-   "framework": "Số liệu vệ tinh không phụ thuộc việc quốc gia thượng nguồn có chia sẻ số liệu in-situ hay không — tạo cơ sở minh bạch chung cho quản lý xuyên biên giới."
-  },
-  {
-   "id": 43,
-   "perspective": 6,
-   "perspectiveTitle": "Flood Monitoring & Transboundary River Management",
-   "question": "Trong chương trình VSEO6, buổi \"Giám sát lũ lụt & quản lý thảm họa\" do ai trình bày?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Pham Thi Mai Thy, Linda Tomasini"
-    },
-    {
-     "key": "B",
-     "text": "Jean Tran Thanh Van, Denis Fourmeau"
-    },
-    {
-     "key": "C",
-     "text": "Sabrine Amzil, Adrien Paris"
-    },
-    {
-     "key": "D",
-     "text": "Jacques Verron, Charlotte Emery"
-    }
-   ],
-   "answer": "C",
-   "framework": "Sáng Thứ Sáu 11/9 (08:30–10:00), Sabrine Amzil và Adrien Paris trình bày về giám sát lũ lụt và quản lý thảm họa."
-  },
-  {
-   "id": 44,
-   "perspective": 6,
-   "perspectiveTitle": "Flood Monitoring & Transboundary River Management",
-   "question": "Dự án \"StockWater\" (CNES, SCO/SWOT Downstream) nhằm mục đích gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Theo dõi giá cổ phiếu ngành nước"
-    },
-    {
-     "key": "B",
-     "text": "Sản xuất nước đóng chai từ nước biển"
-    },
-    {
-     "key": "C",
-     "text": "Giám sát dung tích nước trong các hồ chứa/đập"
-    },
-    {
-     "key": "D",
-     "text": "Dự báo động đất gần đập thủy điện"
-    }
-   ],
-   "answer": "C",
-   "framework": "StockWater do CNES chủ trì cùng CS-Group, SERTIT, CESBIO, GET, LISAH — xây hệ thống giám sát dung tích nước hồ chứa/đập dựa trên dữ liệu SWOT/vệ tinh."
-  },
-  {
-   "id": 45,
-   "perspective": 7,
-   "perspectiveTitle": "Tổ chức, Chương trình & Giảng viên VSEO6",
-   "question": "VSEO6 được tổ chức bởi đơn vị nào và có mối liên hệ gì với UNESCO?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Rencontres du Vietnam — tổ chức phi lợi nhuận, đối tác chính thức của UNESCO"
-    },
-    {
-     "key": "B",
-     "text": "NASA chi nhánh Đông Nam Á"
-    },
-    {
-     "key": "C",
-     "text": "Một trường đại học tư nhân của Singapore"
-    },
-    {
-     "key": "D",
-     "text": "Bộ Khoa học và Công nghệ Việt Nam trực tiếp tổ chức"
-    }
-   ],
-   "answer": "A",
-   "framework": "Rencontres du Vietnam, sáng lập 1993 bởi GS. Trần Thanh Vân, là tổ chức phi lợi nhuận và đối tác chính thức UNESCO, đơn vị đứng sau ICISE và chuỗi VSEO."
-  },
-  {
-   "id": 46,
-   "perspective": 7,
-   "perspectiveTitle": "Tổ chức, Chương trình & Giảng viên VSEO6",
-   "question": "ICISE — nơi tổ chức VSEO6 — tọa lạc ở đâu và thành lập năm nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "TP. Hồ Chí Minh, thành lập 2018"
-    },
-    {
-     "key": "B",
-     "text": "Quy Nhơn, thành lập 2013"
-    },
-    {
-     "key": "C",
-     "text": "Hà Nội, thành lập 2005"
-    },
-    {
-     "key": "D",
-     "text": "Đà Nẵng, thành lập 2010"
-    }
-   ],
-   "answer": "B",
-   "framework": "ICISE (International Centre for Interdisciplinary Science Education) đặt tại Quy Nhơn, thành lập năm 2013 bởi Rencontres du Vietnam."
-  },
-  {
-   "id": 47,
-   "perspective": 7,
-   "perspectiveTitle": "Tổ chức, Chương trình & Giảng viên VSEO6",
-   "question": "Buổi thực địa (field trip) trong VSEO6 diễn ra vào ngày nào và nội dung gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Thứ Sáu 11/9 — tham quan bảo tàng khoa học"
-    },
-    {
-     "key": "B",
-     "text": "Thứ Ba 8/9 — thăm trụ sở CNES tại Pháp"
-    },
-    {
-     "key": "C",
-     "text": "Thứ Hai 7/9 — lặn biển Quy Nhơn"
-    },
-    {
-     "key": "D",
-     "text": "Thứ Tư 9/9 — quan sát mực nước hồ chứa thực địa"
-    }
-   ],
-   "answer": "D",
-   "framework": "Sáng Thứ Tư 9/9 (08:00–12:00) là buổi thực địa quan sát mực nước hồ chứa, cầu nối giữa lý thuyết altimetry và thực hành ngoài trời."
-  },
-  {
-   "id": 48,
-   "perspective": 7,
-   "perspectiveTitle": "Tổ chức, Chương trình & Giảng viên VSEO6",
-   "question": "Trong phiên khai mạc, các tổ chức nào được giới thiệu (ngoài USTH)?",
-   "options": [
-    {
-     "key": "A",
-     "text": "NASA, ESA, JAXA, ISRO"
-    },
-    {
-     "key": "B",
-     "text": "World Bank, IMF, ADB"
-    },
-    {
-     "key": "C",
-     "text": "UNDP, WHO, UNICEF"
-    },
-    {
-     "key": "D",
-     "text": "CNES, VNSC, PSA, MRC"
-    }
-   ],
-   "answer": "D",
-   "framework": "Phiên 08:35–10:30 ngày khai mạc giới thiệu 5 tổ chức: USTH (Việt Nam), CNES (Pháp), VNSC (Việt Nam), PSA (Philippines), MRC (Mekong River Commission)."
-  },
-  {
-   "id": 49,
-   "perspective": 7,
-   "perspectiveTitle": "Tổ chức, Chương trình & Giảng viên VSEO6",
-   "question": "Binh Pham Duc, giảng viên VSEO6, công tác tại đơn vị nào và có công bố tiêu biểu nào về Việt Nam?",
-   "options": [
-    {
-     "key": "A",
-     "text": "USTH; nghiên cứu giám sát biến động hồ Tonle Sap và hồ Đại Lải bằng ảnh vệ tinh/altimetry"
-    },
-    {
-     "key": "B",
-     "text": "MRC; nghiên cứu chính sách thương mại Mekong"
-    },
-    {
-     "key": "C",
-     "text": "CNES; nghiên cứu về đại dương Bắc Cực"
-    },
-    {
-     "key": "D",
-     "text": "VNSC; nghiên cứu về vệ tinh viễn thông"
-    }
-   ],
-   "answer": "A",
-   "framework": "Binh Pham Duc (USTH, lab Remosat) có công bố về giám sát Tonle Sap Lake (Sentinel-1 + altimetry) và Dai Lai Lake (Việt Nam) bằng đa nguồn viễn thám."
-  },
-  {
-   "id": 50,
-   "perspective": 7,
-   "perspectiveTitle": "Tổ chức, Chương trình & Giảng viên VSEO6",
-   "question": "Ariel Blanco, đại diện phía Philippines trong VSEO6, là chuyên gia về lĩnh vực nào?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Kinh tế học tài nguyên nước"
-    },
-    {
-     "key": "B",
-     "text": "Vật lý hạt nhân"
-    },
-    {
-     "key": "C",
-     "text": "Remote sensing hệ sinh thái ven biển (rừng ngập mặn, cỏ biển) tại Đại học Philippines Diliman"
-    },
-    {
-     "key": "D",
-     "text": "Kỹ thuật hàng không vũ trụ động cơ tên lửa"
-    }
-   ],
-   "answer": "C",
-   "framework": "Ariel Blanco là Giáo sư Kỹ thuật Trắc địa tại UP Diliman, nổi bật với công trình về chỉ số thực vật rừng ngập mặn (MVI) và lập bản đồ cỏ biển bằng viễn thám."
-  },
-  {
-   "id": 51,
-   "perspective": 7,
-   "perspectiveTitle": "Tổ chức, Chương trình & Giảng viên VSEO6",
-   "question": "Đầu mối liên hệ chính thức cho câu hỏi/đăng ký VSEO6 là ai?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Đại sứ quán Pháp tại Hà Nội"
-    },
-    {
-     "key": "B",
-     "text": "GS. Trần Thanh Vân trực tiếp qua điện thoại"
-    },
-    {
-     "key": "C",
-     "text": "Dr. Laetitia Gal (laetitia.gal@hydro-matters.fr)"
-    },
-    {
-     "key": "D",
-     "text": "Văn phòng tuyển sinh USTH"
-    }
-   ],
-   "answer": "C",
-   "framework": "Trang đăng ký VSEO6 nêu rõ liên hệ chính là Dr. Laetitia Gal, email laetitia.gal@hydro-matters.fr."
-  },
-  {
-   "id": 52,
-   "perspective": 7,
-   "perspectiveTitle": "Tổ chức, Chương trình & Giảng viên VSEO6",
-   "question": "Buổi cuối cùng của VSEO6 (chiều Thứ Sáu 11/9) có nội dung gì?",
-   "options": [
-    {
-     "key": "A",
-     "text": "Bàn tròn / phản hồi học viên / bế mạc"
-    },
-    {
-     "key": "B",
-     "text": "Lễ trao giải cuộc thi lập trình"
-    },
-    {
-     "key": "C",
-     "text": "Chuyến bay tham quan bằng máy bay không người lái"
-    },
-    {
-     "key": "D",
-     "text": "Thi trắc nghiệm tổng kết bắt buộc"
-    }
-   ],
-   "answer": "A",
-   "framework": "13:30–15:00 ngày cuối là phiên bàn tròn, thu thập phản hồi học viên và bế mạc khóa học."
+    "id": "lect-binh",
+    "topic": "Giảng viên",
+    "question": "TS. Binh Pham Duc (USTH) từng công bố nghiên cứu giám sát hồ nào bằng dữ liệu vệ tinh?",
+    "options": [
+      {
+        "letter": "A",
+        "text": "Hồ Victoria (Đông Phi) và hồ Chad"
+      },
+      {
+        "letter": "B",
+        "text": "Hồ Tonle Sap (Campuchia) và hồ chứa Thác Mơ (Việt Nam)"
+      },
+      {
+        "letter": "C",
+        "text": "Hồ Baikal (Nga) và hồ Titicaca (Peru/Bolivia)"
+      },
+      {
+        "letter": "D",
+        "text": "Hồ Geneva (Thụy Sĩ) và hồ Como (Ý)"
+      }
+    ],
+    "correct": "B",
+    "explain": "Binh Pham Duc công bố về Tonle Sap (Sentinel-1 + altimetry) và Thác Mơ (Remote Sensing 2022)."
   }
- ]
-}
+]
