@@ -45,6 +45,11 @@ ul.bullets b{color:var(--accent2)}
 .navhint{position:fixed;bottom:14px;left:50%;transform:translateX(-50%);font-size:11px;color:#425079;
   letter-spacing:.05em;z-index:50}
 .center{text-align:center}
+.langswitch{position:fixed;top:14px;right:18px;z-index:60;display:flex;gap:6px}
+.langswitch a{text-decoration:none;font-size:12px;font-weight:700;letter-spacing:.04em;padding:5px 12px;
+  border-radius:999px;border:1px solid var(--line);color:var(--ink-dim);background:var(--panel)}
+.langswitch a.active{color:var(--accent);border-color:var(--accent);background:rgba(79,209,197,.12)}
+.langswitch a:hover{color:var(--ink)}
 .cover .kicker{color:var(--accent2);font-size:15px;letter-spacing:.16em;text-transform:uppercase;font-weight:700;margin-bottom:16px}
 .cover h1{font-size:52px}
 .cover .sub{font-size:19px;color:var(--ink-dim);max-width:760px;margin:0 auto 26px}
@@ -156,6 +161,7 @@ svg text{font-family:inherit}
 </head>
 <body>
 <div class="progress" id="progress"></div>
+<div class="langswitch"><a href="index.html" class="active">VI</a><a href="index-en.html">EN</a></div>
 <div id="deck"></div>
 <div class="navhint">← → hoặc Space để chuyển slide &nbsp;·&nbsp; số slide hiện tại ở góc dưới phải</div>
 
@@ -211,7 +217,7 @@ slide(wrap(`
 <div class="eyebrow">Module 1 · Nadir Altimetry</div>
 <h1>Phương trình khoảng cách (range equation)</h1>
 <div class="eqn-box"><div class="eqn">R = c · &Delta;t / 2</div><div class="eqn-note">c: vận tốc ánh sáng (3×10⁸ m/s) · Δt: thời gian đi–về đo được bởi altimeter</div></div>
-<ul class="bullets"><li>Chia đôi vì xung đi <b>xuống rồi lại về</b> — Δt là tổng thời gian cả hai chiều</li><li>Δt cỡ vài phần nghìn giây (altimeter bay ở độ cao ~800–1300 km)</li><li>R đo được ở đây là <b>khoảng cách thô</b> — chưa phải độ cao mặt nước, cần thêm bước tiếp theo</li></ul>
+<ul class="bullets"><li>Chia đôi vì xung đi <b>xuống rồi lại về</b> — Δt là tổng thời gian cả hai chiều</li><li>Δt cỡ vài phần nghìn giây (altimeter bay ở độ cao ~800–1300 km)</li><li>R đo được ở đây là <b>khoảng cách thô</b> — chưa phải độ cao mặt nước, cần thêm bước tiếp theo</li><li>Yêu cầu độ chính xác: muốn h chính xác cỡ <b>cm</b>, Δt phải đo được với sai số cỡ <b>picô-giây</b> (10⁻¹²s, vì c rất lớn) — đây là lý do đồng hồ/oscillator trên altimeter phải cực kỳ ổn định</li></ul>
 `));
 
 slide(wrap(`
@@ -240,7 +246,8 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 1 · Nadir Altimetry</div>
 <h1>Ví dụ tính tay: từ Δt ra R</h1>
-<div class="example-box"><span class="tag-ex">Ví dụ</span><div class="step">Cho: altimeter đo được Δt = 5.34 ms = 5.34×10⁻³ s</div><div class="step">Áp dụng: <b>R = c·Δt/2</b> = (3×10⁸ m/s × 5.34×10⁻³ s) / 2</div><div class="step">= (1 602 000 m) / 2 = <b>801 000 m ≈ 801 km</b></div><div class="step">Nếu H_sat (quỹ đạo) = 803 km và tổng hiệu chỉnh ≈ +0.3 m: h = 803 000 − (801 000 + 0.3) ≈ <b>1 999.7 m</b> so với ellipsoid</div></div>
+<div class="example-box"><span class="tag-ex">Ví dụ 1</span><div class="step">Cho: altimeter đo được Δt = 5.34 ms = 5.34×10⁻³ s</div><div class="step">Áp dụng: <b>R = c·Δt/2</b> = (3×10⁸ m/s × 5.34×10⁻³ s) / 2</div><div class="step">= (1 602 000 m) / 2 = <b>801 000 m ≈ 801 km</b></div><div class="step">Nếu H_sat (quỹ đạo) = 803 km và tổng hiệu chỉnh ≈ +0.3 m: h = 803 000 − (801 000 + 0.3) ≈ <b>1 999.7 m</b> so với ellipsoid</div></div>
+<div class="example-box"><span class="tag-ex">Ví dụ 2 — kiểm tra hợp lý (sanity check)</span><div class="step">Cho: cùng vệ tinh (H_sat = 803 km), nhưng mực nước hồ dâng thêm 1m so với ví dụ 1 (h mới = 2 000.7 m)</div><div class="step">R phải giảm đúng 1m tương ứng: R = 803 000 − 2 000.7 − 0.3 = <b>800 999 m</b></div><div class="step">→ Δt mới = 2R/c = (2 × 800 999)/(3×10⁸) ≈ <b>5.33999 ms</b> — chênh chỉ ~6.7 nano-giây so với Ví dụ 1 cho 1m nước dâng</div><div class="step">Kiểm tra: khớp với slide trước (cần đo Δt chính xác cỡ picô-giây để đạt độ phân giải cm) — ở đây 1m nước dâng ứng với ~6 700 picô-giây, hoàn toàn đo được</div></div>
 `));
 
 slide(wrap(`
@@ -271,6 +278,7 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 1 · Nadir Altimetry</div>
 <h1>Đo dual-frequency: vì sao cần 2 băng tần cùng lúc</h1>
+<div class="eqn-box"><div class="eqn">R<sub>free</sub> = (f<sub>Ku</sub>² · R<sub>Ku</sub> &minus; f<sub>C</sub>² · R<sub>C</sub>) / (f<sub>Ku</sub>² &minus; f<sub>C</sub>²)</div><div class="eqn-note">Tổ hợp "ionosphere-free": R_Ku, R_C là khoảng cách đo riêng ở mỗi tần số — trừ có trọng số theo bình phương tần số triệt tiêu phần trễ điện ly</div></div>
 <ul class="bullets"><li>Đa số altimeter mang <b>2 tần số</b> đồng thời — vd Ku-band (~13.6 GHz) và C-band (~5.3 GHz) trên dòng Jason/Sentinel-6</li><li>Hiệu chỉnh điện ly phụ thuộc <b>nghịch đảo bình phương tần số</b> — đo cùng lúc 2 tần số cho phép giải hệ 2 phương trình, tách được phần trễ do điện ly ra khỏi khoảng cách thật</li><li>Không có dual-frequency, phải dùng mô hình điện ly toàn cầu (kém chính xác hơn đo trực tiếp) — đây là lý do vì sao thiết kế 2 tần số gần như bắt buộc với altimeter độ chính xác cao</li></ul>
 `));
 
@@ -324,7 +332,7 @@ slide(wrap(`
 <div class="eyebrow">Module 1 · Nadir Altimetry</div>
 <h1>Datum thẳng đứng: ellipsoid vs geoid</h1>
 <div class="eqn-box"><div class="eqn">H (độ cao chính) = h<sub>ellipsoid</sub> &minus; N<sub>geoid</sub></div><div class="eqn-note">N_geoid: độ lệch geoid–ellipsoid tại vị trí đó, tra từ mô hình toàn cầu (vd EGM2008)</div></div>
-<ul class="bullets"><li>Độ cao h ra từ range equation là so với <b>ellipsoid</b> — một mặt toán học trơn (vd WGS84), không phải mực nước biển thực</li><li><b>Geoid</b>: bề mặt đẳng thế trọng lực, xấp xỉ mực nước biển trung bình nếu bỏ qua gió/dòng chảy — gồ ghề hơn ellipsoid vì phản ánh phân bố khối lượng Trái Đất thật</li><li>Trạm đo tại chỗ (in-situ gauge) thường báo cáo theo datum địa phương gần geoid — <b>không thể so trực tiếp</b> với h_ellipsoid nếu chưa quy đổi</li></ul>
+<ul class="bullets"><li>Độ cao h ra từ range equation là so với <b>ellipsoid</b> — một mặt toán học trơn (vd WGS84), không phải mực nước biển thực</li><li><b>Geoid</b>: bề mặt đẳng thế trọng lực, xấp xỉ mực nước biển trung bình nếu bỏ qua gió/dòng chảy — gồ ghề hơn ellipsoid vì phản ánh phân bố khối lượng Trái Đất thật</li><li>Trạm đo tại chỗ (in-situ gauge) thường báo cáo theo datum địa phương gần geoid — <b>không thể so trực tiếp</b> với h_ellipsoid nếu chưa quy đổi</li><li>Ellipsoid tham chiếu chuẩn dùng trong hầu hết altimeter/GPS là <b>WGS84</b>: bán trục lớn a = 6 378 137 m, độ dẹt (flattening) f = 1/298.257223563 — một hình elip xoay toán học thuần túy, không phụ thuộc phân bố khối lượng thật của Trái Đất</li></ul>
 <div class="pitfall"><span class="tag-warn">Sai lầm thường gặp</span><p style="margin:0;font-size:14.5px;color:var(--ink);line-height:1.6">So sánh trực tiếp độ cao vệ tinh (ellipsoid) với số liệu trạm đo (datum địa phương) mà không quy đổi qua geoid — chênh lệch có thể vài mét, bị hiểu nhầm là 'lỗi vệ tinh'.</p></div>
 `));
 
@@ -344,7 +352,7 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 1 · Nadir Altimetry</div>
 <h1>Tự kiểm tra</h1>
-<div class="checkpoint"><div class="q">❓ Vì sao công thức range equation chia cho 2?</div><div class="a">Vì xung radar đi xuống RỒI phản xạ về — Δt đo được là tổng thời gian cả hai chiều, nên R (một chiều) = c·Δt/2.</div></div><div class="checkpoint"><div class="q">❓ Retracker OCOG khác gì Brown model?</div><div class="a">Brown model giả định waveform một đỉnh trơn của mặt biển rộng; OCOG/threshold không giả định dạng cụ thể, chịu được waveform nhiễu nhiều đỉnh của sông/hồ hẹp.</div></div><div class="checkpoint"><div class="q">❓ Vì sao nadir altimetry có độ phủ không gian thưa nhưng chuỗi thời gian dài?</div><div class="a">Vì chỉ đo dọc 1 vệt hẹp cố định (ít điểm giao cắt với sông/hồ) nhưng quỹ đạo lặp lại đều đặn qua nhiều thập kỷ tại đúng các điểm đó.</div></div>
+<div class="checkpoint"><div class="q">❓ Vì sao công thức range equation chia cho 2?</div><div class="a">Vì xung radar đi xuống RỒI phản xạ về — Δt đo được là tổng thời gian cả hai chiều, nên R (một chiều) = c·Δt/2.</div></div><div class="checkpoint"><div class="q">❓ Retracker OCOG khác gì Brown model?</div><div class="a">Brown model giả định waveform một đỉnh trơn của mặt biển rộng; OCOG/threshold không giả định dạng cụ thể, chịu được waveform nhiễu nhiều đỉnh của sông/hồ hẹp.</div></div><div class="checkpoint"><div class="q">❓ Vì sao nadir altimetry có độ phủ không gian thưa nhưng chuỗi thời gian dài?</div><div class="a">Vì chỉ đo dọc 1 vệt hẹp cố định (ít điểm giao cắt với sông/hồ) nhưng quỹ đạo lặp lại đều đặn qua nhiều thập kỷ tại đúng các điểm đó.</div></div><div class="checkpoint"><div class="q">❓ Tổ hợp dual-frequency (Ku/C-band) triệt tiêu được sai số nào, và vì sao phải dùng trọng số f²?</div><div class="a">Triệt tiêu sai số điện ly (ionosphere) — vì trễ điện ly tỉ lệ nghịch với f², trừ có trọng số f²·R_Ku và f²·R_C cho phép giải hệ 2 phương trình 2 ẩn (khoảng cách thật + phần trễ điện ly), tách được thành phần phụ thuộc tần số ra khỏi khoảng cách thật.</div></div>
 `));
 
 slide(wrap(`
@@ -417,7 +425,8 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 2 · SWOT</div>
 <h1>Phase ambiguity — vì sao cần “gỡ mơ hồ pha”</h1>
-<ul class="bullets"><li>Pha chỉ đo được <b>modulo 2π</b> — thiết bị không phân biệt được Δφ và Δφ + 2π, Δφ + 4π, ...</li><li>Một chênh lệch 2π trong pha tương ứng với một khoảng chênh độ cao cố định gọi là <b>độ cao mơ hồ (altitude of ambiguity) E_a</b></li><li>Xử lý mặt đất phải thực hiện <b>phase unwrapping</b> (gỡ mơ hồ pha) — dùng thông tin lân cận không gian để chọn đúng "chu kỳ 2π" nào là thực</li><li>Đây là một bước xử lý phức tạp, dễ sai ở vùng địa hình gồ ghề hoặc mặt nước bị ngắt quãng bởi thực vật/đảo</li></ul>
+<div class="eqn-box"><div class="eqn">E<sub>a</sub> &asymp; &lambda; · r<sub>1</sub> · sin(&theta;) / B</div><div class="eqn-note">E_a: độ cao mơ hồ (chênh cao tương ứng với 1 chu kỳ 2π trong pha) · λ: bước sóng · r₁, θ, B như các slide trước</div></div>
+<ul class="bullets"><li>Pha chỉ đo được <b>modulo 2π</b> — thiết bị không phân biệt được Δφ và Δφ + 2π, Δφ + 4π, ...</li><li>Một chênh lệch 2π trong pha tương ứng với một khoảng chênh độ cao cố định gọi là <b>độ cao mơ hồ (altitude of ambiguity) E_a</b> — baseline B càng lớn, E_a càng nhỏ (nhạy hơn nhưng dễ mơ hồ hơn)</li><li>Xử lý mặt đất phải thực hiện <b>phase unwrapping</b> (gỡ mơ hồ pha) — dùng thông tin lân cận không gian để chọn đúng "chu kỳ 2π" nào là thực</li><li>Đây là một bước xử lý phức tạp, dễ sai ở vùng địa hình gồ ghề hoặc mặt nước bị ngắt quãng bởi thực vật/đảo</li></ul>
 `));
 
 slide(wrap(`
@@ -448,7 +457,8 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 2 · SWOT</div>
 <h1>Ví dụ tính tay: từ Δφ ra θ (đơn giản hoá)</h1>
-<div class="example-box"><span class="tag-ex">Ví dụ (số liệu minh hoạ, đơn giản hoá)</span><div class="step">Cho: bước sóng Ka-band λ ≈ 0.0084 m (tần số ~35.75 GHz) → k = 2π/λ ≈ 748 rad/m</div><div class="step">Cho: baseline B = 10 m, đo được Δφ = 0.6 rad</div><div class="step">Áp dụng: <b>sin(θ) = Δφ / (k·B)</b> = 0.6 / (748 × 10) ≈ 0.0000802</div><div class="step">→ θ ≈ 0.0046° — góc rất nhỏ vì λ Ka-band cực ngắn khiến hệ đo cực nhạy với sai lệch pha nhỏ</div><div class="step">Đây là lý do vì sao đo pha chính xác đến mili-radian là bắt buộc để đạt độ chính xác độ cao cỡ cm–dm</div></div>
+<div class="example-box"><span class="tag-ex">Ví dụ 1 (số liệu minh hoạ, đơn giản hoá)</span><div class="step">Cho: bước sóng Ka-band λ ≈ 0.0084 m (tần số ~35.75 GHz) → k = 2π/λ ≈ 748 rad/m</div><div class="step">Cho: baseline B = 10 m, đo được Δφ = 0.6 rad</div><div class="step">Áp dụng: <b>sin(θ) = Δφ / (k·B)</b> = 0.6 / (748 × 10) ≈ 0.0000802</div><div class="step">→ θ ≈ 0.0046° — góc rất nhỏ vì λ Ka-band cực ngắn khiến hệ đo cực nhạy với sai lệch pha nhỏ</div><div class="step">Đây là lý do vì sao đo pha chính xác đến mili-radian là bắt buộc để đạt độ chính xác độ cao cỡ cm–dm</div></div>
+<div class="example-box"><span class="tag-ex">Ví dụ 2 — độ cao mơ hồ E_a</span><div class="step">Dùng công thức slide trước: E_a ≈ λ·r₁·sin(θ)/B, với r₁ ≈ 890 000 m (gần H≈880km, θ nhỏ), λ = 0.0084 m, B = 10 m</div><div class="step">Lấy θ điển hình ứng với giữa dải quét, sin(θ) ≈ 0.03 (θ ≈ 1.7°, ứng với vùng giữa dải 50km ở độ cao ~880km)</div><div class="step">E_a ≈ (0.0084 × 890 000 × 0.03) / 10 ≈ <b>22.4 m</b></div><div class="step">→ Mỗi ~22m chênh cao thật sẽ lặp lại đúng một giá trị pha đo được — minh hoạ vì sao cần phase unwrapping để không nhầm hai điểm cách nhau ~22m thành cùng độ cao (và vì sao baseline 10m — không dài hơn — được chọn: baseline dài hơn cho E_a nhỏ hơn, dễ mơ hồ hơn)</div></div>
 `));
 
 slide(wrap(`
@@ -503,7 +513,7 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 2 · SWOT</div>
 <h1>Tự kiểm tra</h1>
-<div class="checkpoint"><div class="q">❓ KaRIn đo đại lượng vật lý nào trực tiếp, khác gì altimetry cổ điển?</div><div class="a">KaRIn đo độ lệch PHA (Δφ) giữa 2 ăng-ten cách nhau baseline 10m; altimetry cổ điển đo THỜI GIAN bay Δt của một ăng-ten duy nhất.</div></div><div class="checkpoint"><div class="q">❓ Vì sao cần "gỡ mơ hồ pha" (phase unwrapping)?</div><div class="a">Vì pha chỉ đo được modulo 2π — không phân biệt được các giá trị Δφ, Δφ+2π, Δφ+4π... nên cần xử lý bổ sung để chọn đúng chu kỳ thực.</div></div><div class="checkpoint"><div class="q">❓ SWOT có đo lưu lượng dòng chảy Q trực tiếp không?</div><div class="a">Không — chỉ đo W, h, S. Q phải suy luận qua mô hình thủy lực như Manning/AMHG (Module 4).</div></div>
+<div class="checkpoint"><div class="q">❓ KaRIn đo đại lượng vật lý nào trực tiếp, khác gì altimetry cổ điển?</div><div class="a">KaRIn đo độ lệch PHA (Δφ) giữa 2 ăng-ten cách nhau baseline 10m; altimetry cổ điển đo THỜI GIAN bay Δt của một ăng-ten duy nhất.</div></div><div class="checkpoint"><div class="q">❓ Vì sao cần "gỡ mơ hồ pha" (phase unwrapping)?</div><div class="a">Vì pha chỉ đo được modulo 2π — không phân biệt được các giá trị Δφ, Δφ+2π, Δφ+4π... nên cần xử lý bổ sung để chọn đúng chu kỳ thực.</div></div><div class="checkpoint"><div class="q">❓ SWOT có đo lưu lượng dòng chảy Q trực tiếp không?</div><div class="a">Không — chỉ đo W, h, S. Q phải suy luận qua mô hình thủy lực như Manning/AMHG (Module 4).</div></div><div class="checkpoint"><div class="q">❓ Vì sao độ phân giải cross-track của KaRIn không đồng đều trên toàn dải quét?</div><div class="a">Vì góc tới (incidence angle) tăng dần từ gần dải (near-range) ra xa dải (far-range) — độ nhạy phân giải khoảng cách theo phương ngang giảm theo góc tới, khiến far-range thô hơn near-range đáng kể.</div></div>
 `));
 
 slide(wrap(`
@@ -657,7 +667,7 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 3 · Hydroweb-next</div>
 <h1>Tự kiểm tra</h1>
-<div class="checkpoint"><div class="q">❓ PIXC khác PIXCVec ở điểm nào?</div><div class="a">PIXC là pixel thô chưa gán đối tượng; PIXCVec đã lọc nhiễu, định vị lại chính xác hơn và gán mỗi pixel vào sông/hồ cụ thể trong PRD/PLD.</div></div><div class="checkpoint"><div class="q">❓ Node và Reach trong RiverSP khác nhau thế nào?</div><div class="a">Node là điểm dọc sông (~200m), mỗi điểm có độ cao riêng; Reach là đoạn sông dài hơn (~10km) gộp nhiều Node, cho thêm độ dốc S và độ rộng trung bình.</div></div><div class="checkpoint"><div class="q">❓ Vì sao không nên ghép trực tiếp chuỗi thời gian từ 2 sứ mệnh khác nhau?</div><div class="a">Vì mỗi sứ mệnh có bias hệ thống riêng — ghép trực tiếp có thể tạo ra một bước nhảy giả tại thời điểm chuyển đổi, dễ nhầm là biến động thủy văn thật.</div></div>
+<div class="checkpoint"><div class="q">❓ PIXC khác PIXCVec ở điểm nào?</div><div class="a">PIXC là pixel thô chưa gán đối tượng; PIXCVec đã lọc nhiễu, định vị lại chính xác hơn và gán mỗi pixel vào sông/hồ cụ thể trong PRD/PLD.</div></div><div class="checkpoint"><div class="q">❓ Node và Reach trong RiverSP khác nhau thế nào?</div><div class="a">Node là điểm dọc sông (~200m), mỗi điểm có độ cao riêng; Reach là đoạn sông dài hơn (~10km) gộp nhiều Node, cho thêm độ dốc S và độ rộng trung bình.</div></div><div class="checkpoint"><div class="q">❓ Vì sao không nên ghép trực tiếp chuỗi thời gian từ 2 sứ mệnh khác nhau?</div><div class="a">Vì mỗi sứ mệnh có bias hệ thống riêng — ghép trực tiếp có thể tạo ra một bước nhảy giả tại thời điểm chuyển đổi, dễ nhầm là biến động thủy văn thật.</div></div><div class="checkpoint"><div class="q">❓ Vì sao Sentinel-3 SRAL (27 ngày) và SWOT (21 ngày) bổ sung tốt cho nhau thay vì trùng lặp?</div><div class="a">Vì chu kỳ lặp khác nhau khiến hai vệ tinh quan sát cùng một vị trí vào các thời điểm khác nhau trong tháng — kết hợp cả hai qua hydroweb.next làm tăng tần suất quan sát tổng thể so với dùng riêng một nguồn.</div></div>
 `));
 
 slide(wrap(`
@@ -693,7 +703,7 @@ slide(wrap(`
 <div class="eyebrow">Module 4 · Discharge</div>
 <h1>Phương trình Manning: liên hệ vận tốc với độ dốc</h1>
 <div class="eqn-box"><div class="eqn">V = (1/n) · R<sub>h</sub><sup>2/3</sup> · S<sup>1/2</sup></div><div class="eqn-note">n: hệ số nhám Manning (phụ thuộc vật liệu đáy/bờ sông) · R_h: bán kính thủy lực ≈ A/chu vi ướt · S: độ dốc mặt nước</div></div>
-<ul class="bullets"><li>Phương trình thực nghiệm kinh điển trong thủy lực học kênh hở, dùng từ hơn 100 năm nay cho sông/kênh mương</li><li><b>S</b> (độ dốc mặt nước dọc sông) chính là đại lượng SWOT đo trực tiếp được (Module 2) — đây là lý do SWOT có giá trị đặc biệt cho bài toán này</li><li><b>R_h</b> với sông rộng gần đúng bằng độ sâu trung bình — vẫn cần liên hệ với W, h quan sát được</li></ul>
+<ul class="bullets"><li>Phương trình thực nghiệm kinh điển trong thủy lực học kênh hở, do kỹ sư Robert Manning công bố năm 1889, dùng tới nay cho sông/kênh mương</li><li><b>S</b> (độ dốc mặt nước dọc sông) chính là đại lượng SWOT đo trực tiếp được (Module 2) — đây là lý do SWOT có giá trị đặc biệt cho bài toán này</li><li><b>R_h</b> với sông rộng gần đúng bằng độ sâu trung bình — vẫn cần liên hệ với W, h quan sát được</li><li>Giá trị n điển hình theo tài liệu thủy lực học: kênh đất tự nhiên sạch ~0.025–0.033, sông có nhiều đá/thực vật ven bờ ~0.035–0.05, kênh bê tông ~0.013–0.017 — minh hoạ khoảng biến thiên rất rộng khiến n khó giả định cố định</li></ul>
 `));
 
 slide(wrap(`
@@ -776,7 +786,8 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 4 · Discharge</div>
 <h1>Ví dụ tính tay: ước lượng Q gần đúng bằng Manning</h1>
-<div class="example-box"><span class="tag-ex">Ví dụ (số liệu minh hoạ, đơn giản hoá)</span><div class="step">Cho: một Reach sông có W = 150 m, độ sâu trung bình ước tính D ≈ 3 m, độ dốc mặt nước S = 0.0001 (đo bởi SWOT), hệ số nhám giả định n = 0.03 (đáy cát/sỏi tự nhiên)</div><div class="step">Tính R_h ≈ D = 3 m (gần đúng vì sông rất rộng so với sâu)</div><div class="step">Áp dụng Manning: <b>V = (1/0.03) × 3^(2/3) × 0.0001^(1/2)</b> ≈ 33.3 × 2.08 × 0.01 ≈ <b>0.69 m/s</b></div><div class="step">Diện tích mặt cắt ước tính A ≈ W × D = 150 × 3 = 450 m²</div><div class="step"><b>Q = A × V ≈ 450 × 0.69 ≈ 310 m³/s</b></div></div>
+<div class="example-box"><span class="tag-ex">Ví dụ 1 (số liệu minh hoạ, đơn giản hoá)</span><div class="step">Cho: một Reach sông có W = 150 m, độ sâu trung bình ước tính D ≈ 3 m, độ dốc mặt nước S = 0.0001 (đo bởi SWOT), hệ số nhám giả định n = 0.03 (đáy cát/sỏi tự nhiên)</div><div class="step">Tính R_h ≈ D = 3 m (gần đúng vì sông rất rộng so với sâu)</div><div class="step">Áp dụng Manning: <b>V = (1/0.03) × 3^(2/3) × 0.0001^(1/2)</b> ≈ 33.3 × 2.08 × 0.01 ≈ <b>0.69 m/s</b></div><div class="step">Diện tích mặt cắt ước tính A ≈ W × D = 150 × 3 = 450 m²</div><div class="step"><b>Q = A × V ≈ 450 × 0.69 ≈ 310 m³/s</b></div></div>
+<div class="example-box"><span class="tag-ex">Ví dụ 2 — cùng sông, mùa thực vật phát triển (n tăng gấp đôi)</span><div class="step">Cùng Reach, cùng W=150m, D=3m, S=0.0001 — nhưng mùa hè thực vật ven bờ phát triển mạnh, n thực tế tăng lên 0.06 (gấp đôi Ví dụ 1)</div><div class="step">V = (1/0.06) × 3^(2/3) × 0.0001^(1/2) ≈ 16.7 × 2.08 × 0.01 ≈ <b>0.35 m/s</b> (giảm còn một nửa so với Ví dụ 1)</div><div class="step">Q = 450 × 0.35 ≈ <b>156 m³/s</b> — giảm gần 50% so với 310 m³/s dù W, D, S không đổi</div><div class="step">→ Minh hoạ định lượng cho pitfall ở slide sau: giữ n cố định trong khi n thực tế đổi theo mùa gây sai số hệ thống rất lớn (ở đây gần 2 lần) cho Q ước tính</div></div>
 `));
 
 slide(wrap(`
@@ -806,7 +817,7 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 4 · Discharge</div>
 <h1>Tự kiểm tra</h1>
-<div class="checkpoint"><div class="q">❓ Vì sao cần cả phương trình liên tục Q=AV lẫn phương trình Manning?</div><div class="a">Vì Q=AV có 2 ẩn số (A, V) không quan sát trực tiếp được; Manning cho một phương trình thứ hai liên hệ V với S (đo được từ SWOT) và R_h, giúp giảm số ẩn cần suy luận.</div></div><div class="checkpoint"><div class="q">❓ AMHG giảm số tham số cần ước lượng bằng cách nào?</div><div class="a">Bằng cách ràng buộc lưu lượng Q phải xấp xỉ bằng nhau giữa các mặt cắt lân cận dọc cùng đoạn sông (bảo toàn khối lượng), giảm một nửa số tham số hydraulic geometry cần giải.</div></div><div class="checkpoint"><div class="q">❓ Vì sao khó validate Q vệ tinh chính ở những nơi cần nó nhất?</div><div class="a">Vì các sông không có trạm đo hoặc không chia sẻ số liệu (ungauged/transboundary) chính là nơi thiếu số liệu tham chiếu độc lập để so sánh/kiểm chứng kết quả ước tính từ vệ tinh.</div></div>
+<div class="checkpoint"><div class="q">❓ Vì sao cần cả phương trình liên tục Q=AV lẫn phương trình Manning?</div><div class="a">Vì Q=AV có 2 ẩn số (A, V) không quan sát trực tiếp được; Manning cho một phương trình thứ hai liên hệ V với S (đo được từ SWOT) và R_h, giúp giảm số ẩn cần suy luận.</div></div><div class="checkpoint"><div class="q">❓ AMHG giảm số tham số cần ước lượng bằng cách nào?</div><div class="a">Bằng cách ràng buộc lưu lượng Q phải xấp xỉ bằng nhau giữa các mặt cắt lân cận dọc cùng đoạn sông (bảo toàn khối lượng), giảm một nửa số tham số hydraulic geometry cần giải.</div></div><div class="checkpoint"><div class="q">❓ Vì sao khó validate Q vệ tinh chính ở những nơi cần nó nhất?</div><div class="a">Vì các sông không có trạm đo hoặc không chia sẻ số liệu (ungauged/transboundary) chính là nơi thiếu số liệu tham chiếu độc lập để so sánh/kiểm chứng kết quả ước tính từ vệ tinh.</div></div><div class="checkpoint"><div class="q">❓ Trong ví dụ tính tay, vì sao Q giảm gần một nửa khi n tăng gấp đôi, dù W/D/S không đổi?</div><div class="a">Vì trong phương trình Manning, V tỉ lệ nghịch trực tiếp với n (V=(1/n)·Rh^(2/3)·S^(1/2)) — n tăng gấp đôi làm V giảm còn một nửa, và vì Q=A·V với A không đổi, Q cũng giảm còn một nửa.</div></div>
 `));
 
 slide(wrap(`
@@ -874,7 +885,8 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 5 · Data Assimilation</div>
 <h1>Ví dụ tính tay: tính K cho một biến số vô hướng</h1>
-<div class="example-box"><span class="tag-ex">Ví dụ (đơn giản hoá về trường hợp 1 biến, không phải ma trận)</span><div class="step">Cho: mô hình dự báo mực nước z^f = 5.0 m, độ bất định (phương sai) P = 0.25 m² (độ lệch chuẩn 0.5m)</div><div class="step">Quan sát SWOT: y = 5.3 m, độ bất định quan sát R = 0.01 m² (độ lệch chuẩn 0.1m, khá tin cậy)</div><div class="step">Giả sử H = 1 (quan sát trực tiếp cùng biến): <b>K = P/(P+R)</b> = 0.25/(0.25+0.01) ≈ <b>0.962</b></div><div class="step">z^a = z^f + K(y − z^f) = 5.0 + 0.962×(5.3−5.0) = 5.0 + 0.289 ≈ <b>5.29 m</b></div><div class="step">K gần 1 vì quan sát tin cậy hơn hẳn mô hình — kết quả phân tích rất gần với quan sát y</div></div>
+<div class="example-box"><span class="tag-ex">Ví dụ 1 — quan sát đáng tin hơn mô hình</span><div class="step">Cho: mô hình dự báo mực nước z^f = 5.0 m, độ bất định (phương sai) P = 0.25 m² (độ lệch chuẩn 0.5m)</div><div class="step">Quan sát SWOT: y = 5.3 m, độ bất định quan sát R = 0.01 m² (độ lệch chuẩn 0.1m, khá tin cậy)</div><div class="step">Giả sử H = 1 (quan sát trực tiếp cùng biến): <b>K = P/(P+R)</b> = 0.25/(0.25+0.01) ≈ <b>0.962</b></div><div class="step">z^a = z^f + K(y − z^f) = 5.0 + 0.962×(5.3−5.0) = 5.0 + 0.289 ≈ <b>5.29 m</b></div><div class="step">K gần 1 vì quan sát tin cậy hơn hẳn mô hình — kết quả phân tích rất gần với quan sát y</div></div>
+<div class="example-box"><span class="tag-ex">Ví dụ 2 — đảo ngược: mô hình đáng tin hơn quan sát</span><div class="step">Cùng z^f = 5.0 m, y = 5.3 m — nhưng lần này mô hình rất tốt (P = 0.01 m²) còn quan sát bị nhiễu mây một phần (R = 0.25 m²)</div><div class="step">K = P/(P+R) = 0.01/(0.01+0.25) ≈ <b>0.038</b></div><div class="step">z^a = 5.0 + 0.038×(5.3−5.0) = 5.0 + 0.011 ≈ <b>5.01 m</b></div><div class="step">K gần 0 vì quan sát kém tin cậy — kết quả phân tích gần như giữ nguyên dự báo mô hình, gần như bỏ qua quan sát nhiễu</div></div>
 `));
 
 slide(wrap(`
@@ -956,7 +968,7 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 5 · Data Assimilation</div>
 <h1>Tự kiểm tra</h1>
-<div class="checkpoint"><div class="q">❓ Kalman gain K lớn khi nào, nhỏ khi nào?</div><div class="a">K lớn khi mô hình rất bất định (P lớn) so với quan sát tin cậy (R nhỏ) — phân tích nghiêng về quan sát. K nhỏ khi ngược lại — giữ gần dự báo mô hình.</div></div><div class="checkpoint"><div class="q">❓ EnKF giải quyết vấn đề gì mà Kalman Filter chuẩn không làm được?</div><div class="a">EnKF tránh phải tính tường minh ma trận hiệp phương sai P cực lớn ở bài toán quy mô lưu vực, bằng cách xấp xỉ P bằng hiệp phương sai mẫu từ N thành viên ensemble chạy song song.</div></div><div class="checkpoint"><div class="q">❓ Vì sao sai số tương quan không gian của SWOT là một thách thức riêng cho EnKF?</div><div class="a">Vì ma trận Γ (sai số quan sát) không thể coi là đường chéo đơn giản — bỏ qua tương quan này khiến thuật toán đánh giá quá cao độ tin cậy quan sát, làm K lớn sai lệch.</div></div>
+<div class="checkpoint"><div class="q">❓ Kalman gain K lớn khi nào, nhỏ khi nào?</div><div class="a">K lớn khi mô hình rất bất định (P lớn) so với quan sát tin cậy (R nhỏ) — phân tích nghiêng về quan sát. K nhỏ khi ngược lại — giữ gần dự báo mô hình.</div></div><div class="checkpoint"><div class="q">❓ EnKF giải quyết vấn đề gì mà Kalman Filter chuẩn không làm được?</div><div class="a">EnKF tránh phải tính tường minh ma trận hiệp phương sai P cực lớn ở bài toán quy mô lưu vực, bằng cách xấp xỉ P bằng hiệp phương sai mẫu từ N thành viên ensemble chạy song song.</div></div><div class="checkpoint"><div class="q">❓ Vì sao sai số tương quan không gian của SWOT là một thách thức riêng cho EnKF?</div><div class="a">Vì ma trận Γ (sai số quan sát) không thể coi là đường chéo đơn giản — bỏ qua tương quan này khiến thuật toán đánh giá quá cao độ tin cậy quan sát, làm K lớn sai lệch.</div></div><div class="checkpoint"><div class="q">❓ Trong ví dụ tính tay, vì sao K ≈ 0.038 ở Ví dụ 2 dù công thức giống hệt Ví dụ 1?</div><div class="a">Vì K = P/(P+R) phụ thuộc TỈ LỆ giữa P và R chứ không phải giá trị tuyệt đối — ở Ví dụ 2, P nhỏ hơn nhiều so với R (mô hình đáng tin hơn quan sát), nên K nhỏ, ngược hoàn toàn với Ví dụ 1.</div></div>
 `));
 
 slide(wrap(`
@@ -1098,7 +1110,7 @@ slide(wrap(`
 slide(wrap(`
 <div class="eyebrow">Module 6 · Flood & Transboundary</div>
 <h1>Tự kiểm tra</h1>
-<div class="checkpoint"><div class="q">❓ Vì sao SAR là công cụ chính cho giám sát lũ khẩn cấp thay vì quang học?</div><div class="a">Vì SAR hoạt động cả ngày/đêm và xuyên mây, trong khi lũ thường xảy ra cùng mây dày khiến quang học (Sentinel-2) không dùng được đúng lúc cần nhất.</div></div><div class="checkpoint"><div class="q">❓ Virtual gauge là gì và tại sao có ích cho quản lý xuyên biên giới?</div><div class="a">Là dùng chuỗi thời gian vệ tinh làm 'trạm đo ảo' tại nơi không có thiết bị vật lý — hữu ích ở các vị trí nhạy cảm như ngay hạ lưu đập, tăng minh bạch mà không cần trạm đo do quốc gia thượng lưu vận hành.</div></div><div class="checkpoint"><div class="q">❓ Vì sao chu kỳ 21 ngày của SWOT không đủ cho cảnh báo lũ khẩn cấp một mình?</div><div class="a">Vì lũ diễn biến trong vài ngày, nhanh hơn nhiều so với tần suất quan sát 21 ngày — cần kết hợp SAR tần suất cao hơn và mô hình số chạy liên tục, được SWOT hiệu chỉnh định kỳ (Module 5).</div></div>
+<div class="checkpoint"><div class="q">❓ Vì sao SAR là công cụ chính cho giám sát lũ khẩn cấp thay vì quang học?</div><div class="a">Vì SAR hoạt động cả ngày/đêm và xuyên mây, trong khi lũ thường xảy ra cùng mây dày khiến quang học (Sentinel-2) không dùng được đúng lúc cần nhất.</div></div><div class="checkpoint"><div class="q">❓ Virtual gauge là gì và tại sao có ích cho quản lý xuyên biên giới?</div><div class="a">Là dùng chuỗi thời gian vệ tinh làm 'trạm đo ảo' tại nơi không có thiết bị vật lý — hữu ích ở các vị trí nhạy cảm như ngay hạ lưu đập, tăng minh bạch mà không cần trạm đo do quốc gia thượng lưu vận hành.</div></div><div class="checkpoint"><div class="q">❓ Vì sao chu kỳ 21 ngày của SWOT không đủ cho cảnh báo lũ khẩn cấp một mình?</div><div class="a">Vì lũ diễn biến trong vài ngày, nhanh hơn nhiều so với tần suất quan sát 21 ngày — cần kết hợp SAR tần suất cao hơn và mô hình số chạy liên tục, được SWOT hiệu chỉnh định kỳ (Module 5).</div></div><div class="checkpoint"><div class="q">❓ Vì sao SAR bị nhiễu bởi cả double-bounce đô thị lẫn gió mạnh, và hai hiệu ứng này lệch về hướng nào?</div><div class="a">Double-bounce đô thị làm backscatter TĂNG giả tạo tại vùng ngập có nhà cửa (dễ bị đọc nhầm là KHÔNG có nước); gió mạnh làm mặt nước gợn sóng khiến backscatter cũng TĂNG (khiến vùng ngập bị đánh giá THẤP hơn thực tế) — cả hai cùng gây đánh giá thiếu diện tích ngập, theo hai cơ chế vật lý khác nhau.</div></div>
 `));
 
 slide(wrap(`
