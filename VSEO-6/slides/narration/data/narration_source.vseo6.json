@@ -1,0 +1,1203 @@
+[
+  {
+    "idx": 0,
+    "chunks": [
+      {
+        "text": "Chào mừng bạn đến với bộ bài giảng kiến thức nền tảng của khóa học VSEO6, Vietnam School of Earth Observation lần thứ sáu, chủ đề đo cao vệ tinh phục vụ giám sát nước lục địa. Bài giảng này chia làm sáu module, đi từ kỹ thuật đo cao cổ điển, đến sứ mệnh SWOT hiện đại, cách xử lý dữ liệu, cách ước tính lưu lượng dòng chảy, kỹ thuật đồng hóa dữ liệu, và cuối cùng là ứng dụng thực tế trong giám sát lũ lụt và quản lý sông xuyên biên giới. Mỗi module đều đi theo một mạch giống nhau: định nghĩa, phương trình, ví dụ tính tay, sơ đồ minh họa, sản phẩm dữ liệu thực tế, những sai lầm thường gặp, và một phần tự kiểm tra kiến thức. Bạn có thể bấm nút loa ở góc mỗi slide để nghe phần trình bày này, hoặc bật chế độ tự động để bài giảng tự chuyển sang slide kế tiếp sau khi đọc xong slide hiện tại.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 1,
+    "chunks": [
+      {
+        "text": "Chúng ta bắt đầu với module một: Nadir Altimetry, tức là đo cao radar theo phương thẳng đứng. Đây là kỹ thuật đo cao vệ tinh cổ điển nhất, ra đời từ đầu thập niên chín mươi, và là nền tảng cho mọi kỹ thuật đo cao hiện đại sau này, kể cả SWOT mà chúng ta sẽ học ở module hai.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 2,
+    "chunks": [
+      {
+        "text": "Nguyên lý hoạt động của nadir altimetry khá đơn giản để hình dung. Vệ tinh mang theo một thiết bị gọi là altimeter radar, phát ra một xung sóng radar thẳng xuống dưới, theo đúng phương nadir, nghĩa là điểm ngay dưới chân vệ tinh. Xung sóng này đi xuống, chạm vào mặt nước hoặc mặt đất, rồi phản xạ ngược trở lại lên vệ tinh. Ăng-ten trên vệ tinh thu lại tín hiệu phản xạ đó, và đo được thời gian đi rồi về của xung sóng, ký hiệu là delta t. Từ thời gian này, ta suy ra được khoảng cách giữa vệ tinh và bề mặt, gọi là R. Cuối cùng, kết hợp khoảng cách R với độ cao quỹ đạo của vệ tinh, vốn đã biết rất chính xác nhờ hệ thống định vị riêng, ta tính ra được độ cao thực của bề mặt nước, ký hiệu là h.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 3,
+    "chunks": [
+      {
+        "text": "Bây giờ chúng ta đi vào phương trình toán học đầu tiên và quan trọng nhất của cả bài giảng, gọi là phương trình khoảng cách, hay range equation.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Phương trình được viết là: R bằng c nhân delta t, chia hai.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Trong đó, c là vận tốc ánh sáng, khoảng ba trăm nghìn ki-lô-mét trên giây, còn delta t là thời gian đi và về của xung radar mà altimeter đo được. Sở dĩ phải chia cho hai, là vì xung sóng đi xuống rồi lại phản xạ về, nên thời gian đo được là tổng của cả hai chặng, còn khoảng cách R chỉ là một chiều mà thôi. Delta t thường chỉ cỡ vài phần nghìn giây, vì vệ tinh bay ở độ cao tám trăm đến một nghìn ba trăm ki-lô-mét. Và cần lưu ý, R ở đây mới chỉ là khoảng cách thô, chưa phải là độ cao mặt nước, vẫn cần thêm một bước nữa. Đặc biệt, để đạt độ chính xác cỡ xen-ti-mét cho độ cao cuối cùng, delta t phải được đo với sai số cực nhỏ, cỡ picô giây, tức một phần nghìn tỷ giây, nên đồng hồ dao động trên altimeter phải cực kỳ ổn định.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 4,
+    "chunks": [
+      {
+        "text": "Từ khoảng cách R, làm sao ra được độ cao mặt nước h? Chúng ta dùng phương trình thứ hai.",
+        "rate": "+0%"
+      },
+      {
+        "text": "h bằng H sat, trừ đi, R cộng tổng các hiệu chỉnh.",
+        "rate": "-12%"
+      },
+      {
+        "text": "H sat ở đây là độ cao quỹ đạo của vệ tinh so với một mặt ellipsoid tham chiếu, và con số này không phải do altimeter đo, mà do một hệ thống định vị quỹ đạo riêng biệt cung cấp, kết hợp GPS hoặc DORIS trên vệ tinh với các trạm mặt đất, cho độ chính xác cỡ xen-ti-mét. Trước khi trừ, khoảng cách R còn phải được cộng thêm các hiệu chỉnh địa vật lý, chủ yếu là do khí quyển, mà chúng ta sẽ tìm hiểu ở các slide sau. Và độ cao h cuối cùng tính ra được, là so với mặt ellipsoid toán học, chứ không phải so với mực nước biển thực tế, đây là một điểm rất dễ gây nhầm lẫn mà chúng ta sẽ quay lại sau.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 5,
+    "chunks": [
+      {
+        "text": "Một câu hỏi đặt ra là, tại sao không thể dùng thẳng thời gian tín hiệu thô để tính, mà cần thêm một bước xử lý nữa? Lý do là vì xung phản xạ khi quay về không phải là một điểm thời gian duy nhất, mà tạo ra cả một dạng sóng, gọi là waveform, trải dài theo thời gian. Bộ theo dõi ngay trên vệ tinh chỉ khóa được một cách gần đúng, nên dưới mặt đất cần phải xử lý lại để xác định chính xác thời điểm xung thực sự chạm tới bề mặt. Quá trình này gọi là retracking: khớp một mô hình toán học với dạng sóng thực đo được, để tìm lại điểm mốc thời gian chính xác hơn. Trên đại dương rộng và phẳng, dạng sóng khá chuẩn, gọi là mô hình Brown. Nhưng trên sông hồ hẹp, dạng sóng bị méo mó bởi bờ sông và thảm thực vật, nên cần một loại retracker chuyên biệt hơn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 6,
+    "chunks": [
+      {
+        "text": "Có hai loại retracker chính được dùng cho hai loại bề mặt khác nhau. Thứ nhất là mô hình Brown, dùng cho đại dương: nó giả định mặt biển có phân bố thống kê phẳng, cho ra một dạng sóng chuẩn, một đỉnh, trơn tru, rất phù hợp với mặt nước rộng và đồng nhất. Thứ hai là retracker kiểu OCOG, hay ngưỡng phần trăm biên độ, dùng cho nước lục địa: loại này không giả định trước hình dạng sóng cụ thể, mà tìm trọng tâm năng lượng của tín hiệu, nên chịu được các dạng sóng nhiễu, nhiều đỉnh, đặc trưng cho sông hẹp có bờ và thảm thực vật xen kẽ. Một sai lầm rất thường gặp là dùng nhầm retracker chuẩn đại dương cho một con sông hẹp dưới một ki lô mét, điều này sẽ cho ra kết quả sai lệch có hệ thống, vì giả định nền tảng của mô hình Brown không còn đúng nữa.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 7,
+    "chunks": [
+      {
+        "text": "Bây giờ chúng ta thử tính một ví dụ cụ thể để hiểu rõ hơn phương trình range equation. Giả sử altimeter đo được delta t bằng năm phẩy ba tư mili giây. Áp dụng công thức R bằng c nhân delta t chia hai, ta được R xấp xỉ tám trăm lẻ một ki lô mét. Nếu độ cao quỹ đạo vệ tinh là tám trăm lẻ ba ki lô mét, và tổng hiệu chỉnh khoảng ba mươi xen-ti-mét, thì độ cao mặt nước h tính ra xấp xỉ một nghìn chín trăm chín mươi chín phẩy bảy mét so với mặt ellipsoid. Bây giờ thử một kịch bản thứ hai để kiểm tra tính hợp lý: nếu mực nước hồ dâng thêm đúng một mét, thì delta t đo được sẽ chỉ thay đổi khoảng sáu phẩy bảy na-nô giây, một con số cực nhỏ, nhưng vẫn đo được nhờ độ chính xác picô giây mà chúng ta đã nói ở slide trước.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 8,
+    "chunks": [
+      {
+        "text": "Nhìn vào hình dạng sóng phản xạ, chúng ta có thể biết được nhiều điều về bề mặt phản xạ. Trục ngang biểu diễn thời gian, còn trục dọc biểu diễn năng lượng phản xạ nhận về. Với mặt biển, dạng sóng tăng dốc rồi giảm dần một cách trơn tru, chỉ có một đỉnh duy nhất, khớp rất tốt với mô hình Brown, và điểm nửa năng lượng được xác định rất rõ ràng. Nhưng với sông hồ hẹp, dạng sóng trở nên răng cưa, nhiều đỉnh, do tín hiệu phản xạ lẫn cả từ bờ sông lẫn từ thảm thực vật xen kẽ với mặt nước phẳng, và đây chính là lý do cần retracker OCOG chuyên biệt.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 9,
+    "chunks": [
+      {
+        "text": "Slide này tổng hợp lại toàn bộ các nguồn sai số trong một phép đo altimetry, gọi là precision budget. Tầng đối lưu khô đóng góp khoảng hai phẩy ba mét, nhưng rất ổn định và mô hình hóa tốt. Tầng đối lưu ướt chỉ đóng góp vài xen-ti-mét đến decimet, nhưng lại biến động nhanh nhất và khó dự đoán nhất. Tầng điện ly đóng góp hai đến tám xen-ti-mét, được sửa bằng kỹ thuật đo hai tần số cùng lúc. Sai số quỹ đạo hiện chỉ còn cỡ xen-ti-mét, đã cải thiện rất nhiều so với thời TOPEX, khi còn ở mức decimet. Và cuối cùng, sai số retracking trên sông hồ dao động vài xen-ti-mét đến decimet, tùy thuộc độ rộng sông và mật độ thảm thực vật ven bờ.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 10,
+    "chunks": [
+      {
+        "text": "Vì sao altimeter cần đo cùng lúc hai tần số radar khác nhau? Đa số altimeter hiện nay mang hai tần số đồng thời, ví dụ băng Ku khoảng mười ba phẩy sáu Gigahertz, và băng C khoảng năm phẩy ba Gigahertz, như trên dòng vệ tinh Jason và Sentinel sáu. Lý do là vì độ trễ do tầng điện ly gây ra tỷ lệ nghịch với bình phương tần số. Khi đo cùng lúc hai tần số, ta có thể giải một hệ hai phương trình, để tách riêng phần trễ do điện ly ra khỏi khoảng cách thật.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Công thức tổ hợp gọi là ionosphere free được viết là: R free bằng f Ku bình phương nhân R Ku, trừ f C bình phương nhân R C, tất cả chia cho f Ku bình phương trừ f C bình phương.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Nếu không có kỹ thuật đo hai tần số này, người ta phải dùng một mô hình điện ly toàn cầu, vốn kém chính xác hơn nhiều so với đo trực tiếp, đó là lý do vì sao thiết kế hai tần số gần như là bắt buộc đối với mọi altimeter đòi hỏi độ chính xác cao.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 11,
+    "chunks": [
+      {
+        "text": "Slide này tóm tắt lại ba hiệu chỉnh địa vật lý bắt buộc trước khi tính ra độ cao cuối cùng. Tầng đối lưu khô đóng góp khoảng hai phẩy ba mét, tính trực tiếp từ áp suất khí quyển bề mặt, rất ổn định và ít sai số dư. Tầng đối lưu ướt chỉ vài xen-ti-mét đến decimet, nhưng phụ thuộc lượng hơi nước trong khí quyển, biến động rất nhanh theo thời tiết, và đây là hiệu chỉnh khó và bất định nhất trong cả ba. Còn tầng điện ly, hai đến tám xen-ti-mét, phụ thuộc tần số radar, được đo bằng cách kết hợp hai băng tần như chúng ta vừa học ở slide trước.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 12,
+    "chunks": [
+      {
+        "text": "Một hạn chế lớn của nadir altimetry là độ phủ không gian rất thưa thớt, và đây là lý do tại sao. Altimeter chỉ đo được dọc theo một vệt hẹp, gọi là ground track, ngay dưới đường bay của vệ tinh. Với sông hay hồ, dữ liệu chỉ tồn tại tại những điểm giao cắt cố định, giữa quỹ đạo vệ tinh và thân nước. Số điểm giao cắt trên một con sông phụ thuộc vào hình học quỹ đạo, có khi chỉ một hoặc hai điểm cho cả một con sông dài hàng nghìn ki lô mét. Nhưng bù lại, mỗi điểm giao cắt lại có một chuỗi thời gian rất dài, vì quỹ đạo vệ tinh lặp lại đều đặn theo chu kỳ cố định qua nhiều năm, thậm chí nhiều thập kỷ.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 13,
+    "chunks": [
+      {
+        "text": "Nadir altimetry đã có một lịch sử phát triển liên tục hơn ba mươi năm. Bắt đầu từ năm một nghìn chín trăm chín mươi hai, với sứ mệnh TOPEX Poseidon, lần đầu tiên chứng minh được độ chính xác cỡ xen-ti-mét cho đo cao đại dương. Sau đó là chuỗi vệ tinh Jason một, hai, ba, ra đời lần lượt vào các năm hai nghìn lẻ một, hai nghìn lẻ tám, và hai nghìn mười sáu, kế thừa cùng một quỹ đạo tham chiếu để nối dài chuỗi số liệu. Cùng năm hai nghìn mười sáu và hai nghìn mười tám, chương trình Copernicus của châu Âu bổ sung hai vệ tinh Sentinel ba A và ba B, bay trên quỹ đạo khác để tăng số điểm giao cắt với sông hồ. Đến năm hai nghìn hai mươi, vệ tinh Sentinel sáu Michael Freilich ra đời, kế thừa vị trí của Jason ba. Và cuối cùng, năm hai nghìn hai mươi hai, sứ mệnh SWOT xuất hiện, bổ sung kỹ thuật đo diện rộng hoàn toàn mới, mà chúng ta sẽ tìm hiểu ngay ở module hai.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 14,
+    "chunks": [
+      {
+        "text": "Trong khóa học thực tế, ngay buổi khai giảng, học viên sẽ được thực hành tải và phân tích dữ liệu nadir. Quy trình thông thường là: chọn vệ tinh và chu kỳ lặp quan tâm, lọc dữ liệu theo khu vực địa lý cần khảo sát, trích xuất chuỗi thời gian tại đúng điểm giao cắt với sông hoặc hồ, áp dụng đầy đủ các hiệu chỉnh mà chúng ta đã học ở những slide trước, rồi cuối cùng vẽ biểu đồ mực nước biến đổi theo thời gian. Đây chính xác là quy trình nền tảng, sẽ được lặp lại ở module ba khi học về Hydroweb-next, chỉ khác là ở đó dữ liệu đã được xử lý sẵn, không cần tự áp hiệu chỉnh từ đầu nữa.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 15,
+    "chunks": [
+      {
+        "text": "Giá trị cốt lõi nhất của nadir altimetry chính là chuỗi thời gian rất dài của nó. Từ TOPEX Poseidon năm một nghìn chín trăm chín mươi hai, qua chuỗi Jason, đến Sentinel sáu ngày nay, đó là một dòng vệ tinh kế thừa cùng quỹ đạo tham chiếu, giữ được chuỗi đo liên tục hơn ba mươi năm. Thêm vào đó, Sentinel ba A và ba B của Copernicus hoạt động song song trên quỹ đạo khác, làm tăng mật độ điểm giao cắt. Chuỗi số liệu dài như vậy cho phép phát hiện những xu hướng dài hạn, chẳng hạn biến đổi khí hậu, hay sự sụt giảm dung tích hồ chứa theo từng thập kỷ, điều mà một lần đo đơn lẻ của SWOT, vốn chỉ mới có từ năm hai nghìn hai mươi hai, không thể cho biết được. Tuy nhiên, cần lưu ý rằng mỗi vệ tinh có quỹ đạo, tần số và độ chính xác khác nhau, nên khi ghép nhiều chuỗi thời gian từ các vệ tinh khác nhau lại, cần phải hiệu chỉnh chênh lệch hệ thống giữa các sứ mệnh trước, nếu không sẽ tạo ra một chuỗi số liệu bị sai lệch giả tạo.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 16,
+    "chunks": [
+      {
+        "text": "Đây là một trong những khái niệm dễ gây nhầm lẫn nhất của cả bài giảng: sự khác biệt giữa mặt ellipsoid và mặt geoid. Độ cao h chúng ta tính ra từ phương trình range equation là so với mặt ellipsoid, một mặt toán học trơn tru, chẳng hạn WGS84, chứ không phải mực nước biển thực.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Công thức quy đổi được viết là: H, độ cao chính, bằng h ellipsoid, trừ N geoid.",
+        "rate": "-12%"
+      },
+      {
+        "text": "N geoid là độ lệch giữa geoid và ellipsoid tại vị trí đó, được tra từ một mô hình toàn cầu, chẳng hạn EGM hai nghìn lẻ tám. Geoid là bề mặt đẳng thế trọng lực, xấp xỉ mực nước biển trung bình nếu bỏ qua gió và dòng chảy, và nó gồ ghề hơn ellipsoid rất nhiều, vì phản ánh đúng phân bố khối lượng thật của Trái Đất. Trạm đo tại chỗ thường báo cáo theo một datum địa phương gần geoid, nên không thể so sánh trực tiếp với độ cao ellipsoid nếu chưa quy đổi. Ellipsoid tham chiếu chuẩn WGS84 có bán trục lớn sáu triệu ba trăm bảy mươi tám nghìn một trăm ba mươi bảy mét, và độ dẹt một phần hai trăm chín mươi tám phẩy hai năm bảy. Một sai lầm rất thường gặp là so sánh trực tiếp độ cao vệ tinh với số liệu trạm đo mà quên quy đổi qua geoid, chênh lệch có thể lên tới vài mét, và dễ bị hiểu nhầm thành lỗi của vệ tinh.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 17,
+    "chunks": [
+      {
+        "text": "Sản phẩm dữ liệu chuẩn của nadir altimetry gọi là GDR, viết tắt của Geophysical Data Record, là một chuỗi độ cao dọc theo vệt bay của vệ tinh, đã áp dụng đầy đủ mọi hiệu chỉnh. Với hồ hay hồ chứa, người ta trích xuất chuỗi thời gian tại đúng điểm giao cắt, qua nhiều chu kỳ lặp lại. Một ví dụ thực tế ngay trong khóa học này, là nghiên cứu của tiến sĩ Bình Phạm Đức từ USTH, kết hợp ảnh Sentinel một với dữ liệu altimetry, để giám sát biến động thể tích hồ Tonlé Sap ở Campuchia, và hồ chứa Thác Mơ ở Việt Nam.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 18,
+    "chunks": [
+      {
+        "text": "Trước khi kết thúc module một, chúng ta điểm lại hai sai lầm phổ biến nhất. Thứ nhất, ba mặt tham chiếu độ cao khác nhau, ellipsoid, geoid, và datum địa phương, cho ra ba con số độ cao khác nhau tại cùng một điểm, nên luôn phải ghi rõ đang dùng datum nào, trước khi so sánh dữ liệu từ nhiều nguồn khác nhau, đặc biệt khi kết hợp vệ tinh với trạm đo tại chỗ. Thứ hai, vì hiệu chỉnh khí quyển ướt là hiệu chỉnh biến động nhanh nhất, nếu bỏ qua nó, hoặc dùng một giá trị trung bình khí hậu thay vì giá trị tức thời, sẽ gây ra sai số ngẫu nhiên cỡ xen-ti-mét đến decimet, làm nhiễu cả chuỗi thời gian mực nước.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 19,
+    "chunks": [
+      {
+        "text": "Đây là phần tự kiểm tra kiến thức của module một, gồm bốn câu hỏi. Câu một: vì sao công thức range equation lại chia cho hai? Vì xung radar đi xuống rồi phản xạ về, nên delta t đo được là tổng thời gian cả hai chiều. Câu hai: retracker OCOG khác gì mô hình Brown? Mô hình Brown giả định một dạng sóng chuẩn cho mặt biển rộng, còn OCOG không giả định hình dạng cụ thể, chịu được dạng sóng nhiễu của sông hồ hẹp. Câu ba: vì sao nadir altimetry có độ phủ thưa nhưng chuỗi thời gian lại dài? Vì chỉ đo dọc một vệt hẹp cố định, nhưng quỹ đạo lặp lại đều đặn qua nhiều thập kỷ, đúng tại những điểm đó. Câu bốn: tổ hợp đo hai tần số triệt tiêu được sai số nào, và vì sao cần trọng số bình phương tần số? Nó triệt tiêu sai số điện ly, vì độ trễ điện ly tỷ lệ nghịch với bình phương tần số, nên phép trừ có trọng số cho phép tách phần trễ điện ly ra khỏi khoảng cách thật.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 20,
+    "chunks": [
+      {
+        "text": "Tổng kết lại module một, có ba điều cốt lõi cần mang theo sang các module tiếp theo. Thứ nhất, công thức R bằng c nhân delta t chia hai, rồi h bằng H sat trừ R cộng hiệu chỉnh, là nền tảng của mọi phép đo altimetry, kể cả kỹ thuật KaRIn ở module hai, chỉ khác cách suy ra R mà thôi. Thứ hai, nadir altimetry đo tại điểm, dọc một vệt hẹp, độ phủ thưa, và đây chính là lý do vì sao SWOT ra đời, để đo theo cả một diện tích rộng. Thứ ba, luôn luôn phân biệt rõ ellipsoid, geoid, và datum địa phương, vì sai lầm về datum là nguồn lỗi phổ biến nhất khi kết hợp dữ liệu đa nguồn xuyên suốt cả khóa học.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 21,
+    "chunks": [
+      {
+        "text": "Chuyển sang module hai, chúng ta sẽ tìm hiểu về sứ mệnh SWOT, viết tắt của Surface Water and Ocean Topography. Đây là bước chuyển từ việc đo tại một điểm rời rạc, sang xây dựng cả một bản đồ hai chiều độ phân giải cao, nhờ kỹ thuật giao thoa radar.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 22,
+    "chunks": [
+      {
+        "text": "SWOT là tên đầy đủ của Surface Water and Ocean Topography, một sứ mệnh hợp tác giữa NASA và CNES, có đóng góp thêm từ cơ quan vũ trụ Canada và Anh. Vệ tinh được phóng vào ngày mười sáu tháng mười hai năm hai nghìn hai mươi hai, bằng tên lửa SpaceX Falcon chín, từ căn cứ Vandenberg. Quỹ đạo khoa học của nó lặp lại theo chu kỳ khoảng hai mươi mốt ngày, và phủ được hơn chín mươi phần trăm diện tích nước bề mặt của toàn Trái Đất. Thiết bị chủ lực của SWOT gọi là KaRIn, viết tắt của Ka-band Radar Interferometer, lần đầu tiên cho phép đo theo kiểu dải rộng, quét cả một dải thay vì chỉ một đường hẹp như altimetry cổ điển mà chúng ta đã học ở module một.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 23,
+    "chunks": [
+      {
+        "text": "Hãy nhớ lại giới hạn của module một để hiểu vì sao cần một kỹ thuật hoàn toàn mới. Nadir altimetry chỉ đo được một vệt hẹp, dữ liệu chỉ có tại các điểm giao cắt cố định, nên không thể thấy được toàn bộ hình dạng thực của mặt nước. Nó cũng không đo được độ dốc mặt nước dọc theo sông, một đại lượng rất cần thiết để ước tính dòng chảy mà chúng ta sẽ học ở module bốn. Và nó cũng không phát hiện được sự thay đổi hình học của sông, như mở rộng hay thu hẹp theo mùa lũ, trừ phi đúng ngay tại điểm giao cắt. Vì vậy, cần một loại cảm biến có thể quét toàn bộ diện tích mặt nước, chứ không chỉ một đường kẻ.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 24,
+    "chunks": [
+      {
+        "text": "KaRIn, viết tắt của Ka-band Radar Interferometer, có phần cứng khá đặc biệt: hai ăng-ten radar giống hệt nhau, được gắn ở hai đầu của một cần cứng dài mười mét. Cả hai ăng-ten cùng phát và thu tín hiệu từ cùng một điểm trên mặt đất, nhưng vì ở hai vị trí hơi lệch nhau, nên đường truyền tín hiệu cũng khác nhau một chút. Khoảng cách giữa hai ăng-ten gọi là đường nền, hay baseline, ký hiệu B, bằng mười mét, một thông số hình học cố định và đã biết rất chính xác. Thiết bị hoạt động ở băng tần Ka, khoảng ba mươi lăm phẩy bảy lăm Gigahertz, một bước sóng rất ngắn, cho phép đạt độ phân giải không gian cao.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 25,
+    "chunks": [
+      {
+        "text": "Nguyên lý giao thoa radar hoàn toàn khác với altimetry cổ điển. Thay vì đo trực tiếp thời gian delta t như ở module một, KaRIn đo độ lệch pha, ký hiệu delta phi, giữa tín hiệu nhận được ở hai ăng-ten. Vì hai ăng-ten nằm ở hai vị trí khác nhau, nên quãng đường tín hiệu đi về có sai khác rất nhỏ, và chính sự sai khác này sinh ra độ lệch pha. Độ lệch pha này mã hóa thông tin về góc nhìn, ký hiệu theta, tới điểm đo, và từ góc nhìn này, ta suy ra được độ cao. Đây là kỹ thuật mượn từ InSAR, vốn dùng để đo biến dạng mặt đất, và lần đầu tiên được áp dụng cho đo cao mặt nước ở quy mô toàn cầu.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 26,
+    "chunks": [
+      {
+        "text": "Bây giờ là hai phương trình cốt lõi của kỹ thuật giao thoa KaRIn.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Phương trình thứ nhất: delta phi bằng k nhân B nhân sin theta.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Trong đó k bằng hai pi chia lambda, gọi là số sóng, với lambda là bước sóng băng Ka, còn B là đường nền mười mét, và theta là góc nhìn.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Phương trình thứ hai: h bằng H trừ r một nhân cos theta.",
+        "rate": "-12%"
+      },
+      {
+        "text": "H là độ cao vệ tinh, còn r một là khoảng cách từ ăng-ten thứ nhất tới điểm đo. Quy trình tính toán gồm hai bước: bước một, đo delta phi trực tiếp từ hai kênh thu, giải phương trình thứ nhất để ra góc theta. Bước hai, thay theta vào phương trình thứ hai, cùng với r một, vốn được đo qua thời gian bay giống như ở nadir altimetry, để cuối cùng ra được độ cao h.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 27,
+    "chunks": [
+      {
+        "text": "Hãy hình dung sơ đồ hình học này: hai ăng-ten, vẽ dưới dạng hai hình vuông, cách nhau khoảng cách B, cùng nhìn xuống một điểm nước ở phía dưới. Đường truyền tín hiệu từ ăng-ten thứ nhất và ăng-ten thứ hai tới điểm đo có độ dài hơi khác nhau một chút, tạo ra độ lệch pha. Từ độ lệch pha này, hệ thống tính ra được góc nhìn theta, rồi từ góc theta và khoảng cách r một, suy ra độ cao h của điểm nước.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 28,
+    "chunks": [
+      {
+        "text": "Có một hiện tượng gọi là phase ambiguity, hay mơ hồ pha, mà chúng ta cần hiểu rõ. Vì pha chỉ đo được theo chu kỳ modulo hai pi, nên thiết bị không thể phân biệt được delta phi với delta phi cộng hai pi, hay cộng bốn pi, và cứ thế. Một chênh lệch hai pi trong pha tương ứng với một khoảng chênh độ cao cố định, gọi là độ cao mơ hồ, ký hiệu E a.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Công thức gần đúng là: E a xấp xỉ lambda nhân r một nhân sin theta, chia cho B.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Baseline B càng lớn thì E a càng nhỏ, nghĩa là nhạy hơn nhưng cũng dễ mơ hồ hơn. Vì vậy, xử lý dưới mặt đất phải thực hiện một bước gọi là phase unwrapping, hay gỡ mơ hồ pha, dùng thông tin không gian lân cận để chọn đúng chu kỳ hai pi nào là thực. Đây là một bước xử lý khá phức tạp, và dễ sai ở những vùng địa hình gồ ghề, hoặc mặt nước bị ngắt quãng bởi thảm thực vật hay các hòn đảo nhỏ.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 29,
+    "chunks": [
+      {
+        "text": "Về hình học quét của KaRIn, thiết bị quét thành hai dải, mỗi dải rộng năm mươi ki lô mét, hai bên đường bay, với một khoảng trống ở giữa rộng khoảng hai mươi ki lô mét, ngay tại đường nadir. Tổng cộng, mỗi lần bay qua, KaRIn quét được một dải rộng một trăm hai mươi ki lô mét. Vùng khoảng trống ở giữa không được quét bằng KaRIn, nhưng vẫn có một altimeter nadir phụ trợ trên chính vệ tinh SWOT phủ đúng khu vực đó. Về độ phân giải, phần dải gần đường nadir mịn hơn phần dải ở rìa xa, đây là một sự đánh đổi trong hình học giao thoa.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 30,
+    "chunks": [
+      {
+        "text": "Quỹ đạo của SWOT nghiêng khoảng bảy mươi tám độ, phủ vĩ độ từ khoảng bảy mươi tám độ Bắc tới bảy mươi tám độ Nam, bao gồm gần như toàn bộ các lưu vực sông lớn trên Trái Đất. Chu kỳ khoa học lặp lại khoảng hai mươi mốt ngày, và trong một chu kỳ như vậy, hầu hết các điểm trên bề mặt được quan sát một đến hai lần bởi dải quét KaRIn. SWOT còn mang theo một altimeter nadir cổ điển, kế thừa công nghệ Poseidon, hoạt động dọc đúng đường bay, vừa để lấp khoảng trống hai mươi ki lô mét giữa hai dải KaRIn, vừa dùng để đối chiếu chéo với chuỗi vệ tinh Jason và Sentinel sáu mà chúng ta đã học ở module một.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 31,
+    "chunks": [
+      {
+        "text": "Hãy thử tính một ví dụ đơn giản hóa, từ delta phi ra góc theta. Với bước sóng băng Ka xấp xỉ không phẩy không không tám tư mét, ta có k xấp xỉ bảy trăm bốn mươi tám radian trên mét. Với baseline mười mét, và delta phi đo được là không phẩy sáu radian, ta tính được sin theta xấp xỉ không phẩy không không không không tám không hai, tương ứng với góc theta chỉ khoảng không phẩy không không bốn sáu độ, một góc cực kỳ nhỏ, vì bước sóng Ka rất ngắn khiến hệ đo cực kỳ nhạy với sai lệch pha nhỏ. Đây chính là lý do vì sao đo pha chính xác tới mili radian là bắt buộc, để đạt độ chính xác độ cao cỡ xen-ti-mét. Bây giờ thử tính độ cao mơ hồ E a, với r một xấp xỉ tám trăm chín mươi ki lô mét, và sin theta khoảng không phẩy không ba, ta được E a xấp xỉ hai mươi hai phẩy bốn mét. Nghĩa là, cứ mỗi hai mươi hai mét chênh cao thật, giá trị pha đo được sẽ lặp lại y hệt, minh họa rõ vì sao cần gỡ mơ hồ pha.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 32,
+    "chunks": [
+      {
+        "text": "Về độ chính xác, SWOT đạt độ cao cỡ xen-ti-mét trên đại dương rộng, và decimet trên sông hồ, vì bề mặt nhỏ hơn khiến nhiễu tương đối lớn hơn. Nó đo được sông rộng hơn khoảng một trăm mét, và hồ hay vùng ngập lớn hơn hai trăm năm mươi mét nhân hai trăm năm mươi mét. Một khâu rất quan trọng gọi là cal val, viết tắt của calibration và validation, là so sánh số đo SWOT với khảo sát thực địa độc lập, để xác nhận độ chính xác thực tế. Ví dụ, tiến sĩ Laetitia Gal từ Hydro Matters đã tham gia khảo sát địa hình hồ chứa nông nghiệp bán khô hạn tại Brazil, phục vụ công tác cal val cho SWOT.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 33,
+    "chunks": [
+      {
+        "text": "Slide này đối chiếu trực tiếp giữa nadir altimetry và SWOT. Về cơ chế đo, nadir dùng thời gian bay delta t, còn SWOT dùng độ lệch pha giao thoa delta phi. Về độ phủ ngang, nadir chỉ một đường khoảng ba trăm mét, còn SWOT phủ một trăm hai mươi ki lô mét. Về đại lượng đo trực tiếp, nadir chỉ cho cao độ, còn SWOT cho cả cao độ, độ dốc, và độ rộng. Về chuỗi lịch sử, nadir có từ năm một chín chín hai, dài hơn nhiều so với SWOT chỉ mới từ năm hai nghìn hai mươi hai. Và về sai số quan sát, nadir gần như độc lập theo từng điểm, còn SWOT có sai số tương quan không gian, một điểm chúng ta sẽ bàn kỹ ở module năm.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 34,
+    "chunks": [
+      {
+        "text": "Sai lầm phổ biến nhất khi mới tiếp cận dữ liệu SWOT, là nghĩ rằng nó đo trực tiếp lưu lượng dòng chảy Q. Điều này không đúng: SWOT chỉ đo độ rộng W, độ cao h, và độ dốc S của mặt nước. Lưu lượng Q phải được suy luận thông qua một mô hình thủy lực, như phương trình Manning hay thuật toán AMHG, mà chúng ta sẽ tìm hiểu chi tiết ở module bốn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 35,
+    "chunks": [
+      {
+        "text": "Sai lầm thứ hai là bỏ qua cấu trúc sai số tương quan của dữ liệu KaRIn. Vì SWOT đo theo diện tích, tức wide-swath, thay vì theo từng điểm, sai số của các pixel lân cận có cấu trúc không gian tương quan với nhau, không phải nhiễu trắng độc lập như ở altimetry cổ điển. Nếu coi mỗi pixel là một quan sát độc lập khi đồng hóa dữ liệu, một chủ đề của module năm, hệ thống sẽ đánh giá sai độ tin cậy của dữ liệu, nên cần một kỹ thuật giảm sai số tương quan chuyên biệt trước.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 36,
+    "chunks": [
+      {
+        "text": "Độ phân giải ngang của KaRIn không đồng đều trên toàn dải quét. Phần gần đường nadir, gọi là near range, mịn hơn, khoảng năm đến mười mét, trong khi phần rìa xa, gọi là far range, thô hơn nhiều, có thể tới sáu mươi, bảy mươi mét. Nguyên nhân là do góc tới tăng dần từ gần ra xa dải, làm giảm độ nhạy phân giải khoảng cách theo phương ngang. Hệ quả thực tế là, một con sông hẹp nằm ở rìa xa dải quét sẽ được đo với độ chính xác thấp hơn so với cùng con sông đó nếu nằm ở phần gần dải, cần lưu ý điều này khi so sánh chất lượng dữ liệu giữa các lần bay qua khác nhau.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 37,
+    "chunks": [
+      {
+        "text": "Có hai hạn chế thực tế cần lưu ý với dữ liệu KaRIn. Thứ nhất, thảm thực vật ngập nước hoặc ven bờ có thể phản xạ tín hiệu radar, gây nhiễu, làm lẫn những pixel nước giả vào sản phẩm dữ liệu mà chúng ta sẽ học ở module ba. Thứ hai là hiện tượng layover, xảy ra ở địa hình dốc hoặc vùng núi, khi tín hiệu từ sườn gần vệ tinh và sườn xa chồng lấn vào cùng một ô thu, gây méo vị trí biểu kiến của đối tượng. Đây là lý do các thuật toán xử lý dữ liệu cấp cao cần có bước lọc và phân loại pixel, trước khi tạo ra sản phẩm sông hồ cuối cùng.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 38,
+    "chunks": [
+      {
+        "text": "Một nghiên cứu điển hình minh họa giá trị thực tiễn của SWOT, là công trình của nhóm Hydro Matters và LEGOS công bố năm hai nghìn hai mươi lăm, áp dụng dữ liệu SWOT wide swath cho sông Hằng, tức sông Ganga, ở Ấn Độ. Đây là một trong những con sông lớn nhất, nhiều phù sa nhất, vốn rất khó quan sát bằng cảm biến quang học truyền thống. Nghiên cứu này minh họa trực tiếp giá trị của độ phủ hai chiều: theo dõi được biến động độ rộng và độ dốc dọc toàn bộ đoạn sông qua các mùa, chứ không chỉ tại vài điểm giao cắt rời rạc như trước đây.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 39,
+    "chunks": [
+      {
+        "text": "Phần tự kiểm tra kiến thức module hai, gồm bốn câu hỏi. Câu một: KaRIn đo trực tiếp đại lượng vật lý nào, khác gì so với altimetry cổ điển? KaRIn đo độ lệch pha giữa hai ăng-ten, còn altimetry cổ điển đo thời gian bay của một ăng-ten duy nhất. Câu hai: vì sao cần gỡ mơ hồ pha? Vì pha chỉ đo được theo chu kỳ hai pi, không phân biệt được các giá trị lệch nhau đúng bội số hai pi. Câu ba: SWOT có đo lưu lượng dòng chảy trực tiếp không? Không, chỉ đo độ rộng, độ cao, độ dốc, còn lưu lượng phải suy luận qua mô hình thủy lực ở module bốn. Câu bốn: vì sao độ phân giải ngang của KaRIn không đồng đều? Vì góc tới tăng dần từ gần dải ra xa dải, làm giảm độ nhạy phân giải theo phương ngang.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 40,
+    "chunks": [
+      {
+        "text": "Tổng kết module hai, có ba điều cốt lõi cần nhớ. Thứ nhất, hai phương trình delta phi bằng k B sin theta, rồi h bằng H trừ r một cos theta, là một cơ chế đo hoàn toàn khác module một, dùng pha thay vì thời gian, nhưng cùng mục tiêu cuối cùng là ra độ cao h. Thứ hai, SWOT đo được độ rộng, độ cao, và độ dốc trên cả một diện tích, và ba biến số này chính là đầu vào trực tiếp cho mô hình ước tính lưu lượng ở module bốn. Thứ ba, sai số của KaRIn có tính tương quan không gian, và chi tiết kỹ thuật xử lý vấn đề này sẽ được trình bày ở module năm, khi học về đồng hóa dữ liệu.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 41,
+    "chunks": [
+      {
+        "text": "Sang module ba, chúng ta sẽ tìm hiểu về hydroweb dot next, và các sản phẩm dữ liệu đi kèm. Đây là bước đi từ những pixel thô mà KaRIn thu được, cho tới một chuỗi thời gian mực nước sẵn sàng sử dụng, cho một con sông cụ thể.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 42,
+    "chunks": [
+      {
+        "text": "Trước khi có một cổng dữ liệu thống nhất, các nhà nghiên cứu gặp phải một vấn đề khá đau đầu. Dữ liệu thủy văn vệ tinh đến từ rất nhiều sứ mệnh khác nhau, nadir cổ điển, SWOT, Sentinel ba, mỗi sứ mệnh lại có định dạng file, hệ quy chiếu, và quy ước đặt tên riêng của nó. Muốn có một chuỗi thời gian mực nước liên tục cho một hồ, trước đây nhà nghiên cứu phải tự tải, tự xử lý, tự ghép nhiều nguồn dữ liệu lại với nhau, rất tốn thời gian và dễ sai sót. Chính vì vậy, nền tảng hydroweb dot next, do CNES và Theia phát triển, ra đời để giải quyết đúng vấn đề này: một cổng dữ liệu duy nhất, đã được chuẩn hóa sẵn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 43,
+    "chunks": [
+      {
+        "text": "Kiến trúc của hydroweb dot next hoạt động như sau: nhiều nguồn dữ liệu khác nhau, gồm các altimeter nadir, SWOT với thiết bị KaRIn, và ảnh Sentinel một, hai, đều được đưa vào một hệ thống trung tâm, thực hiện việc chuẩn hóa và gộp dữ liệu lại. Đầu ra cuối cùng là một chuỗi thời gian sẵn sàng sử dụng, cho từng con sông, từng hồ cụ thể, không cần người dùng phải tự xử lý dữ liệu thô nữa.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 44,
+    "chunks": [
+      {
+        "text": "Sản phẩm đầu tiên trong chuỗi xử lý, gọi là L2 HR PIXC, hay pixel cloud, tức đám mây điểm ảnh. Đây là tập hợp phi cấu trúc của mọi pixel mà KaRIn phát hiện có nước, nhưng chưa biết pixel nào thuộc về con sông hay hồ nào cả. Độ phân giải gốc khoảng mười lăm đến hai mươi lăm mét theo chiều ngang, và năm đến mười mét theo chiều dọc đường bay, mịn hơn rất nhiều so với một điểm giao cắt nadir. Đây là dữ liệu thô nhất trong cả chuỗi xử lý L2 HR, là nền tảng để sinh ra mọi sản phẩm cấp cao hơn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 45,
+    "chunks": [
+      {
+        "text": "Bước xử lý tiếp theo tạo ra sản phẩm gọi là PIXCVec. Ở bước này, các pixel nhiễu do hiện tượng layover hay thảm thực vật, mà chúng ta đã học ở module hai, được lọc bỏ, và vị trí được định vị lại chính xác hơn nhờ ràng buộc độ cao. Mỗi pixel còn lại sau đó được gán vào một đối tượng cụ thể, là sông hoặc hồ, dựa trên một cơ sở dữ liệu tham chiếu gọi là Prior River and Lake Database, viết tắt PRD và PLD. Cơ sở dữ liệu này được xây dựng từ trước, từ ảnh vệ tinh quang học độ phân giải cao, đóng vai trò như một bản đồ nền, giúp KaRIn biết mình đang quan sát con sông nào.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 46,
+    "chunks": [
+      {
+        "text": "Sản phẩm vector cấp sông, gọi là L2 HR RiverSP, có hai đơn vị không gian chính. Node là một điểm dọc theo tim sông, cách nhau khoảng hai trăm mét, mỗi điểm có độ cao mặt nước riêng của nó. Reach là một đoạn sông dài khoảng mười ki lô mét, gộp nhiều Node lại, cho ra độ cao trung bình, độ dốc mặt nước, và độ rộng trung bình của cả đoạn. Reach chính là đơn vị không gian sẽ được dùng trực tiếp để ước tính lưu lượng dòng chảy ở module bốn, vì nó cần cả ba đại lượng độ rộng, độ cao, và độ dốc, trên cùng một đoạn sông.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 47,
+    "chunks": [
+      {
+        "text": "Sản phẩm vector cấp hồ, gọi là L2 HR LakeSP, chia thành ba loại. Obs, viết tắt của observed, là hồ được quan sát trực tiếp trong lần bay qua này. Prior là đối tượng đã có trong cơ sở dữ liệu PLD nhưng không quan sát được lần này, có thể do mây che hoặc nằm ngoài dải quét. Và Unassigned là vùng nước phát hiện được nhưng chưa khớp với đối tượng nào trong PLD, có thể là một hồ mới hình thành, hoặc do lỗi phân loại.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 48,
+    "chunks": [
+      {
+        "text": "Sơ đồ này tóm tắt toàn bộ luồng xử lý, từ pixel thô đến sản phẩm cuối cùng. Bắt đầu từ PIXC, dữ liệu đi qua bước lọc và gán để thành PIXCVec, có kết hợp thêm cơ sở dữ liệu PRD PLD. Từ đó, dữ liệu được tách thành hai nhánh sản phẩm cuối: RiverSP, với cấu trúc Node và Reach cho sông, và LakeSP, với cấu trúc Obs và Prior cho hồ.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 49,
+    "chunks": [
+      {
+        "text": "Về mặt thực hành, để truy cập dữ liệu hydroweb dot next, có một thư viện Python chính thức tên là py hydroweb, do CNES phát triển và công bố trên GitHub. Thư viện này cho phép tìm kiếm và tải dữ liệu theo khu vực và thời gian quan tâm, mà không cần thao tác thủ công qua giao diện web. Quy trình chuẩn là: xác định khung tọa độ khu vực cần khảo sát, chọn loại sản phẩm là RiverSP hay LakeSP, chọn khoảng thời gian, rồi tải về dưới dạng file có cấu trúc sẵn, như netCDF hoặc shapefile, sẵn sàng nạp vào Python hoặc phần mềm GIS như QGIS.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 50,
+    "chunks": [
+      {
+        "text": "Đây là quy trình cụ thể để trích xuất chuỗi thời gian mực nước cho một hồ. Bước một, xác định mã số của hồ trong cơ sở dữ liệu Prior Lake Database, hoặc lọc theo tọa độ và tên khu vực. Bước hai, truy vấn toàn bộ bản ghi LakeSP loại Obs khớp với mã số đó, qua toàn bộ lịch sử dữ liệu SWOT hiện có. Bước ba, ghép các giá trị độ cao mặt hồ theo đúng thứ tự thời gian quan sát, để tạo thành chuỗi thời gian mực nước. Bước bốn, với sông thì lặp lại quy trình tương tự trên một Reach cụ thể trong RiverSP, lấy thêm cả giá trị độ dốc S để dùng cho module bốn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 51,
+    "chunks": [
+      {
+        "text": "Bên cạnh hydroweb dot next, còn có một cổng dữ liệu chị em dành cho hải dương học, gọi là AVISO, viết tắt của Archiving, Validation and Interpretation of Satellite Oceanographic data. Đây là cổng dữ liệu altimetry đại dương lâu đời của CNES, và về mặt kiến trúc, chính là tiền thân cho hydroweb dot next. Trong khi hydroweb dot next tập trung vào nước lục địa, sông, hồ, hồ chứa, vùng ngập, thì AVISO tập trung vào đại dương, mực nước biển, và dòng chảy địa chuyển. Cả hai dùng chung hạ tầng của CNES, và thường được nhắc đến cùng nhau trong các bản cập nhật kỹ thuật. Chẳng hạn, Charlotte Emery đã trình bày cập nhật đồng thời cho cả hai cổng, tại hội nghị SWOT Applications Meeting năm hai nghìn hai mươi lăm.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 52,
+    "chunks": [
+      {
+        "text": "Về định dạng file thực tế, sản phẩm PIXC và PIXCVec dùng định dạng netCDF, là các mảng dữ liệu đa chiều có kèm theo metadata, như tọa độ, thời gian, biến số, và đơn vị, tất cả trong cùng một file. Còn sản phẩm RiverSP và LakeSP, thường đi kèm dạng shapefile hoặc GeoPackage, là dữ liệu vector địa lý, mở trực tiếp được trong phần mềm QGIS hoặc ArcGIS để trực quan hóa trên bản đồ. Việc chuẩn hóa định dạng theo chuẩn CF convention giúp các công cụ phân tích phổ biến như xarray hay GDAL đọc được ngay, không cần viết một trình phân tích riêng cho từng sứ mệnh.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 53,
+    "chunks": [
+      {
+        "text": "Nguồn dữ liệu nadir chính đang hoạt động, được tích hợp trong hydroweb dot next, là thiết bị SRAL, viết tắt của SAR Radar Altimeter, trên vệ tinh Sentinel ba A và ba B. Đây là altimeter đo hai tần số Ku và C, hoạt động ở chế độ SAR, cho độ phân giải dọc đường bay mịn hơn altimeter xung thông thường mà chúng ta học ở module một. Chu kỳ lặp lại quỹ đạo của nó là hai mươi bảy ngày, khác với hai mươi mốt ngày của SWOT, giúp tăng tổng số lần quan sát khi kết hợp cả hai nguồn thông qua hydroweb dot next.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 54,
+    "chunks": [
+      {
+        "text": "CNES và Theia duy trì một chính sách dữ liệu mở và miễn phí, cho toàn bộ sản phẩm của hydroweb dot next, không yêu cầu giấy phép thương mại nào. Mã nguồn xử lý, thư viện py hydroweb, cũng được công khai trên GitHub, cho phép người dùng tái lập chính xác quy trình tải và xử lý dữ liệu, một yêu cầu rất quan trọng trong nghiên cứu khoa học có thể kiểm chứng được. Đây là mô hình đối lập hẳn với việc mỗi nhóm nghiên cứu tự viết một pipeline xử lý riêng, giúp giảm rủi ro kết quả sai khác nhau do khác biệt trong cách xử lý dữ liệu thô.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 55,
+    "chunks": [
+      {
+        "text": "Điều đáng chú ý là hydroweb dot next không chỉ chứa dữ liệu SWOT, mà còn tích hợp cả chuỗi nadir cổ điển, như Sentinel ba, hay Jason, đã xử lý sẵn cho cùng một vị trí, như chúng ta đã học ở module một. Điều này cho phép nhà nghiên cứu nối dài chuỗi thời gian: dùng dữ liệu nadir cho giai đoạn trước năm hai nghìn hai mươi hai, rồi chuyển sang dữ liệu SWOT để có độ chi tiết không gian cao hơn từ năm hai nghìn hai mươi hai trở đi. Đây chính là công cụ thực hành chính trong buổi giảng của Charlotte Emery, với chủ đề cập nhật từ hydroweb dot next và AVISO.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 56,
+    "chunks": [
+      {
+        "text": "Vì sao cần chuẩn hóa đa sứ mệnh? Vì mỗi sứ mệnh có một độ lệch hệ thống riêng của nó, do khác biệt về thiết kế phần cứng, quỹ đạo, và thuật toán xử lý. Nếu ghép trực tiếp chuỗi thời gian từ hai sứ mệnh mà không hiệu chỉnh, sẽ xuất hiện một bước nhảy giả tạo ngay tại thời điểm chuyển đổi, rất dễ bị hiểu nhầm là một biến động thủy văn có thật. hydroweb dot next đã áp sẵn các hiệu chỉnh chuẩn hóa liên sứ mệnh này, giúp giảm bớt gánh nặng xử lý cho người dùng cuối.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 57,
+    "chunks": [
+      {
+        "text": "Mỗi bản ghi Node, Reach, hay Obs đều đi kèm một cờ chất lượng, gọi là quality flag. Ví dụ, bị che một phần bởi mây hay thảm thực vật, độ tin cậy phân loại nước thấp, hoặc số pixel hợp lệ quá ít. Luôn luôn phải lọc theo cờ chất lượng, trước khi dùng dữ liệu cho bất kỳ phân tích định lượng nào. Bỏ qua bước này là nguyên nhân rất phổ biến của những giá trị ngoại lai khó giải thích trong chuỗi thời gian. Một sai lầm thường gặp khác là dùng trực tiếp dữ liệu PIXC thô, chưa lọc chưa gán, để phân tích một con sông cụ thể, thay vì dùng RiverSP đã xử lý sẵn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 58,
+    "chunks": [
+      {
+        "text": "Về độ trễ dữ liệu, sản phẩm archive, đã qua kiểm định đầy đủ, có độ trễ từ vài tuần đến vài tháng sau khi vệ tinh bay qua, nhưng đạt độ chính xác cao nhất. Ngược lại, một số luồng near real time có độ trễ ngắn hơn nhiều, nhưng đánh đổi bằng việc dùng dữ liệu quỹ đạo và hiệu chỉnh sơ bộ, chưa hoàn thiện, phù hợp hơn cho mục đích cảnh báo sớm, thay vì nghiên cứu định lượng chính xác. Lựa chọn luồng dữ liệu nào phụ thuộc vào mục đích sử dụng: nghiên cứu xu hướng dài hạn thì nên dùng archive, còn giám sát lũ khẩn cấp ở module sáu thì nên cân nhắc dùng near real time, dù độ chính xác thấp hơn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 59,
+    "chunks": [
+      {
+        "text": "Phần tự kiểm tra module ba, gồm bốn câu hỏi. Câu một: PIXC khác PIXCVec ở điểm nào? PIXC là pixel thô chưa gán đối tượng, còn PIXCVec đã lọc nhiễu, định vị chính xác hơn, và gán mỗi pixel vào sông hồ cụ thể. Câu hai: Node và Reach trong RiverSP khác nhau thế nào? Node là điểm dọc sông cách nhau hai trăm mét, còn Reach là đoạn dài hơn, mười ki lô mét, gộp nhiều Node, có thêm độ dốc và độ rộng trung bình. Câu ba: vì sao không nên ghép trực tiếp chuỗi thời gian từ hai sứ mệnh khác nhau? Vì mỗi sứ mệnh có độ lệch hệ thống riêng, ghép trực tiếp có thể tạo bước nhảy giả. Câu bốn: vì sao Sentinel ba SRAL và SWOT bổ sung tốt cho nhau? Vì chu kỳ lặp khác nhau, hai mươi bảy ngày và hai mươi mốt ngày, khiến hai vệ tinh quan sát cùng vị trí vào những thời điểm khác nhau trong tháng, làm tăng tần suất quan sát tổng thể khi kết hợp cả hai.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 60,
+    "chunks": [
+      {
+        "text": "Tổng kết module ba, có ba điều cốt lõi. Thứ nhất, chuỗi xử lý PIXC, PIXCVec, rồi RiverSP hoặc LakeSP, biến pixel thô thành dữ liệu sông hồ có cấu trúc, và Reach chính là đơn vị sẽ dùng trực tiếp ở module bốn. Thứ hai, hydroweb dot next là cổng truy cập thống nhất cho nhiều sứ mệnh, cả nadir lẫn SWOT, là công cụ thực hành cho mọi ví dụ tính toán ở các module tiếp theo. Thứ ba, luôn kiểm tra cờ chất lượng trước khi dùng dữ liệu, một nguyên tắc sẽ được áp dụng xuyên suốt mọi phân tích định lượng phía sau.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 61,
+    "chunks": [
+      {
+        "text": "Chuyển sang module bốn, chủ đề là ước tính lưu lượng dòng chảy, hay discharge. Đây là bước đi từ ba đại lượng vệ tinh đo được, độ rộng, độ cao, độ dốc, đến con số Q mà các nhà quản lý nước thực sự cần.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 62,
+    "chunks": [
+      {
+        "text": "Lưu lượng dòng chảy, hay discharge, ký hiệu Q, là thể tích nước chảy qua một mặt cắt sông trong một đơn vị thời gian, đơn vị mét khối trên giây. Đây chính là đại lượng mà các cơ quan quản lý nước, dự báo lũ, và vận hành hồ chứa thực sự cần, chứ không phải bản thân độ cao mặt nước. Trạm đo tại chỗ truyền thống đo Q bằng một phương pháp gọi là rating curve, tức đường cong hiệu chuẩn: xây dựng quan hệ thực nghiệm giữa mực nước tại trạm và lưu lượng đo trực tiếp, một công việc khá tốn công, cần đo nhiều lần theo thời gian mới xây dựng được đường cong đáng tin cậy.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 63,
+    "chunks": [
+      {
+        "text": "Hãy nhắc lại vì sao vệ tinh không thể đo lưu lượng trực tiếp. Nadir altimetry, ở module một, chỉ cho độ cao tại một điểm, muốn ra lưu lượng vẫn cần một rating curve xây từ số liệu tại chỗ, tức vẫn phụ thuộc trạm đo vật lý. SWOT với KaRIn, ở module hai, cho độ cao, độ dốc, và độ rộng trên toàn đoạn sông, nhiều hơn nadir, nhưng vẫn không phải chính lưu lượng Q. Vì vậy, cần một mô hình thủy lực để chuyển đổi ba đại lượng này thành Q, mà không cần đo trực tiếp tốc độ dòng chảy, và đây chính là nội dung cốt lõi của module bốn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 64,
+    "chunks": [
+      {
+        "text": "Phương trình đầu tiên, nền tảng nhất, gọi là phương trình liên tục.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Q bằng A nhân V.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Trong đó A là diện tích mặt cắt ướt, đơn vị mét vuông, còn V là vận tốc trung bình dòng chảy, đơn vị mét trên giây. Đây là định nghĩa cơ bản nhất của lưu lượng: thể tích trên giây bằng diện tích mặt cắt nhân với vận tốc trung bình đi qua nó. Vấn đề là, vệ tinh không thể đo được A, vì cần biết hình dạng đáy sông, vốn ẩn dưới mặt nước, và cũng không đo được V một cách trực tiếp. Vì vậy, cần thêm một phương trình thứ hai, liên hệ V với các đại lượng quan sát được, độ rộng, độ cao, độ dốc, và đó chính là phương trình Manning.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 65,
+    "chunks": [
+      {
+        "text": "Phương trình Manning là phương trình thực nghiệm kinh điển, liên hệ vận tốc dòng chảy với độ dốc.",
+        "rate": "+0%"
+      },
+      {
+        "text": "V bằng một chia n, nhân R h mũ hai phần ba, nhân S mũ một phần hai.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Trong đó n là hệ số nhám Manning, phụ thuộc vật liệu đáy và bờ sông, R h là bán kính thủy lực, gần đúng bằng diện tích chia chu vi ướt, còn S là độ dốc mặt nước. Đây là phương trình do kỹ sư Robert Manning công bố năm một nghìn tám trăm tám mươi chín, vẫn được dùng cho tới ngày nay cho sông và kênh mương. Độ dốc S chính là đại lượng SWOT đo trực tiếp được, đây là lý do vì sao SWOT có giá trị đặc biệt cho bài toán ước tính lưu lượng này. Giá trị n điển hình dao động rất rộng: kênh đất tự nhiên sạch khoảng không phẩy không hai lăm đến không phẩy không ba ba, sông có nhiều đá hay thảm thực vật ven bờ, khoảng không phẩy không ba năm đến không phẩy không năm, còn kênh bê tông chỉ khoảng không phẩy không một ba đến không phẩy không một bảy, cho thấy khoảng biến thiên rất lớn, khiến việc giả định n cố định là khá rủi ro.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 66,
+    "chunks": [
+      {
+        "text": "Vấn đề cốt lõi ở đây là, diện tích mặt cắt A và hệ số nhám n, đều là những ẩn số không quan sát được. Diện tích mặt cắt ướt A phụ thuộc hình dạng đáy sông, mà vệ tinh không thể nhìn xuyên qua nước để đo. Hệ số nhám n phụ thuộc vật liệu đáy, bờ, và thảm thực vật, cũng không đo trực tiếp được một cách đáng tin cậy từ ảnh vệ tinh. Cả hai đều phải được suy luận, từ chuỗi thời gian độ rộng, độ cao, độ dốc mà SWOT cung cấp. Ý tưởng chung của mọi thuật toán ước tính lưu lượng cho SWOT, là dùng nhiều lần quan sát theo thời gian tại cùng một đoạn sông, để ràng buộc ngược lại giá trị A và n ẩn, dựa trên giả định rằng chúng ổn định hoặc biến đổi có quy luật.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 67,
+    "chunks": [
+      {
+        "text": "Nền tảng ý tưởng cho thuật toán AMHG mà chúng ta sắp học, xuất phát từ lý thuyết hydraulic geometry cổ điển, do Leopold và Maddock công bố năm một nghìn chín trăm năm mươi ba.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Ba quan hệ được viết là: W bằng a nhân Q mũ b; D bằng c nhân Q mũ f; V bằng k nhân Q mũ m.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Trong đó độ rộng W, độ sâu D, và vận tốc V, biến đổi theo lũy thừa của lưu lượng Q, tại một mặt cắt cố định. Quan hệ này được quan sát thấy khá ổn định tại một mặt cắt sông cụ thể, qua các mức lưu lượng khác nhau. Ý tưởng mở rộng của AMHG là, nếu biết trước quan hệ này tại nhiều mặt cắt dọc sông, có thể dùng độ rộng đo được từ SWOT, để suy ngược ra lưu lượng Q, mà không cần đo trực tiếp diện tích hay vận tốc.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 68,
+    "chunks": [
+      {
+        "text": "AMHG, viết tắt của At Many stations Hydraulic Geometry, có ý tưởng chính như sau: tại các mặt cắt lân cận nhau, dọc cùng một đoạn sông không có nhánh vào ra lớn, lưu lượng Q phải xấp xỉ bằng nhau tại cùng một thời điểm, theo nguyên lý bảo toàn khối lượng. Ràng buộc này, lưu lượng bằng nhau giữa các mặt cắt lân cận, giúp giảm một nửa số tham số cần ước lượng, thay vì giải độc lập từng mặt cắt, ta giải đồng thời cho cả đoạn sông. Hạn chế đã biết là, độ chính xác sẽ thấp nếu tham số hydraulic geometry tại một mặt cắt cụ thể, lệch nhiều so với giả định lý thuyết ban đầu.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 69,
+    "chunks": [
+      {
+        "text": "BAM, viết tắt của Bayesian AMHG Manning, kết hợp cả ràng buộc AMHG lẫn phương trình Manning, trong một khung suy luận thống kê Bayes. Thay vì tìm ra một giá trị Q duy nhất, BAM ước lượng cả một phân bố xác suất cho Q, phản ánh đúng bản chất bất định của bài toán, vì có nhiều tổ hợp khác nhau của A và n, có thể cho ra cùng một quan sát độ rộng, độ cao, độ dốc. Khi thử nghiệm trên mười chín con sông thực tế, BAM cho thấy cải thiện độ chính xác, so với chỉ dùng riêng lẻ AMHG hoặc Manning cổ điển.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 70,
+    "chunks": [
+      {
+        "text": "Sơ đồ này minh họa luồng suy luận từ ba quan sát đến lưu lượng Q. Ba đại lượng đầu vào, độ cao, độ dốc, độ rộng, được đưa vào mô hình BAM hoặc AMHG Manning, để cuối cùng cho ra kết quả discharge Q.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 71,
+    "chunks": [
+      {
+        "text": "Ngoài BAM, đội khoa học SWOT còn phát triển hai hướng thuật toán khác. MetroMan, viết tắt của Metropolis Manning, dùng thuật toán Markov Chain Monte Carlo, để suy luận đồng thời các tham số Manning ẩn, từ chuỗi thời gian độ rộng, độ cao, độ dốc, về bản chất cũng là suy luận Bayes như BAM, nhưng khác kỹ thuật lấy mẫu. MFG, viết tắt của Mean Flow and Geomorphology, tận dụng thêm thông tin hình thái sông trung bình dài hạn, từ ảnh vệ tinh quang học lịch sử, làm ràng buộc bổ sung, giảm phụ thuộc hoàn toàn vào riêng dữ liệu SWOT. Đội khoa học thủy văn SWOT chạy song song nhiều thuật toán như vậy, rồi so sánh và tổng hợp lại, vì không có một thuật toán nào đúng duy nhất cho mọi loại sông.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 72,
+    "chunks": [
+      {
+        "text": "Slide này so sánh hai cách tiếp cận ước tính lưu lượng. Rating curve từ trạm đo, cần đo lưu lượng trực tiếp trước để xây dựng đường cong, chỉ áp dụng được đúng tại vị trí trạm, nhưng độ chính xác cao, khoảng năm đến mười phần trăm, nếu đường cong tốt. Ngược lại, BAM hoặc AMHG từ SWOT không bắt buộc phải đo trực tiếp trước, áp dụng được cho toàn bộ đoạn sông trong dải quét, nhưng độ chính xác thấp hơn, khoảng vài chục phần trăm. Điểm khác biệt quan trọng nhất là, phương pháp vệ tinh hoạt động được ở những con sông không có trạm đo, trong khi rating curve thì hoàn toàn không thể.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 73,
+    "chunks": [
+      {
+        "text": "Độ tin cậy của ước tính lưu lượng tăng dần theo số lần quan sát tích lũy được. Một lần quan sát duy nhất cho ra một khoảng ước tính Q rất rộng, vì có quá nhiều tổ hợp A và n khác nhau có thể khớp với cùng một quan sát. Càng tích lũy nhiều lần bay qua, qua nhiều chu kỳ hai mươi mốt ngày của SWOT, khoảng bất định của tham số ẩn A và n càng thu hẹp dần. Đây là lý do các thuật toán Bayes như BAM và MetroMan được thiết kế để xử lý toàn bộ chuỗi thời gian cùng lúc, chứ không chỉ một lần đo đơn lẻ. Hệ quả là, ước tính lưu lượng ngay sau khi SWOT phóng, khi dữ liệu còn ngắn, sẽ kém tin cậy hơn nhiều so với ước tính sau vài năm tích lũy quan sát tại cùng một đoạn sông.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 74,
+    "chunks": [
+      {
+        "text": "Bây giờ chúng ta thử một ví dụ tính tay cụ thể, dùng phương trình Manning. Giả sử một đoạn sông có độ rộng một trăm năm mươi mét, độ sâu trung bình ước tính ba mét, độ dốc mặt nước không phẩy không không không một, đo bởi SWOT, và hệ số nhám giả định không phẩy không ba, ứng với đáy cát sỏi tự nhiên. Tính bán kính thủy lực xấp xỉ bằng độ sâu, ba mét, vì sông rất rộng so với sâu. Áp dụng Manning, ta tính được vận tốc xấp xỉ không phẩy sáu chín mét trên giây. Diện tích mặt cắt ước tính bằng bốn trăm năm mươi mét vuông, và lưu lượng Q ước tính xấp xỉ ba trăm mười mét khối trên giây. Bây giờ, thử kịch bản thứ hai: cùng con sông đó, nhưng vào mùa hè, thảm thực vật ven bờ phát triển mạnh, hệ số nhám thực tế tăng gấp đôi lên không phẩy không sáu. Vận tốc giảm còn một nửa, xấp xỉ không phẩy ba năm mét trên giây, và lưu lượng Q giảm còn khoảng một trăm năm mươi sáu mét khối trên giây, gần năm mươi phần trăm so với ba trăm mười, dù độ rộng, độ sâu, độ dốc không hề thay đổi. Đây là minh họa định lượng rất rõ ràng, cho thấy việc giữ hệ số nhám cố định trong khi thực tế nó thay đổi theo mùa, có thể gây sai số hệ thống rất lớn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 75,
+    "chunks": [
+      {
+        "text": "Về độ bất định, các phương pháp ước tính lưu lượng từ vệ tinh, như BAM hay MetroMan, thường có sai số cỡ vài chục phần trăm, so với đo trực tiếp tại trạm, cao hơn nhiều so với sai số đo độ cao vốn chỉ cỡ xen-ti-mét đến decimet. Nguồn bất định chính đến từ việc giả định hệ số nhám cố định, sai số ước tính diện tích gián tiếp qua độ rộng và độ cao, và số lần quan sát còn hạn chế do chu kỳ hai mươi mốt ngày của SWOT. Với những con sông có trạm đo tại chỗ song song, có thể hiệu chỉnh được các tham số ẩn, và độ chính xác sẽ cải thiện đáng kể so với ước tính hoàn toàn không có tham chiếu.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 76,
+    "chunks": [
+      {
+        "text": "Trước khi tin dùng kết quả, một bước bắt buộc là so sánh chuỗi Q ước tính từ SWOT, với chuỗi Q đo trực tiếp tại các trạm còn hoạt động. Các chỉ số đánh giá phổ biến gồm NSE, tức Nash Sutcliffe Efficiency, sai số căn quân phương tương đối, và hệ số tương quan theo thời gian. Có một nghịch lý thực tế đáng chú ý: chính những con sông cần SWOT nhất, tức là không có trạm đo, hoặc xuyên biên giới như chúng ta sẽ học ở module sáu, lại là những nơi khó xác thực nhất, vì thiếu số liệu tham chiếu độc lập.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 77,
+    "chunks": [
+      {
+        "text": "Sai lầm thường gặp nhất ở module này, là giả định hệ số nhám n cố định suốt cả chuỗi thời gian. Trên thực tế, n thay đổi theo mùa, khi thảm thực vật ven sông phát triển hoặc rụng lá, thay đổi theo mực nước, vì khi nước thấp sẽ lộ ra nhiều chướng ngại vật làm đáy gồ ghề hơn, và thay đổi theo trầm tích di chuyển. Coi n là một hằng số suốt chuỗi thời gian, là một nguồn sai số hệ thống rất phổ biến, đặc biệt ở những con sông vùng nhiệt đới, có biến động mùa mạnh như lưu vực sông Mê Kông.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 78,
+    "chunks": [
+      {
+        "text": "Giá trị thực tiễn lớn nhất của các thuật toán module bốn, nằm ở những lưu vực không có trạm đo, gọi là ungauged basins, hoặc những lưu vực có số liệu không được công khai chia sẻ. Ví dụ điển hình chính là hạ lưu sông Mê Kông, nơi nhiều đoạn sông xuyên biên giới thiếu sự đồng bộ hóa trạm đo giữa các quốc gia, một chủ đề chúng ta sẽ đi sâu ở module sáu. Với những con sông này, ước tính lưu lượng hoàn toàn dựa vào độ rộng, độ cao, độ dốc quan sát được, cộng với những giả định hợp lý về hình học và độ nhám, vì không có cách nào khác để có số liệu định lượng.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 79,
+    "chunks": [
+      {
+        "text": "Phần tự kiểm tra module bốn, gồm bốn câu hỏi. Câu một: vì sao cần cả phương trình liên tục Q bằng A V, lẫn phương trình Manning? Vì Q bằng A V có hai ẩn số, A và V, không quan sát trực tiếp được, còn Manning cho một phương trình thứ hai, liên hệ V với độ dốc S đo được từ SWOT. Câu hai: AMHG giảm số tham số cần ước lượng bằng cách nào? Bằng cách ràng buộc lưu lượng Q phải xấp xỉ bằng nhau giữa các mặt cắt lân cận. Câu ba: vì sao khó xác thực lưu lượng vệ tinh chính ở những nơi cần nó nhất? Vì các sông không trạm đo hay xuyên biên giới, chính là nơi thiếu số liệu tham chiếu độc lập. Câu bốn: vì sao lưu lượng Q giảm gần một nửa khi hệ số nhám n tăng gấp đôi, dù độ rộng, độ sâu, độ dốc không đổi? Vì trong phương trình Manning, vận tốc V tỷ lệ nghịch trực tiếp với n.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 80,
+    "chunks": [
+      {
+        "text": "Tổng kết module bốn, có ba điều cốt lõi. Thứ nhất, phương trình Q bằng A V, và Manning liên hệ V với độ dốc, là hai phương trình cốt lõi, trong đó A và n là ẩn số phải suy luận từ chuỗi độ rộng, độ cao, độ dốc mà SWOT ở module hai cung cấp. Thứ hai, BAM và AMHG là các thuật toán suy luận thống kê kiểu Bayes, cùng triết lý với đồng hóa dữ liệu ở module năm: kết hợp mô hình vật lý với quan sát có bất định. Thứ ba, giá trị lớn nhất nằm ở những con sông không trạm đo hoặc xuyên biên giới, một cầu nối trực tiếp sang ứng dụng thực tế ở module sáu, với ví dụ sông Mê Kông.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 81,
+    "chunks": [
+      {
+        "text": "Module năm, chủ đề đồng hóa dữ liệu, hay data assimilation, với hai công cụ toán học chính là bộ lọc Kalman và Ensemble Kalman Filter. Đây là kỹ thuật kết hợp tối ưu giữa một mô hình số và dữ liệu quan sát vệ tinh, lõi toán học đứng sau mọi hệ thống dự báo thủy văn hiện đại.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 82,
+    "chunks": [
+      {
+        "text": "Đồng hóa dữ liệu là một kỹ thuật toán học, kết hợp giữa một bên là đầu ra của mô hình số, tức mô hình thủy văn hay thủy lực dự báo dòng chảy, và một bên là quan sát thực đo, chẳng hạn độ cao, độ dốc, độ rộng từ module một và hai, hay lưu lượng từ module bốn. Sự kết hợp này có trọng số theo độ bất định của từng nguồn, chứ không phải đơn giản lấy trung bình cộng. Kết quả là một ước lượng trạng thái hệ thống chính xác hơn, so với cả hai nguồn đứng riêng lẻ.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 83,
+    "chunks": [
+      {
+        "text": "Hãy hình dung một chu kỳ khép kín: forecast, tức dự báo từ mô hình, kết hợp với quan sát mới y, để cho ra bước analysis, tức phân tích, rồi mô hình lại chạy tiếp để dự báo bước kế tiếp, và cứ thế lặp lại liên tục. Mỗi khi có một quan sát mới, mô hình được hiệu chỉnh lại, trước khi tiếp tục dự báo.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 84,
+    "chunks": [
+      {
+        "text": "State vector, hay vector trạng thái, ký hiệu z, là tập hợp mọi biến số mô tả trạng thái của hệ thống thủy văn tại một thời điểm, ví dụ mực nước tại mọi Node dọc sông, lưu lượng tại mọi Reach, hay độ ẩm đất trong mô hình thủy văn. Với một lưu vực lớn, z có thể có hàng nghìn, thậm chí hàng triệu thành phần, và đây chính là nguồn gốc của thách thức tính toán, sẽ dẫn tới kỹ thuật Ensemble Kalman Filter mà chúng ta sắp học. Mục tiêu của đồng hóa dữ liệu, là ước lượng z chính xác nhất có thể, tại mọi thời điểm, dùng cả mô hình lẫn quan sát.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 85,
+    "chunks": [
+      {
+        "text": "Bộ lọc Kalman dựa trên hai giả định nền tảng: mô hình phải tuyến tính, hoặc gần tuyến tính, và sai số phải tuân theo phân bố Gauss. Dưới giả định này, phép kết hợp tối ưu, theo nghĩa phương sai nhỏ nhất, giữa dự báo và quan sát, có một công thức đóng, nghĩa là tính trực tiếp ra kết quả tối ưu, không cần thử nhiều phương án. Đây là lý do bộ lọc Kalman trở thành công cụ chuẩn trong dẫn đường tên lửa, định vị vệ tinh, và sau này là khoa học khí hậu và thủy văn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 86,
+    "chunks": [
+      {
+        "text": "Đây là phương trình cốt lõi của bước phân tích trong bộ lọc Kalman.",
+        "rate": "+0%"
+      },
+      {
+        "text": "z a bằng z f, cộng K nhân, y trừ H nhân z f.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Trong đó z f là trạng thái dự báo, y là quan sát, ví dụ mực nước từ altimetry, H là toán tử quan sát, còn z a là trạng thái sau khi phân tích. Toán tử H có vai trò dịch trạng thái mô hình sang không gian có thể so sánh trực tiếp với quan sát: ví dụ nếu z là mực nước tại một Node nhưng y đo tại vị trí khác, H sẽ thực hiện nội suy không gian. Phần y trừ H nhân z f, gọi là innovation, chính là chênh lệch giữa quan sát thực và dự báo mô hình, là tín hiệu mới mà quan sát mang lại.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 87,
+    "chunks": [
+      {
+        "text": "Bây giờ đến hệ số Kalman, gọi là Kalman gain, ký hiệu K, một trong những công thức quan trọng nhất của cả bài giảng.",
+        "rate": "+0%"
+      },
+      {
+        "text": "K bằng P nhân H chuyển vị, nhân, ngoặc, H nhân P nhân H chuyển vị, cộng R, đóng ngoặc, mũ trừ một.",
+        "rate": "-12%"
+      },
+      {
+        "text": "P là hiệp phương sai sai số dự báo, phản ánh độ bất định của mô hình, còn R là hiệp phương sai sai số quan sát. K quyết định bao nhiêu phần trăm của innovation được đưa vào để cập nhật trạng thái. Nếu mô hình rất bất định, tức P lớn, so với một quan sát rất tin cậy, tức R nhỏ, thì K sẽ lớn, và phân tích nghiêng mạnh về phía quan sát. Ngược lại, nếu mô hình tin cậy hơn quan sát, K sẽ nhỏ, và kết quả giữ gần với dự báo mô hình.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 88,
+    "chunks": [
+      {
+        "text": "Hãy thử tính một ví dụ cụ thể, đơn giản hóa về trường hợp một biến số vô hướng. Ví dụ một: mô hình dự báo mực nước là năm mét, với độ bất định phương sai không phẩy hai lăm mét vuông. Quan sát SWOT là năm phẩy ba mét, với độ bất định quan sát chỉ không phẩy không một mét vuông, khá tin cậy. Tính ra hệ số Kalman K xấp xỉ không phẩy chín sáu hai, một giá trị rất gần một, và kết quả phân tích cuối cùng là năm phẩy hai chín mét, rất gần với giá trị quan sát, vì quan sát đáng tin cậy hơn hẳn mô hình. Bây giờ thử ví dụ hai, đảo ngược tình huống: cùng hai giá trị đó, nhưng lần này mô hình rất tốt, phương sai chỉ không phẩy không một, còn quan sát bị nhiễu mây một phần, phương sai lên tới không phẩy hai lăm. Hệ số K lúc này chỉ còn xấp xỉ không phẩy không ba tám, rất gần không, và kết quả phân tích gần như giữ nguyên dự báo mô hình, năm phẩy không một mét, gần như bỏ qua quan sát bị nhiễu.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 89,
+    "chunks": [
+      {
+        "text": "Bộ lọc Kalman chuẩn có một giới hạn lớn cho bài toán quy mô lớn. Với một lưu vực mà vector trạng thái z chứa hàng nghìn hay hàng triệu thành phần, ma trận hiệp phương sai P có kích thước bằng bình phương số thành phần đó, quá lớn để lưu trữ và cập nhật trực tiếp bằng bộ nhớ và tính toán thông thường. Vì vậy, cần một cách xấp xỉ P mà không cần tính tường minh toàn bộ ma trận, và đây chính là động lực ra đời của Ensemble Kalman Filter.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 90,
+    "chunks": [
+      {
+        "text": "Ensemble Kalman Filter, viết tắt EnKF, có ý tưởng cốt lõi như sau: thay vì tính P một cách tường minh, ta chạy N bản sao mô hình song song, gọi là một ensemble, mỗi bản có một chút nhiễu động ban đầu hoặc tham số khác nhau. Độ phân tán giữa N thành viên ensemble tại một thời điểm, chính là ước lượng hiệp phương sai mẫu, thay thế cho P mà không cần công thức giải tích nào cả. Số N thường từ vài chục đến vài trăm, nhỏ hơn rất nhiều so với kích thước đầy đủ của P, nhưng vẫn đủ để nắm bắt cấu trúc bất định quan trọng nhất.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 91,
+    "chunks": [
+      {
+        "text": "Hai phương trình cốt lõi của EnKF, cho bước dự báo và bước phân tích.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Bước dự báo: z i f bằng M của z i, với i chạy từ một đến N.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Nghĩa là mỗi thành viên ensemble chạy độc lập qua mô hình động lực M.",
+        "rate": "+0%"
+      },
+      {
+        "text": "Bước phân tích: K j bằng C mũ hat dưới j, nhân H j chuyển vị, nhân, ngoặc, H j nhân C mũ hat dưới j nhân H j chuyển vị, cộng Gamma dưới j, đóng ngoặc, mũ trừ một.",
+        "rate": "-12%"
+      },
+      {
+        "text": "Trong đó C mũ hat dưới j là hiệp phương sai mẫu tính từ ensemble dự báo, thay thế cho P.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 92,
+    "chunks": [
+      {
+        "text": "Hãy hình dung sơ đồ này: N thành viên ensemble, mỗi thành viên là một đường, chạy song song theo thời gian. Độ toè ra của bó đường này tại một thời điểm quan sát, chính là hiệp phương sai được ước lượng, phản ánh độ bất định của cả tập hợp mô hình.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 93,
+    "chunks": [
+      {
+        "text": "Trong EnKF, có một kỹ thuật gọi là perturbed observation, hay quan sát nhiễu động. Mỗi thành viên ensemble không cập nhật với đúng một giá trị quan sát y, mà với y cộng thêm một nhiễu ngẫu nhiên, lấy mẫu từ phân bố sai số quan sát. Kỹ thuật này đảm bảo độ phân tán ensemble sau khi cập nhật, vẫn phản ánh đúng độ bất định còn lại. Nếu dùng chung một giá trị y cho mọi thành viên, ensemble sẽ bị co hẹp giả tạo, đánh giá thấp độ bất định thực sự.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 94,
+    "chunks": [
+      {
+        "text": "Hãy nhớ lại module hai: sai số quan sát của KaRIn có cấu trúc tương quan không gian, các pixel hay Node lân cận không có sai số độc lập như altimetry cổ điển. Hệ quả là, ma trận hiệp phương sai sai số quan sát, ký hiệu Gamma, không thể coi là một ma trận đường chéo đơn giản nữa, mà cần mô hình hóa tường minh cả phần ngoài đường chéo. Nếu bỏ qua sự tương quan này, thuật toán sẽ đánh giá quá cao độ tin cậy của quan sát SWOT, khiến hệ số K trở nên lớn một cách không chính đáng.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 95,
+    "chunks": [
+      {
+        "text": "Trước khi đưa dữ liệu SWOT vào vòng lặp EnKF, cần một bước tiền xử lý, để ước lượng và giảm bớt phần sai số tương quan này. Ví dụ, có thể phân tách sai số thành một phần biến đổi chậm theo không gian, vốn dễ tương quan, và một phần nhiễu độc lập theo từng pixel. Đây là một hướng nghiên cứu đang tích cực phát triển, kết hợp thống kê không gian, gọi là geostatistics, với lý thuyết lọc Kalman cổ điển.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 96,
+    "chunks": [
+      {
+        "text": "Jacques Verron, thuộc CNRS và LEGOS, là một trong những người đặt nền móng, cho việc áp dụng bộ lọc Kalman và Ensemble Kalman Filter, vào đồng hóa dữ liệu altimetry đại dương, từ đầu những năm một chín chín mươi, cùng thời kỳ với TOPEX Poseidon mà chúng ta học ở module một. Công trình nền tảng của ông, công bố năm một chín chín mươi trên tạp chí JGR Oceans, là một trong những ứng dụng sớm nhất của lọc Kalman cho dữ liệu vệ tinh đại dương. Hướng nghiên cứu hiện tại của ông, là mở rộng cùng khung lý thuyết đó, sang thủy văn lục địa với dữ liệu wide swath của SWOT, với thách thức riêng là sai số tương quan không gian mà chúng ta vừa học, khác biệt so với bối cảnh đại dương gốc.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 97,
+    "chunks": [
+      {
+        "text": "Trong thực tế, một mô hình thủy văn hay thủy lực quy mô lưu vực, dự báo dòng chảy dựa trên mưa, bốc hơi, và địa hình, sẽ tích lũy sai số theo thời gian, nếu không được neo lại bằng quan sát thực. Mỗi khi SWOT bay qua một đoạn sông, theo chu kỳ hai mươi mốt ngày như đã học ở module hai, EnKF sẽ cập nhật lại trạng thái mô hình, mực nước, và có thể cả lưu lượng từ module bốn, tại đúng đoạn sông đó. Giữa hai lần quan sát, mô hình vẫn tiếp tục chạy dự báo, và chu kỳ forecast, analysis, lại lặp lại liên tục.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 98,
+    "chunks": [
+      {
+        "text": "Sai lầm thường gặp nhất ở module này, là đồng hóa dữ liệu có độ lệch hệ thống chưa được hiệu chỉnh. Bộ lọc Kalman và EnKF đều giả định sai số không thiên lệch, tức trung bình bằng không. Nếu quan sát hoặc mô hình có một độ lệch hệ thống chưa phát hiện, chưa hiệu chỉnh, chẳng hạn sai lệch datum chưa quy đổi từ module một, hoặc mô hình thủy văn có xu hướng dự báo thấp hoặc cao một cách nhất quán, thì bộ lọc sẽ hội tụ về một giá trị sai, một cách rất tự tin, còn tệ hơn cả việc không đồng hóa gì cả.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 99,
+    "chunks": [
+      {
+        "text": "Phần tự kiểm tra module năm, gồm bốn câu hỏi. Câu một: Kalman gain K lớn khi nào, nhỏ khi nào? K lớn khi mô hình rất bất định so với quan sát tin cậy, K nhỏ khi ngược lại. Câu hai: EnKF giải quyết vấn đề gì mà Kalman Filter chuẩn không làm được? EnKF tránh phải tính tường minh ma trận hiệp phương sai P cực lớn, bằng cách xấp xỉ bằng hiệp phương sai mẫu từ N thành viên ensemble. Câu ba: vì sao sai số tương quan không gian của SWOT là thách thức riêng cho EnKF? Vì ma trận Gamma không thể coi là đường chéo đơn giản, bỏ qua điều này khiến K bị đánh giá sai. Câu bốn: vì sao K lại rất nhỏ ở ví dụ hai, dù công thức giống hệt ví dụ một? Vì K phụ thuộc tỷ lệ giữa P và R, chứ không phải giá trị tuyệt đối, ở ví dụ hai, P nhỏ hơn nhiều so với R, nên K nhỏ, ngược hoàn toàn với ví dụ một.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 100,
+    "chunks": [
+      {
+        "text": "Tổng kết module năm, có ba điều cốt lõi. Thứ nhất, công thức K bằng P H chuyển vị nhân nghịch đảo của H P H chuyển vị cộng R, là công thức trọng tâm, cân bằng giữa tin mô hình và tin quan sát, sẽ được dùng lại ở mọi ứng dụng dự báo lũ tại module sáu. Thứ hai, EnKF, tức ensemble, là công cụ thực tế duy nhất khả thi cho bài toán quy mô lưu vực lớn, nền tảng cho các hệ thống dự báo lũ vận hành theo thời gian thực. Thứ ba, sai số tương quan không gian của SWOT ở module hai, đòi hỏi xử lý đặc biệt trước khi đồng hóa, một lĩnh vực nghiên cứu đang mở, liên hệ trực tiếp tới thách thức giám sát xuyên biên giới ở module sáu.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 101,
+    "chunks": [
+      {
+        "text": "Module sáu, module cuối cùng của bài giảng, là nơi mọi kỹ thuật từ năm module trước hội tụ thành một ứng dụng thực tế: giám sát lũ lụt, và quản lý sông xuyên biên giới một cách công bằng giữa các quốc gia.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 102,
+    "chunks": [
+      {
+        "text": "Giám sát lũ bằng vệ tinh dựa vào ba loại cảm biến chính, bổ sung cho nhau. SAR, như Sentinel một, xuyên qua được mây. Quang học, như Sentinel hai, chỉ dùng được khi trời quang mây. Và altimetry cao độ, độ dốc, từ module một và hai. Lũ lụt thường xảy ra cùng lúc với mây dày, đây là lý do vì sao SAR đóng vai trò trung tâm trong giám sát lũ khẩn cấp, bất chấp thời tiết. Kết hợp cả ba nguồn, ta có được bức tranh đầy đủ: ranh giới vùng ngập từ SAR hoặc quang học, cộng với độ sâu và độ dốc nước lũ từ altimetry.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 103,
+    "chunks": [
+      {
+        "text": "Radar khẩu độ tổng hợp, gọi tắt là SAR, tự phát và tự thu tín hiệu radar của chính nó, nên hoạt động được cả ngày lẫn đêm, và xuyên qua được mây, khác hẳn cảm biến quang học. Nguyên lý phát hiện nước là: mặt nước phẳng phản xạ tín hiệu radar theo kiểu gương, tức phần lớn năng lượng bật ra xa ăng-ten, thay vì phản xạ ngược trở lại, khiến tín hiệu thu về, gọi là backscatter, rất thấp, tạo tương phản rõ rệt với mặt đất gồ ghề xung quanh. Thuật toán cơ bản là đặt một ngưỡng trên ảnh backscatter, vùng nào dưới ngưỡng được gán nhãn là nước.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 104,
+    "chunks": [
+      {
+        "text": "SAR có hai nguồn nhiễu chính cần lưu ý khi lập bản đồ ngập lụt. Thứ nhất là hiện tượng double bounce ở khu vực đô thị: tín hiệu radar phản xạ hai lần, giữa mặt nước và tường nhà, tạo ra tín hiệu mạnh bất thường tại khu ngập đô thị, rất dễ bị nhầm là không có nước. Thứ hai, gió mạnh làm gợn sóng mặt nước, phá vỡ kiểu phản xạ gương, khiến backscatter cũng tăng lên, làm vùng ngập bị đánh giá thấp hơn thực tế. Ngoài ra, thảm thực vật ngập một phần, như ruộng lúa nước hay rừng ngập mặn, cũng cho tín hiệu khá phức tạp, không đơn thuần là một ngưỡng cao thấp rõ ràng.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 105,
+    "chunks": [
+      {
+        "text": "Ảnh quang học từ Sentinel hai, có độ phân giải cao, mười đến hai mươi mét. Nước hấp thụ rất mạnh ánh sáng cận hồng ngoại, tạo tương phản rõ với đất và thực vật, trong các chỉ số như NDWI, viết tắt của Normalized Difference Water Index. Hạn chế lớn nhất là chỉ dùng được khi trời quang mây và vào ban ngày, đúng là điều kiện thường không có khi lũ đang xảy ra. Giá trị chính của nó là xác nhận và tinh chỉnh lại ranh giới ngập lụt, sau khi mây đã tan, hoặc giám sát diện tích mặt nước theo mùa, khi không cần độ khẩn cấp cao.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 106,
+    "chunks": [
+      {
+        "text": "Kết hợp SAR với SWOT sẽ cho một bức tranh đầy đủ hơn nhiều. SAR hay quang học cho ranh giới hai chiều của vùng ngập, nhưng không biết nước sâu bao nhiêu. SWOT với KaRIn, ở module hai, cho cao độ và độ dốc mặt nước, ngay trên vùng ngập đó, kết hợp với ranh giới từ SAR, ta có thể ước tính được thể tích nước lũ, chứ không chỉ diện tích. Đây chính là nền tảng cho module giám sát lũ trong chương trình khóa học, kết hợp đa cảm biến, thay vì chỉ dùng riêng lẻ một loại.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 107,
+    "chunks": [
+      {
+        "text": "Một hệ thống cảnh báo lũ hữu ích, cần dữ liệu đủ nhanh so với tốc độ nước lũ dâng, chứ không chỉ cần đủ chính xác. Chuỗi xử lý lý tưởng là: quan trắc vệ tinh, xử lý gần thời gian thực như đã học ở module ba, đồng hóa vào mô hình dự báo ở module năm, rồi phát cảnh báo trước khi đỉnh lũ tới. Có một sự đánh đổi cố hữu: dữ liệu near real time có độ chính xác thấp hơn dữ liệu archive, nhưng chấp nhận đánh đổi này là cần thiết, cho mục đích cảnh báo sớm.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 108,
+    "chunks": [
+      {
+        "text": "Sông xuyên biên giới, là lưu vực chảy qua từ hai quốc gia trở lên, và hơn bốn mươi phần trăm diện tích đất liền toàn cầu, nằm trong các lưu vực xuyên biên giới như vậy. Thách thức cốt lõi là, dữ liệu trạm đo tại chỗ thường không được chia sẻ đầy đủ giữa các quốc gia, vì lý do chủ quyền và an ninh nguồn nước. Hệ quả là, các quốc gia hạ lưu thường thiếu thông tin về việc vận hành hồ chứa, hay lượng nước xả từ thượng lưu, gây bất lợi trong quản lý rủi ro lũ và hạn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 109,
+    "chunks": [
+      {
+        "text": "Ủy hội sông Mê Kông, viết tắt MRC, là một tổ chức liên chính phủ, điều phối quản lý sông Mê Kông xuyên biên giới, với bốn thành viên chính thức: Thái Lan, Lào, Campuchia, và Việt Nam. Trung Quốc và Myanmar là đối tác đối thoại, chứ không phải thành viên đầy đủ. Vai trò của MRC là chia sẻ thông tin thủy văn, điều phối vận hành các dự án trên dòng chính, và đàm phán trong các tình huống hạn hán hay lũ lụt liên quốc gia. Đại diện của MRC trong chương trình khóa học VSEO sáu, là ông Mathias Boun Hen, minh họa trực tiếp mối liên hệ giữa nội dung khóa học và một tổ chức quản lý nước thực tế trong khu vực.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 110,
+    "chunks": [
+      {
+        "text": "Vì sao vệ tinh là một nguồn quan sát trung lập? Dữ liệu vệ tinh, từ altimetry ở module một và hai, đến SAR và quang học ở đầu module sáu, không phụ thuộc vào việc quốc gia nào có đồng ý chia sẻ dữ liệu trạm đo của mình hay không, vì vệ tinh quan sát toàn bộ lưu vực như nhau, bất kể biên giới. Nó cung cấp một cơ sở thông tin chung, nhất quán, mà mọi bên liên quan có thể tham chiếu, giúp giảm bất cân xứng thông tin giữa thượng lưu và hạ lưu. Vệ tinh không thay thế hoàn toàn nhu cầu hợp tác chính trị, nhưng nó giảm đáng kể một rào cản kỹ thuật cố hữu, của quản lý xuyên biên giới.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 111,
+    "chunks": [
+      {
+        "text": "Virtual gauge, hay trạm đo ảo, là khái niệm dùng chuỗi thời gian mực nước hoặc lưu lượng từ vệ tinh, ở module một, hai, và bốn, để đóng vai trò như một trạm đo, tại một vị trí không có thiết bị vật lý nào cả. Cách tiếp cận này đặc biệt hữu ích, tại những vị trí nhạy cảm về mặt chiến lược, ví dụ ngay hạ lưu một đập thủy điện lớn, nơi việc lắp đặt trạm đo vật lý có thể gặp trở ngại ngoại giao hoặc hậu cần. Nó cũng làm tăng tính minh bạch, vì các bên hạ lưu có thể tự theo dõi biến động mực nước hoặc lưu lượng gần đập, mà không cần phụ thuộc số liệu do quốc gia thượng lưu tự công bố.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 112,
+    "chunks": [
+      {
+        "text": "Chúng ta có thể dùng SWOT, cụ thể là sản phẩm LakeSP ở module ba, để theo dõi biến động thể tích hồ chứa ở thượng nguồn theo thời gian, từ đó suy ra được gần đúng lượng nước đang được tích trữ hay xả ra. Kết hợp thêm ước tính lưu lượng ở hạ lưu đập, bằng thuật toán BAM hay AMHG ở module bốn, ta có thể ước lượng gián tiếp được quy luật vận hành thực tế của một con đập, ngay cả khi đơn vị vận hành không công bố lịch xả nước. Đây là ứng dụng thực tế trực tiếp nhất, kết nối module hai, ba, và bốn, vào một bài toán quản lý xuyên biên giới rất cụ thể.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 113,
+    "chunks": [
+      {
+        "text": "Một mô hình dự báo lũ cho vùng hạ lưu, cần biết trạng thái dòng chảy ở thượng lưu, nhưng nếu số liệu thượng lưu không được chia sẻ, mô hình phải dựa hoàn toàn vào quan sát vệ tinh. Đồng hóa dữ liệu, với kỹ thuật EnKF ở module năm, cho phép cập nhật liên tục trạng thái mô hình dự báo, bằng quan sát vệ tinh mới nhất, tại các điểm dọc sông xuyên biên giới, kể cả khi hoàn toàn không có dữ liệu trạm đo tại chỗ ở phía thượng lưu. Đây là lý do vì sao module năm về lý thuyết, và module sáu về ứng dụng, luôn được giảng dạy nối tiếp nhau trong khóa học.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 114,
+    "chunks": [
+      {
+        "text": "SWOT có chu kỳ lặp lại khoảng hai mươi mốt ngày, như đã học ở module hai. Với một trận lũ diễn biến chỉ trong vài ngày, tần suất quan sát này không đủ nhanh, để theo dõi liên tục toàn bộ diễn biến. SAR, như Sentinel một, có chu kỳ lặp ngắn hơn, sáu đến mười hai ngày tùy cấu hình, phù hợp hơn cho giám sát lũ, nhưng vẫn không phải là liên tục thật sự. Vì vậy, một vệ tinh đơn lẻ không thể thay thế hoàn toàn dự báo bằng mô hình số, vai trò thực sự của nó là hiệu chỉnh định kỳ, cho một mô hình chạy liên tục giữa các lần quan sát.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 115,
+    "chunks": [
+      {
+        "text": "Dự án StockWater, do CNES và Space Climate Observatory phát triển, dùng dữ liệu SWOT để giám sát dung tích nước của các hồ chứa nông nghiệp, đặc biệt tại vùng bán khô hạn. Dự án này kết hợp trực tiếp kỹ thuật LakeSP, ở module ba, với một nhu cầu thực tế: nhà quản lý nông nghiệp cần biết lượng nước tưới tiêu còn lại, mà không cần khảo sát thực địa từng hồ một. Đây là minh họa cho mô hình ứng dụng hạ nguồn: lấy một sản phẩm khoa học chuẩn của SWOT, rồi đóng gói thành một công cụ vận hành, cho người dùng cuối không chuyên về viễn thám.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 116,
+    "chunks": [
+      {
+        "text": "Một nghiên cứu khác, của nhóm Sabrine Amzil tại đại học Strasbourg và SERTIT, dùng trực tiếp dữ liệu PIXC thô, ở module ba, để nhận diện ranh giới lòng sông, cho sông Rhine. Nghiên cứu này minh họa một ứng dụng thực tế đi ngược lại quy trình chuẩn: thay vì dùng RiverSP đã xử lý sẵn, họ quay lại dữ liệu PIXC gốc, khi cần độ chi tiết không gian cao hơn, mức mà Node hay Reach có thể cung cấp, đánh đổi lấy khối lượng xử lý lớn hơn.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 117,
+    "chunks": [
+      {
+        "text": "Sai lầm thường gặp nhất ở module này, là kỳ vọng SWOT hoạt động như một hệ thống giám sát liên tục. Với chu kỳ lặp lại hai mươi mốt ngày, SWOT phù hợp cho nghiên cứu xu hướng, hiệu chỉnh mô hình định kỳ, và giám sát dài hạn, chứ không phù hợp làm nguồn dữ liệu duy nhất cho một hệ thống cảnh báo lũ khẩn cấp, vốn cần thông tin theo giờ hoặc theo ngày. Luôn luôn cần kết hợp với SAR tần suất cao hơn, và một mô hình số chạy liên tục.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 118,
+    "chunks": [
+      {
+        "text": "Sơ đồ này tổng hợp lại toàn bộ sáu module đã học. Module một, nadir, và module hai, SWOT, cùng đổ vào module ba, hydroweb dot next, nơi dữ liệu được chuẩn hóa. Từ đó, tách ra module bốn, ước tính lưu lượng, và module năm, đồng hóa dữ liệu, cả hai cùng hội tụ vào module sáu, giám sát lũ và quản lý xuyên biên giới, đích đến cuối cùng của toàn bộ khóa học.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 119,
+    "chunks": [
+      {
+        "text": "Phần tự kiểm tra module sáu, gồm bốn câu hỏi. Câu một: vì sao SAR là công cụ chính cho giám sát lũ khẩn cấp, thay vì quang học? Vì SAR hoạt động cả ngày lẫn đêm và xuyên mây, trong khi lũ thường xảy ra cùng mây dày. Câu hai: virtual gauge là gì, và vì sao hữu ích cho quản lý xuyên biên giới? Là dùng chuỗi thời gian vệ tinh làm trạm đo ảo, tại nơi không có thiết bị vật lý. Câu ba: vì sao chu kỳ hai mươi mốt ngày của SWOT không đủ cho cảnh báo lũ khẩn cấp một mình? Vì lũ diễn biến nhanh hơn nhiều so với tần suất quan sát đó. Câu bốn: vì sao SAR bị nhiễu bởi cả double bounce đô thị lẫn gió mạnh, và cả hai lệch về hướng nào? Cả hai đều làm backscatter tăng, khiến vùng ngập bị đánh giá thấp hơn thực tế, theo hai cơ chế vật lý khác nhau.",
+        "rate": "+0%"
+      }
+    ]
+  },
+  {
+    "idx": 120,
+    "chunks": [
+      {
+        "text": "Đây là slide cuối cùng của cả bài giảng, tổng kết lại bốn phương trình xuyên suốt sáu module. Phương trình một, range equation ở module một: R bằng c nhân delta t chia hai. Phương trình hai, pha KaRIn ở module hai: delta phi bằng k B sin theta. Phương trình ba, Manning ở module bốn: Q bằng A V, và V bằng một chia n nhân R h mũ hai phần ba nhân S mũ một phần hai. Phương trình bốn, hệ số Kalman ở module năm: K bằng P H chuyển vị nhân nghịch đảo của H P H chuyển vị cộng R. Cảm ơn bạn đã theo dõi hết bài giảng. Toàn bộ chi tiết, nguồn trích dẫn, và ba mươi mốt câu hỏi tự luyện tập, có tại trang web luyện tập của khóa học VSEO sáu.",
+        "rate": "+0%"
+      }
+    ]
+  }
+]

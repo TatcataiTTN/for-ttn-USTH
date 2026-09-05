@@ -157,6 +157,28 @@ svg text{font-family:inherit}
 .recap-item .ico{flex:0 0 auto;font-size:18px}
 .recap-item .txt{font-size:14px;color:var(--ink-dim);line-height:1.55}
 .recap-item .txt b{color:var(--ink)}
+
+/* ---- narration: nút nghe trên từng slide + bôi sáng công thức đang đọc ---- */
+.narr-btn{
+  position:absolute; left:24px; bottom:24px; z-index:20;
+  width:44px; height:44px; border-radius:50%; border:1px solid var(--line);
+  background:var(--panel2); color:var(--ink); font-size:18px; cursor:pointer;
+  display:flex; align-items:center; justify-content:center;
+  transition:background .15s,border-color .15s,transform .15s;
+}
+.narr-btn:hover{border-color:var(--accent); transform:scale(1.06)}
+.narr-btn.is-playing{background:rgba(79,209,197,.18); border-color:var(--accent); color:var(--accent)}
+.eqn-box.narrating{
+  background:rgba(242,184,75,.14); border-color:var(--accent2);
+  box-shadow:0 0 0 2px rgba(242,184,75,.25);
+  transition:background .2s,box-shadow .2s,border-color .2s;
+}
+.narrbar{position:fixed; top:14px; left:18px; z-index:60}
+.narrbar-toggle{
+  font-size:12px; font-weight:700; letter-spacing:.02em; padding:6px 14px; border-radius:999px;
+  border:1px solid var(--line); background:var(--panel); color:var(--ink-dim); cursor:pointer;
+}
+.narrbar-toggle.on{color:var(--accent); border-color:var(--accent); background:rgba(79,209,197,.12)}
 </style>
 </head>
 <body>
@@ -1160,5 +1182,6 @@ document.addEventListener('click', e=>{
 });
 render();
 </script>
+<script src="js/narration.js"></script>
 </body>
 </html>
