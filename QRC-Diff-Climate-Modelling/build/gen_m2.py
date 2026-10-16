@@ -76,6 +76,12 @@ parts=[
    sl('<p>Trong mỗi bước: w qubit gần nhất (<b>explicit register</b>) bị RESET và mã hoá lại input mới; N−w qubit còn lại (<b>quantum memory register</b>) KHÔNG bị reset, mang trạng thái lượng tử đã tiến hoá từ các bước trước — đây là nơi "trí nhớ dài hạn ngầm" được lưu trữ.</p>'
     +callout('warn','Phát hiện chính của paper','Quantum memory register là THIẾT YẾU khi tác vụ cần nhớ xa vào quá khứ (ví dụ Santa Fe laser); với tác vụ chỉ cần lịch sử ngắn, giới hạn w=N (không còn memory register, tương đương QELM) đã đủ tốt.'),
     'PHẦN 3 · Hamiltonian','Explicit register và Quantum memory register'),
+   sl(diag('../../figures/m2_qrc/fig1_architecture.png','Fig. 1, Ramon-Escandell, Riera & Płodzień 2026','(a) Kết quả dự báo NARMA-10/Santa Fe; (b) Pipeline 1 bước QRC: encoding → reservoir update → measurement → readout tuyến tính'),
+    'PHẦN 3 · Hamiltonian','Hình gốc: kiến trúc spin-chain và kết quả benchmark'),
+ ]),
+ dict(title='References',bullets=['Hình đã dùng trong module này'],slides=[
+   sl(ul(['Fig. 1 — Ramon-Escandell, Riera & Płodzień (2026). "From quantum reservoirs to quantum extreme learning machines through a nearest-neighbor spin chain with tunable quantum memory." arXiv:2608.28440v1. Trang 2.']),
+    'PHẦN 4 · References','Nguồn hình ảnh'),
  ]),
 ]
 

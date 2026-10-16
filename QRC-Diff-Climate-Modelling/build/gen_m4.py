@@ -73,6 +73,12 @@ parts=[
       [('stopgrad','chặn gradient chảy qua phần "đích" vì V phụ thuộc phân phối q, khó lan truyền ngược trực tiếp'),('Giá trị loss','bằng chính E‖V(f(ε))‖² — bình phương chuẩn của trường drift')])
     +callout('good','Kết quả','Mạng f cuối cùng chỉ cần 1 lần forward pass (1-NFE) để sinh mẫu — vì toàn bộ "sự lặp lại" đã xảy ra trong các bước SGD lúc huấn luyện, không phải lúc inference.'),
     'PHẦN 3 · Drifting','Loss function và vì sao sinh mẫu chỉ cần 1 bước'),
+   sl(diag('../../figures/m4_drifting/fig1_pushforward.png','Fig. 1, Deng, Li, Li, Du & He 2026','q=f#p_prior (cam) tiến dần về p_data (xanh) qua các iteration huấn luyện 0→80; loss (trục y, log-scale) giảm tương ứng'),
+    'PHẦN 3 · Drifting','Hình gốc: pushforward tiến hoá theo iteration huấn luyện'),
+ ]),
+ dict(title='References',bullets=['Hình đã dùng trong module này'],slides=[
+   sl(ul(['Fig. 1 — Deng, M., Li, H., Li, T., Du, Y. & He, K. (2026). "Generative Modeling via Drifting." arXiv:2602.04770v2. Trang 1.']),
+    'PHẦN 4 · References','Nguồn hình ảnh'),
  ]),
 ]
 

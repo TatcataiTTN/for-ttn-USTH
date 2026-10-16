@@ -76,17 +76,33 @@ parts=[
     explain='Ý tưởng cốt lõi: để reservoir TỰ HỌC cách trộn 1 chuỗi nhanh (ENSO) với 2 chuỗi chậm (PDO, VM), thay vì nhà nghiên cứu phải tự tay chia 8 nhóm rồi phân tích riêng từng nhóm như bài gốc.'),
    sl(callout('warn','Việc chưa xong (trung thực)','Đây mới là THIẾT KẾ Ý TƯỞNG — NOTE gốc đánh dấu rõ 3 mục "chưa làm": (1) đọc Methods lấy chính xác công thức VM index + nguồn SST (HadISST hay ERSST?); (2) xác nhận train trên chuỗi liên tục 165 năm, không rời rạc hoá 8 nhóm; (3) liên hệ thầy Dũng/thầy Thành xin index đã xử lý sẵn.'),
     'PHẦN 2 · Thiết kế QRC','Checklist trước khi code (chưa hoàn thành)'),
+   sl(diag('../../figures/m1_m5_enso/fig2_composite_pdo_vm.png','Fig. 2, Nguyen-Le & Ngo-Duc 2025, J. Climate','4 tổ hợp pha PDO×VM — chính là cấu trúc dữ liệu mà thiết kế QRC ở trên nhắm tới học trực tiếp, không rời rạc hoá'),
+    'PHẦN 2 · Thiết kế QRC','Hình gốc: 4 tổ hợp pha PDO×VM cần học (xem lại từ M1)'),
  ]),
  dict(title='Paper #2 + Drifting: downscaling là 1 pushforward',bullets=['x_highres=f(x_lowres)','62 mô phỏng RCM có sẵn','Bias hệ thống theo họ RCM'],slides=[
    sl(formula('Downscaling như pushforward (NOTE)','x_highres = f(x_lowres)  hoặc  x_highres = f(ε | x_lowres)',
       [('x_lowres','trường CMIP6 thô (điều kiện/conditioning)'),('x_highres','trường độ phân giải cao, mục tiêu khớp RCM output thật'),('62 mô phỏng','đã có sẵn từ paper #2 — dùng làm "ground truth" huấn luyện, không cần chạy RCM lại sau khi train xong')]),
     'PHẦN 3 · Thiết kế Drifting','Downscaling = bài toán pushforward đúng dạng Drifting Model'),
+   sl(diag('../../figures/m5_cordex/fig1_domain_map.png','Fig. 1, Nguyen et al. 2026, GMD 19(16)','Miền CORDEX-SEA (xanh lá) và miền mở rộng (xanh dương) dùng cho hầu hết mô phỏng CMIP6-downscaled'),
+    'PHẦN 3 · Thiết kế Drifting','Hình gốc: miền không gian CORDEX-SEA'),
+   sl(diag('../../figures/m5_cordex/table1_simulations.png','Table 1 (18/22 hàng đầu), Nguyen et al. 2026, GMD 19(16)','22 cấu hình RCM×GCM, mỗi hàng có thể chạy nhiều kịch bản SSP — tổng cộng paper báo cáo 62 mô phỏng (x/✓) qua 3 RCM (CCAM, HadGEM3-RA7, RegCM4/5)'),
+    'PHẦN 3 · Thiết kế Drifting','Hình gốc: bảng danh sách mô phỏng (nguồn cặp input-output để train Drifting)'),
    sl(callout('good','Lợi ích chi phí tính toán','62 mô phỏng RCM (nhiều tuần/lượt trên HPC) dùng 1 LẦN để huấn luyện Drifting; sau đó sinh ensemble member mới chỉ cần 1 forward pass — rẻ hơn rất nhiều so với chạy lại RCM.')
     +callout('info','Vùng test khó nhất','Maritime Continent (quần đảo Đông Nam Á) — RCM truyền thống khó mô phỏng nhất do biến thiên không gian mưa lớn — NOTE xác định đây là test case giá trị khoa học cao nhất.'),
     'PHẦN 3 · Thiết kế Drifting','Lợi ích và test case ưu tiên'),
    sl(ul(['Network f: U-Net hoặc Vision Transformer (thay backbone ảnh tự nhiên của paper gốc)','Input: trường CMIP6 thô + conditioning (model ID, kịch bản phát thải)','Output: trường RCM (dùng 15 mô phỏng đã qua benchmark — "đáng tin cậy nhất")','Đánh giá: FID/CRPS/RMSE so với RCM thật, đặc biệt ở Maritime Continent'])
     +callout('warn','Việc chưa xong (trung thực)','Chưa trích xuất dữ liệu 62 mô phỏng từ Zenodo, chưa xác định cặp input-output đúng theo config benchmark, chưa liên hệ thầy Thành về khả năng tiếp cận dữ liệu/code gốc.'),
     'PHẦN 3 · Thiết kế Drifting','Kiến trúc cụ thể + checklist chưa hoàn thành'),
+ ]),
+ dict(title='Sơ đồ pipeline tổng hợp',bullets=['QRC-ENSO','Drifting-CORDEX'],slides=[
+   sl(diag('../../diagrams/m5_pipeline.svg','Sơ đồ tự vẽ, tổng hợp từ 2 NOTE thiết kế','5 bước mỗi hướng — xem chi tiết từng bước ở Phần 2 (QRC) và Phần 3 (Drifting) phía trên'),
+    'PHẦN 4 · Pipeline','2 luồng thiết kế song song: QRC cho ENSO-EASM, Drifting cho CORDEX-SEA'),
+ ]),
+ dict(title='References',bullets=['Hình đã dùng trong module này'],slides=[
+   sl(ul(['Fig. 2 — Nguyen-Le, D. & Ngo-Duc, T. (2025). <i>Journal of Climate</i>, 38(20), 5655–5670. DOI: 10.1175/JCLI-D-24-0626.1. Trang 5657.',
+          'Fig. 1 & Table 1 — Nguyen, P. L. et al. (2026). "The CMIP6-downscaled CORDEX-Southeast Asia (SEA) ensemble." <i>Geoscientific Model Development</i>, 19(16), 7653–7685. DOI: 10.5194/gmd-19-7653-2026. Trang 7655–7656.',
+          'Sơ đồ pipeline (M5): tự vẽ, tổng hợp 2 thiết kế từ NOTE_hieu_va_mo_rong_QRC.md và NOTE_hieu_va_mo_rong_Drifting.md — không phải hình trích từ paper.']),
+    'PHẦN 5 · References','Nguồn hình ảnh'),
  ]),
 ]
 

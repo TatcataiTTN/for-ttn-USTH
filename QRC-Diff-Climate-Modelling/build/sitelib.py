@@ -46,7 +46,7 @@ def module_page(mid,slug,title,subtitle,source,status,parts,quiz_items,notes='',
     if notebook_links:
         items=''.join(f'<li><a href="{href}" target="_blank" rel="noopener">{esc(lbl)}</a></li>' for lbl,href in notebook_links)
         nb_html=f'<h2>Notebook verify</h2><ul>{items}</ul><p style="font-size:.82rem;color:var(--muted)">Mở trực tiếp trên GitHub (xem JSON đã chạy) hoặc tải về chạy lại bằng Jupyter/Colab.</p>'
-    body=f'''<div class="usth-banner"><img src="../assets/logos/usth_logo.png"><div><div class="t">{esc(title)}</div><div class="s">{esc(subtitle)} · {esc(status)}</div></div></div>
+    body=f'''<div class="usth-banner"><img src="../../assets/logos/usth_logo.png"><div><div class="t">{esc(title)}</div><div class="s">{esc(subtitle)} · {esc(status)}</div></div></div>
 <p class="lead">Nguồn: {esc(source)}</p>
 {deck_html}
 <h2>Ngân hàng câu hỏi ({len(quiz_items)} câu)</h2>

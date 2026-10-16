@@ -111,6 +111,8 @@ parts=[
    sl(ul(['Dữ liệu: COBE-SST2 (1°×1°, Hirahara 2014) + 20CRv3 ensemble mean, 165 năm quan sát','4 nhóm composite: pPDO_pVM, pPDO_nVM, nPDO_pVM, nPDO_nVM','Đối chiếu bằng CESM2, 10-member ensemble (kiểm tra cơ chế có bền vững trong mô hình động lực không)','Kiểm định: t-test 2 phía, N_eff theo Bretherton et al. (1999)']),
     'PHẦN 3 · Kết quả chính','Phương pháp & dữ liệu (tóm tắt để tái tạo lại)',
     explain='Đây là danh sách những gì cần nếu muốn tự tái tạo lại composite analysis của bài báo bằng Python, bước đầu tiên của lộ trình phát triển QRC.'),
+   sl(diag('../../figures/m1_m5_enso/fig2_composite_pdo_vm.png','Fig. 2, Nguyen-Le & Ngo-Duc 2025, J. Climate','4 tổ hợp pha PDO×VM: pPDO_pVM, pPDO_nVM, nPDO_pVM, nPDO_nVM — hồi quy SSTA/gió MAM(0) theo Niño-3.4 NDJ(−1/0)'),
+    'PHẦN 3 · Kết quả chính','Bản đồ gốc: phản hồi SST/gió theo 4 tổ hợp pha PDO×VM'),
  ]),
  dict(title='Vì sao chuỗi ENSO-EASM hợp với QRC',bullets=['Time-series chaotic vs spatial','Explicit vs memory register','Hướng mở rộng cụ thể'],slides=[
    sl(table(['Dạng bài toán','Ví dụ','Method quantum phù hợp'],
@@ -121,6 +123,10 @@ parts=[
    sl(callout('info','Ý tưởng thiết kế (NOTE_hieu_va_mo_rong_QRC.md)','Explicit register ↔ pha PDO/VM hiện tại (thay đổi thập kỷ-niên, "làm mới" theo từng điểm thời gian lớn); Quantum memory register ↔ lịch sử ENSO tích lũy nhiều mùa trước, không bị reset — ánh xạ trực tiếp từ kiến trúc 2 vùng qubit của paper QRC spin-chain sang cấu trúc đa thang thời gian PDO/VM/ENSO.')
     +callout('warn','Việc còn phải làm (chưa chạy thật)','Thiết kế này mới ở mức ý tưởng/giấy — chưa code, chưa chạy benchmark, chưa so sánh với baseline LSTM/ARIMA. Đây là input cho Module 4 (ứng dụng paper #1 + mở rộng QRC).'),
     'PHẦN 4 · Liên hệ QRC','Ánh xạ kiến trúc QRC sang bài toán ENSO-EASM'),
+ ]),
+ dict(title='References',bullets=['Hình đã dùng trong module này'],slides=[
+   sl(ul(['Fig. 2 — Nguyen-Le, D. & Ngo-Duc, T. (2025). "Modulation of PDO and the Victoria Mode on the ENSO–East Asian Summer Monsoon Relationship." <i>Journal of Climate</i>, 38(20), 5655–5670. DOI: 10.1175/JCLI-D-24-0626.1. Trang 5657 (trang 3 của file PDF).']),
+    'PHẦN 5 · References','Nguồn hình ảnh'),
  ]),
 ]
 
