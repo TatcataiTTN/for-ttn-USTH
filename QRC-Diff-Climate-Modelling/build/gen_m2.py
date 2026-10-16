@@ -1,7 +1,7 @@
 import sys,os
 sys.path.insert(0,os.path.dirname(__file__))
 from hx import *
-from qcore import Bank, audit
+from qcore import Bank, audit, balance_length
 from sitelib import module_page
 
 B=Bank('m2',seed=2)
@@ -48,7 +48,8 @@ B.add('Quantum Extreme Learning Machine (QELM) liên hệ với QRC như thế n
     'Đây là một trong những đóng góp lý thuyết quan trọng của paper: cùng kiến trúc explicit/memory register, khi w=N (reset toàn bộ mỗi bước, không có memory register) hệ trở thành QELM (extreme learning machine lượng tử — không có trí nhớ qua các bước); khi w<N có giữ lại memory register, hệ là QRC đầy đủ.',level=3,topic='Architecture')
 
 print('M2 added:',len(B.items))
-print('AUDIT:',audit(B.items))
+balance_length(B.items)
+print('AUDIT (after balance):',audit(B.items))
 
 parts=[
  dict(title='Lịch sử Reservoir Computing',bullets=['Vấn đề BPTT/vanishing gradient','ESN & LSM','Fading memory & echo state property'],slides=[

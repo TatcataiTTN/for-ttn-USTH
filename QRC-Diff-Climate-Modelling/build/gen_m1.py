@@ -1,7 +1,7 @@
 import sys,os
 sys.path.insert(0,os.path.dirname(__file__))
 from hx import *
-from qcore import Bank, audit
+from qcore import Bank, audit, balance_length
 from sitelib import module_page
 
 B=Bank('m1',seed=1)
@@ -76,8 +76,9 @@ B.add('"Composite analysis" theo 4 tổ hợp pha PDO×VM trong paper #1 có th�
     'Đây là ý tưởng thiết kế mở rộng (ghi trong NOTE_hieu_va_mo_rong_QRC.md): vì paper #1 đã chứng minh quan hệ ENSO-EASM bị điều biến bởi pha PDO/VM (thang thời gian khác nhau), kiến trúc QRC có explicit register (ngắn hạn) + quantum memory register (dài hạn, không reset) của paper QRC là một ẩn dụ tự nhiên để mã hoá đúng cấu trúc đa thang thời gian này.',level=3,topic='Lien-he-QRC')
 
 print('M1 added:',len(B.items))
+balance_length(B.items)
 a=audit(B.items)
-print('AUDIT:',a)
+print('AUDIT (after balance):',a)
 
 parts=[
  dict(title='Lịch sử & nền tảng khí hậu nhiệt đới',bullets=['Hoàn lưu Walker & Bjerknes feedback','Matsuno-Gill response','PDO vs ENSO: thang thời gian'],slides=[

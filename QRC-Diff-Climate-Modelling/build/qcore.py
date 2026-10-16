@@ -35,6 +35,29 @@ def near_ints(v, rng, k=8, lo=None):
         if w!=v: s.add(w)
     return sorted(s)
 def fmt_tuple(t): return '('+', '.join(map(str,t))+')'
+PAD_SUFFIXES=[' — không khớp với số liệu/định nghĩa đã đọc trong tài liệu nguồn',
+    ' — đây là một mô tả hợp lý nhưng không phải điều paper/sách thực sự nêu ra',
+    ' — chi tiết này không xuất hiện trong nội dung full-text đã verify',
+    ' — mô tả này sai về bản chất cơ chế so với nguồn gốc']
+def balance_length(items, tol=1.08):
+    """Pad cac dap an SAI qua ngan de giam length-bias, KHONG doi dung sai (chi them cau bo nghia nhung van sai).
+    Dung crc32 (deterministic, khong phu thuoc PYTHONHASHSEED) de chon do dai muc tieu, cho phep
+    dap an sai VUOT QUA do dai dap an dung (khong chi "gan bang") de triet tieu thien lech "correct luon dai nhat"."""
+    import zlib
+    for idx,it in enumerate(items):
+        c=it['correct']; lens=[len(o) for o in it['opts']]
+        target=lens[c]
+        for i,o in enumerate(it['opts']):
+            if i==c: continue
+            h=zlib.crc32((it['q'][:20]+o).encode('utf-8'))
+            # he so muc tieu dao dong 0.95x..1.20x do dai dap an dung — co the VUOT qua
+            factor=0.98+(h%34)/100.0
+            want=int(target*factor)
+            if lens[i] < want:
+                suf=PAD_SUFFIXES[h%len(PAD_SUFFIXES)]
+                cand=o+suf
+                it['opts'][i]=cand if abs(len(cand)-want)<=abs(lens[i]-want) else o
+    return items
 def audit(items):
     pos=collections.Counter(it['correct'] for it in items); n=len(items); exp=max(n,1)/4
     chi=sum((pos.get(i,0)-exp)**2/exp for i in range(4))

@@ -5,9 +5,9 @@ SITE_TITLE='QRC-Diff-Climate-Modelling · USTH Phenikaa'
 MODULES=[
  ('m1','01-nen-tang-enso-pdo-easm','M1 · Nền tảng ENSO-PDO-EASM'),
  ('m2','02-reservoir-computing-qrc','M2 · Reservoir Computing & QRC'),
- ('m3','03-generative-model-drifting','M3 · Generative Model & Drifting'),
- ('m4','04-paper1-ung-dung-qrc','M4 · Bài báo #1 + mở rộng QRC'),
- ('m5','05-paper2-ung-dung-drifting','M5 · Bài báo #2 + mở rộng Drifting'),
+ ('m3','03-reservoir-computing-lineage','M3 · Lịch sử Reservoir Computing'),
+ ('m4','04-generative-model-drifting','M4 · Lịch sử Generative Model & Drifting'),
+ ('m5','05-ung-dung-mo-rong-2-bai-bao','M5 · Ứng dụng mở rộng (QRC + Drifting)'),
  ('m6','06-literature-textbook','M6 · Literature review & Textbook'),
  ('m7','07-cac-the-he-mo-hinh-thoi-tiet','M7 · Các thế hệ mô hình thời tiết'),
 ]
