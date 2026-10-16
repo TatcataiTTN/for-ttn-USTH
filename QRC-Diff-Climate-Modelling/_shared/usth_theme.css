@@ -1,0 +1,23 @@
+/* Theme USTH cho site "QRC-Diff-Climate-Modelling". Nhúng SAU common.css.
+   Màu verify bằng đọc pixel thật từ 10_Thesis_Final/figures/logo_usth.png (logo chính thức USTH):
+   xanh #273896, đỏ #ED1C24. Logo phụ DSES (logo_DSES.png) dùng cyan #15AFF0 — KHÁC xanh USTH chính,
+   chỉ dùng làm logo góc thứ 2 (khoa/đơn vị), không dùng làm màu nền/accent chính. */
+:root{--accent:#ED1C24;--accent2:#273896;--usth-navy:#273896;--usth-red:#ED1C24;--dses-cyan:#15AFF0}
+:root[data-theme="dark"]{--accent:#ff5a60;--accent2:#7f93e8}
+header.top{border-bottom:3px solid var(--usth-red)}
+header.top .brand{display:flex;align-items:center;gap:8px}
+header.top .brand img{height:28px;width:auto}
+.usth-banner{display:flex;align-items:center;gap:14px;background:linear-gradient(90deg,var(--usth-navy),var(--usth-red));
+  color:#fff;border-radius:12px;padding:12px 18px;margin:10px 0 18px}
+.usth-banner img{height:46px;background:#fff;border-radius:8px;padding:4px}
+.usth-banner .t{font-weight:800;font-size:1.05rem;line-height:1.3}
+.usth-banner .s{font-size:.82rem;opacity:.9}
+.mdeck-slide .usth-foot{position:absolute;bottom:8px;left:26px;right:26px;display:flex;justify-content:space-between;
+  align-items:center;font-size:.68rem;color:var(--muted);border-top:1px solid var(--border);padding-top:4px}
+.mdeck-slide .usth-foot img{height:18px;opacity:.85}
+.mdeck-slide.part-divider{background:linear-gradient(135deg,var(--usth-navy),var(--usth-red));color:#fff}
+.mdeck-slide.part-divider .part-num{color:#fff;opacity:.3}
+.mdeck-slide.part-divider h2{color:#fff}
+.tag.unverified{background:#fff3df;color:#a05a00;border-color:#e8c37a}
+.dses-chip{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--dses-cyan);border-radius:8px;padding:2px 8px;font-size:.75rem}
+.dses-chip img{height:16px}
