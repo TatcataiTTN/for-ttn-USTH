@@ -33,8 +33,8 @@ def write(relpath,content):
 def module_page(mid,slug,title,subtitle,source,status,parts,quiz_items,notes='',notebook_links=None):
     """parts: list of dict(title,bullets,slides[list of html]). quiz_items: list of dict(q,opts,correct,explain,source)."""
     s=[]
-    cover=sl(f'<h1 style="color:#fff;font-size:1.1em">{esc(title)}</h1><p style="opacity:.9">{esc(subtitle)}</p>'
-             f'<p style="font-size:.8em;opacity:.8">Nguồn: {esc(source)}</p>','','', '')
+    cover=sl(f'<h1>{esc(title)}</h1><p style="color:var(--muted)">{esc(subtitle)}</p>'
+             f'<p style="font-size:.8em;color:var(--muted)">Nguồn: {esc(source)}</p>','','', '')
     s.append((cover,False))
     for p_i,part in enumerate(parts,1):
         s.append((divider(p_i,len(parts),part['title'],part['bullets']),True))

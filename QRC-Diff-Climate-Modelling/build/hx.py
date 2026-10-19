@@ -26,10 +26,11 @@ def diag(path,alt,cap=''): return f'<div class="diag"><a href="{path}" target="_
 def divider(n,total,title,bullets):
     return f'<div class="kicker">PHẦN {n}/{total}</div><div class="part-num">{n:02d}</div><h2>{title}</h2><ul class="part-list">'+''.join(f'<li>{b}</li>' for b in bullets)+'</ul>'
 def deck(slides_html,deck_id='d0'):
-    """slides_html: list of (html, is_divider)"""
+    """slides_html: list of (html, is_divider). Slide dau tien (index 0) luon la cover, danh dau class 'cover'."""
     s=''
-    for h,div in slides_html:
-        s+=f'<div class="mdeck-slide{" part-divider" if div else ""}">{h}</div>'
+    for i,(h,div) in enumerate(slides_html):
+        cls=' cover' if i==0 else (' part-divider' if div else '')
+        s+=f'<div class="mdeck-slide{cls}">{h}</div>'
     return (f'<div class="mdeck" id="{deck_id}"><div class="mdeck-viewport">{s}</div>'
             '<div class="mdeck-bar"><button class="mdeck-prev" type="button">◀ Trước</button><button class="mdeck-next" type="button">Sau ▶</button>'
             '<span class="mdeck-count"></span><div class="mdeck-dots"></div><button class="mdeck-fs" type="button">⛶ Toàn màn hình</button></div></div>')

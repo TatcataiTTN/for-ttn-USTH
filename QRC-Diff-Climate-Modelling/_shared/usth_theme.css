@@ -21,3 +21,15 @@ header.top .brand img{height:28px;width:auto}
 .tag.unverified{background:#fff3df;color:#a05a00;border-color:#e8c37a}
 .dses-chip{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--dses-cyan);border-radius:8px;padding:2px 8px;font-size:.75rem}
 .dses-chip img{height:16px}
+/* Băng tiêu đề navy + gạch đỏ + logo USTH cho MỌI slide nội dung (không phải divider/cover) —
+   thống nhất với templates/usth-dses-deck/usth_theme.css (cùng 2 mã màu đã verify pixel thật),
+   nhưng giữ h2 ở NORMAL FLOW (không position:absolute) để không phá vỡ phép đo scrollHeight/clientHeight
+   mà deck.js dùng để tự co giãn cỡ chữ (fit()). */
+.mdeck-slide:not(.part-divider):not(.cover) h2{
+  position:relative;background:var(--usth-navy);color:#fff;margin:-22px -26px 14px -26px;
+  padding:13px 70px 13px 26px;border-bottom:4px solid var(--usth-red);font-size:1.22rem;line-height:1.25}
+.mdeck-slide:not(.part-divider):not(.cover) h2::after{
+  content:"";position:absolute;top:50%;right:14px;transform:translateY(-50%);width:76px;height:34px;
+  background:url(../assets/logos/usth_logo.png) no-repeat center/contain}
+.mdeck-slide.cover h1{color:var(--usth-navy);font-size:1.5rem;border-bottom:4px solid var(--usth-red);padding-bottom:10px;margin:0 0 14px}
+.mdeck-slide.cover{border-top:8px solid var(--usth-navy)}
