@@ -6,7 +6,7 @@ Static, browser-only study material (no backend). Hosted on GitHub Pages.
 
 Live: **https://tatcataittn.github.io/for-ttn-USTH/Atmospheric-Remote-Sensing/**
 
-Eight modules matching the eight theory questions of the *Satellite Remote Sensing of Atmospheric Composition* study guide
+English-language site with eight modules matching the eight theory questions of the *Satellite Remote Sensing of Atmospheric Composition* study guide
 (sinks and lifetime, light–matter interaction, trace-gas retrieval, pointing geometries, averaging kernels, passive aerosol
 sensing, scattering regimes, aerosol altitude): lessons, 1280×720 slide decks (USTH-DSES theme), 138 multiple-choice questions
 and 21 essay questions with explanations, 9 in-browser calculators, a 120-minute mock exam with self-grading and eight 15-question

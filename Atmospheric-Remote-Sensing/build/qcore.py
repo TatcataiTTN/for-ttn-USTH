@@ -89,7 +89,7 @@ def rebalance(items, ratio=1.0):
         target = int(max(mean * 1.02, min(mx * 0.97, mean * 1.25)))
         new = _trim(it['opts'][c], target)
         if new and new != it['opts'][c]:
-            it['explain'] = it['explain'] + '\nĐáp án đầy đủ: ' + it['opts'][c]
+            it['explain'] = it['explain'] + '\nFull answer: ' + it['opts'][c]
             it['opts'][c] = new; changed += 1
     return changed
 

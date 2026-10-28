@@ -1,4 +1,4 @@
-/* Theme + font-size switcher (cấu hình đọc trước khi vẽ ở <head>; file này gắn nút) */
+/* Theme + font-size switcher (saved choice is applied in <head> before paint; this file wires the buttons) */
 (function(){
   function apply(t){if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);else document.documentElement.removeAttribute('data-theme');try{localStorage.setItem('site-theme',t)}catch(e){}}
   document.querySelectorAll('[data-set-theme]').forEach(function(b){b.addEventListener('click',function(){apply(b.getAttribute('data-set-theme'));var d=b.closest('details');if(d)d.open=false})});

@@ -2,7 +2,7 @@
 """Đề thi mẫu gốc (nguyên văn tiếng Anh từ file De_thi_mau_Remote_Sensing.pdf) + đáp án gợi ý."""
 INSTR = ['Answer all questions in English. Use clear schematics where asked; label axes and arrows.',
          'Give the main equations and orders of magnitude; justify every choice in one or two sentences.',
-         'Mỗi câu có ghi chương tương ứng trong đề cương để ôn lại (Ch. 1–8).']
+         'Each question names the matching chapter of the study guide for review (Ch. 1–8).']
 Q = [
  dict(n=1, ch=1, pts=2.5, parts=['(a) Define the atmospheric lifetime τ of a pollutant. How are lifetimes combined when several removal processes act in parallel?',
    '(b) The rate constant of CO + OH is k ≈ 2×10⁻¹³ cm³ molecule⁻¹ s⁻¹ and the mean OH concentration is ≈ 1×10⁶ molecule cm⁻³. Estimate the lifetime of CO with respect to OH (give the result in days).',

@@ -1,7 +1,4 @@
-/* Theme USTH cho site "QRC-Diff-Climate-Modelling". Nhúng SAU common.css.
-   Màu verify bằng đọc pixel thật từ 10_Thesis_Final/figures/logo_usth.png (logo chính thức USTH):
-   xanh #273896, đỏ #ED1C24. Logo phụ DSES (logo_DSES.png) dùng cyan #15AFF0 — KHÁC xanh USTH chính,
-   chỉ dùng làm logo góc thứ 2 (khoa/đơn vị), không dùng làm màu nền/accent chính. */
+
 :root{--accent:#ED1C24;--accent2:#273896;--usth-navy:#273896;--usth-red:#ED1C24;--dses-cyan:#15AFF0}
 :root[data-theme="dark"]{--accent:#ff5a60;--accent2:#7f93e8}
 header.top{border-bottom:3px solid var(--usth-red)}
@@ -21,10 +18,7 @@ header.top .brand img{height:28px;width:auto}
 .tag.unverified{background:#fff3df;color:#a05a00;border-color:#e8c37a}
 .dses-chip{display:inline-flex;align-items:center;gap:4px;background:#fff;border:1px solid var(--dses-cyan);border-radius:8px;padding:2px 8px;font-size:.75rem}
 .dses-chip img{height:16px}
-/* Băng tiêu đề navy + gạch đỏ + logo USTH cho MỌI slide nội dung (không phải divider/cover) —
-   thống nhất với templates/usth-dses-deck/usth_theme.css (cùng 2 mã màu đã verify pixel thật),
-   nhưng giữ h2 ở NORMAL FLOW (không position:absolute) để không phá vỡ phép đo scrollHeight/clientHeight
-   mà deck.js dùng để tự co giãn cỡ chữ (fit()). */
+
 .mdeck-slide:not(.part-divider):not(.cover) h2{
   position:relative;background:var(--usth-navy);color:#fff;margin:-22px -26px 14px -26px;
   padding:13px 70px 13px 26px;border-bottom:4px solid var(--usth-red);font-size:1.22rem;line-height:1.25}

@@ -1,4 +1,4 @@
-// Lớp 1: kiểm thử các hàm thuần của calc.js (chạy trong Node) đối chiếu với data/verified.json do Python tính độc lập.
+// Layer 1: test the pure functions of calc.js (run in Node) against data/verified.json computed independently by Python.
 const fs = require('fs'); const R = fs.existsSync(__dirname + '/../site') ? '../site' : '..';
 const ARS = require(R + '/_shared/calc.js'); const V = require(R + '/data/verified.json');
 let fail = 0, n = 0;
@@ -21,4 +21,4 @@ for (const [k, p] of Object.entries({ ideal: [0.3, 0.01], realistic: [3, 0.1], n
   const r = ARS.ak(12, p[0], p[1], 1.0, 3.0); near('dofs ' + k, r.dofs, V.oe[k].dofs, 1e-5);
   for (let i = 0; i < 12; i++) for (let j = 0; j < 12; j++) near('A[' + i + '][' + j + '] ' + k, r.A[i][j], V.oe[k].A[i][j], 1e-5);
 }
-console.log(n + ' phép so sánh, ' + fail + ' lỗi'); process.exit(fail ? 1 : 0);
+console.log(n + ' comparisons, ' + fail + ' failures'); process.exit(fail ? 1 : 0);

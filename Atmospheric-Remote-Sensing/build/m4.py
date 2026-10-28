@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""M4 — Hình học quan sát của cảm biến vệ tinh (đề cương Ch.4)."""
+"""M4 — Pointing geometries of spaceborne sensors (study guide Ch.4)."""
 from lib import *
 from qcore import Bank
 V = VERIFIED
@@ -7,90 +7,90 @@ two = lambda a, b: cards(a, b, cols=2)
 
 def build():
     B = Bank('m4', seed=4)
-    B.add('Ba hình học quan sát chính của cảm biến vệ tinh thăm dò thành phần khí quyển là gì?',
-          'Nadir (nhìn xuống), limb (nhìn tiếp tuyến qua rìa), che khuất (occultation)', ['Nadir, zenith và cực (polar)', 'Limb, quỹ đạo địa tĩnh và quỹ đạo elip', 'Nadir, off-nadir và quét ngang (whiskbroom)'],
-          'Đề cương Ch.4: nadir (kể cả off-nadir/quét ngang), limb (tán xạ hoặc phát xạ), che khuất (Mặt Trời, Mặt Trăng, sao, GNSS).', 1, 'Ba hình học', origin='goc', src='Đề cương Ch.4 (checklist)')
-    B.add('Chế độ nadir hoạt động theo cách nào?',
-          'Cảm biến nhìn thẳng xuống Trái Đất (hoặc quét ngang quỹ đạo) và đo ánh sáng tán xạ ngược hoặc phát xạ nhiệt', ['Cảm biến nhìn tiếp tuyến qua rìa khí quyển và đo bức xạ tán xạ về phía trước', 'Cảm biến nhìn thẳng vào Mặt Trời khi mọc hoặc lặn để đo độ truyền qua', 'Cảm biến phát xung laser và đo thời gian phản hồi của xung'],
-          'Đề cương 4.1: ví dụ TROPOMI, OMI, GOME-2, IASI, MOPITT, OCO-2. Trường nhìn thẳng cắt qua cả khí quyển một lần.', 1, 'Nadir', src='Đề cương 4.1')
-    B.add('Chế độ limb: cảm biến nhìn như thế nào, và quét độ cao ra sao?',
-          'Nhìn tiếp tuyến qua rìa khí quyển phía trên đường chân trời, quét đường ngắm theo chiều thẳng đứng (độ cao tiếp tuyến ~5 đến 100 km)', ['Nhìn thẳng đứng xuống bề mặt, độ cao suy ra từ độ trễ xung', 'Nhìn Mặt Trời mọc, độ cao suy ra từ thời điểm quan sát', 'Nhìn theo góc 45° so với thiên đỉnh, độ cao suy ra từ nhiệt độ'],
-          'Đề cương 4.2: đo ánh sáng tán xạ (OSIRIS, OMPS-LP, SCIAMACHY limb) hoặc phát xạ nhiệt (MIPAS, MLS vi sóng).', 1, 'Limb', src='Đề cương 4.2')
-    B.add('Che khuất (occultation) khác limb ở điểm nào?',
-          'Cảm biến nhìn một nguồn sáng (Mặt Trời, Mặt Trăng, sao, tín hiệu GPS) xuyên qua rìa khí quyển và đo độ truyền qua I/I₀', ['Cảm biến đo phát xạ nhiệt của khí quyển bằng vi sóng', 'Cảm biến nhìn thẳng xuống nên không có đường ngắm qua rìa', 'Cảm biến phát nguồn sáng riêng và đo tán xạ ngược của nó'],
-          'Đề cương 4.3: SAGE II/III, ACE-FTS (Mặt Trời), GOMOS (sao), GNSS radio occultation (nhiệt độ/độ ẩm).', 1, 'Che khuất', src='Đề cương 4.3')
-    B.add('Ưu điểm chính của nadir là gì?',
-          'Phân giải ngang tốt (vài km, TROPOMI 5,5×3,5 km²), phủ toàn cầu hằng ngày, thấy được đối lưu/lớp biên', ['Phân giải thẳng đứng 1–3 km nhờ hình học', 'Tự hiệu chuẩn nhờ tỉ số I/I₀', 'Không chịu ảnh hưởng của bề mặt hay mây'],
-          'Đề cương 4.4: nadir hợp với chất lượng không khí và phát thải. Nhược điểm: phân giải thẳng đứng kém (cột hoặc 1–6 mẩu thông tin) và nhạy bề mặt, mây, aerosol.', 1, 'So sánh', src='Đề cương 4.4')
-    B.add('Nhược điểm chính của nadir là gì?',
-          'Phân giải thẳng đứng kém, nhạy với albedo/độ phát xạ bề mặt, mây, aerosol; đường đi qua khí quyển ngắn nên tín hiệu mỗi lớp yếu', ['Chỉ phủ vài chục profil mỗi ngày', 'Không nhìn được tầng đối lưu', 'Phân giải ngang rất kém (200–400 km)'],
-          'Đề cương 4.4. Nadir mạnh ở phân giải ngang nhưng yếu ở phân giải thẳng đứng, ngược với limb và che khuất.', 2, 'So sánh', src='Đề cương 4.4')
-    B.add('Ưu điểm chính của limb là gì?',
-          'Phân giải thẳng đứng tốt (1–3 km), đường đi dài nên rất nhạy, không có nền bề mặt (nền không gian tối)', ['Phân giải ngang vài km và phủ toàn cầu hằng ngày', 'Nhìn được lớp biên khí quyển', 'Truy hồi đơn giản, không cần mô hình truyền bức xạ phức tạp'],
-          'Đề cương 4.4. Nhược điểm: phân giải ngang dọc đường ngắm kém (~200–400 km), không nhìn xuống dưới ~5–10 km, RT phức tạp, cần biết chính xác hướng ngắm.', 1, 'So sánh', src='Đề cương 4.4')
-    B.add('Nhược điểm chính của limb là gì?',
-          'Phân giải ngang kém (~200–400 km), không nhìn xuống dưới ~5–10 km nên không phù hợp lớp biên; RT phức tạp', ['Phân giải thẳng đứng chỉ đạt vài chục km', 'Nhạy mạnh với albedo bề mặt', 'Chỉ có vài profil mỗi ngày do phụ thuộc mặt trời mọc lặn'],
-          'Đề cương 4.4. Đường ngắm dài vài trăm km nên phân giải ngang kém; mây và bão hòa đường đi chặn tầm nhìn dưới đối lưu trên.', 2, 'So sánh', src='Đề cương 4.4')
-    B.add('Vì sao che khuất được gọi là "tự hiệu chuẩn" (self-calibrating)?',
-          'Vì tỉ số I/I₀ (đo ngoài khí quyển và xuyên khí quyển) loại bỏ trôi của thiết bị, rất chính xác cho xu hướng dài hạn', ['Vì thiết bị tự thay đổi bước sóng để khớp vạch', 'Vì nó dùng chuẩn Mặt Trăng làm hiệu chuẩn bên ngoài', 'Vì nó không cần mô hình truyền bức xạ nào cả'],
-          'Đề cương 4.4: tín hiệu Mặt Trời mạnh, phân giải thẳng đứng ~1 km, S/N cao, RT đơn giản (Beer–Lambert).', 2, 'So sánh', src='Đề cương 4.4')
-    B.add('Nhược điểm lớn nhất của che khuất Mặt Trời là gì?',
-          f'Độ phủ rất kém: chỉ ~30 profil mỗi ngày (2 mỗi quỹ đạo), phụ thuộc quỹ đạo và vĩ độ', ['Độ chính xác kém hơn limb nhiều lần', 'Không nhìn được tầng bình lưu', 'Phụ thuộc mạnh vào albedo bề mặt'],
-          '30 profil/ngày ÷ 2 profil/quỹ đạo ngầm hiểu khoảng 15 quỹ đạo/ngày — phù hợp quỹ đạo thấp. Đề cương 4.4.', 1, 'So sánh', src='Đề cương 4.4')
-    B.add('Hình học nào phù hợp nhất để theo dõi xu hướng dài hạn ozone tầng bình lưu với độ chính xác cao nhất?',
-          'Che khuất Mặt Trời: tự hiệu chuẩn (I/I₀), phân giải thẳng đứng cao, chất lượng xu hướng tốt', ['Nadir: phủ toàn cầu và phân giải ngang tốt nhất', 'Limb phát xạ: hoạt động cả ngày lẫn đêm', 'Quỹ đạo địa tĩnh: quan sát hằng giờ'],
-          'Đáp án gợi ý Q4(b-i). Chấp nhận đổi lấy độ phủ kém, vì mục tiêu là xu hướng chính xác.', 2, 'Chọn hình học', origin='goc', src='Đề thi mẫu Q4(b)(i)')
-    B.add('Hình học nào phù hợp nhất để lập bản đồ phát thải NO₂ của từng thành phố?',
-          'Nadir: phân giải ngang cỡ km, phủ toàn cầu hằng ngày, nhạy với lớp biên', ['Che khuất: độ chính xác cao nhất', 'Limb: phân giải thẳng đứng 1–3 km', 'Limb phát xạ: đo cả ngày lẫn đêm'],
-          'Đáp án gợi ý Q4(b-ii): phát xạ đô thị cần phân giải ngang tốt và sự nhạy với lớp biên mà limb/che khuất không có.', 2, 'Chọn hình học', origin='goc', src='Đề thi mẫu Q4(b)(ii)')
-    B.add('So với quỹ đạo thấp đồng bộ Mặt Trời (LEO), quỹ đạo địa tĩnh đem lại lợi ích gì cho giám sát chất lượng không khí?',
-          'Quan sát một lục địa mỗi giờ nên thấy chu kỳ ngày đêm (giờ cao điểm, quang hóa) và có nhiều cảnh không mây hơn', ['Phủ toàn cầu mỗi giờ bao gồm cả hai cực', 'Phân giải ngang tốt hơn LEO vì ở xa hơn', 'Có thể dùng chế độ limb bao phủ toàn cầu'],
-          'Đáp án gợi ý Q4(c). LEO chỉ qua một lần/ngày ở giờ địa phương cố định nhưng phủ toàn cầu; GEO (GEMS, TEMPO, Sentinel-4) chỉ nhìn một vùng.', 2, 'Quỹ đạo', origin='goc', src='Đề thi mẫu Q4(c)')
-    B.add('Làm thế nào để thu cột đối lưu từ kết hợp nadir và limb (như SCIAMACHY, OMPS)?',
-          'Cột đối lưu = cột tổng (nadir) trừ cột bình lưu (limb)', ['Cột đối lưu = cột limb nhân với AMF của nadir', 'Cột đối lưu = cột tổng cộng cột bình lưu', 'Cột đối lưu = cột che khuất chia cho hệ số Ångström'],
-          'Đề cương, ghi chú cuối 4.4: nadir thấy toàn cột, limb thấy phần bình lưu; hiệu số là đối lưu.', 2, 'Quỹ đạo', src='Đề cương 4.4 (ghi chú)')
-    B.add('Quỹ đạo LEO đồng bộ Mặt Trời có đặc điểm nào?',
-          'Phủ toàn cầu một lần mỗi ngày tại giờ địa phương cố định', ['Quan sát một lục địa liên tục mỗi giờ', 'Phủ đều toàn cầu mỗi giờ', 'Đứng yên trên một điểm của xích đạo'],
-          'Đề cương 4.4: LEO sun-synchronous (TROPOMI, OMI, GOME-2) qua mỗi nơi cùng giờ địa phương; địa tĩnh thì đứng yên so với mặt đất.', 1, 'Quỹ đạo', src='Đề cương 4.4 (ghi chú)')
-    B.add('Cặp nào đúng về phân giải ngang và thẳng đứng điển hình?',
-          'Nadir: ngang vài km, thẳng đứng thô; limb: ngang ~200–400 km, thẳng đứng ~1–3 km', ['Nadir: ngang ~200–400 km, thẳng đứng ~1 km; limb: ngang vài km, thẳng đứng thô', 'Cả hai đều ngang vài km và thẳng đứng ~1 km', 'Nadir: ngang ~1 000 km; limb: ngang ~1 km'],
-          'Đề cương hình 14: có sự đánh đổi (trade-off) giữa phân giải ngang và thẳng đứng; che khuất: thẳng đứng ~1 km nhưng ngang kém.', 2, 'So sánh', src='Đề cương 4.4, hình 14')
-    B.add('Phương pháp nào KHÔNG dùng để đo độ cao trực tiếp qua hình học?',
-          'Nadir: độ cao suy từ hàm trọng số, không từ hình học', ['Limb: độ cao tiếp tuyến của từng tia', 'Che khuất Mặt Trời: độ cao tiếp tuyến lúc mọc/lặn', 'Che khuất GNSS: góc uốn cong của tia tín hiệu'],
-          'Hình học limb và che khuất cho phân giải thẳng đứng trực tiếp từ độ cao tiếp tuyến; nadir cần hàm trọng số và tiên nghiệm.', 3, 'So sánh', src='Đề cương 4.2–4.4')
-    B.essay('(a) Vẽ phác nadir, limb và che khuất Mặt Trời.\n(b) Chọn hình học để (i) theo dõi xu hướng dài hạn ozone bình lưu chính xác nhất, (ii) lập bản đồ phát thải NO₂ từng thành phố. Giải thích.\n(c) Quỹ đạo địa tĩnh bổ sung điều gì so với LEO đồng bộ Mặt Trời?',
-            '(a) Vẽ Trái Đất, vỏ khí quyển, đường ngắm: nadir xuyên thẳng xuống; limb tiếp tuyến với rìa; che khuất: từ Mặt Trời xuyên rìa khí quyển tới cảm biến (xem hình 13 trong đề cương).\n'
-            '(b)(i) Che khuất Mặt Trời: tự hiệu chuẩn I/I₀, phân giải thẳng đứng ~1 km, S/N cao → xu hướng tốt. (b)(ii) Nadir: phân giải ngang cỡ km, phủ hằng ngày, nhạy lớp biên.\n'
-            '(c) Quan sát hằng giờ một lục địa → chu kỳ ngày đêm, giờ cao điểm, quang hóa, nhiều cảnh không mây hơn; LEO: một lần/ngày cố định giờ nhưng phủ toàn cầu.', 3, 'Đề thi mẫu', origin='goc', src='Đề thi mẫu Q4 (2,5 điểm) + đáp án gợi ý')
-    B.essay('Lập bảng ưu – nhược điểm của nadir, limb và che khuất.',
-            'Nadir: + phân giải ngang tốt, phủ toàn cầu, thấy đối lưu, ngày (UV-vis) và ngày-đêm (TIR); − thẳng đứng kém, nhạy bề mặt/mây/aerosol, đường đi ngắn. '
-            'Limb: + thẳng đứng 1–3 km, đường dài nên nhạy, không nền bề mặt, phát xạ cả ngày đêm; − ngang kém ~200–400 km, không nhìn dưới 5–10 km, RT phức tạp. '
-            'Che khuất: + tự hiệu chuẩn, chính xác, thẳng đứng ~1 km, S/N cao, RT đơn giản; − chỉ ~30 profil/ngày, ngang kém, chỉ đối lưu trên và bình lưu.', 2, 'So sánh', origin='goc', src='Đề cương Ch.4 (bảng 4.4)')
+    B.add('What are the three main pointing geometries of satellite sensors that sound atmospheric composition?',
+          'Nadir (looking down), limb (looking tangentially through the edge), occultation', ['Nadir, zenith and polar', 'Limb, geostationary orbit and elliptical orbit', 'Nadir, off-nadir and whiskbroom scanning'],
+          'Guide Ch.4: nadir (including off-nadir/cross-track scanning), limb (scattering or emission), occultation (Sun, Moon, stars, GNSS).', 1, 'Three geometries', origin='goc', src='Study guide Ch.4 (checklist)')
+    B.add('How does the nadir mode work?',
+          'The sensor looks down at the Earth (or scans across track) and measures backscattered sunlight or thermal emission', ['The sensor looks tangentially through the atmospheric edge and measures forward-scattered radiation', 'The sensor looks at the Sun at sunrise or sunset to measure transmission', 'The sensor emits a laser pulse and measures the return time'],
+          'Guide 4.1: examples TROPOMI, OMI, GOME-2, IASI, MOPITT, OCO-2. The field of view crosses the atmosphere once, vertically.', 1, 'Nadir', src='Study guide 4.1')
+    B.add('In limb mode, how does the sensor look and how does it scan in altitude?',
+          'Tangentially, just above the horizon, scanning the line of sight vertically (tangent heights ~5 to 100 km)', ['Vertically down, deriving altitude from pulse delay', 'At the rising Sun, deriving altitude from the time of observation', 'At 45° from zenith, deriving altitude from temperature'],
+          'Guide 4.2: it measures scattered sunlight (OSIRIS, OMPS-LP, SCIAMACHY limb) or thermal emission (MIPAS, MLS microwave).', 1, 'Limb', src='Study guide 4.2')
+    B.add('How does occultation differ from limb sounding?',
+          'It views a light source (Sun, Moon, star, GPS signals) through the edge of the atmosphere and measures the transmission I/I₀', ['It measures thermal emission of the atmosphere in the microwave', 'It looks straight down, so there is no line of sight through the edge', 'It carries its own light source and measures its backscatter'],
+          'Guide 4.3: SAGE II/III, ACE-FTS (Sun), GOMOS (stars), GNSS radio occultation (temperature/humidity).', 1, 'Occultation', src='Study guide 4.3')
+    B.add('What is the main advantage of nadir?',
+          'Good horizontal resolution (a few km, TROPOMI 5.5×3.5 km²), daily global coverage, and sensitivity to the troposphere/boundary layer', ['1–3 km vertical resolution from geometry', 'Self-calibration through the ratio I/I₀', 'No influence of surface or clouds'],
+          'Guide 4.4: nadir suits air quality and emissions. Drawbacks: poor vertical resolution (a column or 1–6 pieces of information), sensitivity to surface, clouds and aerosols.', 1, 'Comparison', src='Study guide 4.4')
+    B.add('What is the main disadvantage of nadir?',
+          'Poor vertical resolution, sensitivity to surface albedo/emissivity, clouds and aerosols; the path through the atmosphere is short so the signal per layer is weak', ['Only a few tens of profiles per day', 'It cannot see the troposphere', 'Very poor horizontal resolution (200–400 km)'],
+          'Guide 4.4. Nadir is strong in horizontal resolution but weak in vertical resolution — the opposite of limb and occultation.', 2, 'Comparison', src='Study guide 4.4')
+    B.add('What is the main advantage of limb sounding?',
+          'Good vertical resolution (1–3 km), a long path so high sensitivity, and no surface background (dark space behind)', ['Horizontal resolution of a few km and daily global coverage', 'It sees the boundary layer', 'Simple retrieval without a complex radiative transfer model'],
+          'Guide 4.4. Drawbacks: poor horizontal resolution along the line of sight (~200–400 km), cannot see below ~5–10 km, complex RT, pointing must be known precisely.', 1, 'Comparison', src='Study guide 4.4')
+    B.add('What is the main disadvantage of limb sounding?',
+          'Poor horizontal resolution (~200–400 km) and no view below ~5–10 km, so it is unsuited to the boundary layer; complex RT', ['Vertical resolution of only tens of km', 'Strong sensitivity to surface albedo', 'Only a few profiles per day because it depends on sunrise and sunset'],
+          'Guide 4.4. The line of sight is hundreds of km long, so horizontal resolution is poor; clouds and path saturation block the view below the upper troposphere.', 2, 'Comparison', src='Study guide 4.4')
+    B.add('Why is occultation called "self-calibrating"?',
+          'Because the ratio I/I₀ (measured outside and through the atmosphere) cancels instrument drift, giving very accurate long-term trends', ['Because the instrument changes its wavelength to match the lines', 'Because it uses the Moon as an external calibration standard', 'Because it needs no radiative transfer model at all'],
+          'Guide 4.4: strong solar signal, ~1 km vertical resolution, high S/N, simple RT (Beer–Lambert).', 2, 'Comparison', src='Study guide 4.4')
+    B.add('What is the biggest disadvantage of solar occultation?',
+          'Very poor coverage: only ~30 profiles per day (2 per orbit), depending on orbit and latitude', ['Accuracy many times worse than limb', 'It cannot see the stratosphere', 'It depends strongly on surface albedo'],
+          '30 profiles/day ÷ 2 per orbit implies about 15 orbits/day — consistent with a low Earth orbit. Guide 4.4.', 1, 'Comparison', src='Study guide 4.4')
+    B.add('Which geometry is best for monitoring long-term stratospheric ozone trends with the highest accuracy?',
+          'Solar occultation: self-calibrating (I/I₀), high vertical resolution, good trend quality', ['Nadir: best global coverage and horizontal resolution', 'Emission limb: works day and night', 'Geostationary orbit: hourly observations'],
+          'Answer key Q4(b-i). The poor coverage is accepted because the goal is an accurate trend.', 2, 'Choosing a geometry', origin='goc', src='Mock exam Q4(b)(i)')
+    B.add('Which geometry is best for mapping NO₂ emissions of individual cities?',
+          'Nadir: km-scale horizontal resolution, daily global coverage, sensitivity to the boundary layer', ['Occultation: highest accuracy', 'Limb: 1–3 km vertical resolution', 'Emission limb: measures day and night'],
+          'Answer key Q4(b-ii): urban emissions need the horizontal resolution and boundary-layer sensitivity that limb and occultation lack.', 2, 'Choosing a geometry', origin='goc', src='Mock exam Q4(b)(ii)')
+    B.add('What does a geostationary orbit add compared with a low-Earth sun-synchronous orbit for air-quality monitoring?',
+          'Hourly observation of one continent, so the diurnal cycle (rush hours, photochemistry) is seen, plus more cloud-free scenes', ['Hourly global coverage including both poles', 'Better horizontal resolution than LEO because it is farther away', 'Global limb coverage'],
+          'Answer key Q4(c). LEO passes once a day at a fixed local time but is global; GEO (GEMS, TEMPO, Sentinel-4) sees only one region.', 2, 'Orbits', origin='goc', src='Mock exam Q4(c)')
+    B.add('How can the tropospheric column be obtained by combining nadir and limb (as in SCIAMACHY, OMPS)?',
+          'Tropospheric column = total column (nadir) minus stratospheric column (limb)', ['Tropospheric column = limb column multiplied by the nadir AMF', 'Tropospheric column = total column plus stratospheric column', 'Tropospheric column = occultation column divided by the Ångström exponent'],
+          'Guide, closing note of 4.4: nadir sees the whole column, limb sees the stratospheric part; the difference is the troposphere.', 2, 'Orbits', src='Study guide 4.4 (notes)')
+    B.add('What characterises a sun-synchronous low-Earth orbit?',
+          'Global coverage once per day at a fixed local time', ['Continuous observation of one continent every hour', 'Even global coverage every hour', 'Standing still above one point of the equator'],
+          'Guide 4.4: sun-synchronous LEO (TROPOMI, OMI, GOME-2) passes each place at the same local time; a geostationary satellite is fixed relative to the ground.', 1, 'Orbits', src='Study guide 4.4 (notes)')
+    B.add('Which pair describes typical horizontal and vertical resolution correctly?',
+          'Nadir: horizontal a few km, vertical coarse; limb: horizontal ~200–400 km, vertical ~1–3 km', ['Nadir: horizontal ~200–400 km, vertical ~1 km; limb: horizontal a few km, vertical coarse', 'Both: horizontal a few km and vertical ~1 km', 'Nadir: horizontal ~1 000 km; limb: horizontal ~1 km'],
+          'Guide Figure 14: there is a trade-off between horizontal and vertical resolution; occultation: vertical ~1 km but poor horizontal.', 2, 'Comparison', src='Study guide 4.4, Figure 14')
+    B.add('Which method does NOT obtain altitude directly from geometry?',
+          'Nadir: altitude is inferred from weighting functions, not from geometry', ['Limb: tangent height of each ray', 'Solar occultation: tangent height at sunrise/sunset', 'GNSS occultation: bending angle of the signal ray'],
+          'Limb and occultation geometry give vertical resolution directly through tangent height; nadir needs weighting functions and an a priori.', 3, 'Comparison', src='Study guide 4.2–4.4')
+    B.essay('(a) Sketch the nadir, limb and solar occultation geometries.\n(b) Which geometry would you choose to (i) monitor long-term trends of stratospheric ozone with the highest accuracy, (ii) map NO₂ emissions from individual cities? Justify.\n(c) What does a geostationary orbit add compared with a low-Earth sun-synchronous orbit?',
+            '(a) Draw the Earth, the atmospheric shell and lines of sight: nadir goes straight down; limb is tangent to the edge; occultation goes from the Sun through the edge to the sensor (see Figure 13 of the guide).\n'
+            '(b)(i) Solar occultation: self-calibrating I/I₀, ~1 km vertical resolution, high S/N → good trends. (b)(ii) Nadir: km-scale horizontal resolution, daily coverage, boundary-layer sensitivity.\n'
+            '(c) Hourly observation of one continent → diurnal cycle, rush hours, photochemistry, more cloud-free scenes; LEO gives one fixed-local-time overpass per day but global coverage.', 3, 'Mock exam', origin='goc', src='Mock exam Q4 (2.5 points) + suggested answer')
+    B.essay('Tabulate the advantages and disadvantages of nadir, limb and occultation.',
+            'Nadir: + good horizontal resolution, global coverage, sees the troposphere, day (UV-vis) and day-night (TIR); − poor vertical resolution, sensitive to surface/clouds/aerosols, short path. '
+            'Limb: + 1–3 km vertical resolution, long path so sensitive, no surface background, emission works day and night; − ~200–400 km horizontal, no view below 5–10 km, complex RT. '
+            'Occultation: + self-calibrating, accurate, ~1 km vertical, high S/N, simple RT; − only ~30 profiles/day, poor horizontal, only upper troposphere and stratosphere.', 2, 'Comparison', origin='goc', src='Study guide Ch.4 (table 4.4)')
     sl = [
-        cover('Hình học quan sát của cảm biến vệ tinh', 'Pointing geometries of spaceborne sensors — Đề cương chương 4',
-              '<b>Atmospheric Remote Sensing</b> · USTH<br>Nadir · limb · che khuất · quỹ đạo thấp và địa tĩnh'),
-        S('Ba hình học quan sát', figfit('f3_geometries', 'Hình 13 (đề cương): nadir, limb và che khuất.', 360) + ulb(['<b>Nadir</b>: nhìn xuống — TROPOMI, OMI, GOME-2, IASI, OCO-2', '<b>Limb</b>: nhìn tiếp tuyến — OSIRIS, MIPAS, MLS', '<b>Che khuất</b>: nhìn Mặt Trời qua rìa — SAGE, ACE-FTS'], 27, 12)),
-        S('Nadir: ưu và nhược điểm', two(
-            card('Ưu điểm', '• Phân giải ngang vài km (TROPOMI 5,5×3,5 km²)<br>• Phủ toàn cầu hằng ngày<br>• Thấy đối lưu/lớp biên<br>• Ngày (UV-vis), ngày-đêm (TIR)'),
-            card('Nhược điểm', '• Phân giải thẳng đứng kém (cột hoặc 1–6 mẩu thông tin)<br>• Nhạy albedo, độ phát xạ bề mặt, mây, aerosol<br>• Đường đi ngắn → tín hiệu mỗi lớp yếu'))),
-        S('Limb: ưu và nhược điểm', two(
-            card('Ưu điểm', '• Phân giải thẳng đứng 1–3 km<br>• Đường đi dài → rất nhạy<br>• Không có nền bề mặt<br>• Limb phát xạ: ngày và đêm'),
-            card('Nhược điểm', '• Phân giải ngang ~200–400 km<br>• Không nhìn dưới ~5–10 km<br>• RT phức tạp (cầu, tán xạ nhiều lần)<br>• Cần biết hướng ngắm chính xác'))),
-        S('Che khuất: ưu và nhược điểm', two(
-            card('Ưu điểm', '• Tự hiệu chuẩn: tỉ số I/I<sub>0</sub> loại trôi thiết bị<br>• Rất chính xác, hợp xu hướng dài hạn<br>• Tín hiệu mạnh, thẳng đứng ~1 km, S/N cao<br>• RT đơn giản (Beer–Lambert)'),
-            card('Nhược điểm', '• Độ phủ rất kém: ~30 profil/ngày (2 mỗi quỹ đạo)<br>• Dải vĩ độ phụ thuộc quỹ đạo<br>• Phân giải ngang kém dọc đường<br>• Chỉ đối lưu trên và bình lưu'))),
-        S('Đánh đổi phân giải ngang – thẳng đứng', figfit('f15_tradeoff', 'Hình 14 (đề cương): phân giải ngang và thẳng đứng xấp xỉ của các thiết bị tiêu biểu theo hình học.', 480) + '<p class="note">Nadir thắng ở ngang, limb và che khuất thắng ở thẳng đứng.</p>'),
-        S('Quỹ đạo: LEO và địa tĩnh', cards(card('LEO đồng bộ Mặt Trời', 'Phủ toàn cầu một lần mỗi ngày, giờ địa phương cố định.<br>TROPOMI, OMI, GOME-2'),
-          card('Địa tĩnh (GEO)', 'Quan sát một lục địa mỗi giờ → chu kỳ ngày đêm của ô nhiễm.<br>GEMS, TEMPO, Sentinel-4'),
-          card('Nadir + limb', 'Cột đối lưu = cột tổng (nadir) − cột bình lưu (limb).<br>SCIAMACHY, OMPS'), cols=3)),
-        S('Chọn hình học theo mục tiêu', dtable(tbl(['Mục tiêu', 'Hình học', 'Lý do'], [
-            ['Xu hướng ozone bình lưu chính xác', 'Che khuất Mặt Trời', 'Tự hiệu chuẩn, S/N cao, ~1 km'],
-            ['Phát xạ NO₂ từng thành phố', 'Nadir', 'Phân giải ngang km, nhạy lớp biên'],
-            ['Profil bình lưu hóa học', 'Limb', 'Thẳng đứng 1–3 km, nhiều loài'],
-            ['Chu kỳ ngày đêm ô nhiễm', 'Nadir địa tĩnh', 'Quan sát hằng giờ']]), 'xl')),
-        S('Exam checklist — Chương 4', chk(['Ba hình học: nadir, limb (tán xạ/phát xạ), che khuất (Mặt Trời, sao, Mặt Trăng, GNSS)', 'Đánh đổi: phân giải ngang và độ nhạy đối lưu (nadir) ↔ phân giải thẳng đứng và độ chính xác (limb/che khuất)', 'Che khuất = tự hiệu chuẩn, chính xác nhất, phủ kém nhất', 'Vẽ ba hình học với Trái Đất, vỏ khí quyển và đường ngắm'])),
-        S('Ý chính', dul(['Nadir: ngang tốt, thẳng đứng kém', 'Limb: thẳng đứng tốt, ngang kém, không xuống thấp', 'Che khuất: tự hiệu chuẩn, chính xác nhưng ít profil', 'Địa tĩnh: quan sát hằng giờ chu kỳ ngày đêm']))]
-    mod = dict(id='m4', slug='04-pointing-geometries', title='M4 · Hình học quan sát', en='Pointing geometries of spaceborne sensors',
+        cover('Pointing geometries of spaceborne sensors', 'Study guide chapter 4',
+              '<b>Atmospheric Remote Sensing</b> · USTH<br>Nadir · limb · occultation · low and geostationary orbits'),
+        S('Three viewing geometries', figfit('f3_geometries', 'Figure 13 (study guide): nadir, limb and occultation.', 360) + ulb(['<b>Nadir</b>: looking down — TROPOMI, OMI, GOME-2, IASI, OCO-2', '<b>Limb</b>: looking tangentially — OSIRIS, MIPAS, MLS', '<b>Occultation</b>: looking at the Sun through the edge — SAGE, ACE-FTS'], 27, 12)),
+        S('Nadir: pros and cons', two(
+            card('Advantages', '• Horizontal resolution of a few km (TROPOMI 5.5×3.5 km²)<br>• Daily global coverage<br>• Sees the troposphere/boundary layer<br>• Day (UV-vis), day and night (TIR)'),
+            card('Disadvantages', '• Poor vertical resolution (a column or 1–6 pieces of information)<br>• Sensitive to albedo, emissivity, clouds, aerosols<br>• Short path → weak signal per layer'))),
+        S('Limb: pros and cons', two(
+            card('Advantages', '• Vertical resolution 1–3 km<br>• Long path → very sensitive<br>• No surface background<br>• Emission limb: day and night'),
+            card('Disadvantages', '• Horizontal resolution ~200–400 km<br>• No view below ~5–10 km<br>• Complex RT (sphericity, multiple scattering)<br>• Pointing must be known precisely'))),
+        S('Occultation: pros and cons', two(
+            card('Advantages', '• Self-calibrating: I/I<sub>0</sub> cancels instrument drift<br>• Very accurate, good for long-term trends<br>• Strong signal, ~1 km vertical, high S/N<br>• Simple RT (Beer–Lambert)'),
+            card('Disadvantages', '• Very poor coverage: ~30 profiles/day (2 per orbit)<br>• Latitude bands depend on the orbit<br>• Poor horizontal resolution along the path<br>• Only upper troposphere and stratosphere'))),
+        S('Trade-off: horizontal vs vertical resolution', figfit('f15_tradeoff', 'Figure 14 (study guide): approximate horizontal and vertical resolution of typical instruments for each geometry.', 480) + '<p class="note">Nadir wins on horizontal resolution; limb and occultation win on vertical resolution.</p>'),
+        S('Orbits: LEO and geostationary', cards(card('Sun-synchronous LEO', 'Global coverage once per day at a fixed local time.<br>TROPOMI, OMI, GOME-2'),
+          card('Geostationary (GEO)', 'Hourly view of one continent → diurnal cycle of pollution.<br>GEMS, TEMPO, Sentinel-4'),
+          card('Nadir + limb', 'Tropospheric column = total (nadir) − stratospheric (limb).<br>SCIAMACHY, OMPS'), cols=3)),
+        S('Choosing a geometry by goal', dtable(tbl(['Goal', 'Geometry', 'Reason'], [
+            ['Most accurate stratospheric ozone trend', 'Solar occultation', 'Self-calibrating, high S/N, ~1 km'],
+            ['NO₂ emissions of individual cities', 'Nadir', 'Km-scale horizontal resolution, boundary-layer sensitivity'],
+            ['Detailed stratospheric chemistry profiles', 'Limb', 'Vertical resolution 1–3 km, many species'],
+            ['Diurnal cycle of pollution', 'Geostationary nadir', 'Hourly observation']]), 'xl')),
+        S('Exam checklist — Chapter 4', chk(['Three geometries: nadir, limb (scattering/emission), occultation (Sun, stars, Moon, GNSS)', 'Trade-off: horizontal resolution and tropospheric sensitivity (nadir) ↔ vertical resolution and accuracy (limb/occultation)', 'Occultation = self-calibrating, most accurate, worst coverage', 'Draw the three geometries with the Earth, atmosphere shell and lines of sight'])),
+        S('Key points', dul(['Nadir: good horizontal, poor vertical resolution', 'Limb: good vertical, poor horizontal, cannot see low', 'Occultation: self-calibrating and accurate, but few profiles', 'Geostationary: hourly diurnal cycle']))]
+    mod = dict(id='m4', slug='04-pointing-geometries', title='M4 · Pointing geometries', en='Pointing geometries of spaceborne sensors',
                question='<ul><li>What are the possible pointing geometries of spaceborne sensors for sounding the atmospheric composition?</li><li>What are the advantages and disadvantages of each case?</li></ul>',
                calcs=[], checklist=['Three geometries: nadir, limb (scattering/emission), occultation (solar/stellar/lunar/GNSS).', 'Trade-off: horizontal resolution & tropospheric sensitivity (nadir) ↔ vertical resolution & accuracy (limb/occultation).',
                                     'Occultation = self-calibrating, best accuracy, worst coverage.', 'Draw the three geometries with Earth, atmosphere shell, lines of sight.'],
@@ -98,16 +98,16 @@ def build():
                         'Limb: nhìn tiếp tuyến qua rìa khí quyển → độ phân giải thẳng đứng tốt (1–3 km), không có nền bề mặt; nhưng độ phân giải ngang kém, không xuống thấp dưới ~5–10 km.',
                         'Che khuất (occultation): nhìn Mặt Trời/sao qua rìa khí quyển → tự hiệu chuẩn, rất chính xác; nhưng số lượng phép đo rất ít.'],
                sections=[
-        ('Ba hình học, nói nôm na', '<p>Cùng một khí quyển nhưng có ba cách nhìn: <b>nhìn thẳng xuống</b> như chụp ảnh từ máy bay (nadir); <b>nhìn ngang qua rìa</b> như nhìn một lát bánh theo chiều ngang (limb); và <b>nhìn Mặt Trời mọc/lặn xuyên qua bầu khí quyển</b> (che khuất).</p>' +
-         lfig('f3_geometries', 'Hình 13 (đề cương): nadir, limb và che khuất.') +
-         hx_table(['Hình học', 'Cách nhìn', 'Ví dụ thiết bị'], [['Nadir (và off-nadir/quét ngang)', 'Nhìn xuống; đo ánh sáng tán xạ ngược (UV-vis-SWIR) hoặc phát xạ nhiệt (TIR)', 'TROPOMI, OMI, GOME-2, IASI, MOPITT, OCO-2'],
-             ['Limb', 'Nhìn tiếp tuyến trên đường chân trời, quét độ cao tiếp tuyến ~5 đến 100 km; đo ánh sáng tán xạ hoặc phát xạ nhiệt', 'OSIRIS, OMPS-LP, SCIAMACHY limb (tán xạ); MIPAS, MLS (phát xạ)'],
-             ['Che khuất', 'Nhìn Mặt Trời, Mặt Trăng, sao hoặc tín hiệu GNSS qua rìa lúc mọc/lặn; đo I/I₀', 'SAGE II/III, ACE-FTS, GOMOS (sao), GNSS radio occultation']], 'left')),
-        ('So sánh ưu – nhược điểm', hx_table(['Hình học', 'Ưu điểm', 'Nhược điểm'], [
-            ['Nadir', '• Phân giải ngang tốt (vài km; TROPOMI 5,5×3,5 km²), phủ toàn cầu hằng ngày<br>• Thấy đối lưu và lớp biên → chất lượng không khí, phát thải<br>• Ngày (UV-vis) và ngày-đêm (TIR)', '• Phân giải thẳng đứng kém (cột hoặc 1–6 mẩu thông tin)<br>• Nhạy albedo/độ phát xạ bề mặt, mây, aerosol<br>• Đường đi ngắn → tín hiệu mỗi lớp yếu'],
-            ['Limb', '• Phân giải thẳng đứng tốt (1–3 km) nhờ hình học<br>• Đường đi dài → rất nhạy, nhiều loài bình lưu<br>• Không có nền bề mặt (nền không gian tối)<br>• Limb phát xạ: ngày và đêm', '• Phân giải ngang dọc đường ngắm kém (~200–400 km)<br>• Không nhìn dưới ~5–10 km (mây, bão hòa) → không hợp lớp biên<br>• RT phức tạp (cầu, tán xạ nhiều lần); cần biết hướng ngắm rất chính xác'],
-            ['Che khuất', '• Tự hiệu chuẩn: I/I₀ loại trôi thiết bị → rất chính xác, hợp xu hướng<br>• Tín hiệu Mặt Trời mạnh, thẳng đứng ~1 km, S/N cao<br>• RT đơn giản (Beer–Lambert)', '• Độ phủ rất kém: ~30 profil/ngày (2 mỗi quỹ đạo với Mặt Trời)<br>• Dải vĩ độ phụ thuộc quỹ đạo; ngang kém dọc đường<br>• Chỉ đối lưu trên và bình lưu']], 'left') +
-         lfig('f15_tradeoff', 'Hình 14 (đề cương): phân giải ngang và thẳng đứng xấp xỉ của từng loại thiết bị.')),
-        ('Quỹ đạo cũng quan trọng', '<p>Hình học chỉ là một nửa; <b>quỹ đạo</b> là nửa còn lại:</p><ul><li><b>LEO đồng bộ Mặt Trời</b>: phủ toàn cầu một lần mỗi ngày tại giờ địa phương cố định.</li><li><b>Địa tĩnh</b> (GEMS, TEMPO, Sentinel-4): quan sát nadir một lục địa mỗi giờ → thấy <b>chu kỳ ngày đêm</b> của ô nhiễm (giờ cao điểm, quang hóa) và dễ tìm cảnh không mây.</li><li><b>Nadir + limb</b> (SCIAMACHY, OMPS): cột đối lưu = cột tổng (nadir) − cột bình lưu (limb).</li></ul>' +
-         callout('info', 'Chọn theo mục tiêu', 'Xu hướng ozone bình lưu chính xác → che khuất Mặt Trời. Phát xạ NO₂ từng thành phố → nadir. Profil hóa học bình lưu chi tiết → limb.'))])
+        ('Three geometries, in plain words', '<p>The same atmosphere can be viewed in three ways: <b>looking straight down</b>, like a photo from an aircraft (nadir); <b>looking sideways across the edge</b>, like viewing a slice of cake from the side (limb); and <b>looking at the rising or setting Sun through the atmosphere</b> (occultation).</p>' +
+         lfig('f3_geometries', 'Figure 13 (study guide): nadir, limb and occultation.') +
+         hx_table(['Geometry', 'How it looks', 'Example instruments'], [['Nadir (and off-nadir/cross-track)', 'Looks down; measures backscattered sunlight (UV-vis-SWIR) or thermal emission (TIR)', 'TROPOMI, OMI, GOME-2, IASI, MOPITT, OCO-2'],
+             ['Limb', 'Looks tangentially above the horizon, scanning tangent heights ~5 to 100 km; measures scattered light or thermal emission', 'OSIRIS, OMPS-LP, SCIAMACHY limb (scattering); MIPAS, MLS (emission)'],
+             ['Occultation', 'Looks at the Sun, Moon, a star or GNSS signals through the edge at sunrise/sunset; measures I/I₀', 'SAGE II/III, ACE-FTS, GOMOS (stars), GNSS radio occultation']], 'left')),
+        ('Advantages and disadvantages', hx_table(['Geometry', 'Advantages', 'Disadvantages'], [
+            ['Nadir', '• Good horizontal resolution (a few km; TROPOMI 5.5×3.5 km²), daily global coverage<br>• Sees the troposphere and boundary layer → air quality, emissions<br>• Day (UV-vis) and day and night (TIR)', '• Poor vertical resolution (a column or 1–6 pieces of information)<br>• Sensitive to surface albedo/emissivity, clouds, aerosols<br>• Short path → weak signal per layer'],
+            ['Limb', '• Good vertical resolution (1–3 km) from geometry<br>• Long path → very sensitive, many stratospheric species<br>• No surface background (dark space)<br>• Emission limb: day and night', '• Poor horizontal resolution along the line of sight (~200–400 km)<br>• No view below ~5–10 km (clouds, saturation) → not for the boundary layer<br>• Complex RT (sphericity, multiple scattering); pointing known very precisely'],
+            ['Occultation', '• Self-calibrating: I/I₀ cancels drift → very accurate, good for trends<br>• Strong solar signal, ~1 km vertical, high S/N<br>• Simple RT (Beer–Lambert)', '• Very poor coverage: ~30 profiles/day (2 per orbit for the Sun)<br>• Latitude bands depend on the orbit; poor horizontal along the path<br>• Only upper troposphere and stratosphere']], 'left') +
+         lfig('f15_tradeoff', 'Figure 14 (study guide): approximate horizontal and vertical resolution of each instrument type.')),
+        ('Orbits matter too', '<p>Geometry is only half of the story; the <b>orbit</b> is the other half:</p><ul><li><b>Sun-synchronous LEO</b>: global coverage once per day at a fixed local time.</li><li><b>Geostationary</b> (GEMS, TEMPO, Sentinel-4): nadir observation of one continent every hour → the <b>diurnal cycle</b> of pollution (rush hours, photochemistry) and more cloud-free scenes.</li><li><b>Nadir + limb</b> (SCIAMACHY, OMPS): tropospheric column = total column (nadir) − stratospheric column (limb).</li></ul>' +
+         callout('info', 'Choose by goal', 'Most accurate stratospheric ozone trend → solar occultation. NO₂ emissions of individual cities → nadir. Detailed stratospheric chemistry profiles → limb.'))])
     return mod, sl, B

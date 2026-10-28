@@ -17,7 +17,7 @@ def slide(title, body, kicker=None):
 
 def divider(idx, total, title, bullets):
     lis = "".join(f"<li>{b}</li>" for b in bullets)
-    return (f'<div class="mdeck-slide part-divider"><div class="kicker">PHẦN {idx}/{total}</div>'
+    return (f'<div class="mdeck-slide part-divider"><div class="kicker">PART {idx}/{total}</div>'
             f'<div class="part-num">{idx:02d}</div><h2>{title}</h2><ul class="part-list">{lis}</ul></div>')
 
 def tbl(head, rows, dense=False):
@@ -87,5 +87,5 @@ def apply_usth_theme(slides, logo_for=(), secondary_logo=None):
 
 def deck_html(slides):
     return ('<div class="mdeck"><div class="mdeck-canvas-wrap"><div class="mdeck-viewport">' + "".join(slides) + '</div></div>'
-            '<div class="mdeck-bar"><button class="mdeck-prev">◀ Trước</button><button class="mdeck-next">Sau ▶</button>'
-            '<span class="mdeck-count"></span><div class="mdeck-dots"></div><button class="mdeck-fs">⛶ Toàn màn hình</button></div></div>')
+            '<div class="mdeck-bar"><button class="mdeck-prev">◀ Previous</button><button class="mdeck-next">Next ▶</button>'
+            '<span class="mdeck-count"></span><div class="mdeck-dots"></div><button class="mdeck-fs">⛶ Full screen</button></div></div>')

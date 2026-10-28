@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""M5 — Độ nhạy của truy hồi thụ động: averaging kernel, DOFS (đề cương Ch.5)."""
+"""M5 — Sensitivity of passive retrievals: averaging kernels, DOFS (study guide Ch.5)."""
 from lib import *
 from qcore import Bank
 V = VERIFIED
@@ -8,96 +8,96 @@ OE = V['oe']
 def build():
     B = Bank('m5', seed=5)
     di, dr, dn = OE['ideal']['dofs'], OE['realistic']['dofs'], OE['noisy']['dofs']
-    B.add('Đại lượng nào được dùng để định lượng độ nhạy của truy hồi thụ động?',
-          'Ma trận averaging kernel A = ∂x̂/∂x (độ nhạy của trạng thái truy hồi theo trạng thái thật)', ['Hệ số Ångström α, mô tả sự phụ thuộc phổ của độ dày quang học aerosol', 'Hệ số khối khí AMF = SCD/VCD, mô tả độ dài đường truyền của ánh sáng', 'Ma trận hiệp phương sai sai số đo S_ε, mô tả độ lớn nhiễu của cảm biến'],
-          'Đề cương 5.1: A = ∂x̂/∂x = G·K, với G = (KᵀS_ε⁻¹K + S_a⁻¹)⁻¹KᵀS_ε⁻¹ là ma trận khuếch đại (gain).', 1, 'Averaging kernel', origin='goc', src='Đề cương Ch.5 (checklist)')
-    B.add('Mối quan hệ giữa profil truy hồi, profil thật và tiên nghiệm qua averaging kernel là gì?',
-          'x̂ = x_a + A (x_thật − x_a) + G ε', ['x̂ = x_thật + A x_a + G', 'x̂ = A⁻¹ x_thật', 'x̂ = x_a · A / ε'],
-          'Profil truy hồi là phiên bản làm mượt của profil thật, trộn với tiên nghiệm, cộng nhiễu đo được khuếch đại bởi G.', 1, 'Averaging kernel', origin='goc', src='Đề thi mẫu Q5(a)')
-    B.add('DOFS (Degrees Of Freedom for Signal) tính bằng công thức nào và có nghĩa gì?',
-          'DOFS = tr(A) (vết của A): số mẩu thông tin độc lập về profil thẳng đứng', ['DOFS = det(A), định thức của A: thể tích bất định còn lại của profil thẳng đứng', 'DOFS = ΣS_ε, tổng phương sai nhiễu: độ lớn nhiễu đo trên toàn bộ các kênh phổ', 'DOFS = A⁻¹, nghịch đảo của A: độ nhạy nghịch của phép đo đối với profil thẳng đứng'],
-          'Đề cương 5.1: DOFS = tr(A). DOFS bằng số lớp khi A là ma trận đơn vị; bằng 0 nếu truy hồi chỉ trả lại tiên nghiệm.', 1, 'DOFS', origin='goc', src='Đề cương Ch.5 (checklist)')
-    B.add('Một hàng của averaging kernel cho biết điều gì?',
-          'Giá trị truy hồi tại một mực là trung bình có trọng số của profil thật ở mọi mực; độ rộng FWHM là phân giải thẳng đứng', ['Độ cao mà khí có nồng độ lớn nhất trong profil thật, cùng độ dày của lớp khí đó', 'Sai số ngẫu nhiên của phép đo tại mực đó, cộng với sai số hệ thống của mô hình thuận', 'Hệ số hấp thụ của khí tại mực đó theo bước sóng, nhân với mật độ số của nó tại mực đó'],
-          'Đề cương 5.1: đỉnh hàng cho biết thông tin thực sự đến từ độ cao nào; độ rộng (FWHM) là phân giải thẳng đứng.', 2, 'Averaging kernel', src='Đề cương 5.1')
-    B.add('Diện tích (tổng) của một hàng averaging kernel gần 1 nghĩa là gì?',
-          'Giá trị truy hồi ở mực đó chủ yếu đến từ phép đo', ['Giá trị truy hồi ở mực đó chủ yếu bằng giá trị tiên nghiệm, ít phụ thuộc phép đo', 'Sai số đo tại mực đó đang bằng không nên không cần chính quy hóa nữa', 'Phân giải thẳng đứng tại mực đó đã đạt giá trị tối đa mà thiết bị có thể có'],
-          'Đề cương 5.1: diện tích ≈ 1 → đo chiếm ưu thế; ≈ 0 → giá trị truy hồi chỉ bằng tiên nghiệm.', 2, 'Averaging kernel', src='Đề cương 5.1')
-    B.add('Trường hợp lý tưởng (độ nhạy hoàn hảo) có averaging kernel như thế nào?',
-          'A = ma trận đơn vị: mỗi hàng là hàm delta bằng 1 tại mực của nó và 0 ở nơi khác', ['A = ma trận không: phép đo không cho thông tin nào về profil thật ở bất kỳ mực nào', 'A là ma trận đường chéo mà mọi phần tử bằng 0,5: mỗi mực chỉ nhận một nửa thông tin', 'A có mọi phần tử bằng nhau nên mọi mực cho cùng một giá trị trung bình của profil'],
-          'Đề cương 5.2(a): truy hồi tái tạo chính xác profil thật, không phụ thuộc tiên nghiệm, phân giải thẳng đứng vô hạn, DOFS bằng số mực.', 1, 'Ideal vs thực', origin='goc', src='Đề cương Ch.5 (checklist)')
-    B.add('Đặc điểm nào đúng với averaging kernel của truy hồi ozone nadir thực tế (UV 270–330 nm hoặc IASI 9,6 µm)?',
-          'Kernel rộng (FWHM ~7–15 km), chồng nhau, đỉnh lệch khỏi mực danh nghĩa, biên độ < 1 (~0,3–0,6)', ['Kernel là các hàm delta hẹp 1–2 km tại từng mực', 'Kernel có biên độ lớn hơn 1 ở gần mặt đất', 'Kernel giống hệt nhau ở mọi mực'],
-          'Đề cương 5.2(b): độ nhạy thấp gần bề mặt (tán xạ Rayleigh, hấp thụ O₃ phía trên, mây) nên giá trị gần mặt đất chủ yếu từ tiên nghiệm.', 2, 'Ideal vs thực', src='Đề cương 5.2')
-    B.add('DOFS điển hình của truy hồi O₃ nadir trong UV và trong IASI là bao nhiêu?',
-          'Khoảng 4–6 trong UV (≈ 1 ở đối lưu), khoảng 3–4 với IASI', ['Khoảng 20–30 cho cả hai', 'Khoảng 1 cho UV và 10 cho IASI', 'Bằng 0 vì nadir không có thông tin thẳng đứng'],
-          'Đề cương 5.2(b): biết bình lưu trong ~3–4 lớp dày cộng khoảng 1 mẩu thông tin đối lưu. Limb: kernel hẹp ~2–3 km, DOFS ≈ 20–30.', 2, 'Ideal vs thực', src='Đề cương 5.2')
-    B.add('Một truy hồi CO từ máy thăm dò hồng ngoại nhiệt có DOFS = 1,2. Điều này có nghĩa gì?',
-          'Khoảng một mẩu thông tin độc lập: về bản chất là một cột, nhạy nhất ở đối lưu giữa (~3–8 km), ít nhạy gần mặt đất', ['Biết CO ở 1,2 mực độc lập ngay sát mặt đất, nơi tương phản nhiệt là lớn nhất', 'Sai số truy hồi bằng 1,2 lần độ bất định của profil tiên nghiệm ban đầu', 'Có 12 mực độc lập nhưng mỗi mực bị nhiễu khoảng 10% so với tín hiệu'],
-          'Đáp án gợi ý Q5(b): tương phản nhiệt với bề mặt lớn nhất ở đối lưu giữa; gần mặt đất tương phản nhiệt thấp nên kém nhạy.', 2, 'DOFS', origin='goc', src='Đề thi mẫu Q5(b)')
-    B.add('Khi so sánh truy hồi vệ tinh với mô hình hóa học – vận chuyển, cần làm gì với averaging kernel?',
-          'Làm mượt profil mô hình: x_m,smooth = x_a + A (x_model − x_a), rồi so với x̂', ['Cộng thêm nhiễu đo vào profil mô hình rồi lấy trung bình với tiên nghiệm', 'Chỉ so sánh ở các mực mà A bằng 0 để tránh ảnh hưởng của phép đo', 'Chia profil mô hình cho DOFS rồi nhân với hệ số khối khí trung bình'],
-          'Đáp án gợi ý Q5(c): phép làm mượt này loại hiệu ứng của làm mượt và tiên nghiệm, nên so sánh là "cùng loại".', 2, 'Ứng dụng AK', origin='goc', src='Đề thi mẫu Q5(c)')
-    B.add('Averaging kernel của cột a(z) = ∂VCD̂/∂n(z) lý tưởng bằng bao nhiêu?',
-          'Bằng 1 ở mọi độ cao', ['Bằng 0 ở mọi độ cao', 'Bằng 1 chỉ ở mặt đất', 'Bằng AMF tại mọi độ cao'],
-          'Đề cương 5.1: trong DOAS, a(z) = AMF_lớp / AMF_tổng. Lý tưởng = 1 tại mọi độ cao (cột nhạy đều).', 3, 'Averaging kernel', src='Đề cương 5.1')
-    B.add('Sai số truy hồi gồm hai thành phần nào?',
-          'Sai số làm mượt (I − A) S_a (I − A)ᵀ và sai số nhiễu G S_ε Gᵀ', ['Sai số AMF do giả định đường truyền và sai số khớp phổ DOAS do tiết diện', 'Sai số Ångström do kích thước hạt và sai số ω₀ do hấp thụ của hạt', 'Sai số quỹ đạo do vị trí vệ tinh và sai số hiệu chuẩn do thiết bị'],
-          'Đề cương 5.1: Ŝ = (I − A) S_a (I − A)ᵀ + G S_ε Gᵀ.', 3, 'Sai số', src='Đề cương 5.1')
-    B.add(f'Mô hình tính toán 12 mực với kernel rất hẹp và nhiễu rất nhỏ cho DOFS bằng bao nhiêu?',
-          f'≈ {di:.1f} (tức A gần ma trận đơn vị)', [f'≈ {dr:.1f} (như trường hợp thực tế với kernel rộng 3 mực)', '≈ 1,0 (một cột duy nhất, không có thông tin về độ cao)', '≈ 0 (không có thông tin nào, chỉ còn lại tiên nghiệm)'],
-          f'Đã chạy bằng Python: w = 0,3 mực, σ_ε = 0,01 → DOFS = {di:.3f}. Khi kernel hẹp và đo chính xác, A → I và DOFS → số mực.', 2, 'DOFS', src='Mô phỏng tự dựng bằng Python (data/verified.json)')
-    B.add('Trong cùng mô hình 12 mực, tăng nhiễu đo từ 0,1 lên 1,0 (kernel rộng 3 mực) thì DOFS thay đổi thế nào?',
-          f'Giảm từ ≈ {dr:.1f} xuống ≈ {dn:.1f}', [f'Tăng từ ≈ {dn:.1f} lên ≈ {dr:.1f}', 'Không đổi vì DOFS chỉ phụ thuộc kernel', 'Tăng lên 12 vì nhiễu làm thêm thông tin'],
-          f'Nhiễu lớn → kết quả dựa nhiều vào tiên nghiệm → A thu nhỏ → DOFS giảm. Số liệu: {dr:.3f} → {dn:.3f} (Python).', 3, 'DOFS', src='Mô phỏng tự dựng bằng Python (data/verified.json)')
-    B.add('Tại sao truy hồi limb ozone gần với trường hợp lý tưởng hơn nadir?',
-          'Vì hình học limb cho kernel hẹp (~2–3 km) và DOFS ≈ 20–30', ['Vì limb nhìn thẳng xuống nên không chịu tán xạ Rayleigh của khí quyển phía trên', 'Vì limb dùng nhiều thông tin tiên nghiệm hơn nadir nên kết quả ít bất định', 'Vì limb đo trực tiếp nồng độ khí bằng một xung laser phát ra từ vệ tinh'],
-          'Đề cương 5.2: limb ozone gần lý tưởng ở tầng bình lưu.', 2, 'Ideal vs thực', src='Đề cương 5.2')
-    B.essay('(a) Viết quan hệ giữa profil truy hồi, profil thật và tiên nghiệm qua averaging kernel.\n(b) Truy hồi CO từ thiết bị hồng ngoại nhiệt có DOFS = 1,2. Nghĩa là gì? Độ nhạy cao nhất ở đâu và vì sao?\n(c) Dùng averaging kernel thế nào khi so sánh vệ tinh với mô hình hóa học – vận chuyển?',
-            '(a) x̂ = x_a + A(x_thật − x_a) + Gε; A = ∂x̂/∂x = GK; DOFS = tr(A).\n(b) ≈ một mẩu thông tin độc lập → về cơ bản là một cột, nhạy nhất ở đối lưu giữa (~3–8 km) nơi tương phản nhiệt với bề mặt lớn nhất; gần mặt đất gần như bằng tiên nghiệm.\n'
-            '(c) Làm mượt profil mô hình: x_m,smooth = x_a + A(x_model − x_a), rồi so với x̂ để loại ảnh hưởng của làm mượt và tiên nghiệm.', 3, 'Đề thi mẫu', origin='goc', src='Đề thi mẫu Q5 (2,5 điểm) + đáp án gợi ý')
-    B.essay('Vẽ và so sánh averaging kernel lý tưởng với kernel thực tế của truy hồi ozone nadir.',
-            'Lý tưởng: A = I, các hàm delta tại mỗi mực, DOFS bằng số mực, không phụ thuộc tiên nghiệm. Thực tế (nadir O₃): kernel rộng 7–15 km, chồng nhau, đỉnh lệch, biên độ 0,3–0,6, DOFS ≈ 4–6 (≈ 1 ở đối lưu), kém nhạy gần mặt đất (Rayleigh, hấp thụ phía trên, mây) và ở trên 50 km; vì vậy phân giải thẳng đứng ~6–10 km ở bình lưu, kém hơn ở đối lưu.', 2, 'Ideal vs thực', origin='goc', src='Đề cương 5.2 / hình 16')
+    B.add('Which quantity is used to quantify the sensitivity of passive retrievals?',
+          'The averaging kernel matrix A = ∂x̂/∂x (sensitivity of the retrieved state to the true state)', ['The Ångström exponent α, describing the spectral dependence of aerosol optical depth', 'The air mass factor AMF = SCD/VCD, describing the length of the light path', 'The measurement-error covariance matrix S_ε, describing the noise of the sensor'],
+          'Guide 5.1: A = ∂x̂/∂x = G·K, where G = (KᵀS_ε⁻¹K + S_a⁻¹)⁻¹KᵀS_ε⁻¹ is the gain matrix.', 1, 'Averaging kernel', origin='goc', src='Study guide Ch.5 (checklist)')
+    B.add('What relation links the retrieved profile, the true profile and the a priori through the averaging kernel?',
+          'x̂ = x_a + A (x_true − x_a) + G ε', ['x̂ = x_true + A x_a + G', 'x̂ = A⁻¹ x_true', 'x̂ = x_a · A / ε'],
+          'The retrieved profile is a smoothed version of the true profile, mixed with the a priori, plus noise amplified by G.', 1, 'Averaging kernel', origin='goc', src='Mock exam Q5(a)')
+    B.add('How is DOFS (Degrees Of Freedom for Signal) calculated and what does it mean?',
+          'DOFS = tr(A), the trace of A: the number of independent pieces of information on the vertical profile', ['DOFS = det(A), the determinant of A: the remaining uncertainty volume of the profile', 'DOFS = ΣS_ε, the sum of noise variances over all channels', 'DOFS = A⁻¹, the inverse of the sensitivity'],
+          'Guide 5.1: DOFS = tr(A). DOFS equals the number of levels when A is the identity, and 0 if the retrieval just returns the a priori.', 1, 'DOFS', origin='goc', src='Study guide Ch.5 (checklist)')
+    B.add('What does one row of the averaging kernel tell us?',
+          'The retrieved value at a level is a weighted average of the true profile at all levels; the FWHM is the vertical resolution', ['The altitude at which the gas has its maximum concentration, and the thickness of that layer', 'The random error of the measurement at that level, plus the systematic error of the forward model', 'The absorption coefficient of the gas at that level times its number density'],
+          'Guide 5.1: the peak shows where the information really comes from; the width (FWHM) is the vertical resolution.', 2, 'Averaging kernel', src='Study guide 5.1')
+    B.add('A row of the averaging kernel has an area close to 1. What does it mean?',
+          'The retrieved value at that level comes mainly from the measurement', ['The retrieved value is mostly the a priori value and barely depends on the measurement', 'The measurement error at that level is zero, so regularisation is no longer needed', 'The vertical resolution at that level has reached the maximum the instrument can have'],
+          'Guide 5.1: area ≈ 1 → the measurement dominates; area ≈ 0 → the retrieved value just equals the a priori.', 2, 'Averaging kernel', src='Study guide 5.1')
+    B.add('What does the averaging kernel look like in the ideal case of perfect sensitivity?',
+          'A = identity matrix: each row is a delta function equal to 1 at its own level and 0 elsewhere', ['A = zero matrix: the measurement carries no information about the true profile at any level', 'A is a diagonal matrix whose elements are all 0.5: each level gets only half of the information', 'All elements of A are equal, so every level gives the same mean value of the profile'],
+          'Guide 5.2(a): the retrieval reproduces the true profile exactly, independent of the a priori, with infinitely fine vertical resolution and DOFS equal to the number of levels.', 1, 'Ideal vs real', origin='goc', src='Study guide Ch.5 (checklist)')
+    B.add('Which features describe the averaging kernels of a realistic nadir ozone retrieval (UV 270–330 nm or IASI 9.6 µm)?',
+          'Broad kernels (FWHM ~7–15 km) that overlap, peaks shifted from the nominal level, amplitudes < 1 (~0.3–0.6)', ['Narrow delta-like kernels of 1–2 km at each level', 'Amplitudes larger than 1 near the ground', 'Identical kernels at every level'],
+          'Guide 5.2(b): sensitivity is low near the surface (Rayleigh scattering, strong O₃ absorption above, clouds), so near-surface values come mostly from the a priori.', 2, 'Ideal vs real', src='Study guide 5.2')
+    B.add('What are typical DOFS for nadir O₃ retrievals in the UV and with IASI?',
+          'About 4–6 in the UV (≈ 1 for the troposphere), about 3–4 with IASI', ['About 20–30 for both', 'About 1 for the UV and 10 for IASI', 'Zero, because nadir has no vertical information'],
+          'Guide 5.2(b): the stratosphere is known in ~3–4 thick layers plus roughly 1 piece of tropospheric information. Limb: kernels ~2–3 km, DOFS ≈ 20–30.', 2, 'Ideal vs real', src='Study guide 5.2')
+    B.add('A CO retrieval from a thermal-infrared sounder has DOFS = 1.2. What does this mean?',
+          'About one independent piece of information: essentially a column, most sensitive in the mid-troposphere (~3–8 km), little near the ground', ['CO is known at 1.2 independent levels right at the ground, where the thermal contrast is largest', 'The retrieval error is 1.2 times the uncertainty of the initial a priori profile', 'There are 12 independent levels but each one is noisy at about 10% of the signal'],
+          'Answer key Q5(b): thermal contrast with the surface is largest in the mid-troposphere; near the ground the thermal contrast is low so sensitivity is poor.', 2, 'DOFS', origin='goc', src='Mock exam Q5(b)')
+    B.add('When comparing satellite retrievals with a chemistry-transport model, what must be done with the averaging kernel?',
+          'Smooth the model profile: x_m,smooth = x_a + A (x_model − x_a), then compare with x̂', ['Add the measurement noise to the model profile and average it with the a priori', 'Compare only at levels where A is zero to avoid the effect of the measurement', 'Divide the model profile by the DOFS and multiply by the mean air mass factor'],
+          'Answer key Q5(c): this removes the effect of smoothing and a priori, so the comparison is like-for-like.', 2, 'Using AKs', origin='goc', src='Mock exam Q5(c)')
+    B.add('What is the ideal column averaging kernel a(z) = ∂VCD̂/∂n(z)?',
+          'Equal to 1 at all altitudes', ['Equal to 0 at all altitudes', 'Equal to 1 only at the ground', 'Equal to the AMF at all altitudes'],
+          'Guide 5.1: in DOAS, a(z) = AMF_layer / AMF_total. Ideal = 1 at every height (uniform sensitivity of the column).', 3, 'Averaging kernel', src='Study guide 5.1')
+    B.add('Which two components make up the retrieval error?',
+          'The smoothing error (I − A) S_a (I − A)ᵀ and the noise error G S_ε Gᵀ', ['The AMF error due to the assumed light path and the DOAS fitting error due to cross-sections', 'The Ångström error due to particle size and the ω₀ error due to particle absorption', 'The orbit error due to satellite position and the calibration error due to the instrument'],
+          'Guide 5.1: Ŝ = (I − A) S_a (I − A)ᵀ + G S_ε Gᵀ.', 3, 'Error', src='Study guide 5.1')
+    B.add(f'In a 12-level simulation with very narrow kernels and very small noise, what is the DOFS?',
+          f'≈ {di:.1f} (A close to the identity matrix)', [f'≈ {dr:.1f} (as in the realistic case with 3-level-wide kernels)', '≈ 1.0 (a single column, no vertical information)', '≈ 0 (no information, only the a priori remains)'],
+          f'Run in Python: w = 0.3 level, σ_ε = 0.01 → DOFS = {di:.3f}. Narrow kernels and accurate measurements give A → I and DOFS → number of levels.', 2, 'DOFS', src='Home-made Python simulation (data/verified.json)')
+    B.add('In the same 12-level model, what happens to DOFS when the noise increases from 0.1 to 1.0 (kernel width 3 levels)?',
+          f'It falls from ≈ {dr:.1f} to ≈ {dn:.1f}', [f'It rises from ≈ {dn:.1f} to ≈ {dr:.1f}', 'It does not change because DOFS depends only on the kernel', 'It rises to 12 because noise adds information'],
+          f'More noise → the result relies more on the a priori → A shrinks → DOFS falls: {dr:.3f} → {dn:.3f} (Python).', 3, 'DOFS', src='Home-made Python simulation (data/verified.json)')
+    B.add('Why are limb ozone retrievals closer to the ideal case than nadir retrievals?',
+          'Because limb geometry gives narrow kernels (~2–3 km) and DOFS ≈ 20–30', ['Because limb looks straight down so there is no scattering from above', 'Because limb uses more a priori information than nadir, so the result is less uncertain', 'Because limb measures the concentration directly with a laser pulse from the satellite'],
+          'Guide 5.2: limb ozone is close to the ideal case in the stratosphere.', 2, 'Ideal vs real', src='Study guide 5.2')
+    B.essay('(a) Write the relation between the retrieved profile, the true profile and the a priori using the averaging kernel.\n(b) A CO retrieval from a thermal-infrared sounder has DOFS = 1.2. What does it mean? Where is the sensitivity highest and why?\n(c) How should averaging kernels be used when comparing satellites with a chemistry-transport model?',
+            '(a) x̂ = x_a + A(x_true − x_a) + Gε; A = ∂x̂/∂x = GK; DOFS = tr(A).\n(b) ≈ one independent piece of information → essentially a column, most sensitive in the mid-troposphere (~3–8 km) where the thermal contrast with the surface is largest; near the ground it is almost the a priori.\n'
+            '(c) Smooth the model profile: x_m,smooth = x_a + A(x_model − x_a), then compare with x̂ to remove the effect of smoothing and the a priori.', 3, 'Mock exam', origin='goc', src='Mock exam Q5 (2.5 points) + suggested answer')
+    B.essay('Draw and compare the ideal averaging kernels with the realistic ones of a nadir ozone retrieval.',
+            'Ideal: A = I, delta functions at each level, DOFS = number of levels, independent of the a priori. Realistic (nadir O₃): kernels 7–15 km wide, overlapping, shifted peaks, amplitudes 0.3–0.6, DOFS ≈ 4–6 (≈ 1 in the troposphere), poor sensitivity near the ground (Rayleigh, absorption above, clouds) and above 50 km; hence vertical resolution ~6–10 km in the stratosphere and worse in the troposphere.', 2, 'Ideal vs real', origin='goc', src='Study guide 5.2 / Figure 16')
     sl = [
-        cover('Độ nhạy của truy hồi: averaging kernel', 'Sensitivity of passive retrievals — Đề cương chương 5',
-              '<b>Atmospheric Remote Sensing</b> · USTH<br>A = ∂x̂/∂x · DOFS = tr(A) · ideal và thực tế'),
-        S('Ma trận averaging kernel', fm('<span class="l">Định nghĩa</span>A = ∂x̂/∂x = G K &nbsp;,&nbsp; G = (K<sup>T</sup>S<sub>ε</sub><sup>−1</sup>K + S<sub>a</sub><sup>−1</sup>)<sup>−1</sup>K<sup>T</sup>S<sub>ε</sub><sup>−1</sup>', 26) +
-          fm('<span class="l">Truy hồi = làm mượt + tiên nghiệm + nhiễu</span>x̂ = x<sub>a</sub> + A (x<sub>thật</sub> − x<sub>a</sub>) + G ε', 30) +
-          '<p class="note">Mỗi hàng của A: giá trị tại một mực là trung bình có trọng số của profil thật; <b>độ rộng FWHM</b> = phân giải thẳng đứng, <b>đỉnh</b> = nơi thông tin thực sự đến.</p>'),
-        S('Diện tích hàng và DOFS', cards2(330, card('Diện tích hàng ≈ 1', 'Giá trị truy hồi chủ yếu từ <b>phép đo</b>.'), card('Diện tích hàng ≈ 0', 'Giá trị truy hồi gần bằng <b>tiên nghiệm</b>.'),
-          card('DOFS = tr(A)', 'Số mẩu thông tin độc lập về profil. DOFS = số mực khi A = I.'), cols=3) + fm('Ŝ = (I − A) S<sub>a</sub> (I − A)<sup>T</sup> + G S<sub>ε</sub> G<sup>T</sup>', 28)),
-        S('Cột: averaging kernel của cột', figfit('f14_colavk', 'Hình 15 (đề cương): kernel của cột — lý tưởng (= 1) so với UV-vis điển hình, có mây và hồng ngoại nhiệt.', 480) +
-          '<p class="note">a(z) = ∂VCD̂/∂n(z) = AMF<sub>lớp</sub> / AMF<sub>tổng</sub>; lý tưởng bằng 1 ở mọi độ cao.</p>'),
-        S('Lý tưởng so với thực tế (O₃ nadir)', figfit('f4_avk', 'Hình 16 (đề cương): (a) A = I; (b) truy hồi profil ozone nadir điển hình.', 500)),
-        S('Đặc điểm của truy hồi ozone nadir', cols(
-            ulb(['Kernel rộng ~7–15 km, chồng nhau', 'Đỉnh lệch khỏi mực danh nghĩa', 'Biên độ < 1 (~0,3–0,6)', 'DOFS ≈ 4–6 (UV), ≈ 3–4 (IASI)'], 33, 44),
-            ulb(['Gần mặt đất: kém nhạy (Rayleigh, hấp thụ phía trên, mây) → <b>từ tiên nghiệm</b>', 'Trên 50 km: ít ozone nên mất nhạy', 'Limb: kernel ~2–3 km, DOFS ≈ 20–30'], 33, 44))),
-        S('Mô phỏng 12 mực (Python)', dtable(tbl(['Trường hợp', 'Độ rộng kernel', 'Nhiễu σ<sub>ε</sub>', 'DOFS'], [
-            ['Lý tưởng', '0,3 mực', '0,01', f'{di:.2f}'], ['Thực tế', '3 mực', '0,1', f'{dr:.2f}'], ['Nhiễu lớn', '3 mực', '1,0', f'{dn:.2f}']]), 'xl') +
-          '<p class="note" style="margin-top:20px">Tiên nghiệm tương quan theo độ cao (độ dài 3 mực). DOFS = tr(A) = tổng trị riêng của A; kernel hẹp và đo chính xác → A → I.</p>'),
-        S('Dùng averaging kernel khi so sánh với mô hình', fm('x<sub>m,smooth</sub> = x<sub>a</sub> + A (x<sub>model</sub> − x<sub>a</sub>)', 34) +
-          ulb(['Làm mượt profil mô hình bằng chính A của vệ tinh', 'Rồi so với x̂ để loại ảnh hưởng của làm mượt và tiên nghiệm', 'Không làm bước này: lệch có thể do độ nhạy chứ không do mô hình'], 33, 30)),
-        S('Exam checklist — Chương 5', chk(['Tên: ma trận averaging kernel A = ∂x̂/∂x; DOFS = trace(A)', 'x̂ = x<sub>a</sub> + A (x − x<sub>a</sub>) + G ε', 'Độ rộng hàng = phân giải thẳng đứng; diện tích = đóng góp của phép đo', 'Vẽ hàm delta (lý tưởng) và kernel rộng, chồng nhau, lệch đỉnh (O₃ nadir, DOFS ≈ 4–6)'])),
-        S('Ý chính', dul(['Độ nhạy đo bằng A = ∂x̂/∂x; DOFS = tr(A)', 'Lý tưởng: A = I, không phụ thuộc tiên nghiệm', 'Thực tế O₃ nadir: kernel rộng, DOFS ≈ 4–6', 'So sánh với mô hình: làm mượt bằng A']))]
-    mod = dict(id='m5', slug='05-averaging-kernels', title='M5 · Độ nhạy: averaging kernel', en='Sensitivity of passive retrievals: averaging kernels',
+        cover('Sensitivity of retrievals: averaging kernels', 'Study guide chapter 5',
+              '<b>Atmospheric Remote Sensing</b> · USTH<br>A = ∂x̂/∂x · DOFS = tr(A) · ideal and realistic cases'),
+        S('The averaging kernel matrix', fm('<span class="l">Definition</span>A = ∂x̂/∂x = G K &nbsp;,&nbsp; G = (K<sup>T</sup>S<sub>ε</sub><sup>−1</sup>K + S<sub>a</sub><sup>−1</sup>)<sup>−1</sup>K<sup>T</sup>S<sub>ε</sub><sup>−1</sup>', 26) +
+          fm('<span class="l">Retrieval = smoothing + a priori + noise</span>x̂ = x<sub>a</sub> + A (x<sub>true</sub> − x<sub>a</sub>) + G ε', 30) +
+          '<p class="note">Each row of A: the value at one level is a weighted average of the true profile; the <b>FWHM</b> is the vertical resolution and the <b>peak</b> shows where the information comes from.</p>'),
+        S('Row area and DOFS', cards2(330, card('Row area ≈ 1', 'The retrieved value comes mostly from the <b>measurement</b>.'), card('Row area ≈ 0', 'The retrieved value is close to the <b>a priori</b>.'),
+          card('DOFS = tr(A)', 'Number of independent pieces of information on the profile. DOFS = number of levels when A = I.'), cols=3) + fm('Ŝ = (I − A) S<sub>a</sub> (I − A)<sup>T</sup> + G S<sub>ε</sub> G<sup>T</sup>', 28)),
+        S('Column averaging kernels', figfit('f14_colavk', 'Figure 15 (study guide): column kernels — ideal (= 1) versus typical UV-vis, cloudy and thermal-IR cases.', 480) +
+          '<p class="note">a(z) = ∂VCD̂/∂n(z) = AMF<sub>layer</sub> / AMF<sub>total</sub>; ideal is 1 at every altitude.</p>'),
+        S('Ideal versus realistic (nadir O₃)', figfit('f4_avk', 'Figure 16 (study guide): (a) A = I; (b) a typical nadir ozone profile retrieval.', 500)),
+        S('Features of nadir ozone retrievals', cols(
+            ulb(['Kernels ~7–15 km wide, overlapping', 'Peaks shifted from the nominal level', 'Amplitudes < 1 (~0.3–0.6)', 'DOFS ≈ 4–6 (UV), ≈ 3–4 (IASI)'], 33, 44),
+            ulb(['Near the ground: low sensitivity (Rayleigh, absorption above, clouds) → <b>a priori</b>', 'Above 50 km: little ozone, so sensitivity is lost', 'Limb: kernels ~2–3 km, DOFS ≈ 20–30'], 33, 44))),
+        S('12-level simulation (Python)', dtable(tbl(['Case', 'Kernel width', 'Noise σ<sub>ε</sub>', 'DOFS'], [
+            ['Ideal', '0.3 levels', '0.01', f'{di:.2f}'], ['Realistic', '3 levels', '0.1', f'{dr:.2f}'], ['Noisy', '3 levels', '1.0', f'{dn:.2f}']]), 'xl') +
+          '<p class="note" style="margin-top:20px">A priori correlated with height (length 3 levels). DOFS = tr(A) = sum of the eigenvalues of A; narrow kernels and accurate data give A → I.</p>'),
+        S('Using averaging kernels with a model', fm('x<sub>m,smooth</sub> = x<sub>a</sub> + A (x<sub>model</sub> − x<sub>a</sub>)', 34) +
+          ulb(['Smooth the model profile with the satellite’s own A', 'Then compare with x̂ to remove smoothing and a priori effects', 'Without this step a difference may come from sensitivity, not from the model'], 33, 30)),
+        S('Exam checklist — Chapter 5', chk(['Name: averaging kernel matrix A = ∂x̂/∂x; DOFS = trace(A)', 'x̂ = x<sub>a</sub> + A (x − x<sub>a</sub>) + G ε', 'Row width = vertical resolution; area = contribution of the measurement', 'Draw delta functions (ideal) and broad, overlapping, peak-shifted kernels (nadir O₃, DOFS ≈ 4–6)'])),
+        S('Key points', dul(['Sensitivity is measured by A = ∂x̂/∂x; DOFS = tr(A)', 'Ideal: A = I, independent of the a priori', 'Realistic nadir O₃: broad kernels, DOFS ≈ 4–6', 'Compare with models by smoothing with A']))]
+    mod = dict(id='m5', slug='05-averaging-kernels', title='M5 · Averaging kernels', en='Sensitivity of passive retrievals: averaging kernels',
                question='<ul><li>Which magnitude is used to quantify the sensitivity of passive remote sensing methods for retrieving the concentration of trace gases?</li><li>Explain the general concept and illustrate with drawings a case of ideally perfect sensitivity and a realistic case (such as the retrieval of the ozone profiles using satellite spectral measurements in nadir pointing geometry).</li></ul>',
-               calcs=[('ak', 'Averaging kernel và DOFS (mô phỏng 12 mực)')],
+               calcs=[('ak', 'Averaging kernel and DOFS (12-level simulation)')],
                checklist=['Name: averaging kernel matrix A = ∂x̂/∂x; DOFS = trace(A).', 'x̂ = x_a + A(x − x_a) + Gε — retrieval = smoothed truth + a priori contribution.', 'Row width = vertical resolution; area = measurement contribution.', 'Draw delta functions (ideal) vs broad, overlapping, peak-shifted kernels (nadir O₃, DOFS ≈ 4–6).'],
                summary=['Đại lượng đo độ nhạy: ma trận hạt nhân trung bình (averaging kernel) A = ∂x̂/∂x; vết của A = số bậc tự do tín hiệu (DOFS).', 'Trường hợp lý tưởng: A = ma trận đơn vị → hàm delta tại mỗi độ cao, không phụ thuộc tiên nghiệm.', 'Thực tế (O₃ nadir): hạt nhân rộng 7–15 km, chồng lên nhau, biên độ < 1, DOFS ≈ 4–6; gần mặt đất độ nhạy thấp → kết quả phụ thuộc nhiều vào profil tiên nghiệm.'],
                sections=[
-        ('Averaging kernel, nói nôm na', '<p>Truy hồi profil giống như vẽ lại một bức tranh từ một bức ảnh mờ: bạn thu được phiên bản <b>làm mượt</b> của bức tranh thật, và chỗ nào ảnh quá mờ thì bạn phải điền bằng <b>phỏng đoán có sẵn (tiên nghiệm)</b>. Ma trận <b>averaging kernel A</b> cho biết mức độ “mờ” đó ở từng độ cao.</p>' +
-         eq('Định nghĩa', 'A = ∂x̂ / ∂x = G K &nbsp;;&nbsp; G = (K<sup>T</sup> S<sub>ε</sub><sup>−1</sup> K + S<sub>a</sub><sup>−1</sup>)<sup>−1</sup> K<sup>T</sup> S<sub>ε</sub><sup>−1</sup> (gain)') +
-         eq('Hệ quả', 'x̂ = x<sub>a</sub> + A (x<sub>thật</sub> − x<sub>a</sub>) + G ε') +
-         '<ul><li><b>Mỗi hàng</b> của A: giá trị truy hồi tại một mực là trung bình có trọng số của profil thật ở mọi mực. <b>Độ rộng (FWHM)</b> = phân giải thẳng đứng; <b>đỉnh</b> = nơi thông tin thực sự đến.</li>'
-         '<li><b>Diện tích hàng</b>: ≈ 1 → phép đo chiếm ưu thế; ≈ 0 → giá trị chỉ bằng tiên nghiệm.</li><li><b>DOFS = tr(A)</b> = số mẩu thông tin độc lập về profil.</li>'
-         '<li><b>Cột</b>: a(z) = ∂VCD̂/∂n(z) (trong DOAS: AMF<sub>lớp</sub>/AMF<sub>tổng</sub>); lý tưởng bằng 1 ở mọi độ cao.</li></ul>' +
-         eq('Sai số truy hồi', 'Ŝ = (I − A) S<sub>a</sub> (I − A)<sup>T</sup> [làm mượt] + G S<sub>ε</sub> G<sup>T</sup> [nhiễu]') + lfig('f14_colavk', 'Hình 15 (đề cương): kernel của cột — lý tưởng so với UV-vis, có mây, và hồng ngoại nhiệt.')),
-        ('Trường hợp lý tưởng và thực tế', '<p><b>(a) Lý tưởng: A = I.</b> Mỗi kernel là hàm delta bằng 1 tại đúng mực của nó, 0 ở nơi khác: truy hồi tái tạo chính xác profil thật, không phụ thuộc tiên nghiệm, phân giải vô hạn, DOFS = số mực.</p>'
-         '<p><b>(b) Thực tế: ozone nadir</b> (UV 270–330 nm của GOME-2/OMI hoặc IASI 9,6 µm):</p><ul><li>Kernel rộng (FWHM ~7–15 km) và chồng nhau → phân giải thẳng đứng ~6–10 km ở bình lưu, kém hơn ở đối lưu.</li><li>Đỉnh lệch khỏi mực danh nghĩa; biên độ &lt; 1 (≈ 0,3–0,6).</li>'
-         '<li>DOFS ≈ 4–6 trong UV (≈ 1 ở đối lưu), ≈ 3–4 với IASI: biết bình lưu trong ~3–4 lớp dày cộng khoảng 1 mẩu thông tin đối lưu.</li><li>Kém nhạy gần mặt đất (Rayleigh, hấp thụ O₃ phía trên, mây) và ở trên 50 km (ít ozone) → các giá trị này chủ yếu lấy từ tiên nghiệm.</li></ul>'
-         '<p>Ngược lại, truy hồi ozone <b>limb</b> có kernel hẹp (~2–3 km), DOFS ≈ 20–30, gần với lý tưởng ở tầng bình lưu.</p>' + lfig('f4_avk', 'Hình 16 (đề cương): (a) độ nhạy hoàn hảo A = I; (b) truy hồi profil ozone nadir điển hình.')),
-        ('Mô phỏng 12 mực (kiểm chứng bằng Python)', '<p>Mô hình tự dựng: N = 12 mực; hàm trọng số K là các đường Gauss có độ rộng w mực; nhiễu S<sub>ε</sub> = σ<sub>ε</sub>²I; tiên nghiệm S<sub>a</sub> tương quan theo độ cao (độ dài 3 mực, σ<sub>a</sub> = 1). Kết quả:</p>' +
-         hx_table(['Trường hợp', 'Độ rộng kernel w', 'σ<sub>ε</sub>', 'DOFS = tr(A)'], [['Lý tưởng', '0,3 mực', '0,01', f'<b>{di:.2f}</b>'], ['Thực tế', '3 mực', '0,1', f'<b>{dr:.2f}</b>'], ['Nhiễu lớn', '3 mực', '1,0', f'<b>{dn:.2f}</b>']]) +
-         '<p>Quan sát: kernel hẹp và đo chính xác → A → I, DOFS → số mực. Tăng nhiễu hoặc làm kernel rộng ra → DOFS giảm, kết quả dựa nhiều hơn vào tiên nghiệm. Hãy tự thử trong <a href="../../calculators.html#ak">công cụ averaging kernel</a>. (DOFS = tr(A) cũng bằng tổng các trị riêng của A; đã kiểm bằng numpy.)</p>'
-         '<p><b>Dùng AK khi so sánh với mô hình:</b> x<sub>m,smooth</sub> = x<sub>a</sub> + A (x<sub>model</sub> − x<sub>a</sub>), sau đó so với x̂; nếu bỏ bước này, chênh lệch có thể do độ nhạy chứ không phải do mô hình.</p>')])
+        ('Averaging kernel, in plain words', '<p>Retrieving a profile is like redrawing a picture from a blurred photo: you get a <b>smoothed</b> version of the true picture, and where the photo is too blurry you fill in with <b>prior guesses (the a priori)</b>. The <b>averaging kernel A</b> tells you how blurry it is at each altitude.</p>' +
+         eq('Definition', 'A = ∂x̂ / ∂x = G K &nbsp;;&nbsp; G = (K<sup>T</sup> S<sub>ε</sub><sup>−1</sup> K + S<sub>a</sub><sup>−1</sup>)<sup>−1</sup> K<sup>T</sup> S<sub>ε</sub><sup>−1</sup> (gain)') +
+         eq('Consequence', 'x̂ = x<sub>a</sub> + A (x<sub>true</sub> − x<sub>a</sub>) + G ε') +
+         '<ul><li><b>Each row</b> of A: the retrieved value at a level is a weighted average of the true profile at all levels. The <b>width (FWHM)</b> is the vertical resolution; the <b>peak</b> shows where the information really comes from.</li>'
+         '<li><b>Row area</b>: ≈ 1 → the measurement dominates; ≈ 0 → the value is just the a priori.</li><li><b>DOFS = tr(A)</b> = the number of independent pieces of information on the profile.</li>'
+         '<li><b>Column</b>: a(z) = ∂VCD̂/∂n(z) (in DOAS: AMF<sub>layer</sub>/AMF<sub>total</sub>); ideal is 1 at all altitudes.</li></ul>' +
+         eq('Retrieval error', 'Ŝ = (I − A) S<sub>a</sub> (I − A)<sup>T</sup> [smoothing] + G S<sub>ε</sub> G<sup>T</sup> [noise]') + lfig('f14_colavk', 'Figure 15 (study guide): column kernels — ideal vs UV-vis, cloudy and thermal-IR cases.')),
+        ('Ideal and realistic cases', '<p><b>(a) Ideal: A = I.</b> Each kernel is a delta function equal to 1 at its own level and 0 elsewhere: the retrieval reproduces the true profile, independent of the a priori, with infinite resolution and DOFS = number of levels.</p>'
+         '<p><b>(b) Realistic: nadir ozone</b> (GOME-2/OMI in UV 270–330 nm, or IASI at 9.6 µm):</p><ul><li>Broad kernels (FWHM ~7–15 km) that overlap → vertical resolution ~6–10 km in the stratosphere, worse in the troposphere.</li><li>Peaks shifted from the nominal level; amplitudes &lt; 1 (≈ 0.3–0.6).</li>'
+         '<li>DOFS ≈ 4–6 in the UV (≈ 1 for the troposphere), ≈ 3–4 for IASI: the stratosphere is known in ~3–4 thick layers plus roughly 1 piece of tropospheric information.</li><li>Poor sensitivity near the surface (Rayleigh scattering, strong O₃ absorption above, clouds) and above 50 km (little ozone) → those values come mostly from the a priori.</li></ul>'
+         '<p>By contrast, <b>limb</b> ozone retrievals have narrow kernels (~2–3 km), DOFS ≈ 20–30, close to the ideal case in the stratosphere.</p>' + lfig('f4_avk', 'Figure 16 (study guide): (a) perfect sensitivity A = I; (b) a typical nadir ozone profile retrieval.')),
+        ('12-level simulation (checked in Python)', '<p>Home-made model: N = 12 levels; weighting functions K are Gaussians of width w levels; noise S<sub>ε</sub> = σ<sub>ε</sub>²I; a priori S<sub>a</sub> correlated with height (length 3 levels, σ<sub>a</sub> = 1). Results:</p>' +
+         hx_table(['Case', 'Kernel width w', 'σ<sub>ε</sub>', 'DOFS = tr(A)'], [['Ideal', '0.3 levels', '0.01', f'<b>{di:.2f}</b>'], ['Realistic', '3 levels', '0.1', f'<b>{dr:.2f}</b>'], ['Noisy', '3 levels', '1.0', f'<b>{dn:.2f}</b>']]) +
+         '<p>Observation: narrow kernels and accurate data → A → I and DOFS → number of levels. More noise or wider kernels → DOFS falls and the result relies more on the a priori. Try it in the <a href="../../calculators.html#ak">averaging-kernel calculator</a>. (DOFS = tr(A) also equals the sum of the eigenvalues of A; checked with numpy.)</p>'
+         '<p><b>Using AKs with a model:</b> x<sub>m,smooth</sub> = x<sub>a</sub> + A (x<sub>model</sub> − x<sub>a</sub>), then compare with x̂; without this step a difference can come from sensitivity rather than from the model.</p>')])
     return mod, sl, B

@@ -1,4 +1,4 @@
-/* Bổ sung cho deck 1280x720 của site ARS: ô công thức, chú giải, chỉ số trên/dưới >= 20 px */
+/* Additions for the 1280x720 decks: formula boxes, legends, sub/superscripts >= 20 px */
 .mdeck-slide sub,.mdeck-slide sup{font-size:max(20px,.8em);line-height:0}
 .fm{background:#eef2fa;border:2px solid #273896;border-radius:12px;padding:12px 22px;margin:12px 0;text-align:center;color:#1b2433;
   font:700 32px/1.4 "STIX Two Text","Times New Roman",Georgia,serif}
@@ -12,7 +12,7 @@ ul.lg2 li b{color:#273896;font-family:"STIX Two Text","Times New Roman",Georgia,
 .mdeck-slide.cover .cover-meta b{color:#273896}
 .mdeck-slide i{font-family:"STIX Two Text","Times New Roman",Georgia,serif}
 .eqrow{display:flex;gap:18px}.eqrow>.fm{flex:1}
-/* Slide nội dung ít chữ: dàn đều các khối theo chiều dọc để lấp đầy vùng 100–696 px */
+/* Low-text content slides: spread the blocks vertically to fill the 100–696 px area */
 .mdeck-slide.th0.active{display:flex;flex-direction:column;justify-content:space-evenly}
 .mdeck-slide.th0.active>.cards{flex:0 0 auto}
 .mdeck-slide.th0.active>h2{flex:none}

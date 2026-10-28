@@ -11,7 +11,7 @@ for mid in mods:
     mod, slides, B = m.build()
     rb = rebalance(B.items)
     balance_positions(B.items, seed=hash(mid) % 1000 if False else int(mid[1:]) * 17)
-    st = finish(mod, slides, B, 'Trắc nghiệm có giải thích, câu gốc ghi nguồn; tự luận có lời giải.')
+    st = finish(mod, slides, B, 'Multiple-choice questions have explanations and a source; essay questions have worked solutions.')
     stats.append(dict(slides=len(slides), mcq=len(B.items), ess=len(B.essays)))
     for it in B.items: all_items.append(dict(it, mod=mid))
     report[mid] = dict(slides=len(slides), mcq=len(B.items), essays=len(B.essays), rebalanced=rb, audit=st,
