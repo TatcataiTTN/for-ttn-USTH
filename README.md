@@ -2,6 +2,17 @@
 
 Static, browser-only study material (no backend). Hosted on GitHub Pages.
 
+## Atmospheric-Remote-Sensing — study and exam-prep system (USTH)
+
+Live: **https://tatcataittn.github.io/for-ttn-USTH/Atmospheric-Remote-Sensing/**
+
+Eight modules matching the eight theory questions of the *Satellite Remote Sensing of Atmospheric Composition* study guide
+(sinks and lifetime, light–matter interaction, trace-gas retrieval, pointing geometries, averaging kernels, passive aerosol
+sensing, scattering regimes, aerosol altitude): lessons, 1280×720 slide decks (USTH-DSES theme), 138 multiple-choice questions
+and 21 essay questions with explanations, 9 in-browser calculators, a 120-minute mock exam with self-grading and eight 15-question
+practice exams. Every number is recomputed in Python (`Atmospheric-Remote-Sensing/notebooks/verify_numbers.ipynb`) and the
+JavaScript calculators are checked against it (`tests/test_calc.js`). See `Atmospheric-Remote-Sensing/README.md`.
+
 ## Thesis-M1 — 360-question practice bank
 
 Live: **https://tatcataittn.github.io/for-ttn-USTH/Thesis-M1/**
