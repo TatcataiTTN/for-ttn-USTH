@@ -2,7 +2,7 @@
 """Đề thi mẫu gốc (nguyên văn tiếng Anh từ file De_thi_mau_Remote_Sensing.pdf) + đáp án gợi ý."""
 INSTR = ['Answer all questions in English. Use clear schematics where asked; label axes and arrows.',
          'Give the main equations and orders of magnitude; justify every choice in one or two sentences.',
-         'Each question names the matching chapter of the study guide for review (Ch. 1–8).']
+         'Each question names the matching chapter or part of the study guide for review (Part A, Ch. 1–8).']
 Q = [
  dict(n=1, ch=1, pts=2.5, parts=['(a) Define the atmospheric lifetime τ of a pollutant. How are lifetimes combined when several removal processes act in parallel?',
    '(b) The rate constant of CO + OH is k ≈ 2×10⁻¹³ cm³ molecule⁻¹ s⁻¹ and the mean OH concentration is ≈ 1×10⁶ molecule cm⁻³. Estimate the lifetime of CO with respect to OH (give the result in days).',
@@ -51,6 +51,18 @@ Q = [
    key=['(a) O₂ is well mixed with a known profile (follows pressure); a higher scattering layer shortens the photon path → weaker O₂ absorption. The depth/shape of the band ↔ layer pressure.',
         '(b) The 5 km layer: colder (≈ 6.5 K/km lapse rate) → larger thermal contrast with the surface → larger ΔBT. Fails with low thermal contrast (low layers, night inversions, cold surfaces).',
         '(c) Stereo/multi-angle parallax (MISR); also UV aerosol index dependence on height, O₂–O₂ band at 477 nm.']),
+ dict(n=9, ch=0, ref='Part A.1–A.4', pts=2.5, parts=['(a) Write the radiative transfer equation dI/dl = … in the lecture notation. Explain each term and list the processes that add photons to, or remove photons from, the line of sight.',
+   '(b) For a layer of gas without scattering in thermodynamic equilibrium, write the integrated radiative transfer equation and explain its two terms. Include the surface boundary term with emissivity ε_s.',
+   '(c) A homogeneous layer, L = 1 km, contains an absorber with N = 5×10¹³ molecules cm⁻³ and σ = 2×10⁻²⁰ cm². Compute τ and the transmission t.'],
+   key=['(a) dI(ν̃)/dl = −k_ext·I + J; k_ext = α_gas + s_gas + α_aer + s_aer (extinction); J = source (emission, scattering into the line of sight). Gains: surface reflection, single/multiple scattering into the LOS, emission. Losses: absorption, scattering out of the field of view.',
+        '(b) J = α·B(T); I(L) = I(0)e^(−τ(0,L)) + ∫ B(T(l)) e^(−τ(l,L)) dτ: attenuated background + emission of each layer attenuated by the gas above. I(0) = ε_s B(T_s) + (1 − ε_s) I_s, 1 − ε_s = surface albedo.',
+        '(c) τ = σ·N·L = 2×10⁻²⁰ × 5×10¹³ × 10⁵ = 0.1 → t = e^(−0.1) ≈ 0.90 (90 %).']),
+ dict(n=10, ch=0, ref='Part A.5–A.6', pts=2.5, parts=['(a) Give the physical origin and the dependence on T and P of the Doppler and Lorentz line widths. Which one dominates at 5 km and at 40 km?',
+   '(b) Explain why the variation of line widths with altitude provides information on the vertical distribution of an absorber.',
+   '(c) Explain the principle of DOAS using σ = σ_b + σ′. Why is a polynomial included in the fit? If σ′ = 2×10⁻¹⁹ cm² and the slant column is 1×10¹⁶ molecules cm⁻², what is the differential optical depth?'],
+   key=['(a) Doppler: thermal motion, Gaussian, ∝ ν̃ √(T/m), independent of P. Lorentz: collisions, ∝ P(T₀/T)ⁿ. Lorentz dominates at 5 km (high P), Doppler at 40 km (P ≈ 3 hPa).',
+        '(b) P(z) is known and decreases exponentially → line shape differs for each altitude: centre formed by high layers, wings by low layers; fitting the shape (with known P, T profiles) gives the profile.',
+        '(c) Fast structures σ′ = gas fingerprint, slow part σ_b mixed with Rayleigh/Mie/surface → removed by the polynomial. D = σ′·SCD = 2×10⁻¹⁹ × 10¹⁶ = 2×10⁻³ (0.2 % signal).']),
 ]
 GRADING = ['Definition + equation + order of magnitude ≈ 50 % of the points of each sub-question.', 'A correct, labelled schematic is often worth as much as a paragraph of text.',
            'Always compare advantages AND disadvantages when asked to choose a method or geometry.']

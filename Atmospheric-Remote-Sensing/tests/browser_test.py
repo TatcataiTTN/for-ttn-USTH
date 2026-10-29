@@ -15,8 +15,8 @@ def go(p): d.get(BASE + p); time.sleep(0.4)
 def errs():
     return [l['message'] for l in d.get_log('browser') if l['level'] == 'SEVERE' and 'favicon' not in l['message']]
 def broken(): return d.execute_script("return [].filter.call(document.images,function(i){return i.complete&&i.naturalWidth===0&&i.loading!=='lazy'||(i.complete&&i.naturalWidth===0)}).map(function(i){return i.src})")
-slugs = ['01-sinks-lifetime', '02-light-matter', '03-passive-trace-gas', '04-pointing-geometries', '05-averaging-kernels', '06-passive-aerosol', '07-scattering-regimes', '08-aerosol-altitude']
-pages = ['index.html', 'calculators.html', 'exam.html', 'reference.html', 'resources.html'] + [f'lessons/{s}/index.html' for s in slugs] + [f'lessons/{s}/bank.html' for s in slugs] + [f'slides/m{i}.html' for i in range(1, 9)]
+slugs = ['00-core-knowledge', '01-sinks-lifetime', '02-light-matter', '03-passive-trace-gas', '04-pointing-geometries', '05-averaging-kernels', '06-passive-aerosol', '07-scattering-regimes', '08-aerosol-altitude']
+pages = ['index.html', 'calculators.html', 'exam.html', 'reference.html', 'resources.html'] + [f'lessons/{s}/index.html' for s in slugs] + [f'lessons/{s}/bank.html' for s in slugs] + ['slides/pa.html'] + [f'slides/m{i}.html' for i in range(1, 9)] + ['slides-gallery.html']
 for p in pages:
     go(p); d.execute_script('window.scrollTo(0,document.body.scrollHeight)'); time.sleep(0.1)
     e = errs(); b = broken()
@@ -24,7 +24,7 @@ for p in pages:
     ok(len(d.title) > 3, f'{p}: no title')
 print('pages checked:', len(pages))
 # trang chủ
-go('index.html'); ok(len(d.find_elements(By.CSS_SELECTOR, 'a.mod-card')) == 8, 'index: 8 module cards')
+go('index.html'); ok(len(d.find_elements(By.CSS_SELECTOR, 'a.mod-card')) == 9, 'index: 9 module cards')
 if SHOTS: d.save_screenshot(f'{SHOTS}/index.png')
 # bài học: quiz
 go('lessons/01-sinks-lifetime/index.html'); ok(d.find_element(By.CSS_SELECTOR, '.deckframe iframe').is_displayed(), 'lesson: iframe slide hiển thị')
@@ -61,9 +61,14 @@ el = d.find_element(By.ID, 'sz_r'); d.execute_script("arguments[0].value='0.0002
 el = d.find_element(By.ID, 'ak_w'); d.execute_script("arguments[0].value='0.3';arguments[0].dispatchEvent(new Event('input'))", el)
 el = d.find_element(By.ID, 'ak_se'); d.execute_script("arguments[0].value='0.01';arguments[0].dispatchEvent(new Event('input'))", el); ok('11.99' in txt('ak_out'), 'calc: ideal → DOFS ≈ 12 — ' + txt('ak_out')[:60])
 if SHOTS: d.save_screenshot(f'{SHOTS}/calculators.png')
+ok('0.1000' in txt('op_out') and '0.9048' in txt('op_out'), 'calc: optical depth 0.1 / t 0.9048 — ' + txt('op_out')[:60])
+ok('0.00200' in txt('dd_out'), 'calc: DOAS D = 0.002 — ' + txt('dd_out')[:60]); ok('0.00414' in txt('ln_out'), 'calc: Doppler 0.00414 — ' + txt('ln_out')[:60])
+go('slides-gallery.html'); ok(len(d.find_elements(By.CSS_SELECTOR, 'figure.ph')) == 11, 'gallery: 11 photos')
+go('lessons/00-core-knowledge/index.html'); ok(len(d.find_elements(By.CSS_SELECTOR, '.phgrid figure.ph')) == 7, 'part A: 7 lecture photos'); ok(len(d.find_elements(By.CSS_SELECTOR, '.qa-i')) == 6, 'part A: 6 quick Q&A')
+if SHOTS: d.save_screenshot(f'{SHOTS}/partA.png')
 # exam
-go('exam.html'); ok(len(d.find_elements(By.CSS_SELECTOR, '.qitem.mock')) == 8, 'exam: 8 câu mock')
-sg = d.find_elements(By.CSS_SELECTOR, 'input.sg'); d.execute_script("arguments[0].value='2';arguments[0].dispatchEvent(new Event('input'))", sg[0]); ok('2/20' in txt('mk_total'), 'exam: tổng điểm tự chấm')
+go('exam.html'); ok(len(d.find_elements(By.CSS_SELECTOR, '.qitem.mock')) == 10, 'exam: 10 mock questions')
+sg = d.find_elements(By.CSS_SELECTOR, 'input.sg'); d.execute_script("arguments[0].value='2';arguments[0].dispatchEvent(new Event('input'))", sg[0]); ok('2/25' in txt('mk_total'), 'exam: tổng điểm tự chấm')
 qs = d.find_elements(By.CSS_SELECTOR, '#exam .qitem'); ok(len(qs) == 15, f'exam: đề trắc nghiệm 15 câu, thấy {len(qs)}')
 for q in qs[:3]: d.execute_script('arguments[0].click()', q.find_elements(By.CSS_SELECTOR, '.opt')[0])
 d.execute_script('arguments[0].click()', [b for b in d.find_elements(By.CSS_SELECTOR, '#exam .sim .btn') if b.text == 'Submit'][0]); time.sleep(0.4)

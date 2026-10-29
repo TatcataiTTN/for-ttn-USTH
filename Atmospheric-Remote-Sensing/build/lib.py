@@ -19,7 +19,8 @@ class VN(float):
     __mul__ = _w(lambda a, b: a * b); __rmul__ = _w(lambda a, b: b * a); __truediv__ = _w(lambda a, b: a / b); __rtruediv__ = _w(lambda a, b: b / a)
     def __neg__(self): return VN(-float(self))
 VERIFIED = json.load(open(os.path.join(ROOT, 'data', 'verified.json'), encoding='utf-8'), parse_float=VN)
-MODULES = [  # (id, slug, tiêu đề ngắn, tiêu đề EN)
+MODULES = [  # (id, slug, short title, English title)
+    ('pa', '00-core-knowledge', 'A · Core knowledge toolbox', 'Part A: radiative transfer, optical depth, line profiles, DOAS'),
     ('m1', '01-sinks-lifetime', 'M1 · Sinks & lifetime', 'Sinks and lifetime of air pollutants'),
     ('m2', '02-light-matter', 'M2 · Light–matter interaction', 'Interaction between light and matter'),
     ('m3', '03-passive-trace-gas', 'M3 · Trace-gas retrieval', 'Passive remote sensing of trace gases'),
@@ -30,10 +31,13 @@ MODULES = [  # (id, slug, tiêu đề ngắn, tiêu đề EN)
     ('m8', '08-aerosol-altitude', 'M8 · Aerosol altitude', 'Retrieving aerosol altitude'),
 ]
 NAV = [('Home', '{r}index.html'), ('Calculators', '{r}calculators.html'), ('Mock exam', '{r}exam.html'),
-       ('Formulas & acronyms', '{r}reference.html'), ('Resources', '{r}resources.html')]
+       ('Formulas & acronyms', '{r}reference.html'), ('Lecture photos', '{r}slides-gallery.html'), ('Resources', '{r}resources.html')]
 FOOT = ('<p><b>Source:</b> the study pack <i>Satellite Remote Sensing of Atmospheric Composition — Study Guide</i> (8 theory questions with model answers, a mock exam, figures and the code that draws them) supplied by the student. '
         'Every calculated number on this site is recomputed in Python (numpy/scipy) and cross-checked with a second, independent method; see <code>notebooks/</code> and <code>data/verified.json</code>. '
         'This is unofficial self-study material by a USTH student and does not replace the lecturer\'s course. Official USTH logo; blue #273896 and red #ED1C24 were read from the logo pixels.</p>')
+
+def label(mid): return 'Part A' if mid == 'pa' else f'Chapter {mid[1:]}'
+def mod_of_ch(n): return MODULES[n]   # MODULES[0] is Part A, MODULES[n] is chapter n
 
 def write(rel, content):
     p = os.path.join(ROOT, rel); os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -113,7 +117,7 @@ def lesson_page(mod, B, bank_status):
     next_l = f'<a href="../{MODULES[idx+1][1]}/index.html">{esc(MODULES[idx+1][2])} →</a>' if idx < len(MODULES) - 1 else '<span></span>'
     secs = ''.join(f'<h2 id="s{i+1}">{h}</h2>{b}' for i, (h, b) in enumerate(mod['sections']))
     toc = '<div class="toc"><b>Contents:</b> ' + ' · '.join(f'<a href="#s{i+1}">{h}</a>' for i, (h, _) in enumerate(mod['sections'])) + \
-          ' · <a href="#checklist">Exam checklist</a> · <a href="#slides">Slides</a> · <a href="#quiz">Quiz</a></div>'
+          (' · <a href="#extra">Worked example, Q&A, memory hooks</a>' if mod.get('v2') else '') + ' · <a href="#checklist">Exam checklist</a> · <a href="#slides">Slides</a> · <a href="#quiz">Quiz</a></div>'
     chk = '<ul class="chk">' + ''.join(f'<li>{c}</li>' for c in mod['checklist']) + '</ul>'
     summ = '<ul>' + ''.join(f'<li>{s}</li>' for s in mod['summary']) + '</ul>'
     calcs = ''
@@ -122,10 +126,11 @@ def lesson_page(mod, B, bank_status):
                 ' '.join(f'<a class="btn" href="../../calculators.html#{a}">{esc(l)}</a>' for a, l in mod['calcs']) + '</p>'
     quiz = quiz_block(mid + '-qz', B.items[:10])
     body = f'''<p class="crumbs"><a href="../../index.html">Home</a> › {esc(mod['title'])}</p>
-<div class="usth-banner"><img src="../../assets/images/usth_logo.png" alt="USTH"><div><div class="t">{esc(mod['title'])}</div><div class="s">{esc(mod['en'])} · Study guide chapter {idx+1}</div></div></div>
-<div class="callout"><b class="t">Exam question {idx+1} (original wording)</b>{mod['question']}</div>
+<div class="usth-banner"><img src="../../assets/images/usth_logo.png" alt="USTH"><div><div class="t">{esc(mod['title'])}</div><div class="s">{esc(mod['en'])} · Study guide {label(mid)}</div></div></div>
+<div class="callout"><b class="t">{("Core knowledge used by every question" if mid == "pa" else "Exam question " + mid[1:] + " (original wording)")}</b>{mod['question']}</div>
 {toc}
 {secs}
+{extras_html(mod)}
 <h2 id="checklist">Exam checklist — points you must mention</h2>{chk}
 <div class="callout good"><b class="t">Key points (Vietnamese summary from the guide)</b>{summ}</div>
 {calcs}
@@ -175,3 +180,35 @@ def chk(items):
     """Slide checklist: mỗi ý một dòng có số, dàn đều chiều cao (lấp đầy vùng nội dung)."""
     rows = ''.join(f'<div class="chk-row"><span class="chk-n">{i+1}</span><div class="chk-t">{t}</div></div>' for i, t in enumerate(items))
     return f'<div class="chk">{rows}</div>'
+
+
+def photo_grid(names, hdr='Lecture slides (class photos)'):
+    """Thumbnails of lecture photos; click opens the full-resolution picture. names: [(file_stem, caption)]"""
+    PH = PHOTOS
+    cells = ''.join(f'<figure class="ph"><a href="../../assets/images/slides/full/{n}.jpg" target="_blank" rel="noopener"><img src="../../assets/images/slides/{n}.jpg" loading="lazy" alt="{esc(PH[n])}"></a><figcaption>{PH[n]}</figcaption></figure>' for n in names)
+    return f'<h2 id="photos">{hdr}</h2><p style="font-size:.88rem;color:var(--muted)">Photos of the lecture slides and blackboard. Click a picture for the full-resolution version.</p><div class="phgrid">{cells}</div>'
+
+PHOTOS = {
+ 's1_gome': 'GOME: solar irradiance and Earth radiance — their ratio is the reflectance',
+ 's2_tropomi': 'TROPOMI L1b radiance of one pixel (hyperspectral) vs broad VIIRS channels',
+ 's3_wavelengths': 'Wavelength windows chosen for each target species',
+ 's4_solar': 'Solar irradiance at the top of the atmosphere vs sea level',
+ 's5_rte_equation': 'Radiative transfer equation (1/5): extinction = absorption + scattering, source function J',
+ 's6_gains_losses': 'Light/matter interactions: photon gains (reflection, scattering, emission) and losses (absorption, scattering out)',
+ 's7_rte_gas_layer': 'Radiative transfer equation for a layer of gas (2/5): integrated RTE and absorption optical depth',
+ 's8_optical_depth': 'Optical depth (5/5): continuous spectrum and line spectrum',
+ 's9_blackboard': 'Blackboard: t = e^(−τ), τ = α·l = σ·N·l — N is the goal',
+ 's10_line_widths': 'Absorption line profiles as a function of altitude (2/2) and limb spectra',
+ 's11_doas': 'Differential Optical Absorption Spectroscopy (DOAS)',
+}
+
+def extras_html(mod):
+    v = mod.get('v2')
+    out = ''
+    if v:
+        out += '<h2 id="extra">Worked example, quick Q&amp;A and memory hooks</h2>'
+        if v.get('we'): out += '<div class="ex"><div class="exh">Worked example · ' + v['we_title'] + '</div>' + v['we'] + '</div>'
+        if v.get('qa'): out += '<h3>Quick Q&amp;A</h3><div class="qa">' + ''.join(f'<div class="qa-i"><b>Q:</b> {q}<br><b>A:</b> {a}</div>' for q, a in v['qa']) + '</div>'
+        if v.get('hooks'): out += '<h3>Memory hooks</h3><ul class="hooks">' + ''.join(f'<li>{e}<span class="vi">{vi}</span></li>' for e, vi in v['hooks']) + '</ul>'
+    if mod.get('photos'): out += photo_grid(mod['photos'])
+    return out

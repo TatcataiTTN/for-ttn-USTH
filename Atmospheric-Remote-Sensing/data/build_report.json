@@ -1,28 +1,9 @@
 {
- "m1": {
-  "slides": 11,
-  "mcq": 22,
-  "essays": 3,
-  "rebalanced": 6,
-  "audit": {
-   "n": 22,
-   "pos": {
-    "A": 6,
-    "B": 6,
-    "C": 5,
-    "D": 5
-   },
-   "chi2": 0.18,
-   "correct_longest_ratio": 0.318
-  },
-  "goc": 6,
-  "bo_sung": 16
- },
- "m2": {
-  "slides": 12,
+ "pa": {
+  "slides": 20,
   "mcq": 19,
   "essays": 3,
-  "rebalanced": 4,
+  "rebalanced": 8,
   "audit": {
    "n": 19,
    "pos": {
@@ -32,16 +13,92 @@
     "D": 4
    },
    "chi2": 0.16,
-   "correct_longest_ratio": 0.263
+   "correct_longest_ratio": 0.105
   },
-  "goc": 6,
+  "goc": 19,
+  "bo_sung": 0
+ },
+ "m1": {
+  "slides": 13,
+  "mcq": 24,
+  "essays": 3,
+  "rebalanced": 6,
+  "audit": {
+   "n": 24,
+   "pos": {
+    "A": 6,
+    "B": 6,
+    "C": 6,
+    "D": 6
+   },
+   "chi2": 0.0,
+   "correct_longest_ratio": 0.333
+  },
+  "goc": 8,
+  "bo_sung": 16
+ },
+ "m2": {
+  "slides": 15,
+  "mcq": 22,
+  "essays": 3,
+  "rebalanced": 4,
+  "audit": {
+   "n": 22,
+   "pos": {
+    "A": 6,
+    "B": 6,
+    "C": 5,
+    "D": 5
+   },
+   "chi2": 0.18,
+   "correct_longest_ratio": 0.273
+  },
+  "goc": 9,
   "bo_sung": 13
  },
  "m3": {
-  "slides": 11,
-  "mcq": 18,
+  "slides": 14,
+  "mcq": 22,
   "essays": 3,
   "rebalanced": 8,
+  "audit": {
+   "n": 22,
+   "pos": {
+    "A": 6,
+    "B": 6,
+    "C": 5,
+    "D": 5
+   },
+   "chi2": 0.18,
+   "correct_longest_ratio": 0.476
+  },
+  "goc": 8,
+  "bo_sung": 14
+ },
+ "m4": {
+  "slides": 12,
+  "mcq": 20,
+  "essays": 2,
+  "rebalanced": 11,
+  "audit": {
+   "n": 20,
+   "pos": {
+    "A": 5,
+    "B": 5,
+    "C": 5,
+    "D": 5
+   },
+   "chi2": 0.0,
+   "correct_longest_ratio": 0.35
+  },
+  "goc": 7,
+  "bo_sung": 13
+ },
+ "m5": {
+  "slides": 12,
+  "mcq": 18,
+  "essays": 2,
+  "rebalanced": 6,
   "audit": {
    "n": 18,
    "pos": {
@@ -51,104 +108,66 @@
     "D": 4
    },
    "chi2": 0.22,
-   "correct_longest_ratio": 0.353
+   "correct_longest_ratio": 0.278
   },
-  "goc": 4,
-  "bo_sung": 14
- },
- "m4": {
-  "slides": 10,
-  "mcq": 17,
-  "essays": 2,
-  "rebalanced": 10,
-  "audit": {
-   "n": 17,
-   "pos": {
-    "A": 5,
-    "B": 4,
-    "C": 4,
-    "D": 4
-   },
-   "chi2": 0.18,
-   "correct_longest_ratio": 0.353
-  },
-  "goc": 4,
-  "bo_sung": 13
- },
- "m5": {
-  "slides": 10,
-  "mcq": 15,
-  "essays": 2,
-  "rebalanced": 5,
-  "audit": {
-   "n": 15,
-   "pos": {
-    "A": 4,
-    "B": 4,
-    "C": 4,
-    "D": 3
-   },
-   "chi2": 0.2,
-   "correct_longest_ratio": 0.2
-  },
-  "goc": 6,
+  "goc": 9,
   "bo_sung": 9
  },
  "m6": {
-  "slides": 10,
-  "mcq": 17,
+  "slides": 12,
+  "mcq": 21,
   "essays": 3,
   "rebalanced": 9,
   "audit": {
-   "n": 17,
+   "n": 21,
    "pos": {
-    "A": 5,
-    "B": 4,
-    "C": 4,
-    "D": 4
+    "A": 6,
+    "B": 5,
+    "C": 5,
+    "D": 5
    },
-   "chi2": 0.18,
-   "correct_longest_ratio": 0.235
+   "chi2": 0.14,
+   "correct_longest_ratio": 0.333
   },
-  "goc": 12,
+  "goc": 16,
   "bo_sung": 5
  },
  "m7": {
-  "slides": 11,
-  "mcq": 16,
+  "slides": 13,
+  "mcq": 20,
   "essays": 2,
   "rebalanced": 4,
   "audit": {
-   "n": 16,
+   "n": 20,
    "pos": {
-    "A": 4,
-    "B": 4,
-    "C": 4,
-    "D": 4
+    "A": 5,
+    "B": 5,
+    "C": 5,
+    "D": 5
    },
    "chi2": 0.0,
-   "correct_longest_ratio": 0.5
+   "correct_longest_ratio": 0.6
   },
-  "goc": 9,
+  "goc": 13,
   "bo_sung": 7
  },
  "m8": {
-  "slides": 13,
-  "mcq": 14,
+  "slides": 15,
+  "mcq": 18,
   "essays": 3,
-  "rebalanced": 5,
+  "rebalanced": 7,
   "audit": {
-   "n": 14,
+   "n": 18,
    "pos": {
-    "A": 4,
-    "B": 4,
-    "C": 3,
-    "D": 3
+    "A": 5,
+    "B": 5,
+    "C": 4,
+    "D": 4
    },
-   "chi2": 0.29,
+   "chi2": 0.22,
    "correct_longest_ratio": 0.5
   },
-  "goc": 6,
+  "goc": 10,
   "bo_sung": 8
  }
 }

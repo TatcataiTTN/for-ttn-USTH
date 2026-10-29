@@ -28,6 +28,10 @@
     var bt = ARS.planckInv(lamUm, I);
     return { Tl: Tl, BT: bt, dBT: Ts - bt };
   };
+  ARS.optical = function (sigma, N, Lkm) { var tau = sigma * N * Lkm * 1e5; return { tau: tau, t: Math.exp(-tau) }; };
+  ARS.doppler = function (nu, mAmu, T) { return nu / C * Math.sqrt(2 * Math.LN2 * KB * T / (mAmu * 1.66053907e-27)); };
+  ARS.lorentz = function (P, T, g0, n) { return g0 * P * Math.pow(296 / T, n == null ? 0.7 : n); };
+  ARS.ddoas = function (sp, scd) { return sp * scd; };
   function matInv(M) {
     var n = M.length, A = M.map(function (r, i) { return r.slice().concat(Array.apply(null, Array(n)).map(function (_, j) { return i === j ? 1 : 0; })); });
     for (var c = 0; c < n; c++) {
@@ -124,5 +128,14 @@
       var dg = r.A.map(function (row, i) { return row[i]; });
       $('ak_out').innerHTML = 'DOFS = tr(A) = <b>' + fmt(r.dofs, 3) + '</b> (maximum 12). Diagonal of A: ' + dg.map(function (v) { return fmt(v, 2); }).join(' · ') + '<br>Try: w = 0.3 and σ<sub>ε</sub> = 0.01 ⇒ A ≈ I, DOFS ≈ 12; w = 3, σ<sub>ε</sub> = 0.1 ⇒ DOFS ≈ 4.3.';
       plot($('ak_cv'), series, { xl: 'vertical level j', yl: 'row of A (sensitivity)', ymin: -0.3, ymax: 1.05 }); });
+    bind(['op_s', 'op_n', 'op_l'], function () { var r = ARS.optical(val('op_s'), val('op_n'), val('op_l'));
+      $('op_out').innerHTML = 'τ = σ·N·L = <b>' + fmt(r.tau, 4) + '</b> ⇒ t = e<sup>−τ</sup> = <b>' + fmt(r.t, 4) + '</b> (' + fmt(r.t * 100, 2) + '% transmitted; ' + (r.tau < 0.1 ? 'transparent: I ≈ I(0) + τB' : (r.tau > 3 ? 'opaque: only the top layers are seen' : 'intermediate')) + ')'; });
+    bind(['dd_s', 'dd_c'], function () { var D = ARS.ddoas(val('dd_s'), val('dd_c'));
+      $('dd_out').innerHTML = 'D = σ′·SCD = <b>' + fmt(D, 5) + '</b> ⇒ the gas fingerprint is about <b>' + fmt(D * 100, 3) + '%</b> of the signal'; });
+    bind(['ln_nu', 'ln_m', 'ln_T', 'ln_H', 'ln_g'], function () { var nu = val('ln_nu'), m = val('ln_m'), T = val('ln_T'), H = val('ln_H'), g = val('ln_g');
+      var d = ARS.doppler(nu, m, T), xs = [], yl = [], yd = [], cross = null;
+      for (var z = 0; z <= 60; z += 1) { var P = Math.exp(-z / H), l = ARS.lorentz(P, T, g, 0.7); xs.push(z); yl.push(l); yd.push(d); if (cross === null && l < d) cross = z; }
+      $('ln_out').innerHTML = 'Doppler HWHM = <b>' + fmt(d, 5) + ' cm⁻¹</b> (independent of height); Lorentz at 0 km = <b>' + fmt(ARS.lorentz(1, T, g, 0.7), 4) + ' cm⁻¹</b>; pressure falls 10× every <b>' + fmt(H * Math.LN10, 1) + ' km</b>; Lorentz = Doppler near <b>' + (cross === null ? '> 60' : cross) + ' km</b> (isothermal model).';
+      plot($('ln_cv'), [{ x: xs, y: yl, c: '#ED1C24', n: 'Lorentz' }, { x: xs, y: yd, c: '#273896', n: 'Doppler' }], { xl: 'altitude (km)', yl: 'HWHM (cm⁻¹), log', logy: true, ymin: 1e-5, ymax: 0.1 }); });
   });
 })(typeof window !== 'undefined' ? window : globalThis);

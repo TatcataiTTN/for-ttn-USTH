@@ -134,6 +134,53 @@ V['oxygen_above'] = {str(z): p_at(z) / 1013.25 for z in (1, 3, 5, 8)}
 # ---- Ch4: quỹ đạo ----
 V['orbit'] = dict(occult_per_day_solar=30, geo_revisit_h=1)
 
+
+# ================= v2 additions (Part A, worked examples, mock Q9-Q10) =================
+KB_J = KB; AMU = 1.66053907e-27; Na_air = 2.5e19
+# A.6/A.4: NO2 polluted layer
+N_no2 = 20e-9 * Na_air; tau_no2 = 1.5e-19 * 1e5 * N_no2
+V['a_no2'] = dict(N=N_no2, tau=tau_no2, t=math.exp(-tau_no2)); assert abs(tau_no2 - 7.5e-3) < 1e-9
+# Q9(c): homogeneous layer
+tau9 = 2e-20 * 5e13 * 1e5; V['q9c'] = dict(tau=tau9, t=math.exp(-tau9)); assert abs(tau9 - 0.1) < 1e-12
+# Q10(c): differential optical depth
+V['q10c'] = dict(D=2e-19 * 1e16)
+# Q1 plume example
+V['plume72'] = dict(x_km=72, U_ms=5, U_kmh=18.0, tau_h=72 / 18.0); assert V['plume72']['tau_h'] == 4.0
+# Q2 ozone layer
+du300 = 300 * 2.687e16; am = 1 / math.cos(math.radians(60)) + 1
+oz = {}
+for lam, sg in [(310, 1e-19), (330, 1e-20)]:
+    ts_ = sg * du300 * am; oz[str(lam)] = dict(sigma=sg, tau=ts_, T=math.exp(-ts_))
+V['ozone'] = dict(column=du300, airmass=am, **{k: v for k, v in oz.items()})
+# Q3 megacity column
+V['megacity'] = dict(scd=2.4e16, amf=1.2, vcd=2.4e16 / 1.2, du=2.4e16 / 1.2 / 2.687e16, vcd_amf30=2.4e16 / (1.2 * 1.3))
+# Q4 limb path
+Rk = 6371.0
+V['limb'] = dict(R=Rk, H=1.0, L=math.sqrt(8 * Rk * 1.0), ratio=math.sqrt(8 * Rk * 1.0) / 1.0, geo_ratio=36000 / 800)
+# Q5 two-layer example
+Kv = np.array([[1., 1.]]); Sa2 = np.eye(2); Se2 = 0.01
+A2 = Sa2 @ Kv.T @ np.linalg.inv(Kv @ Sa2 @ Kv.T + Se2) @ Kv
+V['two_layer'] = dict(A=A2.tolist(), dofs=float(np.trace(A2)), denom=float((Kv @ Sa2 @ Kv.T + Se2)[0, 0])); assert abs(np.trace(A2) - 1) < 0.01
+# Q6 Angstrom examples (guide convention alpha = -ln(t1/t2)/ln(l1/l2))
+for nm, a1, a2_ in [('smoke', 0.8, 0.2), ('dust', 0.50, 0.45)]:
+    V['ang_' + nm] = dict(t440=a1, t870=a2_, alpha=-math.log(a1 / a2_) / math.log(440 / 870))
+# Q7 same particle, different regimes
+V['droplet'] = dict(x_vis=2 * math.pi * 10 / 0.55, x_radar=2 * math.pi * 10 / 3000.0)
+# Q8: TIR 310 K with dust at 4 km, tau=0.7; 1 km
+def dep(Ts, z, tau): b, _ = bt_layer(Ts, z, tau); return Ts - b
+V['tir310'] = dict(Ts=310, z4=dict(Tl=310 - 6.5 * 4, dBT=dep(310, 4, 0.7)), z1=dict(Tl=310 - 6.5, dBT=dep(310, 1, 0.7)))
+V['o2_scale8'] = {str(z): math.exp(-z / 8.0) for z in (1, 6)}
+# A.5 line widths
+def hwhm_doppler(nu_cm, T, mass_amu): return nu_cm / C * math.sqrt(2 * math.log(2) * KB * T / (mass_amu * AMU)) * 1.0
+def hwhm_lorentz(P_atm, T, g0=0.07, n=0.7): return g0 * P_atm * (296.0 / T) ** n
+Tz = {0: 288., 15: 217., 40: 250.}; Pz = {z: math.exp(-z / 7.0) for z in Tz}
+V['lines'] = dict(doppler_ch4_2927=hwhm_doppler(2927, 250, 16.04) * 1.0)
+V['lines']['alt'] = {str(z): dict(T=Tz[z], P_atm=Pz[z], lorentz=hwhm_lorentz(Pz[z], Tz[z]), doppler=hwhm_doppler(2927, Tz[z], 16.04)) for z in Tz}
+V['lines']['km_per_decade'] = 7.0 * math.log(10)
+assert 0.003 < V['lines']['doppler_ch4_2927'] < 0.005
+cross = [z for z in np.arange(0, 60, 0.1) if hwhm_lorentz(math.exp(-z / 7), 230) < hwhm_doppler(2927, 230, 16.04)]
+V['lines']['crossover_km'] = float(cross[0])
+
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 json.dump(V, open(OUT, 'w'), indent=1, ensure_ascii=False)
 print('OK verified.json — CO lifetime %.2f days; T=%.4f; x(N2,sulfate,dust)=%.4f,%.3f,%.2f; alpha=%.4f; dBT(1km,5km)=%.2f,%.2f K; DOFS ideal/realistic/noisy=%.2f/%.2f/%.2f' % (

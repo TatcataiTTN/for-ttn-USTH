@@ -32,3 +32,9 @@ figure.lf figcaption{font-size:.84rem;color:var(--muted);margin-top:4px}
 .keyans{border-left:4px solid var(--good);background:var(--goodbg);padding:8px 14px;border-radius:0 8px 8px 0;margin:8px 0;font-size:.95rem}
 details.ans{margin:8px 0}details.ans>summary{cursor:pointer;font-weight:700;color:var(--accent2)}
 .callout .lbl{font-weight:800;display:block;margin-bottom:2px}
+
+.qa-i{border:1px solid var(--border);border-left:4px solid var(--accent2);background:var(--card);border-radius:0 10px 10px 0;padding:6px 12px;margin:8px 0}
+ul.hooks li{margin:8px 0}ul.hooks .vi{display:block;font-size:.84rem;color:var(--muted);font-style:italic}
+.phgrid{display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:14px}
+figure.ph{margin:0;background:var(--card);border:1px solid var(--border);border-radius:10px;padding:8px}
+figure.ph img{width:100%;height:auto;border-radius:6px;display:block}figure.ph figcaption{font-size:.84rem;color:var(--muted);margin-top:6px}

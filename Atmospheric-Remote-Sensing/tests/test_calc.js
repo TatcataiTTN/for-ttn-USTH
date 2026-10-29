@@ -21,4 +21,8 @@ for (const [k, p] of Object.entries({ ideal: [0.3, 0.01], realistic: [3, 0.1], n
   const r = ARS.ak(12, p[0], p[1], 1.0, 3.0); near('dofs ' + k, r.dofs, V.oe[k].dofs, 1e-5);
   for (let i = 0; i < 12; i++) for (let j = 0; j < 12; j++) near('A[' + i + '][' + j + '] ' + k, r.A[i][j], V.oe[k].A[i][j], 1e-5);
 }
+near('q9 tau', ARS.optical(2e-20, 5e13, 1).tau, V.q9c.tau, 1e-9); near('q9 t', ARS.optical(2e-20, 5e13, 1).t, V.q9c.t, 1e-9);
+near('no2 tau', ARS.optical(1.5e-19, 5e11, 1).tau, V.a_no2.tau, 1e-9); near('q10 D', ARS.ddoas(2e-19, 1e16), V.q10c.D, 1e-9);
+near('doppler ch4', ARS.doppler(2927, 16.04, 250), V.lines.doppler_ch4_2927, 1e-9);
+for (const z of ['0', '15', '40']) { const a = V.lines.alt[z]; near('lorentz ' + z, ARS.lorentz(a.P_atm, a.T, 0.07, 0.7), a.lorentz, 1e-9); near('doppler ' + z, ARS.doppler(2927, 16.04, a.T), a.doppler, 1e-9); }
 console.log(n + ' comparisons, ' + fail + ' failures'); process.exit(fail ? 1 : 0);
