@@ -1,4 +1,23 @@
 {
+ "p0": {
+  "slides": 12,
+  "mcq": 20,
+  "essays": 3,
+  "rebalanced": 9,
+  "audit": {
+   "n": 20,
+   "pos": {
+    "A": 5,
+    "B": 5,
+    "C": 5,
+    "D": 5
+   },
+   "chi2": 0.0,
+   "correct_longest_ratio": 0.15
+  },
+  "goc": 19,
+  "bo_sung": 1
+ },
  "pa": {
   "slides": 20,
   "mcq": 19,
@@ -17,6 +36,25 @@
   },
   "goc": 19,
   "bo_sung": 0
+ },
+ "pb": {
+  "slides": 14,
+  "mcq": 18,
+  "essays": 3,
+  "rebalanced": 7,
+  "audit": {
+   "n": 18,
+   "pos": {
+    "A": 5,
+    "B": 5,
+    "C": 4,
+    "D": 4
+   },
+   "chi2": 0.22,
+   "correct_longest_ratio": 0.167
+  },
+  "goc": 14,
+  "bo_sung": 4
  },
  "m1": {
   "slides": 13,
@@ -70,7 +108,7 @@
     "D": 5
    },
    "chi2": 0.18,
-   "correct_longest_ratio": 0.476
+   "correct_longest_ratio": 0.238
   },
   "goc": 8,
   "bo_sung": 14
@@ -146,7 +184,7 @@
     "D": 5
    },
    "chi2": 0.0,
-   "correct_longest_ratio": 0.6
+   "correct_longest_ratio": 0.3
   },
   "goc": 13,
   "bo_sung": 7
@@ -165,9 +203,58 @@
     "D": 4
    },
    "chi2": 0.22,
-   "correct_longest_ratio": 0.5
+   "correct_longest_ratio": 0.222
   },
   "goc": 10,
   "bo_sung": 8
+ },
+ "pc": {
+  "slides": 13,
+  "mcq": 20,
+  "essays": 3,
+  "rebalanced": 7,
+  "audit": {
+   "n": 20,
+   "pos": {
+    "A": 5,
+    "B": 5,
+    "C": 5,
+    "D": 5
+   },
+   "chi2": 0.0,
+   "correct_longest_ratio": 0.25
+  },
+  "goc": 20,
+  "bo_sung": 0
+ },
+ "pl": {
+  "slides": 14,
+  "mcq": 18,
+  "essays": 3,
+  "rebalanced": 6,
+  "audit": {
+   "n": 18,
+   "pos": {
+    "A": 5,
+    "B": 5,
+    "C": 4,
+    "D": 4
+   },
+   "chi2": 0.22,
+   "correct_longest_ratio": 0.167
+  },
+  "goc": 15,
+  "bo_sung": 3
+ },
+ "_summary": {
+  "longest": 0.3076923076923077,
+  "shortest": 0.3153846153846154,
+  "n": 260,
+  "pos": [
+   0.2653846153846154,
+   0.26153846153846155,
+   0.23846153846153847,
+   0.23461538461538461
+  ]
  }
 }

@@ -181,6 +181,54 @@ assert 0.003 < V['lines']['doppler_ch4_2927'] < 0.005
 cross = [z for z in np.arange(0, 60, 0.1) if hwhm_lorentz(math.exp(-z / 7), 230) < hwhm_doppler(2927, 230, 16.04)]
 V['lines']['crossover_km'] = float(cross[0])
 
+# ---- Lecture master (J. Cuesta): hydrostatic law, sinks example, lidar exercises, DIAL ----
+from scipy.integrate import solve_ivp
+R_, M_, g_ = 8.314, 29e-3, 9.81
+Hs = R_ * 284 / (M_ * g_)
+sol = solve_ivp(lambda z, p: -p * M_ * g_ / (R_ * 284), [0, 10000], [1013.25], t_eval=[1000, 2000, 3000, 10000], rtol=1e-10, atol=1e-10)
+hy = {str(int(z / 1000)): 1013.25 * math.exp(-z / Hs) for z in (1000, 2000, 3000, 10000)}
+for z, pv in zip((1, 2, 3, 10), sol.y[0]): assert abs(hy[str(z)] - pv) < 1e-4 * pv
+V['hydro'] = dict(H_m=Hs, H_km=Hs / 1000, p=hy, half_km=Hs * math.log(2) / 1000, table={'1': 900, '2': 794, '3': 700, '10': 265},
+                  err10_pct=(hy['10'] - 265) / 265 * 100)
+# sinks example (lecture slide 40): chemistry 1 d, rain once a week = 7 d, outflow 100 km / 20 km/h
+tc, td, to = 1.0, 7.0, (100 / 20) / 24
+kc, kd, ko = 1 / tc, 1 / td, 1 / to
+ktot = kc + kd + ko
+assert abs(1 / (1 / tc + 1 / td + 1 / to) - 1 / ktot) < 1e-12
+V['sinks_ex'] = dict(tau_chem_d=tc, tau_dep_d=td, tau_out_h=to * 24, k_chem=kc, k_dep=kd, k_out=ko, k_tot=ktot, tau_tot_h=24 / ktot,
+                     f_out=ko / ktot, f_chem=kc / ktot, f_dep=kd / ktot)
+# lidar exercise 1 (lecture slide 230): P = K / z^2 * beta * T^2
+Kc, bm, Pmin = 1e5, 1e-6, 1e-9
+def Plid(z, bp, T): return Kc / z**2 * (bm + bp) * T**2
+def Plid2(z, bp, tau_one_way): return Kc / z**2 * (bm + bp) * math.exp(-2 * tau_one_way)
+cases = {'a': (1e3, 1e-6, 0.7), 'b': (3e3, 15e-6, 0.5), 'c': (12e3, 0.2e-6, 0.3)}
+lid = {}
+for k_, (z_, bp_, T_) in cases.items():
+    a_, b_ = Plid(z_, bp_, T_), Plid2(z_, bp_, -math.log(T_)); assert abs(a_ - b_) < 1e-12 * a_
+    lid[k_] = dict(z_km=z_ / 1e3, beta_p=bp_, T=T_, P_nW=a_ * 1e9, detect=bool(a_ >= Pmin))
+fac = math.exp(-2 * 0.8)
+lid['d'] = dict(cloud_tau=0.8, factor=fac, P3_nW=lid['b']['P_nW'] * fac, P12_nW=lid['c']['P_nW'] * fac,
+                detect3=bool(lid['b']['P_nW'] * fac >= 1), detect12=bool(lid['c']['P_nW'] * fac >= 1), lecture_P3_nW=8.6)
+V['lidar_ex1'] = lid
+# DIAL (exercise 2): alpha = 1/(2 dr) * ln[ P_OFF(r1) P_ON(r2) / (P_ON(r1) P_OFF(r2)) ] taken positive
+on1, on2, off1, off2, dr = 10.0, 7.0, 10.0, 8.0, 500.0
+al = abs(math.log((off1 * on2) / (on1 * off2))) / (2 * dr)
+al2 = (math.log(on1 / on2) - math.log(off1 / off2)) / (2 * dr)  # two-way: ON decays faster
+assert abs(al - al2) < 1e-15
+V['dial'] = dict(alpha=al, q_gkg=5e4 * al, dr=dr, lecture_alpha=1.33e-4, lecture_q=6.68)
+# lidar timing and ambiguity (home-made illustration)
+V['lidar_time'] = dict(t_3km_us=2 * 3000 / C * 1e6, dR_30ns=C * 30e-9 / 2, Rmax_10kHz_km=C / (2 * 10e3) / 1e3, Rmax_20Hz_km=C / (2 * 20.0) / 1e3)
+# Rayleigh blue vs red, photon energies
+V['rayleigh_br'] = (650 / 400) ** 4
+V['photon_eV'] = dict(no2_424=H * C / 424e-9 / 1.602176634e-19, o2_240=H * C / 240e-9 / 1.602176634e-19)
+V['photon_eV']['no2_kJmol'] = V['photon_eV']['no2_424'] * 96.485; V['photon_eV']['o2_kJmol'] = V['photon_eV']['o2_240'] * 96.485
+# IASI / GOME-2 / multispectral (lecture slides 144-145)
+V['multi'] = dict(dofs_iasi=dict(land=0.25, ocean=0.15), dofs_multi=dict(land=0.35, ocean=0.25), gain_land=0.35 / 0.25 - 1, gain_ocean=0.25 / 0.15 - 1,
+                  h_iasi=dict(land=3.0, ocean=4.3), h_multi=dict(land=2.2, ocean=3.5), dh_land=3.0 - 2.2, dh_ocean=4.3 - 3.5)
+# core mini-checks: slant optical depth, size parameter, aerosol Angstrom (smoke, dust vs lecture)
+V['core'] = dict(slant_tau_60=0.5 / math.cos(math.radians(60)), T_slant=math.exp(-0.5 / math.cos(math.radians(60))),
+                 x_dust_vis=2 * math.pi * 5 / 0.55, x_molecule=2 * math.pi * 0.0002 / 0.55)
+
 os.makedirs(os.path.dirname(OUT), exist_ok=True)
 json.dump(V, open(OUT, 'w'), indent=1, ensure_ascii=False)
 print('OK verified.json — CO lifetime %.2f days; T=%.4f; x(N2,sulfate,dust)=%.4f,%.3f,%.2f; alpha=%.4f; dBT(1km,5km)=%.2f,%.2f K; DOFS ideal/realistic/noisy=%.2f/%.2f/%.2f' % (

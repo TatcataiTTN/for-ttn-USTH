@@ -20,7 +20,9 @@ class VN(float):
     def __neg__(self): return VN(-float(self))
 VERIFIED = json.load(open(os.path.join(ROOT, 'data', 'verified.json'), encoding='utf-8'), parse_float=VN)
 MODULES = [  # (id, slug, short title, English title)
+    ('p0', 'start-here', 'Start here · The Big 12', 'The 12 ideas to master before the modules and the exams: 3 key points, 3 formulas, 3 concepts, 3 principles'),
     ('pa', '00-core-knowledge', 'A · Core knowledge toolbox', 'Part A: radiative transfer, optical depth, line profiles, DOAS'),
+    ('pb', 'atmosphere-ozone', 'B · Atmosphere & ozone chemistry', 'Part B: pressure, layers, composition, sinks, tropospheric and stratospheric ozone'),
     ('m1', '01-sinks-lifetime', 'M1 · Sinks & lifetime', 'Sinks and lifetime of air pollutants'),
     ('m2', '02-light-matter', 'M2 · Light–matter interaction', 'Interaction between light and matter'),
     ('m3', '03-passive-trace-gas', 'M3 · Trace-gas retrieval', 'Passive remote sensing of trace gases'),
@@ -29,15 +31,19 @@ MODULES = [  # (id, slug, short title, English title)
     ('m6', '06-passive-aerosol', 'M6 · Passive aerosol sensing', 'Passive remote sensing of aerosols'),
     ('m7', '07-scattering-regimes', 'M7 · Scattering regimes', 'Scattering regimes of light by particles'),
     ('m8', '08-aerosol-altitude', 'M8 · Aerosol altitude', 'Retrieving aerosol altitude'),
+    ('pc', 'satellite-case-studies', 'C · Satellite case studies', 'Part C: cost function, IASI+GOME-2 ozone, AAI, look-up tables, AEROIASI, AEROS5P'),
+    ('pl', 'lidar', 'D · Active sensing: lidar', 'Part D: lidar principle, lidar equation, DIAL, applications and exercises'),
 ]
-NAV = [('Home', '{r}index.html'), ('Calculators', '{r}calculators.html'), ('Mock exam', '{r}exam.html'),
-       ('Formulas & acronyms', '{r}reference.html'), ('Lecture photos', '{r}slides-gallery.html'), ('Resources', '{r}resources.html')]
+SRCLAB = {'p0': 'Course synthesis', 'pb': 'Lecture master (Cuesta)', 'pc': 'Lecture master (Cuesta)', 'pl': 'Lecture master (Cuesta)'}
+LABELS = {'p0': 'Start here', 'pa': 'Part A', 'pb': 'Part B', 'pc': 'Part C', 'pl': 'Part D'}
+NAV = [('Home', '{r}index.html'), ('Start here', '{r}lessons/start-here/index.html'), ('Calculators', '{r}calculators.html'), ('Mock exam', '{r}exam.html'),
+       ('Formulas & acronyms', '{r}reference.html'), ('Lecture pages', '{r}lecture-slides.html'), ('Lecture photos', '{r}slides-gallery.html'), ('Resources', '{r}resources.html')]
 FOOT = ('<p><b>Source:</b> the study pack <i>Satellite Remote Sensing of Atmospheric Composition — Study Guide</i> (8 theory questions with model answers, a mock exam, figures and the code that draws them) supplied by the student. '
         'Every calculated number on this site is recomputed in Python (numpy/scipy) and cross-checked with a second, independent method; see <code>notebooks/</code> and <code>data/verified.json</code>. '
         'This is unofficial self-study material by a USTH student and does not replace the lecturer\'s course. Official USTH logo; blue #273896 and red #ED1C24 were read from the logo pixels.</p>')
 
-def label(mid): return 'Part A' if mid == 'pa' else f'Chapter {mid[1:]}'
-def mod_of_ch(n): return MODULES[n]   # MODULES[0] is Part A, MODULES[n] is chapter n
+def label(mid): return LABELS.get(mid) or f'Chapter {mid[1:]}'
+def mod_of_ch(n): return next(m for m in MODULES if m[0] == ('pa' if n == 0 else f'm{n}'))
 
 def write(rel, content):
     p = os.path.join(ROOT, rel); os.makedirs(os.path.dirname(p), exist_ok=True)
@@ -124,10 +130,10 @@ def lesson_page(mod, B, bank_status):
     if mod.get('calcs'):
         calcs = '<h2>Practice calculations</h2><p>These tools run in your browser and are checked against Python:</p><p>' + \
                 ' '.join(f'<a class="btn" href="../../calculators.html#{a}">{esc(l)}</a>' for a, l in mod['calcs']) + '</p>'
-    quiz = quiz_block(mid + '-qz', B.items[:10])
+    quiz = quiz_block(mid + '-qz', B.items[:mod.get('quiz_n', 10)])
     body = f'''<p class="crumbs"><a href="../../index.html">Home</a> › {esc(mod['title'])}</p>
-<div class="usth-banner"><img src="../../assets/images/usth_logo.png" alt="USTH"><div><div class="t">{esc(mod['title'])}</div><div class="s">{esc(mod['en'])} · Study guide {label(mid)}</div></div></div>
-<div class="callout"><b class="t">{("Core knowledge used by every question" if mid == "pa" else "Exam question " + mid[1:] + " (original wording)")}</b>{mod['question']}</div>
+<div class="usth-banner"><img src="../../assets/images/usth_logo.png" alt="USTH"><div><div class="t">{esc(mod['title'])}</div><div class="s">{esc(mod['en'])} · {SRCLAB.get(mid) or 'Study guide ' + label(mid)}</div></div></div>
+<div class="callout"><b class="t">{mod.get('qtitle') or ("Core knowledge used by every question" if mid == "pa" else "Exam question " + mid[1:] + " (original wording)")}</b>{mod['question']}</div>
 {toc}
 {secs}
 {extras_html(mod)}
@@ -137,10 +143,10 @@ def lesson_page(mod, B, bank_status):
 <h2 id="slides">Lecture slides ({mod['n_slides']} slides; use ← → keys or the buttons)</h2>
 <div class="deckframe"><iframe src="../../slides/{mid}.html" title="Slide {esc(mod['title'])}" loading="lazy" allow="fullscreen" allowfullscreen></iframe></div>
 <p><a href="../../slides/{mid}.html" target="_blank" rel="noopener">⛶ Open the slides full page</a></p>
-<h2 id="quiz">Quick self-check (10 of {len(B.items)} questions)</h2>{quiz}
+<h2 id="quiz">{mod.get('quiz_title') or 'Quick self-check'} ({mod.get('quiz_n', 10)} of {len(B.items)} questions)</h2>{quiz}
 <p><a class="btn" href="bank.html">Open the full bank: {len(B.items)} multiple-choice + {len(B.essays)} essay questions →</a></p>
 <p class="modnav">{prev_l}{next_l}</p>'''
-    write(f'lessons/{slug}/index.html', page(mod['title'], body, 2, desc=mod['en'], scripts=['theme.js', 'quiz.js']))
+    write(f'lessons/{slug}/index.html', page(mod['title'], body, 2, desc=mod['en'], scripts=['theme.js', 'quiz.js', 'gate.js']))
     write_bank(mid, slug, mod['title'], B, bank_status)
 
 # ---------- hình vừa khít ô nội dung ----------
@@ -211,4 +217,16 @@ def extras_html(mod):
         if v.get('qa'): out += '<h3>Quick Q&amp;A</h3><div class="qa">' + ''.join(f'<div class="qa-i"><b>Q:</b> {q}<br><b>A:</b> {a}</div>' for q, a in v['qa']) + '</div>'
         if v.get('hooks'): out += '<h3>Memory hooks</h3><ul class="hooks">' + ''.join(f'<li>{e}<span class="vi">{vi}</span></li>' for e, vi in v['hooks']) + '</ul>'
     if mod.get('photos'): out += photo_grid(mod['photos'])
+    out += lecture_strip(mod['id'])
     return out
+
+
+def lecture_strip(mid):
+    """Thumbnails of the lecture-master pages relevant to a module (click = larger image)."""
+    import lecture_pages as LP
+    pages = LP.MODPAGES.get(mid)
+    if not pages: return ''
+    T = {p: t for p, g, t in LP.P}
+    cells = ''.join(f'<figure class="ph"><a href="../../assets/images/lecture/full/p{p:03d}.jpg" target="_blank" rel="noopener"><img src="../../assets/images/lecture/thumb/p{p:03d}.jpg" loading="lazy" alt="{esc(T[p])}"></a><figcaption><b>p.{p}</b> {esc(T[p])}</figcaption></figure>' for p in pages if p in T)
+    return ('<h2 id="lecpages">Lecture slides for this module (Cuesta master course)</h2><p style="font-size:.88rem;color:var(--muted)">'
+            f'{len(pages)} pages of the lecture “Remote Sensing of the Atmosphere: a focus on air composition” (J. Cuesta, UPEC). Page numbers refer to the lecture PDF. Click a page to enlarge; <a href="../../lecture-slides.html">browse all pages</a>.</p><div class="phgrid">{cells}</div>')

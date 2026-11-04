@@ -32,6 +32,11 @@
   ARS.doppler = function (nu, mAmu, T) { return nu / C * Math.sqrt(2 * Math.LN2 * KB * T / (mAmu * 1.66053907e-27)); };
   ARS.lorentz = function (P, T, g0, n) { return g0 * P * Math.pow(296 / T, n == null ? 0.7 : n); };
   ARS.ddoas = function (sp, scd) { return sp * scd; };
+  ARS.lidar = function (K, zM, betaM, betaP, T) { return K / (zM * zM) * (betaM + betaP) * T * T; };   // W
+  ARS.dial = function (on1, on2, off1, off2, drM) { return Math.abs(Math.log((off1 * on2) / (on1 * off2))) / (2 * drM); };   // m-1
+  ARS.hydro = function (p0, zKm, TK) { var H = 8.314 * TK / (29e-3 * 9.81) / 1000; return { H: H, p: p0 * Math.exp(-zKm / H), half: H * Math.LN2 }; };
+  ARS.sinks = function (tauChemD, tauDepD, tauOutH) { var kc = 1 / tauChemD, kd = 1 / tauDepD, ko = 24 / tauOutH, k = kc + kd + ko;
+    return { kc: kc, kd: kd, ko: ko, k: k, tau_h: 24 / k, fo: ko / k, fc: kc / k, fd: kd / k }; };
   function matInv(M) {
     var n = M.length, A = M.map(function (r, i) { return r.slice().concat(Array.apply(null, Array(n)).map(function (_, j) { return i === j ? 1 : 0; })); });
     for (var c = 0; c < n; c++) {
@@ -137,5 +142,15 @@
       for (var z = 0; z <= 60; z += 1) { var P = Math.exp(-z / H), l = ARS.lorentz(P, T, g, 0.7); xs.push(z); yl.push(l); yd.push(d); if (cross === null && l < d) cross = z; }
       $('ln_out').innerHTML = 'Doppler HWHM = <b>' + fmt(d, 5) + ' cm⁻¹</b> (independent of height); Lorentz at 0 km = <b>' + fmt(ARS.lorentz(1, T, g, 0.7), 4) + ' cm⁻¹</b>; pressure falls 10× every <b>' + fmt(H * Math.LN10, 1) + ' km</b>; Lorentz = Doppler near <b>' + (cross === null ? '> 60' : cross) + ' km</b> (isothermal model).';
       plot($('ln_cv'), [{ x: xs, y: yl, c: '#ED1C24', n: 'Lorentz' }, { x: xs, y: yd, c: '#273896', n: 'Doppler' }], { xl: 'altitude (km)', yl: 'HWHM (cm⁻¹), log', logy: true, ymin: 1e-5, ymax: 0.1 }); });
+    bind(['li_K', 'li_z', 'li_bm', 'li_bp', 'li_T', 'li_min'], function () { var P = ARS.lidar(val('li_K'), val('li_z') * 1000, val('li_bm'), val('li_bp'), val('li_T')), nW = P * 1e9, thr = val('li_min');
+      $('li_out').innerHTML = 'P(z) = K/z²·β·T² = <b>' + fmt(nW, 3) + ' nW</b> ⇒ ' + (nW >= thr ? '<b>detectable</b> (≥ ' + thr + ' nW)' : '<b>not detectable</b> (< ' + thr + ' nW)') + '. Note the factor T² (the pulse crosses the path twice).'; });
+    bind(['di_on1', 'di_on2', 'di_off1', 'di_off2', 'di_dr', 'di_f'], function () { var a = ARS.dial(val('di_on1'), val('di_on2'), val('di_off1'), val('di_off2'), val('di_dr'));
+      $('di_out').innerHTML = 'α<sub>H₂O</sub> = (1/2Δr)·ln[P<sub>OFF</sub>(r₁)P<sub>ON</sub>(r₂)/(P<sub>ON</sub>(r₁)P<sub>OFF</sub>(r₂))] = <b>' + fmt(a, 4) + ' m⁻¹</b> ⇒ q = <b>' + fmt(val('di_f') * a, 3) + ' g/kg</b>'; });
+    bind(['hy_p0', 'hy_T', 'hy_z'], function () { var T = val('hy_T'), r = ARS.hydro(val('hy_p0'), val('hy_z'), T), xs = [], ys = [];
+      for (var z = 0; z <= 30; z += 1) { xs.push(z); ys.push(ARS.hydro(val('hy_p0'), z, T).p); }
+      $('hy_out').innerHTML = 'H = RT/(Mg) = <b>' + fmt(r.H, 2) + ' km</b>; p(' + val('hy_z') + ' km) = <b>' + fmt(r.p, 1) + ' hPa</b>; pressure halves every H·ln2 = <b>' + fmt(r.half, 2) + ' km</b> (isothermal model).';
+      plot($('hy_cv'), [{ x: xs, y: ys, c: '#273896', n: 'p(z)' }], { xl: 'altitude (km)', yl: 'pressure (hPa)', ymin: 0 }); });
+    bind(['sk_c', 'sk_d', 'sk_o'], function () { var r = ARS.sinks(val('sk_c'), val('sk_d'), val('sk_o'));
+      $('sk_out').innerHTML = 'k<sub>tot</sub> = <b>' + fmt(r.k, 3) + ' d⁻¹</b>; τ = <b>' + fmt(r.tau_h, 2) + ' h</b>; shares — outflow <b>' + fmt(r.fo * 100, 1) + '%</b>, chemistry <b>' + fmt(r.fc * 100, 1) + '%</b>, deposition <b>' + fmt(r.fd * 100, 1) + '%</b>.'; });
   });
 })(typeof window !== 'undefined' ? window : globalThis);

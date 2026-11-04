@@ -34,7 +34,31 @@ chk('O2 above 6 km', math.exp(-6/8), V['o2_scale8']['6'], 1e-9)
 amu=1.66053907e-27; dop=2927/C*math.sqrt(2*math.log(2)*KB*250/(16.04*amu)); chk('Doppler CH4', dop, V['lines']['doppler_ch4_2927'], 1e-9)
 b4,_=bt(310,4,0.7); b1_,_=bt(310,1,0.7); chk('TIR 310 K 4 km', 310-b4, V['tir310']['z4']['dBT'], 1e-9)
 print('NOTE: the guide quotes ~7 K (4 km) and ~2 K (1 km); our blackbody-layer model gives', round(310-b4,1), 'and', round(310-b1_,1), 'K (orders of magnitude agree, trend identical)')""")
-md("**Conclusion:** every comparison prints `OK` (a `FAIL` would stop the cell with an `assert`). The JavaScript file `_shared/calc.js` is tested separately by `tests/test_calc.js` (466 comparisons against the same `verified.json`).")
+md("## Lecture master (Cuesta) — hydrostatic law, sinks, lidar exercises, DIAL, multispectral ozone, photon energies")
+code("""# hydrostatic: closed form versus a hand-written RK4 integration of dp/dz = -p M g /(R T)
+R,M,g,T0 = 8.314, 29e-3, 9.81, 284.0
+Hs = R*T0/(M*g); chk('H (km)', Hs/1000, V['hydro']['H_km'], 1e-9)
+def rk4(p, dz, n):
+    f = lambda p: -p*M*g/(R*T0)
+    for _ in range(n):
+        k1=f(p); k2=f(p+dz/2*k1); k3=f(p+dz/2*k2); k4=f(p+dz*k3); p += dz/6*(k1+2*k2+2*k3+k4)
+    return p
+for z in (1,2,3,10): chk('p(%d km)'%z, rk4(1013.25, 1.0, z*1000), V['hydro']['p'][str(z)], 1e-6)
+chk('half-pressure height', Hs*math.log(2)/1000, V['hydro']['half_km'], 1e-9)
+# sinks example (100 km, 20 km/h, chemistry 1 d, rain 7 d)
+tout=(100/20)/24; ks=[1/1.0, 1/7.0, 1/tout]; kt=sum(ks)
+chk('k_tot', kt, V['sinks_ex']['k_tot'], 1e-9); chk('outflow share', ks[2]/kt, V['sinks_ex']['f_out'], 1e-9); chk('lifetime h', 24/kt, V['sinks_ex']['tau_tot_h'], 1e-9)
+# lidar exercise 1 via exp(-2 tau) and DIAL via the slope of ln P
+Pl=lambda z,bp,T: 1e5/z**2*(1e-6+bp)*math.exp(-2*(-math.log(T)))
+chk('lidar a', Pl(1e3,1e-6,.7)*1e9, V['lidar_ex1']['a']['P_nW'], 1e-9); chk('lidar b', Pl(3e3,15e-6,.5)*1e9, V['lidar_ex1']['b']['P_nW'], 1e-9); chk('lidar c', Pl(12e3,.2e-6,.3)*1e9, V['lidar_ex1']['c']['P_nW'], 1e-9)
+chk('lidar d (3 km behind tau=0.8)', Pl(3e3,15e-6,.5)*1e9*math.exp(-1.6), V['lidar_ex1']['d']['P3_nW'], 1e-9)
+r=np.array([1000.,1500.]); sl_on=np.polyfit(r,np.log([10,7]),1)[0]; sl_off=np.polyfit(r,np.log([10,8]),1)[0]
+alpha=(sl_off-sl_on)/2*(-1)*(-1); alpha=abs(sl_on-sl_off)/2; chk('DIAL alpha', alpha, V['dial']['alpha'], 1e-9); chk('DIAL q (g/kg)', 5e4*alpha, V['dial']['q_gkg'], 1e-9)
+chk('t(3 km) us', 2*3000/C*1e6, V['lidar_time']['t_3km_us'], 1e-9); chk('dR 30 ns (m)', C*30e-9/2, V['lidar_time']['dR_30ns'], 1e-9)
+# photon energies E = 1239.84 eV nm / lambda ; Rayleigh ratio; multispectral gains
+chk('E 424 nm', 1239.84198/424, V['photon_eV']['no2_424'], 1e-6); chk('E 240 nm', 1239.84198/240, V['photon_eV']['o2_240'], 1e-6); chk('(650/400)^4', (650/400)**4, V['rayleigh_br'], 1e-12)
+chk('DOFS gain land', .35/.25-1, V['multi']['gain_land'], 1e-12); chk('DOFS gain ocean', .25/.15-1, V['multi']['gain_ocean'], 1e-12)""")
+md("**Conclusion:** every comparison prints `OK` (a `FAIL` would stop the cell with an `assert`). The JavaScript file `_shared/calc.js` is tested separately by `tests/test_calc.js` (478 comparisons against the same `verified.json`).")
 nb['cells'] = C; nb.metadata.kernelspec = dict(name='python3', display_name='Python 3', language='python')
 _r = os.path.join(os.path.dirname(__file__), '..', 'site')
 _r = _r if os.path.isdir(_r) else os.path.join(os.path.dirname(__file__), '..')

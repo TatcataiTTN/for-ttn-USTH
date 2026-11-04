@@ -25,4 +25,10 @@ near('q9 tau', ARS.optical(2e-20, 5e13, 1).tau, V.q9c.tau, 1e-9); near('q9 t', A
 near('no2 tau', ARS.optical(1.5e-19, 5e11, 1).tau, V.a_no2.tau, 1e-9); near('q10 D', ARS.ddoas(2e-19, 1e16), V.q10c.D, 1e-9);
 near('doppler ch4', ARS.doppler(2927, 16.04, 250), V.lines.doppler_ch4_2927, 1e-9);
 for (const z of ['0', '15', '40']) { const a = V.lines.alt[z]; near('lorentz ' + z, ARS.lorentz(a.P_atm, a.T, 0.07, 0.7), a.lorentz, 1e-9); near('doppler ' + z, ARS.doppler(2927, 16.04, a.T), a.doppler, 1e-9); }
+const LX = V.lidar_ex1;
+for (const k of ['a', 'b', 'c']) near('lidar ' + k, ARS.lidar(1e5, LX[k].z_km * 1e3, 1e-6, LX[k].beta_p, LX[k].T) * 1e9, LX[k].P_nW, 1e-9);
+near('lidar d (3 km)', ARS.lidar(1e5, 3e3, 1e-6, 15e-6, 0.5 * Math.exp(-0.8)) * 1e9, LX.d.P3_nW, 1e-9);
+near('dial alpha', ARS.dial(10, 7, 10, 8, 500), V.dial.alpha, 1e-9); near('dial q', 5e4 * ARS.dial(10, 7, 10, 8, 500), V.dial.q_gkg, 1e-9);
+const hy = ARS.hydro(1013.25, 10, 284); near('hydro H', hy.H, V.hydro.H_km, 1e-9); near('hydro p10', hy.p, V.hydro.p['10'], 1e-9); near('hydro half', hy.half, V.hydro.half_km, 1e-9);
+const sk = ARS.sinks(1, 7, 5); near('sinks ktot', sk.k, V.sinks_ex.k_tot, 1e-9); near('sinks fo', sk.fo, V.sinks_ex.f_out, 1e-9); near('sinks tau h', sk.tau_h, V.sinks_ex.tau_tot_h, 1e-9);
 console.log(n + ' comparisons, ' + fail + ' failures'); process.exit(fail ? 1 : 0);
