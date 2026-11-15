@@ -1,0 +1,227 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>TESS Exoplanet Radius and Period Demo</title>
+<style>
+:root{--navy:#273896;--red:#ED1C24;--ink:#1b2433;--mut:#566074;--bd:#d5dae6;--bg:#f3f5fb;--card:#fff}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:17px/1.45 -apple-system,"Segoe UI",Roboto,Arial,sans-serif}
+header{background:var(--navy);color:#fff;padding:12px 22px;border-bottom:4px solid var(--red);display:flex;gap:18px;align-items:center;flex-wrap:wrap}
+header h1{font-size:21px;margin:0;font-weight:800;flex:1 1 400px}
+header select{font:inherit;font-size:17px;padding:6px 10px;border-radius:8px;border:0;min-width:210px}
+main{max-width:1500px;margin:0 auto;padding:14px 18px 30px;display:grid;gap:14px;grid-template-columns:minmax(0,2fr) minmax(320px,1fr)}
+.card{background:var(--card);border:1px solid var(--bd);border-radius:12px;padding:12px 14px}
+.card h3{margin:0 0 6px;font-size:17px;color:var(--navy)}
+canvas{width:100%;display:block;border-radius:8px;background:#fff}
+.row2{display:grid;grid-template-columns:1fr 1fr;gap:14px}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-top:6px}
+.chip{background:#eef2fa;border:1px solid var(--bd);border-radius:14px;padding:2px 10px;font-size:14.5px}
+button{font:inherit;font-size:16px;font-weight:700;border:0;border-radius:9px;padding:9px 14px;cursor:pointer;color:#fff;background:var(--navy)}
+button.red{background:var(--red)}button.gray{background:#566074}button:disabled{opacity:.45;cursor:default}
+.ctl{display:grid;grid-template-columns:120px 1fr 92px;gap:8px;align-items:center;margin:7px 0;font-size:15.5px}
+.ctl input[type=range]{width:100%}
+.ctl output{font-family:ui-monospace,Menlo,monospace;font-size:14.5px;text-align:right}
+table{border-collapse:collapse;width:100%;font-size:16px}
+td,th{padding:6px 8px;border-bottom:1px solid var(--bd);text-align:left}
+th{color:var(--navy)}td.n{font-family:ui-monospace,Menlo,monospace;text-align:right;white-space:nowrap}
+.ok{color:#1c7c3a;font-weight:700}.warn{color:var(--red);font-weight:700}
+.hint{color:var(--mut);font-size:14.5px;margin:4px 0 0}
+.steps{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+@media(max-width:1000px){main{grid-template-columns:1fr}.row2{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+<header>
+  <h1>Measuring exoplanet radii and orbital periods with TESS — live demo</h1>
+  <label>Planet&nbsp;<select id="sel"></select></label>
+</header>
+<main>
+  <section style="display:grid;gap:14px;align-content:start">
+    <div class="card"><h3>1 · TESS light curve (SPOC PDCSAP, detrended)</h3><canvas id="cLC" height="230"></canvas>
+      <p class="hint" id="lcInfo"></p></div>
+    <div class="row2">
+      <div class="card"><h3>2 · Box Least Squares periodogram</h3><canvas id="cBLS" height="280"></canvas>
+        <p class="hint">Click the plot to choose another period peak.</p></div>
+      <div class="card"><h3>3 · Phase-folded transit</h3><canvas id="cFold" height="280"></canvas>
+        <p class="hint" id="foldInfo"></p></div>
+    </div>
+  </section>
+  <aside style="display:grid;gap:14px;align-content:start">
+    <div class="card"><h3 id="pname">—</h3><div class="chips" id="chips"></div></div>
+    <div class="card"><h3>Run the measurement</h3>
+      <div class="steps">
+        <button id="bBLS">① Search period (BLS)</button>
+        <button id="bFit" class="red" disabled>② Fit transit model</button>
+        <button id="bRef" class="gray" disabled>③ Show pipeline MCMC</button>
+        <div style="width:100%;margin:8px 0;font-size:14px">BLS range (d)&nbsp;<input id="pmin" type="number" value="0.26" step="0.01" min="0.2" style="width:70px"> – <input id="pmax" type="number" value="15" step="0.5" max="40" style="width:70px"> <div style="font-size:12px;color:#667;margin-top:2px">Narrow it (e.g. 0.26 – 0.5) to hunt for ultra-short periods.</div></div>
+      </div>
+      <div class="ctl"><span>Period (d)</span><input id="sP" type="range"><output id="oP"></output></div>
+      <div class="ctl"><span>Mid-transit shift</span><input id="sT" type="range" min="-0.5" max="0.5" step="0.001" value="0"><output id="oT"></output></div>
+      <div class="ctl"><span>Rp/R★</span><input id="sR" type="range" min="0.005" max="0.3" step="0.0005" value="0.05"><output id="oR"></output></div>
+      <div class="ctl"><span>Impact b</span><input id="sB" type="range" min="0" max="1" step="0.01" value="0.2"><output id="oB"></output></div>
+      <div class="ctl"><span>a/R★</span><input id="sA" type="range" min="1.5" max="60" step="0.1" value="10"><output id="oA"></output></div>
+      <div class="ctl"><span>R★ (R☉)</span><input id="sS" type="range" min="0.1" max="3" step="0.01" value="1"><output id="oS"></output></div>
+      <p class="hint" id="status">Pick a planet, then press ①.</p>
+    </div>
+    <div class="card"><h3>Result vs NASA Exoplanet Archive</h3>
+      <table id="tab"></table>
+    </div>
+  </aside>
+</main>
+<script src="data/index.js"></script>
+<script>
+// ---------- tải dữ liệu từng hành tinh bằng thẻ <script> (hoạt động cả với file://) ----------
+window.PLANETS = window.PLANETS || {};
+function loadPlanet(slug){return new Promise((res,rej)=>{
+  if(window.PLANETS[slug]) return res(window.PLANETS[slug]);
+  const s=document.createElement('script');s.src='data/'+slug+'.js';
+  s.onload=()=>res(window.PLANETS[slug]);s.onerror=()=>rej(new Error('missing '+slug));document.head.appendChild(s);});}
+
+const $=id=>document.getElementById(id);
+const U1=0.35,U2=0.25;               // limb darkening cố định (TESS band, sao kiểu Mặt Trời), chỉ cho demo
+const NAVY='#273896',RED='#ED1C24';
+let P=null, st={}, bls=null;
+
+// ---------- vẽ ----------
+function setup(cv){const r=cv.getBoundingClientRect(),d=window.devicePixelRatio||1;
+  cv.width=Math.round(r.width*d);cv.height=Math.round(parseInt(cv.getAttribute('height'))*d);
+  const c=cv.getContext('2d');c.setTransform(d,0,0,d,0,0);return [c,r.width,parseInt(cv.getAttribute('height'))];}
+function frame(c,W,H,xl,yl,x0,x1,y0,y1,opt={}){
+  const m={l:62,r:12,t:10,b:42};const px=x=>m.l+(x-x0)/(x1-x0)*(W-m.l-m.r),py=y=>H-m.b-(y-y0)/(y1-y0)*(H-m.t-m.b);
+  c.clearRect(0,0,W,H);c.font='14px sans-serif';c.fillStyle='#1b2433';c.strokeStyle='#c7cde0';c.lineWidth=1;
+  const nx=opt.nx||6,ny=opt.ny||5;
+  for(let i=0;i<=ny;i++){const v=y0+(y1-y0)*i/ny,y=py(v);c.beginPath();c.moveTo(m.l,y);c.lineTo(W-m.r,y);c.stroke();c.textAlign='right';c.fillText(opt.yfmt?opt.yfmt(v):v.toFixed(1),m.l-6,y+4);}
+  for(let i=0;i<=nx;i++){const v=x0+(x1-x0)*i/nx,x=px(v);c.beginPath();c.moveTo(x,m.t);c.lineTo(x,H-m.b);c.stroke();c.textAlign='center';c.fillText(opt.xfmt?opt.xfmt(v):v.toFixed(1),x,H-m.b+18);}
+  c.textAlign='center';c.fillText(xl,(W+m.l)/2,H-6);c.save();c.translate(15,(H-m.b+m.t)/2);c.rotate(-Math.PI/2);c.fillText(yl,0,0);c.restore();
+  c.save();c.beginPath();c.rect(m.l,m.t,W-m.l-m.r,H-m.t-m.b);c.clip();return {px,py,m,restore:()=>c.restore()};}
+
+// ---------- mô hình transit (limb darkening bậc 2, tích phân vành) ----------
+function transitFlux(z,p,u1,u2){
+  if(z>=1+p) return 1; const N=70, r0=Math.max(0,z-p), r1=Math.min(1,z+p); if(r1<=r0) return 1;
+  const tot=Math.PI*(1-u1/3-u2/6); let blocked=0, dr=(r1-r0)/N;
+  for(let i=0;i<N;i++){const r=r0+(i+.5)*dr; let th;
+    if(z===0){th=r<p?Math.PI:0;} else {
+      if(r<=p-z) th=Math.PI; else {let cs=(r*r+z*z-p*p)/(2*r*z); cs=Math.max(-1,Math.min(1,cs)); th=Math.acos(cs);} }
+    const mu=Math.sqrt(Math.max(0,1-r*r)), I=1-u1*(1-mu)-u2*(1-mu)*(1-mu);
+    blocked+=I*2*th*r*dr;}
+  return 1-blocked/tot;}
+function modelAt(t,per,t0,ror,b,a){
+  let ph=((t-t0)/per); ph-=Math.round(ph); const x=ph*2*Math.PI; if(Math.abs(ph)>0.25) return 1;
+  const cosi=b/a, z=a*Math.sqrt(Math.sin(x)**2+(cosi*Math.cos(x))**2); return transitFlux(z,ror,U1,U2);}
+
+// ---------- BLS trong trình duyệt ----------
+function binData(t,f,w){const o=[],T0=t[0];let k0=-1,s=0,sf=0,n=0;
+  for(let i=0;i<t.length;i++){const k=Math.floor((t[i]-T0)/w);if(k!==k0&&n){o.push([s/n,sf/n]);s=sf=n=0;}k0=k;s+=t[i];sf+=f[i];n++;}
+  if(n)o.push([s/n,sf/n]);return [o.map(x=>x[0]),o.map(x=>x[1])];}
+function runBLS(t,f,pmin,pmax){
+  const [tb,fb0]=binData(t,f,10/1440), fb=fb0.map(x=>x/1e6), n=tb.length, T=tb[n-1]-tb[0];
+  const mean=fb.reduce((a,b)=>a+b,0)/n; let v=0;for(const x of fb)v+=(x-mean)**2;const sig=Math.sqrt(v/n);
+  const durs=[0.03,0.05,0.08,0.12,0.18,0.25], df=0.25*0.03/T;
+  const per=[],pow=[];let best={snr:-1};
+  for(let fr=1/pmax; fr<=1/pmin; fr+=df){const Pd=1/fr, nb=Math.min(1500,Math.max(24,Math.round(Pd/0.01))), wb=Pd/nb;
+    const S=new Float64Array(nb),C=new Int32Array(nb);
+    for(let i=0;i<n;i++){let k=Math.floor(((tb[i]-tb[0])%Pd)/wb);if(k>=nb)k=nb-1;S[k]+=fb[i]-mean;C[k]++;}
+    let bestP=0;
+    for(const d of durs){if(d/Pd>0.2)continue;const L=Math.max(1,Math.round(d/wb));
+      let s=0,c=0;for(let k=0;k<L;k++){s+=S[k];c+=C[k];}
+      for(let k=0;k<nb;k++){ if(c>=3){const depth=-s/c, snr=depth*Math.sqrt(c)/sig; if(snr>bestP)bestP=snr; if(snr>best.snr){best={snr,P:Pd,dur:d,depth,k,wb,Pd};}}
+        s+=S[(k+L)%nb]-S[k];c+=C[(k+L)%nb]-C[k]; } }
+    per.push(Pd);pow.push(bestP);}
+  // t0 từ bin tốt nhất: tâm của cửa sổ transit
+  const L=Math.max(1,Math.round(best.dur/best.wb)); best.t0=tb[0]+(best.k+L/2)*best.wb; best.tb=tb[0];
+  return {per,pow,best};}
+
+// ---------- Nelder–Mead ----------
+function nelder(f,x0,step,iter){const n=x0.length;let S=[x0.slice()];for(let i=0;i<n;i++){const x=x0.slice();x[i]+=step[i];S.push(x);}
+  let F=S.map(f);
+  for(let it=0;it<iter;it++){const o=F.map((v,i)=>i).sort((a,b)=>F[a]-F[b]);S=o.map(i=>S[i]);F=o.map(i=>F[i]);
+    const c=new Array(n).fill(0);for(let i=0;i<n;i++)for(let j=0;j<n;j++)c[j]+=S[i][j]/n;
+    const mk=a=>c.map((v,j)=>v+a*(S[n][j]-v));const xr=mk(-1),fr=f(xr);
+    if(fr<F[0]){const xe=mk(-2),fe=f(xe);if(fe<fr){S[n]=xe;F[n]=fe;}else{S[n]=xr;F[n]=fr;}}
+    else if(fr<F[n-1]){S[n]=xr;F[n]=fr;}
+    else{const xc=mk(fr<F[n]?-.5:.5),fc=f(xc);if(fc<Math.min(fr,F[n])){S[n]=xc;F[n]=fc;}else{for(let i=1;i<=n;i++){S[i]=S[0].map((v,j)=>v+.5*(S[i][j]-v));F[i]=f(S[i]);}}}}
+  let bi=0;for(let i=1;i<=n;i++)if(F[i]<F[bi])bi=i;return [S[bi],F[bi]];}
+
+// ---------- logic ứng dụng ----------
+const fmt=(x,d=4)=>Number.isFinite(x)?x.toFixed(d):'—';
+function sliders(){const o=(id,v,d)=>$(id).textContent=fmt(+v,d);
+  o('oP',$('sP').value,5);o('oT',$('sT').value,3);o('oR',$('sR').value,4);o('oB',$('sB').value,2);o('oA',$('sA').value,1);o('oS',$('sS').value,2);}
+function cur(){return {per:+$('sP').value,t0:st.t0+(+$('sT').value),ror:+$('sR').value,b:+$('sB').value,a:+$('sA').value,rs:+$('sS').value};}
+
+function drawLC(){const [c,W,H]=setup($('cLC'));const t=P.t,f=P.f.map(x=>x/1000);
+  const x0=t[0],x1=t[t.length-1];let lo=1e9,hi=-1e9;for(const v of f){lo=Math.min(lo,v);hi=Math.max(hi,v);}
+  const pad=(hi-lo)*0.05;const F=frame(c,W,H,'BTJD (days)','Flux (ppt)',x0,x1,lo-pad,hi+pad,{yfmt:v=>v.toFixed(1),xfmt:v=>v.toFixed(0)});
+  c.fillStyle='rgba(60,60,60,.55)';for(let i=0;i<t.length;i++)c.fillRect(F.px(t[i])-.8,F.py(f[i])-.8,1.6,1.6);
+  if(st.t0!==undefined){const k=cur();c.strokeStyle=RED;c.lineWidth=2;
+    for(let n=Math.floor((x0-k.t0)/k.per)-1;n<=Math.ceil((x1-k.t0)/k.per)+1;n++){const x=F.px(k.t0+n*k.per);c.beginPath();c.moveTo(x,F.py(lo-pad));c.lineTo(x,F.py(lo-pad+(hi-lo)*0.12));c.stroke();}}
+  F.restore();}
+function drawBLS(){const [c,W,H]=setup($('cBLS'));
+  if(!bls){c.clearRect(0,0,W,H);c.fillStyle='#566074';c.font='16px sans-serif';c.textAlign='center';c.fillText('Press ① to search for periodic dips',W/2,H/2);return;}
+  const per=bls.per,pow=bls.pow;let hi=Math.max(...pow)*1.08;
+  const F=frame(c,W,H,'Trial period (d)','BLS SNR',Math.log10(per[0]),Math.log10(per[per.length-1]),0,hi,{xfmt:v=>Math.pow(10,v).toFixed(v<0.3?2:1),yfmt:v=>v.toFixed(0),nx:5});
+  c.strokeStyle=NAVY;c.lineWidth=1.2;c.beginPath();per.forEach((p,i)=>{const x=F.px(Math.log10(p)),y=F.py(pow[i]);i?c.lineTo(x,y):c.moveTo(x,y);});c.stroke();
+  const k=cur();c.strokeStyle=RED;c.setLineDash([6,4]);c.lineWidth=2;const xx=F.px(Math.log10(k.per));c.beginPath();c.moveTo(xx,F.py(0));c.lineTo(xx,F.py(hi));c.stroke();c.setLineDash([]);
+  F.restore();bls.frame=F;}
+function foldPts(){const k=cur();const o=[];for(let i=0;i<P.t.length;i++){let ph=(P.t[i]-k.t0)/k.per;ph-=Math.round(ph);o.push([ph*k.per*24,P.f[i]/1000]);}return o;}
+function drawFold(){const [c,W,H]=setup($('cFold'));const k=cur();const half=Math.min(0.5*k.per*24,Math.max(10,st.durH*3||10));
+  const pts=foldPts().filter(p=>Math.abs(p[0])<=half);let lo=1e9,hi=-1e9;for(const p of pts){lo=Math.min(lo,p[1]);hi=Math.max(hi,p[1]);}
+  const dep=k.ror*k.ror*1e3;lo=Math.min(lo,-dep*1.5);if(!Number.isFinite(lo)){lo=-1;hi=1;}const pad=(hi-lo)*.06;
+  const F=frame(c,W,H,'Hours from mid-transit','Flux (ppt)',-half,half,lo-pad,hi+pad,{xfmt:v=>v.toFixed(0),yfmt:v=>v.toFixed(1)});
+  c.fillStyle='rgba(120,120,120,.45)';for(const p of pts)c.fillRect(F.px(p[0])-1,F.py(p[1])-1,2,2);
+  // bin
+  const nb=36,bs=new Array(nb).fill(0),bc=new Array(nb).fill(0);for(const p of pts){const j=Math.min(nb-1,Math.floor((p[0]+half)/(2*half)*nb));bs[j]+=p[1];bc[j]++;}
+  c.fillStyle='#000';for(let j=0;j<nb;j++)if(bc[j]>2){c.beginPath();c.arc(F.px(-half+(j+.5)*2*half/nb),F.py(bs[j]/bc[j]),3.6,0,7);c.fill();}
+  c.strokeStyle=RED;c.lineWidth=2.6;c.beginPath();const M=260;for(let i=0;i<=M;i++){const h=-half+2*half*i/M;const fl=modelAt(k.t0+h/24,k.per,k.t0,k.ror,k.b,k.a);const x=F.px(h),y=F.py((fl-1)*1e3);i?c.lineTo(x,y):c.moveTo(x,y);}c.stroke();
+  F.restore();}
+function table(){const k=cur();const rp=k.ror*k.rs*109.076,rj=k.ror*k.rs*9.731;
+  const cat=P.catalog,rows=[
+   ['Period (d)',fmt(k.per,5),fmt(cat.period,5),pct(k.per,cat.period)],
+   ['Rp/R★',fmt(k.ror,4),cat.ror?fmt(cat.ror,4):'—',cat.ror?pct(k.ror,cat.ror):'—'],
+   ['R★ (R☉)',fmt(k.rs,2),fmt(P.rstar,2),pct(k.rs,P.rstar)],
+   ['Rp (R⊕)',fmt(rp,2),fmt(cat.rade,2),pct(rp,cat.rade)],
+   ['Rp (R♃)',fmt(rj,2),fmt(cat.rade/11.209,2),'']];
+  $('tab').innerHTML='<tr><th></th><th>This browser</th><th>Catalog</th><th>Δ</th></tr>'+rows.map(r=>`<tr><td>${r[0]}</td><td class="n">${r[1]}</td><td class="n">${r[2]}</td><td class="n ${Math.abs(parseFloat(r[3]))<5?'ok':'warn'}">${r[3]}</td></tr>`).join('');}
+function pct(a,b){return (100*(a-b)/b>=0?'+':'')+(100*(a-b)/b).toFixed(1)+'%';}
+function redraw(){sliders();drawLC();drawBLS();drawFold();table();}
+
+async function choose(slug){
+  P=await loadPlanet(slug);bls=null;st={t0:P.t[0],durH:6};
+  $('pname').textContent=`${P.num}. ${P.name}`;
+  const g=P.groups||{};$('chips').innerHTML=[`TIC ${P.tic}`,`Tmag ${P.tmag.toFixed(2)}`,`${P.dist_pc.toFixed(0)} pc`,`Teff ${P.teff.toFixed(0)} K`,`sectors ${P.sectors.join(', ')}`,g.g_size,g.g_period,g.g_star,g.g_sky,g.g_system].filter(Boolean).map(x=>`<span class="chip">${x}</span>`).join('');
+  $('lcInfo').textContent=`${P.t.length} points binned to 6 min · baseline ${(P.t[P.t.length-1]-P.t[0]).toFixed(0)} d`;
+  $('sP').min=0.2;$('sP').max=20;$('sP').step=0.00001;$('sP').value=Math.min(20,Math.max(0.2,P.catalog.period*1.07));  // vị trí đầu tiên cố ý lệch để người xem tự chỉnh/chạy BLS
+  $('sT').value=0;$('sR').value=0.05;$('sB').value=0.2;$('sA').value=10;$('sS').value=P.rstar.toFixed(2);
+  st.t0=P.t[0]+0.3*P.catalog.period;$('bFit').disabled=true;$('bRef').disabled=false;
+  $('status').textContent='Pick the period by hand with the slider, or press ① to let BLS search for it.';redraw();}
+
+$('bBLS').onclick=()=>{ $('status').textContent='Running BLS in your browser…';
+  setTimeout(()=>{const t0=performance.now();bls=runBLS(P.t,P.f,Math.max(0.2,+$('pmin').value||0.26),Math.min(40,+$('pmax').value||15));const b=bls.best;
+    $('sP').value=b.P;st.t0=b.t0;$('sT').value=0;st.durH=b.dur*24*1.6;$('sR').value=Math.sqrt(Math.max(b.depth,1e-5)).toFixed(4);
+    $('sA').value=Math.max(1.5,Math.min(60,b.P/(Math.PI*b.dur))).toFixed(1);$('bFit').disabled=false;
+    $('status').innerHTML=`BLS done in ${((performance.now()-t0)/1000).toFixed(1)} s · P = <b>${b.P.toFixed(5)} d</b>, depth ≈ ${(b.depth*1e6).toFixed(0)} ppm, SNR ≈ ${b.snr.toFixed(0)}. Now press ②.`;redraw();},30);};
+$('bFit').onclick=()=>{ $('status').textContent='Fitting transit model (Nelder–Mead)…';
+  setTimeout(()=>{const k=cur(),win=Math.max(0.15,3*(st.durH/24)/1.6);const idx=[];
+    for(let i=0;i<P.t.length;i++){let ph=(P.t[i]-k.t0)/k.per;ph-=Math.round(ph);if(Math.abs(ph*k.per)<win)idx.push(i);}
+    const oot=idx.filter(i=>{let ph=(P.t[i]-k.t0)/k.per;ph-=Math.round(ph);return Math.abs(ph*k.per)>0.6*st.durH/24*0.5/0.8;}).map(i=>P.f[i]/1e6);
+    let m=oot.reduce((a,b)=>a+b,0)/Math.max(1,oot.length),v=0;for(const x of oot)v+=(x-m)**2;const sig=Math.sqrt(v/Math.max(1,oot.length))||1e-3;
+    const chi=x=>{const [t0s,per,ror,b,a]=x;if(ror<=0.003||ror>0.5||b<0||b>1+ror||a<1.5||a>200||b>=a)return 1e12;let s=0;
+      for(const i of idx){const r=P.f[i]/1e6+1-modelAt(P.t[i],per,k.t0+t0s,ror,b,a);s+=r*r;}return s/(sig*sig);};
+    let x=[0,k.per,k.ror,Math.min(k.b,0.8),k.a],stp=[0.004,k.per*2e-5,k.ror*0.1,0.15,k.a*0.1],best=null;
+    for(let r=0;r<3;r++){const [xx,ff]=nelder(chi,x,stp,260);if(!best||ff<best[1])best=[xx,ff];x=best[0].slice();stp=stp.map(s=>s*0.5);}
+    const [t0s,per,ror,b,a]=best[0];$('sP').value=per;st.t0=k.t0+t0s;$('sT').value=0;$('sR').value=ror.toFixed(4);$('sB').value=b.toFixed(2);$('sA').value=a.toFixed(1);
+    $('status').innerHTML=`Fit done · χ²ᵣ ≈ ${(best[1]/Math.max(1,idx.length-5)).toFixed(2)} · Rp/R★ = <b>${ror.toFixed(4)}</b>. Multiply by R★ to get the radius.`;redraw();},30);};
+$('bRef').onclick=()=>{const f=P.fit;$('status').innerHTML=`Pipeline (batman + emcee, 3 detrending variants): P = ${f.period.toFixed(5)} d, Rp/R★ = ${f.ror.toFixed(4)} ± ${f.ror_err.toFixed(4)}, Rp = ${P.rp_rearth.toFixed(2)} ± ${P.rp_rearth_err.toFixed(2)} R⊕.`;
+  $('sP').value=f.period;st.t0=f.t0;$('sT').value=0;$('sR').value=f.ror.toFixed(4);$('sB').value=Math.min(1,f.b).toFixed(2);$('sA').value=Math.min(60,f.a_rs).toFixed(1);$('sS').value=P.rstar.toFixed(2);redraw();};
+['sP','sT','sR','sB','sA','sS'].forEach(id=>$(id).addEventListener('input',redraw));
+$('cBLS').addEventListener('click',e=>{if(!bls||!bls.frame)return;const r=e.target.getBoundingClientRect(),x=e.clientX-r.left,F=bls.frame;
+  const lx=Math.log10(bls.per[0])+(x-F.m.l)/(r.width-F.m.l-F.m.r)*(Math.log10(bls.per[bls.per.length-1])-Math.log10(bls.per[0]));
+  const target=Math.pow(10,lx);let bi=0,bv=-1;bls.per.forEach((p,i)=>{if(Math.abs(Math.log10(p)-Math.log10(target))<0.02&&bls.pow[i]>bv){bv=bls.pow[i];bi=i;}});
+  $('sP').value=bls.per[bi];redraw();$('status').textContent=`Period set to ${bls.per[bi].toFixed(5)} d. Adjust mid-transit shift if the dip is off-centre.`;});
+window.addEventListener('resize',redraw);
+const sel=$('sel');INDEX.forEach(p=>{const o=document.createElement('option');o.value=p.slug;o.textContent=`${p.num}. ${p.name}`;sel.appendChild(o);});
+sel.onchange=()=>choose(sel.value);choose(INDEX[0].slug);
+</script>
+</body>
+</html>
