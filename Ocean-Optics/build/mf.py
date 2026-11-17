@@ -78,6 +78,7 @@ def build():
 
     sl = [
         S('IOP from particle properties', cols(LS(63, 400), dul(['<b>IOP = Σ (N/V) σ = Σ (N/V) Q S</b>', 'σ in m², Q dimensionless, S in m²', 'N/V in m⁻³']), flex=[3, 2])),
+        S('IOP = Σ N Q S, symbol by symbol', EQS_('iop_sum')),
         S('Large and small particles', cols(LS(64, 430), dul(['Large: diffraction, ∝ area', 'Small: Rayleigh, ∝ volume']), flex=[3, 2])),
         S('Scattering and attenuation versus Chl', cols(LS(65, 430), dul(['b<sub>p</sub>(550) = 0.30 Chl<sup>0.7</sup>', 'Spread ≈ ×2–3', 'Case-1 relation']), flex=[3, 2])),
         S('Scattering versus particle load', cols(LS(66, 430), dul(['POC, particle surface, SPM', 'Roughly linear on log–log', 'Regional differences']), flex=[3, 2])),
@@ -93,7 +94,7 @@ def build():
                qtitle='Guiding question: what biogeochemical variable does each IOP track, and how reliable is that link?',
                question='<p>Why do we care about IOPs? Because they track Chl, particulate organic carbon, dissolved organic carbon and size, and can be measured at high frequency. This module builds that link from the cross-section formula and reviews the field relations of slides 65–84, including their limits.</p>',
                sections=[
-                ('From particles to IOPs', '<p>Each IOP is the sum over particle classes (slide 63):</p>' + eq('Slide 63', 'IOP(λ) = Σ<sub>i</sub> (N<sub>i</sub>/V) σ<sub>i</sub>(λ) = Σ<sub>i</sub> (N<sub>i</sub>/V) Q<sub>i</sub>(λ) S<sub>i</sub>') +
+                ('From particles to IOPs', '<p>Each IOP is the sum over particle classes (slide 63):</p>' + EQ('iop_sum') +
                  f'<p><b>Example (Python).</b> 10⁷ m⁻³ spheres of 5 µm radius with Q = 2: c = {c_ex:.2e} m⁻¹; with the Mie Q ({V["mie_qext_r5um_550nm_m105"]:.2f}) {c_mie:.2e} m⁻¹. Small numerous particles can dominate the total cross-section: a population of 0.5 µm / 10¹¹ m⁻³ gives {two["small"]["c_m1"]*1e3:.1f}×10⁻³ m⁻¹, a population of 10 µm / 10⁶ m⁻³ only {two["large"]["c_m1"]*1e3:.2f}×10⁻³ m⁻¹.</p>'),
                 ('Empirical relations and their spread', f'<ul><li><b>Scattering and Chl</b> (slide 65): b<sub>p</sub>(550) = 0.30 Chl<sup>0.7</sup> — {bp["0.1"]:.2f}, {bp["1.0"]:.2f}, {bp["10.0"]:.2f} m⁻¹ for Chl = 0.1, 1, 10 (spread ≈ ×2–3).</li><li><b>Size</b> (slide 68): N(D) ∝ D<sup>−ξ</sup>, c<sub>p</sub> ∝ λ<sup>−γ</sup>, ξ = γ + 3.</li><li><b>b<sub>bp</sub>/b<sub>p</sub></b> (slide 71): index first, then size.</li><li><b>Particle absorption</b> (slide 74): POC/SPM = 0.0133 exp[1.27 a<sub>p</sub>(675)/a<sub>p</sub>(570)].</li><li><b>CDOM</b>: weak link to Chl, regional links to DOC (slides 75–76), conservative mixing with salinity (slide 77).</li></ul>'
                  '<div class="callout warn"><b class="t">Limit</b>All these are regressions from specific data sets. They are not physical laws and must not be transferred to other water types (Big 12, K2).</div>'),

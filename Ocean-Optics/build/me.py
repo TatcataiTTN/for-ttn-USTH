@@ -48,9 +48,11 @@ def build():
 
     sl = [
         S('Measuring the attenuation coefficient', cols(LS(60, 430), dul(['Beam transmissometer (C-star)', 'T = e<sup>−cL</sup>', 'Scattered light reaches the detector', 'Ideal acceptance angle 0° = no light']), flex=[3, 2])),
+        S('Beer–Lambert, symbol by symbol', EQS_('beer')),
         S('Transmission versus attenuation', img('beer_lambert', 700, cap='Own computation: T = exp(−cL) for three path lengths')),
         S('Absorption and attenuation tubes', cols(LS(61, 430), dul(['Absorbing walls → c', 'Reflecting walls → a', 'b = c − a', '0.2 µm filter → CDOM only']), flex=[3, 2])),
         S('Backscattering sensor', cols(LS(62, 430), dul(['LED + detector, 117°', 'β<sub>p</sub> = β − β<sub>w</sub>', '<b>b<sub>bp</sub> = 2π χ β<sub>p</sub>(117°)</b>']), flex=[3, 2])),
+        S('Backscattering retrieval, symbol by symbol', EQS_('bb117')),
         S('Instruments at a glance', dtable(tbl(['Quantity', 'Instrument', 'Main limit'], [['c', 'Transmissometer', 'Acceptance angle'], ['a', 'Reflecting-wall tube', 'Lost scattered photons'], ['b<sub>bp</sub>', '117° sensor', 'χ and water subtraction'], ['a<sub>cdom</sub>', '0.2 µm filtered inlet', 'Particle leakage']]), 'xl') + callout('info', 'Rule', 'Every instrument sees only part of the light: always state its geometry (acceptance angle, 117°, wall type)')),
         S('Key points', dul(['c from T = e<sup>−cL</sup>; a from reflecting tube', 'b = c − a', '0.2 µm filter: CDOM absorption only', 'b<sub>bp</sub> = 2π χ β<sub>p</sub>(117°)'], xl=True)),
     ]
@@ -59,9 +61,9 @@ def build():
                question='<p>IOPs are measured in situ with optical meters. Three families appear in the lecture: transmissometers (c), absorption meters with reflecting walls (a) and backscattering sensors (b_bp).</p>',
                sections=[
                 ('Attenuation and absorption', '<p>A <b>transmissometer</b> sends a collimated beam through a known path and measures the transmitted fraction, T = e<sup>−cL</sup>, hence c = a + b (slide 60). Real instruments have a finite acceptance angle, so some scattered light reaches the detector and c is slightly underestimated. The <b>two-tube instrument</b> (slide 61) combines a tube with absorbing walls (attenuation) and a tube with reflecting walls (absorption); b = c − a. A 0.2 µm filter at the inlet gives CDOM absorption only.</p>'
-                 + eq('Beer–Lambert', 'T = exp(−c L), &nbsp; c = −ln(T)/L') + f'<p>Example (Python, illustrative 0.25 m path): T = 0.90 ⇒ c = {cT["0.9"]:.2f} m⁻¹; T = 0.50 ⇒ c = {cT["0.5"]:.2f} m⁻¹.</p>'),
+                 + EQ('beer') + f'<p>Example (Python, illustrative 0.25 m path): T = 0.90 ⇒ c = {cT["0.9"]:.2f} m⁻¹; T = 0.50 ⇒ c = {cT["0.5"]:.2f} m⁻¹.</p>'),
                 ('Backscattering', '<p>A backscattering sensor measures β at a single angle (117°) and extrapolates to the backward hemisphere (slide 62, Boss &amp; Pegau 2001):</p>'
-                 + eq('Slide 62', 'β<sub>p</sub>(117°,λ) = β(117°,λ) − β<sub>w</sub>(117°,λ); &nbsp; b<sub>bp</sub> = 2π χ β<sub>p</sub>(117°)') +
+                 + EQ('bb117') +
                  '<p class="note">The first line of slide 62, a correction of the measured signal for attenuation, is cut off on the slide and is not transcribed.</p>')],
                checklist=['Say what a transmissometer measures and its main error.', 'Explain the two-tube principle and b = c − a.', 'Say what the 0.2 µm filter does.', 'Write b_bp = 2πχβ_p(117°) and the water subtraction.', 'Convert T to c for a given path length.'],
                summary=['Máy đo truyền qua cho c = a + b; ống phản xạ cho a; b = c − a.', 'Lọc 0,2 µm: chỉ đo hấp thụ CDOM.', 'b_bp = 2π χ β_p(117°).'],

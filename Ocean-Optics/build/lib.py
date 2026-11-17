@@ -4,6 +4,8 @@ import os, sys, re, json
 sys.path.insert(0, os.path.dirname(__file__))
 from hx import esc, callout as hx_callout, table as hx_table, ul as hx_ul, ex, formula, code
 from deck_helpers import slide, tbl, callout, tblock, cols as qcols, apply_usth_theme, deck_html
+import eqs
+from eqs import E as EQ, Es as EQS_
 from deck_components import img, card, cards, ul as dul, cols as dcols, table as dtable, matrix, CHIP, pipeline_svg
 
 _here = os.path.abspath(os.path.dirname(__file__))
@@ -56,12 +58,12 @@ def page(title, body, depth, desc='', scripts=(), extra_head=''):
 <title>{esc(title)} · {SITE_TITLE}</title><meta name="description" content="{esc(desc)}">
 <link rel="icon" href="{r}assets/images/usth_logo.png">
 <script>(function(){{try{{var t=localStorage.getItem('site-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);var f=localStorage.getItem('site-font');if(f)document.documentElement.style.fontSize=f}}catch(e){{}}}})();</script>
-<link rel="stylesheet" href="{r}_shared/common.css"><link rel="stylesheet" href="{r}_shared/usth_theme.css"><link rel="stylesheet" href="{r}_shared/ars.css">{extra_head}</head><body>
+<link rel="stylesheet" href="{r}_shared/common.css"><link rel="stylesheet" href="{r}_shared/usth_theme.css"><link rel="stylesheet" href="{r}_shared/ars.css">{extra_head}<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script></head><body>
 <header class="top"><div class="wrap"><a class="brand" href="{r}index.html"><img src="{r}assets/images/usth_logo.png" alt="USTH"> Ocean Optics</a><nav>{nav}
 <details class="menu"><summary>🎨 Appearance</summary><div class="pop"><button data-set-theme="light">Light</button><button data-set-theme="dark">Dark</button><button data-set-theme="sepia">Sepia</button><hr><button data-set-font="14px">Small text</button><button data-set-font="16px">Medium text</button><button data-set-font="19px">Large text</button></div></details></nav></div></header>
 <main class="wrap">{body}</main>
 <footer class="foot"><div class="wrap">{FOOT}</div></footer>
-<script src="{r}_shared/theme.js"></script>{sc}</body></html>'''
+<script src="{r}_shared/theme.js"></script><script src="{r}_shared/kx.js"></script><script src="{r}_shared/eq.js"></script>{sc}</body></html>'''
 
 # ---------- thành phần cho slide (đơn vị px trên canvas 1280x720, chữ >= 20 px) ----------
 def fm(html, size=None):
@@ -91,8 +93,8 @@ def deck_page(mid, title, slides):
     sl = finalize(slides)
     head = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
 <title>Slide · {esc(title)} · {SITE_TITLE}</title>
-<link rel="stylesheet" href="../_shared/deck_usth_theme.css"><link rel="stylesheet" href="../_shared/deck_sizing.css"><link rel="stylesheet" href="../_shared/ars_deck.css"></head><body>'''
-    return head + deck_html(sl) + '<script src="../_shared/deck.js"></script></body></html>'
+<link rel="stylesheet" href="../_shared/deck_usth_theme.css"><link rel="stylesheet" href="../_shared/deck_sizing.css"><link rel="stylesheet" href="../_shared/ars_deck.css"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.css"><script defer src="https://cdnjs.cloudflare.com/ajax/libs/KaTeX/0.16.9/katex.min.js"></script></head><body>'''
+    return head + deck_html(sl) + '<script src="../_shared/deck.js"></script><script src="../_shared/kx.js"></script><script src="../_shared/eq.js"></script></body></html>'
 
 # ---------- ngân hàng câu hỏi ----------
 def write_bank(mid, slug, title, B, status):

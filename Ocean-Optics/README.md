@@ -7,4 +7,6 @@ Static site (no backend). Sources: the lecture *Marine Optics* (H. Loisel, LOG; 
 * `build/` — generators (`build_all.py` builds everything; `check_deck.py` checks every slide in Chrome); `tests/` — `test_calc.js` (browser calculators vs Python) and `browser_test.py` (whole site, Selenium).
 * `notes/figures_notes.md`, `notes/formulas_from_slides.md` — what is actually on each lecture slide (read from page images); `textbook/` — licence notes, map lecture → textbook pages, extracted text (no images copied).
 
+Interactive equations: `build/eqs.py` (symbol data: meaning, unit, implication, numbers with sources) → `_shared/eq.js` + KaTeX (loaded from cdnjs; without internet the equations show as plain text). `tests/eq_test.py` clicks every symbol on every lesson page and slide.
+
 Limits: no sample exam from the lecturer was available; levels A/B/C and "coverage" refer to papers written for this site. The light-field module is textbook-only. See `resources.html`.

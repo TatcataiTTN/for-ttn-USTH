@@ -15,9 +15,9 @@ if SHOTS: os.makedirs(SHOTS, exist_ok=True)
 JS = """
 var s=document.querySelectorAll('.mdeck-slide')[arguments[0]];var r0=s.getBoundingClientRect();var k=r0.width/1280;
 var maxB=0,minF=999,minWho='',over=0;
-s.querySelectorAll('*').forEach(function(e){var r=e.getBoundingClientRect();if(!r.width||!r.height)return;
+s.querySelectorAll('*').forEach(function(e){if(e.closest('.katex-mathml')||(e.closest('.katex')&&(e.tagName==='svg'||e.tagName==='path'||e.closest('svg')||e.classList.contains('stretchy'))))return;var r=e.getBoundingClientRect();if(!r.width||!r.height)return;
   var cs=getComputedStyle(e);
-  var hasText=[].some.call(e.childNodes,function(n){return n.nodeType===3&&n.textContent.trim().length>0});
+  var hasText=[].some.call(e.childNodes,function(n){return n.nodeType===3&&n.textContent.replace(/[\u200b\u00a0]/g,'').trim().length>0});
   if(hasText){var fs=parseFloat(cs.fontSize);if(e.closest('svg')){fs=fs}if(fs<minF){minF=fs;minWho=e.tagName+':'+e.textContent.trim().slice(0,25)}}
   var isBg=(e.tagName==='H2')||e.classList.contains('logo-chip')||e.closest('.logo-chip');
   var b=(r.bottom-r0.top)/k; if(!isBg&&e.tagName!=='LI'&&b>maxB&&b<=800)maxB=b;

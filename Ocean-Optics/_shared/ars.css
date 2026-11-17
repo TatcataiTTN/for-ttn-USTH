@@ -54,3 +54,34 @@ figure.ph img{width:100%;height:auto;border-radius:6px;display:block}figure.ph f
 .lv.A{background:#1b7f4c}.lv.B{background:#b58100}.lv.C{background:#b3261e}
 section.paper{margin:28px 0;padding-top:6px;border-top:3px solid #273896}
 .phgrid figure.ph img{width:100%;aspect-ratio:4/3;object-fit:contain;background:#f3f5fa;display:block}
+/* ---- interactive annotated equations (KaTeX) ---- */
+.eqbig{background:var(--card);border:2px solid var(--accent2);border-radius:14px;padding:14px 14px 12px;margin:18px 0;box-shadow:var(--shadow)}
+.eqbig .eqlab{font-size:.8rem;font-weight:800;letter-spacing:.4px;text-transform:uppercase;color:var(--accent2)}
+.eqbig .eqhint{font-size:.88rem;color:var(--muted);margin:4px 0 2px}
+.eqstage{position:relative;padding:24px 4px 24px;overflow-x:auto;overflow-y:visible}
+.eqstage svg.eqarrows{position:absolute;left:0;top:0;pointer-events:none;z-index:4;overflow:visible}
+.eqstage .kx{font-size:2.4em;padding:10px 4px;text-align:center;position:relative;z-index:2}
+.eqstage .kx.sm{font-size:2em}
+.eqstage .katex-display{margin:.3em 0}
+.eqstage .ks{cursor:pointer;transition:opacity .18s,transform .18s,filter .18s;display:inline-block}
+.eqstage .ks:hover{filter:brightness(1.15) drop-shadow(0 0 3px rgba(0,0,0,.25))}
+.eqstage .ks.dim{opacity:.18}
+.eqstage .ks.on{opacity:1;transform:scale(1.22);transform-origin:center;position:relative;z-index:5;filter:drop-shadow(0 3px 5px rgba(0,0,0,.35))}
+.ksframe{position:absolute;border:3px solid;border-radius:8px;pointer-events:none;z-index:1;background:rgba(255,255,255,.35);box-shadow:0 4px 14px rgba(0,0,0,.18);animation:ksin .2s ease-out}
+:root[data-theme="dark"] .ksframe{background:rgba(255,255,255,.08)}
+@keyframes ksin{from{transform:scale(1.25);opacity:0}to{transform:scale(1);opacity:1}}
+.eqcall{position:absolute;z-index:6;background:var(--card);border:3px solid;border-radius:10px;box-shadow:0 6px 20px rgba(0,0,0,.22);font-size:1rem;line-height:1.4;animation:ksin .2s ease-out;overflow:hidden}
+.eqcall .ch{color:#fff;font-weight:800;padding:5px 12px;font-size:1rem}.eqcall .ch span{font-weight:600;opacity:.92;font-size:.88em}
+.eqcall .cb{padding:7px 12px 9px}.eqcall .cb p{margin:3px 0}.eqcall .imp{color:var(--muted);font-style:italic}
+.eqcall .cv{margin-top:5px;border-top:1px solid var(--border);padding-top:4px}.eqcall .cv ul{margin:3px 0 0;padding-left:18px}.eqcall .cv small{color:var(--muted)}
+.eqbar{display:flex;flex-wrap:wrap;gap:8px;margin:6px 0 8px}
+.eqplug{background:var(--infobg);border-left:5px solid var(--info);border-radius:8px;padding:8px 14px;margin:8px 0}
+.eqplug .kx{font-size:1.2em;text-align:left;padding:4px 0}
+table.eqleg{width:100%;border-collapse:collapse;margin-top:10px;font-size:.93rem}
+table.eqleg th{font-size:.74rem;text-transform:uppercase;letter-spacing:.3px;color:var(--muted);text-align:left;border-bottom:2px solid var(--border);padding:4px 8px}
+table.eqleg td{border-bottom:1px solid var(--border);padding:7px 8px;vertical-align:top}
+table.eqleg tr.lr{cursor:pointer}table.eqleg tr.lr:hover,table.eqleg tr.lr.sel{background:var(--infobg)}
+table.eqleg td.tm{white-space:nowrap;width:1%;font-size:1.25em;text-align:center}
+table.eqleg td.vals small{color:var(--muted)}
+.eqvi{margin-top:8px;font-size:.88rem;color:var(--muted);font-style:italic}
+@media (max-width:760px){.eqstage .kx{font-size:1.2em}.eqstage .kx.sm{font-size:1em}table.eqleg .imp,table.eqleg th.imp{display:none}}

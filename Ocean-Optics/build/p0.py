@@ -80,6 +80,8 @@ def build():
         S('Why twelve ideas?', ulb(['Every module reuses a few ideas', f'In the {len(PP.PAPERS)} written papers of this site the Big 12 gives the frame of {st["skeleton"]*100:.0f} % of the parts', 'No exam of the lecturer was available', 'Master them first, then the modules'], 34, 42)),
         S('3 key points', cards(card('K1 · From water to colour', 'Constituents → IOPs → light field → signal → biogeochemistry'), card('K2 · A hypothesis behind every product', 'Water type, region, spread ×2–3'), card('K3 · An under-sampled ocean', 'Floats, gliders, BGC-Argo'))),
         S('3 formulas', cards(card('F1 · c = a + b', 'dL/dr = −cL + scattering in + S; T = e<sup>−cL</sup>'), card('F2 · IOP = Σ N Q S', 'number × efficiency × area'), card('F3 · Spectral laws', 'a ∝ exp[−S(λ−λ₀)]; b<sub>p</sub> ∝ λ<sup>n</sup>; β<sub>w</sub> ∝ λ<sup>−4.3</sup>'))),
+        S('F1 · The radiative transfer equation', EQS_('rte', fs=26)),
+        S('F2 · IOP = Σ N Q S', EQS_('iop_sum')),
         S('3 concepts', cards(card('C1 · IOP vs AOP', 'Medium only versus medium + light'), card('C2 · Case 1/Case 2, classes', 'Co-variation with phytoplankton; 17 classes'), card('C3 · Package effect', 'Q*<sub>a</sub> from 1 to 0'))),
         S('3 principles', cards(card('R1 · Additivity', 'a, b and b<sub>b</sub> add over constituents'), card('R2 · Spectral fingerprints', 'Slope, peaks, flat, steep'), card('R3 · Size and index', 'Forward vs backward; b<sub>bp</sub>/b<sub>p</sub>'))),
         S('Each paper at a glance', dtable(tbl(['Paper', 'Parts', 'A', 'B', 'C', 'Frame'], ROWS), 'xl')),
@@ -99,6 +101,7 @@ def build():
                 ('The Big 12 on one page', '<p>Twelve ideas in four groups of three. Each card below gives the statement, a 20-second explanation and the most common trap.</p>'
                  '<p><b>How to use this page:</b> (1) read the 12 cards (15 minutes); (2) take the check at the bottom and reach 10/12; (3) go to modules A–H; (4) try the written papers.</p>'),
                 ('The 12 cards', grid),
+                ('The three formulas, interactive', '<p>Click any coloured symbol to see its meaning, unit and the numbers that go into it.</p>' + EQ('rte') + EQ('iop_sum') + EQ('spectral')),
                 ('How well do the 12 ideas cover the exams? (honest numbers)', f'<p>Every part of the {len(PP.PAPERS)} written papers of this site was tagged with the Big-12 items it needs and a level: <b>A</b> the Big 12 gives the full answer, <b>B</b> frame + module facts, <b>C</b> module-specific. Across all {st["n"]} parts: <b>{st["A"]}</b> A, <b>{st["B"]}</b> B, <b>{st["C"]}</b> C → the Big 12 gives the frame of <b>{st["skeleton"]*100:.0f} %</b> and the full answer of <b>{st["full"]*100:.0f} %</b>.</p>'
                  + hx_table(['Paper', 'Parts', 'A', 'B', 'C', 'Frame'], ROWS) +
                  f'<p>Most-used items: {top}.</p>'

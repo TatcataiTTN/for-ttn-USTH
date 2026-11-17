@@ -1,6 +1,6 @@
 {
  "p0": {
-  "slides": 11,
+  "slides": 13,
   "mcq": 14,
   "essays": 2,
   "rebalanced": 0,
@@ -17,7 +17,7 @@
   }
  },
  "ma": {
-  "slides": 12,
+  "slides": 14,
   "mcq": 19,
   "essays": 3,
   "rebalanced": 3,
@@ -34,7 +34,7 @@
   }
  },
  "mb": {
-  "slides": 10,
+  "slides": 11,
   "mcq": 15,
   "essays": 2,
   "rebalanced": 5,
@@ -51,7 +51,7 @@
   }
  },
  "mc": {
-  "slides": 10,
+  "slides": 12,
   "mcq": 16,
   "essays": 2,
   "rebalanced": 4,
@@ -68,7 +68,7 @@
   }
  },
  "md": {
-  "slides": 12,
+  "slides": 13,
   "mcq": 15,
   "essays": 2,
   "rebalanced": 5,
@@ -85,7 +85,7 @@
   }
  },
  "me": {
-  "slides": 7,
+  "slides": 9,
   "mcq": 10,
   "essays": 2,
   "rebalanced": 3,
@@ -102,7 +102,7 @@
   }
  },
  "mf": {
-  "slides": 12,
+  "slides": 13,
   "mcq": 18,
   "essays": 3,
   "rebalanced": 2,
@@ -119,7 +119,7 @@
   }
  },
  "mg": {
-  "slides": 8,
+  "slides": 10,
   "mcq": 14,
   "essays": 2,
   "rebalanced": 0,
