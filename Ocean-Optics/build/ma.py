@@ -83,17 +83,16 @@ def build():
     sl = [
         S('Why light–water interaction matters', cards(card('Light-dependent processes', 'Photosynthesis, visibility, predator–prey relations, vertical migration (slide 3)'), card('In-situ studies', 'Biogeochemical and physical processes at high frequency and over long periods (slide 3)'), card('Space', 'Exploitation of the ocean-colour signal from space (slide 3)'))),
         S('Ocean colour is not surface reflection', ulb(['Ocean colour: spectral variations of the <b>water-leaving signal</b> in the visible', 'Sun and sky reflection changes the colour at the surface but is <b>not</b> ocean colour', 'It comes from photons interacting with in-water components (slide 7)', 'Marine optics links components → IOPs → light field (slide 8)'], 34, 38)),
-        S('Radiative transfer in a water slab', cols(LS(5, 430), dul(['Loss by absorption (a)', 'Loss by scattering (b)', 'Gain by scattering (b)', '<b>c = a + b</b>', 'Source term S (fluorescence, Raman…)']), flex=[3, 2])),
+        S('Radiative transfer in a water slab', cols(LS(5, 430), dul(['Loss by absorption', 'Loss by scattering out', 'Gain by scattering in', '<b>Attenuation = absorption + scattering</b>', 'Source term: fluorescence, Raman…']), flex=[3, 2])),
         S('Absorption and the volume scattering function', cols(LS(17, 430), dul(['<b>a</b> in m⁻¹', '<b>β(ψ,λ)</b> in m⁻¹ sr⁻¹: angular distribution of scattered power', 'Everything else is derived from a and β']), flex=[3, 2])),
-        S('Scattering coefficients', dtable(tbl(['Quantity', 'Definition', 'Unit'], [['b', '2π ∫₀^π β(θ) sinθ dθ', 'm⁻¹'], ['b<sub>f</sub>', '2π ∫₀^{π/2} β(θ) sinθ dθ', 'm⁻¹'], ['b<sub>b</sub>', '2π ∫<sub>π/2</sub>^π β(θ) sinθ dθ', 'm⁻¹'], ['c', 'a + b = a + b<sub>f</sub> + b<sub>b</sub>', 'm⁻¹']]), 'xl') + callout('info', 'Reminder', 'a, b, c in m⁻¹; β in m⁻¹ sr⁻¹; b<sub>f</sub> and b<sub>b</sub> split the same b at 90°')),
         S('The radiative transfer equation', EQS_('rte', fs=26)),
         S('b, b<sub>f</sub>, b<sub>b</sub> and c from β', EQS_('iop_b')),
-        S('Additivity of IOPs', cards(card('Absorption', 'a = a<sub>w</sub> + a<sub>CDOM</sub> + a<sub>ph</sub> + a<sub>NAP</sub>'), card('Scattering', 'b = b<sub>w</sub> + b<sub>p</sub>'), card('Backscattering', 'b<sub>b</sub> = b<sub>bw</sub> + b<sub>bp</sub>'))),
+        S('Additivity of IOPs', EQS_('additivity', fs=30)),
         S('Optically significant constituents', cards(card('Pure sea water', 'Molecules and salt'), card('Particles &gt; 0.2 µm', 'Phytoplankton, bacteria, detritus, minerals'), card('Dissolved matter', 'CDOM (yellow substance)'), card('Air bubbles', 'Near the surface'), cols=4)),
         S('Case 1 and Case 2 waters', cols(LS(14, 430, 'Lecture slide 14 (IOCCG, 2000)'), dul(['<b>P</b> phytoplankton', '<b>Y</b> yellow substances', '<b>S</b> suspended material', 'Case 1: band near P', 'Case 2: Y and S vary independently']), flex=[3, 2])),
         S('Case 1 share of the ocean', cols(LS(15, 430, 'Lecture slide 15 (Matsushita et al., 2012)'), dul(['Spring 2003: <b>83 %</b>', 'Summer 2003: <b>81 %</b>', 'Autumn 2003: <b>87 %</b>', 'Winter 2004: <b>87 %</b>', 'Case 2 also at high latitudes']), flex=[3, 2])),
         S('Optical water classes', cols(LS(16, 430, 'Lecture slide 16 (Loisel et al., 2023)'), dul(['17 classes', 'Violet: clearest gyres', 'Green/red: coastal, polar', 'A continuum, not two boxes']), flex=[3, 2])),
-        S('Key points', dul(['c = a + b; β in m⁻¹ sr⁻¹', 'IOPs: independent of illumination, additive', 'Ocean colour ≠ surface reflection', 'Case 1/2 = co-variation; 17 optical classes'], xl=True)),
+        S('Key points', dul(['Attenuation is absorption plus scattering; VSF in m⁻¹ sr⁻¹', 'IOPs: independent of illumination, additive', 'Ocean colour ≠ surface reflection', 'Case 1/2 = co-variation; 17 optical classes'], xl=True)),
     ]
     k_ = math.exp(-0.5)
     mod = dict(id='ma', slug='01-light-in-water', title='A · Light in water & IOPs', en='Radiative transfer, a, b, c, the volume scattering function, additivity, Case 1/Case 2 (slides 2–19)',

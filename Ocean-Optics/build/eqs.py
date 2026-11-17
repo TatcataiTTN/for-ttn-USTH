@@ -36,8 +36,7 @@ def eq(name, label, lines, syms, example=None, vi=''):
 
 # ---------------------------------------------------------------------------------------------------------------- equations
 eq('rte', 'F1 · Radiative transfer equation (lecture slide 5)',
- [r'\begin{aligned}\frac{d\sym{L}{L(\theta,\varphi)}}{\sym{r}{dr}}&=\underbrace{-\,\sym{c}{c}\,\sym{L}{L(\theta,\varphi)}}_{\footnotesize\text{loss: absorption + scattering out}}\\[0.15em]&\quad+\underbrace{\int_{4\pi}\sym{beta}{\beta(\theta,\varphi;\theta^{\prime},\varphi^{\prime})}\,\sym{L}{L(\theta^{\prime},\varphi^{\prime})}\,\sym{om}{d\omega^{\prime}}}_{\footnotesize\text{gain: scattering in from all directions}}\\[0.15em]&\quad+\underbrace{\sym{S}{S}}_{\footnotesize\text{internal sources}}\end{aligned}',
-  r'\sym{c}{c}\;=\;\sym{a}{a}\;+\;\sym{b}{b}'],
+ [r'\begin{aligned}\frac{d\sym{L}{L(\theta,\varphi)}}{\sym{r}{dr}}&=\underbrace{-\,\sym{c}{c}\,\sym{L}{L(\theta,\varphi)}}_{\footnotesize\text{loss: absorption + scattering out}}&&\qquad\sym{c}{c}=\sym{a}{a}+\sym{b}{b}\\[0.15em]&\quad+\underbrace{\int_{4\pi}\sym{beta}{\beta(\theta,\varphi;\theta^{\prime},\varphi^{\prime})}\,\sym{L}{L(\theta^{\prime},\varphi^{\prime})}\,\sym{om}{d\omega^{\prime}}}_{\footnotesize\text{gain: scattering in from all directions}}\\[0.15em]&\quad+\underbrace{\sym{S}{S}}_{\footnotesize\text{internal sources}}\end{aligned}'],
  [S('L', 'K', r'L(\theta,\varphi)', 'radiance', 'W m⁻² sr⁻¹ nm⁻¹', 'Light power per unit area, solid angle and wavelength travelling in direction (θ, φ).', 'The unknown of the equation; θ is measured from the vertical.'),
   S('r', 'K', r'dr', 'path element', 'm', 'Thin slab of water crossed by the beam.', 'Everything is a rate per metre along the path.'),
   S('c', 'R', r'c', 'attenuation coefficient', 'm⁻¹', 'Fraction of the beam lost per metre, by absorption and by scattering out of the beam: c = a + b.', 'Beer–Lambert uses c, not a: a transmissometer measures c.',
@@ -119,7 +118,7 @@ eq('vsf_morel', 'Pure sea-water VSF, Morel 1974 (slide 20)',
   S('ex', 'R', '-4.32', 'spectral exponent', '—', 'Almost Rayleigh (λ⁻⁴).', 'Revised to −4.14 (Buiteveld 1994).', [('Morel 1974', '−4.32', 'slide 20'), ('Buiteveld 1994', '−4.14', 'slide 23'), ('450/550 nm with −4.14', '×%.2f' % V['ratio_450_550_buiteveld'], 'verified.json')]),
   S('Ssal', 'P', 'S', 'salinity', 'PSU (g kg⁻¹)', 'Ions amplify density fluctuations.', '+30 % at S = 37.', [('fresh → ocean', '0 → 37: +30 %', 'slide 20'), ('b_w(500): S = 0 / 37', '%.2e / %.2e m⁻¹' % (W['morel_500_S0']['b_w'], W['morel_500_S37']['b_w']), 'verified.json')]),
   S('th', 'K', r'\theta', 'scattering angle', 'rad', 'Angle between incident and scattered directions.', 'Minimum of β at 90°.'),
-  S('del', 'O', r'\frac{1-\delta}{1+\delta}', 'depolarisation term', '—', 'δ = depolarisation factor.', 'The slide prints “cos2θ”; read here as cos²θ.', [('δ Morel', '0.09', 'slide 20'), ('δ Buiteveld', '0.051', 'slide 23'), ('ρ in the textbook', '0.031', 'Zhang et al. 2019')]),
+  S('del', 'O', r'\frac{1-\delta}{1+\delta}', 'depolarisation', '—', 'δ = depolarisation factor.', 'The slide prints “cos2θ”; read here as cos²θ.', [('δ Morel', '0.09', 'slide 20'), ('δ Buiteveld', '0.051', 'slide 23'), ('ρ in the textbook', '0.031', 'Zhang et al. 2019')]),
   S('bw', 'G', 'b_w', 'total scattering of water', 'm⁻¹', '2π∫β sinθ dθ.', 'b_bw = b_w/2.', [('500 nm, S = 37', '%.2e m⁻¹' % W['morel_500_S37']['b_w'], 'verified.json')])],
  [r'\lambda=450\,\mathrm{nm},\ S=37:\ \ \beta_w(90^\circ)=1.38\,(450/500)^{-4.32}\,(1+0.3)\,10^{-4}=%s\ \mathrm{m^{-1}sr^{-1}}' % sci(W['morel_450_S37']['beta90'], 2),
   r'b_w(450\,\mathrm{nm})=%s\ \mathrm{m^{-1}}\qquad \frac{b_w(450)}{b_w(550)}=\left(\frac{550}{450}\right)^{4.32}=%.2f' % (sci(W['morel_450_S37']['b_w'], 2), V['ratio_450_550_morel'])],
@@ -197,7 +196,8 @@ eq('iop_sum', 'F2 · From particles to IOPs (slide 63)',
  'Ý nghĩa: IOP = tổng theo lớp hạt của (số hạt) × (hiệu suất Q) × (diện tích hình học).')
 
 eq('spectral', 'F3 · Spectral laws of the lecture',
- [r'\sym{acdom}{a_{cdom}(\lambda)}=a_{cdom}(\lambda_0)\,e^{-\sym{Sp}{S^{\prime}}(\lambda-\lambda_0)}\qquad \sym{Sp}{S^{\prime}}\approx0.014\ \mathrm{nm^{-1}}\ \ (\mathrm{NAP}:\ S\approx0.011)',
+ [r'\sym{acdom}{a_{cdom}(\lambda)}=a_{cdom}(\lambda_0)\,\exp\!\big[-\sym{Sp}{S^{\prime}}(\lambda-\lambda_0)\big]',
+  r'\sym{Sp}{S^{\prime}}\approx0.014\ \mathrm{nm^{-1}}\quad(\mathrm{NAP}:\ S\approx0.011)',
   r'\sym{bp}{b_p(\lambda)}=b_p(550)\,(\lambda/550)^{\sym{n}{n}}\qquad \sym{n}{n}\approx-1',
   r'\sym{bw}{\beta_w}\propto\lambda^{-4.32}\ \ (\text{or }\lambda^{-4.14})'],
  [S('acdom', 'B', r'a_{cdom}', 'dissolved matter', 'm⁻¹', 'Exponential decay toward the red.', 'Steep = marine fulvic; shallow = terrestrial humic.', [('a(443) from 0.30 at 412', '%.3f m⁻¹' % (0.3 * V['cdom_ratio_443_from_412_S014']), 'verified.json')]),
@@ -243,7 +243,7 @@ eq('vsf_buit', 'Pure sea-water VSF, Buiteveld et al. 1994 (slide 23)',
   S('ex', 'R', '-4.14', 'spectral exponent', '—', 'Reformulated refractive index and compressibility.', 'Slightly less blue-biased than −4.32.', [('Buiteveld 1994', '−4.14', 'slide 23'), ('450/550 nm', '×%.2f' % V['ratio_450_550_buiteveld'], 'verified.json')]),
   S('Ssal', 'P', 'S', 'salinity', 'PSU', 'Same +30 % at S = 37.', ''),
   S('th', 'K', r'\theta', 'scattering angle', 'rad', '', ''),
-  S('del', 'O', r'\frac{1-\delta}{1+\delta}', 'depolarisation term', '—', 'δ = 0.051 here (0.09 in Morel).', 'The slide prints “cos2θ”; read as cos²θ.', [('δ', '0.051', 'slide 23')])],
+  S('del', 'O', r'\frac{1-\delta}{1+\delta}', 'depolarisation', '—', 'δ = 0.051 here (0.09 in Morel).', 'The slide prints “cos2θ”; read as cos²θ.', [('δ', '0.051', 'slide 23')])],
  [r'\lambda=450\,\mathrm{nm},\ S=37:\ \ \beta_w(90^\circ)=%s\ \mathrm{m^{-1}sr^{-1}}\qquad b_w=%s\ \mathrm{m^{-1}}' % (sci(B450['beta90'], 2), sci(B450['b_w'], 2)),
   r'\frac{b_w(450)}{b_w(550)}=\left(\frac{550}{450}\right)^{4.14}=%.2f\ \ (\text{Morel: }%.2f)' % (V['ratio_450_550_buiteveld'], V['ratio_450_550_morel'])],
  'Ý nghĩa: bản chỉnh năm 1994 của công thức Morel: biên độ 1,29, mũ −4,14, δ = 0,051.')
@@ -267,7 +267,7 @@ eq('es', 'Einstein–Smoluchowski scattering by pure water (textbook, Physics of
   S('bT', 'G', r'\beta_T', 'isothermal compressibility', 'Pa⁻¹', 'More compressible = larger fluctuations.', '', [('used', '4.5893×10⁻¹⁰', 'textbook')]),
   S('n', 'K', 'n', 'refractive index', '—', '', '', [('used', '1.33477', 'textbook')]),
   S('dn', 'P', r'\partial n/\partial P', 'pressure derivative of n', 'Pa⁻¹', 'If n did not depend on pressure there would be no scattering.', '', [('used', '1.5127×10⁻¹⁰', 'textbook')]),
-  S('rho', 'O', r'\frac{6+6\rho}{6-7\rho}', 'depolarisation correction', '—', 'ρ = depolarisation ratio.', 'Differs from the lecture δ values.', [('ρ', '0.031', 'Zhang et al. 2019 via textbook'), ('lecture δ', '0.09 / 0.051', 'slides 20, 23')]),
+  S('rho', 'O', r'\frac{6+6\rho}{6-7\rho}', 'depolarisation corr.', '—', 'ρ = depolarisation ratio.', 'Differs from the lecture δ values.', [('ρ', '0.031', 'Zhang et al. 2019 via textbook'), ('lecture δ', '0.09 / 0.051', 'slides 20, 23')]),
   S('psi', 'K', r'\psi', 'scattering angle', 'rad', '', '')],
  [r'\psi=90^\circ,\ \lambda=546\,\mathrm{nm},\ T=293.15\,\mathrm{K}:\ \ \beta=%s\ \mathrm{m^{-1}sr^{-1}}\ \ (\text{textbook states }0.869\times10^{-4})' % sci(V['es_beta90_546_textbook_constants'], 2)],
  'Ý nghĩa: tán xạ của nước tinh khiết xuất phát từ thăng giáng mật độ phân tử; tính được từ vật lý cơ bản.')
@@ -351,19 +351,33 @@ eq('phase_ratio', 'Spectral ratio of the particulate phase function at 140° (sl
  [r'x=4:\ \ R=-0.060\times4+0.99=%.2f' % (-0.060 * 4 + 0.99)],
  'Ý nghĩa: hồi quy tuyến tính, không phải định luật; tỉ số giảm khi hấp thụ của detritus tăng.')
 
+GIST = {'rte': 'Light in a thin slab of water is lost by absorption and by scattering out (c = a + b), gained by scattering in from every other direction, plus any light created inside.', 'iop_def': 'a is the fraction of light absorbed per metre; β is the light scattered into one direction, per metre and per steradian. Both belong to the water, not to the light.', 'iop_b': 'Adding β over all directions gives the scattering b; splitting at 90° gives forward and backward scattering; attenuation c = a + b.', 'additivity': 'Each constituent absorbs or scatters on its own, so the totals are sums: model every component alone, then add them.', 'beer': 'A collimated beam decays exponentially at rate c; measure the transmitted fraction T over a known path to find c.', 'vsf_morel': 'Pure sea water scatters almost like air (∝ λ⁻⁴·³): blue far more than red, 30 % more with salt, equal forward and backward.', 'vsf_buit': 'The same law refitted in 1994: slightly smaller amplitude and exponent, smaller depolarisation.', 'bw_closed': 'Integrating the VSF over all angles gives the total scattering of water; exactly half of it is backward.', 'es': 'Scattering by pure water comes from density fluctuations of the molecules: stronger when hotter, more compressible, and at short wavelengths.', 'a_water': 'Absorption comes from the imaginary part of the refractive index; scattering comes from the real part.', 'package': 'Pigments packed in a large cell shade each other, so the cell absorbs less than the same pigment in solution; the factor falls from 1 toward 0 as cells grow.', 'expabs': 'Dissolved and detrital matter absorb exponentially more toward the blue; the slope tells marine from terrestrial material.', 'cdom_twar': 'A power law λ⁻⁶·⁹² describes CDOM about as well as the exponential in the visible.', 'nap_fe': 'Mineral absorption in the UV–blue grows linearly with iron content.', 'powerlaw': 'Particle scattering varies weakly with wavelength as a power law; its exponent follows the size distribution (ξ = γ + 3).', 'junge_tb': 'The lecture and the textbook write the same Junge size law with different conventions, so ξ = 4 in lecture notation.', 'bp_abs': 'Absorption inside particles pulls the measured scattering down by 5–30 % in the blue.', 'phase_ratio': 'The blue/green ratio of the particle phase function at 140° falls as detrital absorption grows.', 'bb117': 'Measure scattering at 117°, remove pure water, then multiply by 2πχ to get the backscattering of particles.', 'iop_sum': 'Any particle IOP is a sum over particle classes of number × efficiency × geometric area.', 'bp_chl': 'More chlorophyll means more scattering particles, but less than proportionally (exponent 0.7); the spread is a factor 2–3.', 'poc_spm': 'The red-to-green absorption ratio of particles indicates how organic the suspended matter is.', 'mixing': 'If river and ocean water only mix, CDOM falls linearly with salinity from ≥ 10 m⁻¹ to ≤ 0.1 m⁻¹.', 'spectral': 'Three spectral fingerprints: exponential for CDOM and NAP, a weak power law for particles, almost Rayleigh for water.', 'kd': 'Light decays with depth at rate K_d: the 1 % depth is 4.6/K_d, and the Secchi depth is set by K_d and c.', 'refl': 'Reflectance is upwelling over downwelling light; the satellite quantity R_rs is water-leaving radiance over irradiance.', 'gordon': 'More backscattering raises the reflectance, more absorption lowers it (classical result, not on the crawled pages).'}
+for _k, _v in GIST.items(): EQS[_k]['gist'] = _v
+
+
+GIST_VSF = 'Pure sea water scatters almost like air (∝ λ⁻⁴·³): blue far more than red, 30 % more with salt, equal forward and backward.'
+def subeq(new, base, idxs, label, gist):
+    b = EQS[base]; lines = [b['lines'][i] for i in idxs]
+    used = set(re.findall(r'\\sym\{(\w+)\}', ''.join(lines)))
+    syms = {k: v for k, v in b['syms'].items() if k in used}
+    EQS[new] = dict(label=label, lines=lines, syms=syms, order=[k for k in b['order'] if k in used], example=[x for x in b['example']], vi=b['vi'], gist=gist)
+subeq('bp_power', 'powerlaw', [0], 'Particle scattering power law (slide 49)', 'Particle scattering varies weakly with wavelength as a power law: flat for large particles (n → 0), steep for small ones (n → −3).')
+subeq('vsf_main', 'vsf_morel', [0], 'Pure sea-water VSF, Morel 1974 (slide 20)', GIST_VSF)
+subeq('psd', 'powerlaw', [1, 2], 'Size distribution and attenuation slope (slide 68)', 'Particle numbers fall off as a power of diameter; the attenuation spectrum follows a power law whose slope is the size slope minus 3.')
+
 # worked-example helper: static big KaTeX lines
 def KL(*lines, cap=''):
     ls = ''.join(f'<div class="kx wex" data-tex="{html.escape(l, quote=True)}">{html.escape(l)}</div>' for l in lines)
     return f'<div class="wexbox">{ls}' + (f'<p class="wexcap">{cap}</p>' if cap else '') + '</div>'
-def Ks(*lines):
+def Ks(*lines, cap=''):
     """static big formulas for a slide column"""
-    return '<div class="kxs">' + ''.join(f'<div class="kx fit" data-tex="{html.escape(l, quote=True)}">{html.escape(l)}</div>' for l in lines) + '</div>'
+    return '<div class="kxs">' + ''.join(f'<div class="kx fit" data-tex="{html.escape(l, quote=True)}">{html.escape(l)}</div>' for l in lines) + (f'<div class="kcap">{cap}</div>' if cap else '') + '</div>'
 
 # ---------------------------------------------------------------------------------------------------------------- rendering
 def _esc(s): return html.escape(s, quote=True)
 def E(name, slide=False, fs=None):
     d = EQS[name]; syms = d['syms']
-    st = lambda i: (f' data-fs="{fs if i == 0 else fs - 1}" style="font-size:{fs if i == 0 else fs - 1}px"' if (slide and fs) else '')
+    st = lambda i: (f' data-fs="{fs}" style="font-size:{fs}px"' if (slide and fs) else '')
     lines = ''.join(f'<div class="kx{" sm" if i > 0 else ""}"{st(i)} data-tex="{_esc(render_tex(l, syms))}">{_esc(l)}</div>' for i, l in enumerate(d['lines']))
     data = {k: dict(syms[k], color=COL[syms[k]['c']]) for k in d['order']}
     data['_order'] = d['order']; data['_example'] = [render_tex(x, syms) for x in d['example']]; data['_vi'] = d['vi']
@@ -377,14 +391,25 @@ def E(name, slide=False, fs=None):
                  f'<td><b>{_esc(s["name"])}</b>{(" <small>[" + _esc(s["unit"]) + "]</small>") if s["unit"] else ""}</td><td>{_esc(s["meaning"])}</td><td class="imp"><i>{_esc(s["implication"])}</i></td><td class="vals">{vals}</td></tr>')
     hint = '<div class="eqhint">Click any coloured symbol (or a row of the table): it pops up in a frame, an arrow points to it from a note box, and its meaning, unit and the numbers assigned to it appear.</div>'
     bar = ('<div class="eqbar"><button type="button" class="btn alt eqprev">◀ previous</button><button type="button" class="btn eqnext">next symbol ▶</button>'
-           + ('<button type="button" class="btn alt eqplugbtn">Plug in numbers</button>' if d['example'] else '') + '<button type="button" class="btn alt eqclear">Show all</button></div>')
-    idle = '<div class="eqidle">Click any coloured symbol: it pops up and its meaning, unit and numbers appear here, with an arrow.</div>' if slide else ''
+           + ('<button type="button" class="btn alt eqplugbtn">Plug in numbers</button>' if d['example'] else '') + '<button type="button" class="btn alt eqclear">Show all</button>' + ('<span class="eqtapb">Click any symbol for its meaning, unit and numbers</span>' if slide else '') + '</div>')
+    def flat(t): return re.sub(r'\\frac\{([^{}]*)\}\{([^{}]*)\}', lambda m: ('(%s)/(%s)' % (m.group(1), m.group(2))) if re.search(r'[+\-]', m.group(1) + m.group(2)) else '%s/%s' % (m.group(1), m.group(2)), t)
+    keys = ''.join(f'<span class="keyc" data-k="{k}"><span class="kx inl" data-tex="{_esc(chr(92) + "textcolor{" + COL[syms[k]["c"]] + "}{" + flat(syms[k]["tex"]) + "}")}">{_esc(syms[k]["tex"])}</span> {_esc(syms[k]["name"])}{(" <small>[" + _esc(syms[k]["unit"]) + "]</small>") if syms[k]["unit"] else ""}</span>' for k in d['order'])
+    idle = (f'<div class="eqidle"><div class="eqgist">{_esc(d.get("gist", ""))}</div><div class="eqkey">{keys}</div></div>') if slide else ''
     stage = f'<div class="eqstage"><svg class="eqarrows"></svg>{lines}{idle}</div>'
-    lab = f'<div class="eqlab">{_esc(d["label"])}</div>'
+    lab = f'<div class="eqlab">{_esc(d["label"])}</div>' + (f'<div class="eqgist">{_esc(d["gist"])}</div>' if d.get('gist') else '')
     vi = f'<div class="eqvi">{_esc(d["vi"])}</div>' if d['vi'] else ''
     plug = '<div class="eqplug" hidden></div><div class="eqinfo" hidden></div>'
     single = ' data-single="1"' if len(d['lines']) == 1 else ''
     if slide:
         return f'<div class="eqbig slide" data-eq="{name}"{single}>{stage}{bar}{plug}<script type="application/json" class="eqdata">{js}</script></div>'
     return f'<div class="eqbig" data-eq="{name}"{single}>{lab}{hint}{stage}{bar}{plug}<table class="eqleg">{head}{rows}</table>{vi}<script type="application/json" class="eqdata">{js}</script></div>'
-def Es(name, fs=None): return E(name, slide=True, fs=fs)
+SLIDE_FS = {'rte': 28, 'vsf_morel': 28, 'vsf_buit': 28, 'iop_b': 32, 'kd': 30, 'iop_sum': 32, 'bp_power': 34, 'psd': 34, 'vsf_main': 32, 'bw_closed': 34}
+def Es(name, fs=None): return E(name, slide=True, fs=SLIDE_FS.get(name, fs))
+
+def Krows(rows):
+    """rows: [(chip word, tex, caption)] -> stacked bands, one big formula each (slide)"""
+    out = ''
+    for chip, tex, cap in rows:
+        out += (f'<div class="krow"><div class="kchip">{chip}</div><div class="kbody"><div class="kx fit" data-tex="{html.escape(tex, quote=True)}">{html.escape(tex)}</div>'
+                f'<div class="kcap">{cap}</div></div></div>')
+    return f'<div class="krows">{out}</div>'

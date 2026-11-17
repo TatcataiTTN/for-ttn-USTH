@@ -71,11 +71,11 @@ def build():
         S('An under-sampled ocean', cols(LS(2, 430), dul(['Scales from mm to 10 000 km', 'Seconds to 100 years', 'No single platform covers all', 'Munk (2000): “a century of undersampling”']), flex=[3, 2])),
         S('Profiling float', cols(LS(94, 430), dul(['Sinks to 2000 m', 'Measures while rising', 'Data sent by satellite']), flex=[3, 2])),
         S('Bio-optical profiling float', cols(LS(97, 430), dul(['Radiometer 412/490/532', 'Transmissometer 660 nm', 'Chl and CDOM fluorometers', 'Backscatter 555 nm']), flex=[3, 2])),
-        S('Bio-optical glider', cols(LS(98, 430), dul(['b<sub>bp</sub>, Chl, CDOM', 'E<sub>d</sub> and L<sub>u</sub> at 4 λ', 'CTD and oxygen']), flex=[3, 2])),
+        S('Bio-optical glider', cols(LS(98, 430), dul(['Backscatter, Chl and CDOM fluorescence', 'Downwelling irradiance and upwelling radiance, 4 wavelengths', 'CTD and oxygen']), flex=[3, 2])),
         S('Seven contributions of autonomous platforms', cols(LS(101, 430), dul(['Extend the satellite signal inward', 'Validate products and models', 'Assimilate into models', 'Trends; interior patterns']), flex=[3, 2])),
         S('Sampling under clouds and in winter', cols(LS(102, 430), dul(['Float versus SeaWiFS and MODIS', 'Spring 2005 bloom missed from space', 'Slide 103: winter mixing, South Pacific Gyre']), flex=[3, 2])),
         S('Gliders across a front', cols(LS(109, 430), dul(['Currents, density, salinity', 'Chl and CDOM sections', 'Ligurian Sea, Jan 2007']), flex=[3, 2])),
-        S('Argo and BGC-Argo', cols(LS(115, 430, 'Lecture slide 115 (May 2025)'), dul(['Argo: 4153 floats (30 Jun 2025)', f'BGC-Argo operational: {G["operational"]}', f'Oxygen {G["oxygen"]}, b<sub>bp</sub> {G["suspended_particles"]}', f'Full BGC floats: {G["full_bgc"]}']), flex=[3, 2])),
+        S('Argo and BGC-Argo', cols(LS(115, 430, 'Lecture slide 115 (May 2025)'), dul(['Argo: 4153 floats (30 Jun 2025)', f'BGC-Argo operational: {G["operational"]}', f'Oxygen {G["oxygen"]}, particle backscatter {G["suspended_particles"]}', f'Full BGC floats: {G["full_bgc"]}']), flex=[3, 2])),
         S('BGC-Argo sensors', img('bgc_sensors', 1160, cap='Own plot of the counts read from lecture slide 115 (May 2025)')),
         S('Key points', dul(['Ocean undersampled in space and time', 'Floats and gliders add the vertical dimension', 'Seven contributions (slide 101)', 'BGC-Argo: oxygen on nearly all, optics on 550–790'], xl=True)),
     ]

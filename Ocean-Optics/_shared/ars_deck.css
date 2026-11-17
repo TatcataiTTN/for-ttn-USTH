@@ -23,7 +23,7 @@ ul.lg2 li b{color:#273896;font-family:"STIX Two Text","Times New Roman",Georgia,
 .mdeck-slide.th0.active>.chk{flex:0 0 auto}
 /* ---- interactive equations on slides (1280x720, text >= 20 px) ---- */
 .eqbig.slide{border:3px solid #273896;border-radius:16px;padding:6px 12px 10px;margin:4px 0;background:#fff}
-.eqbig.slide .eqstage{padding:6px 4px 170px;overflow:visible;min-height:480px}
+.eqbig.slide .eqstage{padding:6px 4px 6px;overflow:visible;min-height:455px}
 .eqbig.slide .katex-display{margin:0}.eqbig.slide .katex{font-size:1.1em}
 .eqbig.slide .eqstage .kx{font-size:34px;text-align:center;padding:2px 0;color:#1d2433}
 .eqbig.slide .eqstage .kx.sm{font-size:30px}
@@ -53,10 +53,10 @@ ul.lg2 li b{color:#273896;font-family:"STIX Two Text","Times New Roman",Georgia,
 .eqbar{display:flex;gap:10px;margin-top:4px}
 .eqbar .btn{font-size:20px;padding:6px 16px;border:1px solid #9aa3b5;background:#f1f3f8;border-radius:8px;cursor:pointer}
 .eqbar .btn.eqnext{background:#e0314b;color:#fff;border-color:#e0314b}
-.eqbig.slide .eqidle{position:absolute;left:8px;right:8px;bottom:56px;font-size:22px;color:#4a5365;text-align:center}
+.eqbig.slide .eqidle{position:relative;margin-top:8px;color:#1d2433}
 .eqbig.slide .eqcall.bottom{font-size:21px;line-height:1.22}
 .eqbig.slide .eqcall .ch{font-size:23px;padding:3px 14px}
-.eqbig.slide .eqcall .cb{display:grid;grid-template-columns:1.3fr 1fr;gap:2px 20px;padding:4px 14px 6px;align-items:start}
+.eqbig.slide .eqcall .cb{display:grid;grid-template-columns:1.7fr 1fr;gap:2px 20px;padding:4px 14px 6px;align-items:start}
 .eqbig.slide .eqcall .cv{margin:0;border-top:0;border-left:2px solid #d6d9e4;padding:0 0 0 14px}
 .eqbig.slide .eqcall .cv ul{margin:2px 0 0}
 .eqbig.slide .eqcall .cv > b:first-child{display:none}
@@ -68,3 +68,21 @@ ul.lg2 li b{color:#273896;font-family:"STIX Two Text","Times New Roman",Georgia,
 .kxs{display:flex;flex-direction:column;justify-content:center;gap:18px;min-height:430px}
 .kxs .kx{font-size:36px;text-align:left;color:#1d2433}
 .kxs .katex-display{margin:0}.kxs .katex{font-size:1.1em}
+/* ---- stacked big formulas (no cards) ---- */
+.krows{display:flex;flex-direction:column;gap:14px;margin-top:4px}
+.krow{display:flex;align-items:center;gap:20px;border:3px solid #273896;border-radius:14px;padding:8px 18px;background:#fff;min-height:168px}
+.kchip{flex:0 0 190px;background:#273896;color:#fff;border-radius:10px;font-weight:800;font-size:26px;text-align:center;padding:10px 8px}
+.kbody{flex:1;min-width:0}.kbody .kx{font-size:42px;text-align:center;color:#1d2433}.kbody .katex-display{margin:0}
+.kcap{font-size:22px;color:#4a5365;text-align:center;margin-top:2px}
+.eqbig.slide .eqgist{font-size:23px;font-weight:700;line-height:1.2;color:#273896;margin:0 0 4px;text-align:left}
+.eqbig.slide .eqkey{display:grid;grid-template-columns:repeat(3,1fr);gap:1px 16px}
+.eqbig.slide .keyc{font-size:20px;line-height:1.25;cursor:pointer;display:flex;align-items:baseline;gap:8px;padding:1px 4px;border-radius:6px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.eqbig.slide .keyc .kx.inl{font-size:30px;flex:0 0 auto;padding:0}.eqbig.slide .keyc small{font-size:20px;color:#4a5365}
+.eqbig.slide .keyc:hover{background:#e8f0fb}
+.eqbig.slide .eqtap{font-size:20px;color:#4a5365;margin-top:3px}
+.kxs .kcap{font-size:23px;color:#4a5365;line-height:1.25}
+.eqbig.slide .keyc small{display:none}
+.eqbig.slide .eqtapb{font-size:20px;color:#4a5365;align-self:center;margin-left:8px}
+.eqbig.slide .eqkey{gap:0 16px}
+.eqbig.slide .eqbar .btn{white-space:nowrap;flex:0 0 auto}
+.eqbig.slide .eqtapb{flex:1 1 auto}

@@ -24,7 +24,7 @@
       while (svg.firstChild) svg.removeChild(svg.firstChild);
       stage.style.paddingTop = ''; stage.style.paddingBottom = '';
       [].forEach.call(box.querySelectorAll('tr.lr'), function (r) { r.classList.remove('sel'); });
-      info.hidden = true; var idle = stage.querySelector('.eqidle'); if (idle) idle.hidden = false;
+      info.hidden = true; var idle = stage.querySelector('.eqidle'); if (idle) idle.style.visibility = '';
     }
     function textExtent(h) {   // real horizontal extent of the visible glyphs (ignores stretchy-svg strips and block widths)
       var l = 1e9, r = -1e9;
@@ -37,6 +37,7 @@
     function fit() {
       var sl = stage.closest('.mdeck-slide'); if (!stage.offsetWidth || (sl && !sl.classList.contains('active'))) return;
       [].forEach.call(stage.querySelectorAll('.kx'), function (k) {
+        if (k.closest('.eqidle')) return;
         k.style.fontSize = k.getAttribute('data-fs') ? k.getAttribute('data-fs') + 'px' : ''; var h = k.querySelector('.katex-html'); if (!h) return;
         var fs0 = parseFloat(getComputedStyle(k).fontSize), w = stage.clientWidth - 24, sw = textExtent(h);
         if (sw > w) k.style.fontSize = Math.max(16, fs0 * w / sw * 0.97) + 'px';
@@ -50,7 +51,7 @@
     function glyphRects() {
       var sr = stage.getBoundingClientRect(), sc = scaleOf(), out = [];
       [].forEach.call(stage.querySelectorAll('.katex-html *'), function (e) {
-        if (e.children.length || !e.textContent.replace(/[\u200b\u00a0\s]/g, '')) return;
+        if (e.closest('.eqidle') || e.closest('.eqcall') || e.children.length || !e.textContent.replace(/[\u200b\u00a0\s]/g, '')) return;
         var q = e.getBoundingClientRect(); if (q.width) out.push({ x: (q.left - sr.left) / sc, y: (q.top - sr.top) / sc, w: q.width / sc, h: q.height / sc });
       });
       return out;
@@ -77,11 +78,11 @@
       });
     }
     function select(i) {
-      clear(); fit(); cur = i; var idl = stage.querySelector('.eqidle'); if (idl) idl.hidden = true; var k = order[i], S = D[k], list = spans(k); if (!list.length) return; var key = k;
+      clear(); fit(); cur = i; var idl = stage.querySelector('.eqidle'); if (idl) idl.style.visibility = 'hidden'; var k = order[i], S = D[k], list = spans(k); if (!list.length) return; var key = k;
       [].forEach.call(stage.querySelectorAll('.ks'), function (s) { s.classList.add('dim'); });
       list.forEach(function (s) { s.classList.remove('dim'); s.classList.add('on'); [].forEach.call(s.querySelectorAll('.ks'), function (q) { q.classList.remove('dim'); }); });
       var row = box.querySelector('tr.lr[data-k="' + k + '"]'); if (row) row.classList.add('sel');
-      var vals = (S.values || []).map(function (v) { return '<li>' + esc(v[0]) + ': <b>' + esc(v[1]) + '</b> <small>(' + esc(v[2]) + ')</small></li>'; }).join('');
+      var vals = (S.values || []).slice(0, slideMode ? 2 : 99).map(function (v) { return '<li>' + esc(v[0]) + ': <b>' + esc(v[1]) + '</b> <small>(' + esc(v[2]) + ')</small></li>'; }).join('');
       callout = el('div', 'eqcall', '<div class="ch" style="background:' + S.color + '">' + esc(S.name) + (S.unit ? ' <span>[' + esc(S.unit) + ']</span>' : '') + '</div><div class="cb"><div class="cm"><p>' + esc(S.meaning) + '</p>' +
         (S.implication ? '<p class="imp">→ ' + esc(S.implication) + '</p>' : '') + '</div>' + (vals ? '<div class="cv"><b>Numbers assigned</b><ul>' + vals + '</ul></div>' : '') + '</div>');
       callout.style.borderColor = S.color; stage.appendChild(callout);
@@ -116,6 +117,7 @@
       var row = box.querySelector('tr.lr[data-k="' + k + '"]'); if (row) row.addEventListener('click', function () { select(i); });
     });
     stage.addEventListener('click', function (ev) { if (ev.target === stage) showAll(); });
+    [].forEach.call(box.querySelectorAll('.keyc'), function (c) { c.addEventListener('click', function () { var i = order.indexOf(c.getAttribute('data-k')); if (i >= 0) select(i); }); });
     var pv = box.querySelector('.eqprev'), nx = box.querySelector('.eqnext'), cl = box.querySelector('.eqclear'), pb = box.querySelector('.eqplugbtn');
     if (nx) nx.onclick = function () { select((cur + 1) % order.length); };
     if (pv) pv.onclick = function () { select((cur - 1 + order.length) % order.length); };

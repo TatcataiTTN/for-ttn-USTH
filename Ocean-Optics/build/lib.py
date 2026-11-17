@@ -5,7 +5,7 @@ sys.path.insert(0, os.path.dirname(__file__))
 from hx import esc, callout as hx_callout, table as hx_table, ul as hx_ul, ex, formula, code
 from deck_helpers import slide, tbl, callout, tblock, cols as qcols, apply_usth_theme, deck_html
 import eqs
-from eqs import E as EQ, Es as EQS_, KL, Ks
+from eqs import E as EQ, Es as EQS_, KL, Ks, Krows, sci
 from deck_components import img, card, cards, ul as dul, cols as dcols, table as dtable, matrix, CHIP, pipeline_svg
 
 _here = os.path.abspath(os.path.dirname(__file__))

@@ -67,16 +67,16 @@ def build():
 
     sl = [
         S('Phytoplankton pigments', cols(LS(29, 430, 'Lecture slide 29 (Bricaud et al., 2004)'), dul(['Chl a: 443 and 675 nm', 'Carotenoids: 450–500 nm', 'Chl c: 465 and 635 nm', 'Phaeopigments']), flex=[3, 2])),
-        S('Variability of specific absorption', cols(LS(32, 430, 'Lecture slide 32 (Bricaud et al., 1995; 2004)'), dul(['a*<sub>ph</sub> varies by ≈ ×4', 'Falls as Chl increases', 'Package effect or pigment content?']), flex=[3, 2])),
+        S('Variability of specific absorption', cols(LS(32, 430, 'Lecture slide 32 (Bricaud et al., 1995; 2004)'), dul(['Chl-specific absorption varies by ≈ ×4', 'Falls as Chl increases', 'Package effect or pigment content?']), flex=[3, 2])),
         S('Package effect, symbol by symbol', EQS_('package')),
-        S('The package effect', cols(LS(33, 430), dul(['Absorption in cells ÷ in solution', '1 = no packaging', '→ 0 = maximal packaging', 'Cells larger at high Chl']), flex=[3, 2])),
+        S('The package effect', cols(LS(33, 430), dul(['Absorption in cells ÷ in solution', 'No packaging: factor 1', 'Maximal packaging: factor → 0', 'Cells larger at high Chl']), flex=[3, 2])),
         S('Package factor of a sphere', img('package_effect', 700, cap='Own computation: Q*<sub>a</sub> versus ρ = (intracellular absorption) × (diameter); verified by two methods')),
         S('Non-algal particles', cols(LS(37, 430, 'Lecture slide 37 (Babin &amp; Stramski, 2004)'), dul(['Exponential increase to the blue', 'S ≈ 0.011 nm⁻¹ (slide 35)', 'Iron content raises UV–blue absorption (slide 38)']), flex=[3, 2])),
         S('CDOM absorption model', cols(LS(41, 430), dul(['Exponential decay toward the red', 'S′ ≈ 0.014 nm⁻¹', 'High S′: fulvic (marine)', 'Low S′: humic (terrestrial)']), flex=[3, 2])),
         S('Exponential absorption, symbol by symbol', EQS_('expabs')),
         S('Spectral shapes of CDOM and NAP', img('exp_absorption', 1160, cap='Own computation, normalised at 440 nm: exponential laws S = 0.014 and 0.011 nm⁻¹ and the λ<sup>−6.92</sup> alternative')),
         S('Absorption budget in two water types', cols(LS(45, 430), dul(['Case 1: minimum in the blue', 'Case 2: ×10 larger scale', 'Case 2 minimum near 570 nm', 'Water + Chl + CDOM + NAP']), flex=[3, 2])),
-        S('Key points', dul(['Chl a peaks 443 and 675 nm', 'Package effect: Q*<sub>a</sub> from 1 to 0', 'CDOM S′ = 0.014; NAP S = 0.011 nm⁻¹', 'a<sub>cdm</sub> = a<sub>cdom</sub> + a<sub>nap</sub>, ≈ 90 % CDOM'], xl=True)),
+        S('Key points', dul(['Chl a peaks 443 and 675 nm', 'Package factor from 1 to 0', 'CDOM slope 0.014, NAP slope 0.011 nm⁻¹', 'CDOM and NAP lumped together; ≈ 90 % CDOM'], xl=True)),
     ]
     mod = dict(id='mc', slug='03-absorption', title='C · Absorption', en='Phytoplankton, non-algal particles, CDOM and a_cdm (slides 28–45)',
                qtitle='Guiding question: who absorbs light in the sea, at which wavelengths, and how does packaging change it?',

@@ -1,6 +1,6 @@
 {
  "p0": {
-  "slides": 13,
+  "slides": 14,
   "mcq": 14,
   "essays": 2,
   "rebalanced": 0,
@@ -17,7 +17,7 @@
   }
  },
  "ma": {
-  "slides": 14,
+  "slides": 13,
   "mcq": 19,
   "essays": 3,
   "rebalanced": 3,
@@ -34,7 +34,7 @@
   }
  },
  "mb": {
-  "slides": 13,
+  "slides": 14,
   "mcq": 15,
   "essays": 2,
   "rebalanced": 5,
@@ -68,7 +68,7 @@
   }
  },
  "md": {
-  "slides": 14,
+  "slides": 15,
   "mcq": 15,
   "essays": 2,
   "rebalanced": 5,
@@ -119,7 +119,7 @@
   }
  },
  "mg": {
-  "slides": 10,
+  "slides": 9,
   "mcq": 14,
   "essays": 2,
   "rebalanced": 0,

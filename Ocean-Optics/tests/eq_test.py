@@ -37,7 +37,7 @@ for m in MODS:
             r = d.execute_script("""var sl=document.querySelector('.mdeck-slide.active'), b=sl.querySelector('.eqbig'), e=b.querySelector('.ks-%s'); if(!e) return null; e.click();
               var c=b.querySelector('.eqcall'); if(!c) return [0];
               var sr=sl.getBoundingClientRect(), k=sr.width/1280, cr=c.getBoundingClientRect(), over=0;
-              b.querySelectorAll('.katex-html *').forEach(function(g){ if(g.children.length||!g.textContent.replace(/[\\u200b\\u00a0\\s]/g,'')) return; var q=g.getBoundingClientRect(); if(!q.width) return;
+              b.querySelectorAll('.katex-html *').forEach(function(g){ if(g.closest('.eqidle')||g.children.length||!g.textContent.replace(/[\\u200b\\u00a0\\s]/g,'')) return; var q=g.getBoundingClientRect(); if(!q.width) return;
                  var w=Math.min(cr.right,q.right)-Math.max(cr.left,q.left), h=Math.min(cr.bottom,q.bottom)-Math.max(cr.top,q.top); if(w>2&&h>2) over++; });
               var bb=b.getBoundingClientRect(); return [1, over, Math.round((cr.bottom-sr.top)/k), Math.round((bb.bottom-sr.top)/k)];""" % k)
             ck(f'slide {m}#{i}/{nm}/{k} exists', r is not None and r[0] == 1, r)
