@@ -1,0 +1,195 @@
+# Introduction to Optical Constituents of the Ocean
+
+Emmanuel Boss, Collin Roesler, and Curtis Mobley contributed to this
+page.
+Classifying the Optically Important Marine Particles
+The in-water constituents that aﬀect aquatic optical properties are traditionally
+lumped into the following categories:
+Sea water (water + inorganic dissolved materials)
+Colored (or chromophoric) dissolved organic material (CDOM)
+Phytoplankton
+Non-phytoplankton organic particles
+Inorganic particles
+Bubbles
+The constituents are identiﬁed operationally based upon how we
+measure their optical properties and are often are grouped by like optical
+properties. For example, the distinction between particulate and dissolved is
+operationally deﬁned by the ﬁlter type or pore size, often a ﬁlter pore size of
+⟦0 . 2 μ m⟧ . It is
+essential to remember that (1) the strict chemical deﬁnition is quite diﬀerent, (2)
+ﬁlter pore size varies from author to author, and (3) it is important to keep track of
+pore sizes to ensure closure (i.e., don’t deﬁne dissolved organic matter by the ﬁltrate
+of a ⟦0 . 2 μ m⟧
+pore sized ﬁlter and then measure particulates on a
+⟦0 . 7 μ m⟧ pore
+size GF/F ﬁlter). Similarly, often all of the non-phytoplankton particles are
+lumped into a single compartment because their optical properties can be quite
+similar. Sometimes all of the particulate material is lumped together into
+suspended particulate material (SPM), or part of it into particulate organic
+material (POM). This is often done when studying a speciﬁc bio-geochemical
+property using optics.
+The diﬀerentiation between dissolved and particulate materials (using a ﬁlter)
+does not imply that the dissolved material is organic, though this is most often
+the assumption. For example, inorganic dissolved substances such as iron oxides
+(rust) could contribute in certain cases.
+A more detailed classiﬁcation of optically important particles is as
+follows:
+Biogeochemical classiﬁcation
+Particulate Organic Material (POC): Includes
+all living or once-living particulate matter such as phytoplankton
+and detritus.
+Particulate Inorganic Material (PIC): Includes all lithogenic and
+mineralic particulate matter such as sand and calcium carbonate
+shells, also called Tripton.
+Particulate Material (PM): The total organic and inorganic,
+animate and inanimate particles, also called Seston.
+Biological classiﬁcation
+Algae: Aquatic photosynthetic organisms that can range in size from
+microscopic (phytoplankton) to tens of meters (giant kelp)
+Phytoplankton: Microscopic, single-celled (some form colonies
+or chains), free-ﬂoating, aerobic (live in an oxygenated
+environment), oxygenic (produce oxygen during photosynthesis)
+organisms that possess chlorophyll-a and photosynthesize.
+Some maybe mixotrophic (photosynthetic and heterotrophic).
+Includes prokaryotes (cyanobacteria) and eukaryotes (diatoms,
+dinoﬂagellates, coccolithophorids, and many others).
+Bacterioplankton: Microscopic, single-celled (some may form
+colonies or chains) prokaryotic (no membrane-bound organells)
+organisms, can be phototrophic (cyanobacteria) or heterotrophic.
+Zooplankton: Single- or multi-cellular free-ﬂoating heterotrophic
+organisms that may consume photosynthetic organism or other
+heterotrophic organisms. They range in size from microscopic to
+macroscopic (visible by eye). While some are locomotive, they are
+advected in ocean currents and therefore planktonic.
+Detritus Non-living particulate organic matter, including dead
+bacterial, phytoplankton and zooplankton cells, fragments of cells
+left from zooplankton grazing, fecal pellets, shells, and marine
+snow aggregates.
+Size classiﬁcation
+Biological:
+Picoplankton: The fraction of plankton between ⟦0 . 2 μ m⟧
+and ⟦2 μ m⟧ .
+Typically phytoplankton.
+Nanoplankton: The fraction of plankton between ⟦2 μ m⟧
+and ⟦2 0 μ m⟧ .
+Typically phytoplankton and single-celled zooplankton.
+Microplankton: The fraction of plankton between ⟦2 0 μ m⟧
+and ⟦2 0 0 μ m ( 0 . 2 m m )⟧ .
+Typically phytoplankton and single-celled zooplankton.
+Mesoplankton: The fraction of plankton between 0.2 mm and 20
+mm. Typically multicellular zooplankton, may include large single
+celled zooplankton and phytoplankton.
+Geological:
+Clay: The fraction of typically lithogenic or mineralic particles that are
+less than ⟦2 μ m⟧
+(0.002 mm).
+Silt: The fraction of typically lithogenic or mineralic particles between
+⟦2 μ m⟧
+and ⟦6 3 μ m⟧
+(0.002 mm and 0.063 mm). Includes subdivisions ﬁne, medium
+and coarse.
+Sand: The fraction of typically lithogenic or mineralic particles between
+0.063 mm ( ⟦6 3 μ m⟧ )
+and 2 mm. Includes subdivisions ﬁne, medium and coarse.
+Operational Classiﬁcation
+Particulate: All matter captured by ﬁltration onto a ﬁlter of deﬁned
+nominal pore size. The two most common pore sizes used to identify
+particles are ⟦0 . 2 μ m⟧
+(e.g., nucleopore ﬁlters) or ⟦0 . 7 μ m⟧
+(e.g., glass ﬁber ﬁlters).
+Dissolved: All matter that passes through the ﬁlter of identiﬁed nominal
+pore size, i.e., ﬁltrate. May include some particulate matter such as
+very small picoplankton, viruses, and colloids. Optically classiﬁed
+as colored dissolved organic matter (CDOM). Chemists classify
+colloids as particles in the 1 nm to ⟦1 μ m⟧
+size range. Marine viruses are typically in the 20-300 nm range.
+Phytoplankton: All particulate
+matter pigmented by phytoplankton-derived pigments, including
+detrital pigments. Deﬁned by extractive methods using solvents
+such as acetone and methanol for most pigments and phosphate
+buﬀers for phycobilipigments.
+Non-algal particles (NAP): The fraction of particulate matter that
+is not extractable (not a phytoplankton pigment). Includes all
+living and detrital organic matter such as the non-pigmented
+portion of phytoplankton cells, detritus, heterotrophic bacteria,
+and viruses. May also include inorganic mineral particles of both
+biogenic (e.g., calcite liths and shells) and terrestrial origin (e.g.,
+clay, silt, and sand). Unfortunately, given the current state of the
+global ocean, we must add tiny particles of plastic to the list of
+NAPs.
+Particulate Inorganic Matter: The fraction of particulate matter
+that is not organic and therefore remains on the ﬁlter after
+combustion, also called dry ash.
+Figure 1 shows the size ranges commonly associated with the diﬀerent
+components of natural waters.
+[IMG /packages/iws_l2h/conversion/files/particle-sizes-700.jpg]
+Figure 1: Approximate size ranges for diﬀerent components of natural
+waters. Redrawn from Stramski et al. (2004) with some additions.
+Figure 1 shows the sizes of various particle types. Figure 2 shows
+how many of diﬀerent types of biological particles typically occur
+in marine waters, expressed as a particle size distribution (PSD)
+⟦n ( D )⟧ .
+⟦D⟧
+is the diameter of an equivalent-volume sphere, and
+⟦n ( D )⟧ gives
+the number of particles per cubic meter, per unit of size range. It must be
+remembered that such a size distribution may be a good average, but may be
+quite incorrect for a given time and location. For example, if a phytoplankton
+bloom is underway, there there will be many more particles of a certain size range,
+which will put a “bump” in the PSD. In open ocean water, there may be almost
+no mineral particles. In coastal waters, river inputs or sediment resuspension may
+make minerals the optically dominant particles. The same can be true in
+open-ocean water if a coccolithophores are shedding their calcite liths. The
+blue line shows a power law size distribution with an exponent of -4, i.e.,
+⟦n ( D ) ∼ D^{− S}⟧ with
+⟦S = 4⟧ . A
+power law distribution with an exponent of -4 is also known as a Junge
+distribution. Figure 3 shows three sets of PSDs measured in coastal waters. The
+red lines are Junge size distributions. It is seen that the Junge distribution gives a
+reasonably good ﬁt over the measured size range, but there are signiﬁcant
+deviations from a power law distribution for some of the measurements, and in
+many cases an power law with a diﬀerent exponent than -4 gives a better
+ﬁt.
+[IMG /packages/iws_l2h/conversion/files/PSD-Stramski-600.png]
+Figure 2: Approximate size distribution of biological particles in the ocean.
+The blue line is a power law distribution with an exponent of -4 centered on
+the picoplankton point. Data courtesy of D. Stramski.
+[IMG /packages/iws_l2h/conversion/files/PSD-3meas-700.jpg]
+Figure 3: Measured particle size distributions in coastal
+waters. The red lines are Junge size distributions,
+⟦n ( D ) ∼ D^{− 4}⟧ .
+Redrawn from Reynolds et al. (2010) with modiﬁcations.
+Modelling the Optical Properties of Marine Particles
+Marine particles are extremely complex and varied in their composition,
+pigmentation, shape, internal structure, and packaging. In order to understand
+their interaction with light some idealization have to be made. Since it is
+impractical to study each individual particle (there are more than a billion
+bacteria in one ml of seawater), particles are lumped into groups of particles
+having similar properties.
+In order to model the optical properties of particles (that is to derive
+analytical or numerical descriptions of these properties) we need empirical data
+providing the necessary inputs (size, shape, index of refraction, internal structure
+and packaging). Some of these data can be obtained from microscopy while others
+need to be deduced from other measurements; for example to obtain information
+on the index of refraction of a sediment grain one could immerse it in oils
+of diﬀerent indexes and microscopically observe when the least optical
+contrast (scattering) is observed. Most often an inverse optical approach is
+observed; that is an optical model (such as Mie theory) is used to ﬁt
+empirical data and the values of the index of refraction that provide the best
+match with the observations are chosen to be those of the suspension. Aas
+(1996) , Table 1, provides a compilation for data on the real part of index of
+refraction of marine particles and the diﬀerent methodologies used to
+obtain them. He also shows how the estimates for phytoplankton are
+consistent with a model of the index of refraction that is based on their
+composition.
+The speciﬁc models for the diﬀerent types particles are provided on their own
+pages. They vary in methodology used to obtain them; some are based strictly on
+observations, either in the lab or in the ﬁeld. Other are based on numerical
+calculations (e.g. using Mie theory) with inputs obtained from observations. The
+latter are particularly useful when laboratory observations are lacking due to the
+complexity associated with the measurements (e.g. the volume scattering
+function). It is particularly satisfying when independent observations and models
+agree (referred to as optical closure), which provides mutual validation for the
+approaches.
+The next few pages examine the optical properties of various constituents.
+Commonly used bio-optical models are surveyed in Level 2.

@@ -1,0 +1,449 @@
+{
+ "view_absorption_absorption_by_oceanic_constituents": {
+  "url": "https://oceanopticsbook.info/view/absorption/absorption-by-oceanic-constituents",
+  "title": "Absorption by Oceanic Constituents",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Pope_Frye_awater-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Pegau_Zaneveld_93_awater.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/flasks_lowres.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/a_phyt_species.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_absorption_absorption_overview": {
+  "url": "https://oceanopticsbook.info/view/absorption/absorption-overview",
+  "title": "Absorption Overview",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Sponge-RGB-2panel.jpg",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/a_water_generic.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/a_phyt_generic.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/a_NAP_generic.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/a_CDOM_generic.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/abs_oligo_eutr.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_absorption_measurement_of_absorption": {
+  "url": "https://oceanopticsbook.info/view/absorption/measurement-of-absorption",
+  "title": "Measurement of Absorption",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CR-absmeas-Fig1.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_absorption_physics_of_absorption": {
+  "url": "https://oceanopticsbook.info/view/absorption/physics-of-absorption",
+  "title": "Physics of Absorption",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/orbital-shapes.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/generic-energy-levels.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/subshell-energy-order.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/absorption1.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Symmetrical-stretch.gif",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Asymmetrical-stretch.gif",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Rotation.gif",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Twisting.gif",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Wagging.gif",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/scissoring.gif",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/absorption2.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/absorption3.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_inherent_and_apparent_optical_properties_apparent_optical_properties": {
+  "url": "https://oceanopticsbook.info/view/inherent-and-apparent-optical-properties/apparent-optical-properties",
+  "title": "Apparent Optical Properties",
+  "images": [],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_inherent_and_apparent_optical_properties_classification_schemes": {
+  "url": "https://oceanopticsbook.info/view/inherent-and-apparent-optical-properties/classification-schemes",
+  "title": "Classification Schemes",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Forel-Ule-500.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Forel-Ule-CIE-700.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Jerlov-788.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/ternary-general-540.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/ternary-example-537.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_inherent_and_apparent_optical_properties_inherent_optical_properties": {
+  "url": "https://oceanopticsbook.info/view/inherent-and-apparent-optical-properties/inherent-optical-properties",
+  "title": "Inherent Optical Properties",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/C3_defineIOPs.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_inherent_and_apparent_optical_properties_k_functions": {
+  "url": "https://oceanopticsbook.info/view/inherent-and-apparent-optical-properties/k-functions",
+  "title": "K functions",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Fig1_Ka2u8U0sun40.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Fig2_Ka2u8U15sun40.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Fig3_Ka2u8U0sun0.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Fig4_Ka8u2U0sun40.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/beamc-ne-Kd-700.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Fig5_K_chl1_z10_inelas.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Fig6_K_chl1_z10_elas.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_inherent_and_apparent_optical_properties_measuring_iops": {
+  "url": "https://oceanopticsbook.info/view/inherent-and-apparent-optical-properties/measuring-iops",
+  "title": "Measuring IOPs",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/C3_measure_c.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/C3_measure_c_detector.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/C3_measure_a_detector.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/C3_measure_VSF.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_inherent_and_apparent_optical_properties_reflectances": {
+  "url": "https://oceanopticsbook.info/view/inherent-and-apparent-optical-properties/reflectances",
+  "title": "Reflectances",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Rfig.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Rrsfig.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Rrsrays.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/R_z0_3Chl_3U_3sun.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Rrs_3Chl_3U_3sun.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Rrs_3Chl_U10_sun50_offnadir.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_inherent_and_apparent_optical_properties_volume_scattering_function": {
+  "url": "https://oceanopticsbook.info/view/inherent-and-apparent-optical-properties/volume-scattering-function",
+  "title": "Introduction",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/OO-org-chart-800.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_introduction_overview": {
+  "url": "https://oceanopticsbook.info/view/introduction/overview",
+  "title": "Overview",
+  "images": [],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_optical_constituents_of_the_ocean_colored_dissolved_organic_matter": {
+  "url": "https://oceanopticsbook.info/view/optical-constituents-of-the-ocean/colored-dissolved-organic-matter",
+  "title": "Colored Dissolved Organic Matter",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/aCDOM2.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_optical_constituents_of_the_ocean_introduction_to_optical_constituents_of_the_ocean": {
+  "url": "https://oceanopticsbook.info/view/optical-constituents-of-the-ocean/introduction-to-optical-constituents-of-the-ocean",
+  "title": "Introduction to Optical Constituents of the Ocean",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/particle-sizes-700.jpg",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/PSD-Stramski-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/PSD-3meas-700.jpg"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_optical_constituents_of_the_ocean_level_2_classic_iop_model_case_1_water": {
+  "url": "https://oceanopticsbook.info/view/optical-constituents-of-the-ocean/level-2/classic-iop-model-case-1-water",
+  "title": "A Classic IOP Model for Case 1 Water",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/astar-ClassicCase1.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_optical_constituents_of_the_ocean_level_2_new_iop_model_case_1_water": {
+  "url": "https://oceanopticsbook.info/view/optical-constituents-of-the-ocean/level-2/new-iop-model-case-1-water",
+  "title": "A New IOP Model for Case 1 Water",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CDM_newIOP_Fig1.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CDM_newIOP_Fig2.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CDM_newIOP_Fig3.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CDM_newIOP_Fig4.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/newIOP-aCDOM-fit-500.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CDM_newIOP_Fig6.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CDM_newIOP_Fig7.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Rrs-new-vs-classic-600.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_optical_constituents_of_the_ocean_level_2_particle_size_distributions": {
+  "url": "https://oceanopticsbook.info/view/optical-constituents-of-the-ocean/level-2/particle-size-distributions",
+  "title": "Particle Size Distributions",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/PSD-Stramski-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/PSD-Runyan-500.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/S-distribution-Runyan-500.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/PSD-NAV-Runyan-700.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Phyto-PSDs.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/aero-PSD2-ocean.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/lognormal2.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_optical_constituents_of_the_ocean_non_algal_particles_nap": {
+  "url": "https://oceanopticsbook.info/view/optical-constituents-of-the-ocean/non-algal-particles-nap",
+  "title": "Non-Algal Particles (NAP)",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Bricaud-Stramski-aNAP-LO-1990-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Babin-2003-SNAP-400.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/bNAP-Taihu-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/astar-min-Ahn-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/astarmin-Stramski2007-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/bstar-min-Ahn-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/bstarmin-Stramski2007-600.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_optical_constituents_of_the_ocean_phytoplankton": {
+  "url": "https://oceanopticsbook.info/view/optical-constituents-of-the-ocean/phytoplankton",
+  "title": "Phytoplankton",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/In_vivo_pigments-900.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Phytoplankton_specific_abs-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Volten-800.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_optical_constituents_of_the_ocean_water": {
+  "url": "https://oceanopticsbook.info/view/optical-constituents-of-the-ocean/water",
+  "title": "Water",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/water-real-index-refr.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/water-imag-index-refr.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/H2OaTS.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/H2ObTS.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/EB_C3_Zhang_Morel_comp.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_photometry_and_visibility_level_2_the_secchi_disk": {
+  "url": "https://oceanopticsbook.info/view/photometry-and-visibility/level-2/the-secchi-disk",
+  "title": "The Secchi Disk",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Angelo-Secchi-300.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Secchi-Disk-in-water-300.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/BW-Secchi-Disk.jpg"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_radiative_transfer_theory_level_2_the_scalar_radiative_transfer_equation": {
+  "url": "https://oceanopticsbook.info/view/radiative-transfer-theory/level-2/the-scalar-radiative-transfer-equation",
+  "title": "The Scalar Radiative Transfer Equation",
+  "images": [],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_radiative_transfer_theory_radiative_transfer_equations": {
+  "url": "https://oceanopticsbook.info/view/radiative-transfer-theory/radiative-transfer-equations",
+  "title": "Radiative Transfer Equations",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/OO-org-chart-800.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_references_brief_definitions": {
+  "url": "https://oceanopticsbook.info/view/references/brief-definitions",
+  "title": "Brief Definitions",
+  "images": [],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_remote_sensing_measures_of_reflectance": {
+  "url": "https://oceanopticsbook.info/view/remote-sensing/measures-of-reflectance",
+  "title": "Measures of Reflectance",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CM_Fresnel.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_remote_sensing_ocean_color": {
+  "url": "https://oceanopticsbook.info/view/remote-sensing/ocean-color",
+  "title": "Ocean Color",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CM_RemSens_SensorBands.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_remote_sensing_terminology": {
+  "url": "https://oceanopticsbook.info/view/remote-sensing/terminology",
+  "title": "Terminology",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CM-resolution600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CM-error600.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_scattering_level_2_chlorophyll_fluorescence": {
+  "url": "https://oceanopticsbook.info/view/scattering/level-2/chlorophyll-fluorescence",
+  "title": "Chlorophyll Fluorescence",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Chl-fluores-emission.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/PhiCvsdepth-500.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/PhiC-Eo.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/RrsEdz4.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/RrsChl05.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_scattering_level_2_mie_theory_approximations": {
+  "url": "https://oceanopticsbook.info/view/scattering/level-2/mie-theory-approximations",
+  "title": "The Henyey-Greenstein Phase Function",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/HG_fig1.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/HG_fig2.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_scattering_level_2_mie_theory_examples": {
+  "url": "https://oceanopticsbook.info/view/scattering/level-2/mie-theory-examples",
+  "title": "The Henyey-Greenstein Phase Function",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/HG_fig1.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/HG_fig2.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_scattering_level_2_mie_theory_overview": {
+  "url": "https://oceanopticsbook.info/view/scattering/level-2/mie-theory-overview",
+  "title": "The Henyey-Greenstein Phase Function",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/HG_fig1.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/HG_fig2.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_scattering_petzolds_measurements": {
+  "url": "https://oceanopticsbook.info/view/scattering/petzolds-measurements",
+  "title": "Petzold's Measurements",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CM_Petz_VSF_fig1.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CM_Petz_VSF_fig2.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CM_Petz_pfs_fig3.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CM_Petz_pfs_fig4.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/CM_VSMandPetzpfs.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_scattering_physics_scattering": {
+  "url": "https://oceanopticsbook.info/view/scattering/physics-scattering",
+  "title": "The Physics of Scattering",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/water-real-index-refr-600.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/SnellsLaw-400.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/turbulent-plume-700.png"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ },
+ "view_scattering_scattering_overview": {
+  "url": "https://oceanopticsbook.info/view/scattering/scattering-overview",
+  "title": "Scattering Overview",
+  "images": [
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/Hlogo-visibilty.png",
+   "https://oceanopticsbook.info/packages/iws_l2h/conversion/files/World-wwo-scattering-800.jpg"
+  ],
+  "license": "CC BY 2.0 (site footer)",
+  "authors": "Ocean Optics Web Book, editor Curtis Mobley et al. (per-figure credits on each page)",
+  "redistributed": false,
+  "note": "image NOT copied to our site; we redraw from our own computations and link the page"
+ }
+}

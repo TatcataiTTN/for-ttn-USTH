@@ -1,0 +1,214 @@
+# -*- coding: utf-8 -*-
+"""Khung dựng site Atmospheric-Remote-Sensing (mẫu DSES-USTH): trang bài học, deck 1280x720, ngân hàng câu hỏi, trang chủ."""
+import os, sys, re, json
+sys.path.insert(0, os.path.dirname(__file__))
+from hx import esc, callout as hx_callout, table as hx_table, ul as hx_ul, ex, formula, code
+from deck_helpers import slide, tbl, callout, tblock, cols as qcols, apply_usth_theme, deck_html
+from deck_components import img, card, cards, ul as dul, cols as dcols, table as dtable, matrix, CHIP, pipeline_svg
+
+_here = os.path.abspath(os.path.dirname(__file__))
+ROOT = os.path.abspath(os.path.join(_here, '..', 'site')) if os.path.isdir(os.path.join(_here, '..', 'site')) else os.path.abspath(os.path.join(_here, '..'))   # trong repo triển khai, build/ nằm cạnh index.html
+SITE_TITLE = 'Ocean Optics · USTH'
+SITE_URL = 'https://tatcataittn.github.io/for-ttn-USTH/Ocean-Optics/'
+BRAND = 'Ocean Optics'
+class VN(float):
+    """Float that keeps its type through basic arithmetic (English: decimal point)."""
+    def __format__(self, spec): return float.__format__(float(self), spec)
+    def __str__(self): return repr(float(self))
+    def _w(op): return lambda a, b: VN(op(float(a), float(b)))
+    __add__ = _w(lambda a, b: a + b); __radd__ = _w(lambda a, b: b + a); __sub__ = _w(lambda a, b: a - b); __rsub__ = _w(lambda a, b: b - a)
+    __mul__ = _w(lambda a, b: a * b); __rmul__ = _w(lambda a, b: b * a); __truediv__ = _w(lambda a, b: a / b); __rtruediv__ = _w(lambda a, b: b / a)
+    def __neg__(self): return VN(-float(self))
+VERIFIED = json.load(open(os.path.join(ROOT, 'data', 'verified.json'), encoding='utf-8'), parse_float=VN)
+MODULES = [  # (id, slug, short title, English title)
+    ('p0', 'start-here', 'Start here · The Big 12', 'The 12 ideas to master before the modules: 3 key points, 3 formulas, 3 concepts, 3 principles'),
+    ('ma', '01-light-in-water', 'A · Light in water & IOPs', 'Radiative transfer, a, b, c, the volume scattering function, additivity, Case 1/Case 2 (slides 2–19)'),
+    ('mb', '02-pure-water', 'B · Pure water', 'Pure-water absorption and scattering (slides 20–27)'),
+    ('mc', '03-absorption', 'C · Absorption', 'Phytoplankton, non-algal particles, CDOM and a_cdm (slides 28–45)'),
+    ('md', '04-particle-scattering', 'D · Particle scattering', 'VSF of particles, b_p, b_bp, spectral shape, size and refractive index (slides 46–58)'),
+    ('me', '05-measuring-iops', 'E · Measuring IOPs', 'Transmissometers, ac-type meters, backscattering sensors (slides 59–62)'),
+    ('mf', '06-iop-biogeochemistry', 'F · IOPs and biogeochemistry', 'From IOPs to Chl, POC, CDOM–DOC, fluorescence and diel cycles (slides 63–84)'),
+    ('mg', '07-light-field', 'G · Light field (textbook)', 'AOPs, K_d, reflectance, Secchi depth, IOP–AOP link: NOT in the lecture file, from the textbook'),
+    ('mh', '08-new-platforms', 'H · New platforms', 'Floats, gliders, BGC-Argo and other autonomous platforms (slides 85–120)'),
+]
+SRCLAB = {'p0': 'Course synthesis', 'mg': 'Textbook (oceanopticsbook.info)'}
+LABELS = {'p0': 'Start here', 'ma': 'Part A', 'mb': 'Part B', 'mc': 'Part C', 'md': 'Part D', 'me': 'Part E', 'mf': 'Part F', 'mg': 'Part G', 'mh': 'Part H'}
+NAV = [('Home', '{r}index.html'), ('Start here', '{r}lessons/start-here/index.html'), ('Calculators', '{r}calculators.html'), ('Mock exams', '{r}exam.html'),
+       ('Formulas', '{r}reference.html'), ('Lecture slides', '{r}lecture-slides.html'), ('Sources & limits', '{r}resources.html')]
+FOOT = ('<p><b>Sources:</b> (1) the lecture <i>Marine Optics</i> by Hubert Loisel (LOG; file <code>Optique-marine-English-UBATUBA</code>, 120 slides) — slide numbers are cited as “slide N”; '
+        '(2) the <a href="https://oceanopticsbook.info/">Ocean Optics Web Book</a> (CC BY 2.0), cited by chapter title and URL; (3) home-made checks in Python. '
+        'Every calculated number is recomputed in Python (numpy/scipy) by two independent methods; see <code>data/verified.json</code>. '
+        'Unofficial self-study material by a USTH student; it does not replace the lecturer\'s course and no past exam from the lecturer was available. '
+        'Lecture slides are shown as small selected pages with credit to the lecturer. Official USTH logo; blue #273896 and red #ED1C24 were read from the logo pixels.</p>')
+
+def label(mid): return LABELS.get(mid) or f'Chapter {mid[1:]}'
+
+
+def write(rel, content):
+    p = os.path.join(ROOT, rel); os.makedirs(os.path.dirname(p), exist_ok=True)
+    open(p, 'w', encoding='utf-8').write(content)
+
+def page(title, body, depth, desc='', scripts=(), extra_head=''):
+    r = '../' * depth
+    nav = ''.join(f'<a href="{u.format(r=r)}">{t}</a>' for t, u in NAV)
+    sc = ''.join(f'<script src="{r}_shared/{s}"></script>' for s in scripts)
+    return f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>{esc(title)} · {SITE_TITLE}</title><meta name="description" content="{esc(desc)}">
+<link rel="icon" href="{r}assets/images/usth_logo.png">
+<script>(function(){{try{{var t=localStorage.getItem('site-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);var f=localStorage.getItem('site-font');if(f)document.documentElement.style.fontSize=f}}catch(e){{}}}})();</script>
+<link rel="stylesheet" href="{r}_shared/common.css"><link rel="stylesheet" href="{r}_shared/usth_theme.css"><link rel="stylesheet" href="{r}_shared/ars.css">{extra_head}</head><body>
+<header class="top"><div class="wrap"><a class="brand" href="{r}index.html"><img src="{r}assets/images/usth_logo.png" alt="USTH"> Ocean Optics</a><nav>{nav}
+<details class="menu"><summary>🎨 Appearance</summary><div class="pop"><button data-set-theme="light">Light</button><button data-set-theme="dark">Dark</button><button data-set-theme="sepia">Sepia</button><hr><button data-set-font="14px">Small text</button><button data-set-font="16px">Medium text</button><button data-set-font="19px">Large text</button></div></details></nav></div></header>
+<main class="wrap">{body}</main>
+<footer class="foot"><div class="wrap">{FOOT}</div></footer>
+<script src="{r}_shared/theme.js"></script>{sc}</body></html>'''
+
+# ---------- thành phần cho slide (đơn vị px trên canvas 1280x720, chữ >= 20 px) ----------
+def fm(html, size=None):
+    st = f' style="font-size:{size}px"' if size else ''
+    return f'<div class="fm"{st}>{html}</div>'
+def legend(pairs, cols=2):
+    return f'<ul class="lg2 c{cols}">' + ''.join(f'<li><b>{k}</b> {v}</li>' for k, v in pairs) + '</ul>'
+def fig(name, w, cap, ext='png'):
+    return (f'<figure class="fig ctr"><img src="../assets/images/{name}.{ext}" alt="" style="width:{w}px">'
+            f'<div class="cap">{cap}</div></figure>')
+def cover(title, sub, meta):
+    return (f'<div class="mdeck-slide"><h2>{title}</h2><div class="cover-sub">{sub}</div>'
+            f'<div class="cover-meta">{meta}</div></div>')
+def S(title, body): return slide(title, body)
+def finalize(slides):
+    """Gắn theme USTH, thay hai logo tự chèn bằng chip trắng (logo navy mất chữ nếu đặt lên băng navy)."""
+    out = apply_usth_theme(slides)
+    res = []
+    for i, s in enumerate(out):
+        s = re.sub(r'<img class="usth-emblem[^>]*>', '', s)
+        chip = CHIP.replace('class="logo-chip"', 'class="logo-chip cover-chip"') if (i == 0 or i == len(out) - 1) else CHIP
+        s = s.replace('</h2>', '</h2>' + chip, 1)
+        res.append(s)
+    return res
+
+def deck_page(mid, title, slides):
+    sl = finalize(slides)
+    head = f'''<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Slide · {esc(title)} · {SITE_TITLE}</title>
+<link rel="stylesheet" href="../_shared/deck_usth_theme.css"><link rel="stylesheet" href="../_shared/deck_sizing.css"><link rel="stylesheet" href="../_shared/ars_deck.css"></head><body>'''
+    return head + deck_html(sl) + '<script src="../_shared/deck.js"></script></body></html>'
+
+# ---------- ngân hàng câu hỏi ----------
+def write_bank(mid, slug, title, B, status):
+    items = []
+    for i, it in enumerate(B.items):
+        items.append(dict(id=f'{mid}-{i+1:03d}', q=it['q'], opts=it['opts'], correct=it['correct'], explain=it['explain'],
+                          level=it['level'], topic=it['topic'], origin=it['origin'], src=it['src']))
+    essays = [dict(id=f'{mid}-E{i+1:02d}', q=e['q'], sol=e['sol'], level=e['level'], topic=e['topic'], origin=e['origin'], src=e['src'])
+              for i, e in enumerate(B.essays)]
+    data = dict(module=mid, items=items, essays=essays)
+    body = (f'<p class="crumbs"><a href="../../index.html">Home</a> › <a href="index.html">{esc(title)}</a> › Question bank</p>'
+            f'<h1>Question bank — {esc(title)}</h1><p class="lead">{len(items)} multiple-choice + {len(essays)} essay questions. {esc(status)}</p>'
+            f'<div id="bank"></div><script id="bank-data" type="application/json">' + json.dumps(data, ensure_ascii=False).replace('</', '<\\/') + '</script>')
+    write(f'lessons/{slug}/bank.html', page('Question bank · ' + title, body, 2, scripts=['theme.js', 'bank.js']))
+    return data
+
+def quiz_block(root_id, items):
+    data = json.dumps(dict(items=[dict(q=i['q'], opts=i['opts'], correct=i['correct'], explain=i['explain']) for i in items]),
+                      ensure_ascii=False).replace('</', '<\\/')
+    return f'<div class="quiz"><div id="{root_id}"></div></div><script type="application/json" class="quiz-data" data-root="{root_id}">{data}</script>'
+
+def lesson_page(mod, B, bank_status):
+    """mod: dict(id, slug, title, en, question, sections[(h,html)], checklist[], summary[], calcs[(anchor,label)], figs)."""
+    mid, slug = mod['id'], mod['slug']
+    idx = [m[0] for m in MODULES].index(mid)
+    prev_l = f'<a href="../{MODULES[idx-1][1]}/index.html">← {esc(MODULES[idx-1][2])}</a>' if idx > 0 else '<span></span>'
+    next_l = f'<a href="../{MODULES[idx+1][1]}/index.html">{esc(MODULES[idx+1][2])} →</a>' if idx < len(MODULES) - 1 else '<span></span>'
+    secs = ''.join(f'<h2 id="s{i+1}">{h}</h2>{b}' for i, (h, b) in enumerate(mod['sections']))
+    toc = '<div class="toc"><b>Contents:</b> ' + ' · '.join(f'<a href="#s{i+1}">{h}</a>' for i, (h, _) in enumerate(mod['sections'])) + \
+          (' · <a href="#extra">Worked example, Q&A, memory hooks</a>' if mod.get('v2') else '') + ' · <a href="#checklist">Exam checklist</a> · <a href="#slides">Slides</a> · <a href="#quiz">Quiz</a></div>'
+    chk = '<ul class="chk">' + ''.join(f'<li>{c}</li>' for c in mod['checklist']) + '</ul>'
+    summ = '<ul>' + ''.join(f'<li>{s}</li>' for s in mod['summary']) + '</ul>'
+    calcs = ''
+    if mod.get('calcs'):
+        calcs = '<h2>Practice calculations</h2><p>These tools run in your browser and are checked against Python:</p><p>' + \
+                ' '.join(f'<a class="btn" href="../../calculators.html#{a}">{esc(l)}</a>' for a, l in mod['calcs']) + '</p>'
+    quiz = quiz_block(mid + '-qz', B.items[:mod.get('quiz_n', 10)])
+    body = f'''<p class="crumbs"><a href="../../index.html">Home</a> › {esc(mod['title'])}</p>
+<div class="usth-banner"><img src="../../assets/images/usth_logo.png" alt="USTH"><div><div class="t">{esc(mod['title'])}</div><div class="s">{esc(mod['en'])} · {SRCLAB.get(mid) or 'Lecture: Marine Optics (Loisel)'}</div></div></div>
+<div class="callout"><b class="t">{mod.get('qtitle') or "Guiding question"}</b>{mod['question']}</div>
+{toc}
+{secs}
+{extras_html(mod)}
+<h2 id="checklist">Exam checklist — points you must mention</h2>{chk}
+<div class="callout good"><b class="t">Key points in two lines</b>{summ}</div>
+{calcs}
+<h2 id="slides">Lecture slides ({mod['n_slides']} slides; use ← → keys or the buttons)</h2>
+<div class="deckframe"><iframe src="../../slides/{mid}.html" title="Slide {esc(mod['title'])}" loading="lazy" allow="fullscreen" allowfullscreen></iframe></div>
+<p><a href="../../slides/{mid}.html" target="_blank" rel="noopener">⛶ Open the slides full page</a></p>
+<h2 id="quiz">{mod.get('quiz_title') or 'Quick self-check'} ({mod.get('quiz_n', 10)} of {len(B.items)} questions)</h2>{quiz}
+<p><a class="btn" href="bank.html">Open the full bank: {len(B.items)} multiple-choice + {len(B.essays)} essay questions →</a></p>
+<p class="modnav">{prev_l}{next_l}</p>'''
+    write(f'lessons/{slug}/index.html', page(mod['title'], body, 2, desc=mod['en'], scripts=['theme.js', 'quiz.js', 'gate.js']))
+    write_bank(mid, slug, mod['title'], B, bank_status)
+
+# ---------- hình vừa khít ô nội dung ----------
+from PIL import Image as _PIL
+def figfit(name, cap, hmax=500, wmax=1160, ext='png', folder='fig'):
+    p = os.path.join(ROOT, 'assets', 'images', folder, f'{name}.{ext}')
+    W, H = _PIL.open(p).size
+    w = int(min(wmax, hmax * W / H))
+    return (f'<figure class="fig ctr"><img src="../assets/images/{folder}/{name}.{ext}" alt="" style="width:{w}px">'
+            f'<div class="cap">{cap}</div></figure>')
+def lfig(name, cap, ext='png', folder='fig', w=None):
+    st = f' style="max-width:{w}px"' if w else ''
+    return (f'<figure class="lf"><img src="../../assets/images/{folder}/{name}.{ext}" alt="{esc(cap)}" loading="lazy"{st}>'
+            f'<figcaption>{cap}</figcaption></figure>')
+def eq(label, html): return f'<div class="eq"><small>{label}</small>{html}</div>'
+def model_en(html): return f'<div class="model-en"><div class="lbl">Model answer (English)</div>{html}</div>'
+def keyans(html): return f'<div class="keyans">{html}</div>'
+def finish(mod, slides, B, status):
+    """Ghi trang bài học, ngân hàng, slide; trả về dữ liệu ngân hàng để gom đề thi."""
+    from qcore import audit
+    mod['n_slides'] = len(slides)
+    write(f"slides/{mod['id']}.html", deck_page(mod['id'], mod['title'], slides))
+    lesson_page(mod, B, status)
+    return audit(B.items)
+
+cols = dcols
+
+def ulb(items, size=34, gap=28):
+    """Danh sách chữ lớn để lấp đầy slide ít ý (>= 30 px)."""
+    return '<ul>' + ''.join(f'<li style="font-size:{size}px;margin:{gap}px 0;line-height:1.3">{i}</li>' for i in items) + '</ul>'
+
+def cards2(h, *cs, cols=3):
+    """Lưới thẻ có chiều cao tùy chọn (khi slide còn khối khác)."""
+    return f'<div class="cards" style="grid-template-columns:repeat({cols},1fr);height:{h}px">' + ''.join(cs) + '</div>'
+
+def chk(items):
+    """Slide checklist: mỗi ý một dòng có số, dàn đều chiều cao (lấp đầy vùng nội dung)."""
+    rows = ''.join(f'<div class="chk-row"><span class="chk-n">{i+1}</span><div class="chk-t">{t}</div></div>' for i, t in enumerate(items))
+    return f'<div class="chk">{rows}</div>'
+
+
+def photo_grid(names, hdr=''): return ''
+PHOTOS = {}
+
+def extras_html(mod):
+    v = mod.get('v2')
+    out = ''
+    if v:
+        out += '<h2 id="extra">Worked example, quick Q&amp;A and memory hooks</h2>'
+        if v.get('we'): out += '<div class="ex"><div class="exh">Worked example · ' + v['we_title'] + '</div>' + v['we'] + '</div>'
+        if v.get('qa'): out += '<h3>Quick Q&amp;A</h3><div class="qa">' + ''.join(f'<div class="qa-i"><b>Q:</b> {q}<br><b>A:</b> {a}</div>' for q, a in v['qa']) + '</div>'
+        if v.get('hooks'): out += '<h3>Memory hooks</h3><ul class="hooks">' + ''.join(f'<li>{e}<span class="vi">{vi}</span></li>' for e, vi in v['hooks']) + '</ul>'
+    if mod.get('photos'): out += photo_grid(mod['photos'])
+    out += lecture_strip(mod['id'])
+    return out
+
+
+def lecture_strip(mid):
+    """Thumbnails of the lecture-master pages relevant to a module (click = larger image)."""
+    import lecture_pages as LP
+    pages = LP.MODPAGES.get(mid)
+    if not pages: return ''
+    T = {p: t for p, g, t in LP.P}
+    cells = ''.join(f'<figure class="ph"><a href="../../assets/images/lecture/full/p{p:03d}.jpg" target="_blank" rel="noopener"><img src="../../assets/images/lecture/thumb/p{p:03d}.jpg" loading="lazy" alt="{esc(T[p])}"></a><figcaption><b>p.{p}</b> {esc(T[p])}</figcaption></figure>' for p in pages if p in T)
+    return ('<h2 id="lecpages">Lecture slides for this module (Loisel, Marine Optics)</h2><p style="font-size:.88rem;color:var(--muted)">'
+            f'{len(pages)} slides of the lecture “Marine Optics” (H. Loisel, LOG). Numbers refer to the slide number in the file. Click a page to enlarge; <a href="../../lecture-slides.html">browse all pages</a>.</p><div class="phgrid">{cells}</div>')

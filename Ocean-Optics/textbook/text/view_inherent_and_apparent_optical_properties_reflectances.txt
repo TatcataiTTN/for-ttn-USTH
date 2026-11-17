@@ -1,0 +1,221 @@
+# Reflectances
+
+Various reﬂectances are probably the most commonly used apparent optical properties
+because they are fundamental to remote sensing of the oceans. In the early days of
+ocean color remote sensing, algorithms were developed to relate the irradiance
+reﬂectance ⟦R⟧
+to quantities such as absorption and backscatter coeﬃcients and
+chlorophyll concentrations (e.g., Morel and Prieur, 1977 ; Gordon
+and Morel, 1983 ). More recently, the remote-sensing reﬂectance
+⟦R_{r s}⟧ has
+become the AOP of choice for remote sensing of ocean properties (e.g., O’Reilly
+et al. (1998) ; Mobley et al. (2005) ). This page considers each of these
+reﬂectances.
+The Irradiance Reﬂectance ⟦R⟧
+The spectral irradiance reﬂectance (or irradiance ratio ),
+⟦R ( z , λ )⟧ , is
+deﬁned as the ratio of spectral upwelling to downwelling plane irradiances:
+⟦R ( z , λ ) ≡ (E_{u} ( z , λ ))/(E_{d} ( z , λ )) .⟧
+⟦R ( z , λ )⟧ is thus
+a measure of how much of the radiance traveling in all downward directions is reﬂected
+upward into any direction, as measured by a cosine collector. This is illustrated in Fig.
+1 . Depth ⟦z⟧
+can be any depth within the water column, or in the air just above the sea
+surface.
+[IMG /packages/iws_l2h/conversion/files/Rfig.png]
+Figure 1: Illustration of light rays contributing to the irradiance reﬂectance
+⟦R⟧ .
+Irradiance reﬂectance has the virtue that it can be measured by a
+single, uncalibrated, plane irradiance detector. The downwelling irradiance
+⟦E_{d}⟧ can
+be measured, and then the detector can be turned “upside down” to measure
+⟦E_{u}⟧ . The calibration
+factor needed to convert from detector units (voltage, current, or digital counts) to irradiance
+units ( ⟦W m^{− 2} n m^{− 1}⟧ )
+cancels out.
+One of the pioneering papers on the use of
+⟦R⟧ spectra
+to obtain IOPs is Roesler and Perry (1995) . They ﬁrst developed a model for
+⟦R ( λ ) ∝ b_{b} ∕ a⟧ , where
+⟦b_{b}⟧ and
+⟦a⟧ are
+the total backscatter and absorption coeﬃcients. These IOPs were then written as
+sums of contributions by water, phytoplankton, dissolved substances, and
+non-living particles (tripton). The resulting model was then forced to ﬁt measured
+⟦R⟧
+spectra, whereby the best ﬁt determined the concentrations of the various
+components.
+The Remote-Sensing Reﬂectance ⟦R_{rs}⟧
+The spectral remote-sensing reﬂectance
+⟦R_{rs}⟧ is
+deﬁned as
+⟦R_{rs} ( 𝜃 , ϕ , λ ) ≡ (L_{w} ( in air , 𝜃 , ϕ , λ ))/(E_{d} ( in air , λ )) ( s r^{− 1} ) .⟧
+Here the depth argument of “in air” indicates that
+⟦R_{rs}⟧ is
+evaluated just above the water surface using the water-leaving radiance
+⟦L_{w}⟧ and
+⟦E_{d}⟧
+in the air. Water-leaving radiance refers to downwelling light that has
+entered the water body from the air, been scattered into upward directions
+within the water, and then been transmitted through the water surface
+back into the air. The remote-sensing reﬂectance is thus a measure of
+how much of the downwelling radiance that is incident onto the water
+surface in any direction (as measured by a plane irradiance sensor)
+is eventually returned through the surface into a small solid angle
+⟦Δ Ω⟧ centered on a
+particular direction ⟦( 𝜃 , ϕ )⟧ ,
+as illustrated in Fig. 2 2.
+[IMG /packages/iws_l2h/conversion/files/Rrsfig.png]
+Figure 2: Illustration of light rays contributing to the remote-sensing
+reﬂectance ⟦R_{rs}⟧ .
+Although ⟦R_{rs}⟧
+is often computed for nadir-viewing directions only, in actual
+remote sensing it is usually an oﬀ-nadir direction that is being
+observed by an airborne or satellite remote sensor. As shown next,
+⟦R_{rs}⟧ has the virtue that it
+is less sensitive than ⟦R⟧
+to environmental conditions such as Sun zenith angle or sky conditions. This is the reason
+that ⟦R_{rs}⟧ has
+replaced ⟦R⟧
+for remote sensing. However, determination of
+⟦R_{rs}⟧ is more diﬃcult
+than ⟦R⟧ . First, the
+measurements of ⟦L_{u}⟧
+and ⟦E_{d}⟧ require
+diﬀerent sensors, which must be accurately calibrated. Second, the water leaving
+radiance ⟦L_{w}⟧
+cannot be measured directly. Only the total upwelling radiance
+⟦L_{u}⟧ above the surface can be
+measured. This ⟦L_{u}⟧ is the sum of
+the water-leaving radiance ⟦L_{w}⟧
+and the downward Sun and sky radiance that is reﬂected upward by the sea surface,
+⟦L_{r}⟧ , as illustrated
+in Fig. 3 . ⟦L_{w}⟧
+therefore must be estimated either from a measurement of the total upwelling
+radiance ⟦L_{u}⟧
+made above the sea surface, or from a measurement of
+⟦L_{u}⟧ made
+at some distance below the sea surface and extrapolated upward through the
+surface. Each of these estimation methodologies has arguments for and against its
+use (e.g., Mobley (1999) ; Toole et al. (2000) ).
+[IMG /packages/iws_l2h/conversion/files/Rrsrays.png]
+Figure 3: Illustration of light rays contributing to
+⟦L_{u}⟧
+as measured above the sea surface.
+Dependence of ⟦R⟧
+and ⟦R_{rs}⟧
+on IOPs and Environmental Conditions
+To illustrate the dependence of ⟦R⟧
+and ⟦R_{rs}⟧ on IOPs
+and external environmental conditions, the HydroLight radiative transfer numerical
+model was run using an IOP model for Case 1 waters with chlorophyll concentrations
+of ⟦C h l = 0 . 1 , 1 . 0⟧ ,
+and ⟦1 0 . 0 m g m^{− 3}⟧ .
+For each chlorophyll concentration, runs were made for three
+sets of sky conditions: (1) a level sea surface (windspeed
+⟦U = 0⟧ ) and
+the Sun at the zenith (Sun = 0) in a clear sky; (2) a rough sea surface with a wind
+speed of ⟦U = 1 0 m s^{− 1}⟧
+and the Sun at a 50 deg zenith angle (Sun = 50) in a clear sky; (3) a wind speed
+of ⟦1 0 m s^{− 1}⟧
+and a heavily overcast sky (overcast) for which the Sun’s location cannot be
+discerned.
+Figure 4 shows the resulting ⟦R⟧
+spectra at depth ⟦z = 0⟧ ,
+which is in the water just below the mean sea surface. This is the
+quantity most often used to develop remote-sensing algorithms relating
+⟦R⟧
+to IOPs or chlorophyll concentrations. The curves for the diﬀerent
+chlorophyll concentrations group together, showing that the shapes of the
+⟦R⟧ spectra
+are determined primarily by the diﬀerent IOPs associated with the diﬀerent chlorophyll
+concentrations. However, there is also a signiﬁcant eﬀect of the sky conditions on
+the ⟦R⟧
+spectra within each of the three chlorophyll groups.
+[IMG /packages/iws_l2h/conversion/files/R_z0_3Chl_3U_3sun.png]
+Figure 4: Dependence of
+⟦R⟧
+on chlorophyll concentration, sky condition, and wind speed for selected
+conditions in Case 1 water.
+Figure 5 shows the nadir-viewing ⟦R_{rs}⟧
+spectra for the same set of HydroLight runs. The three
+chlorophyll groups are similar in shape to the corresponding
+⟦R⟧
+spectra, but there is much less variability in the
+⟦R_{rs}⟧
+spectra due to the external environmental conditions.
+⟦R_{rs}⟧ is thus a better
+AOP than is ⟦R⟧ ,
+because ⟦R_{rs}⟧
+is less sensitive to the sky conditions while remaining very sensitive to the
+diﬀerent IOPs corresponding to the diﬀerent chlorophyll concentrations.
+[IMG /packages/iws_l2h/conversion/files/Rrs_3Chl_3U_3sun.png]
+Figure 5: Dependence of
+⟦R_{rs}⟧
+on chlorophyll concentration, sky condition, and wind speed for selected
+conditions in Case 1 water.
+Figure 6 shows the ⟦R_{rs}⟧
+spectra for nadir ⟦( 𝜃_{v} = 0 )⟧ vs.
+various oﬀ-nadir ⟦( 𝜃_{v} , ϕ_{v} )⟧ viewing
+directions. Azimuthal angle ⟦ϕ_{v} = 9 0 deg nolimits⟧
+corresponds to looking at right angles to the Sun’s azimuthal direction, and
+⟦ϕ_{v} = 1 3 5 deg nolimits⟧ is
+looking half-way between normal to the Sun and away from the Sun. This range
+of ⟦ϕ_{v}⟧
+values is what is usually observed in remote sensing to avoid Sun glint from the
+sea surface. At the lowest chlorophyll concentration, there is not much diﬀerence
+in the spectra for the diﬀerent viewing directions. However, the diﬀerences
+increase with increasing chlorophyll concentration, and are quite signiﬁcant for the
+⟦( 𝜃_{v} = 6 0 )⟧ curves
+when ⟦C h l = 1 0 m g m^{− 3}⟧ .
+These diﬀerences in oﬀ-nadir directions for diﬀerent chlorophyll values are a
+consequence of the changes in shape and relative importance of the scattering
+phase functions for the small and large chlorophyll-bearing particles versus that of
+water as the chlorophyll concentration increases.
+[IMG /packages/iws_l2h/conversion/files/Rrs_3Chl_U10_sun50_offnadir.png]
+Figure 6: Dependence of
+⟦R_{rs}⟧
+on chlorophyll concentration in Case 1 water and viewing direction, for a
+wind speed of
+⟦1 0 m s^{− 1}⟧
+and a Sun zenith angle of 50 deg.
+As Figs. 5 and 6 show, ⟦R_{rs}⟧
+is much more sensitive to water IOPs than to external environmental conditions and viewing
+direction. However, ⟦R_{rs}⟧
+still does depend somewhat on solar zenith angle (Fig. 5 ) and viewing direction (Fig.
+6 ). An even better AOP would be obtained if these remaining dependencies can be
+removed. The resulting AOP is called the exact normalized water-leaving reﬂectance ,
+denoted by ⟦[ ρ_{w} ( λ ) ]_{N}^{ex}⟧ .
+This reﬂectance is based on the concept of the normalized water-leaving
+radiance, which is deﬁned to be “...the radiance that could be measured by a
+nadir-viewing instrument, if the Sun were at the zenith in the absence of
+any atmospheric loss, and when the Earth is at its mean distance from
+the Sun” ( Morel and Gentili (1996) , page 4852). (Earlier papers often
+used phrases like “in the absence of an atmosphere”, implying that the
+atmosphere is completely removed. This was found to be too extreme,
+so the current deﬁnition and calculations are based on a standard but
+non-attenuating atmosphere.) The computation and interpretation of
+⟦[ ρ_{w} ( λ ) ]_{N}^{ex}⟧ can
+be rather subtle. These matters are discussed in detail on the page Normalized
+Reﬂectances
+When processing satellite ocean color imagery, measured top-of-the-atmosphere
+radiances are converted by the process of atmospheric correction to
+⟦[ ρ_{w} ( λ ) ]_{N}^{ex}⟧
+spectra, which can then be used in algorithms to retrieve geophysical quantities
+such as the chlorophyll concentration. However, when running HydroLight,
+⟦[ ρ_{w} ( λ ) ]_{N}^{ex}⟧
+can be obtained by putting the Sun at the zenith, in which case
+⟦[ ρ_{w} ( λ ) ]_{N}^{ex}⟧ is
+⟦π⟧ times the
+nadir-viewing ⟦R_{rs}⟧ :
+⟦[ ρ_{w} ( λ ) ]_{N}^{ex} = π R_{rs} ( HydroLight ; 𝜃_{s} = 0 , 𝜃_{v} = 0 ) .⟧ (1)
+The remote-sensing reﬂectance reported by NASA as a standard
+output for sensors such as MODIS or VIIRS is sometimes described as
+⟦[ ρ_{w} ( λ ) ]_{N}^{ex} ∕ π⟧ ,
+which is equivalent to the HydroLight-computed
+⟦R_{rs} ( 𝜃_{s} = 0 , 𝜃_{v} = 0 )⟧ .
+⟦[ ρ_{w} ( λ ) ]_{N}^{ex}⟧ or its
+equivalent ⟦R_{rs}⟧
+are now used for most remote sensing. However, there are many other measures of
+reﬂectance, which have other applications. There are discussed on the Measures of
+Reﬂecance and BRDF pages.

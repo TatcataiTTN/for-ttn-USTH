@@ -1,0 +1,342 @@
+# Chlorophyll Fluorescence
+
+This page tailors the general ﬂuorescence theory seen on the Theory of
+Fluorescence and Phosphorescence page to the case of ﬂuorescence by chlorophyll
+in living phytoplankton. The goal is to develop the quantities needed
+for prediction of chlorophyll ﬂuorescence contributions to oceanic light
+ﬁelds using a radiative transfer model like HydroLight . For convenience of
+reference, it is recalled from the previous page that the quantities needed
+are
+the chlorophyll ﬂuorescence scattering coeﬃcient ⟦b_{C} ( z , λ^{′} )⟧ ,
+with units of ⟦m^{− 1}⟧ ,
+the chlorophyll ﬂuorescence wavelength redistribution function ⟦f_{C} ( λ^{′} , λ )⟧ ,
+with units of ⟦n m^{− 1}⟧ ,
+and
+the chlorophyll ﬂuorescence scattering phase function ⟦β^{̃}_{C} ( ψ )⟧ ,
+with units of ⟦s r^{− 1}⟧ .
+These quantities are then combined to create the volume inelastic scattering function
+for chlorophyll ﬂuorescence,
+⟦β_{C} ( z , ψ , λ^{′} , λ ) = b_{C} ( z , λ^{′} ) f_{C} ( λ^{′} , λ ) β^{̃}_{C} ( ψ ) [ m^{− 1} s r^{− 1} n m^{− 1} ] .⟧ (1)
+The subscript C indicates chlorophyll.
+The Chlorophyll Fluorescence Scattering Coeﬃcient
+For chlorophyll ﬂuorescence, the inelastic “scattering” coeﬃcient in the
+formalism of treating the ﬂuorescence as inelastic scattering is just the
+absorption coeﬃcient for chlorophyll. In other words, what matters is
+how much energy is absorbed by chlorophyll at the excitation wavelength
+⟦λ^{′}⟧ ,
+which is then available for possible re-emission at a longer wavelength
+⟦λ⟧ . Note
+that it is only energy absorbed by the chlorophyll molecule that matters
+for chlorophyll ﬂuorescence. Energy absorbed by other pigments may
+(or may not) ﬂuoresce, but that is not chlorophyll ﬂuorescence. Thus
+the needed chlorophyll scattering coeﬃcient is commonly modeled as
+⟦b_{C} ( z , λ^{′} ) = C h l ( z ) a_{C h l}^{∗} ( λ^{′} ) [ m^{− 1} ] ,⟧
+where ⟦C h l ( z )⟧ is the
+chlorophyll proﬁle in ⟦m g C h l m^{− 3}⟧
+and ⟦a_{C h l}^{∗} ( λ^{′} )⟧
+is the chlorophyll-speciﬁc absorption spectrum in units of
+⟦m^{2} ( m g C h l )^{− 1}⟧ .
+Examples of these spectra are seen on the Phytoplankton page. (The elastic
+scattering coeﬃcient for chlorophyll-bearing phytoplankton is often modeled as a
+power law, as described on the New Case I IOPs .)
+The Chlorophyll Fluorescence Wavelength Redistribution Function
+Figure 1 shows a typical chlorophyll ﬂuorescence emission spectrum.
+[IMG /packages/iws_l2h/conversion/files/Chl-fluores-emission.png]
+Figure 1: Measured chlorophyll ﬂuorescence emission spectra for four
+excitation wavelengths for the chlorophyte Chlorella sorokiniana . Figure
+extracted from Fig. 3 of Santabarbara et al. (2020) under a Creative
+Commons License.
+Other than the general shape, the important feature of this emission
+spectrum is that it is independent of the excitation wavelength. The
+chlorophyll absorption spectrum peaks in the blue and is a minimum in
+the green, so a 435 nm photon is much more likely to be absorbed by a
+chlorophyll molecule than is a 570 nm photon. However, either photon, if
+absorbed, leads to the same ﬂuorsecence. Wavelengths in the range of
+370 to 690 nm can, if absorbed, can lead to ﬂuorescence. Given these
+observations, it is customary (e.g., Gordon (1979) ) to factor the chlorophyll
+⟦f_{C} ( λ^{′} , λ )⟧ into a
+product of functions:
+⟦f_{C} ( λ^{′} , λ ) = η_{C} ( λ^{′} , λ ) (λ^{′})/(λ) = Φ_{C} g_{C} ( λ^{′} ) h_{C} ( λ ) (λ^{′})/(λ) [ n m^{− 1} ] ,⟧ (2)
+where
+⟦Φ_{C}⟧
+is the quantum eﬃciency for chlorophyll ﬂuorescence,
+⟦g_{C} ( λ^{′} )⟧
+is a nondimensional function that speciﬁes the interval over which light
+is able to excite chlorophyll ﬂuorescence, and
+⟦h_{C} ( λ )⟧
+is the chlorophyll ﬂuorescence wavelength emission function, with units
+of ⟦n m^{− 1}⟧ .
+The following sections describe how each of these terms can be modeled.
+The quantum eﬃciency of chlorophyll ﬂuorescence
+The ﬁrst factor on the right-hand side of Eq. ( 2 ), the quantum eﬃciency
+⟦Φ_{C}⟧ , is
+just a number, but it is the most diﬃcult to model. This is because its value
+depends on the type and physiological state of the phytoplankton, and the
+physiological state is aﬀected by the available light and nutrients, the
+temperature, and other factors.
+Figure 2 shows three depth proﬁles of
+⟦Φ_{C}⟧
+determined as described in Maritorena et al. (2000) . The locations were in oligotrophic
+areas of the equatorial Paciﬁc where the chlorophyll values were between 0.035
+and ⟦0 . 2 9 m g C h l m^{− 3}⟧ .
+The inset shows the ﬂuorescence signal, which is proportional to
+the chlorophyll concentration and thus shows the shape of the
+⟦C h l ( z )⟧ proﬁles. The
+arrows labeled ⟦Z_{e}⟧
+are the depths of the euphotic zone, which was deﬁned as the depth where
+the irradiance has decreased to 1% of its surface value. The irradiance
+decreases approximately exponentially with depth, so the ordinate
+axis roughly corresponds to a log-scale plot of irradiance level. In the
+high-irradiance, near-surface region, the quantum eﬃciency is between 0.005
+and 0.01. However, in the lower-irradiance regions below 50 m depth,
+⟦Φ_{C}⟧ is
+as large as 0.07. Very similar proﬁles can be seen in Fig. 8 of Morrison
+(2003) .
+[IMG /packages/iws_l2h/conversion/files/PhiCvsdepth-500.png]
+Figure 2: Depth proﬁles of
+⟦Φ_{C}⟧
+for three locations. Figure 7 of Maritorena et al. (2000) , ©  The Optical
+Society of American and reproduced under their Fair Use policy.
+Several models have been developed to predict
+⟦Φ_{C}⟧ as
+a function of the variables that aﬀect it. Understanding these models
+requires a cellular-level understanding of the processes involved in
+photosynthesis, which is far beyond the level of this page. See, for
+example, Kirk (1994) for a general discussion of photosynthesis and
+Kiefer and Reynolds (1992) for discussion of the factors determining
+⟦Φ_{C}⟧ . In
+addition to PAR, these models depend on quantities such as the fraction of open
+photosystem II (PSII) reaction centers. An example model is that of Morrison
+(2003) (his Eq. 18), which has the form
+⟦Φ_{C} = r + ( 1 − r ) q_{I} e^{− E_{o} ∕ E_{T}} [ ϕ_{min} A + ϕ_{max} ( 1 − A ) ] ,⟧ (3)
+where
+⟦r = 0 . 0 4⟧
+is the fraction of PSII reaction centers that are unaﬀected by nonphotochemical
+quenching
+⟦q_{I}⟧
+is related to nonphotochemical quenching and ranges between 0 (maximum
+quenching) and 1 (minimal quenching)
+⟦E_{o}⟧
+is the ambient scalar irradiance PAR in units of ⟦μ m o l q u a n t a m^{− 2} s^{− 1}⟧
+⟦E_{T} = 3 5 0 μ m o l q u a n t a m^{− 2} s^{− 1}⟧
+is the saturation PAR value for energy dependent nonphotochemical
+quenching
+⟦ϕ_{min} = 0 . 0 3⟧
+and ⟦ϕ_{max} = 0 . 0 9⟧
+⟦E_{k} = 5 5 μ m o l q u a n t a m^{− 2} s^{− 1}⟧
+is the saturation PAR value for photosynthesis
+⟦A = exp nolimits ( − E_{o} ∕ E_{k} )⟧
+is the fraction of open PSII reaction centers
+Quenching refers to any process that reduces the amount of ﬂuorescence.
+These processes include the use of the absorbed energy for the chemical processes
+of photosynthesis (photochemical quenching) and the transfer of energy into heat
+(nonphotochemical quenching). Nonphotochemical quenching is common in
+phytoplankton as a way to protect themselves from the harmful eﬀects of high
+irradiance levels. Quenching of whatever type reduces the energy available for
+re-emission as ﬂuorescence and therefore reduces the quantum eﬃciency of
+ﬂuorescence (with corresponding increases in the quantum eﬃciency of
+photosynthesis or of heating).
+Figure 3 shows three curves for ⟦Φ_{C}⟧
+as a function of the ambient PAR ⟦E_{o}⟧ ,
+for values of ⟦q_{I} = 0 . 2 , 0 . 4 ,⟧
+and 1.0, which include the range of observed values seen in Fig. 8 of Morrison
+(2003) . Note the similarity to the proﬁles seen in Fig. 2 : values of
+⟦Φ_{C}⟧
+less than 0.01 at high PAR values (i.e., near the surface), a maximum of
+around 0.06 at medium PAR values, and then decreasing for very low PAR
+values.
+[IMG /packages/iws_l2h/conversion/files/PhiC-Eo.png]
+Figure 3:
+⟦Φ_{C}⟧
+as a function of PAR predicted by Eq. ( 3 ) for values of
+⟦q_{I} = 0 . 2⟧
+(bottom curve), 0.4, and 1.0 (top curve).
+A more sophisticated model, including the eﬀects of temperature and the
+surface chlorophyll concentration, is developed in Ostrovska (2012) . That model
+gives curves qualitatively similar to those in Fig. 3 , but with a maximum
+values up to 0.1 for some values of the temperature and surface chlorophyll
+concentration.
+Thus measurements of ⟦Φ_{C}⟧
+(e.g., Fig. 2 ) and recent models (e.g., Eq. ( 3 )) are in reasonable agreement. However, a
+model for ⟦Φ_{C}⟧
+in terms of PAR cannot be used in a radiative transfer model like HydroLight for the
+simple reason that the purpose of HydroLight is to predict the radiance and derived
+quantities, including PAR, by solving the radiative transfer equation (RTE), so
+the ⟦E_{o}⟧
+PAR values needed in Eq. 3 and similar models are not known until after the RTE
+has been solved. At best, HydroLight could be run once to compute the PAR
+proﬁle, and then run again with that PAR proﬁle used in Eq. ( 3 ) to compute the
+chlorophyll ﬂuorescence contribution.
+For this reason, the value of ⟦Φ_{C}⟧
+to be used in a HydroLight simulation is left as a user input to be
+chosen at run time. The default value in the current version 6 is
+⟦Φ_{C} = 0 . 0 2⟧ .
+This is a mid-range value for moderate-irradiance, upper-ocean
+conditions, although Falkowski et al. (2017) report an average value of
+⟦Φ_{C} = 0 . 0 7⟧ in
+surface waters for 200,000 proﬁles taken in a wide variety of locations.
+The chlorophyll excitation function
+As previously noted, wavelengths in the range of 370 to 690 nm, if
+absorbed, are equally likely to excite chlorophyll ﬂuorescence. Therefore,
+⟦g_{C} ( λ^{′} )⟧ is
+modeled by
+⟦g_{C} ( λ^{′} ) = 1 i f 3 7 0 ≤ λ^{′} ≤ 6 9 0 n m , 0 o t h e r w i s e . @{}l@{\quad }l@{} endlabel⟧
+The chlorphyll emission function
+The emission function ⟦h_{C} ( λ )⟧
+is commonly (e.g., Gordon (1979) ) approximated as a Gaussian:
+⟦h_{C} ( λ ) = (1)/(sqrt(2 π) σ_{C}) exp nolimits − (1)/(2) (λ − λ_{C})/(σ_{C})^{2} = sqrt((4 ln nolimits 2)/(π)) (1)/(F W H M) exp nolimits − 4 ln nolimits 2 (λ − λ_{C})/(F W H M)^{2} [ n m^{− 1} ] endlabel (4)⟧
+where
+⟦λ_{C} = 6 8 5 n m⟧ is
+the wavelength of maximum emission, and
+⟦σ_{C} = 1 0 . 6 n m⟧ is the
+standard deviation of the Gaussian; 10.6 nm corresponds to a full width at half maxmimum
+of ⟦F W H M = 2 sqrt(2 ln nolimits 2) σ_{C} = 2 5 n m⟧ , as
+seen in the equivalent second form of the function.
+It should be noted that this ⟦h_{C} ( λ )⟧ ,
+when used in the ⟦η_{C} ( λ^{′} , λ )⟧ deﬁned in
+Eq. ( 2 ) and integrated over ⟦λ⟧
+as in Eq. (4) of the preceding theory page,
+⟦Φ_{F} ( λ^{′} ) = ∫ nolimits_{λ^{′}}^{∞} η_{F} ( λ^{′} , λ ) d λ f o r 3 7 0 ≤ λ^{′} ≤ 6 9 0 n m , .⟧ (5)
+gives the quantum eﬃciency ⟦Φ_{C}⟧
+as required.
+Figure 1 shows that this Gaussian captures only the main peak of the emission function. A
+better model for ⟦h_{C} ( λ )⟧
+is a weighted sum of two Gaussians, one centered at 685 with a FWHM of 25 nm
+and one centered at 730 or 740 with a FWHM of 50 nm:
+⟦h_{C} ( λ ) = W sqrt((4 ln nolimits 2)/(π)) (1)/(2 5) exp nolimits − 4 ln nolimits 2 (λ − 6 8 5)/(2 5)^{2} + ( 1 − W ) sqrt((4 ln nolimits 2)/(π)) (1)/(5 0) exp nolimits − 4 ln nolimits 2 (λ − 7 3 0)/(5 0)^{2} [ n m^{− 1} ] ,⟧ (6)
+where ⟦W⟧
+and ⟦1 − W⟧
+are the weights of the Gaussians at these wavelengths. These weights correspond
+to the fractions of the total quantum eﬃciency contributed by each Gaussian. Setting
+⟦W = 0 . 7 5⟧
+gives the peak height of the second Gaussian as 0.2 of the ﬁrst,
+consistent with Fig. 1 . Using ( 6 ) in ( 2 ) and ( 5 ) then again recovers
+⟦Φ_{C}⟧ .
+The exact shape of the ﬂuorescence emission seen in Fig. 1 and the
+corresponding best-ﬁt parameters—heights and widths of the Gaussians and their
+center wavelengths—do vary somewhat with plankton species, pigment content
+and ratios, photoadaptation, nutrient conditions, stage of growth. and other
+parameters. This is, after all, why ﬂuorescence gives information about the
+physiological state of phytoplankton.
+The chlorophyll ﬂuorescence phase function
+As previously noted, ﬂuorescence emission is isotropic. Therefore the phase
+function is simply
+⟦β^{̃}_{C} ( ψ ) = (1)/(4 π) [ s r^{− 1} ] . endlabel⟧
+The models seen above give everything needed to construct the volume
+inelastic scattering function of Eq. ( 1 ) for chlorophyll ﬂuoresecence,
+⟦β_{C} ( z , ψ , λ^{′} , λ )⟧ ,
+which is then ready for use in the radiative transfer equation as seen in Eq. (2) of
+the theory page.
+Examples of Chlorophyll Fluorescence Eﬀects
+The HydroLight radiative transfer model has options to include or omit the
+inelastic scattering processes of Raman scatter by water and ﬂuorescence by
+chlorophyll and CDOM. This section uses HydroLight to illustrate the eﬀects of
+various chlorophyll ﬂuorescence input parameters.
+To see the eﬀect of the shape of the chlorophyll emission function, a series of
+four HydroLight runs was done with the following inputs:
+A chlorophyll concentration of ⟦C h l = 1 0 m g C h l m^{− 3}⟧
+for Case 1 water (using the New Case 1 IOP model in HydroLight);
+the water was homogeneous and inﬁnitely deep
+A chlorophyll quantum eﬃciency of ⟦Φ_{C} = 0 . 0 6⟧
+A chlorophyll emission function given by either Eq. ( 4 ) or ( 6 )
+Sun at a zenith angle of 30 deg in a clear sky, wind speed of ⟦5 m s^{− 1}⟧
+The run was from 400 to 750 nm by 5 nm
+Output was saved at 5 m intervals from 0 to 50 m
+Four sets of inelastic eﬀects were simulated: (1) no inelastic eﬀects at all,
+(2) Raman scatter only, (3) Raman scatter plus chlorophyll ﬂuorescence
+with a single Gaussian emission function, and (4) Raman scatter plus
+chlorophyll ﬂuorescence with a double Gaussian emission function
+Figure 4 shows the the two Gaussian chlorophyll emission functions of Eqs.
+( 4 ) and ( 6 ) (upper left panel); the resulting remote-sensing reﬂectance
+⟦R_{rs}⟧
+in the region of the chlorophyll emission (upper right panel); and
+the depth proﬁles of downwelling plane irradiance at 710 nm,
+⟦E_{d} ( 7 1 0 )⟧ (lower left);
+and at 730 nm, ⟦E_{d} ( 7 3 0 )⟧
+(lower right).
+[IMG /packages/iws_l2h/conversion/files/RrsEdz4.png]
+Figure 4: HydroLight-simulated ﬂuorescence eﬀects for
+Case 1 water with a high chlorophyll concentration of
+⟦C h l = 1 0 m g C h l m^{− 3}⟧
+and a high quantum eﬃciency for chlorophyll ﬂuorescence of
+⟦Φ_{C} = 0 . 0 6⟧ .
+See the text for discussion.
+Some of the features to note in Fig. 4 are as follows:
+The peak ⟦R_{rs}⟧
+values near 685 nm are larger for the single Gaussian than for the double
+Gaussian. This is because both emission functions, when integrated as
+in Eq. ( 5 ), correspond to the same quantum eﬃciency ⟦Φ_{C} = 0 . 0 6⟧ .
+Thus, as seen in the upper left panel, the 685 peak of the double
+Gaussian is lower than for the single Gaussian because part of the
+energy is going into the second Gaussian centered at 730 nm.
+There is no ﬂuorescence contribution to ⟦R_{rs}⟧
+for the single Gaussian beyond about 720 nm, but the double Gaussian
+gives a noticeable increase in ⟦R_{rs}⟧
+even beyond 750 nm. This corresponds to the magnitudes of the two
+emission functions. However, magnitude of ⟦R_{rs}⟧
+is quite small in the near infrared relative to the peak emission values
+and ⟦R_{rs}⟧
+at shorter wavelengths (not shown) even for the high chlorophyll value
+of ⟦C h l = 1 0 m g C h l m^{− 3}⟧
+and the high eﬃciency of ⟦Φ_{C} = 0 . 0 6⟧
+used here because of the high absorption by water itself beyond 700 nm;
+water absorption at 720 nm is ⟦a_{w} ( 7 2 0 ) = 1 . 1 7 m^{− 1}⟧
+and rises to ⟦2 . 4 7 m^{− 1}⟧
+at 750 nm.
+The ⟦E_{d} ( z , 7 1 0 )⟧
+proﬁles are similar down to about 5 m. For shallower depths, solar
+radiance at 710 nm penetrates the water column well enough to dominate
+the value of ⟦E_{d} ( z , 7 1 0 )⟧ .
+Inelastic scatter contributions to the near-surface light ﬁeld are minimal
+at 710 nm for these IOPs.
+Below about 10 m, the simulation without any inelastic scattering
+is greatly diﬀerent from the curves with Raman or Raman plus
+ﬂuorescence. Essentially the only light at 710 nm at depths below
+about 15 m comes from light at blue and green wavelengths, which
+do penetrate to depths below 15 m, that is inelastically scattered into
+710 nm. As expected from the shapes of the emission functions, the
+double Gaussian “injects” more light into 710 nm than does the single
+Gaussian.
+At 730 nm, the Raman only and Raman plus single Gaussian emission
+are essentially identical because the single Gaussian is almost zero
+at 730. However, the double Gaussian emission function still adds a
+signiﬁcant amount of light into the deep water column.
+In summary, for wavelengths greater than about 700 nm there is a signiﬁcant fractional
+diﬀerence in ⟦R_{rs}⟧
+and in the irradiances at depth for the two chlorophyll emission functions. However,
+these diﬀerences are likely to be unimportant for practical oceanographic
+problems. It is hard to imagine applications where accurate predictions of
+irradiances are required in the near infrared at large depths.
+Figure 5 shows HydroLight simulations of
+⟦R_{rs}⟧
+in the chlorophyll ﬂuorescence emission region for a value of
+⟦C h l = 0 . 5 m g C h l m^{− 3}⟧ ,
+typical of open-ocean waters, and for three values of the quantum eﬃciency. The
+emission function is the double Gaussian. Other run inputs were the same as for
+Fig. 4 . These curves include both Raman scatter and chlorophyll ﬂuorescence.
+Curves for Raman only, and for elastic scatter only are also shown. Relative to the
+baseline of Raman only, the chlorophyll ﬂuorescence curves are in direction
+proportion to the quantum eﬃciency values, all else being the same, as should be
+expected.
+On the other hand, the height of the “Raman corrected” peak of the
+⟦Φ_{C} = 0 . 0 6⟧ ,
+double-Gaussian curve of the upper right panel of Fig. 4 is only about 6
+times the height of the corresponding curve in Fig. 5 , even though the
+chlorophyll concentration is 20 times higher for Fig 4 . This is because
+absorption and scattering do not depend linearly on the chlorophyll
+concentration. For an order-of-magnitude understanding of this, note that
+it is absorption that removes light that might otherwise contribute to
+⟦R_{rs}⟧ . The new
+Case 1 IOP model used for these runs models phytoplankton absorption by a formula that
+depends on ⟦C h l^{E ( λ )}⟧ .
+In the 400-680 nm range relevant to the chlorophyll ﬂuorescence,
+⟦E ( λ )⟧
+ranges from 0.6 to 0.8. For a diﬀerence in chlorophyll values of 20,
+⟦2 0^{0 . 7} ≈ 0 . 8⟧ ,
+which is close to the diﬀerences in the heights of the emission peaks. Absorption
+by CDOM will further reduce the light available for ﬂuorescence.
+[IMG /packages/iws_l2h/conversion/files/RrsChl05.png]
+Figure 5: Eﬀect of chlorophyll quantum eﬃciency
+⟦Φ_{C}⟧
+on the chlorophyll emission band for a chlorophyll concentration of
+⟦C h l = 0 . 5 m g C h l m^{− 3}⟧ .

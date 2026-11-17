@@ -1,0 +1,32 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Sources and limits · Ocean Optics · USTH</title><meta name="description" content="Sources, checks and limits">
+<link rel="icon" href="assets/images/usth_logo.png">
+<script>(function(){try{var t=localStorage.getItem('site-theme');if(t&&t!=='light')document.documentElement.setAttribute('data-theme',t);var f=localStorage.getItem('site-font');if(f)document.documentElement.style.fontSize=f}catch(e){}})();</script>
+<link rel="stylesheet" href="_shared/common.css"><link rel="stylesheet" href="_shared/usth_theme.css"><link rel="stylesheet" href="_shared/ars.css"></head><body>
+<header class="top"><div class="wrap"><a class="brand" href="index.html"><img src="assets/images/usth_logo.png" alt="USTH"> Ocean Optics</a><nav><a href="index.html">Home</a><a href="lessons/start-here/index.html">Start here</a><a href="calculators.html">Calculators</a><a href="exam.html">Mock exams</a><a href="reference.html">Formulas</a><a href="lecture-slides.html">Lecture slides</a><a href="resources.html">Sources & limits</a>
+<details class="menu"><summary>🎨 Appearance</summary><div class="pop"><button data-set-theme="light">Light</button><button data-set-theme="dark">Dark</button><button data-set-theme="sepia">Sepia</button><hr><button data-set-font="14px">Small text</button><button data-set-font="16px">Medium text</button><button data-set-font="19px">Large text</button></div></details></nav></div></header>
+<main class="wrap"><p class="crumbs"><a href="index.html">Home</a> › Sources and limits</p><h1>Sources, checks and limits</h1>
+<h2>Sources</h2><ul>
+<li><b>Lecture:</b> <i>Marine Optics</i>, Hubert Loisel, Laboratoire d’Océanologie et de Géosciences (LOG), file “Optique-marine-English-UBATUBA”, 120 slides. Slide figures shown here are small selected pages with credit to the lecturer; each slide also credits its original authors (Bricaud, Babin, Snyder, Boss, Claustre…).</li>
+<li><b>Textbook:</b> <a href="https://oceanopticsbook.info/">Ocean Optics Web Book</a>, footer: “2020 Creative Commons Attribution license” (CC BY 2.0). We cite page titles and URLs and <b>do not copy its images</b>; all curves on this site are our own computations.</li>
+<li><b>Home-made checks:</b> <code>build/verify_numbers.py</code> → <code>data/verified.json</code>: 91 cross-checks, 91.0 passed, discrepancies: 0.</li></ul>
+<h2>What was verified, and how</h2><ul>
+<li>Pure-water b<sub>w</sub>: numerical integration vs closed form; exponent ratios vs numerical integral of the whole VSF.</li>
+<li>Mie computations (Bohren–Huffman series with spherical Bessel functions): Q<sub>sca</sub> by series vs angular quadrature; Rayleigh limit vs closed form; Q<sub>ext</sub> vs anomalous diffraction; Junge ensemble exponents by two fitting methods.</li>
+<li>Exponential laws: log-fit vs nonlinear fit; Beer–Lambert: closed form vs ODE; package effect: closed form vs ray-path quadrature; euphotic/Secchi: closed form vs root finding.</li>
+<li>Browser calculators are tested in Node against Python (<code>tests/test_calc.js</code>).</li></ul>
+<h2>Where the lecture and the textbook disagree (kept, not hidden)</h2><ul>
+<li><b>Radiative transfer equation:</b> slide 5 prints a factor 2π before the scattering integral; the textbook writes ∫β L dω′ over 4π without it.</li>
+<li><b>Pure-water VSF:</b> the slide formula at 546 nm, S = 0 gives β(90°) = 0.944×10⁻⁴ m⁻¹ sr⁻¹ (Morel form) and 0.896×10⁻⁴ (Buiteveld form); the textbook quotes 0.869×10⁻⁴ (its own computation from listed constants gives 0.854×10⁻⁴, 1.7 % lower) and recalls 0.83×10⁻⁴ for Morel (1974). We did not find the convention that reconciles them.</li>
+<li><b>Angular term:</b> the slide prints “cos2θ”; we read cos²θ because it reproduces b<sub>w</sub>(500) ≈ 3×10⁻³ m⁻¹ read from slide 24 (2.88×10⁻³), while cos(2θ) would give 1.63×10⁻³. Evidence, not proof.</li>
+<li><b>Depolarisation:</b> 0.09 (Morel) and 0.051 (Buiteveld) on the slides vs ρ = 0.031 (Zhang et al. 2019) in the textbook.</li>
+<li><b>Junge slope:</b> the lecture uses N(D) ∝ D<sup>−ξ</sup> with ξ = γ + 3; the textbook’s Junge law is dN/dlogD ∝ D<sup>−3</sup> ⇔ n(D) ∝ D<sup>−4</sup>, so the same distribution has ξ = 4 in the lecture notation.</li></ul>
+<h2>Honest limits</h2><ul>
+<li><b>No sample exam, no syllabus.</b> The lecturer’s exam is unknown. “Coverage” numbers describe only the five papers I wrote; they are not a prediction.</li>
+<li><b>All questions are mine.</b> No original questions existed, so every item is labelled “bo_sung” (added) and carries its slide or textbook source.</li>
+<li><b>No AOP slides in the lecture file.</b> Outline slide 9 lists “Link between IOPs and the light field”, but module G is textbook-only and labelled so. The relation R ≈ f b<sub>b</sub>/(a+b<sub>b</sub>) was not found on the crawled textbook pages and is only used qualitatively (classical result, Gordon et al. 1975).</li>
+<li><b>Values read from graphs</b> are approximate (≈ 10–20 %) and always labelled; some slides (s4, 6, 7 images, 73, 78 and the small web-viewer screenshots 116–118) were not read in detail and are used only through their text.</li>
+<li><b>Mie spheres</b> are a model; they are used to check exponents and trends, not to claim measured values. Simple models are illustrations, not data.</li>
+<li>Progress is stored in your browser (localStorage). No Chinese version. Slide images remain the property of their authors.</li></ul></main>
+<footer class="foot"><div class="wrap"><p><b>Sources:</b> (1) the lecture <i>Marine Optics</i> by Hubert Loisel (LOG; file <code>Optique-marine-English-UBATUBA</code>, 120 slides) — slide numbers are cited as “slide N”; (2) the <a href="https://oceanopticsbook.info/">Ocean Optics Web Book</a> (CC BY 2.0), cited by chapter title and URL; (3) home-made checks in Python. Every calculated number is recomputed in Python (numpy/scipy) by two independent methods; see <code>data/verified.json</code>. Unofficial self-study material by a USTH student; it does not replace the lecturer's course and no past exam from the lecturer was available. Lecture slides are shown as small selected pages with credit to the lecturer. Official USTH logo; blue #273896 and red #ED1C24 were read from the logo pixels.</p></div></footer>
+<script src="_shared/theme.js"></script><script src="_shared/theme.js"></script></body></html>

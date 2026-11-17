@@ -1,0 +1,101 @@
+# Colored Dissolved Organic Matter
+
+Colored or Chromophoric Dissolved Organic Matter (CDOM) is an
+important optical constituent in water, often dominating absorption in the blue. The
+quantiﬁcation of the amount of CDOM present in the water is based on the absorption
+or ﬂuorescence by material passing through a given ﬁlter (most often with pore size
+of ⟦0 . 2 μ m⟧ ).
+As such, it is an absorption (or ﬂuorescence)-weighted sum of the diﬀerent
+dissolved materials in the water. Note that most of the material comprising
+dissolved organic matter (DOM) does not absorb or ﬂuoresce and that there exist
+inorganic dissolved materials that also absorb (e.g. iron oxides, nitrate), though it
+is believed that ﬂuorescence is due solely to organic materials. From this
+discussion it follows that CDOM is not necessarily a good proxy for DOM,
+particularly in the open ocean. Nevertheless CDOM has been found to be a useful
+tracer of water masses, as well as an indicator of diﬀerent biogeochemical
+processes (see Coble (2007) , for a recent review article on the link between
+the optical and chemical properties of DOM). Sample preparation and
+methodology of measurement are important in order to obtain accurate
+CDOM measurements. See Nelson and Coble (2009) for a recent analysis of
+methodology.
+In the United States at least, colored dissolved organic matter is usually called
+CDOM. However, you will also see the terms “yellow matter,” “Gelbstoﬀ”
+(German for “yellow matter”), or “gilvin.” The name gilvin, from a Latin
+word meaning pale yellow, was proposed by Kirk (1994) but does not
+seem to be widely used. Absorption by CDOM is commonly denoted by
+⟦a_{g}⟧ ,
+⟦a_{C D O M}⟧ , or
+sometimes ⟦a_{y}⟧ .
+CDOM Absorption
+Figure 1 shows several measurements of CDOM absorption. For wavelengths greater than
+300 nm, ⟦a_{g}⟧
+decreases roughly exponentially with increasing wavelength. Below 300 nm there
+is a change in slope and a rapid increase in CDOM absorption with decreasing
+wavelength.
+[IMG /packages/iws_l2h/conversion/files/aCDOM2.png]
+Figure 1: CDOM absorption spectra from ﬁve locations in Florida waters
+(greenish curves). The red line is Eq. ( 1 ) and the blue line is Eq. ( 2 ). For
+both models, the parameter values were determined from the average values
+of the ﬁve spectra at 300 and 440 nm. Data courtesy of L. Ayoub.
+For wavelengths greater than 300 nm, which are the ones relevant to most
+optical oceanography, it is common to model CDOM absorption with an
+exponential function (e.g. Jerlov (1968) ):
+⟦a_{g} ( λ ) = a_{g} ( λ_{r e f} ) exp nolimits^{− S_{g} ( λ − λ_{r e f} )} [ m^{− 1} ] ,⟧ (1)
+where ⟦S_{g}⟧
+is referred to as the spectral slope parameter and
+⟦λ_{r e f}⟧ is a
+reference wavelength, which is often taken to be 440 nm. A theoretical
+explanation for this shape has been hypothesized by Shifrin (1988)
+as arising from a superposition of resonances of diﬀerent molecular
+⟦π⟧ -bonds in
+the long organic molecules comprising CDOM. Single bonds, which are most
+abundant, will absorb short wavelength radiation while resonances of multiple bonds,
+less abundant, absorb longer wavelength radiation. Since numerically there many
+more short bonds, the absorption is higher at shorter wavelengths. This explanation
+is consistent with the observation that small values of the spectral slope of CDOM,
+⟦S_{g}⟧ , are
+associated with higher molecular weight materials (e.g. Carder et al. (1989) ,
+Yacobi et al. (2003) ). For visible wavelengths the most common values of
+⟦S_{g}⟧ appear to be near
+⟦0 . 0 1 4 n m^{− 1}⟧ , varying in the
+visible from 0.007 to ⟦0 . 0 2 6 n m^{− 1}⟧
+(e.g. Table 1 in Twardowski et al. (2004) .
+While ( 1 ) is the most frequent model of CDOM absorption, other models have
+been suggested and may provide a better ﬁt to data (even when taking into
+account that ﬁts improve as more free parameters are available in the ﬁt, e.g.
+Twardowski et al. (2004) . In particular, often a constant is added to the
+exponential ﬁt:
+⟦a_{g} ( λ ) = a_{g} ( λ_{r e f} ) exp nolimits^{− S_{g} ( λ − λ_{r e f} )} + C o n s t . [ m^{− 1} ] .⟧
+What this constant represents is not clear. In some cases it is supposed to
+account for scattering by the dissolved component, however there is no
+reason to believe such scattering would be spectrally ﬂat (see Bricaud et al.
+(1981) for an in-depth discussion). It may account for bubbles in the
+sample.
+Another model that has been found to work even better than the
+exponential model is a power-law model (e.g. Twardowski et al. (2004) :
+⟦a_{g} ( λ ) = a_{g} ( λ_{r e f} ) (λ)/(λ_{r e f})^{− S} [ m^{− 1} ] .⟧ (2)
+Given that molecular absorption is often a symmetric function for a given
+chromophore, frequency domain ﬁt has been suggested (e.g. Schwarz et al.
+(2002) ). Those are based on Gaussian or Lorentzian functions with the visible
+domain being the tail-end of the distribution. Trying to ﬁt together UV and
+visible bands is complicated by the absorption of UV light by dissolved salts
+which are not part of DOC.
+Elastic Scattering by CDOM
+The CDOM contribution to scattering by seawater is somewhat controversial. By
+deﬁnition colloids are part of DOM and, if abundant enough, could contribute
+signiﬁcantly to scattering (particularly to backscattering, see Stramski and
+Wozniak (2005) ) by sea water. However, there is no observational evidence that
+CDOM contributes signiﬁcantly to scattering (see Dall’Olmo et al. (2009) for
+recent measurements). Thus, currently, CDOM contribution to scattering is most
+often neglected.
+Inelastic Scattering by CDOM
+One of the primary methods to quantify CDOM is through ﬂuorescence. Since not
+all dissolve material that absorbs ﬂuoresces, this material is often denoted as
+FDOM. In general absorption and ﬂuorescence covary, however their ratio can
+vary by orders of magnitude between diﬀerent locations. The measurement of
+CDOM ﬂuorescence in the ﬁeld is often limited to a single excitation/emission
+band pair. With lab instrumentation two-dimensional excitation-emission spectra
+(EEMS) can be measured and used to characterize the FDOM based on the size
+and presence of known excitation-emission peaks (see, for example, table 1 in
+Coble (2007) ). This is discussed in more detail on the CDOM Fluorescence
+page.

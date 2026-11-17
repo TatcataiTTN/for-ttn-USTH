@@ -1,0 +1,100 @@
+# The Henyey-Greenstein Phase Function
+
+It is often convenient to have an analytic formula that approximates the
+shape of an actual phase function. The Henyey-Greenstein (HG) phase
+function has been widely used in the past for such purposes and is discussed
+here for historical completeness. The Henyey-Greenstein phase function
+(and many other simple analytical models) has now been supplanted in
+oceanography by the more complicated but more realistic Fournier-Forand phase
+function .
+Henyey and Greenstein (1941) proposed the phase function
+⟦β^{̃}_{H G} ( g , ψ ) ≡ (1)/(4 π) (1 − g^{2})/(1 + g^{2} − 2 g cos nolimits ψ^{3 ∕ 2}) ,⟧ (1)
+for scattering by interstellar dust (note: interstellar dust, not phytoplankton!). The
+parameter ⟦g⟧
+can be adjusted to control the relative amounts of forward and backward scattering
+in ⟦β^{̃}_{HG}⟧ :
+⟦g = 0⟧ corresponds to isotropic
+scattering, and ⟦g → 1⟧
+gives highly peaked forward scattering. Note that
+⟦β^{̃}_{HG}⟧
+satisﬁes the normalization condition
+⟦2 π ∫ nolimits_{− 1}^{1} β^{̃}_{HG} ( g , ψ ) d cos nolimits ψ = 1 for any g .⟧
+The physical interpretation of ⟦g⟧
+comes from noting that
+⟦2 π ∫ nolimits_{− 1}^{1} β^{̃}_{HG} ( g , ψ ) cos nolimits ψ d cos nolimits ψ = g .⟧
+Thus the Henyey-Greenstein parameter
+⟦g⟧
+is just the average of the cosine of the scattering angle for
+⟦β^{̃}_{{ H G}⟧ .
+Equation ( 1 ) can be integrated over
+⟦ψ⟧ from
+⟦π ∕ 2⟧ to
+⟦π⟧ to
+obtain the backscatter fraction:
+⟦B_{HG} = (1 − g)/(2 g) (1 + g)/(sqrt(1 + g^{2})) − 1 .⟧
+Because of its mathematical simplicity, the HG phase function has been widely used
+in many ﬁelds, including oceanography. However, we can anticipate discrepancies
+between ⟦β^{̃}_{HG}⟧
+and measured oceanic phase functions because oceanic particles are quite diﬀerent
+in their physical properties (size, shape, composition from interstellar
+dust.
+The average of ⟦cos nolimits ψ⟧
+for the Petzold average-particle phase function
+⟦β^{̃}_{p}⟧ is 0.924.
+Using ⟦g = 0 . 9 2 4⟧ in Eq.
+( 1 ) thus gives the Henyey-Greenstein phase function corresponding to the particle phase
+function ⟦β^{̃}_{p}⟧ ,
+in the sense that each phase function then has the same average cosine. Figures 1 and 2
+compare ⟦β^{̃}_{HG} ( g = 0 . 9 2 4 , ψ )⟧
+and ⟦β^{̃}_{p}⟧ .
+⟦β^{̃}_{HG}⟧ is also shown for
+⟦g = 0 . 7⟧ and 0.99. Note that the
+best-ﬁt ⟦β^{̃}_{HG}⟧ diﬀers noticeably
+from ⟦β^{̃}_{p}⟧ at scattering angles
+greater than ⟦ψ ≈ 1 5 0 d e g⟧ and less
+than 20 deg, and that ⟦β^{̃}_{HG}⟧
+is much too small at angles of less than a few degrees. The
+small-angle behavior of Eq. ( 1 ) is inherently incompatible with
+⟦β^{̃}_{p}⟧ because
+⟦β^{̃}_{HG}⟧ always levels
+oﬀ as ⟦ψ → 0⟧ , whereas
+⟦β^{̃}_{p}⟧ continues to
+rise. Even for ⟦g = 0 . 9 9⟧ ,
+⟦β^{̃}_{HG}⟧ is nearly
+constant for ⟦ψ < 0 . 5 d e g⟧ .
+For ⟦g = 0 . 9 2 4⟧ ,
+⟦β^{̃}_{HG} = 0 . 0 1 7 0⟧ ,
+compared to the backscatter fraction of 0.0183 for the Petzold phase function.
+[IMG /packages/iws_l2h/conversion/files/HG_fig1.png]
+Figure 1: Log-log Comparison of the Petzold average-particle phase function
+⟦β^{̃}_{p}⟧
+(black line) with ⟦β^{̃}_{HG} ( g , ψ )⟧
+of Eq. ( 1 ) for three values of ⟦g⟧ .
+[IMG /packages/iws_l2h/conversion/files/HG_fig2.png]
+Figure 2: Log-linear Comparison of the Petzold average-particle phase
+function ⟦β^{̃}_{p}⟧
+(black line) with ⟦β^{̃}_{HG} ( g , ψ )⟧
+of Eq. ( 1 ) for three values of ⟦g⟧ .
+Because of the poor ﬁts of the HG phase function to measurements at small
+and large scattering angles, a linear combination of Henyey-Greenstein
+phase functions is sometimes used to improve the ﬁt at small and large
+angles. The so-called two-term Henyey-Greenstein (TTHG) phase function
+is
+⟦β^{̃}_{TTHG} ( α , g_{1} , g_{2} , ψ ) ≡ α β^{̃}_{HG} ( g_{1} , ψ ) + ( 1 − α ) β^{̃}_{HG} ( g_{2} , ψ ) .⟧ (2)
+Enhanced small-angle scattering is obtained by choosing
+⟦g_{1}⟧
+near one, and enhanced backscatter is obtained by making
+⟦g_{2}⟧ negative;
+⟦α⟧ is a
+weighting factor between zero and one. Kattawar (1975) shows how to determine best-ﬁt
+values of ⟦α⟧ ,
+⟦g_{1}⟧ , and
+⟦g_{2}⟧ for a
+given phase function. Reasonable ﬁts can be obtained with the TTHG function for
+phase functions that are not highly peaked, for example atmospheric haze phase
+functions (see Kattawar’s paper for example ﬁts). However, the ﬁt of
+⟦β^{̃}_{TTHG}⟧
+to highly peaked oceanic phase functions such as
+⟦β^{̃}_{p}⟧
+always remains unsatisfactory at very small angles, for the reason already
+noted.

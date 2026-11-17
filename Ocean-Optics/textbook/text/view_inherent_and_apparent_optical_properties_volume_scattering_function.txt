@@ -1,0 +1,76 @@
+# Introduction
+
+The Light and Radiometry chapter explains how to describe light quantitatively.
+This chapter now explains how to describe and measure the optical properties
+of the material medium through which the light propagates. The ﬁrst
+pages deﬁne and discuss inherent optical properties (IOPs), which are
+properties of a medium that do not depend on the ambient light ﬁeld in the
+medium. The IOPs are various measures of the absorption and scattering
+properties of a water body. The subsequent pages then discuss apparent
+optical properties (AOPs). The AOPs are properties of a medium that
+(1) depend on both on the medium (the IOPs) and on the geometric
+(directional) structure of the ambient light ﬁeld, and (2) display enough
+regular features and stability to be useful descriptors of the water body.
+Commonly used AOPs are various reﬂectances, average cosines, and diﬀuse
+attenuation coeﬃcients. All of these quantities are deﬁned and illustrated in this
+chapter. The IOPs and AOPs are mutually exclusive descriptors of optical
+properties, that is, something cannot be both an IOP and an AOP. However,
+there are other measures of the optical state of a water body that are
+neither an IOP nor an AOP. In particular, the various irradiances give
+information about the optical properties of a water body, but they are neither
+IOPs nor AOPs—they are radiometric variables. The radiative transfer
+equation, which connects the optical properties of the water body and the
+light within the water, is developed in the chapter on Radiative Transfer
+Theory .
+Figure 1 shows the most commonly used IOPs, AOPs, radiometric variables,
+and their relationships. This ﬁgure shows that the absorption coeﬃcient and the
+volume scattering function (VSF) are at the “top” of the IOP family. All other
+IOPs, such as the scattering and beam attenuation coeﬃcients, can be derived
+from the absorption coeﬃcient and the VSF. The IOPs are inputs to the radiative
+transfer equation (RTE), along with with boundary conditions that specify the
+radiance incident onto a water body and how radiance is transmitted
+through the sea surface and reﬂected by the surface and bottom. The IOPs
+along with the boundary conditions are needed to solve the RTE for the
+radiance distribution. If the radiance distribution is known, then all other
+radiometric variables (various irradiances) can be computed, as can the
+AOPs.
+[IMG /packages/iws_l2h/conversion/files/OO-org-chart-800.png]
+Figure 1: An ocean-optics organization chart.
+Note that radiometric variables such as the various irradiances are not AOPs.
+Irradiances certainly depend on the radiance and on the IOPs, but they fail
+the requirement of being stable enough to be useful descriptions of the
+water body. For example, if the sun goes behind a cloud, the irradiances
+⟦E_{u}⟧ and
+⟦E_{d}⟧
+can change by an order of magnitude within seconds, but
+the water body itself remains the same. However, the ratio
+⟦E_{u} ∕ E_{d}⟧ remains almost
+unchanged. As we will see, ⟦E_{u} ∕ E_{d}⟧
+does contain useful information about the water body itself, regardless of the ambient lighting
+conditions. ⟦E_{u} ∕ E_{d}⟧
+is thus a good candidate to be called an AOP.
+Natural waters, both fresh and saline, are a witch’s brew of dissolved and
+particulate matter. These solutes and particles are both optically signiﬁcant and
+highly variable in kind and concentration. Consequently, the optical properties of
+natural waters show large temporal and spatial variations and seldom resemble
+those of pure water.
+The great variability in the optical properties of natural waters is the bane of
+those who desire precise and easily tabulated data or simple models. However, the
+coupling between constituent properties and optical properties implies that
+optical measurements can be used to deduce information about aquatic
+ecosystems. Indeed, it is the connections between the optical properties and the
+biological, chemical and geological constituents of natural waters that
+deﬁne the critical role of optics in aquatic research. For just as optical
+oceanography utilizes results from the biological, chemical, geological
+and physical subdisciplines of limnology and oceanography, so do those
+subdisciplines incorporate optics. This synergism is seen in such areas as biological
+oceanography, marine photochemistry, mixed-layer thermodynamics, lidar
+bathymetry, underwater visibility, and “ocean color” remote sensing of
+biological productivity, sediment load, pollutants, or bathymetry and bottom
+type.
+The goal of this chapter is to survey the bulk optical properties of natural
+waters. The chapter closes with an overview of various schemes for classifying
+natural waters. The reasons why the various optical properties have their
+observed values are discussed in other chapters. However, the unseverable
+connections between optics and biology, chemistry, and geology will still be
+obvious.

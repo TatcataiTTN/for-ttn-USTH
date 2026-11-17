@@ -1,0 +1,153 @@
+# Non-Algal Particles (NAP)
+
+As noted in the introduction to this chapter, the term non-algal particles (NAPs)
+refers to particulate matter that does not have extractable (via solvents such as
+acetone or methanol) pigments. This includes all living and detrital organic
+matter such as the non-pigmented portion of phytoplankton cells, detritus,
+heterotrophic bacteria, and viruses. Many authors also include inorganic mineral
+particles of both biogenic (e.g., calcite liths and shells) and terrestrial origin (e.g.,
+clay, silt, and sand).
+Detritus
+Detritus is a catch-all term for non-living particulate organic matter, including
+dead bacterial, phytoplankton and zooplankton cells, fragments of cells left from
+zooplankton grazing, fecal pellets, shells, and marine snow aggregates. Detritus
+both absorbs and scatters and can constitute an important fraction of the total
+IOPs of a water body.
+Absorption by detritus
+There have been many measurements of the absorption spectra of detritus and
+NAPs. Figure 1 shows an example. These measurements include both
+biogenic detritus and whatever mineral particles (if any) were in the water.
+Although magnitudes vary greatly depending on the concentration of
+NAPs in the water, the curves show a generally exponential decay with
+increasing wavelength. It is thus common ( Kirk (1980) , Roesler et al.
+(1989) , Bricaud et al. (1998) ) to model absorption by detritus or NAPs
+via
+⟦a_{N A P} ( λ ) = a_{N A P} ( λ_{o} ) exp nolimits^{− S_{N A P} ( λ − λ_{o} )} [ m^{− 1} ] ,⟧ (1)
+where ⟦λ_{o}⟧ is a reference
+wavelength and ⟦S_{N A P}⟧
+the spectral slope parameter. The mean value of
+⟦S_{N A P}⟧ used to model
+NAP absorption is ⟦0 . 0 1 1 n m^{− 1}⟧
+(e.g., Roesler et al. (1989) , Bricaud et al. (1998) ). However,
+as always with data-derived parameters, there is variability in
+⟦S_{N A P}⟧ . Figure 2 shows
+the distribution of ⟦S_{N A P}⟧
+values observed by Babin et al. (2003b) . Their data show a mean of
+⟦S_{N A P} = 0 . 0 1 2 3 n m^{− 1}⟧ with
+a standard deviation of 0.0013.
+[IMG /packages/iws_l2h/conversion/files/Bricaud-Stramski-aNAP-LO-1990-600.png]
+Figure 1: Measurements of detritus absorption spectra from the Sargasso
+Sea. Redrawn from Bricaud and Stramski (1990) [reproduction approval
+pending].
+[IMG /packages/iws_l2h/conversion/files/Babin-2003-SNAP-400.png]
+Figure 2: Distribution of
+⟦S_{N A P}⟧
+measured on 348 samples in European waters. Figure 14(a) of Babin et al.
+(2003b) , reproduced by permission of the American Geophysical Union.
+The absorption model of Eq. ( 1 ) has the same functional form as that for
+absorption by CDOM, although the average spectral slope parameter
+⟦S_{N A P} ≈ 0 . 0 1 1 n m^{− 1}⟧
+diﬀers somewhat from the average parameter for CDOM,
+⟦S_{C D O M} ≈ 0 . 0 1 8 n m^{− 1}⟧ ; see
+Commonly Used Models for IOPs and Biogeochemistry .
+Scattering by detritus
+Although CDOM and NAPs have similar absorption spectra, they diﬀer greatly in
+their scattering properties: CDOM has negligible scattering, but NAPs can be
+strongly scattering. There is much less data on NAP scattering than for
+absorption, but Fig. 3 shows data from Great Lake (Taihu), China. The
+⟦b_{N A P} ( λ )⟧ spectra
+in this dataset show a rather featureless dependence on wavelength, which is well
+ﬁt ( ⟦R^{2} = 0 . 9 8 9⟧ )
+by a power law:
+⟦b_{N A P} ( λ ) = b_{N A P} ( 5 5 0 ) (λ)/(5 5 0)^{− 0 . 9 3 8} [ m^{− 1} ] .⟧ (2)
+The authors show that the IOPs of this lake are dominated by
+NAP, with phytoplankton usually contributing less that 10% of the
+total scattering. (The same dataset had NAP absorption spectra
+that were well ﬁt by Eq. ( 1 ), but with a spectral slope parameter of
+⟦S_{N A P} = 0 . 0 0 5 2 ± 0 . 0 0 1 0 n m^{− 1}⟧ ,
+which is about one-half of typical ocean values.)
+[IMG /packages/iws_l2h/conversion/files/bNAP-Taihu-600.png]
+Figure 3: Scattering coeﬃcient spectra
+⟦b_{N A P} ( λ )⟧
+from Great Lake (Taihu), China. Data from Fig. 1(B) of Sun et al. (2010)
+provided courtesy of D. Sun.
+Minerals
+Mineral particles can enter the ocean from river discharge, erosion of coastal cliﬀs,
+sediment resuspension, and deposition of atmosphere dust, which is often carried
+long distances by winds. The optical properties of such particles are just as varied,
+and often just as important, as the properties of biological particles. In spite of
+their importance, relatively few studies have investigated the absorption
+and scattering properties of minerals per se . These include Ahn (1999) ,
+Stramski et al. (2004) , Babin and Stramski (2004) , and Stramski et al.
+(2007) .
+Absorption by minerals
+Figure 4 shows mass-speciﬁc absorption coeﬃcients
+⟦a^{∗} ( λ )⟧ (units of
+⟦m^{2} g^{− 1}⟧ )
+for four types of minerals. Figure 5 shows the same for several types of
+mineral dust suspended in sea water; some of the curves are the same
+mineral type but with diﬀerent particle size distributions. The imaginary
+indices of refraction for these particles varied by an order of magnitude,
+from about 0.003 to 0.03, depending on wavelength and mineral type. See
+Stramski et al. (2007) for a full discussion. These (and other) data sets are
+in qualitative agreement: absorption by minerals can range from highly
+absorbing in the blue with a roughly exponential decrease with increasing
+wavelength, to almost non-absorbing and spectrally ﬂat. Thus, to ﬁrst
+order, absorption by minerals can be modeled by either an exponential,
+⟦a_{m i n} ( λ ) = a_{m i n} ( λ_{r e f} ) exp nolimits [ − S_{m i n} ( λ − λ_{r e f} ) ] [ m^{− 1} ] , endlabel⟧
+or a power law,
+⟦a_{m i n} ( λ ) = a_{m i n} ( λ_{r e f} ) (λ)/(λ_{r e f})^{− m_{m i n}} [ m^{− 1} ] ,⟧
+where ⟦λ_{r e f}⟧ is a reference
+wavelength. The parameters ⟦S_{m i n}⟧
+and ⟦m_{m i n}⟧
+can be adjusted as needed to ﬁt a particular mineral type.
+[IMG /packages/iws_l2h/conversion/files/astar-min-Ahn-600.png]
+Figure 4: Measured mass-speciﬁc absorption coeﬃcients
+⟦a^{∗} ( λ )⟧
+for four types of mineral. From Ahn (1999) ; data courtesy of A. Morel.
+[IMG /packages/iws_l2h/conversion/files/astarmin-Stramski2007-600.png]
+Figure 5: Measured mass-speciﬁc absorption coeﬃcients
+⟦a^{∗} ( λ )⟧
+for various types of mineral dust suspended in sea water. The highest
+magnitude curves are red soils rich in iron oxides, the lowest curves are calcite
+and quartz. Redrawn from Fig. 3 of Stramski et al. (2007) with data provided
+courtesy of D. Stramski.
+Scattering by minerals
+Figures 6 and 7 show the mass-speciﬁc scattering coeﬃcients
+⟦b^{∗} ( λ )⟧ for
+the same two data sets of Figs. 4 and 5 . As for absorption, the scattering
+coeﬃcients show a decrease from blue to red, although with a couple of notable
+exceptions for the brown earth and Kosan samples, which have their maximum
+values at green wavelengths. Many of these scattering coeﬃcients could
+be modeled with an exponential or power law function. However, in all
+cases, use of a measured spectrum for radiative transfer calculations is
+preferable.
+[IMG /packages/iws_l2h/conversion/files/bstar-min-Ahn-600.png]
+Figure 6: Measured mass-speciﬁc scattering coeﬃcients
+⟦b^{∗} ( λ )⟧
+for four types of minerals. From Ahn (1999) ; data courtesy of A. Morel.
+[IMG /packages/iws_l2h/conversion/files/bstarmin-Stramski2007-600.png]
+Figure 7: Measured mass-speciﬁc scattering coeﬃcients
+⟦b^{∗} ( λ )⟧
+for the same samples of mineral dust suspended in sea water as in Fig. 5 .
+Redrawn from Fig. 6 of Stramski et al. (2007) with data provided courtesy
+of D. Stramski.
+Stramski et al. (2001) used complex indices of refraction for detritus
+and mineral particles, a power law particle size distribution with a slope
+parameter of -4 (a Junge distribution), and Mie theory to compute absorption,
+scattering, and backscattering cross sections for detritus and minerals. Their
+results are shown in Table 1 . It is interesting to note how closely the
+wavelength exponents for the scattering cross sections agree with the
+best-ﬁt values for the NAP-dominated waters of Fig. 3 as seen in Eq.
+( 2 ).
+Component Absorption Scattering Backscattering
+Detritus ⟦σ_{a, det} = 8 . 7 9 × 1 0^{− 1 6} e^{− 0 . 0 0 8 4 7 λ}⟧ ⟦σ_{b, det} = 1 . 4 3 × 1 0^{− 1 3} λ^{− 0 . 9 4 4 5}⟧ ⟦σ_{bb, det} = 5 . 8 8 × 1 0^{− 1 6} λ^{− 0 . 8 9 9 7}⟧
+Minerals ⟦σ_{a, min} = 1 . 0 1 × 1 0^{− 1 5} e^{− 0 . 0 0 8 4 6 λ}⟧ ⟦σ_{b, min} = 7 . 7 1 × 1 0^{− 1 3} λ^{− 0 . 9 7 6 4}⟧ ⟦σ_{bb, min} = 1 . 7 9 × 1 0^{− 1 4} λ^{− 0 . 9 1 4 0}⟧
+Table 1: Absorption, scattering, and backscattering cross
+sections for detritus and minerals. All have units of
+⟦m^{2}⟧
+per particle. Multiplication by the number of particles per cubic meter gives
+⟦a , b⟧ ,
+and ⟦b_{b}⟧
+in units of ⟦m^{− 1}⟧ .
+Data from Table 2 of Stramski et al. (2001) .

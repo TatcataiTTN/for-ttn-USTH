@@ -1,0 +1,307 @@
+# A New IOP Model for Case 1 Water
+
+This page develops a new IOP model for Case 1 water based on recent
+publications on absorption and scattering in Case 1 waters. The genesis of this
+model was to have an IOP model that made use of the latest data (at the time of
+its creation) and was convenient for use in the HydroLight radiative transfer
+model, where it can be selected as the “New Case 1 IOP Model”. In this model
+all IOPs are determined by the chlorophyll value (after selecting low,
+medium, or high ultraviolet absorption). This model is presumably an
+improvement over previous models, although that remains to be proven by
+comparison with comprehensive measurements. In any case, the inherent
+limitations of IOP models must be remembered (in particular, see Mobley et al.
+(2004) for limitations of the “Case 1” concept). IOP models may be very
+good on average , but may or may not be (very often, deﬁnitely are not )
+correct in any particular instance. IOP models are therefore best used for
+“generic” studies. When modeling a particular water body, especially in a
+closure study, it is always best to use measured data to the greatest extent
+possible.
+Particle absorption
+.
+It is well known that there is great variability in chlorophyll-speciﬁc absorption spectra
+⟦a^{∗} ( λ )⟧ . In particular, the
+spectral shape of ⟦a^{∗} ( λ )⟧
+changes with the chlorophyll concentration, owing to species composition and pigment
+packaging eﬀects (e.g., Bricaud et al. (1995) , Bricaud et al. (1998) ). Thus the next
+step in improving the particle absorption model is to allow the chlorophyll-speciﬁc
+absorption ⟦a^{∗} ( λ )⟧
+to depend on the chlorophyll concentration itself. Bricaud et al. (1998) therefore
+model particle absorption as
+⟦a_{p} ( z , λ ) = a^{∗} ( C h l , λ ) C h l ( z ) = A ( λ ) [ C h l ( z ) ]^{− B ( λ )} C h l ( z ) = A ( λ ) [ C h l ( z ) ]^{E ( λ )} . endlabel (1)⟧
+The Bricaud et al. (1998) paper gives
+⟦A ( λ )⟧ and
+⟦E ( λ )⟧ between
+400 and 700 nm. Extending the Bricaud et al. values from 700 to 1000 nm is easy
+because phytoplankton absorption is essentially zero in the infrared (IR). However,
+there are very few measurements of phytoplankton absorption below 350 nm, so
+extending ⟦A ( λ )⟧
+and ⟦E ( λ )⟧
+down to 300 nm is at best an uncertain process.
+Morrison and Nelson (2004) [their Fig. 1] show two normalized phytoplankton
+absorption spectra from 300 to 750 nm taken at the Bermuda Atlantic
+Time Series (BATS) site. The BATS Chl values ranged between 0.002 and
+⟦0 . 6 0 6 m g m^{− 3}⟧ over
+the course of a year, with a mean of 0.152. Although their spectra are similar
+above 365 nm, they are highly variable with season and depth between
+300 and 365 nm. This variability is likely due to mycosporine-like amino
+acids (MAAs), which strongly absorb near 320 nm. Figure 1 compares
+the Morrison and Nelson spectra (blue curves) with the Bricaud et al.
+⟦a_{p}⟧ of Eq. (1)
+evaluated for ⟦C h l = 0 . 0 5 m g m^{− 3}⟧
+(red curve); the Morrison and Nelson spectra are normalized to the Bricaud value
+of ⟦a_{p} ( 4 0 0 )⟧ .
+The shapes of the Morrison and Nelson spectra are consistent with the Bricaud
+values for low Chl values.
+[IMG /packages/iws_l2h/conversion/files/CDM_newIOP_Fig1.png]
+Figure 1: Comparison of Bricaud et al.
+⟦a_{p}⟧
+for Chl = 0.05 (red) with the Morrison and Nelson normalized absorption
+spectra (blue; dotted is summer, solid is winter).
+Vasilkov et al. (2005) present spectra for
+⟦A ( λ )⟧ and
+⟦B ( λ ) = 1 − E ( λ )⟧
+and between 300 and 400 nm, as derived from absorption
+measurements in coastal California waters. Figure 2 shows their
+⟦A ( λ )⟧ and
+⟦B ( λ )⟧
+spectra compared with those of Bricaud et al. (1998). The diﬀerences at 400 nm
+reﬂect the diﬀerent databases (i.e., diﬀerent waters) used to derive the
+coeﬃcients.
+[IMG /packages/iws_l2h/conversion/files/CDM_newIOP_Fig2.png]
+Figure 2: Comparison of the Vasilkov et al. (2005)
+⟦A ( λ )⟧
+and
+⟦B ( λ )⟧
+(purple curves) with those of Bricaud et al. (1998) (green curves). Solid lines
+are A and dashed lines are B .
+Desperation is the mother of modeling (you can quote me on that), so to deﬁne
+⟦A ( λ )⟧ and
+⟦B ( λ )⟧ over the
+300-1000 nm range, I proceeded as follows. The Bricaud et al. A and B curves are
+accepted for use from 400 to 720 nm, with A = B = 0 between 720 and 1000 nm.
+The Vasilkov et al. curve for A was normalized to the Bricaud value at 400 nm, i.e.,
+⟦A_{v} ( λ ) ← [ A_{v} ( λ ) ∕ A_{v} ( 4 0 0 ) ] A_{b} ( 4 0 0 )⟧ , where
+subscripts v and b stand for Vasilkov et al. and Bricaud et al., respectively. The
+normalized ⟦A_{v} ( λ )⟧
+was then averaged with the two normalized spectra of Morrison and Nelson
+seen in Fig. 1 , assuming that the A spectra have the same shape as
+⟦a_{p}⟧ . This assumption about
+the shapes of A and ⟦a_{p}⟧
+is correct only if B = 0 or if Chl = 1, in which case
+⟦A = a^{∗}⟧ in
+Eq. ( 1 ). The resulting average A between 300 and 400 nm then merges smoothly
+with the A of Bricaud at 400 nm. For B , the Vasilkov et al. curve was normalized
+to the Bricaud et al. curve at 400, and the result was used to extend the Bricaud
+et al. B down to 300 nm. The resulting A and B spectra are shown in red in Fig.
+3 , along with the three A spectra used to compute the average A between 300 and
+400. These A and B give an absorption model that roughly corresponds to the
+mid-range of UV absorptions seen in the Morrison and Nelson data. The new
+Case 1 IOP model uses these A and E = 1 - B as the default spectra for
+the last version of Eq. ( 1 ). The tabulated A and E spectra are on ﬁle
+AEmidUVabs.txt .
+[IMG /packages/iws_l2h/conversion/files/CDM_newIOP_Fig3.png]
+Figure 3:
+The A (red solid line) and B (dashed line) spectra used in Eq. ( 1 ) to deﬁne
+⟦a_{p}⟧
+for the mid-range of UV absorption. The purple and blue curves were
+averaged to produce A between 300 and 400 nm.
+It would be interesting to compare light ﬁelds for the wide range of UV
+absorptions illustrated by the Morrison and Nelson spectra of Fig. 3 . A spectra for
+low and high UV absorptions are therefore deﬁned by simply using the shapes of
+the Morrison and Nelson spectra absorption spectra to extend the Bricaud A from
+400 down to 300 nm. The B spectra were taken to be the same as for
+the mid-range of UV absorption just discussed. The spectra are on ﬁles
+AElowUVabs.txt (low UV absorption) and AEhighUVabs.txt (high UV
+absorption).
+Regardless of which set of A and E spectra is chosen, the A
+and E spectra are used in the same manner in Eq. ( 1 ) to deﬁne
+⟦a_{p} ( λ )⟧
+for any Chl value. Figure 4 shows the resulting particle absorption
+spectra for low, medium, and high UV absorptions and for
+⟦C h l = 0 . 0 1 , 0 . 1 , 1 . 0⟧ , and
+⟦1 0 . 0 m g m^{− 3}⟧ . The
+corresponding absorption coeﬃcients as computed by the classic Case 1 IOP
+model are shown for comparison, as is absorption by pure water. There are
+signiﬁcant diﬀerences in the classic and new models, which will lead to signiﬁcant
+diﬀerences in computed radiances, irradiances, and AOPs when used in radiative
+transfer calculations. Note in particular that the shape of the particle
+absorption spectrum now changes with the chlorophyll value. Presumably
+the new model gives a more realistic description, on average, of particle
+absorption in Case 1 waters than does the classic model for which the shape
+of the particle absorption spectrum is independent of the chlorophyll
+concentration.
+[IMG /packages/iws_l2h/conversion/files/CDM_newIOP_Fig4.png]
+Figure 4: Particle absorption coeﬃcients computed by the “new Case 1”
+model of Eq. ( 1 ) (red) and the HydroLight “classic Case 1” IOP model (blue).
+The red solid line is for the high-UV absorption, dotted is the mid-range UV
+absorption, and dashed is the low-range UV absorption. The purple line is
+absorption by pure water.
+CDOM absorption
+Figure 5 shows measured CDOM absorption spectra down to 200 nm at several
+locations in Florida waters on both log and linear ordinates. For wavelengths
+greater than 300 nm, these spectra are acceptably well modeled by a function of
+the form
+⟦a_{y} ( z , λ ) = a_{y} ( z , λ_{o} ) exp nolimits [ − S ( λ − λ_{o} ) ] .⟧ (2)
+The red line in Fig. 5 shows the spectrum predicted by Eq. ( 2 ) with
+⟦λ_{o} = 4 4 0 n m⟧ ,
+⟦S = 0 . 0 1 6 2 n m^{− 1}⟧ and the average (for
+the spectra shown) of ⟦a_{y} ( 4 4 0 )⟧ .
+This value of S was determined from the average values of
+⟦a_{y}⟧
+at 300 and 440 nm. The functional form ( 2 ) is used to model CDOM
+absorption down to 300 nm. This model underestimates CDOM
+absorption at shorter wavelengths and therefore should not be used
+below 300 nm. When incorporated into the new Case 1 IOP model,
+⟦a_{y} ( z , λ_{o} )⟧ is set to
+⟦f_{y} a_{p} ( z , λ_{o} )⟧ , with default
+values of ⟦f_{y} = 0 . 2⟧ ,
+⟦λ_{o} = 4 4 0 n m⟧ , and
+⟦S = 0 . 0 1 4 n m^{− 1}⟧
+just as in the classic Case 1 model. However, other values of
+⟦f_{y}⟧ ,
+⟦λ_{o}⟧ , and
+S can be used if desired.
+[IMG /packages/iws_l2h/conversion/files/newIOP-aCDOM-fit-500.png]
+Figure 5: Measured (data of Dr. Lore Ayoub, personal communication) and
+modeled CDOM absorptions. The red curve is Eq. ( 2 ). Top, logarithmic
+ordinate; bottom, linear ordinate.
+Scattering
+Just as for absorption, recent papers have presented improved models for particle
+scattering in Case 1 waters. Morel et al. (2002) (their Eq. 14) model the particle
+scattering coeﬃcient as
+⟦b_{p} ( z , λ ) = b_{o} [ C h l ( z ) ]^{n} (λ)/(5 5 0)^{ν} ,⟧ (3)
+where
+⟦ν = 0 . 5 [ log nolimits_{1 0} C h l − 0 . 3 ] f o r 0 . 0 2 < C h l < 2 = 0 f o r C h l > 2 . endlabel (4)⟧
+Equation ( 3 ) with ⟦ν = − 1⟧
+is the “classic” scattering model proposed by Gordon and Morel
+(1983) . The wavelength dependence of the new scattering coeﬃcient
+now depends on the chlorophyll concentration. In particular,
+⟦ν⟧ now lies between -1
+and 0. A value of ⟦ν = − 1⟧ ,
+as often used in earlier models, is known from Mie theory to be valid only for
+nonabsorbing particles with a Junge particle size distribution slope of
+-4.
+Loisel and Morel (1998) studied the relationship between particle beam attenuation
+at 660 nm, ⟦c_{p} ( 6 6 0 )⟧ ,
+and the chlorophyll concentration. They found the functional form
+⟦c_{p} ( z , 6 6 0 ) = c_{o} [ C h l ( z ) ]^{n} .⟧ (5)
+The values of ⟦c_{o}⟧
+and ⟦n⟧
+are diﬀerent for near-surface (down to one “penetration depth,”
+as relevant to remote sensing) and deeper waters. Because
+⟦c_{p} ≈ b_{p}⟧ at 660,
+Morel et al. (2002) adopt the coeﬃcients for Eq. ( 5 ) for use in Eq. ( 3 ), after shifting
+the reference wavelength to 550 nm. Thus for near-surface waters, Morel et al. (2002)
+use ⟦b_{o}⟧ =
+0.416 and n = 0.766 in Eq. ( 5 ).
+However, a power law in wavelength of the form of Eq. ( 5 ) generally gives a better
+ﬁt for ⟦c_{p}⟧
+than for ⟦b_{p}⟧
+(e.g., Voss (1992) ; Boss et al. (2001c) ). Thus it is probably better to model
+⟦c_{p}⟧ and then
+obtain ⟦b_{p}⟧
+from ⟦b_{p} = c_{p} − a_{p}⟧
+(with ⟦a_{p}⟧
+being determined by Eq. ( 1 ) as described above). This is the approach taken in
+the new Case 1 model, which uses
+⟦c_{p} ( z , λ ) = c_{o} [ C h l ( z ) ]^{n} (λ)/(6 6 0)^{ν} ,⟧ (6)
+where the coeﬃcients are the same as for b in Eq. ( 3 ) above and
+⟦ν⟧ is
+given by Eq. ( 4 ). Thus this model uses the chlorophyll-dependence of
+⟦c_{p} ( 6 6 0 )⟧
+from Loisel and Morel (1998), Eq. :loiselcp, and assumes that
+⟦c_{p}⟧
+has the same chlorophyll-dependent wavelength dependence as the
+⟦b_{p}⟧
+model of Morel et al. (2002), Eq. ( 3 ) The default values of
+⟦c_{o}⟧
+and n , which apply to near-surface waters, are
+⟦c_{o}⟧ =
+0.407 and n = 0.795 (from Loisel and Morel, 1998, their Eq. 5); other values can
+be used if desired.
+Figure 6 shows example ⟦a_{p}⟧
+for mid-range UV absorption, ⟦b_{p}⟧ ,
+and ⟦c_{p}⟧ spectra for
+near-surface waters ( ⟦c_{o}⟧
+= 0.416 and n = 0.766 in Eq. 5), along with the ”classic”
+⟦b_{p}⟧ with
+⟦b_{o}⟧ = 0.3, n =
+0.62, and m = 1. The scattering coeﬃcients are not too diﬀerent at low chlorophyll values,
+but the new ⟦b_{p}⟧
+has a diﬀerent wavelength dependence and is much larger in
+magnitude, by up to a factor of three, at high Chl values. Unlike
+in the classic scattering model, the wavelength dependence of
+⟦b_{p}⟧ now
+depends on Chl and is more complicated. These diﬀerences in scattering will have
+a signiﬁcant eﬀect on computed radiances.
+[IMG /packages/iws_l2h/conversion/files/CDM_newIOP_Fig6.png]
+Figure 6: Beam attenuation ⟦c_{p}⟧
+as determined by from Eq. ( 6 ) and near-surface values of
+⟦c_{o}⟧
+= 0.407 and n = 0.795 (blue). The red curves are the same
+⟦a_{p}⟧
+as the mid-UV absorptions in Fig. 4 . The solid green curve is the new
+⟦b_{p} = c_{p} − a_{p}⟧ ;
+the dashed green curve is the “classic”
+⟦b_{p}⟧
+of Eq. ( 3 ) with ⟦ν = − 1⟧ .
+Scattering phase function
+Morel et al. (2002) also developed a phase function model for Case 1 water in
+which the phase function is a combination of “small” and “large” particle phase
+functions, with the fraction of each being determined by the chlorophyll
+concentration:
+⟦β^{̃}_{p} ( ψ , C h l ) = α_{s} ( C h l ) β^{̃}_{s} ( ψ ) + α_{l} ( C h l ) β^{̃}_{l} ( ψ ) ,⟧ (7)
+where
+⟦α_{s} ( C h l ) = 0 . 8 5 5 [ 0 . 5 − 0 . 2 5 log nolimits_{1 0} ( C h l ) ] a n d α_{l} = 1 − α_{s} .⟧ (8)
+Figure 9 shows phase functions determined by Eqs. ( 7 ) and ( 8 ), along with the
+frequently used Petzold average-particle phase function
+[IMG /packages/iws_l2h/conversion/files/CDM_newIOP_Fig7.png]
+Figure 7: Fig. 9. Phase functions for small (orange) and large (red) particles
+as given by Morel et al.(2002). Phase functions as given by Eqs. ( 7 ) and
+( 8 ) for Chl = 0.01 (purple), 0.1 (blue), 1.0 (teal), and 10.0 (green), and the
+Petzold average particle phase function (black) are also shown.
+It should be noted that the Morel et al. (2002) phase functions have smaller backscatter
+fractions ( ⟦B_{p}⟧
+= 0.014 for the small particles to 0.0019 for the large particles) than the Petzold phase
+function ( ⟦B_{p}⟧
+= 0.018). This is consistent with what is known about the phase functions for
+algal particles (e.g., Ulloa et al. (1994) , or Twardowski et al. (2001) ). The Morel
+phase functions of Eq. ( 7 ) and Fig. 7 are adopted for use in the new Case 1 IOP
+model.
+To illustrate the quantitative diﬀerences (including the combined eﬀects of absorption
+and scattering coeﬃcients and the particle scattering phase function) between the
+classic and new Case 1 IOP models, Fig. 8 shows the remote-sensing reﬂectance
+⟦R_{r s} ( λ )⟧ for homogeneous, inﬁnitely
+deep waters with ⟦C h l = 0 . 0 1 , 0 . 1 , 1 , a n d 1 0 m g C h l m^{− 3}⟧ ,
+as computed for the classic and new Case 1 IOP models. The mid-range UV
+absorption model was used in the new model. The sun was placed at a zenith
+angle of 30 deg in a clear sky with typical marine atmospheric parameters
+(sky irradiances were computed using the RADTRAN-X sky irradiance
+model for the annual average Earth-Sun distance). The wind speed was
+⟦6 m s^{− 1}⟧ .
+For the classic IOP model, the particle phase function was taken to be a
+Fournier-Forand phase function with a backscatter fraction as given by the
+empirical formula
+⟦B_{p} = 0 . 0 1 [ 0 . 7 8 − 0 . 4 2 log nolimits_{1 0} ( C h l ) ]⟧
+of Ulloa et al. (1994) for ⟦B_{p}⟧
+at 550 nm in Case 1 waters. These IOPs were then used in the HydroLight
+radiative transfer model, which was run from 300 to 800 nm with 5 nm
+bands.
+Figure 8 shows that the computed
+⟦R_{r s}⟧
+spectra are very similar for Chl = 0.01 and 0.1, but that the diﬀerences can
+become very large at high chlorophyll values. The maximum diﬀerence
+computed as 100(new - old)/old is less than 5% for Chl = 0.01 or 0.1. For
+⟦C h l = 1⟧ , the
+maximum diﬀerence is less than 50% at visible wavelengths (62% at 798 nm). For
+⟦C h l = 1 0⟧ , the
+diﬀerences are as large as 254% (more than a factor of three; at 578 nm). The
+larger ⟦R_{r s}⟧
+for high Chl is due to the greatly increased scattering, as seen in Fig.
+7 .
+[IMG /packages/iws_l2h/conversion/files/Rrs-new-vs-classic-600.png]
+Figure 8: Comparison of ⟦R_{r s}⟧
+as computed by the New Case 1 model with mid-range UV
+absorption (solid lines) and the Classic model (dotted lines), for
+⟦C h l = 0 . 0 1 , 0 . 1 , 1⟧ ,
+and ⟦1 0 m g C h l m^{− 3}⟧ .

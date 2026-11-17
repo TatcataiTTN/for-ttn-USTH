@@ -1,0 +1,130 @@
+# Measures of Reflectance
+
+This page discusses diﬀerent measures of the reﬂectance of a surface. The surface
+can be the surface of an object, or the surface of the ocean (either the water
+surface itself, or the water surface plus the water column).
+The bi-directional reectance distribution function (BRDF), which tells us
+everything we need to know about how a surface reﬂects light. As the name
+suggests, the BRDF describes how light incident onto a surface in any incident
+direction is reﬂected into any reﬂected direction. As explained on the
+BRDF page, this function in general depends on the incident directions
+⟦𝜃_{i} , ϕ_{i}⟧ , reﬂected
+directions ⟦𝜃_{r} , ϕ_{r}⟧ , and
+wavelength ⟦λ⟧
+(and in general on the state of polarization, which is ignored for the moment). If
+we could always measure or model the complete BRDF of a surface the problem
+of specifying surface boundary conditions in radiative transfer simulations would
+be solved. However, measuring even a partial BRDF for a few values of
+⟦𝜃_{i} , ϕ_{i} , 𝜃_{r} , ϕ_{r} , λ⟧ is a
+diﬃcult and tedious task in the laboratory and is almost never attempted in the
+ocean. Of course, everyone wants to have some easily made (compared to a
+BRDF) measure of surface reﬂectance that, with appropriate assumptions, can be
+used to describe the optical properties of the surface. This leads us to various
+other reﬂectances and quantities derived from the BRDF.
+Albedos
+There are many deﬁnitions of “albedo.” Hapke (1993) deﬁnes bolometric, Bond,
+geometric, hemispherical, normal, physical, plane, single-scattering, and spherical
+albedos, as well as an albedo factor. Not a single one of these albedos corresponds
+to how albedo is deﬁned in Light and Water (1994) (page 193) and commonly
+used in optical oceanography. Fortunately, oceanographers do not have to
+deal with all of these albedos, but we should clarify a point that can
+cause confusion when reading papers on reﬂectance, which sometimes
+just say, “...and the albedo is...” without telling you which one they are
+using.
+Optical oceanographers generally think of the albedo as being the ratio of the
+upwelling plane irradiance to the downwelling plane irradiance, for whatever
+conditions of incident lighting you have in nature at the time of measurement.
+(This is how the albedo is deﬁned in Light and Water .) This is what you
+need to know to compute an energy balance in the ocean, for example.
+Thus the oceanographers’ albedo is the same as the irradiance reﬂectance
+⟦R = E_{u} ∕ E_{d}⟧ .
+Many surface-reﬂectance scientists (e.g., in the paint industry) like to deﬁne their albedos
+and reﬂectances in terms of isotropic illumination of the surface , i.e., the incident radiance
+⟦L_{i} ( 𝜃_{i} , ϕ_{i}⟧ ) is a constant
+independent of ⟦( 𝜃_{i} , ϕ_{i} )⟧ .
+For isotropic incident radiance, the general equation for the irradiance reﬂectance
+⟦R⟧ (see
+the page on Lambertian BRDFs )
+⟦R = (E_{u})/(E_{d}) = (∬ nolimits_{2 π_{r}} L_{r} ( 𝜃_{r} , ϕ_{r} ) | cos nolimits 𝜃_{r} | d Ω_{r})/(∬ nolimits_{2 π_{i}} L_{i} ( 𝜃_{i} , ϕ_{i} ) | cos nolimits 𝜃_{i} | d Ω_{i}) = (∬ nolimits_{2 π_{r}} ∬ nolimits_{2 π_{i}} L_{i} ( 𝜃_{i} , ϕ_{i} ) B R D F ( 𝜃_{i} , ϕ_{i} , 𝜃_{r} , ϕ_{r} ) | cos nolimits 𝜃_{i} | d Ω_{i} | cos nolimits 𝜃_{r} | d Ω_{r})/(∬ nolimits_{2 π_{i}} L_{i} ( 𝜃_{i} , ϕ_{i} ) | cos nolimits 𝜃_{i} | d Ω_{i}) endlabel (1)⟧
+reduces to just
+⟦A ≡ (1)/(π) ∬ nolimits_{2 π_{r}} ∬ nolimits_{2 π_{i}} B R D F ( 𝜃_{i} , ϕ_{i} , 𝜃_{r} , ϕ_{r} ) | cos nolimits 𝜃_{i} | d Ω_{i} | cos nolimits 𝜃_{r} | d Ω_{r} .⟧ (2)
+This quantity is called the Bond or spherical albedo, or the spherical or bi-hemispherical
+reﬂectance, or just the albedo, depending on the author’s preference. Note that this
+⟦A⟧ is not
+equal to ⟦R = E_{u} ∕ E_{d}⟧
+unless the incident lighting is isotropic (which never occurs in nature) or unless the
+surface is Lambertian (which never occurs in nature). For a Lambertian surface,
+⟦A = ρ⟧ , where
+⟦ρ⟧ is the
+reﬂectivity of the surface.
+The same convention of assuming isotropic illumination of the surface is often
+used when deﬁning other reﬂectances, e.g., the hemispherical-directional
+reﬂectance. Note that the convention of using isotropic illumination when deﬁning
+albedos and reﬂectances is not necessarily bad: it removes a complicating
+factor—variable incident lighting—from the discussion of surface properties.
+However, oceanographers cannot control their incident lighting; they have to live
+with whatever incident radiance nature gives them.
+The Irradiance Reﬂectance vs. The Bi-Hemispherical Reﬂectance
+As already noted, the oceanographers’ albedo or irradiance reﬂectance
+⟦R = E_{u} ∕ E_{d}⟧ as given
+by Eq. ( 1 ) is a bi-hemispherical reﬂectance, but it is not the bi-hemispherical
+reﬂectance as deﬁned in books such as Hapke’s, because the oceanographer’s
+⟦R⟧ uses
+the actual incident radiance distribution in Eq. ( 1 ) rather than an isotropic
+incident radiance.
+The Remote-Sensing Reﬂectance
+The oceanographers’ remote-sensing reﬂectance
+⟦R_{r s} ( 𝜃_{r} , ϕ_{r} ) ≡ (L_{r} ( 𝜃_{r} , ϕ_{r} ))/(E_{d}) ( s r^{− 1} ) ,⟧ (3)
+has the same units as the BRDF, but they are not the same thing. Note in particular
+that ⟦R_{r s}⟧
+uses the downwelling radiance from all directions (as contained in
+⟦E_{d}⟧ ),
+whereas the incident radiance in the deﬁnition of the BRDF is in a collimated
+beam. [Also, some people call this ratio the “remote-sensing reﬂectance”
+only if the measurement is being made just above the sea surface and
+⟦L_{r}⟧ is the
+water-leaving radiance (the total upward radiance minus the surface-reﬂected sky
+radiance). If measured in water, the ratio of upwelling radiance to downwelling
+irradiance is then called the “remote-sensing ratio.”]
+The Reﬂectance Factor and the Radiance Factor
+The reﬂectance factor REFF (also called the reﬂectance coeﬃcient ) is deﬁned as the
+ratio of the BRDF of a surface to that of a perfectly diﬀuse surface under the same
+conditions of illumination and observation. “Perfectly diﬀuse” means a Lambertian
+surface with ⟦ρ = 1⟧ .
+Thus
+⟦R E F F ( 𝜃_{i} , ϕ_{i} , 𝜃_{r} , ϕ_{r} ) ≡ (B R D F ( 𝜃_{i} , ϕ_{i} , 𝜃_{r} , ϕ_{r} ))/(B R D F_{L a m b} ( w i t h ρ = 1 )) = π B R D F ( 𝜃_{i} , ϕ_{i} , 𝜃_{r} , ϕ_{r} ) .⟧ (4)
+The radiance factor RADF is deﬁned as the reﬂectance factor for normal illumination,
+i.e., for ⟦𝜃_{i} = 0⟧ .
+Thus
+⟦R A D F ( 𝜃_{r} , ϕ_{r} ) ≡ π B R D F ( 0 , 0 , 𝜃_{r} , ϕ_{r} ) .⟧ (5)
+The Fresnel Reﬂectance
+The Fresnel reﬂectance ⟦R_{F}⟧
+is the reﬂectance of a perfectly smooth surface between two media of diﬀerent indices of
+refraction ⟦n⟧ .
+Formulas for ⟦R_{F}⟧
+are given in almost any optics text, and in Light and Water (1994, page 157) . Figure
+1 gives ⟦R_{F}⟧
+for unpolarized light incident onto either side of an air-water surface;
+the water has a real index of refraction (relative to the air) of
+⟦n = 1 . 3 4⟧ .
+[IMG /packages/iws_l2h/conversion/files/CM_Fresnel.png]
+Figure 1: Fresnel reﬂectance of an air-water surface for unpolarized incident
+light.
+Note that the Fresnel reﬂectance describes the reﬂectance of
+the surface itself. The irradiance and remote-sensing reﬂectances,
+⟦R⟧ and
+⟦R_{r s}⟧ ,
+when measured just above the sea surface describe the reﬂectance of the sea
+surface plus the water beneath the surface.
+⟦R_{F}⟧
+can be combined with Dirac delta functions to create a BRDF. Consider the
+BRDF
+⟦B R D F ( 𝜃_{i} , ϕ_{i} , 𝜃_{r} , ϕ_{r} ) = 2 R_{F} δ ( sin nolimits^{2} 𝜃_{r} − sin nolimits^{2} 𝜃_{i} ) δ ( ϕ_{r} − ϕ_{i} ± π ) .⟧
+Inserting Eq. ( 1 )into the general equation for reﬂected radiance (Eq. (4) of the
+BRDF page),
+⟦L_{r} ( 𝜃_{r} , ϕ_{r} ) = ∬ nolimits_{2 π_{i}} L_{i} ( 𝜃_{i} , ϕ_{i} ) B R D F ( 𝜃_{i} , ϕ_{i} , 𝜃_{r} , ϕ_{r} ) cos nolimits 𝜃_{i} d Ω_{i} ,⟧
+gives
+⟦L_{r} ( 𝜃_{r} , ϕ_{r} ) = R_{F} ∬ nolimits_{2 π_{i}} L_{i} ( 𝜃_{i} , ϕ_{i} ) δ ( sin nolimits^{2} 𝜃_{r} − sin nolimits^{2} 𝜃_{i} ) δ ( ϕ_{r} − ϕ_{i} ± π ) 2 cos nolimits 𝜃_{i} sin nolimits 𝜃_{i} d 𝜃_{i} d ϕ_{i} = R_{F} ∫ nolimits_{0}^{1} L_{i} ( 𝜃_{i} , ϕ_{i} = ϕ_{r} ± π ) δ ( sin nolimits^{2} 𝜃_{r} − sin nolimits^{2} 𝜃_{i} ) d sin nolimits^{2} 𝜃_{i} = R_{F} L_{i} ( 𝜃_{i} = 𝜃_{r} , ϕ_{i} = ϕ_{r} ± π ) .⟧
+This last equation is the form usually seen in the deﬁnition of the Fresnel
+reﬂectance as being the ratio of reﬂected to incident (ir)radiances for angles
+related by the law of reﬂection.

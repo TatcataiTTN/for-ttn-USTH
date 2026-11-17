@@ -1,0 +1,115 @@
+# Apparent Optical Properties
+
+One of the primary goals of optical oceanography is to learn something about a
+water body, e.g., its chlorophyll or sediment concentration, from optical
+measurements. Ideally one would measure the absorption coeﬃcient and the
+volume scattering function, which tell us everything there is to know about the
+bulk optical properties of a water body, and those IOPs do indeed tell us a lot
+about the types and concentration of the water constituents. However, in the early
+days of optical oceanography, it was diﬃcult to measure in situ IOPs other than
+the beam attenuation coeﬃcient. On the other hand, it was relatively easy to
+measure radiometric variables such as the upwelling and downwelling plane
+irradiances. This led to the use of apparent optical properties (AOPs) rather than
+IOPs to describe the bulk optical properties of water bodies. A “good” AOP will
+give useful information about a water body, e.g., the types and concentrations
+of the water constituents, from easily made measurements of the light
+ﬁeld.
+Apparent optical properties are those properties that (1) depend both on the
+medium (the IOPs) and on the geometric (directional) structure of the radiance
+distribution, and that (2) display enough regular features and stability to be useful
+descriptors of a water body.
+To understand this deﬁnition, let us consider the easily measured downwelling plane
+irradiance ⟦E_{d} ( z , λ )⟧ as a
+candidate AOP. ⟦E_{d}⟧
+satisﬁes the ﬁrst part of the deﬁnition of an AOP: it depends on the IOPs and on the
+radiance distribution. If the absorption or scattering properties of the water body change,
+so does ⟦E_{d}⟧ . If
+the sun angle changes, i.e., the directional structure of the radiance changes, so does
+⟦E_{d}⟧ . However, if the sun
+goes behind a cloud, ⟦E_{d}⟧
+can change by an order of magnitude within seconds, even though the water body composition
+remains the same. ⟦E_{d}⟧
+can also ﬂuctuate rapidly (on a time scale of 0.01 s) and randomly near the sea surface
+due to surface wave focusing of the radiance transmitted through the wind-blown
+surface. ⟦E_{d}⟧
+thus does not satisfy the second part of the AOP deﬁnition: it does not “display enough
+regularity and stability to be a useful descriptor of a water body.” A measurement
+of ⟦E_{d}⟧
+alone tells us little about the water body itself. A measurement of spectral
+⟦E_{d}⟧
+might show that the water is blue and thus perhaps low in chlorophyll,
+vs. green and thus perhaps high in chlorophyll. However, we cannot
+expect to deduce the chlorophyll concentration from a measurement of
+⟦E_{d}⟧ because
+of its sensitivity to external environmental eﬀects such as sun zenith angle, cloud
+cover, or surface waves. The same is true of other radiometric variables such as
+⟦E_{u}⟧ ,
+⟦L_{u}⟧ , or
+even the full radiance distribution: they satisfy the ﬁrst half of the AOP deﬁnition
+but not the second half. Radiances and irradiances themselves are not
+AOPs.
+Now consider the ratio of upwelling to downwelling plane irradiances,
+⟦R ( z , λ ) = (E_{u} ( z , λ ))/(E_{d} ( z , λ )) .⟧
+If ⟦E_{d}⟧
+changes because of a change in sun location, cloud cover, or surface waves,
+⟦E_{u}⟧ will change
+proportionately because ⟦E_{u}⟧
+arises mostly from upward scatter of the same downwelling radiance that determines
+⟦E_{d}⟧ . Thus
+the ⟦E_{u} ∕ E_{d}⟧ ratio
+should be much less inﬂuenced by changes in the external environment than are
+⟦E_{u}⟧ and
+⟦E_{d}⟧ individually. The
+irradiance reﬂectance ⟦R = E_{u} ∕ E_{d}⟧
+is thus worthy of further investigation as a descriptor of the water
+body itself. However, we still expect at least a small change in
+⟦E_{u} ∕ E_{d}⟧ as
+sun zenith angle changes, for example, because diﬀerent parts of the VSF will
+contribute to the upward scattering of downwelling radiance.
+The same holds true of the normalized or logarithmic depth derivative of
+⟦E_{d}⟧ ,
+⟦K_{d} ( z , λ ) = − (d ln nolimits E_{d} ( z , λ ))/(d z) = − (1)/(E_{d} ( z , λ )) (d E_{d} ( z , λ ))/(d z) ( m^{− 1} ) ,⟧
+Again, if ⟦E_{d}⟧
+changes suddenly, the second form of the derivative shows that the change in magnitude of
+⟦E_{d}⟧ will cancel out,
+leaving the value of ⟦K_{d}⟧
+unchanged. ⟦K_{d}⟧
+thus satisﬁes the stability requirement for an AOP.
+⟦K_{d}⟧
+should also depend on the IOPs because changing them will change now
+rapidly the irradiance changes with depth. The diﬀuse attenuation function
+⟦K_{d}⟧ is
+thus another candidate worthy of consideration as an AOP.
+It is easy to think of other such ratios and depth
+derivatives that can be formed from radiometric variables:
+⟦L_{u} ∕ E_{d}⟧ ,
+⟦L_{u} ∕ L_{d}⟧ ,
+⟦− d ln nolimits E_{u} ∕ d z⟧ ,
+⟦− d ln nolimits L_{u} ∕ d z⟧ , and
+so on. Each of these candidate AOPs must be investigated to see which ones
+provide the most useful information about water bodies and which ones are least
+inﬂuenced by external environmental conditions such as sun location or sky
+conditions. Table 1 lists the most commonly used AOP’s. These will be developed
+in more detail on the following pages.
+AOP name Symbol Deﬁnition Units
+diﬀuse attenuation coeﬃcients (K functions)
+of radiance in any direction ⟦L ( 𝜃 , ϕ )⟧ ⟦K ( 𝜃 , ϕ )⟧ ⟦− d ln nolimits L ( 𝜃 , ϕ ) ∕ d z⟧ ⟦m^{− 1}⟧
+of upwelling radiance ⟦L_{u}⟧ ⟦K_{L u}⟧ ⟦− d ln nolimits L_{u} ∕ d z⟧ ⟦m^{− 1}⟧
+of downwelling irradiance ⟦E_{d}⟧ ⟦K_{d}⟧ ⟦− d ln nolimits E_{d} ∕ d z⟧ ⟦m^{− 1}⟧
+of upwelling irradiance ⟦E_{u}⟧ ⟦K_{u}⟧ ⟦− d ln nolimits E_{u} ∕ d z⟧ ⟦m^{− 1}⟧
+of scalar irradiance ⟦E_{o}⟧ ⟦K_{o}⟧ ⟦− d ln nolimits E_{o} ∕ d z⟧ ⟦m^{− 1}⟧
+of PAR ⟦K_{P A R}⟧ ⟦− d ln nolimits P A R ∕ d z⟧ ⟦m^{− 1}⟧
+reﬂectances
+irradiance reﬂectance ⟦R⟧ ⟦E_{u} ∕ E_{d}⟧ nondim
+remote-sensing reﬂectance ⟦R_{r s}⟧ ⟦L_{w} ( in air ) ∕ E_{d} ( in air )⟧ ⟦s r^{− 1}⟧
+remote-sensing ratio ⟦R S R⟧ ⟦L_{u} ∕ E_{d}⟧ ⟦s r^{− 1}⟧
+mean cosines
+of the radiance distribution ⟦μ^{¯}⟧ ⟦( E_{d} − E_{u} ) ∕ E_{o}⟧ nondim
+of the downwelling radiance ⟦μ^{¯}_{d}⟧ ⟦E_{d} ∕ E_{o d}⟧ nondim
+of the upwelling radiance ⟦μ^{¯}_{u}⟧ ⟦E_{u} ∕ E_{o u}⟧ nondim
+Table 1: Commonly used apparent optical properties.
+⟦R_{r s}⟧
+is a function of wavelength only;
+⟦K_{PAR}⟧
+is a function of depth only; all other AOPs are functions of both depth and
+wavelength.

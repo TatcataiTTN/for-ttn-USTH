@@ -1,0 +1,699 @@
+# Brief Definitions
+
+Norman McCormick and Curtis Mobley contributed to this page.
+This page gives brief deﬁnitions of many terms used in optical oceanography.
+Where appropriate, links are provided to pages where terms are discussed in more
+detail.
+absorbance:   The (base 10) logarithm of the ratio of the radiant power at
+a given wavelength incident onto a volume to the sum of the scattered
+and directly transmitted radiant powers emerging from the volume; also
+called optical density. Nondimensional. Further discussion on the pages for
+IOPs , benchtop spectrophotometry. , and benchtop spectrophotometry of
+particulates .
+absorptance:   The fraction of the incident power at a given wavelength that
+is absorbed within a volume. Nondimensional. See absorbance above for links to
+further discussion. Further discussion
+absorption:   Any process whereby radiant energy is converted to non-radiant
+energy, e.g., to thermal, chemical, vibrational, or rotational energy of a molecule.
+Absorption results in the disappearance of photons.
+absorption coeﬃcient:   The absorptance per unit distance of photon travel
+in a medium, i.e., the limit of the ratio of the spectral absorptance to the
+distance of photon travel as that distance becomes vanishingly small. Units:
+⟦[ m^{− 1} ]⟧ . See
+also diﬀuse absorption coeﬃcient and speciﬁc absorption coeﬃcient. Further
+discussion.
+albedo of a surface:   The ratio of the plane irradiance leaving a surface to
+the plane irradiance incident onto it, i.e., the ratio of the upwelling plane
+irradiance to the downwelling plane irradiance, with both measured just above the
+surface. Nondimensional.
+albedo of single scattering:   The probability of a photon surviving an
+interaction; equals the ratio of the scattering coeﬃcient to the beam attenuation
+coeﬃcient. Nondimensional. Further discussion and application in Monte Carlo
+simulations.
+algae:   Any of various eukaryotic, photosynthetic organisms containing
+chlorophyll but lacking true roots, stems, and leaves. Sizes range from single-celled
+phytoplankton to giant kelp. Previously grouped with plants, but now often
+classiﬁed separately.
+anisotropic scattering:   Scattering that is not spherically symmetric (not
+isotropic).
+aphotic zone:   That portion of the ocean where light is insuﬃcient for plants
+to carry on photosynthesis.
+apparent optical property (AOP):   An optical quantity that depends
+weakly on the external environment (e.g., sun angle or surface waves) but strongly
+on the water absorption and scattering properties (IOPs), and therefore can be
+used to describe the water body via optical measurements. Most AOPs are either
+ratios of radiometric quantities (e.g., reﬂectances) or depth derivatives of
+radiometric quantities (e.g., diﬀuse attenuation functions). Radiometric variables
+themselves (e.g., radiance or irradiances) are not AOPs. Dimensions vary. Further
+discussion.
+asymmetry parameter:   In scattering, the average cosine of the scattering
+angle. The asymmetry parameter measures how strongly a medium scatters
+light in the forward direction; it is zero for isotropic scattering. Further
+discussion
+asymptotic diﬀuse attenuation coeﬃcient:   The value of the
+diﬀuse attenuation coeﬃcient in the asymptotic regime. Diﬀuse attenuation
+coeﬃcients for radiance and the associated irradiances all have the
+same value in the asymptotic regime; that value depends only on the
+inherent optical properties. See diﬀuse attenuation coeﬃcients. Units:
+⟦[ m^{− 1} ]⟧ .
+Further discussion.
+asymptotic radiance distribution:   The angular shape of the radiance
+distribution (normalized to 1 at the maximum value) at depths far from the
+boundaries of a homogeneous medium. The asymptotic radiance distribution is
+determined only by the inherent optical properties. The directional and depth
+dependencies of the asymptotic radiance distribution decouple and all radiometric
+variables (e.g., irradiances) change with depth at the same rate as the radiance.
+Nondimensional. Further discussion.
+attenuation coeﬃcient:   See beam attenuation coeﬃcient and diﬀuse
+attenuation coeﬃcient.
+average cosine:   See mean cosine of radiance or scattering. Nondimensional.
+back scattering:   Scattering through angles greater than 90 degrees relative
+to the incident (unscattered) direction.
+backscattering coeﬃcient:   The integral of the volume scattering
+function over the hemisphere of backscattered directions. Units:
+⟦[ m^{− 1} ]⟧ .
+Further discussion.
+backscattering fraction:   The ratio of the backscattering coeﬃcient to the
+scattering coeﬃcient. Nondimensional. Further discussion.
+beam attenuation coeﬃcient:   The limit of the ratio of the spectral absorptance
+plus spectral scatterance to the distance of photon travel as that distance becomes
+vanishingly small; equal to the sum of the absorption and scattering coeﬃcients.
+Units: ⟦[ m^{− 1} ]⟧ .
+Further discussion.
+beam spread function:   The irradiance distribution on the inner
+surface of a sphere as generated by an initially collimated, narrow beam
+emitted at the center of the sphere and normalized to the emitted
+beam power; numerically equals the point spread function. Units:
+⟦[ m^{− 2} ]⟧ .
+Further discussion.
+beam transmissometer:   An instrument that measures the fraction of
+power emitted in a collimated beam that is lost by absorption and scattering out
+of the beam per unit distance of photon travel; measures the beam attenuation
+coeﬃcient.
+Beer’s law:   The statement that radiation traveling in a certain direction in
+a scattering or absorbing medium is exponentially attenuated with distance
+traveled.
+benthic:   Refers to the bottom of a water body and to the organisms that
+live in or on the bottom of the ocean (the benthos).
+benthos:   Bottom-dwelling marine organisms.
+bidirectional reﬂection distribution function (BRDF):   The ratio of
+the radiance reﬂected by a surface into a speciﬁc direction to the collimated
+irradiance incident from a particular direction onto the surface. Units:
+⟦[ s r^{− 1} ]⟧ .
+Further discussion.
+bio-geo-optical models:   Analytical and numerical models that
+parameterize the absorption and scattering properties of water constituents
+(phytoplankon, CDOM, minerals, etc.) in terms of the concentrations of those
+consituents (e.g., chlorophyll a concentration, mass concentration of mineral
+particles) or other parameters (e.g, the CDOM absorption at one wavelength).
+Further discussion.
+bioluminescence:   Light produced by living organisms via conversion of
+chemical energy to radiant energy.
+biomass:   The amount of living matter per unit of water
+surface or water volume (i.e., in the water column). Units:
+⟦[ k g m^{− 2} ]⟧ or
+⟦[ k g m^{− 3} ]⟧ .
+black-body radiation:   Refers to the spectral shape of electromagnetic
+radiation within or emitted by an object in thermal equilibrium with its
+environment. The black-body spectrum is independent of the emitting
+material and depends only on the temperature of the emitting body. Further
+discussion.
+Bouguer-Lambert law (Bouguer’s law):   See Beer’s law.
+broad-band:   Refers to the amount of radiant energy contained in a ﬁnite
+wavelength interval. Thus broad-band irradiance is the power per unit area in
+some wavelength interval. Instruments have ﬁnite bandwidths and thus measure
+broad-band quantities. See spectral.
+BSF:   See beam spread function.
+Case 1 water:   Water whose absorption and scattering properties are
+determined primarily by phytoplankon and their degradation products (detritus
+and CDOM). The IOPs of Case 1 water are often (but imperfectly) parameterized
+by the chlorophyll concentration. Case 1 water is not a synonym for open ocean
+water. Further discussion.
+Case 2 water:   Water whose absorption and scattering properties are
+signiﬁcantly inﬂuenced by mineral particles or CDOM not derived from
+phytoplankton (e.g., CDOM from terrestrial runoﬀ or benthos), so that the IOPs
+do not correlate well with the chlorophyll concentration. Case 2 water is not a
+synonym for open coastal water. Further discussion.
+capillary wave:   A water wave for which the primary restoring force is
+surface tension; waves with wavelengths less than 1.7 cm are considered capillary
+waves.
+chlorophyll:   Chemical compounds occurring in plants that enable radiant
+energy to be converted to chemical energy in the process of photosynthesis; there
+are several types denoted as chl a , chl b , etc., with chl a typically the most
+abundant and often used as a proxy for phytoplankton biomass.
+closure:   In optical oceanography, a generic term referring to consistency of
+models and measurements. The types of closure are
+measurement closure Making consistent measurements. Example are
+(1) Agreement among diﬀerent instruments or methodologies that
+measure the same quantity; (2) Having measurements of the absorption
+and scattering coeﬃcients sum to a measured value of the beam
+attenuation coeﬃcient, as they should by deﬁnition, and (3) Having
+a measurement of the scattering coeﬃcient equal the integral over all
+directions of a measured volume scattering function.
+model closure Having consistent models. An example is having various
+computer programs that solve the radiative transfer equation all give
+the same output for the same inputs.
+model-data closure Agreement between predictions made by models
+and measurements of the predicted quantity. An example is having a
+computer model predict the same in-water irradiance distribution as is
+measured.
+scale closure Agreement between measurements of a given quantity
+made at diﬀerent spatial or temporal scales. An example is having a
+satellite-derived (large spatial scale) absorption coeﬃcient agree with a
+measurement made in situ by an instrument sampling a small volume
+of water.
+coastal water:   Generally refers to water situated over continental shelves;
+often, but not always, Case 2 water.
+Coastal Zone Color Scanner (CZCS):   A multi-spectral scanning
+radiometer aboard the Nimbus-7 satellite; operational from October 1978 to
+June 1986. CZCS had four channels devoted to ocean color, each of 20
+nm bandwidth and centered at 443, 520, 550, and 670 nm. This sensor
+pioneered remote sensing of the oceans at visible wavelengths. Further
+discussion.
+colored dissolved organic matter (CDOM):   High-molecular-weight
+organic compounds (humic and fulvic acids) formed from the decomposition of
+plant tissue; they strongly absorb light at the blue end of the spectrum
+and can give water a yellowish color at high concentrations. Also called
+chromophoric dissolved organic matter, yellow matter, gilvin, or Gelbstoﬀ. Further
+discussion.
+cosine collector:   A radiant energy detector whose eﬀective light collection
+area is proportional to the cosine of the angle between the incident light and the
+normal to the detector surface; used to measure plane irradiances. Further
+discussion.
+Coulter Counters:   A class of instruments that counts particles and
+measures particle size distributions from the change in electrical conductivity as
+particles ﬂow through a small oriﬁce in an electrolyte (such as water). Originally
+developed by Coulter Electronics, now marketed by Beckman Coulter,
+Inc. .
+cross section:   Any of several quantities with units of area, which describe
+the interaction of an object with an incident ﬂux of particles or radiation.
+Commonly used cross sections are
+absorption cross section The cross sectional area of a beam of light
+containing power equal to the power absorbed by a particle in the beam.
+Units: ⟦[ m^{2} ]⟧ .
+geometric cross section The physical cross sectional area of a particle.
+Units: ⟦[ m^{2} ]⟧ .
+scattering cross section The cross sectional area of a beam of light
+containing power equal to the power scattered by a particle in the beam.
+Units: ⟦[ m^{2} ]⟧ .
+critical depth:   The depth in the water column below which respiratory
+carbon loss by phytoplankton exceeds photosynthetic carbon gain; no net
+phytoplankton production occurs. Units: [m].
+euphotic depth:   The maximum depth in the water column to which
+signiﬁcant phytoplankton photosynthesis can take place. Units: [m].
+detritus:   The particulate decomposition or disintegration products of
+plankton, including dead cells, cell fragments, fecal pellets, shells, and skeletons;
+sometimes considered to include inorganic mineral particles.
+diel:   Refers to occurrences on a 24 hour cycle; any periodic diurnal (daytime)
+or nocturnal (nighttime) cycle.
+diﬀuse:   Refers to radiance distributions resulting from so many multiple
+scatterings of the photons that the source location (e.g., the sun) cannot be
+discerned. A diﬀuse radiance distribution does not imply an isotropic distribution
+(e.g., an asymptotic radiance distribution is diﬀuse but not isotropic). See
+isotropic.
+diﬀuse absorption coeﬃcient:   For downwelling (upwelling) irradiance: the ratio
+of the absorption coeﬃcient to the mean cosine of the downward (upward) radiance.
+Units: ⟦[ m^{− 1} ]⟧ .
+diﬀuse attenuation coeﬃcients:   The negative of the derivative with
+respect to depth of the natural logarithm of a radiometric variable (e.g.
+radiance, downwelling or upwelling irradiance). Also called K functions. Units:
+⟦[ m^{− 1} ]⟧ .
+Further discussion.
+dissolved organic matter:   See colored dissolved organic matter.
+diurnal:   Refers to occurrences during the day, as opposed to nocturnal
+occurrences; sometimes incorrectly used for diel occurrences.
+divergence law for irradiance:   See Gershun’s law.
+einstein:   One mole (Avogadro’s number) of photons, equal to
+⟦6 . 0 2 3 × 1 0^{2 3}⟧  photons.
+eﬃciency factor:   The ratio of an optical cross section to the geometric cross
+section of a particle; a measure of how eﬀectively a particle removes light from a
+collimated beam through processes of absorption or scattering. Nondimensional.
+Also called Q factors. Further discussion. . The commonly used eﬃciency factors
+are
+eﬃciency factor for absorption The ratio of the absorption cross
+section to the geometrical cross section of the particle. Nondimensional.
+eﬃciency factor for attenuation The ratio of the attenuation cross
+section to the geometrical cross section of the particle; equals the sum
+of the eﬃciency factors for absorption and scattering. Nondimensional.
+eﬃciency factor for scattering The ratio of the scattering cross
+section to the geometrical cross section of the particle. Nondimensional.
+elastic scattering:   Any process that leads to a change in the direction of
+propagation of light without a change in energy of the scattered photons; includes
+volume scattering within a medium and reﬂection and refraction at the surface of
+a medium. Further discussion.
+eukaryote:   A cellular organism in which the genetic material is
+contained within a nucleus; includes algae and all more complex life forms. See
+prokaryote.
+euphotic zone:   The upper region of a water body in which signiﬁcant
+phytoplankton photosynthesis can take place; often (but inaccurately) taken to be
+the layer down to which photosynthetically available radiation at noon falls to 1%
+its value just below the sea surface.
+eutrophic water:   Water with high phytoplankton biomass; chlorophyll a concentration
+exceeds ⟦1 0 m g m^{− 3}⟧ .
+ﬂuorescence:   An inelastic scattering process in which
+a photon is absorbed by a molecule and shortly thereafter
+( ⟦1 0^{− 1 1}⟧ to
+⟦1 0^{− 8}⟧ s)
+another photon of greater wavelength is emitted; the emitted radiance is isotropic
+and unpolarized. Further discussion.
+Forel-Ule color scale:   A method of visually determining the color of a
+water body by comparing the water color with a set of 21 chemical solutions
+having colors from blue to green to brown. The resulting Forel-Ule color index (a
+number from 1 to 21) is a crude measure of the water composition. Although
+largely replaced by modern instruments that give quantitative data, the Forel-Ule
+color measurements are still of interest because of the large historical
+database of observations going back over a century. Nondimensional. Further
+discussion.
+Fournier-Forand phase function:   An analytical model for scattering
+phase functions derived by integrating the Mie scattering solution over all
+sizes of particles for an assumed Junge size distribution. The inputs to
+the formulas are the index of refraction of the particles and the slope of
+the Junge distribution. The Fournier-Forand phase function has largely
+replaced the Petzold phase functions for numerical simulations. Units:
+⟦[ s r^{− 1} ]⟧
+Further discussion.
+Fresnel reﬂectance:   The fraction of radiant energy in a collimated beam
+that is reﬂected from a level surface at which there is an index of refraction
+mismatch. Nondimensional. Further discussion.
+fulvic substance:   High molecular weight organic compounds resulting from
+plant decay, especially phytoplankton; one component of colored dissolved organic
+matter.
+gelbstoﬀ:   See colored dissolved organic matter.
+Gershun’s law:   An equation expressing conservation of energy derived by
+integrating the monochromatic radiative transfer equation (for a medium with no
+inelastic scattering or internal sources) over all directions; it states that
+the depth derivative of the net plane irradiance equals the negative of
+the absorption coeﬃcient multiplied by the scalar irradiance. Further
+discussion.
+Gershun tube:   A tube used to limit the ﬁeld of view of a radiometer to a
+small solid angle; used in measuring radiances. Further discussion.
+gilvin:   See colored dissolved organic matter.
+gravity wave:   A water wave in which the primary restoring force is
+gravity; waves with wavelengths greater than 1.7 cm are considered gravity
+waves.
+Henyey-Greenstein phase function:   An analytical model for scattering
+phase functions that parameterizes the shape of the phase function via the
+asymmetry parameter ( the average cosine of the scattering angle). Although
+sometimes used in atmospheric optics, it does not give a good description
+of oceanic scattering at very small and very large scattering angles and
+is therefore not recommended for use in optical oceanography. Units:
+⟦[ s r^{− 1} ]⟧
+Further discussion.
+humic substance:   High molecular weight organic compounds resulting from
+plant decay, especially terrestrial plants; see colored dissolved organic
+matter.
+real index of refraction:   The ratio of the speed of light in a vacuum to its
+speed in a material medium; governs how light is scattered (refracted) when
+crossing an interface between materials with diﬀerent indices of refraction. Further
+discussion.
+complex index of refraction:   A complex number that combines the real
+index of refraction as the real part, and a term related to the absorption
+coeﬃcient as the imaginary part; useful is mathematical description of light
+propagation in material media. Further discussion.
+inelastic scattering:   Scattering in which the wavelength of the light
+changes because radiant energy is transferred to the scatterer; the direction of
+propagation may or may not change. Further discussion on the Raman Scattering
+and Fluorescence pages.
+inherent optical property (IOP):   In optical oceanography, any optical
+quantity that depends only on the properties of the water and is independent of
+the ambient light ﬁeld; the absorption coeﬃcient and the volume scattering
+function are the fundamental IOPs. Apparent optical properties become inherent
+optical properties as the depth increases and the radiance distribution becomes
+asymptotic. Further discussion.
+(spectral) intensity:   The radiant spectral power in a given direction per
+unit solid angle per unit wavelength interval. Intensity is used to describe the light
+emitted by point sources and in the deﬁnition of the volume scattering function.
+Units: ⟦[ W s r^{− 1} n m^{− 1} ]⟧ .
+Further discussion.
+inverse problems A general class of problems in which optical
+measurements are used to infer inherent optical properties of the medium or the
+nature of internal sources. Further discussion.
+(spectral) irradiance:   The radiant power per unit area per unit wavelength interval.
+Units ⟦[ W m^{− 2} n m^{− 1} ]⟧ .
+Further discussion. . The commonly used irradiances are
+downward (upward) plane irradiance The downward (upward) directed
+radiant power per unit area onto an upward (downward) facing horizontal
+surface. Units: ⟦[ W m^{− 2} n m^{− 1} ]⟧ .
+net plane irradiance The downward plane irradiance minus the upward
+plane irradiance. Units: ⟦[ W m^{− 2} n m^{− 1} ]⟧ .
+scalar irradiance The radiant power per unit area from all directions
+onto a spherical collecting surface. Units: ⟦[ W m^{− 2} n m^{− 1} ]⟧ .
+downward (upward) scalar irradiance The downward (upward) directed
+radiant power per unit area onto a spherical collecting surface that is
+shielded from light traveling upward (downward). ⟦[ W m^{− 2} n m^{− 1} ]⟧
+irradiance reﬂectance or irradiance ratio:   The ratio of the upward plane
+irradiance to the downward plane irradiance. Nondimensional. Further
+discussion.
+isotropic:   An adjective meaning equal in all directions, or independent of
+direction. An isotropic radiance distribution has the same radiance in every
+direction; isotropic scattering scatters light equally in all directions. Further
+discussion.
+Jerlov water type:   A water clarity classiﬁcation scheme based on the
+downward diﬀuse attenuation coeﬃcient just below the sea surface. Further
+discussion.
+Junge particle size distribution:   A power-law
+function often used to describe the particle concentration
+⟦[ p a r t i c l e s m^{− 3} ]⟧ per unit
+size interval ⟦[ μ m ]⟧
+as a function of the equivalent spherical diameter of particles;
+the number density for particles of equivalent diameter
+⟦x⟧ is proportional
+to ⟦x^{− k}⟧ ,
+where ⟦k⟧
+is typically 3 to 5 in natural waters. Some use the term Junge only if
+⟦k = 4⟧ ;
+otherwise it is called a power-law distribution. Units:
+⟦[ p a r t i c l e s m^{− 3} μ m^{− 1} ]⟧
+Further discussion.
+K-function:   See diﬀuse attenuation coeﬃcient.
+Lambertian surface:   A surface that reﬂected or emits light at each point of
+the surface in an angular pattern that is proportional to the cosine of the angle to
+normal to the surface. When many such points are viewed by a radiometer, the
+surface as a whole reﬂects or emits light whose radiance is equal in all directions
+over the hemisphere. A Lambertian surface is characterized by its irradiance
+reﬂectance. Further discussion.
+marine snow:   In oceanography, living or nonliving particles whose
+downward drift, in a dense-enough concentration, appears similar to snowfall.
+mean cosine of the radiance distribution:   The average cosine of the
+polar angle of all the radiance propagation direction; it equals the ratio of
+the net plane irradiance to the total scalar irradiance. The mean cosine
+is zero for an isotropic radiance distribution. Nondimensional. Further
+discussion.
+mean cosine of the downward (upward) radiance:   The average cosine
+of the nadir (zenith) angle of all downward (upward) traveling photons; it equals
+the ratio of the plane irradiance to the scalar irradiance for the downward
+(upward) direction. The average cosines are AOPs. Nondimensional. Further
+discussion.
+mean free path:   The average distance between photon-matter interactions;
+it equals the inverse of the beam attenuation coeﬃcient. Units: [m]. Further
+discussion
+mean free path for absorption:   The average distance between
+photon-matter interactions in which photons are absorbed; it equals the inverse of
+the absorption coeﬃcient. Units: [m].
+mean free path for scattering:   The average distance between
+photon-matter interactions in which photons are scattered; it equals the inverse of
+the scattering coeﬃcient. Units: [m].
+mesotrophic water Water with moderate concentrations of
+phytoplankton biomass;chlorophyll a concentration ranges between 0.5 and
+⟦1 0 m g m^{− 3}⟧ .
+Mie scattering theory:   An exact solution of Maxwell’s equations that
+describes the scattering of electromagnetic waves (e.g., light) by homogeneous
+spheres of any size. Use of the theory requires knowledge of the complex
+index of refraction of the sphere relative to the surrounding medium and
+the ratio of the sphere’s circumference to the wavelength of light in the
+medium. Often called Mie scattering, although it is a mathematical model for
+scattering under certain conditions, not a physical scattering process. Further
+discussion
+Mie size parameter:   The ratio of a sphere’s circumference to the
+wavelength of light in the surrounding medium. Further discussion
+mixed layer:   Near-surface waters subject to mixing by wind and
+waves; there is little variation in salinity or temperature below the mixed
+layer.
+nadir angle:   The angle between a given direction and the downward vertical
+(nadir) direction. Units: [degrees] or [radians]
+nekton:   Organisms that can actively swim and are therefore more-or-less
+free of currents. Compare with plankton.
+nocturnal:   Pertaining to occurrences during the night, as opposed to diurnal
+occurrences.
+ocean color:   A generic term referring to the spectral dependence of the
+radiance leaving a water body. Further discussion
+ocean color sensor:   Any instrument for sensing of ocean color, usually from
+aircraft or satellites. Further discussion
+oceanic optics:   See optical oceanography.
+oligotrophic water:   Water with low phytoplankton biomass,
+typical in many open ocean regions; chlorophyll a concentration is below
+⟦0 . 5 m g m^{− 3}⟧ .
+open ocean:   Water sea-ward of the edges of the continental shelves; often,
+but not always, Case 1 water.
+optical constants:   The non-negative real and imaginary parts of the
+complex index of refraction. In spite of their name, the constants depend strongly
+on wavelength. Further discussion
+optical density:   See absorbance.
+optical depth:   The optical distance in the vertically downward direction.
+Further discussion beginning at radiative transfer equations
+optical distance or optical path length:   The
+integral of the product of the beam attenuation coeﬃcient
+⟦[ m^{− 1} ]⟧
+multiplied by an inﬁnitesimal unit of distance [m] along the direction of travel.
+Dimensionless. Further discussion
+optical oceanography:   The subdiscipline of oceanography concerned with
+the propagation of radiant energy through sea water and with the interactions of
+light with sea water constituents. The wavelengths of interest are usually in the
+300-1000 nm range. Optical oceanography is closely coupled to other
+oceanographic subdisciplines because light is fundamental to biology,
+remote sensing, underwater imaging, heating of the upper ocean, and other
+applications.
+package eﬀect:   Refers to the discrepancy between the spectral absorption
+coeﬃcient of suspension of particles containing a spatially nonuniform distribution
+of pigment molecules, and the corresponding coeﬃcient of a homogeneous
+solution containing the same amount of pigment. For the same pigment
+mass, the absorption spectrum of the non-uniform particles is ”ﬂatter”
+(less peaked) than the uniform suspension of pigment molecules. Further
+discussion
+PAR:   See photosynthetically available radiation.
+penetration depth:   The geometric depth given by 1 over the diﬀuse
+attenuation coeﬃcient for downwelling plane irradiance; also called diﬀuse
+attenuation depth. The penetration depth is diﬀerent for diﬀerent wavelengths
+because the IOPs depend on wavelength. Relevant to remote sensing because
+about 90% of the sunlight that enters the ocean and is scattered back out comes
+from within one penetration depth of the surface. Units: [m]
+Petzold’s data:   A widely used data set containing volume scattering
+functions measured in various waters ranging from very clear to very
+turbid; the associated scattering phase functions are highly peaked at small
+scattering angles. These pioneering data from 1972 are still sometimes
+used for generic studies of scattering by diﬀerent water types. Further
+discussion
+phase function:   The ratio of the volume scattering function
+⟦[ m^{− 1} s r^{− 1} ]⟧ to the scattering
+coeﬃcient ⟦[ m^{− 1} ]⟧ ;
+the integral of the phase function over all directions is unity. Units:
+⟦[ s r^{− 1} ]⟧
+Further discussion
+photosynthesis:   The manufacture of carbohydrates from carbon dioxide
+and water in the presence of chlorophyll, by utilizing radiant energy and releasing
+oxygen.
+photosynthetically available radiation (PAR):   The integral
+over visible wavelengths (usually 400–700 nm, but sometimes
+350–700 nm) of the number of photons available for photosynthesis
+⟦[ p h o t o n s s^{− 1} m^{− 2} ]⟧ .
+PAR is usually computed by integrating the spectral scalar irradiance
+⟦[ W m^{− 2} n m^{− 1} ]⟧
+divided by the photon energy at each wavelength
+⟦[ W ∕ p h o t o n ]⟧ over wavelength
+[nm]. Units: ⟦[ p h o t o n s s^{− 1} m^{− 2} ]⟧ ,
+often expressed as ⟦[ μ m o l p h o t o n s s^{− 1} m^{− 2} ]⟧
+for convenience of numerical magnitudes. Further discussion
+photosynthetic capacity:   The maximum photosynthetic rate per unit of
+biomass.
+gross photosynthetic rate:   The total rate of
+carbon dioxide ﬁxation with no allowance made for the
+⟦C O_{2}⟧ simultaneously lost
+in respiration. Units: ⟦[ μ m o l C O_{2} ( m g c h l )^{− 1} h^{− 1} ]⟧
+or ⟦[ m g C ( m g c h l )^{− 1} h^{− 1} ]⟧ .
+net photosynthetic rate:   The total rate of photosynthetic
+⟦C O_{2}⟧ ﬁxation minus
+the rate of loss of ⟦C O_{2}⟧
+in respiration.
+speciﬁc photosynthetic rate:   Photosynthetic rate,
+net or gross, per unit biomass or per unit volume. Units:
+⟦[ μ m o l C O_{2} ( m g c h l )^{− 1} h^{− 1} ]⟧ .
+phytoplankton:   Small (linear sizes from less than 1 to tens of
+⟦μ m⟧ ),
+usually single-cell (some form chains several hundred
+⟦μ m⟧ )
+long), aerobic (living in oxygenated environments), photosynthetic (pigmented,
+containing chlorophyll a ; using sunlight), oxygenic (producing oxygen) organisms;
+may be prokaryotes (e.g., cyanobacteria) or eukaryotes (e.g., protists and
+chlorophytes); most are not plants. Further discussion
+plankton:   Passively drifting or weakly swimming organisms. Compare with
+nekton.
+plankton bloom:   An unusually high concentration of phytoplankton, often
+producing a discoloration of the water body.
+point spread function (PSF):   The apparent radiance due to an unresolved
+Lambertian (cosine-emitting) point source, as normalized to the source intensity in
+the direction of maximum emission; numerically equal to the beam spread function.
+Units: ⟦[ m^{− 2} ]⟧ .
+Further discussion.
+polarization:   Refers to the orientation of the plane of oscillation of the
+electric ﬁeld vector of an electromagnetic wave. The state of polarization is
+speciﬁed by the four components of the Stokes vector. Further discussion.
+primary production:   The amount of organic matter
+produced from inorganic matter by photosynthesis. Units:
+⟦[ g C m^{− 3} ]⟧ or, for the entire
+water column, in ⟦[ g C m^{− 2} ]⟧ .
+primary productivity:   The rate of production of
+organic matter from inorganic matter by photosynthesis. Units:
+⟦[ g C m^{− 3} h^{− 1} ]⟧ or, for the entire
+water column, in ⟦[ g C m^{− 2} h^{− 1} ]⟧
+prokaryote:   A cellular organism that lacks a nuclear membrane and thus
+has its genetic material in strands distributed throughout the cell; includes
+bacteria. See eukaryote.
+PSF:   See point spread function.
+Q factor:   See eﬃciency factor.
+quantum meter or quantum sensor:   An instrument that measures the
+number of photons (e.g.,photosynthetically available radiation), as opposed to
+energy.
+quantum yield:   The number of
+⟦C O_{2}⟧
+molecules ﬁxed in biomass per quantum of light absorbed by a plant; it is linearly
+related to energy conversion eﬃciency.
+quasi-single-scattering approximation (QSSA):   An approximate
+analytical solution to the radiative transfer equation that accounts for only single
+scattering of photons under very restrictive conditions such as the assumption
+that forward-scattered light is treated as unscattered, the water is homogeneous,
+the incident light source is collimated, and the sea surface is level. Further
+discussion
+radiance:   The radiant power in a beam per unit solid angle, per unit area
+perpendicular to the beam, per unit wavelength interval. Radiance is the
+fundamental radiometric quantity from which all others can be derived. Units:
+⟦[ W m^{− 2} s r^{− 1} n m^{− 1} ]⟧ .
+Further discussion
+radiative transfer equation (RTE):   A linear integrodiﬀerential equation
+that expresses conservation of energy in terms of the radiance. The RTE describes
+the rate of change with distance of the radiance in a collimated beam with a
+speciﬁed location, direction, and wavelength; the equation accounts for all losses
+(e.g., due to absorption and scattering out of the beam) and gains (e.g., by
+emission or scattering into the beam). Further discussion beginning at radiative
+transfer equations
+radiometer:   An instrument used to measure radiant energy (as opposed to
+the number of photons).
+radiometry:   The science of the measurement of radiant energy.
+Raman scattering:   Inelastic scattering in which the energy of the scattered
+photon equals the energy of the incident photon plus or minus energy determined
+by the vibrational and rotational frequencies of the scattering molecule;
+characterized by a volume scattering function that has forward-backward
+directional symmetry. (The accent is on the ﬁrst syllable, not the second.) Further
+discussion
+Rayleigh scattering theory:   A mathematical model that describes elastic
+scattering by very small particles (small relative to the wavelength of the light
+being scattered; e.g., molecules); it is characterized by a volume scattering
+function that depends inversely with the fourth power of the wavelength and has
+forward-backward directional symmetry. Often called Rayleigh scattering,
+although it is a mathematical model for scattering under certain conditions, not a
+physical scattering process. Further discussion
+reﬂectance:   Refers to any of several measures of how much light leaves a
+region normalized by how much light is incident onto the region; reﬂectances are
+AOPs. Units vary. Further discussion.
+refraction:   The change in direction of a light beam when crossing an
+interface between two media that have diﬀerent real indices of refraction; see
+index of refraction. Further discussion
+refractive index:   See index of refraction.
+remote sensing reﬂectance:   The ratio of the “water-leaving” radiance
+⟦[ W m^{− 2} s r^{− 1} n m^{− 1} ]⟧ in air to the downward
+plane irradiance ⟦[ W m^{− 2} n m^{− 1} ]⟧
+incident onto the sea surface, with both measured just above the
+sea surface. The remote-sensing reﬂectance is an AOP and is the
+fundamental optical quantity used in ocean color remote sensing. Units:
+⟦[ s r^{− 1} ]⟧ .
+Further discussion
+scatterance:   The fraction of the incident power at a given wavelength that
+is scattered within a volume. Nondimensional. Further discussion
+scattering albedo:   See albedo of single scattering.
+scattering angle:   The angle between the directions before and after
+scattering. Units: [degrees] or [radians] Further discussion.
+scattering coeﬃcient:   The scatterance per unit distance of photon travel in
+a medium, i.e., the limit of the ratio of the spectral scatterance to the
+distance of photon travel as that distance becomes vanishingly small. Units:
+⟦[ m^{− 1} ]⟧ .
+Further discussion.
+SeaWiFS:   The Sea-viewing Wide Field-of-view Sensor satellite operational
+from 1998 to 2010 that measured radiance in wavelengths centered at 412,
+443, 490, 510, 555, and 670 nm (all with 20 nm bandwidth) and 765 and
+865 nm (both with 40 nm bandwidth). It was a follow-on to the CZCS
+sensor and likewise revolutionized ocean color remote sensing. Further
+discussion.
+Secchi depth:   The depth at which a Secchi disk disappears from view as it
+is lowered in water. The Secchi depth is an easily made measure of water clarity.
+Units: [m] Further discussion.
+Secchi disk:   A (usually) white disk of diameter 20-30 cm, used as a
+qualitative way of measuring water clarity by visually observing the depth as
+which the disk is no longer visible as it is lowered into the water. Although
+replaced by modern instruments for quantitative studies, Secchi depth
+measurements are still of interest because of the ease of measurement and the
+large database of historical observations going back over a century. Further
+discussion.
+seston:   The total animate and inanimate, organic and inorganic, particulate
+matter in natural waters.
+single-scattering approximation (SSA):   An approximate analytical
+solution to the radiative transfer equation that accounts for only single scattering
+of photons. It is derived under very restrictive conditions that the water is
+homogeneous, the incident light source is collimated, and the sea surface is level.
+It gives good results only if absorption strongly dominates scattering. Further
+discussion
+Snel’s law:   The law that describes the refraction of light at an
+interface between two media that have diﬀerent real indices of refraction:
+⟦n_{1} sin nolimits 𝜃_{1} = n_{2} sin nolimits 𝜃_{2}⟧ , where
+⟦n_{1}⟧ and
+⟦n_{2}⟧
+are the indices of refraction of the two media and
+⟦𝜃_{1}⟧ and
+⟦𝜃_{2}⟧
+are the angles to the normal of the interface. (The correct spelling is
+Snel, not Snell, which is an Anglicization of the Latinization Snellius of
+the Dutch Snel; his full name is Willebrord Snel van Royen.) Further
+discussion
+source functions:   The terms in the radiative transfer equation that describe
+the inelastic scattering and true emission contributions to a beam of radiation.
+Further discussion
+speciﬁc:   The adjective used to express a quantity per unit mass or unit
+concentration.
+speciﬁc absorption coeﬃcient:   The absorption coeﬃcient
+⟦[ m^{− 1} ]⟧ per
+unit concentration of material. For chlorophyll in concentration units of
+⟦[ m g m^{− 3} ]⟧ ,
+the chlorophyll-speciﬁc absorption coeﬃcient has units of
+⟦[ m^{− 1} ∕ ( m g m^{− 3} ) = m^{2} ∕ m g ]⟧ . For dissolved
+matter measured in ⟦p p m_{v}⟧
+(parts per million by volume), the speciﬁc absorption coeﬃcient would have units
+of ⟦[ m^{− 1} ∕ p p m_{v} ]⟧ .
+speciﬁc scattering coeﬃcient:   The scattering coeﬃcient
+⟦[ m^{− 1} ]⟧ per
+unit concentration of material. For chlorophyll in concentration units of
+⟦[ m g m^{− 3} ]⟧ ,
+the chlorophyll-speciﬁc scattering coeﬃcient has units of
+⟦[ m^{− 1} ∕ ( m g m^{− 3} ) = m^{2} ∕ m g ]⟧ .
+spectral:   Refers either to (1) the amount of radiant energy per unit wavelength
+interval, or (2) the wavelength dependence of a quantity. Thus spectral irradiance
+is the power per unit area per unit wavelength interval (usually expressed in 1/nm
+or ⟦1 ∕ μ m⟧ ).
+Spectral quantities are often estimated from broad-band measurements divided by
+the band width of the instrument. See broad-band.
+spectroradiometer:   A radiometer that measures radiant energy as a
+function of wavelength.
+Stokes parameters:   Four parameters used to describe polarized radiation;
+one component describes the radiance (or irradiance) without regard to
+the state of polarization, two components describe the states of linear
+polarization with respect to a chosen reference plane, and one component
+describes the state of circular polarization. The four components together
+comprise the Stokes vector. Further discussion beginning at radiative transfer
+equations
+tripton:   Inanimate particulate matter in natural waters.
+two-ﬂow equations:   A set of two coupled diﬀerential equations for
+upwelling and downwelling irradiances obtained by integrating the radiative
+transfer equation over the hemispheres of downward and upward directions.
+Although once useful for approximate calculations in pre-computer days, the
+two-ﬂow equations are no longer needed. In any case, the inputs needed to solve
+them are AOPs, not IOPs, and cannot be known accurately unless the radiance is
+known.
+two-stream approximation:   The simpliﬁcation of considering just light
+going downward and upward, as in the two-ﬂow equations.
+visible wavelengths:   Visible light, i.e., light than can be detected by the
+human eye, is usually considered to be wavelengths from 400 to 700 nm, but
+sometimes 380 to 720 nm.
+volume scattering function (VSF):   The ratio of the scattered intensity
+⟦[ W s r^{− 1} ]⟧ to the incident
+irradiance ⟦[ W m^{− 2} ]⟧ per
+unit volume ⟦[ m^{3} ]⟧ .
+The VSF describes both the angular pattern of the light scattered from an incident
+direction and the magnitude (strength) of the scattering. The integral of the
+volume scattering function over all directions (all solid angles) is the scattering
+coeﬃcient. The VSF can be written as the product of the phase function
+⟦[ s r^{− 1} ]⟧ and the scattering
+coeﬃcient ⟦[ m^{− 1} ]⟧ .
+Units: ⟦[ m^{− 1} s r^{− 1} ]⟧
+Further discussion
+zenith angle:   The angle between a given direction and the upward (zenith)
+direction. Units: [degrees] or [radians].
+zooplankton:   Animal forms of plankton. Sizes range from microscopic
+protozoans, to small crustaceans like copepods and krill, to large jellyﬁsh; may
+include egg and larval forms of larger organisms.

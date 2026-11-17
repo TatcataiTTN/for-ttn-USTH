@@ -1,0 +1,166 @@
+{
+ "p0": {
+  "slides": 11,
+  "mcq": 14,
+  "essays": 2,
+  "rebalanced": 0,
+  "audit": {
+   "n": 14,
+   "pos": {
+    "A": 4,
+    "B": 4,
+    "C": 3,
+    "D": 3
+   },
+   "chi2": 0.29,
+   "correct_longest_ratio": 0.5
+  }
+ },
+ "ma": {
+  "slides": 12,
+  "mcq": 19,
+  "essays": 3,
+  "rebalanced": 3,
+  "audit": {
+   "n": 19,
+   "pos": {
+    "A": 5,
+    "B": 5,
+    "C": 5,
+    "D": 4
+   },
+   "chi2": 0.16,
+   "correct_longest_ratio": 0.105
+  }
+ },
+ "mb": {
+  "slides": 10,
+  "mcq": 15,
+  "essays": 2,
+  "rebalanced": 5,
+  "audit": {
+   "n": 15,
+   "pos": {
+    "A": 4,
+    "B": 4,
+    "C": 4,
+    "D": 3
+   },
+   "chi2": 0.2,
+   "correct_longest_ratio": 0.067
+  }
+ },
+ "mc": {
+  "slides": 10,
+  "mcq": 16,
+  "essays": 2,
+  "rebalanced": 4,
+  "audit": {
+   "n": 16,
+   "pos": {
+    "A": 4,
+    "B": 4,
+    "C": 4,
+    "D": 4
+   },
+   "chi2": 0.0,
+   "correct_longest_ratio": 0.2
+  }
+ },
+ "md": {
+  "slides": 12,
+  "mcq": 15,
+  "essays": 2,
+  "rebalanced": 5,
+  "audit": {
+   "n": 15,
+   "pos": {
+    "A": 4,
+    "B": 4,
+    "C": 4,
+    "D": 3
+   },
+   "chi2": 0.2,
+   "correct_longest_ratio": 0.133
+  }
+ },
+ "me": {
+  "slides": 7,
+  "mcq": 10,
+  "essays": 2,
+  "rebalanced": 3,
+  "audit": {
+   "n": 10,
+   "pos": {
+    "A": 3,
+    "B": 3,
+    "C": 2,
+    "D": 2
+   },
+   "chi2": 0.4,
+   "correct_longest_ratio": 0.1
+  }
+ },
+ "mf": {
+  "slides": 12,
+  "mcq": 18,
+  "essays": 3,
+  "rebalanced": 2,
+  "audit": {
+   "n": 18,
+   "pos": {
+    "A": 5,
+    "B": 5,
+    "C": 4,
+    "D": 4
+   },
+   "chi2": 0.22,
+   "correct_longest_ratio": 0.222
+  }
+ },
+ "mg": {
+  "slides": 8,
+  "mcq": 14,
+  "essays": 2,
+  "rebalanced": 0,
+  "audit": {
+   "n": 14,
+   "pos": {
+    "A": 4,
+    "B": 4,
+    "C": 3,
+    "D": 3
+   },
+   "chi2": 0.29,
+   "correct_longest_ratio": 0.429
+  }
+ },
+ "mh": {
+  "slides": 11,
+  "mcq": 17,
+  "essays": 2,
+  "rebalanced": 1,
+  "audit": {
+   "n": 17,
+   "pos": {
+    "A": 5,
+    "B": 4,
+    "C": 4,
+    "D": 4
+   },
+   "chi2": 0.18,
+   "correct_longest_ratio": 0.588
+  }
+ },
+ "_summary": {
+  "longest": 0.35507246376811596,
+  "shortest": 0.15217391304347827,
+  "n": 138,
+  "pos": [
+   0.2753623188405797,
+   0.26811594202898553,
+   0.2391304347826087,
+   0.21739130434782608
+  ]
+ }
+}

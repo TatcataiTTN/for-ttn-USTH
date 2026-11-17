@@ -1,0 +1,102 @@
+# A Classic IOP Model for Case 1 Water
+
+This page presents an early model for the IOPs of Case 1 water. It is based on a
+reformulation by Morel and Maritorena (2001) of earlier work by Prieur and
+Sathyendranath (1981) and Gordon and Morel (1983) . This is the model seen in
+Eqs. (3.27) and (3.40) of Light and Water (1994) . This IOP model is presented
+here for historical purposes and is retained in HydroLight for comparison
+purposes, where it is called the “Classic Case 1” IOP model in the user
+interface.
+Absorption
+The absorption coeﬃcient is modeled as the sum of three components:
+⟦a_{t o t a l} ( z , λ ) = a_{w} ( λ ) + a_{p} ( z , λ ) + a_{C D O M} ( z , λ ) ,⟧ (1)
+where ⟦a_{w} ( λ )⟧ is the
+absorption by pure water, ⟦a_{p} ( z , λ )⟧
+is the absorption by chlorophyll-bearing particles (phytoplankton) and co-varying
+detritus, and ⟦a_{C D O M} ( z , λ )⟧
+is the absorption by co-varying colored dissolved organic matter (CDOM).
+Absorption and scattering by water are discussed on the Water page.
+Absorption by particles
+The particle absorption is modeled by
+⟦a_{p} ( z , λ ) = 0 . 0 6 A_{C h l} ( λ ) C h l ( z )^{0 . 6 5} ,⟧ (2)
+where ⟦C h l ( z )⟧ is the chlorophyll
+concentration proﬁle in ⟦m g C h l m^{− 3}⟧ ,
+and ⟦A_{C h l} ( λ )⟧ is the
+non-dimensional chlorophyll-speciﬁc absorption coeﬃcient given in Prieur and Sathyendranath
+(1981) (their ⟦a_{c}^{∗^{′}}⟧ )
+and in Morel (1988) (his Fig 10c), as extrapolated to 300 and 1000 nm. This
+⟦A_{C h l} ( λ )⟧
+is shown in Fig. 1 . It should be noted that this
+⟦A_{C h l} ( λ )⟧
+is independent of the chlorophyll concentration. Thus only the
+magnitude of the particle absorption coeﬃcient depends on
+⟦C h l⟧ ; the shape of
+the ⟦a_{p}⟧ spectrum is
+the same for all ⟦C h l⟧
+values. The original data covered 350-700 nm. Extrapolation of the original
+⟦A_{C h l} ( λ )⟧ to
+300 and 1000 nm was done by eye and is somewhat uncertain, especially for the
+UV wavelengths; see the discussion of absorption near 300 nm on the New Case 1
+IOP Model page.
+[IMG /packages/iws_l2h/conversion/files/astar-ClassicCase1.png]
+Figure 1: The non-dimensional chlorophyll-speciﬁc absorption coeﬃcient
+⟦A_{C h l} ( λ )⟧
+used in Eq. ( 2 ). Data from Prieur and Sathyendranath (1981) for 350-700
+nm.
+Absorption by Colored Dissolved Organic Matter
+CDOM absorption is assumed to covary with particle absorption according to
+⟦a_{C D O M} ( z , λ ) = 0 . 2 a_{p} ( z , 4 4 0 ) exp nolimits [ − 0 . 0 1 4 ( λ − 4 4 0 ) ] .⟧ (3)
+Thus the CDOM absorption at 440 nm is assumed to be 20% of the
+particulate absorption at 440 nm. This proportionality constant is an average of
+many measurements, as is the 0.014 wavelength slope factor. In a particular water
+body the both of these values can be diﬀerent.
+Note that the absorption model of Eqs. ( 1 - 3 ) reduces to that of pure water if
+⟦C h l = 0⟧ . This
+is slightly diﬀerent than some formulations (e.g., Morel and Maritorena
+(2001), their Eq. 16-18), which include a small amount of background
+CDOM absorption even in the absence of phytoplankton. The inclusion of a
+small amount of background CDOM is reasonable, but in all honesty,
+the residual was removed from the equations as used in HydroLight
+because I just got tired of explaining to HydroLight users why they didnt
+get exactly the same results as for pure water when they plugged in
+⟦C h l = 0⟧ in
+the Case 1 IOP model. In any case, the diﬀerence is negligible except at extremely
+low Chl values, in which case the model is suspect anyway.
+Scattering
+CDOM is assumed to be non-scattering.
+The scattering coeﬃcient for the particles is modeled by
+⟦b_{p} ( z , λ ) = b_{o} C h l ( z )^{n} (5 5 0)/(λ)^{m} ,⟧ (4)
+where the defaults are ⟦b_{o} = 0 . 3 , n = 0 . 6 2⟧ ,
+and ⟦m = 1⟧ .
+The user of this IOP model must specify both the chlorophyll concentration
+⟦C h l ( z )⟧
+and the scattering phase function for the particles. One way to specify
+the particle phase function is to give the particle backscatter fraction,
+⟦B_{p} = b_{b p} ∕ b_{p}⟧ , and
+then use a Fournier-Forand phase function with the requested value of
+⟦B_{p}⟧ , as
+described in Mobley, et al. (2002) .
+Various formulas for ⟦B_{p}⟧
+as a function of chlorophyll can be found in the literature.
+For example, Ulloa et al. (1994) give an empirical formula for
+⟦B_{p}⟧ at
+550 nm in Case 1 waters,
+⟦B_{p} = 0 . 0 1 [ 0 . 7 8 − 0 . 4 2 log nolimits_{1 0} ( C h l ) ] ,⟧ (5)
+and Twardowski et al. (2001) present another formula,
+⟦B_{p} = 0 . 0 0 9 6 C h l^{− 0 . 2 5 3} .⟧ (6)
+Such formulas for ⟦B_{p}⟧
+can be used for rough guidance in specifying the phase function
+in the absence of other information about the phase function.
+However, it must be remembered that scattering in general, and
+⟦B_{p}⟧ in particular,
+correlates poorly with ⟦C h l⟧ ,
+and there can be order-of-magnitude variability in the measured value of
+⟦B_{p}⟧ among diﬀerent data
+sets for a given ⟦C h l⟧ .
+The particle backscatter fraction can chosen to be the same at every
+wavelength, or be a function of wavelength according to the power law
+⟦B_{p} = B_{p} ( λ_{o} ) (λ_{o})/(λ)^{n} .⟧ (7)
+As with all IOP models, this model may give good values on average, but can
+be considerably in error when applied to a speciﬁc water body. In any case, the
+use of the New Case 1 IOP Model is recommended for general use, especially near
+300 nm.

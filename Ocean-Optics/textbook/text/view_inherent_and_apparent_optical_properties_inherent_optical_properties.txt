@@ -1,0 +1,136 @@
+# Inherent Optical Properties
+
+When light interacts with matter one of two things can happen. The light can
+disappear, with its energy being converted to another form such as heat or the
+energy contained in a chemical bond. This process is called absorption . The light
+can also change its direction and/or wavelength. Either of these processes is called
+scattering .
+The absorption and scattering properties of a medium such as sea water are
+described by its inherent optical properties , or IOPs. IOPs are properties of the
+medium and do not depend on the ambient light ﬁeld. That is, a volume of water
+has well deﬁned absorption and scattering properties whether or not there is any
+light there to be absorbed or scattered. This means that IOPs can be
+measured in the laboratory on a water sample, as well as in situ in the
+ocean.
+Conceptual Deﬁnitions of IOPs
+The absorption coeﬃcient is the fundamental IOP that describes how a medium
+absorbs light. The volume scattering function likewise describes how the medium
+scatters light. If you know these two IOPs, then you know everything there is to
+know about the medium interacts with unpolarized light. Other IOPs are
+sometimes convenient, and they can be deﬁned in terms of the absorption
+coeﬃcient and the volume scattering function. Figure  1 is the key to deﬁning the
+IOPs.
+[IMG /packages/iws_l2h/conversion/files/C3_defineIOPs.png]
+Figure 1: Geometry used to deﬁne inherent optical properties.
+Consider a small volume ⟦Δ V⟧
+of water, of thickness ⟦Δ r⟧ ,
+illuminated by a collimated beam of monochromatic light of spectral radiant power at some
+wavelength ⟦λ⟧ ,
+⟦Φ_{i} ( λ )⟧ in
+⟦W n m^{− 1}⟧ , as illustrated in
+Fig.  1 . Some part ⟦Φ_{a} ( λ )⟧ of
+the incident power ⟦Φ_{i} ( λ )⟧
+is absorbed within the volume of water. Some part
+⟦Φ_{s} ( λ , ψ )⟧ is scattered out of the
+beam at an angle ⟦ψ⟧ , and
+the remaining power ⟦Φ_{t} ( λ )⟧
+is transmitted through the volume with no change in direction. Let
+⟦Φ_{s} ( λ )⟧ be
+the total power that is scattered into all directions. Furthermore, assume that the
+light does not undergo a change in wavelength during the scattering process. Then
+by conservation of energy,
+⟦Φ_{i} ( λ ) = Φ_{a} ( λ ) + Φ_{s} ( λ ) + Φ_{t} ( λ ) .⟧
+The absorptance ⟦A ( λ )⟧
+is the fraction of incident power that is absorbed within the volume:
+⟦A ( λ ) ≡ (Φ_{a} ( λ ))/(Φ_{i} ( λ )) .⟧
+Likewise, the scatterance ⟦B ( λ )⟧
+is the fractional part of the incident power that is scattered out of the beam into
+all directions,
+⟦B ( λ ) ≡ (Φ_{s} ( λ ))/(Φ_{i} ( λ )) ,⟧
+and the transmittance ⟦T ( λ )⟧ ,
+the fraction of the incident power that passes through the volume without
+interacting with the medium, is
+⟦T ( λ ) ≡ (Φ_{t} ( λ ))/(Φ_{i} ( λ )) .⟧
+Clearly, ⟦A ( λ ) + B ( λ ) + T ( λ )⟧
+= 1.
+The inherent optical properties usually employed in optical oceanography are the
+absorption and scattering coeﬃcients , which are respectively the absorptance and
+scatterance per unit distance in the medium. In the geometry of Fig.  1 , let the
+thickness ⟦Δ r⟧
+approach zero, in which case only a decreasingly small fraction
+⟦Δ A ( λ )⟧
+of the incident power is absorbed. The absorption coeﬃcient
+⟦a ( λ )⟧ is
+then deﬁned as
+⟦a ( λ ) ≡ lim_{Δ r → 0} (Δ A ( λ ))/(Δ r) = (d A ( λ ))/(d r) ( m^{− 1} ) .⟧ (1)
+Likewise the scattering coeﬃcient ⟦b ( λ )⟧
+is deﬁned as
+⟦b ( λ ) ≡ lim_{Δ r → 0} (Δ B ( λ ))/(Δ r) = (d B ( λ ))/(d r) ( m^{− 1} ) ,⟧ (2)
+where ⟦Δ B ( λ )⟧
+is the fraction of scattered power.
+The beam attenuation coeﬃcient ⟦c ( λ )⟧
+is deﬁned as
+⟦c ( λ ) ≡ a ( λ ) + b ( λ ) ( m^{− 1} ) .⟧ (3)
+Another commonly used IOP is the single-scattering albedo
+⟦ω_{o} ( λ )⟧ ,
+deﬁned by
+⟦ω_{o} ( λ ) ≡ (b ( λ ))/(c ( λ )) .⟧ (4)
+In waters and at wavelengths where the beam attenuation is due primarily to
+scattering, ⟦ω_{o}⟧ is
+near one. For waters and wavelengths where the beam attenuation is due primarily to
+absorption, ⟦ω_{o}⟧
+is near zero. As we shall see elsewhere, the single-scattering albedo
+is the probability that a light ray (commonly called a photon) will
+be scattered (rather than absorbed) in any given interaction, hence
+⟦ω_{o} ( λ )⟧ is
+also known as the probability of photon survival in any given interaction between a
+ray or photon and matter.
+The IOPs depend on the composition, morphology, and concentration of the
+particulate and dissolved substances in the ocean. Composition refers to what
+materials make up the particle or dissolved substance, in particular to the index of
+refraction of that material relative to that of the surrounding water. Morphology
+refers to the sizes and shapes of particles. Concentration refers the number of
+particles in a given volume of water, which is described by the particle size
+distribution, or to the amount of a dissolved substance in the water. As
+we will see, diﬀerent materials absorb much diﬀerently as a function of
+wavelength. Particles with diﬀerent shapes scatter light diﬀerently, even
+if the particles have the same volume. Particles with diﬀerent volumes
+scatter light diﬀerently even if they have the same shape. Consider, for
+example, atmospheric visibility through rain or fog. Even if the total
+water content per cubic meter of air is the same, you can “see through”
+a few large raindrops, whereas many small fog droplets greatly reduce
+visibility.
+Because the physical characteristics of the dissolved and particulate substances
+in the ocean vary by orders of magnitude, so do the IOPs. For example, both the
+absorption and scattering coeﬃcients of pure water are less that 0.01 1/m
+at 440 nm. However, in turbid coastal waters with high concentrations
+of phytoplankton, mineral particles, and dissolved organic matter, the
+absorption and scattering coeﬃcients can be four orders of magnitude
+larger. The volume scattering function (at a given scattering angle and
+wavelength) can also vary by orders of magnitude between open ocean and
+coastal waters. Understanding how variability in IOPs is determined by the
+various constituents of the ocean is a fundamental problem of optical
+oceanography.
+Comment: Equations ( 1 ) and  ( 2 ) are conceptual, mathematical deﬁnitions
+in terms of limits. These deﬁnitions are not suitable for implementation
+in measurement instruments, which always have a ﬁnite path length
+⟦r⟧ and
+ﬁnite ⟦A⟧
+and ⟦B⟧ .
+The page on measuring IOPs shows how to recast the conceptual deﬁnitions into
+forms suitable for making measurements.
+Historical IOP Notation
+Just as with the radiometric quantities, there is an “historical” set of
+symbols in addition to the IAPSO recommended symbols used above.
+Table  1 summarizes the IOP’s as they are commonly employed in optical
+oceanography.
+Quantity SI Units Recommended Symbol Historical Symbol
+absorption coeﬃcient ⟦m^{− 1}⟧ ⟦a⟧ ⟦a⟧
+scattering coeﬃcient ⟦m^{− 1}⟧ ⟦b⟧ ⟦s⟧
+backward scattering coeﬃcient ⟦m^{− 1}⟧ ⟦b_{b}⟧ ⟦b⟧
+forward scattering coeﬃcient ⟦m^{− 1}⟧ ⟦b_{f}⟧ ⟦f⟧
+beam attenuation coeﬃcient ⟦m^{− 1}⟧ ⟦c⟧ ⟦α⟧
+volume scattering function ⟦m^{− 1} s r^{− 1}⟧ ⟦β⟧ ⟦p⟧
+scattering phase function ⟦s r^{− 1}⟧ ⟦β^{̃}⟧ ⟦σ⟧
+single-scattering albedo dimensionless ⟦ω^{̃}⟧ or ⟦ω_{o}⟧ ⟦ρ⟧
+Table 1: Terms, units, and symbols for inherent optical properties

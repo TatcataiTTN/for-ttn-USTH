@@ -1,0 +1,535 @@
+# The Physics of Scattering
+
+When light interacts with matter one of three things can occur:
+Absorption: The light can disappear, with its radiant energy being
+converted into other forms, such as the energy of a chemical bond or
+heat.
+Elastic Scattering: The light can change direction, without a change of
+wavelength.
+Inelastic Scattering: The light can undergo a change of wavelength,
+usually to a longer wavelength, and usually in a diﬀerent direction.
+The physics underlying the ﬁrst of these processes is described on the Physics
+of Absorption page. This page describes the physics of elastic scattering.
+The Level 2 page on Raman Scattering discusses one type of inelastic
+scattering.
+To say that light undergoes elastic scattering simply means that it changes
+direction from its initial direction of propagation. This can happen in many
+seemingly diﬀerent ways, but fundamentally, elastic scattering occurs when there
+is a change in the real part of the index of refraction from one spatial location to
+another .
+The Index of Refraction
+As shown by Maxwell’s equations , the speed of light in a medium is given by
+⟦v = 1 ∕ sqrt(μ 𝜖)⟧ , where
+⟦μ⟧ is the magnetic
+permeability and ⟦𝜖⟧
+is the electric permittivity of the medium. The real index of refraction
+⟦n⟧ is
+the ratio of the speed of light in a vacuum to the speed in a medium:
+⟦n = (c)/(v) = sqrt((μ 𝜖)/(μ_{o} 𝜖_{o})) ,⟧
+where ⟦μ_{o}⟧
+and ⟦𝜖_{o}⟧
+are the values in a vacuum. (See Table 1 of Maxwell’s equations
+for their values and further discussion.) For a dielectric like water,
+⟦μ = μ_{o}⟧ . The nondimensional
+ratio ⟦K = 𝜖 ∕ 𝜖_{o}⟧
+is called the dielectric constant even though the value of
+⟦K⟧
+depends on frequency and thus is not really a constant. Thus
+⟦n⟧ and
+⟦K⟧ are equivalent
+via ⟦n = sqrt(K)⟧ .
+[A dielectric is a material that conducts electricity poorly; examples are air, water,
+and glass. Dielectrics are in contrast to conductors like metals, which conduct
+electricity well.]
+Pay attention to the frequency dependence when comparing
+⟦n⟧ and
+⟦K⟧ values. If you look
+up the values of ⟦n⟧
+and ⟦K⟧
+for water in a freshman physics text, it will probably show the values as
+⟦n ≈ 1 . 3 3⟧
+(e.g., Halliday and Resnick (1988) , page 867) and
+⟦K ≈ 7 8 . 5⟧ (ibid.
+page 627). Figure 1 shows the index of refraction of pure water as a function of
+wavelength. At the long wavelength/low frequency end of the spectrum,
+⟦n → 8 . 8 5⟧ corresponding
+to ⟦K = 7 8 . 3⟧ ,
+which is the value for room temperature water. (The value of
+⟦K⟧ is temperature
+dependent and ⟦K⟧ at
+low frequencies decreases from about 88 at 0 C to about 56 at 100 C.) At visible wavelengths,
+⟦K⟧ is around 1.77 and
+⟦n⟧ is around 1.33,
+consistent with ⟦n = sqrt(K)⟧ .
+There are small temperature, salinity, and pressure eﬀects on
+⟦n⟧ at
+the visible wavelengths of interest here; see the Water page for formulas and
+tables.
+[IMG /packages/iws_l2h/conversion/files/water-real-index-refr-600.png]
+Figure 1: The real index of refraction of pure water at room temperature.
+The blue band shows the visible wavelengths from 400 to 700 nm. Data from
+Segelstein (1981) .
+Scattering Models
+As stated above, elastic scattering occurs when light travels from a region with
+one index of refraction into a region with a diﬀerent index of refraction. In this
+sense, all scattering is the same. However, there are many ways in which the
+index of refraction can change, which leads to many ways to model the
+resulting scattering. You will sometimes see terms like “surface scattering”
+or “volume scattering.” Surface scattering refers to scattering caused
+by a change in index of refraction at the boundary between two media,
+such as at the air-water interface. Volume scattering refers to scattering
+caused by a change in index of refraction within a medium, such as a
+water body. Volume scattering can be caused by the presence of discrete
+particles embedded in the medium, by thermal ﬂuctuations in density, or
+by turbulent mixing of ﬂuids with diﬀerent physical properties. Those
+classiﬁcations can be useful, but they also can be misleading because they
+make it seem like there are many unrelated types of scattering, when
+in reality the terms just describe diﬀerent ways to change the index of
+refraction.
+Reﬂection and Refraction: Snell’s Law
+The easiest scattering to model is reﬂection and refraction at a dielectric
+interface, such as a level air-water surface. At the level of freshman
+physics, this is usually explained in terms of a plane wave incident
+onto a boundary between two dielectrics with indices of refraction
+⟦n_{1}⟧ and
+⟦n_{2}⟧
+as illustrated in Fig. 2 . The red lines in the ﬁgure represent lines
+of constant wave phase, and the red arrow shows the direction of
+light propagation. The light in medium 1 propagates at a speed of
+⟦v_{1} = c ∕ n_{1}⟧ , where
+⟦c⟧ is
+the speed of light in a vacuum; in medium 2 the propagation speed is
+⟦v_{2} = c ∕ n_{2}⟧ . If
+⟦n_{2} > n_{1}⟧ ,
+the wave slows down as the incident wave front enters medium 2. This
+causes the wave front to change direction as it enters medium 2, as
+shown by the green lines and arrow. The frequency of the wave remains
+unchanged as the wave passes from medium 1 to 2. Therefore, the
+wavelength in medium 2 must be less than the wavelength in medium 1:
+⟦λ_{2} = (n_{1})/(n_{2}) λ_{1}⟧ .
+The relationship between the indices of refraction and the angles of incidence,
+⟦𝜃_{i}⟧ , and refraction
+or transmission, ⟦𝜃_{t}⟧ ,
+was empirically discovered by the Persian Abu Ibn Sahl who reported
+his discovery in a book On Burning Mirrors and Lenses published in
+Bagdhad in 984. Ibn Sahl even used his discovery to design the shapes of
+lenses that would focus parallel light rays without abberation. The same
+result was rediscovered in 1621 by Willebrord Snel van Royen (note the
+spelling of his name), who published in Latin under the name Snellius. After
+Latin was replaced ﬁrst by German and then English as the common
+language of western science, Snellius became Snell. Unfortunately, Ibn
+Sahl’s book was unknown in the west until its rediscovery in the 1930s, so
+the law became known as Snell’s law, although the Ibn Sahl-Snel law
+would be a more appropriate name. Regardless of what it is called, the
+relation between the angles of incidence and transmission is given by
+⟦n_{1} sin nolimits 𝜃_{1} = n_{2} sin nolimits 𝜃_{2} .⟧ (1)
+The surface also reﬂects some of the incident light back into medium 1, as
+shown by the blue lines and arrow in Fig. 2 . For reﬂection,
+⟦𝜃_{r} = 𝜃_{i} ,⟧ (2)
+which is known as the law of reﬂection.
+[IMG /packages/iws_l2h/conversion/files/SnellsLaw-400.png]
+Figure 2: Illustration of Snell’s law and the law of reﬂection for an incident
+plane wave (red) and transmitted (green) and reﬂected (blue) waves.
+Snell’s law can be derived from fundamental physics at various levels of
+understanding. One derivation follows from Fermat’s Principle of Least Time,
+which says that light traveling from point A to point B will follow the path that
+takes the least time. Applied to the geometry of Fig. 2 , this gives the ray path that
+obey’s Snell’s law. (To be honest, Fermat cooked up his principle as a
+way to explain Snell’s law, but the principle turns out to have greater
+applicability.)
+Snell’s law can be rigorously derived from Maxwell’s equations by solving the
+equations for a plane wave incident onto a dielectric interface. This problem is
+formulated in terms of the electric ﬁelds of the incident, reﬂected, and transmitted
+plane waves, and full account is made of the state of polarization of the plane
+waves. That is a nasty bit of physics and mathematics (e.g., Griﬃths
+(1981) Section 8.2.5 or Feynman et al. (1964) Chapter 33). However, the
+eﬀort required to solve Maxwell’s equations pays oﬀ well because the
+solution gives not just Snell’s law, which gives only the directions of light
+propagation, but also Fresnel’s Equations , which give the magnitudes of the
+reﬂected and transmitted ﬁelds (i.e., of the irradiances) accounting for the
+state of polarization of the incident light. This solution also shows that
+the incident, reﬂected, and transmitted rays must lie in the same plane.
+The three results of (1) Snell’s law, (2) the law of reﬂection, and (3) the
+coplanar geometry of the rays are the essence of geometric or ray-tracing
+optics.
+The index of refraction is a bulk material property that parameterizes the
+accumulated eﬀects of how light interacts with the individual atoms that make up
+the material. For the most fundamental understanding, Feynman (1985) outlines
+how Snell’s law arises from the properties of individual photons and atoms
+interacting via the laws of Quantum Electrodynamics (see The Nature of
+Light ).
+Fortunately, for oceanographic purposes, we can just accept Eqs. ( 1 ) and ( 2 )
+and Fresnel’s equations and carry on with their applications such as predicting the
+reﬂectance and transmittance of wind-blown sea surfaces, as described beginning
+at The Level Surface .
+Scattering by Homogeneous Spheres: Mie Theory
+Another way to change the index of refraction is to imbed a particle of some index
+of refraction within a medium with a diﬀerent index of refraction. If the imbedded
+particle is a homogeneous sphere (of any radius), the solution of Maxwell’s
+Equations for a plane wave incident onto the sphere is called Mie Theory. The
+problem is formulated as follows.
+We have given a single, homogeneous sphere of radius ⟦ρ⟧ ,
+whose material is a dielectric with a complex index of refraction ⟦m_{s} = n_{s} + i k_{s}⟧ .
+Here ⟦n_{s}⟧
+is the real index of refraction, and ⟦k_{s}⟧
+is the complex index of refraction. The complex index is related to the
+absorption coeﬃcient ⟦a_{s}⟧
+of the sphere material by ⟦a_{s} ( λ ) = 4 π k_{s} ( λ ) ∕ λ⟧ ,
+where ⟦λ⟧
+is the wavelength in vacuo corresponding to the frequency ⟦ν⟧
+of an electromagnetic wave.
+The sphere is imbedded in a non-absorbing, homogeneous, inﬁnite medium
+whose real index of refraction is ⟦m_{m} = n_{m}⟧ .
+A plane electromagnetic wave of frequency ⟦ν⟧
+is incident onto the sphere. The wavelength on the incident light in the
+medium is thus ⟦λ_{m} = c ∕ n_{m} ν = λ ∕ n_{m}⟧ ,
+which corresponds to a wavelength in vacuo of ⟦λ = c ∕ ν⟧ .
+We wish to ﬁnd the electric ﬁeld within the sphere and throughout the
+surrounding medium. That is, we wish to determine how the incident
+light is absorbed and scattered by the sphere, including the angular
+distribution of the scattered light and its state of polarization.
+The solution of this geometrically simple problem is exceptionally diﬃcult.
+Indeed, this is one of the classic problems of applied mathematics, and its solution
+was attempted (and partially achieved in various forms) by many of the most
+illustrious ﬁgures of nineteenth-century physics. For historical reasons, Mie (1908)
+usually gets credit for the complete solution of the problem, and his solution of
+Maxwell’s equations is commonly called Mie Theory. Mie’s paper is 69 pages of
+dense equations, and I doubt that more than a handful of people have
+actually read the entire paper, although it has been cited in thousands of
+papers. Bohren and Huﬀman (1983) say (on page 93) that someone who
+works through the details of Mie’s solution will have “acquired virtue
+through suﬀering.” The details of Mie’s solution are given in the texts by
+van de Hulst (1957) and by Bohren and Huﬀman (1983) . An overview
+of Mie theory is given on the Level 2 page Mie Theory Overview , and
+example output from Mie calculations is given on the Mie Theory Examples
+page.
+Mie Theory is exact and valid for all sizes of spheres, indices of refraction, and
+wavelengths . Unfortunately, the solution is in the form of inﬁnite series of complicated
+mathematical functions. The terms in these series depend on a size parameter
+⟦x⟧ ,
+⟦x ≡ (2 π ρ)/(λ_{m}) = (2 π ρ n_{m})/(λ) ,⟧ (3)
+and on the complex refractive index of the sphere relative to that of the
+surrounding medium,
+⟦m = (n_{s})/(n_{m}) + (k_{s})/(n_{m}) .⟧ (4)
+The size parameter ⟦x⟧
+is a measure of the sphere’s size relative to the wavelength of the incident light in
+the surrounding medium. This parameter shows why oceanographers tend to use
+wavelength rather than frequency as the measure of light’s oscillations: it is
+particle size relative to wavelength that is important for scattering (whether or
+not the particle is spherical). Note that the real paft of the relative refractive
+index ⟦m⟧
+can be less than 1, for example if the spherical particle is an air bubble
+( ⟦n_{s} ≈ 1⟧ ) in
+water ( ⟦n_{m} ≈ 1 . 3 3⟧ ).
+Because of its computational complexity, Mie’s solution was of little use until
+computers became readily available in the 1960s. However, once it became
+possible to compute the sums of the inﬁnite series with good accuracy, Mie theory
+found applications in all ﬁelds where scattering by particles is important. One of
+the ﬁrst of computer codes, and still perhaps the most widely used, is the
+BHMIE code given in Appendix A of Bohren and Huﬀman (1983) . There
+are now programs available in all commonly used scientiﬁc computer
+languages (Fortran, C, MATLAB, IDL, and Python). See, for example, the
+websites at SCATTERLIB and Codes for Electromagnetic Scattering
+by Spheres . There are also online Mie calculators that are useful if you
+only want to obtain a few solutions for small size parameters. See for
+example Scott Prahl’s Mie Scattering Calculator , which is an excellent
+place to explore Mie Theory. If you need to get serious about doing lots
+of Mie calculations, download one of the Fortran codes. As Prahl notes
+on his website, “Let me state that the best Mie codes are in Fortran.
+Period.”
+The output of Mie codes is usually given as various
+absorption and scattering eﬃciencies . The absorption eﬃciency
+⟦Q_{a}⟧ , for
+example, gives the fraction of radiant energy incident on the sphere that
+is absorbed by the sphere. The term “energy incident on the sphere,”
+means the energy of the incident plane wave passing through an area
+equal to the cross-sectional (projected, or “shadow”) area of the sphere,
+⟦A_{s} = π ρ^{2}⟧ . Likewise, the total
+scattering eﬃciency ⟦Q_{b}⟧
+gives the fraction of incident energy that is scattered into all directions. Other eﬃciencies can
+be deﬁned: ⟦Q_{c} = Q_{a} + Q_{b}⟧ for
+total attenuation, ⟦Q_{b b}⟧
+for backscattering, and so on.
+Mie solutions also can be presented in terms of absorption and scattering cross
+sections . The physical interpretation of these cross sections is simple. The absorption cross
+section ⟦σ_{a}⟧ ,
+for example, is the cross sectional area of the incident plane wave that has energy
+equal to the energy absorbed by the sphere. The absorption and scattering cross
+sections are therefore related to the corresponding eﬃciencies by the geometrical
+cross section of the sphere. Thus
+⟦σ_{a} = Q_{a} A_{s} = Q_{a} π ρ^{2} ( m^{2} ) .⟧
+Likewise, ⟦σ_{b} = Q_{b} A_{s}⟧ ,
+and so on for ⟦σ_{c} , σ_{b b}⟧ ,
+etc.
+Mie codes also output the scattering phase function
+⟦β^{̃} ( ψ )⟧ .
+However, Mie codes usually output unnormalized phase functions, so
+you must always integrate a phase function to verify its normalization.
+Keep in mind that a phase function must satisfy the normalization
+⟦2 π ∫ nolimits β^{̃} ( ψ ) sin nolimits ψ d ψ = 1⟧
+before it can be used in HydroLight . This is discussed in more detail on the Mie
+Theory Examples page.
+Understanding the Mie output sometimes involves the nondimensional
+phase-shift parameter
+⟦δ = 2 x ( (n_{s})/(n_{m}) − 1 ) ,⟧
+and the nondimensional absorption thickness
+⟦δ_{a} = 2 ρ a_{s} .⟧
+It is important to note, when computing the absorption thickness
+⟦δ_{a}⟧ , that
+⟦a_{s}⟧ is the
+absorption coeﬃcient of the sphere material, not the bulk absorption coeﬃcient of the
+medium (e.g., of seawater plus phytoplankton). Phytoplankton cells typically have
+⟦a_{s}⟧ values of
+⟦1 0^{4}⟧ - ⟦1 0^{5} m^{− 1}⟧
+at visible wavelengths. (Think of the highly absorbing chlorophyll in a phytoplankton
+cell as the chlorophyll in a can of chopped spinach; you do not see very far through
+solid spinach.) As an example of the Mie parameter values, consider a phytoplankton
+cell with ⟦ρ = 4 μ m⟧ ,
+⟦n_{s} = 1 . 4⟧ , and
+⟦a_{s} = 4 × 1 0^{5} m^{− 1}⟧ . If the cell is ﬂoating
+in water with ⟦n_{m} = 1 . 3 4⟧ , and if
+the incident light has ⟦λ = 5 0 0 n m⟧
+in vacuo, then ⟦x = 6 7 . 3 , m = 1 . 0 4 5 + i 0 . 0 1 5 9 , δ = 6 . 3⟧ ,
+and ⟦δ_{a} = 3 . 2⟧ .
+Scattering by Irregular Particles
+Strictly speaking, Mie theory is applicable only to homogeneous spherical
+particles. That of course does not keep it from being misapplied to non-spherical
+and/or non-homogeneous particles. Such particles are common in nature:
+chain-forming or non-spherical diatoms, ice crystals in cirrus clouds, atmospheric
+dust, and resuspended sediments in water. Fortunately, Mie theory often gives a
+useful approximate solutions to scattering by irregular particles so long as the
+particles are close to spherical, such as prolate or oblate spheroids. There are
+many applications where people use Mie theory with an “equivalent” spherical
+particle, where the equivalent particle is given the same volume (or cross sectional
+area) as the irregular particle of interest. For equivalent-volume, roughly spherical
+particles, Mie may work well. However, for very irregular particles, Mie
+predictions may disagree greatly with measurements made on such particles. The
+diﬀerences in phase functions between spherical and non-spherical particles are
+often greatest at backscattering directions, which are of great interest for remote
+sensing.
+In one sense, every spherical particle is geometrically the same; the spheres diﬀer
+only in size and index of refraction. Thus Mie theory requires only the size parameter
+⟦x⟧ and the relative
+index of refraction ⟦m⟧
+as inputs. However, irregular particles can have any imaginable shape and
+composition. This makes it impossible to have a solution technique for Maxwell’s
+equations that requires only simple inputs.
+Many numerical techniques have been developed to compute scattering by
+irregular particles, all of which are exceedingly mathematical; see Computational
+Electromagnetics for an introduction. The two most widely used techniques are
+probabtly the T-matrix Method (e.g., Mishchenko et al. (2002) , Chapter 5) and
+the Discrete Dipole Approximation . Although computer codes are available to
+perform the calculations ( SCATTERLIB ), they are not trivial to use. In
+particular, you must ﬁrst build in the geometry of the particle shape of interest,
+which in itself can be a major undertaking. For a collection of randomly oriented
+particles, scattering must ﬁrst be computed for each possible particle
+orientation, and then the results must be averaged over all possible particle
+orientations.
+If the irregular particle is much larger than the wavelength of light (e.g., an ice
+crystal in a cirrus cloud or a large sand grain in the ocean), then geometric optics
+and ray tracing can be used as the core of Monte Carlo simulations of many rays
+incident onto randomly oriented particles. As always, you must ﬁrst program
+the logic deﬁning the particle shape and how to determine when a ray
+intersects the surface of the particle (this is non-trivial even for simple
+particle shapes like cubes). But after that is done, it is just a matter of
+computer time until enough rays have been traced to give good statistical
+results.
+Enough has now been said about scattering by particles for this overview page.
+The point to be remembered is that a particle is just a discontinuity in a
+medium’s index of refraction. If you insert a relative index of refract of
+⟦m = 1⟧ into
+Mie or T-matrix theory, you get no scattering because the particle’s properties
+then match those of the surrounding medium. In essence, a non-absorbing particle
+becomes invisible.
+Scattering by Pure Water: Einstein-Smoluchowski Theory
+When computing scattering by particles, the surrounding medium is viewed as a
+continuous, homogeneous medium that itself does not scatter. However, even the
+purest of water has some scattering. This is because, at the atomic level,
+pure water is composed of particles, namely water molecules. In water at
+room temperature, the water molecules are moving on average at about
+⟦6 0 0 m s^{− 1}⟧ and
+are continually bumping into each other and ﬂying apart in random directions.
+These molecular motions are continually creating small volumes of water that for
+a very short time have more or fewer molecules per cubic meter than on average.
+These ﬂuctuations in the number density of water molecules create small-scale
+ﬂuctuations in the index of refraction.
+The phenomenon of critical opalescence refers to a transparent gas
+or liquid becoming foggy and opaque near a continuous (second-order)
+phase transition (such when a gas and liquid can coexist at suﬃciently
+high temperature and pressure). An explanation of this phenomenon was
+lacking until the papers of Smoluchowski (1908) and Einstein (1910) . They
+showed that large thermodynamic ﬂuctuations in the material’s density,
+hence in the index of refraction, are responsible for the optical scattering
+that makes the substance become cloudy. Their explanation required a
+sophisticated combination of thermodynamics, statistical mechanics, and
+electromagnetic theory (Maxwell’s equations). [Or so I’m told. Wyley,
+which now owns the journal Annalen der Physik where the papers were
+published, wants $49 each to download pdfs of these classic papers. I ﬁnd that
+unconscionable for papers over a century old, so I haven’t actually read these
+papers.]
+The same process applies to ordinary scattering by water molecules, for which
+the density ﬂuctuations are much smaller but still non-zero. In this case, the
+Einstein and Smoluchowski formula for the volume scattering function, with later
+modiﬁcations to account for polarization eﬀects, is
+⟦β ( ψ ) = (2 π^{2} k T)/(λ^{4} β_{T}) n^{2} (∂ n)/(∂ P)_{T}^{2} (6 + 6 ρ)/(6 − 7 ρ) 1 + (1 − ρ)/(1 + ρ) cos nolimits^{2} ψ .⟧ (5)
+The terms in this equation are as follows, with values shown for a temperature
+of 20 C, pressure of one atmosphere, and wavelength of 546 nm, as obtained from
+the formulas of Buiteveld et al. (1994) :
+⟦k⟧
+Boltzman’s constant; ⟦k = 1 . 3 8 0 6 × 1 0^{− 2 3} J K^{− 1}⟧
+⟦T⟧
+Temperature; ⟦T = 2 9 3 . 1 5 K⟧
+⟦n⟧
+Index of refraction; ⟦n = 1 . 3 3 4 7 7⟧
+⟦β_{T}⟧
+Isothermal compressibility of water: ⟦4 . 5 8 9 3 × 1 0^{− 1 0} P a^{− 1}⟧
+⟦(∂ n)/(∂ P)_{T}⟧
+Isothermal pressure derivative of the index of refraction; ⟦1 . 5 1 2 7 × 1 0^{− 1 0} P a^{− 1}⟧
+⟦ρ⟧
+depolarization ratio; 0.031 (from Zhang et al. (2019) )
+⟦λ⟧
+wavelength; ⟦5 4 6 n m = 5 . 4 6 × 1 0^{− 7} m⟧
+⟦P⟧
+pressure; ⟦1 a t m = 1 . 0 1 3 2 5 × 1 0^{5} P a⟧
+⟦ψ⟧
+polar scattering angle
+The temperature-dependent ﬂuctuations in the index of refraction
+appear in Eq. ( 5 ) via the various thermodynamic quantities. The equation
+shows that scattering will be stronger for a higher temperature; this is
+because the random molecular motions are then greater, and consequently
+the density ﬂuctuations are larger. The more compressible a ﬂuid is, the
+greater the density ﬂuctuations, and the greater the scattering. In
+particular, if the index of refraction did not depend on the pressure,
+⟦(∂ n)/(∂ P)_{T}⟧ would be zero
+and there would be no scattering. The scattering is strongly dependent on wavelength,
+with shorter wavelengths scattering much more strongly than long wavelengths.
+The ⟦1 ∕ λ^{4}⟧
+wavelength dependence seen in ( 5 ) is the same as for Rayleigh scattering,
+which describes scattering by spheres that are much smaller than the
+wavelength of light (and which can be obtained from Mie theory when the
+particle size is much less than the wavelength of the light). The same
+wavelength dependence occurs here because in ordinary water the spatial size
+of the density ﬂuctuations is much less than the wavelength of visible
+light.
+Inserting the values just listed into Eq. ( 5 ) gives, for a scattering angle of
+⟦ψ = 9 0 d e g⟧ ,
+⟦β ( 9 0 , 5 4 6 n m ) = 0 . 8 6 9 × 1 0^{− 4} m^{− 1} s r^{− 1} .⟧
+This is within a few percent of the value of the often-cited value of 0.83
+measured by Morel (1974) . Further discussion of the best values for the
+various inputs to Eq.( 5 ) is given in Zhang and Hu (2009) and Zhang et al.
+(2019) .
+Finally, it must be pointed out that scattering by pure water (or pure sea
+water if salinity eﬀects are included in the index of refraction) is one of the few
+IOPs that can be computed from fundamental physics. (Another such IOP is
+scattering by a homogeneous sphere, computed using Mie theory.) Other IOPs,
+absorption coeﬃcients in particular, are obtained from measurements and not
+from fundamental physics.
+Scattering by Turbulence
+Yet another way to change the index of refraction is via turbulence-induced
+ﬂuctuations in temperature and salinity, with the water being viewed as a
+continuous but slightly inhomogeneous medium. The temperature and salinity
+ﬂuctuations generate small-scale but spatially continuous changes in the index of
+refraction, which in turn cause small-angle deviations in the direction of light
+propagation. Such deviations cause “beam wander” in laser beams and can
+degrade visibility, which is aﬀected by small-angle scattering. Such eﬀects are
+often called “optical turbulence.” In the atmosphere, optical turbulence is
+responsible for the twinking of stars or the shimmering image of a distant object
+viewed on a hot day.
+We can get an order-of-magnitude estimate of the size of the
+turbulence-induced ﬂuctuations in the real index of refraction
+⟦n⟧ as follows. Hold the
+wavelength ⟦λ⟧ and
+pressure ⟦P⟧ constant, so
+that ⟦n⟧ is a function only
+of the temperature ⟦T⟧
+and salinity ⟦S⟧ .
+(Water is almost incompressible, which makes the pressure dependence of
+⟦n⟧ much
+less than that of temperature and salinity.) Then taking diﬀerentials of
+⟦n ( T , S )⟧ gives
+⟦Δ n = (∂ n)/(∂ T)_{S} Δ T + (∂ n)/(∂ S)_{T} Δ S ,⟧
+where ⟦Δ T⟧ and
+⟦Δ S⟧ are small
+ﬂuctuations in ⟦T⟧
+and ⟦S⟧ , and
+⟦Δ n⟧ is the corresponding
+change in ⟦n⟧ .
+If we square this equation, average it over many turbulent ﬂuctuations, and
+assume that the ﬂuctuations in temperature and salinity are uncorrelated, we
+obtain
+⟦⟨ ( Δ n )^{2} ⟩ = (∂ n)/(∂ T)_{S}^{2} ⟨ ( Δ T )^{2} ⟩ + (∂ n)/(∂ S)_{T}^{2} ⟨ ( Δ S )^{2} ⟩ .⟧ (6)
+Here ⟦⟨ . . . ⟩⟧
+represents the average of the enclosed quantity. The root-mean-square
+(rms) value of the index-of-refraction ﬂuctuations is then
+⟦sqrt(⟨ ( Δ n )^{2} ⟩)⟧ . The
+derivatives ⟦∂ n ∕ ∂ T⟧ and
+⟦∂ n ∕ ∂ S⟧ must be evaluated at
+particular values of ⟦T , S , λ⟧
+and ⟦P⟧ .
+We can estimate typical values from from the tabulated data in Austin and
+Halikas (1976) . (Some of their data are shown in Table 2 of the Water page,
+and in Figure 3.5 of Light and Water (1994) Figure 3.5.) Let us take
+⟦T = 2 0 C , S = 3 5 P S U , λ = 5 4 6 n m⟧ , and
+⟦P = 1 a t m⟧ .
+Then from the tabulated data of Austin and Halikas (their page A-6)
+⟦(∂ n)/(∂ T)_{S = 3 5} = (1 . 3 4 1 7 9 − 1 . 3 4 4 4 2)/(3 0 − 0) = − 8 . 8 × 1 0^{− 5} C^{− 1} (∂ n)/(∂ s)_{T = 2 0} = (1 . 3 3 6 4 3 − 1 . 3 4 2 9 5)/(0 − 3 5) = 1 . 9 × 1 0^{− 4} P S U^{− 1}⟧
+Now let us suppose that the temperature and salinity ﬂuctuations are of magnitude
+⟦Δ T ≈ 0 . 0 0 5 C⟧ and
+⟦Δ S ≈ 0 . 0 0 5 P S U⟧ .
+Then Eq. ( 6 ) gives
+⟦sqrt(⟨ ( Δ n )^{2} ⟩) = ( − 8 . 8 × 1 0^{− 5} )^{2} ( 0 . 0 0 5 )^{2} + ( 1 . 9 × 1 0^{− 4} )^{2} ( 0 . 0 0 5 )^{2}^{1 ∕ 2} ≈ 1 × 1 0^{− 6} .⟧
+The turbulence-induced ﬂuctuations in the index of refraction are therefore on
+the order of parts per million.
+Such small changes in ⟦n⟧
+are negligible compared to the 3% “ﬂuctuation” in
+⟦n⟧ when light encounters
+a plankton cell with ⟦n = 1 . 0 3⟧
+(relative to the water). However, in the case of particle scattering, we envision the
+light traveling in straight lines between the occasional encounter with a particle,
+at which time there may be a large change in direction. In the case of turbulence,
+we envision many turbulent blobs of water, of many sizes, with the light slightly
+but continuously changing direction as it passes through water with a
+continuously varying index of refraction. It is then possible for the cumulative
+eﬀect of the turbulent ﬂuctuations to change a light’s direction by a fraction
+of a degree. These turbulence-induced deviations manifest themselves
+in time-averaged scattering measurements as large values of the VSF
+⟦β ( ψ )⟧ at
+very small scattering angles.
+Turbulence-induced scatter can signiﬁcantly degrade the quality of underwater
+images. The eﬀects of turbulence are especially noticeable in video photography,
+since the time dependence of the random ﬂuctuations is then apparent, just as it
+is with the twinkling of stars caused by atmospheric turbulence. Near the
+boundary between distinctly diﬀerent water masses, the ﬂuctuations in
+⟦T⟧ and
+⟦S⟧ can be much
+larger than those assumed above, and even still images can be badly degraded. Fluctuations
+in ⟦T⟧ and
+⟦S⟧ can be very
+large— ⟦Δ T⟧ of many
+degrees and ⟦Δ S⟧
+of many PSU—when cold and/or fresh water mixes with warm and/or
+salty water. This can occur when rain falls on the sea surface, where
+rivers enter the ocean, and near hydrothermal vents at the sea ﬂoor. In
+these extreme cases, optical turbulence near the boundary of the two
+mixing water masses can cause striking visual eﬀects such as shimmering
+of objects see through the water mass boundary. Figure 3 shows and
+example of this. The ﬂuid being expelled by a hydrothermal vent can
+be as hot as 350 C, in which case the turbulence-induced ﬂuctuation in
+⟦n⟧ is comparable
+to the change in ⟦n⟧
+caused by a phytoplankton.
+[IMG /packages/iws_l2h/conversion/files/turbulent-plume-700.png]
+Figure 3: Image of rocks and shrimp seen through clear cold water and
+through a hydrothermal vent of clear very hot water. Frame grab from Life
+on a Vent ; original video from NOAA National Ocean Service .
+Turbulence eﬀects on optics have been intensively studied by the
+atmospheric optics community, but less studied by the hydrologic optics
+community. This is often justiﬁed because the turbulence-induced changes in
+⟦n⟧
+within water bodies usually are very small and do not signiﬁcantly eﬀect the
+distribution of radiant energy within the water. The exception is found in the
+community of researchers interested in high-resolution underwater visibility and
+imaging, and in the behavior of coherent light beams. Because the time-averaged
+eﬀects of turbulence are included in measured volume scattering functions, we can
+assume that those eﬀects are accounted for in the highly peaked VSFs used for
+oceanic radiative transfer modeling.

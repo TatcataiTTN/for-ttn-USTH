@@ -13,6 +13,13 @@ sensing, scattering regimes, aerosol altitude), Part C satellite case studies an
 Every number is recomputed in Python (`Atmospheric-Remote-Sensing/notebooks/verify_numbers.ipynb`) and the
 JavaScript calculators are checked against it (`tests/test_calc.js`). See `Atmospheric-Remote-Sensing/README.md`.
 
+## Ocean-Optics — self-study and exam-practice system (USTH)
+
+Live: **https://tatcataittn.github.io/for-ttn-USTH/Ocean-Optics/**
+
+English-language site built from the lecture *Marine Optics* (H. Loisel, LOG; 120 slides) and the Ocean Optics Web Book (CC BY 2.0). It opens with **the Big 12**, then eight modules (light in water and IOPs, pure water, absorption, particle scattering, measuring IOPs, IOPs and biogeochemistry, light field (textbook only), new platforms): lessons, 1280×720 slide decks, 138 multiple-choice and 20 essay questions with sources, 10 in-browser calculators, 82 selected lecture pages, five written mock papers and twelve multiple-choice mock exams.
+Every number is recomputed in Python by two independent methods (`Ocean-Optics/data/verified.json`, `Ocean-Optics/notebooks/verify_numbers.ipynb`) and the calculators are tested against it (`tests/test_calc.js`). No sample exam from the lecturer was available; see `Ocean-Optics/README.md` and the "Sources and limits" page.
+
 ## Thesis-M1 — 360-question practice bank
 
 Live: **https://tatcataittn.github.io/for-ttn-USTH/Thesis-M1/**

@@ -1,0 +1,158 @@
+# The Scalar Radiative Transfer Equation
+
+In many cases we are interested only in the total radiance, without regard to
+its state of polarization. Most instruments used in optical oceanography
+are by design not sensitive to polarization. Furthermore, it is commonly
+assumed that many processes of interest, such as absorption of light by
+phytoplankton to drive photosynthesis, do not depend on the polarization state.
+(However, an internet search on ”polarization dependent phytoplankton
+absorption” or similar key words results in exactly zero papers on this
+topic.) However, underwater light ﬁelds are partially linearly polarized by
+transmission through the sea surface and by scattering within the water
+column, even though the Sun’s direct beam is unpolarized. Thus there
+will be a contribution to the total radiance through conversion of this
+linearly polarized light to unpolarized by the (1,2) element of the scattering
+matrix.
+From the VRTE for Total Radiance to the SRTE
+Now let ⟦c = cos nolimits 2 α⟧ ,
+⟦s^{′} = sin nolimits 2 α^{′}⟧ , etc.
+for the rotation angles seen in Eqs. (3) and (4) of the general VRTE page ; let
+⟦M_{i j} = M_{i , j} ( ψ )⟧ ; and use
+the form of ⟦𝕄⟧
+seen in Eq. (2) of the previous page. The phase matrix after matrix multiplications
+then becomes
+⟦ℤ = M_{1 1} c^{′} M_{1 2} − s^{′} M_{1 2} 0 c M_{1 2} c^{′} c M_{2 2} − s^{′} s M_{3 3} − s^{′} c M_{2 2} − c^{′} s M_{3 3} 0 s M_{1 2} c^{′} s M_{2 2} + s^{′} c M_{3 3} − s^{′} s M_{2 2} + c^{′} c M_{3 3} 0 0 0 0 M_{4 4} *\c@MaxMatrixCols c .⟧ (1)
+This equation shows that linear polarization (the
+⟦Q⟧ and
+⟦U⟧ Stokes parameters)
+contributes to the total ⟦I⟧
+component via the ⟦M_{1 2}⟧
+matrix element and the rotation angles that carry the incident linear polarization into the
+scattering plane. ⟦I⟧
+does not depend on the rotation angle from the scattering plane to the ﬁnal
+meridian place because total radiance is independent of the coordinate system.
+Scattering by the volume of the water body cannot convert circular polarization
+( ⟦V⟧ ) into unpolarized
+light because ⟦Z_{1 4} = 0⟧ .
+Writing Eq. (3) of the previous page for just the ﬁrst element of the Stokes
+vector then gives
+⟦cos nolimits 𝜃 (d)/(d z) I ( z , 𝜃 , ϕ ) = − c ( z ) I ( z , 𝜃 , ϕ ) + ∬ nolimits_{4 π} M_{1 1} ( z , ψ ) I ( z , 𝜃^{′} , ϕ^{′} ) d Ω ( 𝜃^{′} , ϕ^{′} ) + Q_{I} ( z , 𝜃 , ϕ ) + ∬ nolimits_{4 π} cos nolimits α^{′} M_{1 2} ( z , ψ ) Q ( z , 𝜃^{′} , ϕ^{′} ) d Ω ( 𝜃^{′} , ϕ^{′} ) − ∬ nolimits_{4 π} sin nolimits α^{′} M_{1 2} ( z , ψ ) U ( z , 𝜃^{′} , ϕ^{′} ) d Ω ( 𝜃^{′} , ϕ^{′} ) . endlabel (2)⟧
+Here ⟦Q_{I}⟧ is the ﬁrst element
+of the source term ⟦ℚ = [ Q_{I} , Q_{Q} , Q_{U} , Q_{V} ]^{T}⟧ ,
+which contributes to the ﬁrst element of the Stokes vector
+⟦𝕊 = [ I , Q , U , V ]^{T}⟧ .
+Equation ( 2 ) is the correct 1D radiative transfer equation for the total radiance
+⟦I ( z , 𝜃 , ϕ )⟧ , under the
+simpliﬁcations described above. Unfortunately, this equation cannot be solved as written
+because ⟦Q⟧
+and ⟦U⟧
+are not known unless the full VRTE, Eq. (3) of the previous page, is
+solved.
+As already noted, routine solution of the VRTE is hindered not so much by
+the mathematics as by the lack of the needed inputs for the scattering
+matrices for various water-column constituents (phytoplankton, mineral
+particles, microbubbles, etc.). In response to this situation, modelers often
+raise their hands in surrender and simply drop the two integrals involving
+⟦M_{1 2}⟧ in
+Eq. ( 2 ). This amounts to an ad hoc assumption—almost always incorrect—that
+underwater radiance distributions are unpolarized. However, the result is a scalar
+RTE for the total radiance that requires only beam attenuation and the VSF as
+input. In particular, this is the SRTE that is solved by the HydroLight radiative
+transfer software. There are much more data and models available for the VSF
+than for the other elements of the scattering matrix, so the tradeoﬀ is decreased
+accuracy in exchange for requiring less input and doing simpler mathematics (i.e.,
+faster computer programs).
+In optical oceanography it is common to write the total radiance as
+⟦L ( z , 𝜃 , ϕ , λ )⟧ rather
+than ⟦I ( ( z , 𝜃 , ϕ , λ )⟧ .
+The volume scattering function is usually written as either
+⟦β ( z , ψ , λ ) = M_{1 1} ( z , ψ , λ )⟧ , which emphasizes the
+scattering angle, or as ⟦β ( z ; 𝜃^{′} , ϕ^{′} → 𝜃 , ϕ ; λ )⟧ ,
+which emphasizes the initial and ﬁnal directions of the scattered light. With these
+changes in notation, the 1D SRTE as commonly seen in textbooks (e.g., Eq. (5.23)
+of Mobley (1994) ) is
+⟦cos nolimits 𝜃 (d L ( z , 𝜃 , ϕ , λ ))/(d z) = − c ( z , λ ) L ( z , 𝜃 , ϕ , λ ) + ∫ nolimits_{0}^{2 π} ∫ nolimits_{0}^{π} L ( z , 𝜃^{′} , ϕ^{′} , λ ) β ( z ; 𝜃^{′} , ϕ^{′} → 𝜃 , ϕ ; λ ) sin nolimits 𝜃^{′} d 𝜃^{′} d ϕ^{′} + S ( z , 𝜃 , ϕ , λ ) . endlabel (3)⟧
+Following Light and Water (1994) , the source term in the SRTE is denoted by
+⟦S⟧ ,
+which is not to be confused with the Stokes vector
+⟦𝕊⟧ .
+This equation expresses location as geometric depth z and the IOPs in
+terms of the beam attenuation c and the volume scattering function
+⟦β⟧ . This
+form is convenient for studies at multiple wavelengths because the geometric
+depth ⟦z⟧
+is independent of the IOPs.
+The beam attenuation coeﬃcient is the sum of the absorption and scattering coeﬃcients:
+⟦c = a + b⟧ . The VSF is
+often written as the product of the scattering coeﬃcient and the scattering phase function:
+⟦β ( z , ψ , λ ) = b ( z , λ ) β^{̃} ( ψ )⟧ . Dividing the SRTE by
+⟦c⟧ , deﬁning the optical
+depth by ⟦d ζ = c d z⟧ , and the albedo
+of single scattering by ⟦ω_{o} = b ∕ c⟧ ,
+gives
+⟦cos nolimits 𝜃 (d L ( ζ , 𝜃 , ϕ , λ ))/(d ζ) = − L ( ζ , 𝜃 , ϕ , λ ) + ω ( ζ , λ ) ∫ nolimits_{0}^{2 π} ∫ nolimits_{0}^{π} L ( ζ , 𝜃^{′} , ϕ^{′} , λ ) β^{̃} ( ζ ; 𝜃^{′} , ϕ^{′} → 𝜃 , ϕ ; λ ) sin nolimits 𝜃^{′} d 𝜃^{′} d ϕ^{′} + (1)/(c ( ζ , λ )) S ( ζ , 𝜃 , ϕ , λ ) . endlabel (4)⟧
+This equation expresses location as nondimensional optical depth
+⟦ζ⟧ and
+the IOPs in terms of the albedo of single scattering and the scattering phase
+function. This form is convenient for theoretical studies at one wavelength. It is
+diﬃcult to use for multiple wavelengths because optical depth depends on the
+inherent optical properties. Thus the same geometric depth in meters corresponds
+to diﬀerent optical depths at diﬀerent wavelengths.
+The magnitude of the error in computed values of the total radiance induced by
+ignoring the ⟦M_{1 2}⟧
+terms in Eq. ( 2 ) can be crudely estimated as follows. Measurements show that
+underwater light ﬁelds are partially linearly polarized (e.g., Cronin and Shashar
+(2001) , Sabbah and Shashar (2006) , You et al. (2011) ). The degree of linear
+polarization is seldom more than 0.5, and is typically in the 0.1 to 0.3 range.
+Figure 4 of the previous page shows that the maximum magnitude of
+⟦M_{1 2} ( ψ ) ∕ M_{1 1} ( ψ )⟧ is about
+0.8 at ⟦ψ = 9 0 d e g⟧ . For
+⟦Q ∕ I = 0 . 3⟧ and a 90 deg scattering
+angle, the ratio of ⟦M_{1 2} Q⟧
+(or ⟦M_{1 2} U⟧ ) to
+the ⟦M_{1 1} I⟧
+term is then
+⟦(M_{1 2} Q)/(M_{1 1} I) = 0 . 8 × 0 . 3 ≈ 0 . 2 5 .⟧
+Thus for a viewing direction at right angles to the unscattered direction (often
+the sun’s direct beam in the water), single scattering gives an error of order
+25%. However, for near-forward and near-backward scattering angles,
+⟦M_{1 2} ≈ 0⟧ , and
+the error is much smaller. In addition, multiple scattering tends to reduce the
+degree of polarization. It thus seems reasonable to say that neglecting the
+⟦M_{1 2}⟧ terms
+in Eq. ( 2 ) can cause errors in the total radiance as large as a few tens of percent
+in certain directions, but in other directions the errors may be of order 10% or
+even smaller. This error can be positive or negative, depending on the sign of
+⟦Q⟧ and
+⟦U⟧ . That
+is, in some directions the radiance value will be too large, and in other directions
+too small. These errors tend to cancel when computing irradiances, which are
+integrals of the radiance over direction. The historical justiﬁcation for dropping
+the ⟦M_{1 2}⟧
+terms in Eq. ( 2 ) has been that, although the errors in the total computed
+radiances are of order 10% (and possibly greater), the errors in the corresponding
+irradiances are only of order 1%. That is considered an acceptable tradeoﬀ for the
+increased simplicity of solving Eq. ( 3 ) compared to the VRTE of the previous
+page.
+Summary
+This development started with QED and part-per-trillion accuracy and ended up
+with the SRTE and order of 10% accuracy in radiances (but perhaps several tens
+of percent error in particular directions), but only 1̃% percent in irradiances.
+This loss of accuracy is the price to be paid for an equation that is simple
+enough to solve on a routine basis for situations of practical oceanographic
+interest.
+The largest errors in computing underwater radiances usually come not from
+the approximations made to the general VRTE, but from the inputs to the
+simpliﬁed VRTE or SRTE. This is especially true if generic bio-geo-optical models
+for the absorption and scattering coeﬃcients are used to convert chlorophyll
+and/or mineral particle concentrations to IOPs. Even if correct on average, such
+models can be oﬀ by tens of percent to an order of magnitude in any particular
+situation. A 10% error in the absorption coeﬃcient can easily result in an
+order-of-magnitude error in the computed radiance or irradiance at depth.
+Guessing or modeling the phase function can give a factor-of-two or more error in
+backscatter directions, which gives an error of the same magnitude in the
+water-leaving radiance. It is certainly possible to get very good agreement
+between measurements and predictions based on the SRTE, but heroic
+eﬀorts are required to measure all of the needed inputs. Examples of such
+comparisons can be seen in Tzortziou et al. (2006) and Tonizzo et al.
+(2017) .

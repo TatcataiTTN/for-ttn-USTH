@@ -1,0 +1,65 @@
+# -*- coding: utf-8 -*-
+"""Generate notebooks/verify_numbers.ipynb: recompute every number of the site independently and compare with data/verified.json."""
+import nbformat as nbf, os
+nb = nbf.v4.new_notebook(); C = []
+md = lambda s: C.append(nbf.v4.new_markdown_cell(s)); code = lambda s: C.append(nbf.v4.new_code_cell(s))
+md("# Number verification — Atmospheric Remote Sensing (USTH)\n\nThis notebook recomputes **independently** every number that appears in the lessons, slides, quizzes and calculators of the site and compares it with `../data/verified.json` (written by `build/verify_numbers.py`). "
+   "The formulas come from the study guide *Satellite Remote Sensing of Atmospheric Composition*. The simple models (TIR, O₂ A-band, averaging-kernel simulation) are home-made illustrations, not measured data.")
+code("import json, math, numpy as np\nfrom scipy.optimize import brentq\nV = json.load(open('../data/verified.json'))\nH,C,KB = 6.62607015e-34, 2.99792458e8, 1.380649e-23\ndef chk(name, a, b, rel=1e-6):\n    ok = abs(a-b) <= rel*max(1,abs(b)); print(('OK  ' if ok else 'FAIL'), name, a, b); assert ok")
+md("## Ch.1 — Lifetime\nτ = 1/(k[OH]); parallel sinks 1/τ = Σ 1/τᵢ; plume τ = L/U; decay e^(−t/τ).")
+code("k, oh = 2e-13, 1e6\ntau = 1/(k*oh)\nchk('CO lifetime days', tau/86400, V['co_oh']['tau_days'])\nchk('parallel 2,3,6 d', 1/(1/2+1/3+1/6), V['par_example']['total'])\nchk('plume tau h (L=50 km, U=5 m/s)', 50e3/5/3600, V['plume']['tau_h'])\n# exponential fit on synthetic data\nx = np.linspace(0,150e3,31); y = np.exp(-x/50e3); chk('fit e-fold', -1/np.polyfit(x,np.log(y),1)[0], 50e3, 1e-9)\nchk('e^-1', math.exp(-1), V['decay']['e1'])\nprint('half-life/tau =', math.log(2))")
+md("## Ch.2 — Beer–Lambert, Planck, Wien, Stefan–Boltzmann, Rayleigh")
+code("tv, sza = 0.5, 60\nts = tv/math.cos(math.radians(sza)); chk('slant tau', ts, V['beer']['tau_slant']); chk('T', math.exp(-ts), V['beer']['T'])\nB = lambda lam,T: 2*H*C**2/lam**5/(math.exp(H*C/(lam*KB*T))-1)\nfor name,T in [('sun',5778),('earth',288)]:\n    from scipy.optimize import minimize_scalar\n    lmax = minimize_scalar(lambda l: -B(l,T), bounds=(0.1e-6,60e-6), method='bounded', options=dict(xatol=1e-12)).x*1e6\n    print(name,'numeric lambda_max (um)', round(lmax,4),' Wien', round(2898/T,4)); assert abs(lmax-2898/T)/(2898/T) < 0.01\nchk('Stefan 288 K', 5.670374419e-8*288**4, V['stefan']['M_earth'], 1e-9)\nchk('Rayleigh 450 vs 650', (650/450)**4, V['rayleigh_450_650'])")
+md("## Ch.3 — AMF, VCD, Dobson Unit")
+code("amf = 1/math.cos(math.radians(60)) + 1/math.cos(math.radians(30))\nchk('AMF', amf, V['amf']['amf']); chk('VCD', (8e15-3e15)/amf, V['amf']['vcd'], 1e-9)\nprint('VCD in DU if O3:', (8e15-3e15)/amf/2.687e16)\nchk('300 DU', 300*2.687e16, V['DU']['example_300DU'], 1e-9)")
+md("## Ch.5 — Optimal estimation: averaging kernel and DOFS\n12-level model: Gaussian K of width w, S_ε = σ_ε² I, S_a correlated as exp(−|i−j|/L). A = (KᵀS_ε⁻¹K + S_a⁻¹)⁻¹KᵀS_ε⁻¹K; DOFS = tr(A) = sum of eigenvalues.")
+code("def oe(N=12,w=3.0,se=0.1,sa=1.0,Lc=3.0):\n    z=np.arange(N); K=np.exp(-0.5*((z[None,:]-z[:,None])/w)**2); Sa=sa**2*np.exp(-np.abs(z[:,None]-z[None,:])/Lc)\n    Sei=np.eye(N)/se**2; M=np.einsum('ij,jk->ik',np.einsum('ij,jk->ik',K.T,Sei),K)+np.linalg.inv(Sa)\n    G=np.einsum('ij,jk->ik',np.linalg.inv(M),np.einsum('ij,jk->ik',K.T,Sei)); A=np.einsum('ij,jk->ik',G,K); return A\nfor name,p in dict(ideal=(0.3,0.01),realistic=(3,0.1),noisy=(3,1.0)).items():\n    A=oe(12,*p); chk('DOFS '+name, np.trace(A), V['oe'][name]['dofs'], 1e-9); chk('sum eig '+name, np.linalg.eigvals(A).real.sum(), np.trace(A), 1e-9)\n    assert np.allclose(A, np.array(V['oe'][name]['A']), atol=1e-9)\nprint('A recomputed: all 12x12 matrices of the 3 cases match')")
+md("## Ch.6 — Ångström")
+code("a=math.log(0.60/0.15)/math.log(870/440); chk('alpha', a, V['angstrom']['alpha']); chk('AOD550', 0.60*(550/440)**(-a), V['angstrom']['tau550'])\nls=np.array([440,500,675,870,1020.]); t=0.6*(ls/440)**(-a); chk('regression alpha', -np.polyfit(np.log(ls),np.log(t),1)[0], a, 1e-9)")
+md("## Ch.7 — Size parameter and extinction efficiency Q_ext (own Lorenz–Mie code, Bohren–Huffman)")
+code("xp=lambda r,l:2*math.pi*r/l\nchk('x N2',xp(2e-4,.55),V['size']['N2']); chk('x sulfate',xp(.2,.55),V['size']['sulfate']); chk('x dust',xp(5,.55),V['size']['dust'])\ndef qext(m,x):\n    nmax=int(x+4*x**(1/3)+2); mx=m*x; nmx=int(max(nmax,abs(mx))+16); D=np.zeros(nmx+1,dtype=complex)\n    for n in range(nmx,0,-1): D[n-1]=n/mx-1/(D[n]+n/mx)\n    psi0,psi1=math.cos(x),math.sin(x); chi0,chi1=-math.sin(x),math.cos(x); xi1=complex(psi1,-chi1); q=0\n    for n in range(1,nmax+1):\n        psi=(2*n-1)/x*psi1-psi0; chi=(2*n-1)/x*chi1-chi0; xi=complex(psi,-chi)\n        a_=((D[n]/m+n/x)*psi-psi1)/((D[n]/m+n/x)*xi-xi1); b_=((D[n]*m+n/x)*psi-psi1)/((D[n]*m+n/x)*xi-xi1)\n        q+=(2*n+1)*(a_.real+b_.real); psi0,psi1,chi0,chi1,xi1=psi1,psi,chi1,chi,xi\n    return 2/x**2*q\nfor x in [0.1,0.5,1,2,5,10,20,50,100,200]: chk('Qext x=%g'%x, qext(1.33,x), V['mie_qext_m133'][str(x)], 1e-9)\nm=1.33;xr=0.05;qr=8/3*xr**4*abs((m**2-1)/(m**2+2))**2; print('Rayleigh check x=0.05:', qext(m,xr), qr); assert abs(qext(m,xr)-qr)/qr<0.02")
+md("## Ch.8 — Thermal infrared and O₂ A-band (simple models)")
+code("pl_inv=lambda lam,Bv: H*C/(lam*KB)/math.log(1+2*H*C**2/(lam**5*Bv))\ndef bt(Ts,z,tau,lam=10e-6,lap=6.5):\n    Tl=Ts-lap*z; I=B(lam,Ts)*math.exp(-tau)+B(lam,Tl)*(1-math.exp(-tau)); return pl_inv(lam,I),Tl\nb1,_=bt(300,1,.5); b5,_=bt(300,5,.5); chk('dBT 1 km',300-b1,V['tir']['z1']['dBT'],1e-9); chk('dBT 5 km',300-b5,V['tir']['z5']['dBT'],1e-9)\nt_low=brentq(lambda t:(300-bt(300,1,t)[0])-(300-bt(300,5,.1)[0]),0.001,20); chk('degenerate tau (1 km)',t_low,V['tir_degenerate']['low_thick']['tau'],1e-8)\nfor z in (1,3,5,8): chk('O2 above %d km'%z, math.exp(-z/7), V['oxygen_above'][str(z)])\nprint('The 5 km layer gives a larger dBT by a factor of', round((300-b5)/(300-b1),2))")
+md("## Study guide v2 — Part A, worked examples, mock exam Q9–Q10")
+code("""N=20e-9*2.5e19; tau=1.5e-19*1e5*N; chk('NO2 tau', tau, V['a_no2']['tau'], 1e-9); chk('NO2 t', math.exp(-tau), V['a_no2']['t'], 1e-9)
+chk('Q9c tau', 2e-20*5e13*1e5, V['q9c']['tau'], 1e-9); chk('Q10c D', 2e-19*1e16, V['q10c']['D'], 1e-9)
+chk('plume 72 km / 18 km/h', 72/18, V['plume72']['tau_h'])
+du=300*2.687e16; am=1/math.cos(math.radians(60))+1
+for lam,sg in [('310',1e-19),('330',1e-20)]: chk('ozone T '+lam, math.exp(-sg*du*am), V['ozone'][lam]['T'], 1e-9)
+chk('megacity VCD', 2.4e16/1.2, V['megacity']['vcd'], 1e-9); chk('limb path', math.sqrt(8*6371*1), V['limb']['L'], 1e-9)
+K=np.array([[1.,1.]]); A2=np.eye(2)@K.T@np.linalg.inv(K@np.eye(2)@K.T+0.01)@K; chk('two-layer DOFS', np.trace(A2), V['two_layer']['dofs'], 1e-9)
+chk('alpha smoke', -math.log(0.8/0.2)/math.log(440/870), V['ang_smoke']['alpha'], 1e-9); chk('alpha dust', -math.log(0.5/0.45)/math.log(440/870), V['ang_dust']['alpha'], 1e-9)
+chk('x droplet visible', 2*math.pi*10/0.55, V['droplet']['x_vis'], 1e-9); chk('x droplet radar', 2*math.pi*10/3000, V['droplet']['x_radar'], 1e-9)
+chk('O2 above 6 km', math.exp(-6/8), V['o2_scale8']['6'], 1e-9)
+amu=1.66053907e-27; dop=2927/C*math.sqrt(2*math.log(2)*KB*250/(16.04*amu)); chk('Doppler CH4', dop, V['lines']['doppler_ch4_2927'], 1e-9)
+b4,_=bt(310,4,0.7); b1_,_=bt(310,1,0.7); chk('TIR 310 K 4 km', 310-b4, V['tir310']['z4']['dBT'], 1e-9)
+print('NOTE: the guide quotes ~7 K (4 km) and ~2 K (1 km); our blackbody-layer model gives', round(310-b4,1), 'and', round(310-b1_,1), 'K (orders of magnitude agree, trend identical)')""")
+md("## Lecture master (Cuesta) — hydrostatic law, sinks, lidar exercises, DIAL, multispectral ozone, photon energies")
+code("""# hydrostatic: closed form versus a hand-written RK4 integration of dp/dz = -p M g /(R T)
+R,M,g,T0 = 8.314, 29e-3, 9.81, 284.0
+Hs = R*T0/(M*g); chk('H (km)', Hs/1000, V['hydro']['H_km'], 1e-9)
+def rk4(p, dz, n):
+    f = lambda p: -p*M*g/(R*T0)
+    for _ in range(n):
+        k1=f(p); k2=f(p+dz/2*k1); k3=f(p+dz/2*k2); k4=f(p+dz*k3); p += dz/6*(k1+2*k2+2*k3+k4)
+    return p
+for z in (1,2,3,10): chk('p(%d km)'%z, rk4(1013.25, 1.0, z*1000), V['hydro']['p'][str(z)], 1e-6)
+chk('half-pressure height', Hs*math.log(2)/1000, V['hydro']['half_km'], 1e-9)
+# sinks example (100 km, 20 km/h, chemistry 1 d, rain 7 d)
+tout=(100/20)/24; ks=[1/1.0, 1/7.0, 1/tout]; kt=sum(ks)
+chk('k_tot', kt, V['sinks_ex']['k_tot'], 1e-9); chk('outflow share', ks[2]/kt, V['sinks_ex']['f_out'], 1e-9); chk('lifetime h', 24/kt, V['sinks_ex']['tau_tot_h'], 1e-9)
+# lidar exercise 1 via exp(-2 tau) and DIAL via the slope of ln P
+Pl=lambda z,bp,T: 1e5/z**2*(1e-6+bp)*math.exp(-2*(-math.log(T)))
+chk('lidar a', Pl(1e3,1e-6,.7)*1e9, V['lidar_ex1']['a']['P_nW'], 1e-9); chk('lidar b', Pl(3e3,15e-6,.5)*1e9, V['lidar_ex1']['b']['P_nW'], 1e-9); chk('lidar c', Pl(12e3,.2e-6,.3)*1e9, V['lidar_ex1']['c']['P_nW'], 1e-9)
+chk('lidar d (3 km behind tau=0.8)', Pl(3e3,15e-6,.5)*1e9*math.exp(-1.6), V['lidar_ex1']['d']['P3_nW'], 1e-9)
+r=np.array([1000.,1500.]); sl_on=np.polyfit(r,np.log([10,7]),1)[0]; sl_off=np.polyfit(r,np.log([10,8]),1)[0]
+alpha=(sl_off-sl_on)/2*(-1)*(-1); alpha=abs(sl_on-sl_off)/2; chk('DIAL alpha', alpha, V['dial']['alpha'], 1e-9); chk('DIAL q (g/kg)', 5e4*alpha, V['dial']['q_gkg'], 1e-9)
+chk('t(3 km) us', 2*3000/C*1e6, V['lidar_time']['t_3km_us'], 1e-9); chk('dR 30 ns (m)', C*30e-9/2, V['lidar_time']['dR_30ns'], 1e-9)
+# photon energies E = 1239.84 eV nm / lambda ; Rayleigh ratio; multispectral gains
+chk('E 424 nm', 1239.84198/424, V['photon_eV']['no2_424'], 1e-6); chk('E 240 nm', 1239.84198/240, V['photon_eV']['o2_240'], 1e-6); chk('(650/400)^4', (650/400)**4, V['rayleigh_br'], 1e-12)
+chk('DOFS gain land', .35/.25-1, V['multi']['gain_land'], 1e-12); chk('DOFS gain ocean', .25/.15-1, V['multi']['gain_ocean'], 1e-12)""")
+md("**Conclusion:** every comparison prints `OK` (a `FAIL` would stop the cell with an `assert`). The JavaScript file `_shared/calc.js` is tested separately by `tests/test_calc.js` (478 comparisons against the same `verified.json`).")
+nb['cells'] = C; nb.metadata.kernelspec = dict(name='python3', display_name='Python 3', language='python')
+_r = os.path.join(os.path.dirname(__file__), '..', 'site')
+_r = _r if os.path.isdir(_r) else os.path.join(os.path.dirname(__file__), '..')
+out = os.path.join(_r, 'notebooks', 'verify_numbers.ipynb'); nbf.write(nb, out); print('wrote', out)

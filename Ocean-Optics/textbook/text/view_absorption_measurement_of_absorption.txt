@@ -1,0 +1,51 @@
+# Measurement of Absorption
+
+From Theory to Reality
+Consider a scenario where the goal is to measure the absorption spectrum of a
+thin layer of material (Figure 1 A). The incident radiant power is given by
+⟦Φ_{o}⟧ , in
+the form of a collimated beam. The radiant power transmitted through the
+layer, ⟦Φ_{t}⟧ , is
+detected. If ⟦Φ_{t} = Φ_{o}⟧ ,
+there is no loss of radiant power and therefore no attenuation.
+If however the medium absorbs some quantity of radiant power,
+⟦Φ_{a}⟧ , then
+⟦Φ_{t} < Φ_{o}⟧ , and
+⟦Φ_{o} = Φ_{t} + Φ_{a}⟧
+(Figure 1 B). In the case of material that both absorbs and
+scatters (Figure 1 C), the scattered radiant power is given by
+⟦Φ_{b}⟧ , and
+⟦Φ_{o} = Φ_{t} + Φ_{a} + Φ_{b}⟧ .
+[IMG /packages/iws_l2h/conversion/files/CR-absmeas-Fig1.png]
+Figure 1: Diagrammatic representation of theoretical attenuation by a thin
+layers of non-attenuating (panel A), absorbing (panel B), and absorbing
+and scattering (panel C) material. The thickness of the layer is given by
+⟦Δ x⟧ .
+To quantify the absorbed radiant power only, it is necessary to measure both the
+transmitted and scattered radiant power. This is a requirement for an absorption meter.
+Consider ﬁrst a nonscattering material. The measured dimensionless transmittance,
+⟦T⟧ , is
+the fraction of incident power transmitted through the layer:
+⟦T = (Φ_{t})/(Φ_{o}) .⟧
+The absorptance, ⟦A⟧ ,
+is the fraction of incident radiant power that is absorbed
+( ⟦1 − T⟧ ):
+⟦A = (Φ_{a})/(Φ_{o}) = (Φ_{o} − Φ_{t})/(Φ_{o}) .⟧
+The absorption coeﬃcient ⟦a⟧
+(with units of ⟦m^{− 1}⟧ )
+is the absorptance per unit distance
+⟦a = (A)/(Δ x)⟧
+which, for an inﬁnitesimally thin layer can be expressed as:
+⟦a = ((Δ Φ)/(Φ))/(Δ x) = (Δ Φ)/(Φ Δ x) , .⟧
+Rearranging this expression and taking the limit as
+⟦Δ x → 0⟧
+yields:
+⟦a Δ x = lim_{Δ x → 0} (Δ Φ)/(Φ)⟧
+Assuming that the absorption coeﬃcient is constant over the layer of thickness
+⟦x⟧ and
+integrating gives
+⟦∫ nolimits_{0}^{x} a d x = − ∫ nolimits_{Φ_{o}}^{Φ_{t}} (d Φ)/(Φ) a x |_{0}^{x} = − ln nolimits Φ |_{Φ_{o}}^{Φ_{t}} a x = − [ ln nolimits ( Φ_{t} ) − ln nolimits ( Φ_{o} ) ] = − ln nolimits (Φ_{t})/(Φ_{o}) a = − (1)/(x) ln nolimits (Φ_{t})/(Φ_{o})⟧
+This equation provides a guide toward designing instruments to accurately
+measure absorption. The Level 2 pages beginning at Benchtop Spectrometry of
+Solutions give the speciﬁcs on techniques to measure absorption by dissolved and
+particulate constituents in seawater.

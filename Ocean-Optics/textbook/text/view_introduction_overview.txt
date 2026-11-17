@@ -1,0 +1,162 @@
+# Overview
+
+The authors’ guiding idea for this web site is to create a web-based, continually
+growing, community resource that addresses both the education and
+reference needs of the broad optical oceanography and ocean color remote
+sensing communities and that will be freely accessible to all. We intend
+that the presentation eventually will span single particles to ecosystems,
+and theory to observations to instruments, at user-selectable levels of
+detail. We modestly hope that this site will become a new paradigm for
+education.
+Philosophy
+Why did we choose a web-based book format as opposed to a hardcover book?
+Because we wish to
+Make the material freely available to all. University professors
+and commercial publishers are increasingly using electronic and on-line
+text books. However, those on-line resources are often either limited
+in scope (such as lecture notes on a particular topic or for a particular
+course) or have unacceptable license restrictions (such as being able to
+view a given page only a few times or being able to view the book only
+on one computer). We make our material freely available to everyone
+under a Creative Commons License.
+Allow for on-going updates of the material. As new results (be
+they observations, theory, techniques, or instrument designs) become
+available, they can be readily incorporated into the web book, so that
+the material does not go out of date. New material is being added
+as time goes on. We have no intention that the website will ever be
+complete.
+Go beyond static black and white. A web book can make extensive
+use of color ﬁgures, spreadsheet ﬁles, video loops, Java applets, and
+executable codes that a user can run to illustrate certain concepts or
+investigate selected problems. The entire web site is searchable using
+key words so that particular topics can be easily located. There are
+also extensive embedded links to references, many of which can be
+downloaded from the web book (copyright restrictions permitting).
+Allow for community input. This web book can become a
+community learning center with other people contributing additional
+material after the “ﬁrst edition,” as with the open source software
+world. We (or others as time passes) would then ﬁll the role of editors
+of material submitted by others for incorporation into the web site.
+Levels of Presentation
+The web book has three levels of presentation:
+Level 1: Introductory and Basic Material. This level presents the
+basic deﬁnitions, concepts, example data, and accepted facts of optical
+oceanography. The intended audience is people new to the ﬁeld, and
+those who want just a summary presentation of the subject matter.
+The page you are now reading is at Level 1.
+Level 2: In-depth Examination of the Material of Level 1. This
+level goes into the details (at the level of widely used texts such as
+Light and Water and Light and Photosynthesis in Aquatic Ecosystems )
+of the various level 1 topics so as to bring the reader up to the level
+of current research. The intended audience is people who plan to do
+research in optical oceanography, and researchers who are expert in one
+area and desire to learn the details of another area. For example, the
+radiative transfer equation is derived in Level 1, and solution methods
+and related topics are discussed in level 2. This chapter has level 2
+pages showing other web resources for optical oceanography. and text
+books on optical oceanography. .
+Level 3: Ancillary Material. Level 3 is used to discuss the design,
+calibration, and data processing for various instruments, or link
+to websites with such information (e.g., to a particular company’s
+website for information about their instruments, or to NASA protocol
+documents). Tabulated numerical data as needed for research or as
+used to generate some of the ﬁgures in Levels 1 and 2 can also be found
+in Level 3.
+All levels contain links to available software and other resources such
+as NASA’s SeaBASS data archive.
+We invite others to contribute material to the book to expand our
+initial oﬀerings. However, we did not choose a wiki format in which anyone can
+add or modify material without restriction. This is ﬁrst because we wish, at least
+initially, to retain editorial control over the organization of the book and quality
+of its content. Second, technical details related to how material such as
+complicated equations must be formatted for good appearance when translated
+for display in a web browser go beyond the abilities of standard text-based wiki
+syntax.
+Indeed, generating complex material with equations, tables, and ﬁgures on a
+format that can be easily moved to the web site while preserving its appearance
+on any browser requires that all material be formatted as LaTeX ﬁles, which can
+then be automatically translated into HTML code using the underlying
+software (currently Concrete5 and MathJax). Concrete5 and MathJax
+are very powerful and automatically convert LaTeX equations into web
+pages that properly display math symbols and equations on any browser.
+There is, however, a bit of a learning curve in this process, even if you are
+already familiar with LaTeX. If you wish to add material to the web site,
+let us know and we will provide documentation and examples showing
+how to prepare your material in LaTeX format for uploading to this
+website.
+The Mechanics of Usage.
+The content is ordered by chapters, pages, and ﬁles. A chapter discusses
+a general topic, such as absorption. A page is the amount of material
+that can be scrolled through on the browser without clicking to go to
+another page. A page usually presents the details on a speciﬁc subject, e.g.,
+black body radiation or absorption by CDOM. Level 3 material is often
+ﬁles, which can be downloaded or opened outside of the current browser
+window.
+When viewing a particular page of the book, a chapter-level table of contents
+is always seen at the left side of the window. Clicking on a chapter title
+expands the contents to show all Level 1 pages in the chapter and a
+Level 2 button, which can be expanded to show all Level 2 pages for
+that chapter. Clicking again collapses the contents back to the original
+level.
+The information bar at the top of each page contains a search box at the
+upper right. If you enter a key word or phrase in the box and click on the “go”
+button, a page (there can be more than one page) appears showing snippets of
+the text where the phrase occurs along with links to those pages. Clicking on any
+of these links takes you to the appropriate page. You can also right click on the
+link and select to open the page in a new browser window or tab, in the
+customary fashion. The search string is taken exactly as typed. If you enter
+“volume scattering functions” (without the quotes) the search will ﬁnd only that
+exact phrase and will not show occurrences of “volume scattering function”
+or just ”scattering.” A search on “scattering” would ﬁnd any of these
+strings.
+If you wish to print a page, just use your browser’s print feature. The page
+will be reformatted for printing and can be viewed via the browser’s “print
+preview” option.
+The bottom of each page contains buttons to move to the next or
+preceding page. There is also an option to “comment on this page.” This
+opens a window where you can enter your name, email address, and
+comment. Your comment will go to the “principal author” of the page,
+who is named at the upper right of each page. Each page has a principle
+author who generated the original material and who is responsible for
+maintaining the page. That person will act on your comment as needed,
+e.g., by correcting an error or adding new material and, if appropriate
+(and with your permission) adding your name as a contributor to the
+page.
+History
+The idea for a web book grew out of the 2004 Summer Course in Optical
+Oceanography and Remote Sensing, which was taught at the University of Maine
+Darling Marine Center. Funding to develop the website software and initial
+content was generously provided by the Ocean Biology and Biogeochemistry
+Program of the National Aeronautics and Space Administration. The ﬁrst
+year of that work involved developing sophisticated content-management
+software (called SiteTurbine, developed by Rainstorm Consulting ) that could
+convert LaTeX ﬁles into HTML web pages. LaTeX was (and remains) the
+standard software for creating documents with complicated mathematics.
+However, at the start of the work, there was no software to conveniently
+convert a LaTeX ﬁle to HTML. SiteTurbine converted any symbol (such as
+a Greek letter) or equation into a PNG image, so that the symbol or
+equation displayed properly on any web browser. The initial content
+(version 1.0) went online in time for use during the 2007 Summer Course at
+the University of Maine. Many more pages were added over the next
+decade.
+After a decade of use, SiteTurbine was showing its age. In particular, it did
+not satisfy modern standards for web security and was no longer supported, and
+RainStorm Consulting had sold its web development work of this type to Sozo
+Technologies . The content-management software underlying the web site was
+therefore completely redone in 2019 and 2020 by Sozo Technologies. The
+present web book (version 2.0) uses the Concrete5 content-management
+software and MathJax for conversion of LaTeX ﬁles to web pages. Both of
+these are open-source software and bring the web book up to modern
+standards.
+Acknowledgments
+Funding to develop the website software and initial content was generously
+provided by the Ocean Biology and Biogeochemistry Program of the National
+Aeronautics and Space Administration. The NASA OBB program has funded
+subsequent summer courses, which often included support for Curtis Mobley to
+add new material to the web book. The scientiﬁc material itself has of course
+been developed over many decades with support from NASA, the Oﬃce of Naval
+Research (in particular, the ONR Ocean Optics program, regardless of its exact
+name at any given time), the National Science Foundation, and other agencies in
+the US and abroad. This funding went to the web site authors and to
+the numerous scientists whose work is presented here in one form or
+another.

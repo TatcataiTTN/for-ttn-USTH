@@ -1,0 +1,407 @@
+# K functions
+
+We now further examine the diﬀuse attenuation functions, which are commonly
+called “ K functions.” Recall, for example, the deﬁnition of the diﬀuse attenuation
+function for downwelling plane irradiance:
+⟦K_{d} ( z , λ ) ≡ − (d ln nolimits E_{d} ( z , λ ))/(d z) .⟧
+Solving this for the irradiance ⟦E_{d}⟧
+gives
+⟦E_{d} ( z , λ ) = E_{d} ( 0 , λ ) exp nolimits − ∫ nolimits_{0}^{z} K_{d} ( z^{′} , λ ) d z^{′} .⟧
+This equation is exact. If ⟦K_{d} ( z , λ )⟧
+were independent of depth — which it never is, as will be seen below — the last
+equation would reduce to
+⟦E_{d} ( z , λ ) = E_{d} ( 0 , λ ) exp nolimits − K_{d} ( λ ) z .⟧
+This equation is always an approximation. Corresponding equations can
+be written for all other radiometric variables and their corresponding K
+functions..
+Under typical oceanic conditions, for which the incident lighting is
+provided by the Sun and sky, and in homogeneous water, when far enough
+below the surface (and far enough above the bottom, in optically shallow
+water) to be free of boundary eﬀects , the K functions do become almost
+independent of depth, in which case the various radiances and irradiances all
+decrease approximately exponentially with depth. The assumption of an
+exponential decrease of the light ﬁeld with depth is often good enough for a
+back-of-the-envelope estimation, but it must always be remembered that reality is
+more complicated.
+Dependence of K Functions on IOPs and Environmental Conditions
+As explained in the previous page, in order to be useful for relating light
+measurements to water properties, the K functions should depend strongly on
+water IOPs but only weakly on external environmental conditions like Sun
+location, sky condition, or surface waves. To illustrate these dependencies, various
+K functions were numerically computed using the HydroLight radiative transfer
+numerical model. In most situations it is preferable to work with real
+data. However, use of this model gives us the ability to simulate diﬀerent
+environmental conditions at will and to control things that cannot be controlled in
+nature, such as turning chlorophyll ﬂuorescence on or oﬀ to see its eﬀect.
+This can be very useful for understanding the interdependence of various
+quantities.
+HydroLight simulations were ﬁrst performed at one wavelength for
+homogeneous idealized water bodies dominated by either scattering or absorption.
+For the “highly scattering” water, the absorption coeﬃcient was set to
+⟦a = 0 . 2 m^{− 1}⟧ , and the scattering coeﬃcient
+was ⟦b = 0 . 8 m^{− 1}⟧ , so that the albedo
+of single scattering was ⟦ω_{o} = b ∕ ( a + b ) = 0 . 8⟧ .
+These values correspond roughly to what might be found at blue or
+green wavelengths in Case 1 water with a chlorophyll concentration of
+⟦5 m g m^{− 3}⟧ .
+An “average-particle” scattering phase function was used, the Sun was
+placed in a clear sky, and the water was inﬁnitely deep. Note that since
+⟦a + b = c = 1 m^{− 1}⟧ , the nondimensional
+optical depth ⟦ζ = c z⟧
+is numerically equal to the geometric depth
+⟦z⟧ in
+meters.
+Figure 1 shows various K functions as a function of depth for
+the highly scattering water when the Sun was placed at a zenith
+angle of 40 degrees and the surface was level (wind speed of
+⟦U = 0⟧ ).
+As is conventional in radiative transfer theory, the
+⟦K ( 𝜃 , ϕ )⟧ curves are for radiance
+propagating in the ⟦( 𝜃 , ϕ )⟧
+direction. HydroLight measures depth positive downward from the mean sea surface, and polar
+angle ⟦𝜃⟧ is measured
+from the ⟦+ ẑ⟧ or nadir
+direction. Thus ⟦𝜃 = 0⟧
+refers to light heading straight down into the water (corresponding to
+⟦K_{Ld}⟧ ),
+⟦𝜃 = 1 8 0⟧
+refers to light heading straight up (corresponding to
+⟦K_{Lu} )⟧ , and
+⟦𝜃 = 9 0⟧
+refers to light traveling horizontally through the water. Azimuthal angle
+⟦ϕ = 0⟧
+refers to light heading towards the Sun, which was placed at
+⟦ϕ = 0⟧ ;
+⟦ϕ = 1 8 0⟧
+thus refers to light heading away from the Sun. In this simulation,
+⟦K_{Sun} ( 3 0 , 1 8 0 )⟧
+corresponds to looking into the Sun’s refracted beam underwater, which is light
+heading downward and away from the Sun.
+[IMG /packages/iws_l2h/conversion/files/Fig1_Ka2u8U0sun40.png]
+Figure 1: Computed K functions for “highly scattering” water. The Sun
+was at a zenith angle of 40 deg and the sea surface was level. The optical
+depth is numerically equal to the geometric depth.
+There are several important features to note in Fig. 1 :
+The various K functions can diﬀer greatly near the sea surface. This due
+to boundary eﬀects on the solution of the radiative transfer equation.
+The surface boundary aﬀects radiances in diﬀerent directions in diﬀerent
+ways depending on the relative location of the sun. The large near-surface
+values of ⟦K_{Sun} ( 3 0 , 1 8 0 )⟧
+indicate that the Sun’s direct beam is decreasing rapidly with depth
+due to absorption and scattering out of the beam. On the other hand,
+⟦K_{Lu}⟧ ,
+which is looking straight downward at radiance propagating upward, is
+almost constant with depth.
+K functions can be positive or negative near boundaries. A negative K
+means that the radiometric variable is increasing with depth. ⟦K_{Ld}⟧ ,
+which is looking in the zenith direction at radiance propagating downward,
+is negative in the ﬁrst few meters below the surface. At depth 0 just
+below the sea surface, the downwelling radiance ⟦L_{d}⟧
+comes mostly from the zenith sky radiance transmitted through the
+level surface. Going deeper into the water, ⟦L_{d}⟧
+increases with depth as scattering from the Sun’s strong direct beam
+contributes more path radiance to ⟦L_{d}⟧
+than is lost by absorption and scattering out of the downward beam.
+Eventually the Sun’s direct beam becomes weak enough that the path
+radiance contribution to ⟦L_{d}⟧
+is less than the attenuation due to absorption and scattering out of the
+beam, and ⟦K_{Ld}⟧
+becomes positive. The same eﬀect is seen less dramatically in ⟦K_{h} ( 9 0 , 1 8 0 )⟧ ,
+which corresponds to looking horizontally toward the Sun.
+K functions are not constant with depth even in homogeneous water.
+Again, this is a manifestation of the surface boundary eﬀects. If the
+water IOPs depend on depth, then the K functions also vary with
+depth, even far from a boundary. Thus radiometric variables never
+decrease exactly exponentially with depth, although this is often a good
+approximation for homogeneous water.
+Far from boundaries (i.e., very deep in the ocean and very far from the
+bottom), all K functions approach a common value, the “asymptotic K
+value” ⟦K_{∞}⟧ ,
+that depends only on the IOPs. Its value for the IOPs of this simulation
+was ⟦K_{∞} = 0 . 3 0 8 2 m^{− 1}⟧ .
+Thus at depths great enough for boundary eﬀects to be negligible, all K
+functions are the same and these AOPs become an IOP. In the present
+simulation, the K functions are all the same to within 3% by 30 m
+depth; ⟦K_{d}⟧
+is within 0.2% of ⟦K_{∞}⟧
+by 30 m depth. The asymptotic K functions are discussed in detail on
+the asymptotic radiance distribution page.
+Figure 2 shows the K functions corresponding to the
+same conditions as Fig. 1 , except that the wind speed was
+⟦U = 1 5 m s^{− 1}⟧ . We
+see that there is very little diﬀerence between Figs. 1 and 2 . Thus, as hoped, the
+K functions are almost unaﬀected by the surface waves.
+[IMG /packages/iws_l2h/conversion/files/Fig2_Ka2u8U15sun40.png]
+Figure 2: Computed K functions for ”highly scattering” water. The
+conditions were the same as for Fig. 1 , except that the wind speed was
+⟦1 5 m s^{− 1}⟧ ,
+so that the sea surface was not level.
+Figure 3 shows the K functions for a level surface and the Sun at the zenith, rather
+than at 40 deg. Again, the irradiance K functions are almost unchanged. However, the
+radiance ⟦K_{Ld}⟧
+function now corresponds to looking straight upward into the Sun’s direct beam. Thus
+⟦K_{Ld}⟧ now looks very similar
+to ⟦K_{Sun} ( 3 0 , 1 8 0 )⟧ in the previous
+ﬁgures. Similarly, ⟦K ( 3 0 , 1 8 0 )⟧
+now looks much like ⟦K_{Ld}⟧
+in the previous ﬁgures. This is because moving the Sun from 40 deg in air (28 deg in water) to
+the zenith gives ⟦K ( 3 0 , 1 8 0 )⟧
+almost the same scattering angle relation to the Sun’s direct beam as
+⟦K_{Ld}⟧ had
+in the previous ﬁgures.
+[IMG /packages/iws_l2h/conversion/files/Fig3_Ka2u8U0sun0.png]
+Figure 3: Computed K functions for ”highly scattering” water. The
+conditions were the same as for Fig. 1 , except that the Sun was at the zenith.
+Figure 4 shows K functions for “highly absorbing” water: the absorption coeﬃcient was
+⟦a = 0 . 8 m^{− 1}⟧ , and the scattering coeﬃcient
+was ⟦b = 0 . 2 m^{− 1}⟧ , so that the albedo
+of single scattering was ⟦ω_{o} = b ∕ ( a + b ) = 0 . 2⟧ .
+These values correspond roughly to what might be found at red wavelengths,
+where absorption by the water itself usually dominates the IOPs. Other conditions
+were the same as for Fig. 1 .
+[IMG /packages/iws_l2h/conversion/files/Fig4_Ka8u2U0sun40.png]
+Figure 4: Computed K functions for “highly absorbing” water. The Sun
+was at a zenith angle of 40 deg and the sea surface was level. The optical
+depth is numerically equal to the geometric depth.
+Comparing Figs. 1 and 4 , we note that
+The rate of approach to the asymptotic value depends on the IOPs. In
+highly scattering water, the approach to ⟦K_{∞}⟧
+is much faster than in highly absorbing water. This is because the
+near-surface radiance distribution must be “redistributed” by multiple
+scattering into the shape of the asymptotic radiance distribution ⟦L_{∞}⟧
+in order for the K ’s to approach ⟦K_{∞}⟧ .
+The more scattering, the faster the initial ray directions are changed by
+multiple scattering into their asymptotic distribution, which depends
+only in the IOPs.
+Comparing Figs. 1 and 4 also shows that the K ’s have changed greatly because of
+the change in IOPs, which is what is desired in any AOP. For the highly absorbing
+water, ⟦K_{∞} = 0 . 8 6 8 1 m^{− 1}⟧ .
+Beam Attenuation ⟦c⟧
+vs Diﬀuse Attenuation ⟦K_{d}⟧
+The distinction between beam and diﬀuse attenuation is important. The beam
+attenuation coeﬃcient c is deﬁned in terms of the radiant power lost from a
+collimated beam of light. The downwelling diﬀuse attenuation function
+⟦K_{d} ( z , λ )⟧ , for
+example, is deﬁned in terms of the decrease with depth of the downwelling irradiance
+⟦E_{d} ( z , λ )⟧ ,
+which comprises light heading in all downward directions (a diﬀuse,
+or uncollimated, radiance distribution). In the above simulations,
+⟦c = a + b = 1 . 0 m^{− 1}⟧
+at all depths, but all K functions except the near-surface
+⟦K_{Sun} ( 3 0 , 1 8 0 )⟧
+in the high absorption case are less than c . Radiative transfer theory
+shows (e.g., Light and Water (1994) Eq. 5.71) that in general
+⟦a ≤ K_{d} μ^{¯}_{d} ≤ c⟧ , where
+⟦μ^{¯}_{d}⟧ is the
+mean cosine of the downwelling radiance. These inequalities are seen to hold true
+in the above simulations.
+The left panel of Fig. 5 illustrates two diﬀerent radiance distributions.
+The ﬁrst, shown in blue, is directed more toward the nadir, and the
+second, shown in red, has a greater angle from the nadir. Even if the
+downwelling plane irradiances from both distributions are equal at depth
+⟦z_{1}⟧ ,
+⟦E_{d 1} ( z_{1} ) = E_{d 2} ( z_{1} )⟧ , they will not be
+equal at depth ⟦z_{2}⟧ .
+The reason is that the red rays travel a greater distance in going from depth
+⟦z_{1}⟧ to
+⟦z_{2}⟧ . More
+energy will be lost to absorption from the red rays than from the blue rays
+because the path length of the red rays through the water is greater. Thus
+⟦E_{d 1} ( z_{2} ) > E_{d 2} ( z_{2} )⟧ , which is equivalent
+to ⟦K_{d 1} ( z_{1} ) < K_{d 2} ( z_{1} )⟧ . In both cases, the
+beam attentuation ⟦c⟧
+is the same and does not depend on the depth if the water is homogeneous. Beam
+⟦c⟧ is an
+IOP and does not depend on the radiance distribution, whereas the AOP
+⟦K_{d}⟧
+depends on the angular distribution of the radiance.
+The right panel of the Figure shows why beam attenuation
+⟦c⟧ is always greater than
+diﬀuse attenuation ⟦K_{d}⟧ .
+The blue arrows represent the rays of a collimated radiance in the nadir direction
+( ⟦L_{d}⟧ ). At
+the light propagates downward, some of the radiance will be scattered out of
+the beam at a particular horizontal location, as illustrated by the red
+arrows. A narrow-ﬁeld-of-view radiance meter looking upward (measuring
+⟦L_{u} ( z_{2} )⟧ )
+will detect the radiance that is transmitted from depth
+⟦z_{1}⟧ to
+⟦z_{2}⟧ with
+only small-angle scattering (scattering at angles less that the FOV; there will also
+be some loss to absorption). This detector will not detect radiance scattered from
+“neighboring” beams, which is illustrated by the dotted red arrows, because
+these rays are in directions outside the instrument FOV. The diﬀerence in
+⟦L_{d} ( z_{1} )⟧ and
+⟦L_{d} ( z_{2} )⟧
+determines the beam attenuation averaged over the water column from
+⟦z_{1}⟧ to
+⟦z_{2}⟧ via
+⟦c = − (1)/(z_{2} − z_{1}) ln nolimits (L_{d} ( z_{2} ))/(L_{d} ( z_{1} )) .⟧
+Now consider a plane irradiance detector measuring
+⟦E_{d} ( z_{2} )⟧ .
+This detector receives light from the beam directly above it, as did the
+⟦L_{d} ( z_{2} )⟧
+detector, but it also receives some of the light scattered out of neighboring
+beams that would otherwise miss the detector. That is to say, part of
+the energy lost from one beam can be replaced by light scattered from
+nearby beams if the detector has a wide FOV. Thus the decrease in
+⟦E_{d}⟧ going from
+depth ⟦z_{1}⟧ to
+⟦z_{2}⟧ , which
+determines ⟦K_{d}⟧ ,
+will be relatively less than the change in the radiances
+⟦L_{d}⟧ over the same distance,
+which determine ⟦c⟧ .
+In other words, ⟦c > K_{d}⟧ .
+⟦c = K_{d}⟧ only
+in the idealized case of a perfectly collimated downward radiance (such as the Sun
+at the zenith in a black sky) in water with no scattering and no internal
+sources.
+[IMG /packages/iws_l2h/conversion/files/beamc-ne-Kd-700.png]
+Figure 5: Illustrations of the diﬀerence in beam attenuation
+⟦c⟧
+and diﬀuse attenuation
+⟦K_{d}⟧
+The Eﬀect of Inelastic Scattering on K Functions
+HydroLight was next used to simulate a homogeneous Case 1 water body with a chlorophyll
+concentration of ⟦C h l = 1 m g m^{− 3}⟧ .
+As for Figs. 1 and 4 , the Sun was at 40 deg and the surface was level. Figure 6
+plots several quantities as a function of wavelength at 10 m depth for
+this simulation. We see that between 300 and about 600 nm, the various
+⟦K ( 1 0 m , λ )⟧ functions
+are very similar and proportional to the total (including water) absorption coeﬃcient
+⟦a ( 1 0 m , λ )⟧ .
+However, beyond 600 nm the K functions diﬀer from each other, and they
+are all much diﬀerent from a . The reason for this behavior is inelastic
+scattering.
+[IMG /packages/iws_l2h/conversion/files/Fig5_K_chl1_z10_inelas.png]
+Figure 6: K at 10 m depth for Case 1 water with
+⟦C h l = 1 m g m^{− 3}⟧ .
+The HydroLight run included Raman scatter by the water, and chlorophyll
+and CDOM ﬂuorescence.
+At the near-UV to blue to green wavelengths below 600 nm, most of the
+radiance at 10 m depth (for these IOPs) comes from sunlight being transmitted
+through the upper 10 m of the water column. Above about 600 nm, absorption by
+the water itself has removed most of the sunlight. For example, at 700 nm where
+⟦a_{water} = 0 . 6 5 m^{− 1}⟧ , we expect
+roughly ⟦exp nolimits ( − a z ) ≈ 0 . 0 0 1⟧
+of the surface light to reach 10 m. However, Raman scatter and CDOM
+ﬂuorescence inelastically scatter light from shorter wavelengths, where sunlight is
+present, into the red wavelengths, and thus create additional red light at
+10 m. Thus, beyond 600 nm, the various radiances and irradiances no
+longer decrease with depth in a simple exponential fashion. Note that
+⟦K_{d}⟧ tracks a
+longer than do ⟦K_{u}⟧
+and ⟦K_{Lu}⟧ . This
+is because ⟦E_{d}⟧
+continues to collect whatever downwelling sunlight remains, and thus the inelastic
+contribution to ⟦K_{d}⟧
+is not noticeable until the chlorophyll ﬂuorescence contribution begins near 670
+nm. ⟦K_{u}⟧
+and ⟦K⟧
+It is easy to verify that the peculiar behavior of the K functions beyond 600
+nm is due to inelastic scatter. The HydroLight run was repeated with Raman
+scatter and CDOM and chlorophyll ﬂuorescence “turned oﬀ.” Figure 7 shows
+the results. Now, the K functions all track the absorption nicely at all
+wavelengths.
+[IMG /packages/iws_l2h/conversion/files/Fig6_K_chl1_z10_elas.png]
+Figure 7: K at 10 m depth for Case 1 water with
+⟦C h l = 1 m g m^{− 3}⟧
+as in Fig. 6 , except that inelastic scatter was turned oﬀ in the HydroLight
+run.
+As seen in these ﬁgures, radiative transfer theory shows that K functions are
+very “absorption like,” meaning that the K functions are strongly correlated with
+the total absorption coeﬃcient when inelastic scatter eﬀects are negligible. For
+⟦K_{d}⟧ , the approximate
+relation ⟦K_{d} ≈ a ∕ μ^{¯}_{d}⟧
+gives close agreement between the exact (computed by HydroLight)
+⟦K_{d}⟧ and the
+value estimated from the absorption coeﬃcient and the downwelling mean cosine
+⟦μ^{¯}_{d}⟧ of
+the radiance distribution, which was also obtained from the HydroLight
+simulation.
+These few simulations are enough to establish the salient features of diﬀuse
+attenuation functions. Their use has a venerable history in optical oceanography.
+Smith and Baker (1978) listed some of their virtues:
+The K ’s are deﬁned as ratios and therefore do not require absolute
+radiometric measurements.
+The K ’s are strongly correlated with phytoplankton chlorophyll
+concentration (via the absorption coeﬃcient) in Case 1 waters. Thus
+they provide a connection between biology and optics.
+About 90% of the diﬀusely reﬂected light from a water body comes from
+a surface layer of water of depth ⟦1 ∕ K_{d}⟧ ,
+which is called the “penetration depth.” Thus ⟦K_{d}⟧
+has implications for remote sensing.
+Radiative transfer theory provides several useful relations between the
+K ’s and other quantities of interest, such as the absorption and beam
+attenuation coeﬃcients and other AOP’s.
+Gordon’s Normalization of ⟦K_{d}⟧
+As seen above, ⟦K_{d}⟧
+does have some dependence on the Sun location and sky conditions, even though the
+dependence is weak. Gordon (1989) developed a simple way to normalize measured
+⟦K_{d}⟧
+values. His normalization for all practical purposes removes the
+eﬀects of the sea state and incident sky radiance distribution from
+⟦K_{d}⟧ , so that the
+normalized ⟦K_{d}⟧
+can be regarded as an IOP . The theory behind the normalization is given in his
+paper; the mechanics of the normalizing process are as follows.
+Let ⟦E_{d} ( Sun )⟧
+be the irradiance incident onto the sea surface due to the Sun’s direct beam, and
+let ⟦E_{d} ( sky )⟧ be
+the irradiance due to diﬀuse background sky radiance. Then the fraction f of the
+direct sunlight in the incident irradiance that is transmitted through the surface
+into the water is
+⟦f = (t ( Sun ) E_{d} ( Sun ))/(t ( Sun ) E_{d} ( Sun ) + t ( sky ) E_{d} ( sky )) .⟧
+Here t (Sun) and t (sky) are respectively the fractions of the
+direct beam and of the diﬀuse irradiance transmitted through the
+surface; these quantities can be computed using methods described
+in Light and Water (1994) Chapter 4 [where they are denoted by
+⟦t ( a , w )⟧ ]. However, if the solar
+zenith angle in air, ⟦𝜃_{sa}⟧ , is less
+than 45 degrees , then ⟦t ( Sun ) ≈ 0 . 9 7⟧ .
+If the sky radiance distribution is roughly uniform (as it is for a clear sky), then
+⟦t ( sky ) ≈ 0 . 9 4⟧ . In
+this case, we can accurately estimate f from measurements made just above the
+sea surface:
+⟦f ≈ (E_{d} ( Sun ))/(E_{d} ( Sun ) + E_{d} ( sky )) .⟧
+The Sun and sky irradiances are easily obtained from an instrument on the deck
+of a ship. When both direct and diﬀuse light fall onto the instrument, it records
+⟦E_{d} ( Sun ) + E_{d} ( sky )⟧ .
+When the direct solar beam is blocked, the instrument records
+⟦E_{d} ( sky )⟧ .
+(Advanced technology is not required here: just hold your hat so that its shadow
+falls on the instrument.)
+Next compute the nadir angle of the transmitted solar beam in water,
+⟦𝜃_{sw}⟧ ,
+using Snell’s law:
+⟦𝜃_{sw} = sin nolimits^{− 1} (sin nolimits 𝜃_{sa})/(1 . 3 4) .⟧
+Finally, compute the quantity
+⟦D_{o} = (f)/(cos nolimits 𝜃_{s w}) + 1 . 1 9 7 ( 1 − f ) .⟧
+This value of ⟦D_{o}⟧
+is valid for ﬂat or rough sea surfaces as long as
+⟦𝜃_{sa} ≤ 5 0⟧ . For larger
+values of ⟦𝜃_{sa}⟧ ,
+or for an overcast sky, a correction must be applied to
+⟦D_{o}⟧ to account
+for surface wave eﬀects on the transmitted light; the correction factors are given in
+Gordon (1989, his Fig. 6). Gordon’s normalization then consists simply of dividing the
+measured ⟦K_{d}⟧
+by ⟦D_{o}⟧ :
+⟦K_{d} ( normalized ) = (K_{d} ( measured ))/(D_{o}) .⟧
+Physically, ⟦D_{o}⟧ is a
+function (essentially ⟦1 ∕ μ^{¯}_{d}⟧ )
+that reduces ⟦K_{d}⟧
+values to the values that would be measured if the Sun were at the zenith, if the sea
+surface were level, and if the sky were black (i.e., if there were no atmosphere). The
+zenith-sun, level-surface, black-sky case is the only physical situation for which
+⟦D_{o} = 1⟧ . In other words,
+normalization by ⟦D_{o}⟧
+removes the inﬂuence of incident lighting and sea state on
+⟦K_{d}⟧ .
+The same normalization can be applied to depth-averaged values of
+⟦K_{d}⟧ .
+It is recommended that experimentalists routinely make the simple measurements necessary to
+determine ⟦D_{o}⟧ , because
+normalization of ⟦K_{d}⟧
+enhances its value in the recovery of IOP’s from irradiance measurements.
