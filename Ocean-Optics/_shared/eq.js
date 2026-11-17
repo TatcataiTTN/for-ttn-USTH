@@ -132,6 +132,8 @@
   var mo = typeof MutationObserver !== 'undefined' && new MutationObserver(function (ms) { ms.forEach(function (m) { var s = m.target; if (s.classList && s.classList.contains('active')) [].forEach.call(s.querySelectorAll('.eqbig'), function (b) { if (b._fit) setTimeout(b._fit, 20); }); }); });
   function watch() { if (mo) [].forEach.call(document.querySelectorAll('.mdeck-slide'), function (s) { mo.observe(s, { attributes: true, attributeFilter: ['class'] }); }); }
   function all() { watch(); [].forEach.call(document.querySelectorAll('.eqbig'), init); }
-  document.addEventListener('kx-ready', all);
+  function refit() { [].forEach.call(document.querySelectorAll('.eqbig'), function (b) { if (b._fit) b._fit(); }); }
+  document.addEventListener('kx-ready', function () { all(); if (document.fonts && document.fonts.ready) document.fonts.ready.then(function () { setTimeout(refit, 60); }); setTimeout(refit, 500); });
+  window.addEventListener('load', function () { setTimeout(refit, 300); });
   if (document.readyState !== 'loading') setTimeout(all, 50);
 })();

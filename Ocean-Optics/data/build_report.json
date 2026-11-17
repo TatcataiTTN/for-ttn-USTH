@@ -34,7 +34,7 @@
   }
  },
  "mb": {
-  "slides": 11,
+  "slides": 13,
   "mcq": 15,
   "essays": 2,
   "rebalanced": 5,
@@ -68,7 +68,7 @@
   }
  },
  "md": {
-  "slides": 13,
+  "slides": 14,
   "mcq": 15,
   "essays": 2,
   "rebalanced": 5,
@@ -102,7 +102,7 @@
   }
  },
  "mf": {
-  "slides": 13,
+  "slides": 16,
   "mcq": 18,
   "essays": 3,
   "rebalanced": 2,

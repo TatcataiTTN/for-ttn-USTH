@@ -70,7 +70,7 @@ def build():
         S('Euphotic depth: numbers', dtable(tbl(['K<sub>d</sub> (m⁻¹)', '1 % depth (m)', '1/K<sub>d</sub> (m)'], [[k, f'{EU[k]["z1pct"]:.1f}', f'{EU[k]["penetration_1_over_Kd"]:.1f}'] for k in ('0.03', '0.04', '0.1', '0.3', '1.0')]), 'xl')),
         S('Secchi depth', dtable(tbl(['Formula', 'Note'], [['z<sub>SD</sub> = Γ / (K<sub>dv</sub> + c<sub>v</sub>)', 'Γ ≈ 6–9, default 8'], ['z<sub>SD</sub> = γ / (2.5 K<sub>d</sub>(λ<sub>min</sub>))', 'Lee et al. 2015; satellite-friendly'], ['Example K<sub>d</sub> = 0.1, c = 0.2', f'z<sub>SD</sub> = {SC["Kd0.1_c0.2"]:.1f} m (Γ = 8)']]), 'xl') + callout('info', 'Textbook note', 'Γ varies from about 6 to 9 with the water reflectance; the formula must be iterated because K<sub>dv</sub> and c<sub>v</sub> are averaged to z<sub>SD</sub>')),
         S('Case 1 versus Case 2 reflectance', cards(card('Case 1', 'Blue minimum at 440 nm; maximum shifts to 565–570 nm as Chl rises; fluorescence peak 685 nm'), card('Case 2', 'Higher R, no 440 nm minimum, convex shape, maximum ≈ 560 nm, R rises with turbidity'), cols=2)),
-        S('Key points', dul(['AOPs depend on the light field; IOPs do not', 'K<sub>d</sub> ≡ −d ln E<sub>d</sub>/dz; z<sub>1%</sub> = 4.6/K<sub>d</sub>', 'R<sub>rs</sub> = L<sub>w</sub>/E<sub>d</sub> in sr⁻¹', 'Secchi: z = Γ/(K<sub>d</sub> + c), Γ ≈ 8'], xl=True)),
+        S('Key points', dul(['AOPs depend on the light field; IOPs do not', 'K<sub>d</sub> is the decay rate of E<sub>d</sub> with depth; 1 % depth = 4.6/K<sub>d</sub>', 'R<sub>rs</sub> = L<sub>w</sub>/E<sub>d</sub> in sr⁻¹', 'Secchi: z = Γ/(K<sub>d</sub> + c), Γ ≈ 8'], xl=True)),
     ]
     mod = dict(id='mg', slug='07-light-field', title='G · Light field (textbook)', en='AOPs, K_d, reflectance, Secchi depth, IOP–AOP link: NOT in the lecture file, from the textbook',
                qtitle='Guiding question: how do IOPs become the light field and the signal a satellite sees? (textbook, not in the lecture file)',
@@ -78,14 +78,14 @@ def build():
                sections=[
                 ('IOP versus AOP', '<p><b>Apparent optical properties</b> depend both on the medium (the IOPs) and on the angular structure of the radiance, and are stable enough to describe a water body. E<sub>d</sub> alone is not stable: a cloud can change it by an order of magnitude within seconds (textbook, <i>Apparent Optical Properties</i>).</p>'),
                 ('K_d, reflectance and penetration', '<p>' + 'The diffuse attenuation coefficient and the profile of downwelling irradiance (textbook, <i>K functions</i>):</p>' + EQ('kd') +
-                 '<p>Reflectance: R ≡ E<sub>u</sub>/E<sub>d</sub>; remote-sensing reflectance R<sub>rs</sub> ≡ L<sub>w</sub>/E<sub>d</sub> (sr⁻¹) (textbook, <i>Reflectances</i>). Qualitatively R ≈ f b<sub>b</sub>/(a + b<sub>b</sub>) (classical result of Gordon et al., 1975; not found on the pages we crawled).</p>'
+                 '<p>Reflectance (textbook, <i>Reflectances</i>):</p>' + EQ('refl') + '<p>Qualitatively the reflectance follows the classical relation below (Gordon et al., 1975; <b>not found on the pages we crawled</b>, so used only for reasoning):</p>' + EQ('gordon')
                  + f'<p><b>Numbers (Python).</b> 1 % light depth = 4.605/K<sub>d</sub>: {z("0.03"):.0f}, {z("0.04"):.0f}, {z("0.1"):.0f}, {z("0.3"):.1f} m for K<sub>d</sub> = 0.03, 0.04, 0.1, 0.3 m⁻¹.</p>'),
-                ('Secchi depth', '<p>Classic theory: z<sub>SD</sub> = Γ/(⟨K<sub>dv</sub>⟩ + ⟨c<sub>v</sub>⟩), Γ ≈ 6–9 (8 in HydroLight). Lee et al. (2015): z<sub>SD</sub> = γ/(2.5 K<sub>d</sub>(λ<sub>min</sub>)), usable from satellite imagery (textbook, <i>The Secchi Disk</i>). '
-                 + f'Example: K<sub>d</sub> = 0.1, c = 0.2 m⁻¹ ⇒ {SC["Kd0.1_c0.2"]:.1f} m.</p>')],
+                ('Secchi depth', '<p>Classic theory z<sub>SD</sub> = Γ/(K<sub>dv</sub> + c<sub>v</sub>) and the Lee et al. (2015) alternative z<sub>SD</sub> = γ/(2.5 K<sub>d</sub>(λ<sub>min</sub>)) are both in the K<sub>d</sub> equation above; the second can be used from satellite imagery (textbook, <i>The Secchi Disk</i>). Example: K<sub>d</sub> = 0.1, c = 0.2 m⁻¹ gives '
+                 + f'{SC["Kd0.1_c0.2"]:.1f} m.</p>')],
                checklist=['Define IOP vs AOP and say why E_d is not an AOP.', 'Write K_d, E_d(z), R and R_rs with units.', 'Compute z_1% = 4.6/K_d and a Secchi depth.', 'Describe Case 1 and Case 2 reflectance spectra.', 'Say clearly that this module is not in the lecture file.'],
                summary=['AOP phụ thuộc cả môi trường lẫn trường sáng; K_d = −d ln E_d/dz.', 'Độ sâu 1 % = 4,6/K_d; Secchi = Γ/(K_d + c), Γ ≈ 8.', 'Mô-đun này lấy từ giáo trình, KHÔNG có trong file slide.'],
                calcs=[('euphotic', 'Euphotic and Secchi depth')], quiz_n=10,
-               v2=dict(we_title='Clear versus turbid', we=f'<p>Clear ocean K<sub>d</sub> = 0.04 m⁻¹: 1 % light at {z("0.04"):.0f} m; coastal K<sub>d</sub> = 0.3 m⁻¹: {z("0.3"):.0f} m. Same formula, 7.5× different depth.</p>',
+               v2=dict(we_title='Clear versus turbid', we=KL(r'K_d=0.04\ \mathrm{m^{-1}}:\ \ z_{1\%%}=%.0f\ \mathrm{m}\qquad K_d=0.3\ \mathrm{m^{-1}}:\ \ z_{1\%%}=%.0f\ \mathrm{m}' % (z("0.04"), z("0.3")), cap='Same formula, 7.5 times different depth.'),
                        qa=[('Is K_d an IOP?', 'No, it depends on the Sun angle (textbook).'), ('Which wavelength matters for Secchi depth in the Lee model?', 'The wavelength of minimum K_d.')],
                        hooks=[('IOP = water; AOP = water + light.', 'IOP = nước; AOP = nước + ánh sáng.')]))
     return mod, sl, B

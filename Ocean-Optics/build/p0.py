@@ -7,6 +7,8 @@ import core_map as CM
 V = VERIFIED
 SRC = 'Big 12 (course synthesis)'
 
+BIGEQ = {'F1': ['rte'], 'F2': ['iop_sum'], 'F3': ['spectral']}
+
 def build():
     import papers as PP
     B = Bank('p0', seed=51); A = B.add
@@ -70,7 +72,7 @@ def build():
             if it['col'] != c: continue
             mm = ' · '.join(f'<a href="../{ {m[0]: m[1] for m in MODULES}[m_] }/index.html">{ {m[0]: m[2] for m in MODULES}[m_] }</a>' for m_ in it['mods'])
             grid += (f'<div class="b12c c{c}"><h3><span class="id">{it["id"]}</span>{it["title"]}</h3><p>{it["st"]}</p><p class="say"><b>In 20 seconds:</b> {it["say"]}</p><p class="trap"><b>Typical trap:</b> {it["trap"]}</p>'
-                     f'<p style="font-size:.88rem"><b>Go deeper:</b> {mm}. <b>Slides:</b> {", ".join(map(str, it["pages"]))}</p></div>')
+                     f'<p style="font-size:.88rem"><b>Go deeper:</b> {mm}. <b>Slides:</b> {", ".join(map(str, it["pages"]))}</p>' + ''.join(EQ(n) for n in BIGEQ.get(it['id'], [])) + '</div>')
     ROWS = []
     for pp in PP.PAPERS:
         s_ = CM.stats([(pp['id'] + 'Q' + str(q['n']), 'x', x[1], x[2]) for q in pp['Q'] for x in q['parts']])
@@ -101,7 +103,6 @@ def build():
                 ('The Big 12 on one page', '<p>Twelve ideas in four groups of three. Each card below gives the statement, a 20-second explanation and the most common trap.</p>'
                  '<p><b>How to use this page:</b> (1) read the 12 cards (15 minutes); (2) take the check at the bottom and reach 10/12; (3) go to modules A–H; (4) try the written papers.</p>'),
                 ('The 12 cards', grid),
-                ('The three formulas, interactive', '<p>Click any coloured symbol to see its meaning, unit and the numbers that go into it.</p>' + EQ('rte') + EQ('iop_sum') + EQ('spectral')),
                 ('How well do the 12 ideas cover the exams? (honest numbers)', f'<p>Every part of the {len(PP.PAPERS)} written papers of this site was tagged with the Big-12 items it needs and a level: <b>A</b> the Big 12 gives the full answer, <b>B</b> frame + module facts, <b>C</b> module-specific. Across all {st["n"]} parts: <b>{st["A"]}</b> A, <b>{st["B"]}</b> B, <b>{st["C"]}</b> C → the Big 12 gives the frame of <b>{st["skeleton"]*100:.0f} %</b> and the full answer of <b>{st["full"]*100:.0f} %</b>.</p>'
                  + hx_table(['Paper', 'Parts', 'A', 'B', 'C', 'Frame'], ROWS) +
                  f'<p>Most-used items: {top}.</p>'

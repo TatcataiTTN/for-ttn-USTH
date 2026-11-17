@@ -85,3 +85,10 @@ table.eqleg td.tm{white-space:nowrap;width:1%;font-size:1.25em;text-align:center
 table.eqleg td.vals small{color:var(--muted)}
 .eqvi{margin-top:8px;font-size:.88rem;color:var(--muted);font-style:italic}
 @media (max-width:760px){.eqstage .kx{font-size:1.2em}.eqstage .kx.sm{font-size:1em}table.eqleg .imp,table.eqleg th.imp{display:none}}
+/* ---- worked examples and static big formulas ---- */
+.wexbox{background:var(--card);border:2px solid var(--accent2);border-radius:12px;padding:8px 12px;margin:10px 0;box-shadow:var(--shadow)}
+.wexbox .kx.wex{font-size:2em;text-align:center;overflow-x:auto;overflow-y:hidden;padding:6px 2px}
+.wexbox .wexcap{margin:2px 0 4px;color:var(--muted);font-size:.92rem;font-style:italic}
+.refhead{display:flex;flex-wrap:wrap;gap:8px;align-items:baseline;margin:26px 0 4px}.refhead h2{margin:0;border:0;padding:0;flex:1 1 320px;font-size:1.25rem}
+.refnav{display:flex;flex-wrap:wrap;gap:6px;margin:10px 0 18px}.refnav a{font-size:.82rem;border:1px solid var(--border);border-radius:99px;padding:2px 10px;text-decoration:none;background:var(--card)}
+@media (max-width:760px){.wexbox .kx.wex{font-size:1.2em}}

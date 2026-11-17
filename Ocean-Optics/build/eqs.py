@@ -233,6 +233,132 @@ eq('refl', 'Reflectances (textbook)',
   S('Lw', 'P', 'L_w', 'water-leaving radiance', 'W m⁻² sr⁻¹ nm⁻¹', 'Radiance leaving the sea.', 'Not the same as sea-surface reflection (slide 7).')],
  [], 'Ý nghĩa: phản xạ = bức xạ đi lên / bức xạ đi xuống; R_rs có đơn vị sr⁻¹.')
 
+
+B450 = W['buiteveld_450_S37']; M450 = W['morel_450_S37']
+eq('vsf_buit', 'Pure sea-water VSF, Buiteveld et al. 1994 (slide 23)',
+ [r'\begin{aligned}\sym{beta}{\beta_w(\theta,\lambda,S)}&=\underbrace{\sym{A}{1.29}\left(\frac{\sym{lam}{\lambda}}{500\,\mathrm{nm}}\right)^{\sym{ex}{-4.14}}}_{\footnotesize\text{reformulated index}}\;\underbrace{\left(1+\frac{0.3\,\sym{Ssal}{S}}{37}\right)}_{\footnotesize\text{salt}}\\[0.15em]&\quad\times10^{-4}\;\underbrace{\left[1+\cos^{2}\sym{th}{\theta}\,\sym{del}{\frac{1-\delta}{1+\delta}}\right]}_{\footnotesize\text{forward = backward}}\end{aligned}'],
+ [S('beta', 'O', r'\beta_w', 'pure-water VSF', 'm⁻¹ sr⁻¹', 'Same physics as Morel (1974), refitted 20 years later.', 'Accounts for the isothermal compressibility of water.', [('90°, 546 nm, S = 0', f'{V["beta90_546_buiteveld_S0"]:.3e}', 'verified.json')]),
+  S('A', 'G', '1.29', 'amplitude at 500 nm', '10⁻⁴ m⁻¹ sr⁻¹', 'Replaces 1.38.', '6 % lower amplitude.', [('Buiteveld 1994', '1.29', 'slide 23')]),
+  S('lam', 'B', r'\lambda', 'wavelength', 'nm', '', ''),
+  S('ex', 'R', '-4.14', 'spectral exponent', '—', 'Reformulated refractive index and compressibility.', 'Slightly less blue-biased than −4.32.', [('Buiteveld 1994', '−4.14', 'slide 23'), ('450/550 nm', '×%.2f' % V['ratio_450_550_buiteveld'], 'verified.json')]),
+  S('Ssal', 'P', 'S', 'salinity', 'PSU', 'Same +30 % at S = 37.', ''),
+  S('th', 'K', r'\theta', 'scattering angle', 'rad', '', ''),
+  S('del', 'O', r'\frac{1-\delta}{1+\delta}', 'depolarisation term', '—', 'δ = 0.051 here (0.09 in Morel).', 'The slide prints “cos2θ”; read as cos²θ.', [('δ', '0.051', 'slide 23')])],
+ [r'\lambda=450\,\mathrm{nm},\ S=37:\ \ \beta_w(90^\circ)=%s\ \mathrm{m^{-1}sr^{-1}}\qquad b_w=%s\ \mathrm{m^{-1}}' % (sci(B450['beta90'], 2), sci(B450['b_w'], 2)),
+  r'\frac{b_w(450)}{b_w(550)}=\left(\frac{550}{450}\right)^{4.14}=%.2f\ \ (\text{Morel: }%.2f)' % (V['ratio_450_550_buiteveld'], V['ratio_450_550_morel'])],
+ 'Ý nghĩa: bản chỉnh năm 1994 của công thức Morel: biên độ 1,29, mũ −4,14, δ = 0,051.')
+
+eq('bw_closed', 'Total scattering of pure water from the VSF (home-made closed form)',
+ [r'\sym{bw}{b_w}=2\pi\,\sym{b90}{\beta_w(90^\circ)}\left(2+\frac{2}{3}\,\sym{k}{\frac{1-\delta}{1+\delta}}\right)',
+  r'\sym{bbw}{b_{bw}}=\tfrac12\,\sym{bw}{b_w}'],
+ [S('bw', 'G', 'b_w', 'total scattering of water', 'm⁻¹', '2π∫β sinθ dθ done analytically.', 'Verified against numerical integration (agree to 10⁻⁹).', [('500 nm, S = 37', '%.2e m⁻¹' % W['morel_500_S37']['b_w'], 'verified.json'), ('500 nm, S = 0', '%.2e m⁻¹' % W['morel_500_S0']['b_w'], 'verified.json')]),
+  S('b90', 'O', r'\beta_w(90^\circ)', 'VSF at right angle', 'm⁻¹ sr⁻¹', 'The minimum of the U-shaped VSF.', ''),
+  S('k', 'P', r'\frac{1-\delta}{1+\delta}', 'anisotropy factor', '—', 'δ = depolarisation.', '0.835 for δ = 0.09.', [('Morel', '0.835', 'computed'), ('Buiteveld', '0.903', 'computed')]),
+  S('bbw', 'B', 'b_{bw}', 'backscattering of water', 'm⁻¹', 'Backward half.', 'Exactly b_w/2 because β_w is symmetric about 90°.', [('b_bw/b_w', '0.5', 'verified.json')])],
+ [r'b_w(500\,\mathrm{nm},S=37)=2\pi\,(1.794\times10^{-4})\,(2+0.557)=%s\ \mathrm{m^{-1}}' % sci(W['morel_500_S37']['b_w'], 2)],
+ 'Ý nghĩa: tích phân hàm tán xạ thể tích của nước cho b_w; một nửa là tán xạ ngược.')
+
+eq('es', 'Einstein–Smoluchowski scattering by pure water (textbook, Physics of Scattering)',
+ [r'\sym{beta}{\beta(\psi)}=\frac{2\pi^{2}\,\sym{kB}{k}\,\sym{T}{T}}{\sym{lam}{\lambda}^{4}\,\sym{bT}{\beta_T}}\;\sym{n}{n}^{2}\left(\sym{dn}{\frac{\partial n}{\partial P}}\right)_{T}^{2}\;\sym{rho}{\frac{6+6\rho}{6-7\rho}}\left[1+\frac{1-\rho}{1+\rho}\cos^{2}\sym{psi}{\psi}\right]'],
+ [S('beta', 'O', r'\beta(\psi)', 'VSF of pure water', 'm⁻¹ sr⁻¹', 'Scattering from density fluctuations of the water molecules.', 'One of the few IOPs computable from physics.', [('90°, 546 nm, 20 °C', '0.869×10⁻⁴ (textbook); our recomputation 8.54×10⁻⁵', 'Physics of Scattering; verified.json'), ('Morel 1974, recalled', '0.83×10⁻⁴', 'textbook')]),
+  S('kB', 'K', 'k', 'Boltzmann constant', 'J K⁻¹', '', '', [('value', '1.3806×10⁻²³', 'textbook')]),
+  S('T', 'R', 'T', 'temperature', 'K', 'Hotter water = larger fluctuations.', 'Scattering increases with T.', [('used', '293.15 K (20 °C)', 'textbook')]),
+  S('lam', 'B', r'\lambda', 'wavelength', 'm', 'λ⁻⁴: the Rayleigh dependence.', 'Blue scatters much more.', [('used', '546 nm', 'textbook')]),
+  S('bT', 'G', r'\beta_T', 'isothermal compressibility', 'Pa⁻¹', 'More compressible = larger fluctuations.', '', [('used', '4.5893×10⁻¹⁰', 'textbook')]),
+  S('n', 'K', 'n', 'refractive index', '—', '', '', [('used', '1.33477', 'textbook')]),
+  S('dn', 'P', r'\partial n/\partial P', 'pressure derivative of n', 'Pa⁻¹', 'If n did not depend on pressure there would be no scattering.', '', [('used', '1.5127×10⁻¹⁰', 'textbook')]),
+  S('rho', 'O', r'\frac{6+6\rho}{6-7\rho}', 'depolarisation correction', '—', 'ρ = depolarisation ratio.', 'Differs from the lecture δ values.', [('ρ', '0.031', 'Zhang et al. 2019 via textbook'), ('lecture δ', '0.09 / 0.051', 'slides 20, 23')]),
+  S('psi', 'K', r'\psi', 'scattering angle', 'rad', '', '')],
+ [r'\psi=90^\circ,\ \lambda=546\,\mathrm{nm},\ T=293.15\,\mathrm{K}:\ \ \beta=%s\ \mathrm{m^{-1}sr^{-1}}\ \ (\text{textbook states }0.869\times10^{-4})' % sci(V['es_beta90_546_textbook_constants'], 2)],
+ 'Ý nghĩa: tán xạ của nước tinh khiết xuất phát từ thăng giáng mật độ phân tử; tính được từ vật lý cơ bản.')
+
+eq('bp_abs', 'Effect of particle absorption on b_p (slide 53, Doxaran et al. 2009)',
+ [r'\frac{\sym{dbp}{\Delta b_p}}{\sym{ap}{a_p}}\;=\;1-\tanh\!\left(0.5\,\sym{gam}{\gamma}^{2}\right)'],
+ [S('dbp', 'R', r'\Delta b_p', 'lowering of measured b_p', 'm⁻¹', 'Difference between the power-law extrapolation and the measured b_p.', 'Particle absorption lowers b_p by 5–30 % at 440 nm.', [('range', '5–30 %', 'slide 53')]),
+  S('ap', 'B', r'a_p', 'particulate absorption', 'm⁻¹', 'Absorption by particles at the same wavelength.', ''),
+  S('gam', 'O', r'\gamma', 'spectral exponent of b_p', '—', 'Exponent of the power law fitted in the near-infrared (715–870 nm).', 'The exponent “2” of γ is read from the slide image.', [('example', 'γ = 1', 'illustrative')])],
+ [r'\gamma=1:\ \ \frac{\Delta b_p}{a_p}=1-\tanh(0.5)=%.3f' % (1 - math.tanh(0.5)), r'\gamma=2:\ \ 1-\tanh(2)=%.3f' % (1 - math.tanh(2))],
+ 'Ý nghĩa: hấp thụ bên trong hạt làm b_p đo được thấp hơn mô hình lũy thừa ngoại suy từ cận hồng ngoại.')
+
+eq('bp_chl', 'Particle scattering from chlorophyll (slide 65, Loisel & Morel 1998)',
+ [r'\sym{bp}{b_p(550)}\;=\;\sym{c0}{0.30}\;\sym{Chl}{[\mathrm{Chl}]}^{\,\sym{e}{0.7}}'],
+ [S('bp', 'G', r'b_p(550)', 'particle scattering at 550 nm', 'm⁻¹', 'Case-1 relation.', 'Spread of about a factor 2–3 around the line.', [('Chl = 0.1', '%.3f m⁻¹' % V['bp550_from_chl']['0.1'], 'verified.json'), ('Chl = 1', '%.2f m⁻¹' % V['bp550_from_chl']['1.0'], 'verified.json'), ('Chl = 10', '%.2f m⁻¹' % V['bp550_from_chl']['10.0'], 'verified.json')]),
+  S('c0', 'O', '0.30', 'coefficient', 'm⁻¹ (mg m⁻³)⁻⁰·⁷', 'Value at Chl = 1 mg m⁻³.', '', [('slide 65', '0.30 (±0.15)', 'slide 65')]),
+  S('Chl', 'B', r'[\mathrm{Chl}]', 'chlorophyll concentration', 'mg m⁻³', 'Trophic state index.', '', [('range of data', '0.01–30', 'slide 65 graph')]),
+  S('e', 'R', '0.7', 'exponent', '—', 'Below 1: scattering grows less than proportionally.', 'Tenfold more Chl gives ×5.0 scattering.', [('slide 65', '0.7 (±0.1)', 'slide 65'), ('10^0.7', '%.2f' % V['bp550_tenfold_chl_factor'], 'verified.json')])],
+ [r'[\mathrm{Chl}]=1:\ \ b_p=0.30\times1^{0.7}=0.30\ \mathrm{m^{-1}}\qquad [\mathrm{Chl}]=10:\ \ b_p=0.30\times10^{0.7}=%.2f\ \mathrm{m^{-1}}' % V['bp550_from_chl']['10.0']],
+ 'Ý nghĩa: quan hệ thực nghiệm cho nước Case 1; Chl tăng 10 lần thì b_p chỉ tăng ≈ 5 lần.')
+
+eq('poc_spm', 'POC/SPM from the red-to-green absorption ratio (slide 74, Wozniak et al. 2010)',
+ [r'\sym{pm}{\frac{\mathrm{POC}}{\mathrm{SPM}}}\;=\;\sym{c0}{0.0133}\,\exp\!\big\{\sym{k}{1.27}\,\sym{R}{R}\big\}\qquad \sym{R}{R}=\frac{a_p(675)}{a_p(570)}'],
+ [S('pm', 'G', r'\mathrm{POC/SPM}', 'organic fraction of suspended matter', '—', 'Particulate organic carbon over suspended particulate matter.', 'Higher = more organic (phytoplankton-rich).', [('R = 1', '%.3f' % V['poc_spm_from_ap_ratio']['1.0'], 'verified.json'), ('R = 2', '%.3f' % V['poc_spm_from_ap_ratio']['2.0'], 'verified.json'), ('r², n', '0.81, 44', 'slide 74')]),
+  S('c0', 'O', '0.0133', 'coefficient', '—', 'Intercept of the log fit.', ''),
+  S('k', 'P', '1.27', 'slope', '—', 'Sensitivity to R.', ''),
+  S('R', 'B', 'R', 'absorption ratio', '—', 'Chl absorbs at 675 nm, minerals do not.', 'R rises with the organic share.', [('range of data', '≈ 0.7–2.8', 'slide 74 graph')])],
+ [r'R=1:\ \ \frac{\mathrm{POC}}{\mathrm{SPM}}=0.0133\,e^{1.27}=%.3f\qquad R=2:\ \ 0.0133\,e^{2.54}=%.3f' % (V['poc_spm_from_ap_ratio']['1.0'], V['poc_spm_from_ap_ratio']['2.0'])],
+ 'Ý nghĩa: tỉ số hấp thụ đỏ/xanh của hạt cho biết hạt hữu cơ nhiều hay ít.')
+
+eq('mixing', 'CDOM and salinity: conservative mixing (idea of slide 77)',
+ [r'\sym{a}{a(S)}\;=\;\sym{af}{a_{fresh}}\left(1-\frac{\sym{S}{S}}{\sym{Ss}{S_{sea}}}\right)+\sym{ao}{a_{ocean}}\,\frac{\sym{S}{S}}{\sym{Ss}{S_{sea}}}'],
+ [S('a', 'B', r'a(S)', 'CDOM absorption at salinity S', 'm⁻¹', 'Linear in S if only mixing acts.', 'A curve below the line means loss (photo-oxidation).'),
+  S('af', 'R', r'a_{fresh}', 'river end member', 'm⁻¹', 'At 355 nm.', '', [('slide 77', '≥ 10 m⁻¹', 'slide 77'), ('used', '10', 'illustrative')]),
+  S('ao', 'G', r'a_{ocean}', 'ocean end member', 'm⁻¹', 'At 355 nm.', '', [('slide 77', '≤ 0.1 m⁻¹', 'slide 77'), ('used', '0.1', 'illustrative')]),
+  S('S', 'O', 'S', 'salinity', 'PSU', '', ''),
+  S('Ss', 'P', r'S_{sea}', 'sea-water salinity', 'PSU', 'Salinity of the ocean end member.', '', [('used', '36', 'illustrative')])],
+ [r'S=18:\ \ a=10\,(1-0.5)+0.1\times0.5=%.2f\ \mathrm{m^{-1}}' % V['cdom_mixing_example']['18']],
+ 'Ý nghĩa: nếu chỉ có trộn lẫn, a_cdom giảm tuyến tính từ nước ngọt (≥ 10 m⁻¹) tới đại dương (≤ 0,1 m⁻¹).')
+
+eq('gordon', 'IOP–AOP link: reflectance from IOPs (classical result, Gordon et al. 1975)',
+ [r'\sym{R}{R}\;\approx\;\sym{f}{f}\,\frac{\sym{bb}{b_b}}{\sym{a}{a}+\sym{bb}{b_b}}'],
+ [S('R', 'B', 'R', 'irradiance reflectance', '—', 'Fraction of the downwelling light returned.', 'Rises with backscattering, falls with absorption.', [('clear (a = 0.02, b_b = 0.002), f = 1', '%.3f' % V['R_over_f_bb_a_examples']['clear_a0.02_bb0.002'], 'verified.json'), ('turbid (a = 0.5, b_b = 0.05), f = 1', '%.3f' % V['R_over_f_bb_a_examples']['turbid_a0.5_bb0.05'], 'verified.json')]),
+  S('f', 'O', 'f', 'geometry factor', '—', 'Depends on the Sun angle and phase function.', 'Value not given on the pages we crawled.'),
+  S('bb', 'P', r'b_b', 'backscattering coefficient', 'm⁻¹', '', ''),
+  S('a', 'G', 'a', 'absorption coefficient', 'm⁻¹', '', '')],
+ [r'a=0.02,\ b_b=0.002:\ \ \frac{R}{f}=\frac{0.002}{0.022}=%.3f' % V['R_over_f_bb_a_examples']['clear_a0.02_bb0.002']],
+ 'Ý nghĩa: phản xạ tăng khi tán xạ ngược b_b tăng và giảm khi hấp thụ a tăng. Đây là kết quả kinh điển, KHÔNG có trong các trang textbook đã crawl.')
+
+eq('nap_fe', 'Mineral absorption versus iron content (slide 38, Babin & Stramski 2004)',
+ [r'\sym{a3}{a^{*}_m(300)}=0.033\,\sym{Fe}{[\mathrm{Fe}]}+0.052\qquad r^{2}=0.88',
+  r'\sym{a4}{a^{*}_m(400)}=0.031\,\sym{Fe}{[\mathrm{Fe}]}-0.043\qquad r^{2}=0.84',
+  r'\sym{a5}{a^{*}_m(500)}=0.017\,\sym{Fe}{[\mathrm{Fe}]}-0.036\qquad r^{2}=0.59'],
+ [S('a3', 'R', r'a^{*}_m(300)', 'mass-specific absorption, 300 nm', 'm² g⁻¹', 'UV absorption of mineral particles.', 'Best explained by iron (R² = 0.88).', [('[Fe] = 10 %', '%.3f' % (0.033 * 10 + 0.052), 'computed from slide-38 fit')]),
+  S('a4', 'O', r'a^{*}_m(400)', 'at 400 nm', 'm² g⁻¹', '', '', [('[Fe] = 10 %', '%.3f' % (0.031 * 10 - 0.043), 'computed')]),
+  S('a5', 'G', r'a^{*}_m(500)', 'at 500 nm', 'm² g⁻¹', 'Weaker relation (R² = 0.59).', '', [('[Fe] = 10 %', '%.3f' % (0.017 * 10 - 0.036), 'computed')]),
+  S('Fe', 'B', r'[\mathrm{Fe}]', 'iron content', '%', 'Of the dry mass.', 'Range of the data: 0–30 %.', [('slide 38 range', '0–30 %', 'slide 38')])],
+ [r'[\mathrm{Fe}]=10\%%:\ \ a^{*}_m(300)=%.3f,\ \ a^{*}_m(400)=%.3f,\ \ a^{*}_m(500)=%.3f\ \ \mathrm{m^2\,g^{-1}}' % (0.033 * 10 + 0.052, 0.031 * 10 - 0.043, 0.017 * 10 - 0.036)],
+ 'Ý nghĩa: hấp thụ của khoáng vật ở vùng UV–xanh tăng tuyến tính theo hàm lượng sắt.')
+
+eq('cdom_twar', 'CDOM as a power law (slide 41, Twardowski et al. 2004)',
+ [r'\sym{a}{a_{ds}(\lambda)}\;\propto\;\sym{lam}{\lambda}^{\,\sym{ex}{-6.92}}'],
+ [S('a', 'B', r'a_{ds}(\lambda)', 'CDOM absorption', 'm⁻¹', 'Alternative to the exponential model.', 'Both fit the visible; they differ outside it.', [('a(350)/a(440), power law', '%.2f' % V['cdom_power_law_ratio_350_440_lam_minus_6p92'], 'verified.json'), ('same, exponential S′ = 0.014', '%.2f' % V['cdom_ratio_350_over_440_S014'], 'verified.json')]),
+  S('lam', 'O', r'\lambda', 'wavelength', 'nm', '', ''),
+  S('ex', 'R', '-6.92', 'exponent', '—', '', '', [('Twardowski 2004', '−6.92', 'slide 41')])],
+ [r'\frac{a(350)}{a(440)}=\left(\frac{350}{440}\right)^{-6.92}=%.2f\quad\text{vs}\quad e^{0.014\times90}=%.2f' % (V['cdom_power_law_ratio_350_440_lam_minus_6p92'], V['cdom_ratio_350_over_440_S014'])],
+ 'Ý nghĩa: có thể mô tả CDOM bằng lũy thừa λ^−6,92 thay vì hàm mũ; hai mô hình gần nhau trong vùng khả kiến.')
+
+eq('junge_tb', 'Junge size distribution: lecture and textbook conventions (slide 68; textbook)',
+ [r'\sym{lec}{N(D)\propto D^{-\xi}}\qquad\text{(lecture)}',
+  r'\sym{tb}{\frac{dN}{d\log D}\propto D^{-3}}\;\Longleftrightarrow\;\sym{nD}{n(D)=\frac{dN}{dD}\propto D^{-4}}\qquad\text{(textbook)}'],
+ [S('lec', 'B', r'N(D)\propto D^{-\xi}', 'lecture notation', '—', 'ξ is the slope of the number distribution per unit diameter.', 'Classic Junge value: ξ = 4.', [('PSD slope, 1–17 µm', '≈ 3 (mode)', 'slide 68')]),
+  S('tb', 'G', r'dN/d\log D', 'number per log-interval', '—', 'Per logarithmic size bin.', 'D⁻³ here is D⁻⁴ per unit D.'),
+  S('nD', 'R', r'n(D)', 'number per unit diameter', '—', 'Same distribution as the lecture N(D).', 'So the textbook Junge law has ξ = 4 in lecture notation.', [('Mie check', 'ξ = 4 ⇒ n = %.2f' % V['junge_ensemble_m105']['4.0']['n_bp'], 'verified.json')])],
+ [], 'Ý nghĩa: cùng một phân bố Junge, nhưng textbook dùng dN/dlogD ∝ D⁻³ tương đương n(D) ∝ D⁻⁴, tức ξ = 4 theo ký hiệu của bài giảng.')
+
+eq('phase_ratio', 'Spectral ratio of the particulate phase function at 140° (slide 48)',
+ [r'\sym{Rr}{R_{443/555}(140^\circ)}\;=\;-0.060\,\sym{x}{\frac{a_{NAP}}{a_{ph}}(400)}\;+\;0.99\qquad r^{2}=0.72'],
+ [S('Rr', 'B', r'R_{443/555}', 'ratio of the phase function at 140°', '—', 'Blue over green backscattering shape.', 'Falls as NAP absorption grows relative to phytoplankton.', [('x = 4', '%.2f' % (-0.060 * 4 + 0.99), 'computed from the slide fit')]),
+  S('x', 'O', r'a_{NAP}/a_{ph}(400)', 'detritus-to-phytoplankton absorption', '—', '', '', [('range of data', '2–7', 'slide 48 graph')])],
+ [r'x=4:\ \ R=-0.060\times4+0.99=%.2f' % (-0.060 * 4 + 0.99)],
+ 'Ý nghĩa: hồi quy tuyến tính, không phải định luật; tỉ số giảm khi hấp thụ của detritus tăng.')
+
+# worked-example helper: static big KaTeX lines
+def KL(*lines, cap=''):
+    ls = ''.join(f'<div class="kx wex" data-tex="{html.escape(l, quote=True)}">{html.escape(l)}</div>' for l in lines)
+    return f'<div class="wexbox">{ls}' + (f'<p class="wexcap">{cap}</p>' if cap else '') + '</div>'
+def Ks(*lines):
+    """static big formulas for a slide column"""
+    return '<div class="kxs">' + ''.join(f'<div class="kx fit" data-tex="{html.escape(l, quote=True)}">{html.escape(l)}</div>' for l in lines) + '</div>'
+
 # ---------------------------------------------------------------------------------------------------------------- rendering
 def _esc(s): return html.escape(s, quote=True)
 def E(name, slide=False, fs=None):

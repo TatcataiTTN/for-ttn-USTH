@@ -77,13 +77,16 @@ def build():
             2, 'Fluorescence and diel cycles', src='Lecture, slides 78–84')
 
     sl = [
-        S('IOP from particle properties', cols(LS(63, 400), dul(['<b>IOP = Σ (N/V) σ = Σ (N/V) Q S</b>', 'σ in m², Q dimensionless, S in m²', 'N/V in m⁻³']), flex=[3, 2])),
+        S('IOP from particle properties', cols(LS(63, 400), dul(['Sum over particle classes', 'Number × efficiency × area', 'σ in m², Q dimensionless', 'N/V in m⁻³']), flex=[3, 2])),
         S('IOP = Σ N Q S, symbol by symbol', EQS_('iop_sum')),
         S('Large and small particles', cols(LS(64, 430), dul(['Large: diffraction, ∝ area', 'Small: Rayleigh, ∝ volume']), flex=[3, 2])),
-        S('Scattering and attenuation versus Chl', cols(LS(65, 430), dul(['b<sub>p</sub>(550) = 0.30 Chl<sup>0.7</sup>', 'Spread ≈ ×2–3', 'Case-1 relation']), flex=[3, 2])),
+        S('Scattering and attenuation versus Chl', cols(LS(65, 430), dul(['Power law of Chl, exponent 0.7', 'Spread ≈ ×2–3', 'Case-1 relation']), flex=[3, 2])),
+        S('Scattering from Chl, symbol by symbol', EQS_('bp_chl', fs=40)),
         S('Scattering versus particle load', cols(LS(66, 430), dul(['POC, particle surface, SPM', 'Roughly linear on log–log', 'Regional differences']), flex=[3, 2])),
-        S('Size and the attenuation slope', cols(LS(68, 430), dul(['N(D) = N<sub>0</sub>(D/D<sub>0</sub>)<sup>−ξ</sup>', 'c<sub>p</sub> = Aλ<sup>−γ</sup>', '<b>ξ = γ + 3</b>']), flex=[3, 2])),
-        S('Particle absorption and POC', cols(LS(74, 430), dul(['POC/SPM = 0.0133 exp{1.27 R}', 'R = a<sub>p</sub>(675)/a<sub>p</sub>(570)', 'r² = 0.81']), flex=[3, 2])),
+        S('Size and the attenuation slope', cols(LS(68, 430), dul(['Junge power-law size distribution', 'Attenuation spectrum power law', 'The two slopes are linked by ξ = γ + 3']), flex=[3, 2])),
+        S('Size distribution and attenuation slope', EQS_('powerlaw', fs=30)),
+        S('Particle absorption and POC', cols(LS(74, 430), dul(['Red-to-green absorption ratio R', 'Exponential in R', 'r² = 0.81, n = 44']), flex=[3, 2])),
+        S('POC/SPM, symbol by symbol', EQS_('poc_spm', fs=40)),
         S('CDOM versus DOC and salinity', cols(LS(77, 430), dul(['Fresh water ≥ 10 m⁻¹', 'Oceanic ≤ 0.1 m⁻¹', 'Near-conservative mixing', 'DOC relations regional (slide 76)']), flex=[3, 2])),
         S('Fluorescence quenching', cols(LS(80, 430), dul(['Chl, packaging, quenching', 'Fluorescence drops at mid-day', 'HPLC Chl does not']), flex=[3, 2])),
         S('Diel cycles', cols(LS(81, 430), dul(['c<sub>p</sub>: day growth, night loss', 'Fluorescence: no clear cycle', 'Density coordinates (slide 82)']), flex=[3, 2])),
@@ -96,13 +99,13 @@ def build():
                sections=[
                 ('From particles to IOPs', '<p>Each IOP is the sum over particle classes (slide 63):</p>' + EQ('iop_sum') +
                  f'<p><b>Example (Python).</b> 10⁷ m⁻³ spheres of 5 µm radius with Q = 2: c = {c_ex:.2e} m⁻¹; with the Mie Q ({V["mie_qext_r5um_550nm_m105"]:.2f}) {c_mie:.2e} m⁻¹. Small numerous particles can dominate the total cross-section: a population of 0.5 µm / 10¹¹ m⁻³ gives {two["small"]["c_m1"]*1e3:.1f}×10⁻³ m⁻¹, a population of 10 µm / 10⁶ m⁻³ only {two["large"]["c_m1"]*1e3:.2f}×10⁻³ m⁻¹.</p>'),
-                ('Empirical relations and their spread', f'<ul><li><b>Scattering and Chl</b> (slide 65): b<sub>p</sub>(550) = 0.30 Chl<sup>0.7</sup> — {bp["0.1"]:.2f}, {bp["1.0"]:.2f}, {bp["10.0"]:.2f} m⁻¹ for Chl = 0.1, 1, 10 (spread ≈ ×2–3).</li><li><b>Size</b> (slide 68): N(D) ∝ D<sup>−ξ</sup>, c<sub>p</sub> ∝ λ<sup>−γ</sup>, ξ = γ + 3.</li><li><b>b<sub>bp</sub>/b<sub>p</sub></b> (slide 71): index first, then size.</li><li><b>Particle absorption</b> (slide 74): POC/SPM = 0.0133 exp[1.27 a<sub>p</sub>(675)/a<sub>p</sub>(570)].</li><li><b>CDOM</b>: weak link to Chl, regional links to DOC (slides 75–76), conservative mixing with salinity (slide 77).</li></ul>'
+                ('Empirical relations and their spread', '<p>Each relation below is a regression with a spread; click the symbols to see the numbers.</p>' + EQ('bp_chl') + EQ('poc_spm') + EQ('mixing') + EQ('powerlaw') + '<ul><li><b>b<sub>bp</sub>/b<sub>p</sub></b> (slide 71): index first, then size.</li><li><b>CDOM</b>: weak link to Chl, regional links to DOC (slides 75–76), conservative mixing with salinity (slide 77).</li></ul>'
                  '<div class="callout warn"><b class="t">Limit</b>All these are regressions from specific data sets. They are not physical laws and must not be transferred to other water types (Big 12, K2).</div>'),
                 ('Fluorescence, diel cycles and fronts', '<p>Fluorescence depends on Chl, pigment packaging and photoprotective quenching (slides 78, 80). Attenuation and b<sub>bp</sub> show daily cycles of growth and loss that fluorescence does not (slides 81–83). b<sub>bp</sub>/b<sub>p</sub> distinguishes a bloom (low) from a nepheloid layer (high) (slide 84).</p>')],
                checklist=['Write IOP = ΣNσ = ΣNQS and compute c for a population.', 'Quote b_p = 0.30 Chl^0.7 and say it is empirical (spread ×2–3).', 'Write ξ = γ + 3 and explain symbols.', 'Explain what b_bp/b_p reveals.', 'Explain quenching and the diel cycle of c_p.', 'Summarise CDOM vs Chl, DOC and salinity.'],
                summary=['IOP = Σ N·Q·S; tán xạ hạt đi theo Chl, POC, SPM với độ phân tán ×2–3.', 'ξ = γ + 3; b_bp/b_p phân biệt thực vật phù du với trầm tích.', 'Huỳnh quang bị dập tắt ban ngày; c_p có chu kỳ ngày đêm.'],
                calcs=[('sumns', 'IOP = Σ N·Q·S'), ('bpchl', 'b_p from Chl')], quiz_n=12,
-               v2=dict(we_title='Tenfold more Chl', we=f'<p>With b<sub>p</sub>(550) = 0.30 Chl<sup>0.7</sup>: Chl 0.1 → {bp["0.1"]:.3f} m⁻¹, Chl 1 → {bp["1.0"]:.2f}, Chl 10 → {bp["10.0"]:.2f}. Each tenfold increase multiplies b<sub>p</sub> by {V["bp550_tenfold_chl_factor"]:.1f}.</p>',
+               v2=dict(we_title='Tenfold more Chl', we=KL(r'b_p(550)=0.30\,[\mathrm{Chl}]^{0.7}:\quad 0.1\to%.3f,\ \ 1\to%.2f,\ \ 10\to%.2f\ \ \mathrm{m^{-1}}' % (bp["0.1"], bp["1.0"], bp["10.0"]), r'\text{tenfold more Chl: }\ 10^{0.7}=%.1f\ \text{times more scattering}' % V["bp550_tenfold_chl_factor"]),
                        qa=[('Can I use b_p = 0.30 Chl^0.7 in a river plume?', 'No: it is a Case-1 relation (slide 65); in Case 2 mineral particles do not co-vary with Chl.'), ('Why does fluorescence fall at noon?', 'Non-photochemical quenching (slide 80).')],
                        hooks=[('Regression ≠ law.', 'Hồi quy không phải định luật.'), ('Bloom: low b_bp/b_p; sediments: high.', 'Bloom: b_bp/b_p thấp; trầm tích: cao.')]))
     return mod, sl, B

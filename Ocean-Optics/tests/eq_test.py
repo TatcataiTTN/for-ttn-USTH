@@ -11,11 +11,15 @@ def ck(name, ok, info=''):
     global n, bad; n += 1
     if not ok: bad += 1; print('FAIL', name, info)
 LESSONS = ['start-here', '01-light-in-water', '02-pure-water', '03-absorption', '04-particle-scattering', '05-measuring-iops', '06-iop-biogeochemistry', '07-light-field']
-for s in LESSONS:
-    d.get(BASE + f'lessons/{s}/index.html'); time.sleep(2.5)
+PAGES = [f'lessons/{s}/index.html' for s in LESSONS] + ['reference.html', 'calculators.html']
+for s in PAGES:
+    d.get(BASE + s); time.sleep(3)
     names = d.execute_script("return [].map.call(document.querySelectorAll('.eqbig'),function(b){return b.dataset.eq})")
     for nm in names:
         keys = d.execute_script("return JSON.parse(document.querySelector('.eqbig[data-eq=\"%s\"] script.eqdata').textContent)._order" % nm)
+        clip = d.execute_script("""var b=document.querySelector('.eqbig[data-eq="%s"]'), st=b.querySelector('.eqstage'), sr=st.getBoundingClientRect(), bad=0;
+          st.querySelectorAll('.katex-html *').forEach(function(g){ if(g.children.length||!g.textContent.replace(/[\\u200b\\u00a0\\s]/g,'')) return; var q=g.getBoundingClientRect(); if(q.width&&(q.right>sr.right+2||q.left<sr.left-2)) bad++; }); return bad""" % nm)
+        ck(f'no clipping {s}/{nm}', clip == 0, clip)
         rend = d.execute_script("return document.querySelectorAll('.eqbig[data-eq=\"%s\"] .katex').length" % nm); ck(f'katex {s}/{nm}', rend >= 1, rend)
         for k in keys:
             ok = d.execute_script("""var b=document.querySelector('.eqbig[data-eq="%s"]'), e=b.querySelector('.ks-%s'); if(!e) return 'nosym'; e.click();

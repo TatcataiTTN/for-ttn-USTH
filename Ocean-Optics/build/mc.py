@@ -69,10 +69,10 @@ def build():
         S('Phytoplankton pigments', cols(LS(29, 430, 'Lecture slide 29 (Bricaud et al., 2004)'), dul(['Chl a: 443 and 675 nm', 'Carotenoids: 450–500 nm', 'Chl c: 465 and 635 nm', 'Phaeopigments']), flex=[3, 2])),
         S('Variability of specific absorption', cols(LS(32, 430, 'Lecture slide 32 (Bricaud et al., 1995; 2004)'), dul(['a*<sub>ph</sub> varies by ≈ ×4', 'Falls as Chl increases', 'Package effect or pigment content?']), flex=[3, 2])),
         S('Package effect, symbol by symbol', EQS_('package')),
-        S('The package effect', cols(LS(33, 430), dul(['Q*<sub>a</sub> = a<sub>φ</sub>/a<sub>sol</sub>', '1 = no packaging', '→ 0 = maximal packaging', 'Cells larger at high Chl']), flex=[3, 2])),
+        S('The package effect', cols(LS(33, 430), dul(['Absorption in cells ÷ in solution', '1 = no packaging', '→ 0 = maximal packaging', 'Cells larger at high Chl']), flex=[3, 2])),
         S('Package factor of a sphere', img('package_effect', 700, cap='Own computation: Q*<sub>a</sub> versus ρ = (intracellular absorption) × (diameter); verified by two methods')),
         S('Non-algal particles', cols(LS(37, 430, 'Lecture slide 37 (Babin &amp; Stramski, 2004)'), dul(['Exponential increase to the blue', 'S ≈ 0.011 nm⁻¹ (slide 35)', 'Iron content raises UV–blue absorption (slide 38)']), flex=[3, 2])),
-        S('CDOM absorption model', cols(LS(41, 430), dul(['a(λ) = a(λ₀) exp[−S′(λ−λ₀)]', 'S′ ≈ 0.014 nm⁻¹', 'High S′: fulvic (marine)', 'Low S′: humic (terrestrial)']), flex=[3, 2])),
+        S('CDOM absorption model', cols(LS(41, 430), dul(['Exponential decay toward the red', 'S′ ≈ 0.014 nm⁻¹', 'High S′: fulvic (marine)', 'Low S′: humic (terrestrial)']), flex=[3, 2])),
         S('Exponential absorption, symbol by symbol', EQS_('expabs')),
         S('Spectral shapes of CDOM and NAP', img('exp_absorption', 1160, cap='Own computation, normalised at 440 nm: exponential laws S = 0.014 and 0.011 nm⁻¹ and the λ<sup>−6.92</sup> alternative')),
         S('Absorption budget in two water types', cols(LS(45, 430), dul(['Case 1: minimum in the blue', 'Case 2: ×10 larger scale', 'Case 2 minimum near 570 nm', 'Water + Chl + CDOM + NAP']), flex=[3, 2])),
@@ -86,13 +86,13 @@ def build():
                  + EQ('package') +
                  f'<p>Home-made check for a homogeneous sphere (Morel &amp; Bricaud 1981 form, verified by ray-path integration): Q*<sub>a</sub> = {PK["0.2"]:.2f}, {PK["1.0"]:.2f}, {PK["5.0"]:.2f} for ρ = 0.2, 1, 5. ρ is an illustrative parameter. Photoacclimation also lowers a*<sub>ph</sub> at high light (slide 34).</p>'),
                 ('Non-algal particles and CDOM', '<p>NAP (detritus, heterotrophic bacteria, minerals) and CDOM both increase exponentially toward short wavelengths (slides 35, 41): '
-                 + EQ('expabs') +
+                 + EQ('expabs') + EQ('cdom_twar') + EQ('nap_fe') +
                  f'</p><p><b>Numerical examples (Python).</b> a<sub>cdom</sub>(443)/a<sub>cdom</sub>(412) = {c443:.3f}; NAP: {n443:.3f}; a(350)/a(440) = {r350:.2f} for CDOM and {nr350:.2f} for NAP. Because the shapes are close, algorithms use a<sub>cdm</sub> = a<sub>cdom</sub> + a<sub>nap</sub>, about 90 % CDOM at global scale (slide 43).</p>'),
                 ('Budget in Case 1 and Case 2', '<p>Slide 45 compares the contribution of water, Chl, CDOM and minerals to the total absorption in Case 1 (axis 0–0.08 m⁻¹) and Case 2 (axis 0–0.8 m⁻¹). In Case 1, water and Chl control the spectrum; in Case 2, minerals and CDOM raise the blue absorption and move the minimum of the total toward ≈ 570 nm (read from graph, ±10 %).</p>')],
                checklist=['Name the pigment peaks (Chl a 443/675, carotenoids 450–500, Chl c 465/635).', 'Define Q*_a and explain why a*_ph decreases with Chl.', 'Write the exponential model; give S′ ≈ 0.014 (CDOM) and S ≈ 0.011 (NAP).', 'Explain a_cdm = a_cdom + a_nap.', 'Describe the absorption budget of Case 1 vs Case 2.'],
                summary=['Sắc tố hấp thụ xanh (443 nm) và đỏ (675 nm); hiệu ứng gói làm a*_ph giảm khi Chl tăng.', 'CDOM và NAP hấp thụ tăng theo hàm mũ về phía xanh (S′ ≈ 0,014; S ≈ 0,011).', 'a_cdm ≈ 90 % là CDOM ở quy mô toàn cầu.'],
                calcs=[('expabs', 'CDOM/NAP exponential absorption'), ('package', 'Package effect Q*_a')], quiz_n=10,
-               v2=dict(we_title='From 412 to 443 nm', we=f'<p>a<sub>cdom</sub>(412) = 0.30 m⁻¹, S′ = 0.014 nm⁻¹ ⇒ a<sub>cdom</sub>(443) = 0.30·e<sup>−0.014·31</sup> = {0.3*c443:.3f} m⁻¹. The e-folding distance is 1/S′ = 71 nm: every 71 nm toward the red the absorption drops by a factor e.</p>',
+               v2=dict(we_title='From 412 to 443 nm', we=KL(r'a_{cdom}(443)=0.30\,e^{-0.014\,(443-412)}=%.3f\ \mathrm{m^{-1}}' % (0.3*c443), r'\text{e-folding distance: }\ \frac{1}{S^{\prime}}=\frac{1}{0.014}=71\ \mathrm{nm}', cap='Every 71 nm toward the red the absorption drops by a factor e.'),
                        qa=[('Why does a*_ph drop when Chl rises?', 'Cells are larger and pigments shade each other (package effect, slides 32–33).'), ('How is NAP measured?', 'On filters with the Kishino et al. (1985) technique (slide 35).')],
                        hooks=[('CDOM and NAP: exponential, steep to the blue.', 'CDOM, NAP: hàm mũ, dốc về phía xanh.'), ('Big cell = less absorption per pigment.', 'Tế bào lớn hấp thụ ít hơn trên mỗi sắc tố.')]))
     return mod, sl, B

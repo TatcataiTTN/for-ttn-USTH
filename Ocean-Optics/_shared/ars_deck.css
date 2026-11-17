@@ -64,3 +64,7 @@ ul.lg2 li b{color:#273896;font-family:"STIX Two Text","Times New Roman",Georgia,
 .eqbig.slide .eqcall .cv li small{font-size:20px}
 .eqbig.slide .eqcall p,.eqbig.slide .eqcall li{font-size:21px;line-height:1.22;margin:2px 0}
 .eqbig.slide .eqcall .cv li{font-size:20px}
+/* ---- static big formulas in slide columns ---- */
+.kxs{display:flex;flex-direction:column;justify-content:center;gap:18px;min-height:430px}
+.kxs .kx{font-size:36px;text-align:left;color:#1d2433}
+.kxs .katex-display{margin:0}.kxs .katex{font-size:1.1em}

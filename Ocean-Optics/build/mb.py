@@ -64,8 +64,10 @@ def build():
             2, 'Spectra', src='Lecture, slides 24–26')
 
     sl = [
-        S('Pure sea water: scattering formula', cols(LS(20, 420), dul(['β<sub>w</sub> = 1.38 (λ/500)<sup>−4.32</sup>', '(1 + 0.3 S/37)', '[1 + cos²θ (1−δ)/(1+δ)], δ = 0.09', 'Einstein–Smoluchowski: density fluctuations']), flex=[3, 2])),
-        S('Revision by Buiteveld et al. (1994)', cols(LS(23, 420), dul(['1.38 → <b>1.29</b>', 'λ<sup>−4.32</sup> → <b>λ<sup>−4.14</sup></b>', 'δ: 0.09 → <b>0.051</b>', 'Refractive index and compressibility']), flex=[3, 2])),
+        S('Pure sea water: scattering formula', cols(LS(20, 420), dul(['Fit to theoretical calculations', 'Salinity factor fixed from lab experiments', 'Einstein–Smoluchowski: density fluctuations', 'Next slides: term by term']), flex=[3, 2])),
+        S('Revision by Buiteveld et al. (1994)', cols(LS(23, 420), dul(['Amplitude: 1.38 → <b>1.29</b>', 'Spectral exponent: −4.32 → <b>−4.14</b>', 'Depolarisation: 0.09 → <b>0.051</b>', 'Refractive index and compressibility']), flex=[3, 2])),
+        S('Buiteveld formula, term by term', EQS_('vsf_buit', fs=28)),
+        S('Einstein–Smoluchowski scattering', EQS_('es', fs=30)),
         S('Morel (1974) formula, term by term', EQS_('vsf_morel', fs=28)),
         S('Pure-water VSF versus angle', img('vsf_water', 700, cap='Own computation from the slide-20 formula, S = 37 (compare lecture slide 22)')),
         S('Temperature and salinity effect', cols(LS(21, 420), dul(['Ratio to T = 20 °C, S = 38.4', 'Range 0.75 – 1.10', 'Salinity matters most', '+30 % for S = 37 (slide 20)']), flex=[3, 2])),
@@ -73,7 +75,7 @@ def build():
         S('Pure-water spectra a<sub>w</sub> and b<sub>w</sub>', cols(LS(24, 430), dul(['a<sub>w</sub>: minimum ≈ 0.005 m⁻¹ near 415 nm', 'a<sub>w</sub> rises beyond 550 nm', 'b<sub>w</sub> falls smoothly with λ', 'Curves cross near 430–440 nm']), flex=[3, 2])),
         S('Absorption in the blue and UV is uncertain', cols(LS(25, 430), dul(['Five data sets', 'Smith &amp; Baker ≈ 3× higher at 415 nm', 'New UV data (1994)']), flex=[3, 2])),
         S('The clearest natural waters', cols(LS(26, 430), dul(['a<sub>tot</sub> ≈ 0.007 m⁻¹ at 410–420 nm', '0.045 m⁻¹ at 310 nm', 'Half the accepted pure-water value', 'Particles ≈ 15 % of a<sub>tot</sub>']), flex=[3, 2])),
-        S('Key points', dul(['β<sub>w</sub> ∝ λ<sup>−4.32</sup> (−4.14 later); b<sub>bw</sub> = b<sub>w</sub>/2', 'Salinity: +30 %; temperature: weak', 'a<sub>w</sub> minimum in the blue, strong rise in the red', 'Blue/UV absorption: data sets still disagree'], xl=True)),
+        S('Key points', dul(['Scattering almost Rayleigh (λ⁻⁴·³); half of it backward', 'Salinity: +30 %; temperature: weak', 'a<sub>w</sub> minimum in the blue, strong rise in the red', 'Blue/UV absorption: data sets still disagree'], xl=True)),
     ]
     mod = dict(id='mb', slug='02-pure-water', title='B · Pure water', en='Pure-water absorption and scattering (slides 20–27)',
                qtitle='Guiding question: what are a_w and b_w, and how well do we know them?',
@@ -81,8 +83,9 @@ def build():
                sections=[
                 ('Scattering by pure water', '<p>Pure water scatters because its molecules move: density, and therefore the refractive index, fluctuate on scales much smaller than the wavelength (Einstein–Smoluchowski theory). The lecture gives the fitted VSF (slide 20, Morel 1974):</p>'
                  + EQ('vsf_morel') +
-                 '<p>and its revision after 20 years (slide 23, Buiteveld et al. 1994): 1.29, λ<sup>−4.14</sup>, δ = 0.051. The slide prints the angular term as “cos2θ”; we read it as cos²θ (see below).</p>'
+                 '<p>and its revision after 20 years (slide 23, Buiteveld et al. 1994). The slide prints the angular term as “cos2θ”; we read it as cos²θ (see below).</p>' + EQ('vsf_buit') + EQ('bw_closed') +
                  f'<div class="callout good"><b class="t">Home-made check (Python)</b>Integrating β<sub>w</sub> over 4π gives b<sub>w</sub>(500) = {b500_37*1e3:.2f}×10⁻³ m⁻¹ for S = 37, near the 3×10⁻³ m⁻¹ read from the b<sub>w</sub> curve of slide 24. The literal cos(2θ) would give {V["bw500_S37_cos2"]*1e3:.2f}×10⁻³ m⁻¹, too low, which supports the cos²θ reading. This is evidence, not proof.</div>'),
+                ('Scattering from first principles', '<p>The textbook (<i>Physics of Scattering</i>) derives the same scattering from density fluctuations:</p>' + EQ('es')),
                 ('Absorption by pure water', '<p>a<sub>w</sub> is low in the blue and rises quickly beyond 550 nm (slide 24, Pope &amp; Fry 1997). In the blue and UV, data sets differ (slide 25) and the 2007 study of the clearest waters (slide 26) suggests that true values can be lower than those accepted. For scattering we can compute from physics; for absorption we depend on measurements (textbook).</p>'
                  + EQ('a_water')),
                 ('Numbers (all verified in Python)', f'<ul><li>Ratio of scattering 450 nm / 550 nm: {r_m:.2f} (−4.32), {r_b:.2f} (−4.14), {r_r:.2f} (λ⁻⁴).</li><li>b<sub>w</sub>(500) = {b500_37:.2e} m⁻¹ (S = 37); {b500_0:.2e} m⁻¹ (S = 0): +30 %.</li><li>Scattering length 1/b<sub>w</sub>(500, S=37) ≈ {V["tau_water_scattering_length_m_500_S37"]:.0f} m.</li><li>b<sub>bw</sub>/b<sub>w</sub> = 0.5 for the symmetric VSF.</li></ul>'
@@ -90,7 +93,7 @@ def build():
                checklist=['Write the Morel formula, say which parts are theory and which laboratory (slide 20).', 'List the changes of Buiteveld et al. 1994 (1.29, −4.14, δ = 0.051).', 'Compute a ratio of scattering at two wavelengths with the exponent.', 'Sketch a_w and b_w (400–700 nm) and say where they cross.', 'Say why a_w in the blue/UV is still uncertain.'],
                summary=['β_w ∝ λ^−4.32 (Morel 1974), λ^−4.14 (Buiteveld 1994); muối làm tăng 30 %.', 'a_w cực tiểu ở vùng xanh, tăng mạnh sau 550 nm.', 'Hấp thụ của nước tinh khiết ở xanh/UV vẫn còn bất định.'],
                calcs=[('vsfw', 'Pure-water VSF and b_w')], quiz_n=10,
-               v2=dict(we_title='Scattering ratio', we=f'<p>(550/450)<sup>4.32</sup> = {r_m:.2f}: blue (450 nm) pure water scatters {r_m:.1f}× more than green (550 nm). With the revised exponent the factor is {r_b:.2f}; the 3 % difference is smaller than the uncertainty on most field measurements.</p>',
+               v2=dict(we_title='Scattering ratio', we=KL(r'\frac{b_w(450)}{b_w(550)}=\left(\frac{550}{450}\right)^{4.32}=%.2f' % r_m, r'\text{revised exponent: }\left(\frac{550}{450}\right)^{4.14}=%.2f' % r_b, cap='The 3 % difference is smaller than the uncertainty on most field measurements.'),
                        qa=[('Is salinity or temperature more important for b_w?', 'Salinity (+30 % at S = 37; slide 20), temperature has a weak effect (slide 21).'), ('Where do a_w and b_w cross?', 'Near 430–440 nm on slide 24.')],
                        hooks=[('Blue sea = molecules scatter blue (λ^−4.3) and absorb red.', 'Biển xanh: phân tử tán xạ xanh, hấp thụ đỏ.')]))
     return mod, sl, B
