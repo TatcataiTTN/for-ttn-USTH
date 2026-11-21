@@ -1,0 +1,286 @@
+b3df39dafa	Ten planets, one pipeline: from public light curves to planet sizes, grouped by size, orbit, star, distance and sky position
+4f443e626f	<b>Project:</b> Space Observation Project 1, Group 2<br/><b>Lecturer:</b> Dr. Nguyen Thi Phuong<br/>USTH, Master 2 Space, 25 November 2026
+95e7a55b90	1  Introduction. What? One question, three checks
+3ef1c09cf3	From a raw TESS light curve, how closely can we recover a planet's orbital period and radius, and for which kinds of planet does it fail?
+170a28a9db	Period
+5b77d49934	All ten periods agree with the NASA Exoplanet Archive to 0.03 % or better.
+e5aaeaac2e	Radius
+f6b39c14dd	Eight of ten radii agree within 4 %; the largest gap is 7.3 % (K2-141 b). Every gap is within 1.4σ.
+80e13549b4	Coverage
+3c91233c86	Ten planets from 1.1 to 15.7 R⊕ and 0.28 to 6.1 d, plus two stress tests that fail.
+c466bd31e4	We measure; the catalog is only the answer key. A radius needs the stellar radius, which does not come from the light curve.
+eb41af3885	1  Introduction. Why? A transit gives a ratio, and the course formulas turn it into a size
+2dd21fb4e0	Two transits of a planet crossing the stellar disc: spacing gives the period, depth the radius ratio, width the geometry.
+6cc6d54fb5	Depth; so R<sub>p</sub> = R<sub>★</sub> √(ΔL/L).
+9655f5624d	P<sub>transit</sub> = R<sub>★</sub> / a
+de50e3a4ab	Geometric probability that the orbit is aligned.
+d1854eb8ee	Duration of a central transit.
+08d6ca857d	2  Methods. Where? From 4,826 archive planets to ten
+fb0d5188b1	<span>4,826<br/>with TIC ID</span>
+9703cd3c69	<span>4,573<br/>complete entry</span>
+a7e13a608d	<span>877<br/>Tmag &lt; 11</span>
+cb6ac11d5f	<span>482<br/>depth &gt; 500 ppm</span>
+4a8fd07aa3	<span>10 + 2<br/>chosen</span>
+8cb527cb36	Estimated S/N: depth divided by a simple one-hour noise model scaled with Tmag and the number of transits per sector.
+9b99f3c95a	Every cut keeps planets that a single 27-day TESS sector can measure: bright star, at least two transits, a deep dip.
+9db496d410	Source: NASA Exoplanet Archive, table pscomppars (TAP), transiting planets with a TIC identifier; light curves: TESS SPOC 2-minute PDCSAP from MAST.
+fb4a67bd45	2  Methods. Which? Six axes decide the representatives
+160bbfbc4d	Axis
+ed1846afee	Classes
+b7152342a2	Size
+d1e3282ba6	Earth-size &lt; 1.25 · Super-Earth &lt; 2 · Sub-Neptune &lt; 4 · Neptune/Saturn &lt; 8 · Jupiter-size ≥ 8 R<sub>⊕</sub>
+b6c22d03ac	Orbit
+9b0876b423	USP &lt; 1 d · Hot 1 to 3 d · Warm 3 to 7 d · Cool 7 to 15 d
+85a7de6e27	Star
+6137eda3ce	M &lt; 3900 K · K &lt; 5200 K · G &lt; 6000 K · F or hotter
+423208095d	Distance
+f4e5746d9c	Near &lt; 50 pc · Mid 50 to 150 pc · Far &gt; 150 pc
+b3d97fd6de	Sky
+d01cee5244	CVZ |β| &gt; 78° · High 54 to 78° · Low &lt; 54° (ecliptic latitude)
+bc0792d8dc	System
+adc3526074	Single or multi-planet; found by TESS or before TESS
+c79a3e835a	Rule: each representative must add a class not yet covered, and have SPOC 2-minute data.
+3554fc93c0	2  Methods. Which? The ten planets span every size and orbit class
+c0b7aabc4d	Grey: all 4,825 transiting planets with a TIC ID and radius. Blue: the 471 measurable ones. Red numbers: our ten planets.
+9f6b3ed8b7	2  Methods. Which? Ten representatives and the group each one covers
+e7abd94379	Planet
+44a5bad360	Jupiter-size
+63e49827e4	Warm
+b1a5954a48	High
+17813a2a4b	Multi-planet
+8c948d7947	Hot
+499705cfcd	K dwarf
+a124947cbd	Low
+c1f01af9b4	Single-planet
+88e692b42f	F/hotter
+667d2d7181	USP
+4778281754	CVZ
+13db1dc736	Neptune/Saturn
+4c8ea0315c	Sub-Neptune
+cdd224c9c3	M dwarf
+41a6dcfe5e	Super-Earth
+18b4120377	Earth-size
+0a74d0551d	2  Methods. How? The tutorial recipe, rebuilt with batman and emcee
+d03291a726	<span>Download<br/>SPOC PDCSAP</span>
+7d4d0b543d	<span>Flatten<br/>Savitzky-Golay</span>
+6e276790b2	<span>BLS<br/>P, t<sub>0</sub>, depth</span>
+1f0a9f16b1	<span>Fit transit<br/>batman + emcee</span>
+a533e0646e	<span>× R<sub>★</sub><br/>radius</span>
+63f0c81b99	Same as the tutorial
+5df35c8219	Quick fits for TESS light curves: SPOC PDCSAP, remove NaNs and outliers, BLS, mask the transits, fit a limb-darkened model.
+dcf1dfb23a	Our changes
+c38dbda495	PyMC3 and exoplanet replaced by batman and emcee (same Mandel-Agol model). Three detrending variants give a systematic error.
+c53623d268	Light curve gives R<sub>p</sub>/R<sub>★</sub>; R<sub>★</sub> comes from the archive; total error adds MCMC, detrending and R<sub>★</sub>.
+103eeaf509	Search modes: blind = BLS over 0.26 to 15 d; guided = within ±3 % of the catalog period, durations scaled from the catalog duration (appendix A10).
+8420f9408b	2  Methods. How? BLS finds the period, the model fit finds the radius ratio
+e1f900ee71	BLS power against trial period, HD 118203 b: best P = 6.1351 d.
+4381aa1f48	Folded transit, binned means and best-fit model.
+ded6bc6bfc	Blind BLS recovers the catalog period of the benchmark to 10<sup>-5</sup> before any fit; the fit then gives R<sub>p</sub>/R<sub>★</sub> = 0.0553.
+1a3b1270b1	3  Results. Benchmark: HD 118203 b reproduces the tutorial
+25825dc109	MCMC posteriors of R<sub>p</sub>/R<sub>★</sub> and the period; red lines: tutorial value 0.0554 and catalog period 6.13498 d.
+54c10672b7	The radius gap is a stellar-radius effect: the catalog radius implies R<sub>★</sub> = 2.10 R<sub>☉</sub>, the archive table lists 2.04.
+86bede40e0	R<sub>p</sub>/R<sub>★</sub> = 0.0553 ± 0.0014 (tutorial 0.0554); P = 6.13498 d (catalog 6.13498).
+6a440310b9	3  Results. 1 HD 118203 b. Same planet as the tutorial: R<sub>p</sub>/R<sub>★</sub> within 0.2 %
+eae153e371	Folded TESS data, binned means and best-fit model.
+19b11197d4	<span class="pill old">Jupiter-size</span> <span class="pill old">Warm</span> <span class="pill old">G</span> <span class="pill new">blind search</span>
+9550373e8b	Measured
+4a88d27bba	Catalog
+78b48e7b45	Period (d)
+9331f7a616	7 transits, sectors 15, 16
+3aef3c321a	The catalog radius implies R<sub>★</sub> = 2.10 R<sub>☉</sub>, not the table's 2.04: the 3.8 % gap is the star, not the light curve.
+17cb0e3efa	3  Results. 2 HD 189733 b. Brightest star, 12 transits: R<sub>p</sub>/R<sub>★</sub> good to 0.4 %
+8e9ad71f7e	<span class="pill old">Jupiter-size</span> <span class="pill old">Hot</span> <span class="pill old">K dwarf</span> <span class="pill new">blind search</span>
+049561a02e	12 transits, sectors 41
+64cbd91e47	Tmag 6.8, 20 pc. One sector is enough; R<sub>★</sub> (1.3 %) dominates the error.
+cd353d30a9	3  Results. 3 HD 209458 b. First transiting planet: radius within 1.0 %
+b65185ad65	<span class="pill old">Jupiter-size</span> <span class="pill old">Warm</span> <span class="pill old">F/hotter</span> <span class="pill new">blind search</span>
+2d2bf4f93e	8 transits, sectors 56
+f03073c324	8 transits in sector 56; MCMC and detrending errors are below 0.4 %.
+5e3a62e873	3  Results. 4 WASP-18 b. 22.6 h orbit, 97 transits: R<sub>★</sub> limits the radius
+e1756192cf	<span class="pill old">Jupiter-size</span> <span class="pill old">USP</span> <span class="pill old">F/hotter</span> <span class="pill new">blind search</span>
+ce9e88c815	97 transits, sectors 103, 104, 105, 106
+e0aee936c8	R<sub>p</sub>/R<sub>★</sub> good to 0.2 %, yet R<sub>p</sub> is only good to 4.6 % because of R<sub>★</sub>.
+58747d3134	3  Results. 5 WASP-62 b. Southern CVZ target: 4 of 38 sectors, radius within 0.1 %
+6044a38aa7	22 transits, sectors 1, 2, 3, 4
+181fe3de6f	Ecliptic latitude -87°: 38 sectors exist, we use the first 4.
+779658c78d	3  Results. 6 LTT 9779 b. Hot-Neptune desert: b = 0.91 inflates the error to 13 %
+b18cd2355d	<span class="pill old">Neptune/Saturn</span> <span class="pill old">USP</span> <span class="pill old">G</span> <span class="pill bor">guided search</span>
+128f77e080	34 transits, sectors 2
+e5c62961da	Grazing geometry makes R<sub>p</sub>/R<sub>★</sub> and b degenerate: the least certain radius of the ten.
+72ee286330	3  Results. 7 TOI-270 c. Sub-Neptune of an M dwarf: 2.38 R<sub>⊕</sub> within 2.3 %
+963f96209d	<span class="pill old">Sub-Neptune</span> <span class="pill old">Warm</span> <span class="pill old">M dwarf</span> <span class="pill new">blind search</span>
+91dda6e8e8	11 transits, sectors 3, 4, 5
+b2edab4943	R<sub>★</sub> = 0.38 R<sub>☉</sub>; 11 transits; a three-planet system.
+1efc15bb30	3  Results. 8 LTT 1445 A b. Nearest system, 4 transits: 1.39 ± 0.12 R<sub>⊕</sub>
+d88238aa41	<span class="pill old">Super-Earth</span> <span class="pill old">Warm</span> <span class="pill old">M dwarf</span> <span class="pill bor">guided search</span>
+d1d17e0d8a	4 transits, sectors 4
+800f19490c	6.9 pc. Only 4 transits and R<sub>★</sub> = 0.27 R<sub>☉</sub> (7 % error).
+75acc70e39	3  Results. 9 GJ 1132 b. Earth-size planet from a 2.2 ppt dip: 1.14 ± 0.05 R<sub>⊕</sub>
+bee6766128	<span class="pill old">Earth-size</span> <span class="pill old">Hot</span> <span class="pill old">M dwarf</span> <span class="pill new">blind search</span>
+6cd7def6fe	26 transits, sectors 9, 10
+c32f298c4b	R<sub>★</sub> = 0.22 R<sub>☉</sub>; 26 transits; the 4.1 % gap is 1.1σ.
+ab4f255626	3  Results. 10 K2-141 b. A 355 ppm dip every 6.7 h: radius 7 % low
+4da292460a	<span class="pill old">Super-Earth</span> <span class="pill old">USP</span> <span class="pill old">K dwarf</span> <span class="pill bor">guided search</span>
+f616e00c16	57 transits, sectors 42
+e63efcb029	BLS S/N only 15: the edge of what one sector can do; found only with the guided search.
+affcdc5319	3  Results. Radii differ from the catalog by at most 7.3 %, periods by 0.03 %
+dcdab21bc9	Radius difference to the catalog; bars: total 1σ error.
+485e79c3e5	|ΔP|/P (log scale); dashed line: 0.01 %.
+7c11b584ef	3  Results. Summary of the ten measurements
+f4d15c9ea5	ΔP (ppm)
+821ab7ac97	R<sub>p</sub> measured (R<sub>⊕</sub>)
+9535ba571a	R<sub>p</sub> catalog
+5219eb9a71	Pull
+2079f39baf	4  Discussion. The stellar radius and the detrending set the error, not photon noise
+5bacd8ceac	R<sub>p</sub>/R<sub>★</sub> MCMC %
+7ec6397a03	R<sub>p</sub>/R<sub>★</sub> detrend %
+8d161f2a21	Total R<sub>p</sub> %
+8f678c614b	4  Discussion. Where the method fails: three lessons
+6e80cf7c92	Blind search can lock on noise
+a5a531a33e	K2-141 b: blind BLS gave 5.70 d instead of 0.280 d. The browser demo returns 2×P for LTT 1445 A b. Narrow the range (5 to 6 d, or 0.26 to 0.5 d) and both are fixed.
+f195ad3b48	Active stars break detrending
+d085b8668c	AU Mic b (spots, flares): R<sub>p</sub>/R<sub>★</sub> = 0.25 ± 0.11 against 0.050. DS Tuc A b: systematic error ±0.12.
+ca7b097b4d	Few transits cap the accuracy
+3e7781fe65	AU Mic b has 3 transits in one sector, with timing variations; LTT 1445 A b only 4. More sectors would help.
+3118105fcb	AU Mic b and DS Tuc A b are reported as failures and are not among the ten.
+bb05606560	4  Discussion. Live demo: repeat the measurement in your browser
+3383caea60	demo/index.html runs entirely in the browser (JavaScript).
+cdde4f20ba	Steps
+6762a320c2	1 Pick a planet. 2 BLS searches the periods. 3 Fit the transit. 4 Compare with the NASA archive and with our MCMC.
+72677028b4	Try
+cbce3e8a72	K2-141 b: set the BLS range to 0.26 to 0.5 d. LTT 1445 A b: 5 to 6 d.
+f3d081b825	Files: demo/index.html and notebooks/01_measure_one_planet.ipynb in this folder.
+1a82a8e9ee	5  Conclusions and perspectives
+901ba4f2dc	What we showed
+4cec480ca5	Periods of ten planets (0.28 to 6.1 d) within 0.03 % and radii (1.1 to 15.7 R<sub>⊕</sub>) within 4 % for eight of ten, from public data and one pipeline.
+f50950305c	What limits it
+a1ad6577c7	Stellar radius (up to 7 %), detrending (about 1 %), the number of transits, and blind search at short periods or low S/N.
+bc981983e7	Next
+41fe21ec9c	Fit stellar density and eccentricity, search for TTVs, stack more sectors, Gaussian-process detrending for active stars.
+7342d25b42	A radius from a light curve is a ratio times a stellar radius; the ratio is the part TESS measures best.
+a09561c4f5	A1  Appendix. Terms used in this talk
+770bce19da	Term
+19cd7d185c	Meaning
+f5dadc0bce	TESS, sector
+dc4994a303	NASA survey satellite; it stares at one 24 by 96 degree field for about 27 days (a sector)
+84deb923cf	Science pipeline of TESS; flux after systematics removal (2-minute cadence)
+81025e205c	TESS Input Catalog identifier and TESS-band magnitude of the star
+225dfefe8b	Box Least Squares: searches for periodic box-shaped dips
+8f26cfe4cc	Planet to star radius ratio; impact parameter (0 = central transit)
+136bf4a769	Limb darkening
+8dabd4317d	The stellar disc is darker at the edge; it rounds the transit bottom (Kipping q<sub>1</sub>, q<sub>2</sub>)
+c7308ca7f4	Ultra-short period (P &lt; 1 d); TESS continuous viewing zone (|ecliptic latitude| &gt; 78°)
+230bbe09ab	(measured − catalog) divided by our total 1σ error
+fb15ab3cc2	A2  Appendix. Data and what each source is used for
+6da13addb0	Source
+2f81a22de0	Access
+1d4d43cc6f	Use
+8c2d42ecd4	TESS SPOC 2-min light curves
+264313b8bf	MAST, lightkurve (PDCSAP flux)
+c07ddcd76e	The measurements: 1 to 4 consecutive sectors per planet
+0282e9c54b	NASA Exoplanet Archive, pscomppars
+8bd0643700	TAP query, transiting planets
+a025eb5b35	4,826 planets: periods, radii, R<sub>★</sub>, T<sub>eff</sub>, distance, coordinates
+384cdaef92	TIC identifiers, Tmag
+a5d8106045	pscomppars columns
+cad83c325f	Cross-match to MAST; brightness cut
+5ded8247aa	Course notes (M1 Exoplanets)
+64822f139e	Lecture review, transit method
+27ad619a91	Formulas for depth, probability and duration (A6)
+d4850082f4	Tutorial: Quick fits for TESS light curves
+b08c133400	exoplanet-case-studies
+b339c6989f	Recipe and benchmark values for HD 118203 b
+e040306d1d	A3  Appendix. Sky map of the ten planets
+6793bb1a8f	Ecliptic coordinates (Mollweide). Pink bands: continuous viewing zones; the grey patch is the Kepler field.
+c2e0f8485c	A4  Appendix. Distance and host star
+0cd16e5b2b	Host effective temperature against distance; dashed lines: spectral-type and distance classes.
+011939831a	A5  Appendix. Light curve and detrending, HD 118203 b
+d280a4efe7	Sectors 15 and 16: PDCSAP flux (top), flattened curve (offset), predicted transits in red.
+87434a0254	Savitzky-Golay window 1.5 d, outliers clipped at +5σ; re-run with the transits masked so the filter cannot absorb the depth.
+4a4c3812fe	A6  Appendix. Course formulas checked on the fitted orbits
+5856baf835	a/R<sub>★</sub> (fit)
+c248115a12	T catalog (h)
+cff429d021	A7  Appendix. Formulas: transit model and period search
+b01cff0a96	F(t) = 1 − ΔF( z(t), R<sub>p</sub>/R<sub>★</sub>, u<sub>1</sub>, u<sub>2</sub> ) ;  z = (a/R<sub>★</sub>) √[ sin<sup>2</sup>φ + cos<sup>2</sup>i cos<sup>2</sup>φ ] ,  φ = 2π(t − t<sub>0</sub>)/P
+5dae431ff2	Mandel-Agol quadratic limb darkening (batman); b = (a/R<sub>★</sub>) cos i; circular orbit.
+714f1d2e03	Kipping parametrisation, q<sub>1</sub>, q<sub>2</sub> uniform in (0, 1).
+7103249d24	Trial periods 0.26 to 15 d; durations 0.02 to 0.25 d; boxes longer than 20 % of P are rejected.
+5189bf4f45	σ from the out-of-transit MAD; emcee, 32 walkers, 1,500 burn-in, 2,500 steps.
+d50c32f000	Same physical model as the tutorial (Mandel-Agol, limb darkening); only the sampler differs.
+e4b7e55135	A8  Appendix. Formulas: radius and the error budget
+8eac4d9b6e	σ<sub>ratio</sub><sup>2</sup> = σ<sub>MCMC</sub><sup>2</sup> + σ<sub>sys</sub><sup>2</sup> ,  σ<sub>sys</sub> = ½ ( max − min ) of R<sub>p</sub>/R<sub>★</sub> over 3 detrendings
+8bf6fb512e	σ<sub>Rp</sub> / R<sub>p</sub> = √[ ( σ<sub>ratio</sub> / ratio )<sup>2</sup> + ( σ<sub>R★</sub> / R<sub>★</sub> )<sup>2</sup> ]
+154174e351	pull = ( R<sub>p,meas</sub> − R<sub>p,cat</sub> ) / σ<sub>Rp</sub> ;  ΔP/P = ( P<sub>meas</sub> − P<sub>cat</sub> ) / P<sub>cat</sub>
+ad14f9acb8	Course example: depth 0.64 %, R<sub>★</sub> = 0.8 R<sub>☉</sub> gives R<sub>p</sub>/R<sub>★</sub> = 0.08 and R<sub>p</sub> = 0.064 R<sub>☉</sub>.
+aefdf0f8f2	A 7 % error on R<sub>★</sub> is a 7 % error on R<sub>p</sub>, whatever the light curve quality.
+0c238e8a93	Ratio errors come from the posterior (16th to 84th percentile) and from three detrending variants; R<sub>★</sub> error from the archive.
+77b0af09d9	A9  Appendix. Stress tests and failures
+9254c4bba0	Case
+fb449f7183	Setting
+d3f0610632	Outcome
+7f6e5a6efa	Verdict
+c97b0cb60a	K2-141 b, blind
+d243ce85dc	P = 5.70 d (truth 0.280 d); R<sub>p</sub> = 21 R<sub>⊕</sub>
+bbfe90ea8b	Fixed by guided search
+ec1edfe6af	LTT 1445 A b, demo
+32fe0a9fa8	Range 5 to 6 d gives 5.35878 d
+d7c287b196	AU Mic b, guided
+d88c3f6439	Spots and flares; 3 transits; excluded
+5586fd13e8	DS Tuc A b, guided
+238a11cd0d	Detrending systematic too large; excluded
+5eff987e70	First-pass JSON of the blind failures is kept in results_blind_failed/.
+178021dcb4	A10  Appendix. Search mode used for each planet
+a7b93d2128	Mode
+72587e1ed9	BLS window
+7afb6295c7	blind
+0bfb4698c5	0.26 to 15 d, 7 durations
+5b590af68f	guided
+8f04ba54a2	±3 % of catalog P, durations 0.6 to 1.5 × catalog T
+943cd6cc1e	A11  Appendix. References
+64653d9f66	Ricker et al. 2015, TESS mission, JATIS 1, 014003
+e7f0c29f26	Jenkins et al. 2016, SPOC pipeline, SPIE 9913
+dfdde35ad3	Lightkurve Collaboration 2018, Lightkurve, ascl:1812.013
+e6f5e8ace1	Kovacs, Zucker and Mazeh 2002, BLS, A&amp;A 391, 369
+cabc5b5243	Mandel and Agol 2002, transit light curves, ApJ 580, L171
+3bddaa1d76	Kreidberg 2015, batman, PASP 127, 1161
+ef5b4ce4d3	Foreman-Mackey et al. 2013, emcee, PASP 125, 306
+b7f8e2f520	Kipping 2013, limb-darkening priors, MNRAS 435, 2152
+9a7adc3b1f	Akeson et al. 2013, NASA Exoplanet Archive, PASP 125, 989
+8f1134e346	exoplanet-case-studies: Quick fits for TESS light curves and Fitting TESS data
+de561cc131	25 minutes for slides 1 to 26; the appendix is for questions. Follow the course report: introduction (what, why), methods (where, how), results, discussion, conclusions. Say at the start that the pipeline is validated on the tutorial planet and that the failures are shown on purpose.
+83c8a69dfc	One question, three checks: period, radius, coverage. The numbers on this slide are the final results, shown first so the audience knows where we are going.
+8ef6dd33f9	These three formulas are the course formulas on transits (lecture review, section C). Example from the review: depth 0.64 %, R star 0.8 solar radii gives Rp/R star 0.08 and Rp 0.064 solar radii. Our pipeline does this fit properly, with limb darkening and MCMC, instead of reading the depth by eye.
+0955f08406	Funnel. Tmag below 11 keeps the noise low, P below 15 days gives two or more transits in one sector, and the estimated S over N above 12 uses a simple noise model. Ten plus two: ten representatives and two stress-test planets.
+b72e72f634	Size, orbit, star, distance, sky position and system type. The sky axis matters for TESS: the continuous viewing zone near the ecliptic poles is observed for about a year, low latitudes for one or two sectors.
+1651bef7c0	Read the figure left to right: ultra-short periods on the left. Numbers 4 and 6 are the USP gas giants and Neptune; 8 and 9 are the small planets of M dwarfs. The sky map and the distance-star plane are in the appendix (A3, A4).
+c5c9c7c398	This table is the map for the next ten slides. Planet 5 is the southern continuous viewing zone target, planet 8 is the nearest system, planet 9 the smallest planet.
+7774db251d	Walk the five boxes. The tutorial uses PyMC3 and exoplanet; we use batman and emcee because they install cleanly; the physical model is the same and the benchmark confirms it. Be explicit about blind and guided: seven planets are blind, three guided.
+3e79d7118e	Left: BLS slides a box over the folded curve for each trial period. Right: the transit model with quadratic limb darkening, seven free parameters, 32 walkers. The raw and detrended curves are in appendix A5.
+2cae64194e	The catalog radius is 3.8 percent above ours because the catalog radius implies a stellar radius of 2.10 solar radii, while the summary table lists 2.04. That is why we also compare the ratio.
+9c6b72525a	Group: Jupiter-size, Warm, G, 92 pc, sky High. Measured 12.30 R earth against catalog 12.78; search mode blind. About one minute.
+91d57f6267	Group: Jupiter-size, Hot, K dwarf, 20 pc, sky Low. Measured 12.61 R earth against catalog 12.67; search mode blind. About one minute.
+374725deac	Group: Jupiter-size, Warm, F/hotter, 48 pc, sky Low. Measured 15.74 R earth against catalog 15.58; search mode blind. About one minute.
+755cfa7888	Group: Jupiter-size, USP, F/hotter, 123 pc, sky Low. Measured 14.18 R earth against catalog 13.90; search mode blind. About one minute.
+bdb873b463	Group: Jupiter-size, Warm, F/hotter, 176 pc, sky CVZ. Measured 14.82 R earth against catalog 14.80; search mode blind. About one minute.
+3d0758a75e	Group: Neptune/Saturn, USP, G, 80 pc, sky Low. Measured 4.55 R earth against catalog 4.72; search mode guided. About one minute.
+baad2d82e3	Group: Sub-Neptune, Warm, M dwarf, 22 pc, sky High. Measured 2.38 R earth against catalog 2.33; search mode blind. About one minute.
+49d591d87a	Group: Super-Earth, Warm, M dwarf, 7 pc, sky Low. Measured 1.39 R earth against catalog 1.34; search mode guided. About one minute.
+6ec5ccf6c5	Group: Earth-size, Hot, M dwarf, 13 pc, sky Low. Measured 1.14 R earth against catalog 1.19; search mode blind. About one minute.
+2c9c640019	Group: Super-Earth, USP, K dwarf, 62 pc, sky Low. Measured 1.40 R earth against catalog 1.51; search mode guided. About one minute.
+f894948a46	Left: every radius is consistent with zero within 1.4 sigma. The big error bars are LTT 9779 b and LTT 1445 A b. Right: periods; the worst is K2-141 b at 0.03 percent.
+a9ac46cd96	Pull is the difference divided by our total error. All pulls are between minus 1.4 and plus 0.8.
+d74de1226d	Systematic error is half the range of Rp over R star across three detrending variants. For bright stars the MCMC error is below half a percent; the stellar radius is 1 to 7 percent. LTT 9779 b and K2-141 b are limited by the dip itself.
+cb09b3513f	Be honest here. Guided mode is not cheating: it restricts the search window, the period and radius are still measured from the data, and every planet slide says which mode was used. Next step for active stars: Gaussian-process detrending, as in the stellar-variability tutorial.
+92e77681f1	Open demo/index.html. HD 189733 b: BLS in a few seconds gives 2.21858 d. Then K2-141 b with the default range to show the failure, narrow the range to see 0.28035 d. The demo uses fixed limb darkening, so radii are a few percent less accurate than the pipeline.
+74cdeb3d7a	Close with the take-away. Thank the audience and open the floor. The appendix has terms, data, the course-formula check, formulas, stress tests and references.
+dcad11afdf	Glossary for questions.
+b2c24f16b0	All data are public. The catalog values are used only as an answer key, except R star which the radius needs.
+92eed91377	Planet 5 (WASP-62 b) sits in the southern CVZ; planet 1 in the northern high-latitude region; the rest at low latitudes.
+d79ecc8cd2	From the 6.9 pc M dwarf of LTT 1445 A to the 176 pc F star WASP-62.
+f03348eae4	Three detrending variants (mask 2 to 3 durations, window 4 to 8 durations, minimum window 0.75 to 1.5 d) give the systematic error. The widest variant is the primary result because narrow windows eat depth.
+2fb718267b	The fitted a over R star gives the geometric transit probability and a central-transit duration from the course formula. Nine planets agree within 10 %. LTT 9779 b does not: its fit has b = 0.91, so a/R star is degenerate with b and the central-transit formula over-predicts the duration by a factor of about four.
+2e74a6093f	Reference slide for questions on the model.
+f93da6ed10	Errors in quadrature; the stellar radius uncertainty is taken from the archive.
+028011110f	These are the numbers behind the failure slide.
+7bd2f8970e	Blind for seven planets, guided for LTT 9779 b, LTT 1445 A b and K2-141 b. In guided mode the period, epoch, depth and radius are still measured from the data.
+6a1d85b90f	Sources.

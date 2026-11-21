@@ -1,0 +1,664 @@
+e3ba23b8ed	Các đồ thị theo kiểu Huang et al. 2018 cho từng hành tinh, mười hành tinh so với bài báo phát hiện của chúng, tổng quan tài liệu đã kiểm chứng về quang đo transit của TESS, và cách lấy lại mọi con số
+ba20d8d422	<b>Đề tài:</b> Space Observation Project 1, Nhóm 2 (bộ slide học)<br/><b>Giảng viên:</b> TS. Nguyễn Thị Phương<br/>USTH, Thạc sĩ năm 2 ngành Không gian, tháng 11/2026
+6817ea2066	1  Giới thiệu. Bộ slide này có gì?
+87c98cdec4	Bài mẫu
+9a49097c52	Huang et al. 2018 (TESS phát hiện π Men c) có năm loại hình. Chúng tôi vẽ lại cho mười hành tinh của mình từ dữ liệu TESS công khai.
+6dbbef55ee	Các đồ thị
+edac97a215	27 hình mới. Mỗi slide nói hình cho thấy gì, kèm số đo thật.
+9bd50ed52f	Các tác giả
+5962f9f1be	Mười hành tinh của chúng tôi so với bài báo phát hiện của chúng: số có trùng không, và vì sao.
+a4a9c5eaa9	Tài liệu
+8822ac72c5	150 bài đã kiểm chứng trong mười một nhóm phương pháp; đã tải 144 PDF truy cập mở.
+0b963cb39a	Mọi thứ được tính từ dữ liệu công khai: đường cong ánh sáng SPOC của TESS (MAST) và NASA Exoplanet Archive. Mục 3 kể cách người ta tìm ngoại hành tinh, mục 4 đưa các số của TESS kèm nguồn, mục 5 hỏi mười hành tinh đã đủ chưa, và mục 10 chỉ cách lấy lại từng con số.
+800688a366	1  Giới thiệu. Mỗi con số đến từ đâu: Measured, Catalog, Published
+65ba00e95e	Cột
+6da13addb0	Nguồn
+f8c94a3b4b	Là gì
+ac61c45595	<b>Measured</b> (đo được)
+2d6f66bc3a	Đường cong ánh sáng TESS (SPOC PDCSAP)
+5397e0583f	Có
+2b4ef2404e	Chu kỳ từ BLS; R<sub>p</sub>/R<sub>★</sub> từ phép khớp batman + emcee; R<sub>p</sub> = tỉ số × R<sub>★</sub>
+ddb547dcec	<b>Catalog</b> (danh mục)
+0282e9c54b	NASA Exoplanet Archive, bảng pscomppars
+c66f6f064e	Không, lấy từ dữ liệu
+df342811ad	Bộ tham số mặc định: mỗi hành tinh một bài báo đã công bố
+43bd789418	<b>Published</b> (công bố)
+26a574e3ab	Bài báo phát hiện hoặc theo dõi (PDF)
+dc9a3e2b80	Không, đọc từ bài báo
+230f74fa0e	Giá trị trong bảng được trích ở mục 8, tìm thấy nguyên văn trong văn bản PDF
+82880ea598	<b>Δ, pull</b>
+36933d9dde	Measured so với Catalog hoặc Published
+04b388fc7f	Δ = (M − C)/C; pull = (M − C)/√(σ<sub>M</sub><sup>2</sup>+σ<sub>C</sub><sup>2</sup>)
+cd00aca350	Hai đầu vào không phải của chúng tôi: R<sub>★</sub> lấy từ archive, và ba hành tinh dò có hướng dẫn dùng chu kỳ catalog để đặt cửa sổ tìm kiếm.
+6048df855f	1  Giới thiệu. Vì sao hai nguồn có thể khác nhau: năm nguyên nhân, ba cái đã được kiểm
+d208fde745	Điều xảy ra
+692f3333d1	Bằng chứng trong dự án này
+65ed73d219	Đường cơ sở (baseline) = khoảng thời gian giữa transit đầu và cuối. Ở đây TESS cho 1 đến 4 sector (27 đến 110 ngày); catalog gộp nhiều năm transit
+fc3c5c484f	P của chúng tôi chính xác đến 0,0004 ngày (π Men c); P của catalog đến 10<sup>-7</sup> ngày
+9a257ad770	Bán kính sao
+7ec129fd57	R<sub>p</sub> = tỉ số × R<sub>★</sub>; các bài báo dùng R<sub>★</sub> riêng của họ
+ef451b2c83	π Men c: 1,10 (bài báo) so với 1,17 (archive)
+26d9c32b52	Các bài báo đầu tiên
+ac3f12c1c2	Đường cong ánh sáng phát hiện từ mặt đất, 1999 đến 2005
+11bf0ccefb	HD 189733 b: tỉ số 0,172 (2005) so với 0,1545 (Spitzer 2007)
+3fa791fcba	Float32 hay float64
+9852d1f367	Không ảnh hưởng: nhiễu của thông lượng lớn hơn sai số làm tròn float32 một nghìn lần
+34f9724621	Khớp lại bằng thông lượng float32: tỉ số đổi 0,2 %, là nhiễu MCMC
+d3b4b2fd13	Tính ngẫu nhiên của MCMC
+1d29ff6ce4	Bộ sinh số ngẫu nhiên của emcee nay đã cố định; các lần chạy trước lệch khoảng 0,1 %
+eb294c2f9f	π Men c: 2,0302 rồi 2,0319 R<sub>⊕</sub> trước khi sửa
+f90fc0e2e3	Bán kính sao và các bài báo phát hiện cũ giải thích mọi chênh lệch lớn chúng tôi gặp.
+f41e496a95	2  Bài mẫu. Năm loại hình của Huang et al. 2018, vẽ lại cho các hành tinh của chúng tôi
+1f20e66b17	Hình
+7f59bfb43b	Bản của chúng tôi
+525f61b672	Ở đâu
+a7483af522	Ảnh khảo sát DSS và khẩu độ TESS của vùng trời
+d0d11a05e6	Chỉ có khẩu độ
+9bc47ae802	Phụ lục B4 (π Men c); chưa tải ảnh DSS
+298fca3b22	Đường cong ánh sáng TESS thô, đã làm phẳng và gập pha
+9c77d03d58	Cả mười hành tinh
+6062ad7d0d	Vận tốc xuyên tâm, chu kỳ đồ Lomb-Scargle, gập pha
+50500b1f28	Chưa dựng lại
+6f2543da10	Bảng RV không có trong dữ liệu của chúng tôi
+f983872b2e	Từng transit được khớp riêng và hậu nghiệm độ sâu
+9b840b5a81	π Men c; lẻ-chẵn cho tất cả
+ff34d0333c	Phụ lục B3; mục 7
+051cee8318	Cấp sao biểu kiến so với bán kính; biểu đồ khối lượng-bán kính
+558a93678f	Đánh dấu mười hành tinh
+44dbe601d7	Mục 7, NASA archive và các bảng của Zeng
+e5a7ea5a21	Bài báo là mẫu cho các đồ thị, không phải chủ đề: các hành tinh là mười hành tinh của chúng tôi.
+49ddfd0e06	2  Bài mẫu. Kiểm tra bên ngoài trên chính hành tinh của bài báo: cùng chu kỳ và bán kính, độ sâu khác
+44f6af6945	Đại lượng
+404bc2f35f	Bài báo (Huang+2018)
+55dfda1215	Pipeline của chúng tôi
+e3c513767d	Số transit trong sector 1
+146e327466	Lần xả mômen
+78b48e7b45	Chu kỳ (ngày)
+d77fadcebc	(R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> (ppm)
+dfd0df7c94	khoảng 290 (đọc từ Hình 4)
+c8feb9a8fe	1,17 (archive)
+87f828cc79	Độ phân tán mỗi 2 phút (ppm)
+1148cd13e5	119 điểm-điểm; rms 130
+798054dac3	Thời lượng transit (giờ)
+43e13b95c5	khoảng 3
+844d5f4457	Bán kính khớp (−0,5 %) vì hai độ lệch triệt tiêu nhau: tỉ số của chúng tôi thấp hơn 6,6 %, R<sub>★</sub> của chúng tôi cao hơn 6,4 %.
+f40225e1b6	3  Lịch sử. Bốn dòng công việc dẫn tới TESS và tới mười hành tinh của chúng tôi
+eeb3e3a8f0	Nét đứt: kết quả trước là lý do hoặc ý tưởng. Nét liền: cùng một hành tinh hoặc cùng phần cứng.
+eabfb060d1	Nguồn: các bài trong literature/pdf/K_Search_history và Charbonneau 2000; trích dẫn và số trang trong tess_fact_sources.csv
+ee663c31c9	3  Lịch sử. 6 473 hành tinh đã xác nhận: 74 % tìm bằng transit, 19 % bằng vận tốc xuyên tâm
+0668815fdc	Số hành tinh đã xác nhận theo năm phát hiện, chia theo phương pháp (NASA Exoplanet Archive).
+cd4d0c5e14	Cơ sở
+ef23509a3b	Hành tinh
+3cb496e10a	Hành tinh có cơ sở phát hiện được ghi trong archive.
+6901649b2b	Nguồn: NASA Exoplanet Archive, bảng pscomppars, truy vấn TAP ngày 2026-11-21 (data/raw/discoveries_by_*.csv)
+0e3f0fa9f6	3  Lịch sử. Các sứ mệnh không gian bằng con số: phóng, phần cứng và kết quả đầu tiên
+e4698d4cea	Sứ mệnh
+952f375412	Bắt đầu
+b76ab65957	Phần cứng
+5faa59d4bc	Kết quả
+ee37dec9d4	Bài báo, trang
+f8f5d60e55	Quỹ đạo cực; do CNES chế tạo và vận hành
+e6805951db	Hành tinh đầu tiên: CoRoT-Exo-1b (2008)
+0a1e240bf6	Khẩu độ 0,95 m; quỹ đạo nhật tâm theo sau Trái Đất
+fa02d40f7e	2 787 hành tinh trong archive
+976071a8ef	Tàu Kepler sau khi mất hai bánh xe phản lực; các trường nhìn dọc mặt phẳng hoàng đạo
+53003ac5fb	550 hành tinh
+eee9f0e371	4 camera, 24° × 96°; quỹ đạo 13.7 ngày
+04cb19af03	1 027 hành tinh
+5545fd50b4	Ricker 2015 tr. 8, tr. 7; trang NASA
+3cb9f81ce2	Hành khách phụ trên tên lửa Soyuz-Fregat từ Kourou
+463111acde	Sứ mệnh nhỏ của ESA
+a7b8c466ea	Khảo sát trường rộng nhiều camera
+7728558d1c	Đang chuẩn bị
+038c4b0bc0	Đài quan sát tại L2
+45f0699725	Hồng ngoại; transit của WASP-39 b bằng NIRCam ngày 22 đến 23/7/2022
+04ba7bec9d	Các transit đầu tiên qua khí quyển
+d882e3c88d	Số hành tinh: NASA Exoplanet Archive theo cơ sở phát hiện. PLATO: được chọn năm 2014 (Rauer); chúng tôi chưa kiểm tra ngày phóng hiện tại.
+8a0d451154	Nguồn: năm bài báo sứ mệnh và Ricker 2015 (số trang ở cột cuối); trang NASA Science về TESS
+c8af071052	3  Lịch sử. Mười hành tinh của chúng tôi được phát hiện ở đâu: sáu bằng Doppler hoặc khảo sát mặt đất, bốn bằng sứ mệnh không gian
+32b361d23b	Các số là số thứ tự hành tinh trong bộ slide này.
+e7abd94379	Hành tinh
+de86180503	Cơ sở phát hiện
+879e32326c	Năm
+cd9031e58b	Phương pháp và cơ sở theo ghi nhận của NASA archive. HD 189733 b được ghi là phát hiện bằng Doppler; bài báo 2005 của nó báo cáo transit.
+ffe107f4c3	Nguồn: NASA Exoplanet Archive pscomppars (discoverymethod, disc_facility, disc_year); Berta-Thompson 2015
+dee584594b	4  TESS. Vệ tinh qua chín con số
+5d1686693d	Giá trị thiết kế
+9fa8d14139	Elip, 13.7 ngày, cộng hưởng 2:1 với Mặt Trăng; cách Trái Đất 17 đến 59 bán kính Trái Đất
+a39eff3ce5	4 thấu kính giống nhau, f/1.4, đường kính pupil 10.5 cm; dải sóng 600 đến 1000 nm
+5420123afe	4 CCD mỗi camera, 2048 × 2048 pixel kích thước 15 µm
+677b9bca73	Trường nhìn
+c6bafed3cf	24° × 24° mỗi camera; cả bốn là 24° × 96° = 2300 deg²
+567a347735	Một pixel
+bdb03db87c	Ánh sáng trong một pixel
+55b162241d	50 % nằm trong một pixel; 90 % nằm trong 4 × 4 pixel (1.4′)
+95ef14ec6f	Một sector
+77f5560e9e	2 vòng quỹ đạo = 27.4 ngày, rồi các camera quay sang trường kế tiếp; 13 sector mỗi bán cầu
+f9d944113a	Khung 2 s; 60 khung được cộng thành một cadence 2 phút cho các sao chọn sẵn; ảnh toàn khung mỗi 30 phút
+11ff80a160	Ít nhất 200 000 sao ở cadence 2 phút, I<sub>C</sub> khoảng 4 đến 13
+a675a66d62	Giá trị thiết kế từ Ricker et al. 2015. Các slide sau kiểm chúng trên 21 file SPOC của chúng tôi.
+8884210ff5	Nguồn: Ricker et al. 2015, Bảng 1 tr. 7, Mục 4.1 tr. 5, Mục 4.2 tr. 6, Mục 6 tr. 8, Mục 7.2 tr. 9
+a6cf7a4383	4  TESS. Nó nhìn đâu: 13 sector mỗi bán cầu, mỗi sector 27.4 ngày
+92975bacb8	Xám: 87 hành tinh trong danh sách rút gọn; đỏ: mười hành tinh của chúng tôi.
+1dab8e4995	Vùng phủ bầu trời (thiết kế)
+e3c69d443a	bốn camera xếp thành hàng: 24° × 96° = 2300 deg², từ vĩ độ hoàng đạo 6° tới cực
+7129132e74	mỗi sector: 2 vòng quỹ đạo = 27.4 ngày, rồi dịch 27° về phía đông; một bán cầu trong 1 năm, cả bầu trời trong 2 năm
+c230da10c0	quan sát ít nhất 27 ngày: 30 000 deg² (73 % mặt cầu, tự tính); trên 80 ngày: 2 800 deg²; trên 300 ngày: 900 deg² gần các cực
+e811ec2b4a	Mười hành tinh: |vĩ độ| 2.5° (K2-141 b, 3 sector) đến 87° (WASP-62 b, 38). Dùng 1 đến 4 sector mỗi hành tinh.
+3e0e46b636	Nguồn: Ricker et al. 2015, Mục 7.2, tr. 9 đến 11; số sector từ lần tìm MAST (code/03_check_mast.py)
+bfce6818d3	4  TESS. Lấy mẫu: một điểm mỗi 2 phút, sector khoảng 27 ngày, khoảng trống 1 đến 8 ngày
+d2f6db497b	Các cadence tốt (cờ chất lượng 0, thông lượng hữu hạn) trong từng file trong 21 file SPOC của chúng tôi.
+15b4d152b1	Đo trên các file của chúng tôi
+2a1d321525	cả 21 file: cadence 120 s = 60 khung 2 s; thời gian phơi sáng hiệu dụng 95 s (header DEADC 0.792)
+05e9dfd98e	độ dài sector 24.6 đến 28.4 ngày (trung vị 26.6)
+45b928c8b3	khoảng trống lớn nhất 1.1 đến 7.7 ngày (trung vị 2.2); cadence tốt chiếm 63 đến 96 % khoảng thời gian (trung vị 81)
+b006224362	một transit kéo dài 0.4 đến 5.6 giờ = 11 đến 169 cadence
+240b2c6615	Nguồn: Ricker et al. 2015, Mục 4.3 tr. 7; header của 21 file SPOC của chúng tôi (results/tess_files.csv)
+8c3fcbe451	4  TESS. Sản phẩm dữ liệu: đường cong ánh sáng 2 phút từ đầu; ảnh toàn khung mỗi 30 phút, rồi 10 phút, rồi 200 s
+dd3b86d1ef	Sản phẩm
+68af11f073	Cadence
+7c62a14244	Có từ
+8cd9919445	Dùng ở đây
+d0222e22bc	Đường cong ánh sáng SPOC, pixel mục tiêu
+12fc2c560c	Từ sector 1
+0ce24a663f	<b>Có</b>: cả 21 file (thông lượng PDCSAP)
+3cd0a278cb	Đường cong ánh sáng SPOC nhanh
+33693265fb	Sứ mệnh mở rộng đầu tiên, từ sector 27
+09c0a03de3	Ảnh toàn khung
+d3ddf7a34d	30 phút
+0e640bbe83	Năm 1 và 2 (sector 1 đến 26)
+4605ee7759	10 phút
+1bd4710a7b	Năm 3 và 4 (sector 27 đến 55)
+26bc8fd3b7	Từ năm 5 (sector 56 trở đi)
+274bad458d	Các file của chúng tôi
+925d267c4a	16 sector: 1, 2, 3, 4, 5, 9, 10, 15, 16, 41, 42, 56, 103, 104, 105, 106. Quan sát đầu tiên 2018-07-25, cuối cùng 2026-07-11: các năm 1, 2, 4, 5 và 8 của sứ mệnh.
+7b85532ee0	Mốc thời gian
+f5b1ab76f7	BTJD = BJD<sub>TDB</sub> − 2 457 000 ngày. Mỗi cadence là tổng của 60 khung; đơn vị thông lượng là e<sup>−</sup>/s.
+740c7b0f07	Nguồn: NASA HEASARC, sổ tay archive TESS của STScI, Văn phòng khoa học TESS tại MIT (bản sao trong data/raw/tess_docs/, 21/11/2026)
+02b0c109cf	4  TESS. Độ phân giải: một pixel là 21″ = 0.0058°, và 90 % ánh sáng của một sao rơi trong 1.4′
+8dce170de2	Giá trị
+d49f8e1425	15 µm = 0.35′ = 21″ = 0.0058° (171 pixel mỗi độ)
+8d93236a68	WCS trong các file của chúng tôi: 19.1 đến 21.1″
+6ec1ca2cbc	Một camera
+581da81c0a	2 × 2 CCD mỗi CCD 2048 pixel = 4096 pixel = 23.9°
+8ac369696f	tự tính; bài báo nêu 24°
+2fbd6bd577	Một nửa ánh sáng của sao
+a8c6657ace	nằm trong một pixel (21″)
+efea220d88	Ricker et al. 2015, Bảng 1
+40856116eb	90 % ánh sáng
+1a964a6662	nằm trong 4 × 4 pixel (84″ = 1.4′)
+a4b694f173	ảnh bị lấy mẫu thiếu (undersampled)
+12f9f27f9f	Một pixel trên bầu trời
+1704137080	21″ × khoảng cách: 140 AU tại LTT 1445 A (6.9 pc) đến 3 710 AU tại WASP-62 (176 pc)
+4a0b0a3aa6	khoảng cách trong catalog
+2c5af7fd16	Khẩu độ của chúng tôi
+9451a45706	13 đến 31 pixel = bán kính tương đương 41 đến 64″
+9e1644d9f7	đo trên các file của chúng tôi
+64212fbfaf	Một sao trong khoảng 1.4′ cộng thêm ánh sáng vào khẩu độ; hai sao nằm trong một pixel không phân biệt được.
+db29aee6fc	Bán kính tương đương là sqrt(N/π) pixel với N pixel của khẩu độ tối ưu.
+093c7b2aed	Nguồn: Ricker et al. 2015, Bảng 1 tr. 7, Mục 4.1 tr. 5; trang TESS của STScI MAST; WCS trong header file của chúng tôi
+2c2a81fb86	4  TESS. Mười khẩu độ của chúng tôi: LTT 1445 A b chỉ có 42 % ánh sáng đến từ sao mục tiêu
+b817b2a91f	Các pixel của khẩu độ tối ưu, sector đầu tiên được dùng. CROWDSAP: tỉ lệ thông lượng trong khẩu độ đến từ sao mục tiêu.
+fe86c10207	PDCSAP loại phần còn lại (trung vị PDCSAP/SAP = CROWDSAP/FLFRCSAP; LTT 1445 A b: 0.434). Các sao bạn đồng hành cách A 5 đến 7″, nằm trong một pixel.
+4e684a267f	Nguồn: header đường cong ánh sáng SPOC (CROWDSAP, FLFRCSAP, mặt nạ khẩu độ); Winters et al. 2021 cho LTT 1445
+b97a25260d	4  TESS. Độ chính xác: 67 đến 477 ppm mỗi giờ, và 11 đến 169 điểm mỗi transit
+72d382ec30	Cấp sao T
+b73f7214e5	Sector
+01b43605fd	Transit / n
+df0e298e35	Độ sâu
+dbb3bcac68	CDPP 1 h: độ chính xác quang đo trên 1 giờ (trung vị các sector đã dùng, ppm). Cam: camera. Sector: đã dùng/có. Px / r: số pixel khẩu độ và bán kính tương đương. CROWD: CROWDSAP thấp nhất. Transit / n: thời lượng, số cadence. Độ sâu: (R<sub>p</sub>/R<sub>★</sub>)² (ppm).
+f52aef75c6	Nguồn: header đường cong ánh sáng SPOC (CDPP1_0, TIMEDEL); thời lượng transit từ NASA Exoplanet Archive
+34e6aa4e72	4  TESS. Nó bay đi đâu: quỹ đạo 13.7 ngày giữa 17 và 59 bán kính Trái Đất
+1bb88c27a6	Nhìn từ trên xuống, đúng tỉ lệ khoảng cách.
+4dc5868b6e	Đường đi và quỹ đạo
+497eae76a4	phóng từ Cape Canaveral vào quỹ đạo đỗ (28.5°); hai lần đốt nâng viễn điểm lên 400 000 km; một lần bay qua Mặt Trăng nâng độ nghiêng so với hoàng đạo lên khoảng 40°; quỹ đạo cuối đạt được khoảng 60 ngày sau khi phóng (kịch bản danh định)
+94cf77ea59	quỹ đạo cuối: 17 đến 59 R<sub>⊕</sub>, 13.7 ngày, 2:1 với Mặt Trăng; định luật Kepler thứ ba với a = 38 R<sub>⊕</sub> cho 13.7 ngày (tự tính)
+703205ca20	dữ liệu: tải xuống mỗi 13.7 ngày ở cận điểm, 4 giờ ở 100 Mb/s; rồi các camera chuyển hướng
+53ecf44a99	vì sao chọn quỹ đạo này: nằm ngoài các vành đai bức xạ, không bị Trái Đất hay Mặt Trăng che khuất lâu, ổn định hàng thập kỷ mà không cần giữ quỹ đạo
+d90c471c49	Nguồn: Ricker et al. 2015, Mục 6 tr. 8, Mục 5 tr. 7, Bảng 2 tr. 9; hằng số, phép kiểm Kepler: code/28
+809b926b1e	4  TESS. Ai phóng và tốn bao nhiêu: SpaceX, khoảng 87 triệu USD riêng cho việc phóng
+002ff59811	Câu hỏi
+a16a4eda7c	Trả lời
+5eef32f959	Ai điều hành
+f6fd60a1a5	MIT dẫn dắt sứ mệnh; Explorers Program tại NASA Goddard giám sát; Launch Services Program của NASA (Kennedy) quản lý việc phóng
+ae3f0bf1cc	Thông cáo NASA C14-049
+07f163fb8a	Ai phóng
+bb791fba1f	SpaceX, Falcon 9, từ Cape Canaveral AFS ngày 18/4/2018 lúc 6:51 chiều giờ EDT. NASA chọn SpaceX ngày 16/12/2014 (Falcon 9 v1.1, khi đó dự kiến phóng tháng 8/2017)
+3301214ac4	Thông cáo NASA; MIT News
+2c94adf60b	Chi phí phóng
+2bbefb373b	Khoảng 87 triệu USD cho NASA: dịch vụ phóng, xử lý tàu, tích hợp tải trọng, theo dõi, dữ liệu và đo xa
+99ff1922b1	20 triệu USD: đề xuất đầu tiên, vốn tư nhân (MIT)
+a6b0b1915f	120 triệu USD: đề xuất gửi NASA (MIT)
+2c41bab9e3	87 triệu USD: riêng việc phóng (NASA)
+1902d24fc7	337 triệu USD: tổng được báo (Physics World)
+10845fac95	87 triệu USD chỉ là chi phí phóng; 337 triệu USD là tổng số được báo.
+776f142149	Nguồn: thông cáo NASA C14-049 (16/12/2014); MIT News (4/2018); Physics World (19/4/2018)
+37265045fe	4  TESS. Việt Nam có thể phóng một TESS không? Không bằng tên lửa riêng, nhưng có thể mua một chuyến phóng
+c5184cdffb	Bằng chứng (có nguồn)
+bc4f011171	VNREDSat-1 bay trên tên lửa Vega từ Guiana thuộc Pháp ngày 7/5/2013; cả chương trình tốn 55.8 triệu EUR
+55576dca98	LOTUSat-1 (570 kg) tháng 7/2024 đang ‘chờ tên lửa của Nhật’; cơ sở cho vệ tinh dưới 180 kg dự kiến xong tháng 12/2025
+5b94b9404d	Tháng 8/2026 VinSpace chọn chuyến rideshare Transporter của SpaceX cho các vệ tinh đầu tiên, vào quý 2/2027
+d2aba6ceb3	TESS: 87 triệu USD riêng cho việc phóng
+c10882260d	Lập luận của chúng tôi
+eb9d118e1c	Lên điểm xa 400 000 km từ quỹ đạo tròn 300 km cần Δv = 3.1 km/s ngoài 7.7 km/s sẵn có: cần tên lửa lớn, không phải tên lửa nhỏ (tự tính)
+a8649279e5	Vĩ độ không phải rào cản: 8.6° N cho 460 m/s từ sự quay của Trái Đất so với 409 tại Cape Canaveral, +51 m/s, tức 0.7 % tốc độ quỹ đạo (tự tính)
+79166fbe90	Chúng tôi không thấy báo cáo nào về tên lửa quỹ đạo hay bãi phóng của Việt Nam (một lần tìm web)
+ff6c0fd31d	Thực tế: mua một chuyến phóng, đi nhờ như hành khách phụ (CHEOPS đã làm vậy), hoặc xây kính thiên văn robot mặt đất đo transit (MEarth đã tìm ra GJ 1132 b)
+8cdc91bf94	Nhận định, không phải nguồn: một sứ mệnh cỡ TESS tự phóng là chưa thực tế trong thời gian tới; các phép tính của chúng tôi dùng hằng số chuẩn (code/28_orbit_figure.py).
+ad6d2052ba	Nguồn: tin Cổng thông tin Chính phủ (7/5/2013); VietnamNet (15/7/2024); Al Jazeera (11/8/2026); Benz 2021; code/28
+12a945e91d	4  TESS. Mỗi con số thiết kế đến từ đâu: bài về thiết bị, mục và trang PDF
+a72ca256dc	Điều khẳng định
+300721defd	Trang PDF
+2c9126d3e3	Quỹ đạo elip quanh Trái Đất
+301b202e44	cận điểm 17 R E, viễn điểm 59 R E
+7d7e6df6b8	Chu kỳ và cộng hưởng với Mặt Trăng
+c2951a3494	13.7 ngày, 2:1 với quỹ đạo Mặt Trăng
+836331d598	Phóng và quỹ đạo đầu tiên (kịch bản danh định)
+d96c99f093	Cape Canaveral, quỹ đạo đỗ 28.5 độ
+1e7f241a01	Bay qua Mặt Trăng nâng độ nghiêng so với hoàng đạo
+38f3c8dd44	lên khoảng 40 độ
+f07a962a29	Nhịp tải dữ liệu
+ec3523f7c3	mỗi 13.7 ngày ở cận điểm
+5281cfb88d	24 x 24 độ mỗi camera; 24 x 96 độ = 2300 độ vuông
+00c900df44	Kích thước pixel và PSF
+65b6d0af93	15 micron = 0.35 phút cung
+722d2cb3d2	Ánh sáng trong 4 x 4 pixel
+1eb9bc2e42	90 % trong 4 x 4 pixel = 1.4 phút cung
+04fa8c1494	Một sector kéo dài hai vòng quỹ đạo
+0d98478889	27.4 ngày, trục ngắm gần ngược hướng Mặt Trời
+87a46af540	Diện tích được quan sát ít nhất 27 ngày
+4f98ceb95d	30 000 độ vuông
+b078d67802	Cadence 2 phút
+ec793f3849	60 khung 2 s được cộng lại
+58888fc88e	Số trang PDF của arXiv:1406.0151v3. Mỗi đoạn trích đã được kiểm trong data/literature/tess_fact_sources.csv.
+373ef298f3	4  TESS. Các trang web đã dùng, lưu ngày 21/11/2026
+d70f93df5e	Địa chỉ
+d678e1d1c6	Dùng cho
+b85144e60b	MIT News, TESS takes off
+077ba04c02	Phương tiện, bãi phóng và thời điểm phóng
+cc7b3e0121	Thông cáo hợp đồng NASA C14-049
+0b22ffcba0	Tổng chi phí NASA trả cho việc phóng
+10ad0f6faa	Tổng chi phí sứ mệnh theo báo cáo (nguồn thứ cấp)
+38c6f6def2	STScI MAST, trang sứ mệnh TESS
+3f03184dfa	Thang pixel trên trang archive
+56ec1c6c6a	NASA HEASARC, sản phẩm dữ liệu TESS
+bc6eedad39	Cadence ảnh toàn khung theo chu kỳ (cycle)
+49ffa1e280	Báo điện tử của Chính phủ Việt Nam
+108704eab1	VNREDSat-1 được phóng ở nước ngoài
+9da46f2575	LOTUSat-1 chờ tên lửa của Nhật
+826d9a514b	Chuyến phóng năm 2027 của Việt Nam là rideshare của SpaceX
+ecae60d74d	Bản sao trong data/raw/tess_docs/; mỗi cụm trích đã được tìm thấy trong trang đã lưu.
+9d2d14316d	5  Mẫu. Sáu cách một catalog chia ngoại hành tinh; cách chia của chúng tôi dùng bốn cách đầu
+160bbfbc4d	Trục
+ed1846afee	Các lớp
+e5aaeaac2e	Bán kính
+0acb09e240	dưới 1.25 R<sub>⊕</sub> cỡ Trái Đất; 1.25 đến 2 siêu Trái Đất; 2 đến 4 dưới Sao Hải Vương; 4 đến 8 Sao Hải Vương/Sao Thổ; từ 8 trở lên cỡ Sao Mộc
+ecdf701097	<b>Có</b>
+de4bcc6e83	Chu kỳ quỹ đạo
+75cb3ef763	dưới 1 ngày cực ngắn (USP); 1 đến 3 nóng; 3 đến 7 ấm; 7 đến 15 mát
+cbd475ddc6	Nhiệt độ cân bằng
+ff7bc58172	trên 2000 K cực nóng; 1200 đến 2000 nóng; 500 đến 1200 ấm; dưới 500 K ôn hòa
+3a6fdf61cf	Sao chủ
+85f0a89d92	sao lùn M (dưới 3900 K); K (dưới 5200); G (dưới 6000); F và nóng hơn
+89b06e09c3	Phương pháp phát hiện
+c083deac59	transit, vận tốc xuyên tâm, chụp ảnh trực tiếp, thấu kính vi mô, …
+a4a17e6c15	Có ghi nhận, không dùng để chọn
+910f04a9c4	một hành tinh hoặc nhiều hành tinh trong cùng hệ
+faf40def85	Biên các lớp là do chúng tôi đặt (code/02_group_candidates.py); các bài khác đặt ở chỗ khác. Khối lượng, mật độ, độ nhận bức xạ và thung lũng bán kính cũng được dùng trong tài liệu, nhưng không dùng ở đây.
+df1739e848	5  Mẫu. Mười hành tinh của chúng tôi so với 471: có đủ mọi lớp kích thước và loại sao, lớp chu kỳ 7 đến 15 ngày thì trống
+41ff354b2b	Lớp
+02d563b5a4	471 trong catalog
+cdd224c9c3	Sao lùn M
+499705cfcd	Sao lùn K
+88e692b42f	F/nóng hơn
+d044ee8aef	Đỏ: lớp chiếm ít nhất 25 % trong 471 hành tinh mà mười hành tinh của chúng tôi chỉ chiếm tối đa 40 % phần đó. Thanh: tỉ lệ trong 471.
+0f832da3a2	5  Mẫu. Mười hành tinh đã đủ chưa? Đủ để chứng minh phương pháp, chưa đủ để nói gì về một lớp
+144392c557	Mười hành tinh
+0530b63a90	<b>Đủ để</b>
+a7ded5e1ba	Chứng tỏ pipeline chạy được từ 1.2 đến 15.6 R<sub>⊕</sub>, chu kỳ 0.28 đến 6.1 ngày, cấp sao T từ 6.8 đến 10.8, cả bốn loại sao chủ và cả bốn camera TESS.
+22ae4ebddd	<b>Chưa đủ để</b>
+88bafafc62	Phát biểu theo từng lớp: lớp cỡ Trái Đất, Sao Hải Vương/Sao Thổ và dưới Sao Hải Vương mỗi lớp chỉ có một hành tinh. Không hành tinh nào có chu kỳ 7 đến 15 ngày (139 trên 471); chu kỳ dài nhất của chúng tôi là 6.1 ngày, nên phép tìm mù đến 15 ngày chưa được thử trên mức đó. Phát hiện bằng vận tốc xuyên tâm: 3 trên 10, 8 trên 471.
+c165057e54	<b>Điểm yếu</b>
+c99862c8e0	Ba hành tinh nhỏ nhất, chu kỳ ngắn nhất được dò quanh chu kỳ catalog; K2-141 b dò mù cho ra 5.68 ngày, giá trị catalog là 0.280 ngày.
+844e9a04ba	Tối thiểu: nói rõ trên slide cái gì đã phủ và cái gì chưa. Nếu còn thời gian: thêm một hành tinh dưới Sao Hải Vương có chu kỳ 7 đến 15 ngày, ví dụ TOI-2134 b (9.23 ngày, cấp sao T 7.8) hoặc HD 97658 b (9.49 ngày, cấp sao T 7.0). Chưa kiểm: dữ liệu SPOC, bài báo.
+4ba2220150	Phiếu đề bài chỉ ghi tiêu đề, không nêu số hành tinh.
+3bb6843d75	7  Đồ thị. Loại Hình 5: các hành tinh của chúng tôi nằm đâu trong số những hành tinh đã biết
+997db9fb60	Cấp sao V so với bán kính; đỏ: của chúng tôi (π = π Men c).
+5ef2dab1bf	Khối lượng đo được; các đường cong Zeng; đỏ: bán kính của chúng tôi.
+6665173113	các sao chủ sáng nhất: HD 209458 b (V 7.7), HD 189733 b (V 7.7); 33 hành tinh đã biết có V &lt; 8
+751f1d4100	0 = giống Trái Đất, 1 = nước: TOI−270 c 1.1; LTT 1445 A b 0.1; GJ 1132 b −0.1; K2−141 b −0.2
+bbd61ebd37	7  Chẩn đoán. Transit lẻ so với chẵn: ba hành tinh vượt 3σ, nhưng chỉ lệch 1 đến 17 %
+3e70ce57b2	(độ sâu lẻ − chẵn) chia cho βσ; dải xám: ±3; đỏ: nằm ngoài.
+3ac5b714b2	ngoài 3σ: HD 209458 b, WASP-18 b, pi Men c
+e907638677	chênh lệch độ sâu: HD 209458 b 1.4 %, WASP-18 b 1.1 %, pi Men c 16.4 %
+da3f5dfdfd	π Men c chỉ có 2 transit lẻ và 3 transit chẵn; độ phân tán theo từng transit (31 ppm) cho khoảng 1.3σ
+c049f173dd	7  Chẩn đoán. Thông lượng tại pha 0.5: WASP-18 b để lộ ánh sáng của chính nó, 352 ppm
+426e5768fc	Độ hụt thông lượng trung bình trong cửa sổ bằng một thời lượng transit, tâm tại pha 0.5, lấy ngoài transit làm chuẩn.
+2de91f6076	WASP-18 b: 352 ± 9 ppm (nhiễu trắng); nhân ×β 2.09 cho ±19
+c356877246	Shporer+2019 (TESS sector 2): nhật thực thứ cấp 341 +17 −18 ppm, nên hai kết quả khớp nhau
+2c38860e41	mọi hành tinh khác đều dưới 3σ; GJ 1132 b là 223 ± 72 ppm, không có ý nghĩa sau khi nhân ×β
+b614f51aab	7  Chẩn đoán. Nhiễu đỏ: lấy trung bình giúp ít hơn 1/√N, theo hệ số β từ 1.0 đến 3.6
+917d612481	Trái: rms của phần dư theo kích thước bin cho từng hành tinh; nét đứt: nhiễu trắng. Phải: β của từng hành tinh (đỏ: &gt; 1.5).
+cbb5dd95b5	β lớn nhất: HD 189733 b 3.62, HD 118203 b 2.91; nhỏ nhất: LTT 9779 b 1.03
+c1333ad6fa	π Men c có β = 1.52, rms mỗi điểm 124 ppm: đường cong ánh sáng yên tĩnh nhất trong mười một hành tinh
+26c5bccde5	7  Kết quả. Tám trong mười bán kính nằm trong 4 % so với catalog; chu kỳ trong 0.03 %
+81c1ef7c8b	Chênh lệch bán kính so với catalog; thanh: 1σ tổng.
+ca442f00eb	|ΔP|/P, thang log.
+2d8f7756e6	7  Kết quả. Chênh 0.3 đến 10 % so với catalog, đọc theo đơn vị sai số
+14d67d31b5	Tròn: của ta (1σ). Thoi: đã công bố. Phải: pull.
+79b7117397	Cách đọc
+f865830397	9/10 tỉ số trong 2σ; ngoài: WASP-18 b, -3.2 % (-2.9σ)
+d50c29f674	K2-141 b lệch nhất, -9.7 %, nhưng sai số 6.1 %: -1.5σ
+58cbc168e0	HD 189733 b: -0.8 % nhưng -2.0σ; với nhiễu đỏ (×3.6) là -0.6σ
+d46d263356	Các bài báo cũng phân tán quanh catalog; WASP-18 b: cả hai phân tích TESS đều thấp hơn
+1aa62e00af	Bán kính và chu kỳ
+3c8329dd22	bán kính: 10/10 trong 2σ (0.1 đến 7.3 %)
+fc804ac6b6	chu kỳ: 8/10; TOI-270 c -4.2σ, WASP-18 b +2.3σ
+6ca3171035	7  Kết quả. Giá trị trong catalog hiếm khi đến từ bài báo phát hiện
+34ae992eb6	Bài báo phát hiện
+170a28a9db	Chu kỳ
+93c5a636c9	Chỉ 1 hành tinh (LTT 9779 b) lấy giá trị từ bài báo phát hiện của nó. Bán kính và tỉ số đến từ hai bài khác nhau ở 4 hành tinh: HD 189733 b, HD 209458 b, WASP-62 b, K2-141 b (in đậm). Bán kính sao lấy từ bài báo của bán kính ở cả mười hành tinh.
+a9fa528ae7	8  Tác giả và chúng tôi. Tỉ số R<sub>p</sub>/R<sub>★</sub> so với 12 giá trị đã công bố
+22d507f2ba	Bài báo
+483bf2075c	Đã công bố
+081bec029f	Của chúng tôi
+a6500a44f3	Pull (tỉ số)
+0300a44d41	Pull (R<sub>p</sub>)
+7f6e5a6efa	Kết luận
+c9600527f4	khớp
+dfbc6454c3	lệch
+e10f13ea4c	R lệch
+4ec84d3684	8  Tác giả và chúng tôi. Chỗ chúng tôi khác, và vì sao
+d02da3b6d2	Tỉ số 0.172 (2005) so với 0.1541 của chúng tôi. Spitzer 2007 cho 0.1545 và khớp với chúng tôi (-0.25 %). Giá trị năm 2005 là giá trị ngoại lai.
+b1f1b018af	Bán kính +11 %: bài báo giả định R<sub>★</sub> = 1.1, archive ghi 1.19. Tỉ số chỉ lệch +2.2 %.
+a9814778ff	Tỉ số +1.5 % (danh nghĩa 5σ), bán kính +6.2 % (+1.1σ). Khác sector; chưa tìm ra nguyên nhân.
+4b89602094	Mọi hành tinh còn lại khớp trong 2σ. π Men c khớp chỉ vì tỉ số thấp hơn và bán kính sao cao hơn triệt tiêu nhau.
+345fa851f8	8  Tác giả và chúng tôi. Các PDF đã kiểm: tên hành tinh tô vàng, số công bố tô xanh hoặc đỏ
+593aa88b86	Đã làm gì
+c335cdf614	literature/checking/, mỗi PDF có nhắc tên một hành tinh của dự án có một bản chú thích; bản gốc trong literature/pdf/ không bị sửa
+12b4ade7dc	mọi lần xuất hiện của mười một tên hành tinh
+d1c22f45ea	Xanh hoặc đỏ
+1c05961ffe	chu kỳ, tỉ số và bán kính đã công bố, kèm chú thích: giá trị công bố, giá trị của chúng tôi, chênh lệch, pull, kết luận
+9a08ccc1f7	38 PDF đã chú thích; 44 giá trị được đánh dấu là khớp, 8 giá trị bị đánh dấu là lệch
+a5ac6ab5e1	Kiểm tra cuối
+e6fef07002	35 trên 35 con số được trích đã được tìm thấy nguyên văn trong văn bản PDF
+f25518cf50	Mở một file trong literature/checking/ và bấm vào một con số xanh hoặc đỏ để đọc chú thích.
+704bdcff9c	9  Tài liệu. 150 bài đã kiểm chứng trong mười một nhóm phương pháp
+aaee9553d8	Trái: số bài theo nhóm phương pháp. Phải: năm công bố (đỏ: được dùng trong dự án này).
+c9aa97873f	Mỗi mục đã được kiểm trên arXiv hoặc Crossref (họ tác giả đầu và tiêu đề). Các ứng viên không kiểm chứng được đã bị loại.
+29ca87489f	9  Tài liệu. Mỗi bước của pipeline đều có một bài báo đứng sau
+dc416e1088	Bước
+a39b9d3a47	Chúng tôi làm gì
+afcd58c32e	Các bài chính (đều đã kiểm chứng)
+dd60172a63	9  Tài liệu. A  Sứ mệnh, catalog và pipeline
+81fbc897e4	TESS quan sát gì, quan sát những sao nào, và pixel thô trở thành đường cong ánh sáng mà chúng tôi khớp ra sao.
+414dce4e29	<b>Phương pháp con:</b> Thiết kế sứ mệnh và sản lượng kỳ vọng · Catalog mục tiêu (TIC, TOI) · Pipeline SPOC: điều kiện hóa trước khi tìm, kiểm định dữ liệu · Quang đo ảnh toàn khung (QLP, eleanor, difference imaging) · Gaia làm mốc cho khoảng cách và bán kính.
+768e0c1c69	Tiêu đề
+11a300b50b	17 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+0337011fad	9  Tài liệu. B  Làm phẳng và biến thiên của sao
+30ea7b5b08	Các sao biến thiên mạnh hơn độ sâu của một transit. Mỗi phương pháp đánh đổi độ sâu transit lấy xu hướng còn dư.
+b818c7c032	<b>Phương pháp con:</b> Bộ lọc trung vị / Savitzky-Golay (dùng ở đây, qua lightkurve) · Spline và tự làm phẳng (K2SFF) · Quá trình Gauss (celerite, K2SC) · Thuật toán lọc xu hướng (TFA) và wotan biweight.
+fca8e21bff	6 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+8d75ecef6a	9  Tài liệu. C  Tìm transit và học máy
+1d195579a9	Tìm một dip tuần hoàn dạng hộp: bình phương tối thiểu trong hộp, một hình dạng vật lý, hoặc mạng nơ-ron huấn luyện trên các ứng viên đã gán nhãn.
+00f21cfa6c	<b>Phương pháp con:</b> Box Least Squares (BLS, dùng ở đây) · Transit Least Squares (hình dạng vật lý) · Lomb-Scargle cho tín hiệu tuần hoàn (RV, tự quay) · Mạng tích chập để phân loại và kiểm định · Khoa học công dân (Planet Hunters TESS).
+61d6fc9dd5	16 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+a4782d1ff3	9  Tài liệu. D  Mô hình hóa transit và suy luận
+2fe9964010	Biến một dip thành R<sub>p</sub>/R<sub>★</sub>, b và a/R<sub>★</sub> với sai số có tính cả nhiễu tương quan.
+48f1691d92	<b>Phương pháp con:</b> Đường cong ánh sáng giải tích có tối tâm (Mandel-Agol, batman: dùng ở đây) · Hình học từ đường cong ánh sáng (Seager và Mallen-Ornelas, Winn) · Luật tối tâm và prior (Kipping q<sub>1</sub>,q<sub>2</sub>: dùng ở đây; Claret cho TESS) · Bộ lấy mẫu MCMC (emcee, bất biến affine: dùng ở đây) · Gói phần mềm: EXOFAST, juliet, exoplanet · Nhiễu đỏ và thời gian phơi sáng hữu hạn (Pont, Kipping).
+7d3ba48564	19 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+014f4cc4c7	9  Tài liệu. E  Kiểm định và xác nhận thống kê
+b725f8ab35	Một dip chưa phải hành tinh cho đến khi loại trừ được các hệ pha trộn ánh sáng và sao đôi che khuất.
+8e534c9230	<b>Phương pháp con:</b> Kiểm tra độ sâu lẻ-chẵn và nhật thực thứ cấp · Kiểm tra tâm sáng và nền · Kịch bản pha trộn và xác suất dương tính giả (vespa, TRICERATOPS) · Tỉ lệ dương tính giả của Kepler · Quang đo theo dõi từ mặt đất.
+c4e99e75c2	9 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+052d92d8a6	9  Tài liệu. F  Đặc trưng hóa sao
+0b1c168959	Bán kính hành tinh chỉ tốt bằng bán kính sao: chiếm 1 đến 7 % ngân sách sai số của chúng tôi.
+8e18a8d69a	<b>Phương pháp con:</b> Khối lượng và bán kính của sao thường · Bán kính dựa trên Gaia (Berger, Fulton và Petigura) · Mô hình tiến hóa sao (Dartmouth) · Hệ thức tỉ lệ cho sao lùn M (Mann) · Địa chấn học sao.
+2a6ed13408	8 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+2ce6b9f693	9  Tài liệu. G  Quần thể, tần suất và thành phần
+2a3ad38311	Bán kính có nghĩa gì khi biết nhiều hành tinh: thung lũng bán kính, luật khối lượng-bán kính, đường cong thành phần, tần suất xuất hiện.
+a4f8f5087d	<b>Phương pháp con:</b> Thung lũng bán kính và bay hơi · Hệ thức khối lượng-bán kính và đường cong thành phần (Zeng: dùng trong hình của chúng tôi) · Khối lượng-bán kính xác suất (Chen và Kipping, Wolfgang) · Tần suất xuất hiện từ Kepler · Mất khối lượng do lõi cấp năng lượng.
+9569d116ff	20 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+ff22895f2c	9  Tài liệu. H  Các phát hiện kinh điển và trường hợp khoa học
+76e08d20df	Từ ngoại hành tinh đầu tiên quanh một sao giống Mặt Trời đến khí quyển: vì sao bán kính từ transit quan trọng.
+41f7872fc7	<b>Phương pháp con:</b> Phát hiện bằng vận tốc xuyên tâm (51 Peg b) · Các transit đầu tiên (HD 209458 b) · Kepler và K2 · Kết quả đầu tiên của TESS · Khí quyển và mây · Vùng ở được và các chỉ số TSM.
+0e6da2f472	9  Tài liệu. K  Lịch sử tìm kiếm: ngoại hành tinh đã được tìm ra thế nào
+b335f95fdc	Con đường từ đo thời gian pulsar và vận tốc Doppler tới khảo sát transit từ mặt đất, quang đo từ không gian và nghiên cứu khí quyển, kèm bài báo đứng sau mỗi bước.
+a70a075201	<b>Phương pháp con:</b> Doppler và đo thời gian pulsar (1992, 1995, ESPRESSO) · Khảo sát transit từ mặt đất (HD 209458 b, TrES, HAT, SuperWASP, KELT, MEarth) · Quang đo từ không gian (CoRoT, Kepler, K2, TESS, CHEOPS, PLATO) · Khí quyển và theo dõi (HST, Spitzer, JWST) · Thấu kính vi mô và chụp ảnh trực tiếp để làm bối cảnh.
+a6b992687c	22 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+037a16f23e	9  Tài liệu. Các bài báo phát hiện đứng sau những hành tinh chúng tôi so sánh
+645246dd48	Bài báo phát hiện hoặc xác nhận
+ef94d7ed43	10  Dữ liệu. Mọi con số trong catalog đều có thể truy vấn lại: 52 trên 52 giá trị khớp hôm nay
+4b5e84be0e	Kiểm tra
+59ee2e0008	Các cột được so sánh
+6aff062b1e	chu kỳ, bán kính, tỉ số, bán kính sao
+1d45551c17	13 (10 + π Men c + 2 phép thử sức chịu)
+9e8ea9309e	Bằng file CSV đã tải
+786fea3c28	52 trên 52 giá trị (truy vấn trực tiếp, 16/11/2026)
+91e21a5619	Archive liên tục thay đổi, nên chúng tôi lưu câu truy vấn, ngày và phép so sánh.
+d67854f5f4	Bảng: pscomppars, mỗi hành tinh một dòng; file data/catalog_recheck.csv; script code/16_reproduce.py.
+9b5f01c53b	10  Dữ liệu. Các đường cong ánh sáng: 21 file SPOC, mỗi file có URL và md5
+6ce6c512ea	File
+9d30972683	Mỗi file trong 21 file có URL và md5 trong data/data_manifest.csv.
+58ede0d115	10  Dữ liệu. Chạy pipeline và kỳ vọng các con số này
+a7b93d2128	Chế độ
+4a88d27bba	Catalog
+7afb6295c7	mù
+5b590af68f	có hướng dẫn
+d57f71082d	11  Câu hỏi. Làm sao biết kết quả đáng tin?
+0b8c5eb570	HD 118203 b: tỉ số 0.0553 so với 0.0554 của bài hướng dẫn và 0.05538 của Pepper (−0.2 %).
+4880fd97b4	Các bài báo độc lập
+1059e98c44	10 trên 12 tỉ số đã công bố và 10 trên 12 bán kính khớp trong 2σ; chu kỳ 10 trên 10. Những chỗ lệch đều đã được giải thích hoặc đánh dấu.
+98bf5f1b6b	Lẻ-chẵn, pha 0.5 (WASP-18 b: 352 ppm so với 341) và nhiễu đỏ β đều được đo, không phải giả định.
+8abaf6b921	Chúng tôi không thể biết sự thật; chúng tôi kiểm tra rằng một phương pháp độc lập khớp với các giá trị đã công bố, và nói rõ chỗ nào không khớp.
+bf13db5a76	11  Câu hỏi. Các câu hỏi có thể gặp và trả lời ngắn
+f0397a26c5	Float32 hay float64 có phải là nguyên nhân?
+cb940e465b	Không. Sai số làm tròn 10<sup>-7</sup> so với nhiễu 10<sup>-4</sup>; khớp lại bằng float32 chỉ làm tỉ số đổi 0.2 %, là nhiễu MCMC.
+0db451435e	Vì sao Rp khớp với hành tinh của bài báo mà tỉ số thì không?
+8b479d1d0b	π Men c: R<sub>★</sub> của chúng tôi là 1.17, của bài báo là 1.10; hai độ lệch triệt tiêu nhau.
+6a3805f36a	Vì sao dùng chế độ có hướng dẫn cho ba hành tinh?
+6aaac6ff79	BLS mù bị kẹt vào các alias khi S/N thấp hoặc P ngắn; cửa sổ chỉ là một ràng buộc, chu kỳ vẫn được khớp.
+a00bef7ae5	Vì sao chỉ dùng các sector đầu?
+00f3b29e67	Thời gian chạy và đường cơ sở sạch; thêm sector sẽ làm P chính xác hơn chứ không làm R<sub>p</sub> chính xác hơn.
+2fd9b87f6b	β là gì?
+12f89f9d2b	Tỉ số giữa rms đo được và rms nhiễu trắng trong các bin có độ dài bằng một transit; 1 nghĩa là nhiễu trắng.
+b9ec9c4b8f	Vì sao không dùng thời lượng của catalog?
+4fab6d941f	Chế độ mù không dùng; chế độ có hướng dẫn chỉ dùng nó cho lưới thời lượng của BLS.
+3452d9e1ce	11  Câu hỏi. Mười câu hỏi giảng viên có thể hỏi: 1 đến 5
+b1617cf7d1	Trả lời ngắn và chỗ chứng minh
+3f77560240	Vì sao một dip về độ sáng cho ra bán kính?
+38e091abdb	Độ sâu ≈ (R<sub>p</sub>/R<sub>★</sub>)², R<sub>p</sub> = tỉ số × R<sub>★</sub>. R<sub>★</sub> lấy từ archive, không phải do chúng tôi đo, nên sai số của nó đi thẳng vào R<sub>p</sub> (mục 7).
+1ee082051a	Vì sao tin chu kỳ này mà không phải P/2 hay 2P?
+26459f0563	BLS quét 0.26 đến 15 ngày; 8 trên 10 chu kỳ khớp catalog trong 2σ. Ba hành tinh được dò quanh chu kỳ catalog; K2-141 b dò mù cho 5.68 ngày (mục 6, 7).
+b308075385	Sai số đến từ đâu; có đầy đủ không?
+68ee1e7e95	MCMC, ba biến thể làm phẳng và R<sub>★</sub>. Nhiễu đỏ (β 1.0 đến 3.6) chưa được tính; khi nhân ×β thì pull của HD 189733 b giảm từ -2.0σ xuống -0.6σ (mục 7).
+59fc5a9094	Vì sao kết quả khác NASA?
+97da8533f5	Một chênh lệch chỉ có ý nghĩa khi tính theo đơn vị sai số của nó. 9 trên 10 tỉ số nằm trong 2σ. Giá trị catalog đến từ các bài báo khác: chỉ 1 hành tinh lấy từ bài báo phát hiện của nó (mục 7).
+fd65ce2f22	Làm sao biết đó là hành tinh, không phải sao đôi?
+d6d4b1b450	Cả mười đều là hành tinh đã xác nhận trong NASA archive; chúng tôi không làm kiểm định tâm sáng. Chúng tôi chạy phép thử lẻ-chẵn và phép thử pha 0.5 (WASP-18 b: 352 ± 9 ppm; Shporer et al. 341) (mục 7).
+c6cb822035	Suy ra từ nhận xét của nhóm (bản chất của kết quả, vì sao, và điều gì chống đỡ nó); giảng viên chưa xác nhận.
+f8673b8e3d	11  Câu hỏi. Mười câu hỏi giảng viên có thể hỏi: 6 đến 10
+735316344b	Tỉ số, tham số va chạm và độ tối tâm có suy biến với nhau không?
+2c918709ee	Độ tối tâm (q<sub>1</sub>, q<sub>2</sub>) và b đều được khớp. LTT 9779 b: b = 0.91 và sai số 13 %, chủ yếu do làm phẳng chứ không phải do MCMC (mục 6).
+a3ee982fe9	Giả định nào có thể sai?
+c7b1ec1b34	Quỹ đạo tròn cho cả mười (HD 118203 b có e = 0.316, Pepper 2020), R<sub>★</sub> lấy từ archive, chỉ 1 đến 4 sector, và hiệu chỉnh độ nhiễm (LTT 1445 A b: CROWDSAP 0.42) (mục 4, 6).
+ff5a88c15e	TESS cho gì, và không cho gì?
+493137de64	Điểm 2 phút, sector 27 ngày, pixel 21″, khoảng trống 1 đến 8 ngày. Sai số chu kỳ từ 0.6 ppm (WASP-18 b) đến 173 ppm (K2-141 b) (mục 4).
+904d1a0233	Vì sao chọn mười hành tinh này? Mười đã đủ chưa?
+befdeea427	Chúng phủ mọi lớp kích thước và loại sao chủ; lớp chu kỳ 7 đến 15 ngày thì trống (29 % mẫu catalog). Đủ để chứng minh phương pháp, chưa đủ để nói gì về một lớp (mục 5).
+ca512b72c2	Nếu làm lại, bạn sẽ làm gì khác?
+3f3febfc99	Dùng mọi sector, khớp độ lệch tâm, làm phẳng bằng quá trình Gauss, nhân sai số với β, và đọc phần Phương pháp của từng bài báo catalog (mục 7, 8).
+3eda18208a	12  Kết luận. Chúng tôi đã dựng lại gì, cái gì khớp, cái gì không
+3a5c69b168	Năm loại hình của bài mẫu, cho mười hành tinh; hành tinh của chính bài báo cho 6.26779 ngày và 2.03 ± 0.07 R<sub>⊕</sub> so với 6.27 và 2.04 ± 0.05.
+9da62c4af1	10 trên 12 tỉ số đã công bố và 10 trên 12 bán kính trong 2σ; chu kỳ 10 trên 10; thông lượng ở pha 0.5 của WASP-18 b là 352 so với 341 ppm.
+bb3221fce4	Tỉ số của WASP-18 b (+1.5 %), độ sâu của hành tinh mẫu (−6.6 % so với bài báo), nhiễu đỏ chưa có trong các sai số đã nêu.
+60dd1e1762	150 bài đã kiểm chứng, 144 PDF, 38 bản chú thích trong literature/checking/.
+e4755d61cf	REPRODUCE.md trong thư mục dự án liệt kê mọi lệnh và các con số kỳ vọng.
+d75405d6be	B1  Phụ lục. Bài báo đứng sau bài mẫu: Huang et al. 2018, π Men c
+85a7de6e27	Sao
+caec7a4050	π Mensae (HD 39091), G0V, V = 5.67, 18.27 ± 0.02 pc; 1.094 M<sub>☉</sub>, 1.10 R<sub>☉</sub> (Bảng 1 của họ).
+18e8546994	Hành tinh c
+a72115c365	R = 2.04 ± 0.05 R<sub>⊕</sub>, P = 6.27 ngày, M = 4.82 ± 0.85 M<sub>⊕</sub> từ vận tốc HARPS và AAT/UCLES.
+493347b946	Dữ liệu TESS
+095a322853	Sector 1 (25/7 đến 22/8/2018), camera 4, CCD 2; ảnh toàn khung SPOC 2 phút và 30 phút; 5 transit sâu khoảng 300 ppm, dài 3 giờ.
+8bfc28559d	Đây là hành tinh nhỏ đầu tiên TESS tìm thấy quanh một sao sáng, arXiv:1809.05967.
+9aecd6f4ae	Mọi giá trị trên slide này được đọc từ PDF (tóm tắt, Bảng 1, Mục 2 và 3).
+9145682583	B2  Phụ lục. Loại Hình 2 cho π Men c: năm transit, mười lần xả mômen, một dip gập pha
+9df3c12edc	Trên: PDCSAP thô, đường nét đứt tại các lần xả mômen. Giữa: sau khi làm phẳng Savitzky-Golay, vạch đỏ tại các transit dự đoán. Dưới: gập pha, gộp bin, mô hình.
+7b208ab926	5 transit gần BTJD 1325.5, 1331.8, 1338.0, 1344.3, 1350.6
+3e28e32ff0	10 lần xả mômen, giống bài báo
+d71142a708	rms 135 xuống 130 ppm sau khi làm phẳng
+0e03cc5ef2	dip gập pha kéo dài 3.12 giờ, độ sâu giữa transit 288 ppm
+045889676e	(R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> = 253 ppm
+89ba9cb12e	B3  Phụ lục. Loại Hình 4 cho π Men c: mỗi transit khớp riêng, độ sâu phân tán 31 ppm
+130d326eb6	Năm transit với mô hình toàn cục; khung cuối: hậu nghiệm của (R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> theo từng transit, đen = toàn bộ dữ liệu.
+4c1920416d	độ sâu từng transit 232, 250, 260, 308, 236 ppm
+6e39354b5f	mỗi cái ±10 ppm do nhiễu trắng
+ab6fe646a0	độ phân tán thật 31 ppm
+102f818ba3	χ<sup>2</sup> = 38 với 4 bậc tự do: sai số nhỏ hơn thực khoảng 3 lần
+d13e051736	B4  Phụ lục. Loại Hình 1 cho π Men c: khẩu độ SPOC chứa 96 % thông lượng
+6387aab3bb	Các pixel TESS được cộng (thang log), sector 1; đỏ: khẩu độ quang đo của SPOC.
+3eaad58e2a	ô ảnh 11 × 21 pixel, camera 4, CCD 2
+a3641544cc	khẩu độ 45 pixel chứa 96 % thông lượng tổng
+6d3e0753a3	một sao sáng, không có nguồn thứ hai trong khẩu độ
+2bbff6246d	Khớp với bài báo: sector 1, camera 4, CCD 2.
+ef875de903	B5  Phụ lục. BLS trên π Men c tìm thấy 6.27 ngày với S/N 59, cùng các alias yếu hơn ở P/2 và 2P
+707a8791bf	Công suất Box Least Squares theo chu kỳ thử; đỏ: chu kỳ tốt nhất; xám nét đứt: P/2 và 2P.
+67996c539e	chu kỳ tốt nhất 6.2709 ngày trên lưới BLS, S/N 59.4
+12b863a45b	công suất trung vị 4.45, phân vị 95 là 16.81
+ce70484f26	phép khớp tinh chỉnh nó thành 6.26778 ngày
+3b23297e00	Nhóm, năm, tác giả
+6f67918c3c	Bộ slide học cho mười hành tinh: các loại hình lấy từ một bài báo phát hiện của TESS, đồ thị cho từng hành tinh, so sánh với các tác giả của từng bài báo phát hiện, tổng quan tài liệu đã kiểm chứng theo nhóm phương pháp, và cách lấy lại mọi con số.
+e91c71a1d3	Đây là bộ slide học, tách biệt với bài thuyết trình 25 phút. Nó trả lời: bài báo thật sự nói gì, ta dựng lại được không, ta khớp với các tác giả ở đâu, và tài liệu đứng sau từng bước là gì.
+c3be14a52b	Measured là do chúng tôi tự tính. Catalog và Published lấy từ dữ liệu. Bán kính sao đi vào bán kính hành tinh, nên khi muốn kết quả thuần từ đường cong ánh sáng thì hãy so tỉ số. LTT 9779 b, LTT 1445 A b và K2-141 b được tìm trong một cửa sổ quanh chu kỳ catalog.
+3d679c9251	Độ chính xác số thực không phải nguyên nhân: file SPOC lưu thông lượng dạng float32 với sai số làm tròn tương đối 1e-7, còn nhiễu là 1e-4. Nhiễu của bộ lấy mẫu có thật nhưng nhỏ. Những nguyên nhân lớn là bán kính sao và các bài báo phát hiện cũ.
+759fb611f6	Chúng tôi dựng lại bằng pipeline riêng trên cùng sector, nên phép so sánh là phép thử phương pháp, không phải sao chép đồ thị của họ.
+6251d1ab45	Chu kỳ và bán kính khớp. Nhưng độ sâu thì không giống: histogram ở Hình 4 của bài báo đỉnh gần 290 ppm, của chúng tôi là 252 ppm, lệch -6.6 phần trăm về tỉ số. Bán kính khớp chỉ vì bán kính sao trong archive 1.17 lớn hơn 1.10 của bài báo. Nguyên nhân của độ lệch độ sâu chưa xác định: các ứng viên là làm phẳng, xử lý lại dữ liệu SPOC và độ nhiễm; chưa cái nào được kiểm.
+bf1b31b18f	Bố cục và phong cách vẽ theo timeline Hadoop của bộ slide mẫu HUST (slide 31): lane theo vai trò, nét đứt cho ý tưởng, nét liền cho phụ thuộc. Mỗi mốc có một bài báo trong thư mục tài liệu và một đoạn trích nguyên văn đã kiểm trong data/literature/tess_fact_sources.csv. Mayor và Queloz 1995 và Wolszczan 1992 bị paywall và không được tải; mục của chúng dựa trên tiêu đề và bản ghi Crossref. HD 209458 b là hành tinh đầu tiên được thấy transit, đã được tìm trước đó bằng vận tốc xuyên tâm (Charbonneau 2000).
+e313ba9dd3	Bảng pscomppars của archive được truy vấn ngày 2026-11-21 bằng TAP. Các con số thay đổi khi có thêm hành tinh. Kepler, K2 và TESS cộng lại chiếm 4364 hành tinh; các khảo sát transit mặt đất trong bảng nhỏ hơn nhiều.
+831839b5a2	Ngày phóng và phần cứng được trích từ các bài báo sứ mệnh kèm số trang PDF của đoạn trích (data/literature/tess_fact_sources.csv). Ngày phóng của TESS lấy từ trang sứ mệnh của NASA. Số hành tinh lấy từ truy vấn archive cùng ngày với slide H2.
+3dfc56b795	Phương pháp, cơ sở và năm phát hiện là các cột discoverymethod, disc_facility và disc_year của archive. Theo lane: ba phát hiện bằng Doppler (HD 118203 b, HD 189733 b, HD 209458 b), ba phát hiện bằng transit mặt đất (WASP-18 b, WASP-62 b, GJ 1132 b) và bốn từ không gian (K2-141 b, TOI-270 c, LTT 1445 A b, LTT 9779 b). Archive xếp GJ 1132 b vào cơ sở Cerro Tololo, nơi đặt dàn MEarth-South (Berta-Thompson 2015).
+190e8dcd8e	Mọi điều ở cột bên phải được trích từ bài về thiết bị, Ricker et al. 2015 (literature/text), kèm bảng hoặc mục. Thang pixel 21 giây cung mỗi pixel và trường nhìn 24 nhân 96 độ cũng được nêu trên trang MAST về TESS. Đây là các giá trị thiết kế từ trước khi phóng; các slide sau đo những gì có thể trên chính file của chúng tôi.
+6ff16e3342	Các con số thiết kế lấy từ Ricker et al. 2015, Mục 7.2. Con số 73 phần trăm là phép chia của chúng tôi: 30 000 chia cho diện tích mặt cầu 41 253 độ vuông; đó không phải số của bài báo. Đồ thị lấy từ lần tìm trên MAST trong code/03_check_mast.py: các sao gần cực hoàng đạo được thấy trong nhiều sector hơn hẳn, vì ở đó các sector chồng lên nhau.
+e499bd44c7	Đường đỏ đánh dấu 13.7 ngày, một vòng quỹ đạo tàu. Hầu hết file có một chỗ đứt gần đó, và các chỗ đứt ngắn hơn là cadence bị pipeline gắn cờ. Chúng tôi chưa tách nguyên nhân của từng chỗ đứt. Số cadence trong một transit dùng thời lượng transit của catalog (pl_trandur) chia cho 120 s.
+1f71a6ff60	Cadence theo chu kỳ lấy từ trang sản phẩm dữ liệu TESS của NASA HEASARC; bảng năm-sector lấy từ trang khoa học TESS của MIT; cadence nhanh và sector 27 là sector đầu tiên của sứ mệnh mở rộng lấy từ sổ tay archive TESS của STScI (các trang lưu trong data/raw/tess_docs/). Chúng tôi chỉ dùng đường cong ánh sáng SPOC 2 phút.
+4c24449332	Kích thước pixel và các tỉ lệ năng lượng lấy từ Ricker et al. 2015, Bảng 1; 21 giây cung mỗi pixel cũng có trên trang TESS của STScI. Thang pixel của các file chúng tôi đọc từ WCS lưu cùng mặt nạ khẩu độ. Kích thước tính theo khoảng cách dùng khoảng cách trong catalog của từng sao.
+7a3174e764	CROWDSAP và FLFRCSAP là các từ khóa header của đường cong ánh sáng SPOC. Chúng tôi kiểm trên ba file rằng trung vị PDCSAP chia cho trung vị SAP bằng CROWDSAP chia cho FLFRCSAP; LTT 1445 A b, GJ 1132 b và pi Men c khớp đến ba chữ số. Vì vậy độ sâu của LTT 1445 A b phụ thuộc vào một hiệu chỉnh lớn. Winters et al. 2021 mô tả LTT 1445 là một hệ ba sao lùn M phân cấp ở 6.86 pc.
+7ffcafef8f	Các cột lấy từ header FITS của các file SPOC (results/tess_planets.csv). Tỉ số độ sâu trên CDPP chỉ là chỉ báo thô và không phải S/N của phép khớp: K2-141 b có độ sâu 355 ppm so với 325 ppm mỗi giờ, và chỉ phát hiện được vì gập pha 57 transit.
+04235ab32c	Mọi điều trong khung bên phải được trích từ Ricker et al. 2015: Mục 6 ở trang 8 (quỹ đạo và đường đi danh định), Mục 5 ở trang 7 (tải dữ liệu), Bảng 2 ở trang 9. Đường đi được mô tả là kịch bản danh định trước khi phóng; lần phóng thật diễn ra ngày 18/4/2018. Chu kỳ theo định luật Kepler và bán kính quỹ đạo Mặt Trăng (384 400 km = 60 bán kính Trái Đất) là phép tính của chúng tôi với hằng số chuẩn; hai lần chu kỳ TESS, 27.4 ngày, gần với chu kỳ thiên văn của Mặt Trăng, 27.3 ngày.
+53ebea2e4e	Chi phí phóng và hợp đồng được trích từ thông cáo hợp đồng NASA C14-049 ngày 16/12/2014. Ngày và giờ phóng lấy từ bài MIT News. Con số 337 triệu USD xuất hiện trong báo cáo của Physics World ngày 19/4/2018; Sky and Telescope và Wikipedia được thấy trong một lần tìm web với cách chia khác (khoảng 200 triệu USD cộng 87 triệu USD) nhưng chúng tôi không kiểm các trang đó, nên không dùng. Ngân sách các đề xuất lấy từ lịch sử sứ mệnh trên MIT News; 20 triệu USD là đề xuất tư nhân năm 2006 và 120 triệu USD là mức kinh phí NASA, đều trước đề xuất Small Explorer năm 2008.
+638d077679	Bằng chứng: tin của Cổng thông tin Chính phủ Việt Nam ngày 7/5/2013 (VNREDSat-1: Vega, Trung tâm Vũ trụ Guiana, 55.8 triệu EUR gồm khoảng 65 tỉ đồng từ Việt Nam); VietnamNet ngày 15/7/2024 (LOTUSat-1 chờ tên lửa Nhật; cơ sở vệ tinh nhỏ dự kiến tháng 12/2025; chúng tôi chưa kiểm tình trạng sau đó); Al Jazeera ngày 11/8/2026 (VinSpace và rideshare Transporter của SpaceX, quý 2/2027). Lập luận: delta-v lấy từ phương trình vis-viva; lập luận về vĩ độ dùng tốc độ quay xích đạo 0.465 km/s nhân cos(vĩ độ). Tự phóng cần tên lửa, bãi phóng và kinh nghiệm bay; chúng tôi chỉ không thấy báo cáo nào về chúng trong một lần tìm web, và điều đó không phải bằng chứng.
+cfb980ddb5	Bảng được dựng từ data/literature/tess_fact_sources.csv bằng code/26_tess_sources.py, script tìm từng cụm trích trong văn bản PDF theo từng trang; một dòng chỉ được ghi là đã kiểm chứng khi tìm thấy cụm đó. Trích dẫn đầu tiên là Ricker, G. R. et al. 2015, Journal of Astronomical Telescopes, Instruments, and Systems 1(1), 014003, arXiv:1406.0151.
+b7ee8f500c	Các trang web là công khai. Văn bản của chúng được lưu ngày 21/11/2026 và mỗi cụm trích đã được tìm trong bản sao đã lưu. Trang web có thể thay đổi; bản sao đã lưu giữ lại điều chúng tôi đã dùng.
+85598a12e9	Đây là các cột của bảng pscomppars trong NASA Exoplanet Archive và các biên nhóm chúng tôi đặt trong code/02_group_candidates.py cho 471 hành tinh trong data/candidates_grouped.csv. Chúng tôi chọn mười hành tinh từ các nhóm này, không chọn theo phương pháp phát hiện hay hệ hành tinh.
+6fd1807b95	Số đếm lấy từ results/sample_coverage.csv, do code/24_tess_facts.py tạo từ data/candidates_grouped.csv. Bốn trục là bốn trục chúng tôi dùng để chọn hành tinh. Phương pháp phát hiện và số hành tinh trong mỗi hệ nằm ở slide kế tiếp.
+b7e18c7301	Mẫu phủ mọi lớp kích thước và mọi loại sao nhưng mỏng ở mỗi lớp. Lớp trống là lớp chu kỳ từ 7 đến 15 ngày, chiếm 29 phần trăm mẫu catalog. Hai hành tinh ứng viên nằm trong 139 hành tinh chu kỳ mát ở data/candidates_grouped.csv; chúng tôi chưa kiểm file SPOC của chúng có tồn tại không và chưa chạy chúng. TOI-2134 b là 2.74 bán kính Trái Đất, HD 97658 b là 2.12.
+17ed74cedf	Trái: khung trên của bài báo cho các hành tinh của chúng tôi (năm hành tinh khổng lồ vượt quá 6 bán kính Trái Đất, nằm ngoài đồ thị). Phải: khung dưới của bài báo; chỉ đặt bốn hành tinh nhỏ có khối lượng đo được. Chỉ số vị trí dùng các bảng Zeng tại khối lượng mặc định của archive, nên phụ thuộc vào khối lượng đó.
+3559380aaf	Phép thử lẻ-chẵn so sánh độ sâu của các transit xen kẽ; một sao đôi che khuất ở chu kỳ gấp đôi sẽ khác nhau hàng chục phần trăm. Chênh lệch 1 phần trăm ở các sao Mộc nóng là quá nhỏ cho điều đó. Mức ý nghĩa hình thức bị thổi phồng vì các sai số coi nhiễu là nhiễu trắng; chúng tôi nhân thêm beta.
+dc50c3affe	WASP-18 b là hành tinh nóng nhất ở đây, nên nửa ban ngày của nó phát đủ sáng để thấy như một dip khi nó đi ra sau sao. Đây là một phép kiểm bên ngoài: Shporer et al. đo được 341 ppm trên dữ liệu khác. Hai kết quả khớp trong 1 sigma.
+fcf75ace0b	Pont, Zucker và Queloz 2006 chỉ ra rằng nhiễu tương quan làm các tham số transit kém chính xác hơn mức các sai số nhiễu trắng gợi ý. beta là tỉ số giữa rms đo được và rms nhiễu trắng trong các bin cỡ thời lượng transit. Các sai số chúng tôi nêu gồm làm phẳng và MCMC nhưng chưa gồm beta.
+a552d1d326	Tóm tắt so với các giá trị mặc định của catalog cho mười hành tinh được chọn.
+dfa278b73f	Một tỉ lệ phần trăm đứng một mình thì không nói lên gì. Cùng 1 phần trăm đó là không đáng kể với hành tinh có sai số 7 phần trăm và là rất nhiều với hành tinh có sai số 0.4 phần trăm. Pull chia chênh lệch cho sai số kết hợp của hai giá trị. Chín trong mười tỉ số và cả mười bán kính nằm trong 2 sigma; WASP-18 b là ngoại lệ. Với WASP-18 b, Shporer et al. (TESS sector 2) cũng thấp hơn catalog 4.6 phần trăm, nên giá trị catalog là giá trị lạc lõng trong dải TESS; chúng tôi chưa tìm ra lý do.
+1d8679ea9d	Nguồn: NASA Exoplanet Archive pscomppars, tham chiếu gắn với từng giá trị mặc định (code/21_catalog_methods.py). Vì vậy một giá trị catalog không phải một phép đo: dữ liệu, dải bước sóng và bán kính sao đều khác nhau. Một chênh lệch chỉ quan trọng khi nó lớn hơn sai số kết hợp.
+486310e6c6	Các giá trị đã công bố được đọc từ PDF; mọi chuỗi số đều được tìm thấy nguyên văn trong văn bản PDF (35 trên 35). Hai dòng là các bài đầu tiên từ mặt đất và một dòng chỉ là số đọc xấp xỉ từ một hình. 'lệch': hơn 2 sigma ở tỉ số; 'R lệch': tỉ số khớp nhưng bán kính thì không (do bán kính sao khác).
+1d696e164e	Đây là các độ lệch chúng tôi có thể nêu bằng số. Với WASP-18 b chúng tôi chưa có lời giải thích: các lý do có thể là khác sector, hiệu chỉnh độ nhiễm hoặc nhiễu đỏ, chưa cái nào được kiểm.
+4e643d649f	Thư mục checking cho phép mở từng bài báo và xem tên hành tinh cùng phép so sánh ngay tại chỗ. Các dấu đỏ là các độ lệch của slide trước.
+db2692d355	150 bài đã kiểm chứng, 144 PDF đã tải về literature/pdf, chia nhóm A đến K. Chưa tải: các bài bị paywall (Mayor và Queloz 1995, Borucki 2010, Hellier 2009, Henry 2000, Stumpe 2014, Jenkins 2002, Gelman và Rubin 1992). Bị loại vì không kiểm chứng được: McQuillan 2014, Lissauer 2012, Parmentier 2018, Montalto 2020, Cameron 2012, Winters 2019.
+60c5e5c1b1	Mỗi bài có trong danh sách đã kiểm chứng; cột phương pháp nói code thật sự làm gì. Các lựa chọn thay thế trong tài liệu (TLS, làm phẳng bằng GP, kiểm định bằng mạng nơ-ron) được nêu ở các slide theo nhóm.
+0a0092cef3	Nhóm A: 17 bài đã kiểm chứng. TESS quan sát gì, quan sát những sao nào, và pixel thô trở thành đường cong ánh sáng mà chúng tôi khớp ra sao.
+1c9f7f1ed2	Nhóm B: 6 bài đã kiểm chứng. Các sao biến thiên mạnh hơn độ sâu của một transit. Mỗi phương pháp đánh đổi độ sâu transit lấy xu hướng còn dư.
+0b78d1ead5	Nhóm C: 16 bài đã kiểm chứng. Tìm một dip tuần hoàn dạng hộp: bình phương tối thiểu trong hộp, một hình dạng vật lý, hoặc mạng nơ-ron huấn luyện trên các ứng viên đã gán nhãn.
+a2b58c53c5	Nhóm D: 19 bài đã kiểm chứng. Biến một dip thành R<sub>p</sub>/R<sub>&#9733;</sub>, b và a/R<sub>&#9733;</sub> với sai số có tính cả nhiễu tương quan.
+96f4e831b5	Nhóm E: 9 bài đã kiểm chứng. Một dip chưa phải hành tinh cho đến khi loại trừ được các hệ pha trộn ánh sáng và sao đôi che khuất.
+bd9407272d	Nhóm F: 8 bài đã kiểm chứng. Bán kính hành tinh chỉ tốt bằng bán kính sao: chiếm 1 đến 7 % ngân sách sai số của chúng tôi.
+bc0fa0d536	Nhóm G: 20 bài đã kiểm chứng. Bán kính có nghĩa gì khi biết nhiều hành tinh: thung lũng bán kính, luật khối lượng-bán kính, đường cong thành phần, tần suất xuất hiện.
+8e524a4dbf	Nhóm H: 19 bài đã kiểm chứng. Từ ngoại hành tinh đầu tiên quanh một sao giống Mặt Trời đến khí quyển: vì sao bán kính từ transit quan trọng.
+8983871633	Nhóm K: 22 bài đã kiểm chứng. Con đường từ đo thời gian pulsar và vận tốc Doppler tới khảo sát transit từ mặt đất, quang đo từ không gian và nghiên cứu khí quyển, kèm bài báo đứng sau mỗi bước.
+975396adaf	Đây là các bài báo mà chúng tôi so sánh số liệu ở mục 8, cộng thêm bài theo dõi khi bài phát hiện đã cũ.
+5003fb4131	Archive có thể thay đổi khi có thêm bài báo, nên chúng tôi truy vấn lại. Bản đã tải và bảng trực tiếp giống hệt nhau với mọi hành tinh được dùng.
+c31a3bcdba	Các file lấy từ https://archive.stsci.edu/missions/tess/tid/sSSSS/xxxx/xxxx/xxxx/xxxx/ với số TIC 16 chữ số được chia làm bốn. MAST API (astroquery) bị hết thời gian chờ trong lúc làm, nên đã dùng archive tĩnh; data/data_manifest.csv có URL và md5 của mọi file.
+a905b4a066	Thứ tự chạy nằm trong README.md. Bộ sinh số ngẫu nhiên trong emcee trước đây chưa được đặt seed; trong một phép thử hai lần chạy pi Men c cho 2.0302 và 2.0319 bán kính Trái Đất. Sau khi sửa, hai phép khớp trên cùng dữ liệu cho các chuỗi giống hệt nhau.
+a34dc98c2f	Trả lời cho câu hỏi của nhóm. Số đếm được tính từ paper_comparison.csv (12 dòng đã công bố; một hành tinh có hai bài báo). Tỉ số lệch: HD 189733 b so với Bouchy 2005 và WASP-18 b so với Shporer 2019. Bán kính lệch: HD 189733 b so với Bouchy 2005 và HD 209458 b so với Charbonneau 2000.
+a57fd6321d	Các câu trả lời chuẩn bị sẵn; mỗi câu đều có một con số trong bộ slide này làm căn cứ.
+7fe18d5f3a	Mười câu hỏi này là phỏng đoán của chúng tôi, dựa trên hai nhận xét trong nhóm chat: giảng viên hỏi về bản chất của kết quả, vì sao lại như vậy, và điều gì chống đỡ từng luận điểm, và cô yêu cầu kiểm tra xem phương pháp đã công bố có khác phương pháp của ta không. Mỗi câu trả lời dùng các số tính ở nơi khác trong bộ slide này.
+31d4298cb3	Kết luận. Các việc còn mở được nói rõ là còn mở; không có nguyên nhân nào được khẳng định mà chưa kiểm.
+9f1946a282	Tóm tắt bài báo từ phần tóm tắt, Bảng 1 và Mục 2. Hành tinh được tìm thấy bằng pipeline quick-look của MIT trên ảnh toàn khung và SPOC trên dữ liệu 2 phút. Vận tốc xuyên tâm xác nhận chu kỳ 6.27 ngày.
+c2a63df171	Đây là bản dựng lại Hình 2 của bài báo. Phần phân tán tại BTJD 1348 đến 1349 là khoảng rung hướng ngắm mà các tác giả cũng nhắc tới. Độ tối tâm làm độ sâu giữa transit (288 ppm) lớn hơn bình phương tỉ số bán kính (253 ppm).
+3fef1a4218	Các hậu nghiệm hẹp có màu bỏ qua nhiễu đỏ. Độ phân tán thật giữa các transit là 31 ppm, tương đương độ rộng của các histogram trong Hình 4 của bài báo. Transit 4 sâu nhất, 308 ppm.
+0e2f7e57b9	Hình 1 của bài báo còn có hai ảnh khảo sát DSS; chúng tôi chưa tải. Khẩu độ có hình bất quy tắc và theo vết loang sáng của sao. Vì sao sáng, điện tích tràn dọc theo các cột.
+f314565001	BLS cần ít nhất vài transit để loại chu kỳ một nửa và gấp đôi; với 5 transit trong 27 ngày, đỉnh chính nổi rõ hơn hẳn các alias của nó.
+db100613fc	Danh sách đầy đủ đã kiểm chứng theo thứ tự nhóm (A sứ mệnh, B làm phẳng, C tìm kiếm, D mô hình hóa, E kiểm định, F sao, G quần thể, H kinh điển, I hành tinh của dự án, J đường cong pha); notes/literature_review_TESS.md có tiêu đề đầy đủ và đường dẫn PDF.
+2a13d52287	Baseline (đường cơ sở) = thời gian từ transit đầu đến cuối: ở đây 27 đến 110 ngày, trong catalog là nhiều năm
+4722634ad1	science.mit.edu/tess-takes-off
+c253230b42	Của ta
+c7848ffb60	Bảng 1
+9f5ece52dd	Ricker 2015, Mục 6
+2e9ac13dc8	Ricker 2015, Mục 4.3
+731d249a75	Ricker 2015, Bảng 1
+94acace581	Ricker 2015, Mục 7.2
+1b8792a1c7	Ricker 2015, Mục 6, Hình 5
+fa37113ea7	Ricker 2015, Mục 4.1
+358753596c	Chúng tôi tự tính?
+08f98583c1	Nguyên nhân
+e6ab7982fa	Baseline (đường cơ sở)
+e7f76b77a7	Cho thấy
+f817c41a58	Hình 1
+80e75b68c6	Hình 2
+b3e7c8f667	Hình 3
+471185cf4a	Hình 4
+0fea21c828	Hình 5
+f02d1c11fd	Mục 3
+e062753d6d	Phóng 27/12/2006
+3d708b1ef5	Phóng 6/3/2009
+7e060e2065	Phóng 18/4/2018
+dd7b42bd10	Phóng 18/12/2019
+2facb7a9b4	ESA chọn (M3)
+55019eb9f2	Auvergne 2009 tr. 1; Barge 2008 tr. 1
+75e7645ed3	Koch 2010 tr. 2, tr. 5
+63a89939b4	Howell 2014 tr. 2, tr. 1
+24cada28fd	Benz 2021 tr. 2
+6c7c88e89d	Rauer 2014 tr. 3
+be0353b3a8	Gardner 2006 tr. 1; Ahrer 2023 tr. 2
+b6c22d03ac	Quỹ đạo
+d3daff3a43	Camera
+8e9b36e234	Bộ cảm biến
+741d6c4833	Lấy mẫu
+d35260a00f	Mục tiêu
+d79da395b5	Tóm tắt
+e83b98ce22	Mục 3.8, 6
+1d03d1cde8	Mục 4.2
+ee91b23b06	Mục 7.2
+678d58b9dc	Mục 3.7, 4.3
+b0db02abc4	12/2014
+8e45de5f82	4/2018
+d0ea6949a4	Physics World, 19/4/2018
+eecd74d96d	VietnamNet Global, 15/7/2024
+ee98c69b3a	Al Jazeera, 11/8/2026
+bc0792d8dc	Hệ
+18b4120377	Cỡ Trái Đất
+41a6dcfe5e	Siêu Trái Đất
+0f5721c2e5	Dưới Hải Vương
+13db1dc736	Hải Vương/Thổ
+44a5bad360	Cỡ Sao Mộc
+5c71d91d4b	Cực ngắn (&lt;1 ngày)
+03a1d24c84	Nóng (1-3 ngày)
+04e6814f7c	Ấm (3-7 ngày)
+050c1fc963	Mát (7-15 ngày)
+570a9d2e23	Cực nóng (&gt;2000 K)
+4f26d2d40e	Nóng (1200-2000 K)
+4cce4189e0	Ấm (500-1200 K)
+e3c31cda58	Ôn hòa (&lt;500 K)
+9d148c63ff	G (giống Mặt Trời)
+65e1d1cea5	HD 189733 b so với Bouchy+2005
+fa976a9ad8	HD 209458 b so với Charbonneau+2000
+ecdda59aea	Mục
+30baa24967	Thư mục
+3526f607bc	Vàng
+66e12969c2	Số lượng
+9ed99e75a9	Chuẩn so sánh
+3af2279f9e	Chẩn đoán
+afc58e332a	Đã vẽ
+ee68d3496b	Khớp
+cf9b77061f	Mở
+1ea57f3486	Haute-Provence (RV)
+40f72dfe6c	Keck (RV)

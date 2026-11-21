@@ -1,0 +1,102 @@
+t001	Các đồ thị theo kiểu Huang et al. 2018 cho từng hành tinh, mười hành tinh so với bài báo phát hiện của chúng, tổng quan tài liệu đã kiểm chứng về quang đo transit của TESS, và cách lấy lại mọi con số
+t002	<b>Đề tài:</b> Space Observation Project 1, Nhóm 2 (bộ slide học)<br/><b>Giảng viên:</b> TS. Nguyễn Thị Phương<br/>USTH, Thạc sĩ năm 2 ngành Không gian, tháng 11/2026
+t003	1  Giới thiệu. Bộ slide này có gì?
+t004	Bài mẫu
+t005	Huang et al. 2018 (TESS phát hiện π Men c) có năm loại hình. Chúng tôi vẽ lại cho mười hành tinh của mình từ dữ liệu TESS công khai.
+t006	Các đồ thị
+t007	27 hình mới. Mỗi slide nói hình cho thấy gì, kèm số đo thật.
+t008	Các tác giả
+t009	Mười hành tinh của chúng tôi so với bài báo phát hiện của chúng: số có trùng không, và vì sao.
+t010	Tài liệu
+t011	150 bài đã kiểm chứng trong mười một nhóm phương pháp; đã tải 144 PDF truy cập mở.
+t012	Mọi thứ được tính từ dữ liệu công khai: đường cong ánh sáng SPOC của TESS (MAST) và NASA Exoplanet Archive. Mục 3 kể cách người ta tìm ngoại hành tinh, mục 4 đưa các số của TESS kèm nguồn, mục 5 hỏi mười hành tinh đã đủ chưa, và mục 10 chỉ cách lấy lại từng con số.
+t013	1  Giới thiệu. Mỗi con số đến từ đâu: Measured, Catalog, Published
+t014	Cột
+t015	Nguồn
+t016	Là gì
+t017	<b>Measured</b> (đo được)
+t018	Đường cong ánh sáng TESS (SPOC PDCSAP)
+t019	Có
+t020	Chu kỳ từ BLS; R<sub>p</sub>/R<sub>★</sub> từ phép khớp batman + emcee; R<sub>p</sub> = tỉ số × R<sub>★</sub>
+t021	<b>Catalog</b> (danh mục)
+t022	NASA Exoplanet Archive, bảng pscomppars
+t023	Không, lấy từ dữ liệu
+t024	Bộ tham số mặc định: mỗi hành tinh một bài báo đã công bố
+t025	<b>Published</b> (công bố)
+t026	Bài báo phát hiện hoặc theo dõi (PDF)
+t027	Không, đọc từ bài báo
+t028	Giá trị trong bảng được trích ở mục 8, tìm thấy nguyên văn trong văn bản PDF
+t029	<b>Δ, pull</b>
+t030	Measured so với Catalog hoặc Published
+t031	Δ = (M − C)/C; pull = (M − C)/√(σ<sub>M</sub><sup>2</sup>+σ<sub>C</sub><sup>2</sup>)
+t032	Hai đầu vào không phải của chúng tôi: R<sub>★</sub> lấy từ archive, và ba hành tinh dò có hướng dẫn dùng chu kỳ catalog để đặt cửa sổ tìm kiếm.
+t033	1  Giới thiệu. Vì sao hai nguồn có thể khác nhau: năm nguyên nhân, ba cái đã được kiểm
+t034	Điều xảy ra
+t035	Bằng chứng trong dự án này
+t036	Đường cơ sở (baseline) = khoảng thời gian giữa transit đầu và cuối. Ở đây TESS cho 1 đến 4 sector (27 đến 110 ngày); catalog gộp nhiều năm transit
+t037	P của chúng tôi chính xác đến 0,0004 ngày (π Men c); P của catalog đến 10<sup>-7</sup> ngày
+t038	Bán kính sao
+t039	R<sub>p</sub> = tỉ số × R<sub>★</sub>; các bài báo dùng R<sub>★</sub> riêng của họ
+t040	π Men c: 1,10 (bài báo) so với 1,17 (archive)
+t041	Các bài báo đầu tiên
+t042	Đường cong ánh sáng phát hiện từ mặt đất, 1999 đến 2005
+t043	HD 189733 b: tỉ số 0,172 (2005) so với 0,1545 (Spitzer 2007)
+t044	Float32 hay float64
+t045	Không ảnh hưởng: nhiễu của thông lượng lớn hơn sai số làm tròn float32 một nghìn lần
+t046	Khớp lại bằng thông lượng float32: tỉ số đổi 0,2 %, là nhiễu MCMC
+t047	Tính ngẫu nhiên của MCMC
+t048	Bộ sinh số ngẫu nhiên của emcee nay đã cố định; các lần chạy trước lệch khoảng 0,1 %
+t049	π Men c: 2,0302 rồi 2,0319 R<sub>⊕</sub> trước khi sửa
+t050	Bán kính sao và các bài báo phát hiện cũ giải thích mọi chênh lệch lớn chúng tôi gặp.
+t051	2  Bài mẫu. Năm loại hình của Huang et al. 2018, vẽ lại cho các hành tinh của chúng tôi
+t052	Hình
+t053	Bản của chúng tôi
+t054	Ở đâu
+t055	Ảnh khảo sát DSS và khẩu độ TESS của vùng trời
+t056	Chỉ có khẩu độ
+t057	Phụ lục B4 (π Men c); chưa tải ảnh DSS
+t058	Đường cong ánh sáng TESS thô, đã làm phẳng và gập pha
+t059	Cả mười hành tinh
+t060	Vận tốc xuyên tâm, chu kỳ đồ Lomb-Scargle, gập pha
+t061	Chưa dựng lại
+t062	Bảng RV không có trong dữ liệu của chúng tôi
+t063	Từng transit được khớp riêng và hậu nghiệm độ sâu
+t064	π Men c; lẻ-chẵn cho tất cả
+t065	Phụ lục B3; mục 7
+t066	Cấp sao biểu kiến so với bán kính; biểu đồ khối lượng-bán kính
+t067	Đánh dấu mười hành tinh
+t068	Mục 7, NASA archive và các bảng của Zeng
+t069	Bài báo là mẫu cho các đồ thị, không phải chủ đề: các hành tinh là mười hành tinh của chúng tôi.
+t070	2  Bài mẫu. Kiểm tra bên ngoài trên chính hành tinh của bài báo: cùng chu kỳ và bán kính, độ sâu khác
+t071	Đại lượng
+t072	Bài báo (Huang+2018)
+t073	Pipeline của chúng tôi
+t074	Số transit trong sector 1
+t075	Lần xả mômen
+t076	Chu kỳ (ngày)
+t077	(R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> (ppm)
+t078	khoảng 290 (đọc từ Hình 4)
+t079	1,17 (archive)
+t080	Độ phân tán mỗi 2 phút (ppm)
+t081	119 điểm-điểm; rms 130
+t082	Thời lượng transit (giờ)
+t083	khoảng 3
+t084	Bán kính khớp (−0,5 %) vì hai độ lệch triệt tiêu nhau: tỉ số của chúng tôi thấp hơn 6,6 %, R<sub>★</sub> của chúng tôi cao hơn 6,4 %.
+t085	3  Lịch sử. Bốn dòng công việc dẫn tới TESS và tới mười hành tinh của chúng tôi
+t094	Nét đứt: kết quả trước là lý do hoặc ý tưởng. Nét liền: cùng một hành tinh hoặc cùng phần cứng.
+t095	Nguồn: các bài trong literature/pdf/K_Search_history và Charbonneau 2000; trích dẫn và số trang trong tess_fact_sources.csv
+t096	3  Lịch sử. 6 473 hành tinh đã xác nhận: 74 % tìm bằng transit, 19 % bằng vận tốc xuyên tâm
+t097	Số hành tinh đã xác nhận theo năm phát hiện, chia theo phương pháp (NASA Exoplanet Archive).
+t098	Cơ sở
+t099	Hành tinh
+t100	Hành tinh có cơ sở phát hiện được ghi trong archive.
+t101	Nguồn: NASA Exoplanet Archive, bảng pscomppars, truy vấn TAP ngày 2026-11-21 (data/raw/discoveries_by_*.csv)
+t102	3  Lịch sử. Các sứ mệnh không gian bằng con số: phóng, phần cứng và kết quả đầu tiên
+t103	Sứ mệnh
+t104	Bắt đầu
+t105	Phần cứng
+t106	Kết quả
+t107	Bài báo, trang
+t108	Quỹ đạo cực; do CNES chế tạo và vận hành
+t109	Hành tinh đầu tiên: CoRoT-Exo-1b (2008)
+t110	Khẩu độ 0,95 m; quỹ đạo nhật tâm theo sau Trái Đất

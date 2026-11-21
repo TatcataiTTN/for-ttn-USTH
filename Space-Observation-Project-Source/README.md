@@ -55,3 +55,7 @@ Check a deck (system python with selenium): `python3 slides/deck/check_deck.py s
 ## Public copy
 `https://github.com/TatcataiTTN/for-ttn-USTH`: the folders `Space-Observation-Project-Group-2/` (31-slide talk, 37 slides), `Space-Observation-Project-Group-2-Study/` (study deck) and `Space-Observation-Project-Source/` (code, results, figures, notes, small data, deck sources).
 Not published, on purpose: the paper PDFs (`literature/pdf`, `literature/checking`, `literature/text`; rebuild with `code/14_download_literature.py`), the SPOC cache (`data/mast_cache`, 150 MB; `results/data_manifest.csv` lists every file), saved third-party web pages (`data/raw/tess_docs`; `code/26_tess_sources.py` needs them to re-verify the quotes), course material and the group chats (`inputs/`), the teammates' notes (`team/`) and the virtual environment.
+
+## Vietnamese versions
+`slides/Space-Observation-Project-Group-2-Study-VI/` and `slides/Space-Observation-Project-Group-2-VI/`: the same decks with the slide text and speaker notes in Vietnamese (`code/29_translate_deck.py`, translations in `i18n/`). The PNG figures keep their English labels. `code/30_check_overlap.py` checks that nothing is cut off at the bottom of a slide.
+Live: https://tatcataittn.github.io/for-ttn-USTH/Space-Observation-Project-Group-2-Study-VI/ and https://tatcataittn.github.io/for-ttn-USTH/Space-Observation-Project-Group-2-VI/

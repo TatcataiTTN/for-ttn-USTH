@@ -1,0 +1,107 @@
+t111	R<sub>p</sub>/R<sub>★</sub> làm phẳng %
+t112	4  Thảo luận. Chỗ phương pháp thất bại: ba bài học
+t113	Tìm mù có thể bám vào nhiễu
+t114	K2-141 b: BLS mù cho 5.70 ngày thay vì 0.280 ngày. Bản demo trên trình duyệt trả về 2×P cho LTT 1445 A b. Thu hẹp khoảng tìm (5 đến 6 ngày, hoặc 0.26 đến 0.5 ngày) thì cả hai đều đúng.
+t115	Sao hoạt động làm hỏng bước làm phẳng
+t116	AU Mic b (vết đen, bùng nổ): R<sub>p</sub>/R<sub>★</sub> = 0.25 ± 0.11 so với 0.050. DS Tuc A b: sai số hệ thống ±0.12.
+t117	Ít transit giới hạn độ chính xác
+t118	AU Mic b chỉ có 3 transit trong một sector, kèm biến thiên thời điểm; LTT 1445 A b chỉ 4. Thêm sector sẽ giúp ích.
+t119	AU Mic b và DS Tuc A b được báo là thất bại và không nằm trong mười hành tinh.
+t120	4  Thảo luận. Demo trực tiếp: lặp lại phép đo ngay trên trình duyệt
+t121	demo/index.html chạy hoàn toàn trong trình duyệt (JavaScript).
+t122	1 Chọn một hành tinh. 2 BLS tìm các chu kỳ. 3 Khớp transit. 4 So với NASA archive và với MCMC của chúng tôi.
+t123	K2-141 b: đặt khoảng BLS từ 0.26 đến 0.5 ngày. LTT 1445 A b: 5 đến 6 ngày.
+t124	Tệp: demo/index.html và notebooks/01_measure_one_planet.ipynb trong thư mục này.
+t125	5  Kết luận và hướng phát triển
+t126	Điều chúng tôi chỉ ra
+t127	Chu kỳ của mười hành tinh (0.28 đến 6.1 ngày) trong 0.03 % và bán kính (1.1 đến 15.7 R<sub>⊕</sub>) trong 4 % với tám trong mười, từ dữ liệu công khai và một pipeline.
+t128	Điều giới hạn nó
+t129	Bán kính sao (tới 7 %), làm phẳng (khoảng 1 %), số transit, và tìm mù ở chu kỳ ngắn hoặc S/N thấp.
+t130	Khớp mật độ sao và độ lệch tâm, tìm TTV, chồng thêm sector, làm phẳng bằng quá trình Gauss cho các sao hoạt động.
+t131	Bán kính từ một đường cong ánh sáng là một tỉ số nhân với bán kính sao; tỉ số là phần TESS đo tốt nhất.
+t132	A1  Phụ lục. Thuật ngữ dùng trong bài nói
+t133	Thuật ngữ
+t134	Ý nghĩa
+t135	TESS, sector
+t136	Vệ tinh khảo sát của NASA; nhìn chằm chằm một trường 24 nhân 96 độ trong khoảng 27 ngày (một sector)
+t137	Pipeline khoa học của TESS; thông lượng sau khi loại hệ thống sai số (cadence 2 phút)
+t138	Mã trong TESS Input Catalog và cấp sao trong dải TESS của sao
+t139	Box Least Squares: tìm các dip dạng hộp tuần hoàn
+t140	Tỉ số bán kính hành tinh trên sao; tham số va chạm (0 = transit đi qua tâm)
+t141	Tối tâm
+t142	Đĩa sao tối hơn ở rìa; nó làm tròn đáy transit (Kipping q<sub>1</sub>, q<sub>2</sub>)
+t143	Chu kỳ cực ngắn (P &lt; 1 ngày); vùng nhìn liên tục của TESS (|vĩ độ hoàng đạo| &gt; 78°)
+t144	(đo được − catalog) chia cho sai số 1σ tổng của chúng tôi
+t145	A2  Phụ lục. Dữ liệu và mỗi nguồn dùng để làm gì
+t146	Nguồn
+t147	Đường cong ánh sáng TESS SPOC 2 phút
+t148	MAST, lightkurve (thông lượng PDCSAP)
+t149	Các phép đo: 1 đến 4 sector liên tiếp cho mỗi hành tinh
+t150	NASA Exoplanet Archive, pscomppars
+t151	Truy vấn TAP, các hành tinh transit
+t152	4 826 hành tinh: chu kỳ, bán kính, R<sub>★</sub>, T<sub>eff</sub>, khoảng cách, tọa độ
+t153	Mã TIC, Tmag
+t154	Các cột của pscomppars
+t155	Đối chiếu chéo với MAST; lọc theo độ sáng
+t156	Ghi chú môn học (M1 Exoplanets)
+t157	Ôn bài giảng, phương pháp transit
+t158	Công thức cho độ sâu, xác suất và thời lượng (A6)
+t159	Bài hướng dẫn: Khớp nhanh cho đường cong ánh sáng TESS
+t160	exoplanet-case-studies
+t161	Công thức và giá trị chuẩn cho HD 118203 b
+t162	A3  Phụ lục. Bản đồ bầu trời của mười hành tinh
+t163	Tọa độ hoàng đạo (Mollweide). Dải hồng: vùng nhìn liên tục; mảng xám là trường Kepler.
+t164	A4  Phụ lục. Khoảng cách và sao chủ
+t165	Nhiệt độ hiệu dụng của sao chủ theo khoảng cách; nét đứt: ranh giới các lớp phổ và khoảng cách.
+t166	A5  Phụ lục. Đường cong ánh sáng và làm phẳng, HD 118203 b
+t167	Sector 15 và 16: thông lượng PDCSAP (trên), đường đã làm phẳng (lệch), các transit dự đoán màu đỏ.
+t168	Cửa sổ Savitzky-Golay 1.5 ngày, cắt ngoại lai tại +5σ; chạy lại với các transit được che để bộ lọc không nuốt độ sâu.
+t169	A6  Phụ lục. Công thức môn học kiểm trên các quỹ đạo đã khớp
+t170	a/R<sub>★</sub> (khớp)
+t171	T catalog (giờ)
+t172	A7  Phụ lục. Công thức: mô hình transit và tìm chu kỳ
+t173	F(t) = 1 − ΔF( z(t), R<sub>p</sub>/R<sub>★</sub>, u<sub>1</sub>, u<sub>2</sub> ) ;  z = (a/R<sub>★</sub>) √[ sin<sup>2</sup>φ + cos<sup>2</sup>i cos<sup>2</sup>φ ] ,  φ = 2π(t − t<sub>0</sub>)/P
+t174	Tối tâm bậc hai Mandel-Agol (batman); b = (a/R<sub>★</sub>) cos i; quỹ đạo tròn.
+t175	Tham số hóa của Kipping, q<sub>1</sub>, q<sub>2</sub> phân bố đều trong (0, 1).
+t176	Chu kỳ thử 0.26 đến 15 ngày; thời lượng 0.02 đến 0.25 ngày; các hộp dài hơn 20 % của P bị loại.
+t177	σ lấy từ MAD ngoài transit; emcee, 32 walker, 1 500 bước burn-in, 2 500 bước.
+t178	Cùng mô hình vật lý với bài hướng dẫn (Mandel-Agol, tối tâm); chỉ khác bộ lấy mẫu.
+t179	A8  Phụ lục. Công thức: bán kính và ngân sách sai số
+t180	σ<sub>tỉ số</sub><sup>2</sup> = σ<sub>MCMC</sub><sup>2</sup> + σ<sub>sys</sub><sup>2</sup> ,  σ<sub>sys</sub> = ½ ( max − min ) của R<sub>p</sub>/R<sub>★</sub> qua 3 cách làm phẳng
+t181	σ<sub>Rp</sub> / R<sub>p</sub> = √[ ( σ<sub>tỉ số</sub> / tỉ số )<sup>2</sup> + ( σ<sub>R★</sub> / R<sub>★</sub> )<sup>2</sup> ]
+t182	pull = ( R<sub>p,đo</sub> − R<sub>p,cat</sub> ) / σ<sub>Rp</sub> ;  ΔP/P = ( P<sub>đo</sub> − P<sub>cat</sub> ) / P<sub>cat</sub>
+t183	Ví dụ của môn học: độ sâu 0.64 %, R<sub>★</sub> = 0.8 R<sub>☉</sub> cho R<sub>p</sub>/R<sub>★</sub> = 0.08 và R<sub>p</sub> = 0.064 R<sub>☉</sub>.
+t184	Sai số 7 % của R<sub>★</sub> là sai số 7 % của R<sub>p</sub>, bất kể chất lượng đường cong ánh sáng.
+t185	Sai số tỉ số lấy từ hậu nghiệm (phân vị 16 đến 84) và từ ba biến thể làm phẳng; sai số R<sub>★</sub> lấy từ archive.
+t186	A9  Phụ lục. Phép thử sức chịu và các thất bại
+t187	Trường hợp
+t188	Thiết lập
+t189	Kết quả
+t190	Kết luận
+t191	K2-141 b, tìm mù
+t192	P = 5.70 ngày (đúng 0.280 ngày); R<sub>p</sub> = 21 R<sub>⊕</sub>
+t193	Đã sửa bằng tìm có hướng dẫn
+t194	LTT 1445 A b, demo
+t195	Khoảng 5 đến 6 ngày cho 5.35878 ngày
+t196	AU Mic b, có hướng dẫn
+t197	Vết đen và bùng nổ; 3 transit; bị loại
+t198	DS Tuc A b, có hướng dẫn
+t199	Sai số hệ thống của làm phẳng quá lớn; bị loại
+t200	JSON lần đầu của các thất bại khi tìm mù được giữ trong results_blind_failed/.
+t201	A10  Phụ lục. Chế độ tìm dùng cho từng hành tinh
+t202	Chế độ
+t203	Cửa sổ BLS
+t204	mù
+t205	0.26 đến 15 ngày, 7 thời lượng
+t206	có hướng dẫn
+t207	±3 % chu kỳ catalog, thời lượng 0.6 đến 1.5 × T catalog
+t208	Ricker et al. 2015, sứ mệnh TESS, JATIS 1, 014003
+t209	Jenkins et al. 2016, pipeline SPOC, SPIE 9913
+t210	Lightkurve Collaboration 2018, Lightkurve, ascl:1812.013
+t211	Kovacs, Zucker và Mazeh 2002, BLS, A&amp;A 391, 369
+t212	Mandel và Agol 2002, đường cong ánh sáng transit, ApJ 580, L171
+t213	Kreidberg 2015, batman, PASP 127, 1161
+t214	Foreman-Mackey et al. 2013, emcee, PASP 125, 306
+t215	Kipping 2013, prior tối tâm, MNRAS 435, 2152
+t216	Akeson et al. 2013, NASA Exoplanet Archive, PASP 125, 989
+t217	exoplanet-case-studies: Quick fits for TESS light curves và Fitting TESS data

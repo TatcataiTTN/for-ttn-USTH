@@ -1,0 +1,125 @@
+t015	7  Đồ thị. Loại Hình 5: các hành tinh của chúng tôi nằm đâu trong số những hành tinh đã biết
+t016	Cấp sao V so với bán kính; đỏ: của chúng tôi (π = π Men c).
+t017	Khối lượng đo được; các đường cong Zeng; đỏ: bán kính của chúng tôi.
+t018	các sao chủ sáng nhất: HD 209458 b (V 7.7), HD 189733 b (V 7.7); 33 hành tinh đã biết có V &lt; 8
+t019	0 = giống Trái Đất, 1 = nước: TOI−270 c 1.1; LTT 1445 A b 0.1; GJ 1132 b −0.1; K2−141 b −0.2
+t020	7  Chẩn đoán. Transit lẻ so với chẵn: ba hành tinh vượt 3σ, nhưng chỉ lệch 1 đến 17 %
+t021	(độ sâu lẻ − chẵn) chia cho βσ; dải xám: ±3; đỏ: nằm ngoài.
+t022	ngoài 3σ: HD 209458 b, WASP-18 b, pi Men c
+t023	chênh lệch độ sâu: HD 209458 b 1.4 %, WASP-18 b 1.1 %, pi Men c 16.4 %
+t024	π Men c chỉ có 2 transit lẻ và 3 transit chẵn; độ phân tán theo từng transit (31 ppm) cho khoảng 1.3σ
+t025	7  Chẩn đoán. Thông lượng tại pha 0.5: WASP-18 b để lộ ánh sáng của chính nó, 352 ppm
+t026	Độ hụt thông lượng trung bình trong cửa sổ bằng một thời lượng transit, tâm tại pha 0.5, lấy ngoài transit làm chuẩn.
+t027	WASP-18 b: 352 ± 9 ppm (nhiễu trắng); nhân ×β 2.09 cho ±19
+t028	Shporer+2019 (TESS sector 2): nhật thực thứ cấp 341 +17 −18 ppm, nên hai kết quả khớp nhau
+t029	mọi hành tinh khác đều dưới 3σ; GJ 1132 b là 223 ± 72 ppm, không có ý nghĩa sau khi nhân ×β
+t030	7  Chẩn đoán. Nhiễu đỏ: lấy trung bình giúp ít hơn 1/√N, theo hệ số β từ 1.0 đến 3.6
+t031	Trái: rms của phần dư theo kích thước bin cho từng hành tinh; nét đứt: nhiễu trắng. Phải: β của từng hành tinh (đỏ: &gt; 1.5).
+t032	β lớn nhất: HD 189733 b 3.62, HD 118203 b 2.91; nhỏ nhất: LTT 9779 b 1.03
+t033	π Men c có β = 1.52, rms mỗi điểm 124 ppm: đường cong ánh sáng yên tĩnh nhất trong mười một hành tinh
+t034	7  Kết quả. Tám trong mười bán kính nằm trong 4 % so với catalog; chu kỳ trong 0.03 %
+t035	Chênh lệch bán kính so với catalog; thanh: 1σ tổng.
+t036	|ΔP|/P, thang log.
+t037	7  Kết quả. Chênh 0.3 đến 10 % so với catalog, đọc theo đơn vị sai số
+t038	Hình tròn: của chúng tôi (1σ). Hình thoi: đã công bố, lấy từ các PDF. Bên phải: pull.
+t039	Cách đọc
+t040	9 trong 10 tỉ số nằm trong 2σ; ngoài: WASP-18 b, -3.2 % (-2.9σ)
+t041	K2-141 b chênh lớn nhất, -9.7 %, nhưng sai số của nó là 6.1 %: -1.5σ
+t042	HD 189733 b: -0.8 % nhưng -2.0σ; với nhiễu đỏ (×3.6) là -0.6σ
+t043	Các bài báo cũng phân tán quanh catalog; WASP-18 b: hai phân tích TESS đều thấp hơn catalog
+t044	Bán kính và chu kỳ
+t045	bán kính: 10 trên 10 nằm trong 2σ (0.1 đến 7.3 %)
+t046	chu kỳ: 8 trên 10; TOI-270 c -4.2σ, WASP-18 b +2.3σ
+t047	7  Kết quả. Giá trị trong catalog hiếm khi đến từ bài báo phát hiện
+t048	Bài báo phát hiện
+t049	Chu kỳ
+t051	Chỉ 1 hành tinh (LTT 9779 b) lấy giá trị từ bài báo phát hiện của nó. Bán kính và tỉ số đến từ hai bài khác nhau ở 4 hành tinh: HD 189733 b, HD 209458 b, WASP-62 b, K2-141 b (in đậm). Bán kính sao lấy từ bài báo của bán kính ở cả mười hành tinh.
+t052	8  Tác giả và chúng tôi. Tỉ số R<sub>p</sub>/R<sub>★</sub> so với 12 giá trị đã công bố
+t053	Bài báo
+t054	Đã công bố
+t055	Của chúng tôi
+t056	Pull (tỉ số)
+t057	Pull (R<sub>p</sub>)
+t058	Kết luận
+t059	khớp
+t060	lệch
+t061	R lệch
+t062	8  Tác giả và chúng tôi. Chỗ chúng tôi khác, và vì sao
+t063	Tỉ số 0.172 (2005) so với 0.1541 của chúng tôi. Spitzer 2007 cho 0.1545 và khớp với chúng tôi (-0.25 %). Giá trị năm 2005 là giá trị ngoại lai.
+t064	Bán kính +11 %: bài báo giả định R<sub>★</sub> = 1.1, archive ghi 1.19. Tỉ số chỉ lệch +2.2 %.
+t065	Tỉ số +1.5 % (danh nghĩa 5σ), bán kính +6.2 % (+1.1σ). Khác sector; chưa tìm ra nguyên nhân.
+t066	Mọi hành tinh còn lại khớp trong 2σ. π Men c khớp chỉ vì tỉ số thấp hơn và bán kính sao cao hơn triệt tiêu nhau.
+t067	8  Tác giả và chúng tôi. Các PDF đã kiểm: tên hành tinh tô vàng, số công bố tô xanh hoặc đỏ
+t068	Đã làm gì
+t069	literature/checking/, mỗi PDF có nhắc tên một hành tinh của dự án có một bản chú thích; bản gốc trong literature/pdf/ không bị sửa
+t070	mọi lần xuất hiện của mười một tên hành tinh
+t071	Xanh hoặc đỏ
+t072	chu kỳ, tỉ số và bán kính đã công bố, kèm chú thích: giá trị công bố, giá trị của chúng tôi, chênh lệch, pull, kết luận
+t073	38 PDF đã chú thích; 44 giá trị được đánh dấu là khớp, 8 giá trị bị đánh dấu là lệch
+t074	Kiểm tra cuối
+t075	35 trên 35 con số được trích đã được tìm thấy nguyên văn trong văn bản PDF
+t076	Mở một file trong literature/checking/ và bấm vào một con số xanh hoặc đỏ để đọc chú thích.
+t077	9  Tài liệu. 150 bài đã kiểm chứng trong mười một nhóm phương pháp
+t078	Trái: số bài theo nhóm phương pháp. Phải: năm công bố (đỏ: được dùng trong dự án này).
+t079	Mỗi mục đã được kiểm trên arXiv hoặc Crossref (họ tác giả đầu và tiêu đề). Các ứng viên không kiểm chứng được đã bị loại.
+t080	9  Tài liệu. Mỗi bước của pipeline đều có một bài báo đứng sau
+t081	Bước
+t082	Chúng tôi làm gì
+t083	Các bài chính (đều đã kiểm chứng)
+t084	9  Tài liệu. A  Sứ mệnh, catalog và pipeline
+t085	TESS quan sát gì, quan sát những sao nào, và pixel thô trở thành đường cong ánh sáng mà chúng tôi khớp ra sao.
+t086	<b>Phương pháp con:</b> Thiết kế sứ mệnh và sản lượng kỳ vọng · Catalog mục tiêu (TIC, TOI) · Pipeline SPOC: điều kiện hóa trước khi tìm, kiểm định dữ liệu · Quang đo ảnh toàn khung (QLP, eleanor, difference imaging) · Gaia làm mốc cho khoảng cách và bán kính.
+t087	Tiêu đề
+t088	17 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+t089	9  Tài liệu. B  Làm phẳng và biến thiên của sao
+t090	Các sao biến thiên mạnh hơn độ sâu của một transit. Mỗi phương pháp đánh đổi độ sâu transit lấy xu hướng còn dư.
+t091	<b>Phương pháp con:</b> Bộ lọc trung vị / Savitzky-Golay (dùng ở đây, qua lightkurve) · Spline và tự làm phẳng (K2SFF) · Quá trình Gauss (celerite, K2SC) · Thuật toán lọc xu hướng (TFA) và wotan biweight.
+t092	6 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+t093	9  Tài liệu. C  Tìm transit và học máy
+t094	Tìm một dip tuần hoàn dạng hộp: bình phương tối thiểu trong hộp, một hình dạng vật lý, hoặc mạng nơ-ron huấn luyện trên các ứng viên đã gán nhãn.
+t095	<b>Phương pháp con:</b> Box Least Squares (BLS, dùng ở đây) · Transit Least Squares (hình dạng vật lý) · Lomb-Scargle cho tín hiệu tuần hoàn (RV, tự quay) · Mạng tích chập để phân loại và kiểm định · Khoa học công dân (Planet Hunters TESS).
+t096	16 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+t097	9  Tài liệu. D  Mô hình hóa transit và suy luận
+t098	Biến một dip thành R<sub>p</sub>/R<sub>★</sub>, b và a/R<sub>★</sub> với sai số có tính cả nhiễu tương quan.
+t099	<b>Phương pháp con:</b> Đường cong ánh sáng giải tích có tối tâm (Mandel-Agol, batman: dùng ở đây) · Hình học từ đường cong ánh sáng (Seager và Mallen-Ornelas, Winn) · Luật tối tâm và prior (Kipping q<sub>1</sub>,q<sub>2</sub>: dùng ở đây; Claret cho TESS) · Bộ lấy mẫu MCMC (emcee, bất biến affine: dùng ở đây) · Gói phần mềm: EXOFAST, juliet, exoplanet · Nhiễu đỏ và thời gian phơi sáng hữu hạn (Pont, Kipping).
+t100	19 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+t101	9  Tài liệu. E  Kiểm định và xác nhận thống kê
+t102	Một dip chưa phải hành tinh cho đến khi loại trừ được các hệ pha trộn ánh sáng và sao đôi che khuất.
+t103	<b>Phương pháp con:</b> Kiểm tra độ sâu lẻ-chẵn và nhật thực thứ cấp · Kiểm tra tâm sáng và nền · Kịch bản pha trộn và xác suất dương tính giả (vespa, TRICERATOPS) · Tỉ lệ dương tính giả của Kepler · Quang đo theo dõi từ mặt đất.
+t104	9 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+t105	9  Tài liệu. F  Đặc trưng hóa sao
+t106	Bán kính hành tinh chỉ tốt bằng bán kính sao: chiếm 1 đến 7 % ngân sách sai số của chúng tôi.
+t107	<b>Phương pháp con:</b> Khối lượng và bán kính của sao thường · Bán kính dựa trên Gaia (Berger, Fulton và Petigura) · Mô hình tiến hóa sao (Dartmouth) · Hệ thức tỉ lệ cho sao lùn M (Mann) · Địa chấn học sao.
+t108	8 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+t109	9  Tài liệu. G  Quần thể, tần suất và thành phần
+t110	Bán kính có nghĩa gì khi biết nhiều hành tinh: thung lũng bán kính, luật khối lượng-bán kính, đường cong thành phần, tần suất xuất hiện.
+t111	<b>Phương pháp con:</b> Thung lũng bán kính và bay hơi · Hệ thức khối lượng-bán kính và đường cong thành phần (Zeng: dùng trong hình của chúng tôi) · Khối lượng-bán kính xác suất (Chen và Kipping, Wolfgang) · Tần suất xuất hiện từ Kepler · Mất khối lượng do lõi cấp năng lượng.
+t112	20 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+t113	9  Tài liệu. H  Các phát hiện kinh điển và trường hợp khoa học
+t114	Từ ngoại hành tinh đầu tiên quanh một sao giống Mặt Trời đến khí quyển: vì sao bán kính từ transit quan trọng.
+t115	<b>Phương pháp con:</b> Phát hiện bằng vận tốc xuyên tâm (51 Peg b) · Các transit đầu tiên (HD 209458 b) · Kepler và K2 · Kết quả đầu tiên của TESS · Khí quyển và mây · Vùng ở được và các chỉ số TSM.
+t116	9  Tài liệu. K  Lịch sử tìm kiếm: ngoại hành tinh đã được tìm ra thế nào
+t117	Con đường từ đo thời gian pulsar và vận tốc Doppler tới khảo sát transit từ mặt đất, quang đo từ không gian và nghiên cứu khí quyển, kèm bài báo đứng sau mỗi bước.
+t118	<b>Phương pháp con:</b> Doppler và đo thời gian pulsar (1992, 1995, ESPRESSO) · Khảo sát transit từ mặt đất (HD 209458 b, TrES, HAT, SuperWASP, KELT, MEarth) · Quang đo từ không gian (CoRoT, Kepler, K2, TESS, CHEOPS, PLATO) · Khí quyển và theo dõi (HST, Spitzer, JWST) · Thấu kính vi mô và chụp ảnh trực tiếp để làm bối cảnh.
+t119	22 bài đã kiểm chứng trong nhóm này; ✓ = được dùng trong dự án này; danh sách đầy đủ ở phụ lục.
+t120	9  Tài liệu. Các bài báo phát hiện đứng sau những hành tinh chúng tôi so sánh
+t121	Bài báo phát hiện hoặc xác nhận
+t122	10  Dữ liệu. Mọi con số trong catalog đều có thể truy vấn lại: 52 trên 52 giá trị khớp hôm nay
+t123	Kiểm tra
+t124	Các cột được so sánh
+t125	chu kỳ, bán kính, tỉ số, bán kính sao
+t126	13 (10 + π Men c + 2 phép thử sức chịu)
+t127	Bằng file CSV đã tải
+t128	52 trên 52 giá trị (truy vấn trực tiếp, 16/11/2026)
+t129	Archive liên tục thay đổi, nên chúng tôi lưu câu truy vấn, ngày và phép so sánh.
+t130	Bảng: pscomppars, mỗi hành tinh một dòng; file data/catalog_recheck.csv; script code/16_reproduce.py.
+t131	10  Dữ liệu. Các đường cong ánh sáng: 21 file SPOC, mỗi file có URL và md5
+t132	File
+t133	Mỗi file trong 21 file có URL và md5 trong data/data_manifest.csv.
+t134	10  Dữ liệu. Chạy pipeline và kỳ vọng các con số này
+t135	Chế độ
+t136	Catalog
+t137	mù
+t138	có hướng dẫn
+t139	11  Câu hỏi. Làm sao biết kết quả đáng tin?
+t140	HD 118203 b: tỉ số 0.0553 so với 0.0554 của bài hướng dẫn và 0.05538 của Pepper (−0.2 %).

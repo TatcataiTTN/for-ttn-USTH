@@ -1,0 +1,742 @@
+e3ba23b8ed	Plots in the style of Huang et al. 2018 for each planet, ten planets against their discovery papers, a verified literature review of TESS transit photometry, and how to retrieve every number
+ba20d8d422	<b>Project:</b> Space Observation Project 1, Group 2 (study deck)<br/><b>Lecturer:</b> Dr. Nguyen Thi Phuong<br/>USTH, Master 2 Space, November 2026
+6817ea2066	1  Introduction. What is in this deck?
+87c98cdec4	The template
+9a49097c52	Huang et al. 2018 (TESS discovery of π Men c) shows five figure types. We redraw them for our ten planets from public TESS data.
+6dbbef55ee	The plots
+edac97a215	27 new figures. Each slide says what the image shows, with measured numbers.
+9bd50ed52f	The authors
+5962f9f1be	Our ten planets against their discovery papers: same numbers or not, and why.
+a4a9c5eaa9	The literature
+8822ac72c5	150 verified papers in eleven sub-methods; 144 open-access PDFs downloaded.
+0b963cb39a	Everything is computed from public data: TESS SPOC light curves (MAST) and the NASA Exoplanet Archive. Section 3 tells how exoplanets have been found, section 4 gives the TESS numbers with their sources, section 5 asks whether ten planets are enough, and section 10 shows how to retrieve each number.
+800688a366	1  Introduction. Where each number comes from: Measured, Catalog, Published
+65ba00e95e	Column
+6da13addb0	Source
+358753596c	Computed by us?
+f8c94a3b4b	What it is
+ac61c45595	<b>Measured</b>
+2d6f66bc3a	TESS light curve (SPOC PDCSAP)
+5397e0583f	Yes
+2b4ef2404e	Period from BLS; R<sub>p</sub>/R<sub>★</sub> from the batman + emcee fit; R<sub>p</sub> = ratio × R<sub>★</sub>
+ddb547dcec	<b>Catalog</b>
+0282e9c54b	NASA Exoplanet Archive, pscomppars
+c66f6f064e	No, taken from data
+df342811ad	Default parameter set: one published paper per planet
+43bd789418	<b>Published</b>
+26a574e3ab	Discovery or follow-up paper (PDF)
+dc9a3e2b80	No, read from the paper
+230f74fa0e	Table values quoted in section 8, found verbatim in the PDF text
+82880ea598	<b>Δ, pull</b>
+36933d9dde	Measured against Catalog or Published
+04b388fc7f	Δ = (M − C)/C; pull = (M − C)/√(σ<sub>M</sub><sup>2</sup>+σ<sub>C</sub><sup>2</sup>)
+cd00aca350	Two inputs are not ours: R<sub>★</sub> comes from the archive, and the three guided planets use the catalog period to set the search window.
+6048df855f	1  Introduction. Why two sources can differ: five causes, three of them tested
+08f98583c1	Cause
+d208fde745	What happens
+692f3333d1	Evidence in this project
+e6ab7982fa	Baseline
+2a13d52287	Baseline = time from first to last transit: 27 to 110 d here, years in catalogs
+fc3c5c484f	Our P is good to 0.0004 d (π Men c); the catalog P to 10<sup>-7</sup> d
+9a257ad770	Stellar radius
+7ec129fd57	R<sub>p</sub> = ratio × R<sub>★</sub>; papers use their own R<sub>★</sub>
+ef451b2c83	π Men c: 1.10 (paper) against 1.17 (archive)
+26d9c32b52	Early papers
+ac3f12c1c2	Ground-based 1999 to 2005 discovery light curves
+11bf0ccefb	HD 189733 b ratio 0.172 (2005) against 0.1545 (Spitzer 2007)
+3fa791fcba	Float32 or float64
+9852d1f367	No effect: flux noise is 1000 times larger than float32 rounding
+34f9724621	Refit with float32 flux: ratio changes 0.2 %, MCMC noise
+d3b4b2fd13	MCMC randomness
+1d29ff6ce4	emcee RNG is now fixed; earlier runs differ by about 0.1 %
+eb294c2f9f	π Men c: 2.0302 then 2.0319 R<sub>⊕</sub> before the fix
+f90fc0e2e3	The stellar radius and old discovery papers explain every large difference we found.
+f41e496a95	2  Template. Five figure types from Huang et al. 2018, redrawn for our planets
+1f20e66b17	Figure
+e7f76b77a7	Shows
+7f59bfb43b	Our version
+525f61b672	Where
+f817c41a58	Fig 1
+a7483af522	DSS survey images and TESS aperture of the field
+d0d11a05e6	Aperture only
+9bc47ae802	Appendix B4 (π Men c); DSS images not fetched
+80e75b68c6	Fig 2
+298fca3b22	Raw, detrended and phase-folded TESS light curve
+9c77d03d58	All ten planets
+f02d1c11fd	Section 3
+b3e7c8f667	Fig 3
+6062ad7d0d	Radial velocities, Lomb-Scargle periodogram, phase folds
+50500b1f28	Not rebuilt
+6f2543da10	RV tables are not in our dataset
+471185cf4a	Fig 4
+f983872b2e	Transits fitted one by one and their depth posteriors
+9b840b5a81	π Men c; odd-even for all
+ff34d0333c	Appendix B3; section 4
+0fea21c828	Fig 5
+051cee8318	Apparent magnitude against radius; mass-radius diagram
+558a93678f	Ten planets marked
+44dbe601d7	Section 4, NASA archive and Zeng tables
+e5a7ea5a21	The paper is a template for the plots, not the subject: the planets are our ten.
+49ddfd0e06	2  Template. External check on the paper's own planet: same period and radius, different depth
+44f6af6945	Quantity
+404bc2f35f	Paper (Huang+2018)
+55dfda1215	Our pipeline
+e3c513767d	Transits in sector 1
+146e327466	Momentum dumps
+78b48e7b45	Period (d)
+d77fadcebc	(R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> (ppm)
+dfd0df7c94	about 290 (read off Fig 4)
+c8feb9a8fe	1.17 (archive)
+87f828cc79	Scatter per 2 min (ppm)
+1148cd13e5	119 point to point; rms 130
+798054dac3	Transit duration (h)
+43e13b95c5	about 3
+844d5f4457	The radius agrees (-0.5 %) because two offsets cancel: our ratio is 6.6 % lower, our R<sub>★</sub> is 6.4 % higher.
+f40225e1b6	3  History. Four lines of work led to TESS and to our ten planets
+eeb3e3a8f0	Dashed: the earlier result was the reason or idea. Solid: the same planet or the same hardware.
+eabfb060d1	Source: papers in literature/pdf/K_Search_history and Charbonneau 2000; quotes and pages in tess_fact_sources.csv
+ee663c31c9	3  History. 6 473 confirmed planets: 74 % found by transits, 19 % by radial velocity
+0668815fdc	Confirmed planets per year of discovery, by method (NASA Exoplanet Archive).
+cd4d0c5e14	Facility
+ef23509a3b	Planets
+3cb496e10a	Planets whose discovery facility is named in the archive.
+6901649b2b	Source: NASA Exoplanet Archive, table pscomppars, TAP query of 2026-11-21 (data/raw/discoveries_by_*.csv)
+0e3f0fa9f6	3  History. The space missions in numbers: launch, hardware and first results
+e4698d4cea	Mission
+952f375412	Start
+b76ab65957	Hardware
+5faa59d4bc	Result
+ee37dec9d4	Paper, page
+e062753d6d	Launch 27 Dec 2006
+f8f5d60e55	Polar orbit; built and operated by CNES
+e6805951db	First planet: CoRoT-Exo-1b (2008)
+55019eb9f2	Auvergne 2009 p. 1; Barge 2008 p. 1
+3d708b1ef5	Launch 6 Mar 2009
+0a1e240bf6	0.95 m aperture; Earth-trailing heliocentric orbit
+fa02d40f7e	2 787 planets in the archive
+75e7645ed3	Koch 2010 p. 2, p. 5
+976071a8ef	Kepler spacecraft after two reaction wheels were lost; fields along the ecliptic
+53003ac5fb	550 planets
+63a89939b4	Howell 2014 p. 2, p. 1
+7e060e2065	Launch 18 Apr 2018
+eee9f0e371	4 cameras, 24° × 96°; 13.7-day orbit
+04cb19af03	1 027 planets
+5545fd50b4	Ricker 2015 p. 8, p. 7; NASA page
+dd7b42bd10	Launch 18 Dec 2019
+3cb9f81ce2	Secondary passenger on a Soyuz-Fregat from Kourou
+463111acde	ESA small mission
+24cada28fd	Benz 2021 p. 2
+2facb7a9b4	Selected as ESA M3
+a7b8c466ea	Wide-field multi-camera survey
+7728558d1c	In preparation
+6c7c88e89d	Rauer 2014 p. 3
+038c4b0bc0	L2 observatory
+45f0699725	Infrared; transit of WASP-39 b with NIRCam on 22 to 23 July 2022
+04ba7bec9d	First atmosphere transits
+be0353b3a8	Gardner 2006 p. 1; Ahrer 2023 p. 2
+d882e3c88d	Planet counts: NASA Exoplanet Archive by discovery facility. PLATO: selected in 2014 (Rauer); we did not check its current launch date.
+8a0d451154	Source: the five mission papers and Ricker 2015 (page numbers in the last column); NASA Science TESS page
+c8af071052	3  History. Where our ten planets were discovered: six by Doppler or ground surveys, four by space missions
+32b361d23b	Numbers are the planet numbers of this deck.
+e7abd94379	Planet
+de86180503	Discovery facility
+879e32326c	Year
+1ea57f3486	Haute-Provence (RV)
+40f72dfe6c	Keck (RV)
+cd9031e58b	Method and facility as the NASA archive records them. HD 189733 b is listed as a Doppler discovery; its 2005 paper reports the transit.
+ffe107f4c3	Source: NASA Exoplanet Archive pscomppars (discoverymethod, disc_facility, disc_year); Berta-Thompson 2015
+dee584594b	4  TESS. The satellite in nine numbers
+5d1686693d	Design value
+b6c22d03ac	Orbit
+9fa8d14139	Elliptical, 13.7 d, in 2:1 resonance with the Moon; 17 to 59 Earth radii from the Earth
+e83b98ce22	Sec 3.8, 6
+d3daff3a43	Cameras
+a39eff3ce5	4 identical lenses, f/1.4, pupil 10.5 cm; band 600 to 1000 nm
+c7848ffb60	Table 1
+8e9b36e234	Detector
+5420123afe	4 CCDs per camera, 2048 × 2048 pixels of 15 µm
+1d03d1cde8	Sec 4.2
+677b9bca73	Field of view
+c6bafed3cf	24° × 24° per camera; 24° × 96° = 2300 deg² together
+567a347735	One pixel
+bdb03db87c	Light in a pixel
+55b162241d	50 % inside one pixel; 90 % inside 4 × 4 pixels (1.4′)
+95ef14ec6f	One sector
+77f5560e9e	2 orbits = 27.4 d, then the cameras turn to the next field; 13 sectors per hemisphere
+ee91b23b06	Sec 7.2
+741d6c4833	Sampling
+f9d944113a	2-s frames; 60 are summed into one 2-min cadence for the pre-selected stars; full frames every 30 min
+678d58b9dc	Sec 3.7, 4.3
+d35260a00f	Targets
+11ff80a160	At least 200 000 stars at 2 min, I<sub>C</sub> about 4 to 13
+d79da395b5	Abstract
+a675a66d62	Design values from Ricker et al. 2015. The next slides check them on our 21 SPOC files.
+8884210ff5	Source: Ricker et al. 2015, Table 1 p. 7, Sec 4.1 p. 5, Sec 4.2 p. 6, Sec 6 p. 8, Sec 7.2 p. 9
+a6cf7a4383	4  TESS. Where it looks: 13 sectors per hemisphere, 27.4 days each
+92975bacb8	Grey: 87 shortlisted planets; red: our ten.
+1dab8e4995	Sky coverage (design)
+e3c69d443a	four cameras in a row: 24° × 96° = 2300 deg², from ecliptic latitude 6° to the pole
+7129132e74	each sector: 2 orbits = 27.4 d, then 27° east; a hemisphere in 1 yr, the sky in 2 yr
+c230da10c0	observed at least 27 d: 30 000 deg² (73 % of the sphere  computed); over 80 d: 2 800 deg²; over 300 d: 900 deg² near the poles
+e811ec2b4a	Our ten: |latitude| 2.5° (K2-141 b, 3 sectors) to 87° (WASP-62 b, 38). We used 1 to 4 sectors per planet.
+3e0e46b636	Source: Ricker et al. 2015, Sec 7.2, pp. 9 to 11; sectors per star from our MAST search (code/03_check_mast.py)
+bfce6818d3	4  TESS. Sampling: one point every 2 minutes, sectors of about 27 days, gaps of 1 to 8 days
+d2f6db497b	Good cadences (quality flag 0, finite flux) in each of our 21 SPOC files.
+15b4d152b1	Measured on our files
+2a1d321525	all 21 files: 120 s cadence = 60 frames of 2 s; effective exposure 95 s (header DEADC 0.792)
+05e9dfd98e	sector span 24.6 to 28.4 d (median 26.6)
+45b928c8b3	largest gap 1.1 to 7.7 d (median 2.2); good cadences 63 to 96 % of the span (median 81)
+b006224362	one transit lasts 0.4 to 5.6 h = 11 to 169 cadences
+240b2c6615	Source: Ricker et al. 2015, Sec 4.3 p. 7; headers of our 21 SPOC files (results/tess_files.csv)
+8c3fcbe451	4  TESS. Data products: 2-min light curves from the start; full frames every 30 min, then 10 min, then 200 s
+dd3b86d1ef	Product
+68af11f073	Cadence
+7c62a14244	Available
+8cd9919445	Used here
+d0222e22bc	SPOC light curve, target pixels
+12fc2c560c	From sector 1
+0ce24a663f	<b>Yes</b>: all 21 files (PDCSAP flux)
+3cd0a278cb	SPOC fast light curve
+33693265fb	First extended mission, from sector 27
+09c0a03de3	Full-frame images
+d3ddf7a34d	30 min
+0e640bbe83	Years 1 and 2 (sectors 1 to 26)
+4605ee7759	10 min
+1bd4710a7b	Years 3 and 4 (sectors 27 to 55)
+26bc8fd3b7	Years 5 on (sector 56 and later)
+274bad458d	Our files
+925d267c4a	16 sectors: 1, 2, 3, 4, 5, 9, 10, 15, 16, 41, 42, 56, 103, 104, 105, 106. First observation 2018-07-25, last 2026-07-11: years 1, 2, 4, 5 and 8 of the mission.
+7b85532ee0	Time stamps
+f5b1ab76f7	BTJD = BJD<sub>TDB</sub> − 2 457 000 d. Each cadence is the sum of 60 frames; flux units are e<sup>−</sup>/s.
+740c7b0f07	Source: NASA HEASARC, STScI TESS archive manual, MIT TESS Science Office (copies in data/raw/tess_docs/, 21 Nov 2026)
+02b0c109cf	4  TESS. Resolution: one pixel is 21″ = 0.0058°, and 90 % of a star's light lands within 1.4′
+8dce170de2	Value
+d49f8e1425	15 µm = 0.35′ = 21″ = 0.0058° (171 pixels per degree)
+8d93236a68	WCS in our files: 19.1 to 21.1″
+6ec1ca2cbc	One camera
+581da81c0a	2 × 2 CCDs of 2048 pixels = 4096 pixels = 23.9°
+8ac369696f	computed; 24° quoted
+2fbd6bd577	Half of a star's light
+a8c6657ace	inside one pixel (21″)
+efea220d88	Ricker et al. 2015, Table 1
+40856116eb	90 % of the light
+1a964a6662	inside 4 × 4 pixels (84″ = 1.4′)
+a4b694f173	images are undersampled
+12f9f27f9f	One pixel on the sky
+1704137080	21″ × distance: 140 AU at LTT 1445 A (6.9 pc) to 3 710 AU at WASP-62 (176 pc)
+4a0b0a3aa6	catalog distance
+2c5af7fd16	Our apertures
+9451a45706	13 to 31 pixels = equal radius 41 to 64″
+9e1644d9f7	measured on our files
+64212fbfaf	A star within about 1.4′ adds light to the aperture; two stars inside one pixel cannot be told apart.
+db29aee6fc	The equal radius is sqrt(N/π) pixels for the N pixels of the optimal aperture.
+093c7b2aed	Source: Ricker et al. 2015, Table 1 p. 7, Sec 4.1 p. 5; STScI MAST TESS page; WCS in our file headers
+2c2a81fb86	4  TESS. Our ten apertures: LTT 1445 A b has only 42 % of its light from the target
+b817b2a91f	Optimal-aperture pixels, first sector used. CROWDSAP: share of the aperture flux from the target.
+fe86c10207	PDCSAP removes the rest (median PDCSAP/SAP = CROWDSAP/FLFRCSAP; LTT 1445 A b: 0.434). Its companions lie 5 to 7″ from A, inside one pixel.
+4e684a267f	Source: SPOC light-curve headers (CROWDSAP, FLFRCSAP, aperture mask); Winters et al. 2021 for LTT 1445
+b97a25260d	4  TESS. Precision: 67 to 477 ppm per hour, and 11 to 169 points per transit
+72d382ec30	T mag
+b73f7214e5	Sectors
+01b43605fd	Transit / n
+df0e298e35	Depth
+dbb3bcac68	CDPP 1 h: combined differential photometric precision on 1 h, SPOC header keyword (median of the sectors used, ppm). Cam: camera. Sectors: used of available. Px / r: optimal-aperture pixels and equal radius. CROWD: lowest CROWDSAP. Transit / n: duration and number of cadences. Depth: (R<sub>p</sub>/R<sub>★</sub>)² in ppm, our fit.
+f52aef75c6	Source: SPOC light-curve headers (CDPP1_0, TIMEDEL); transit durations from the NASA Exoplanet Archive
+34e6aa4e72	4  TESS. Where it flies: a 13.7-day orbit between 17 and 59 Earth radii
+1bb88c27a6	Top view, to scale in distance (not in tilt).
+4dc5868b6e	Path and orbit
+497eae76a4	launch from Cape Canaveral into a parking orbit (28.5°); two burns raise the apogee to 400 000 km; a lunar flyby lifts the ecliptic inclination to about 40°; final orbit about 60 days after launch (nominal scenario)
+94cf77ea59	final orbit: 17 to 59 R<sub>⊕</sub>, 13.7 d, 2:1 with the Moon; Kepler's third law with a = 38 R<sub>⊕</sub> gives 13.7 d (computed)
+703205ca20	data: downlinked every 13.7 d at perigee, 4 h at 100 Mb/s; then the cameras repoint
+53ecf44a99	why here: outside the radiation belts, no long eclipses, stable for decades without station-keeping
+d90c471c49	Source: Ricker et al. 2015, Sec 6 p. 8, Sec 5 p. 7, Table 2 p. 9; constants and Kepler check: code/28
+809b926b1e	4  TESS. Who launched it and what it cost: SpaceX, about $87 million for the launch
+002ff59811	Question
+a16a4eda7c	Answer
+5eef32f959	Who runs it
+f6fd60a1a5	MIT leads the mission; the Explorers Program at NASA Goddard oversees it; NASA's Launch Services Program (Kennedy) manages the launch
+ae3f0bf1cc	NASA release C14-049
+07f163fb8a	Who launched it
+bb791fba1f	SpaceX, Falcon 9, from Cape Canaveral AFS on 18 April 2018 at 6:51 p.m. EDT. NASA chose SpaceX on 16 Dec 2014 (Falcon 9 v1.1, liftoff then targeted for Aug 2017)
+3301214ac4	NASA release; MIT News
+2c94adf60b	Cost of the launch
+2bbefb373b	About $87 million to NASA: launch service, spacecraft processing, payload integration, tracking, data and telemetry
+99ff1922b1	$20 million: first proposal, private (MIT)
+a6b0b1915f	$120 million: proposal to NASA (MIT)
+b0db02abc4	Dec 2014
+2c41bab9e3	$87 million: launch alone (NASA)
+8e45de5f82	Apr 2018
+1902d24fc7	$337 million: total reported (Physics World)
+10845fac95	$87 million is the launch only; $337 million is a reported total.
+776f142149	Source: NASA release C14-049 (16 Dec 2014); MIT News (Apr 2018); Physics World (19 Apr 2018)
+37265045fe	4  TESS. Could Vietnam launch a TESS? Not on its own rocket, but a launch can be bought
+c5184cdffb	Evidence (sourced)
+bc4f011171	VNREDSat-1 flew on a Vega rocket from French Guiana on 7 May 2013; the whole programme cost EUR 55.8 million
+55576dca98	LOTUSat-1 (570 kg) was ‘awaiting Japan’s launch vehicle’ in July 2024; a facility for satellites under 180 kg was planned for December 2025
+5b94b9404d	In August 2026 VinSpace chose a SpaceX Transporter rideshare for its first satellites, in the second quarter of 2027
+d2aba6ceb3	TESS: $87 million for the launch alone
+c10882260d	Our reasoning
+eb9d118e1c	Reaching an apogee of 400 000 km from a 300 km circular orbit needs Δv = 3.1 km/s on top of 7.7 km/s: a heavy launcher, not a small rocket (computed)
+a8649279e5	Latitude is not the obstacle: 8.6° N gives 460 m/s of Earth rotation against 409 at Cape Canaveral, +51 m/s, 0.7 % of orbital speed (computed)
+79166fbe90	We found no report of a Vietnamese orbital rocket or spaceport (one web search)
+ff6c0fd31d	Realistic: buy a launch, ride as a secondary passenger (CHEOPS did), or build ground robotic transit telescopes (MEarth found GJ 1132 b)
+8cdc91bf94	Judgement, not a source: a self-launched TESS-class mission is not realistic soon; our computations use standard constants (code/28_orbit_figure.py).
+ad6d2052ba	Source: Gov. of Viet Nam news (7 May 2013); VietnamNet (15 Jul 2024); Al Jazeera (11 Aug 2026); Benz 2021; code/28
+12a945e91d	4  TESS. Where each design number comes from: instrument paper, section and PDF page
+a72ca256dc	Statement
+300721defd	PDF page
+2c9126d3e3	Elliptical orbit around the Earth
+301b202e44	perigee 17 R E, apogee 59 R E
+9f5ece52dd	Ricker 2015, Sec 6
+7d7e6df6b8	Period and resonance with the Moon
+c2951a3494	13.7 d, 2:1 with the Moon's orbit
+836331d598	Launch and first orbit (nominal scenario)
+d96c99f093	Cape Canaveral, parking orbit 28.5 deg
+1b8792a1c7	Ricker 2015, Sec 6, Fig 5
+1e7f241a01	Lunar flyby raises the ecliptic inclination
+38f3c8dd44	to about 40 deg
+f07a962a29	Downlink rhythm
+ec3523f7c3	every 13.7 d at perigee
+2e9ac13dc8	Ricker 2015, Sec 4.3
+5281cfb88d	24 x 24 deg each; 24 x 96 deg = 2300 sq. deg
+731d249a75	Ricker 2015, Table 1
+00c900df44	Pixel size and PSF
+65b6d0af93	15 micron = 0.35 arcmin
+fa37113ea7	Ricker 2015, Sec 4.1
+722d2cb3d2	Light in 4 x 4 pixels
+1eb9bc2e42	90 % in 4 x 4 pixels = 1.4 arcmin
+04fa8c1494	A sector lasts two orbits
+0d98478889	27.4 d, boresight nearly anti-solar
+94acace581	Ricker 2015, Sec 7.2
+87a46af540	Area observed at least 27 d
+4f98ceb95d	30 000 sq. deg
+b078d67802	2-min cadence
+ec793f3849	60 frames of 2 s summed
+58888fc88e	PDF pages of arXiv:1406.0151v3. Each quote is checked in data/literature/tess_fact_sources.csv.
+373ef298f3	4  TESS. Web pages used, saved on 21 November 2026
+d70f93df5e	Address
+d678e1d1c6	Used for
+b85144e60b	MIT News, TESS takes off
+4722634ad1	science.mit.edu/tess-takes-off
+077ba04c02	Launch vehicle, site and time
+cc7b3e0121	NASA contract release C14-049
+ed0520e2d7	www.nasa.gov/news-release/nasa-awards-launch-services-contract-for-t…
+0b22ffcba0	Total cost to NASA of the launch
+d0ea6949a4	Physics World, 19 April 2018
+3b364e96fe	physicsworld.com/a/nasa-launches-tess-exoplanet-mission/
+10ad0f6faa	Total mission cost as reported (secondary source)
+38c6f6def2	STScI MAST, TESS mission page
+571df51324	archive.stsci.edu/missions-and-data/tess
+3f03184dfa	Pixel scale on the archive page
+56ec1c6c6a	NASA HEASARC, TESS data products
+2efa347552	heasarc.gsfc.nasa.gov/docs/tess/data-products.html
+bc6eedad39	Full-frame cadence by cycle
+49ffa1e280	Government of Viet Nam online newspaper
+a129512056	en.baochinhphu.vn/vns-first-remote-sensing-satellite-launched-111166…
+108704eab1	VNREDSat-1 was launched abroad
+eecd74d96d	VietnamNet Global, 15 July 2024
+214a07f246	vietnamnet.vn/en/vietnam-prepares-for-lotusat-1-satellite-launch-wit…
+9da46f2575	LOTUSat-1 waits for a Japanese launcher
+ee98c69b3a	Al Jazeera, 11 August 2026
+31ded84042	aljazeera.com/economy/2026/8/11/vietnams-vinspace-announces-deal-wit…
+826d9a514b	Vietnam's 2027 launch is a SpaceX rideshare
+ecae60d74d	Copies in data/raw/tess_docs/; each quoted phrase was found in the saved page.
+9d2d14316d	5  Sample. Six ways a catalog divides exoplanets; our grouping uses the first four
+160bbfbc4d	Axis
+ed1846afee	Classes
+e5aaeaac2e	Radius
+0acb09e240	under 1.25 R<sub>⊕</sub> Earth-size; 1.25 to 2 Super-Earth; 2 to 4 Sub-Neptune; 4 to 8 Neptune/Saturn; 8 and more Jupiter-size
+ecdf701097	<b>Yes</b>
+9eda278b07	pl_rade
+de4bcc6e83	Orbital period
+75cb3ef763	under 1 d ultra-short (USP); 1 to 3 hot; 3 to 7 warm; 7 to 15 cool
+285bfe381c	pl_orbper
+cbd475ddc6	Equilibrium temperature
+ff7bc58172	above 2000 K ultra-hot; 1200 to 2000 hot; 500 to 1200 warm; below 500 K temperate
+62cf9fa9aa	pl_eqt
+3a6fdf61cf	Host star
+85f0a89d92	M dwarf (under 3900 K); K (under 5200); G (under 6000); F and hotter
+213ac319d3	st_teff
+89b06e09c3	Discovery method
+c083deac59	transit, radial velocity, imaging, microlensing, …
+a4a17e6c15	Recorded, not used to choose
+7b14b794b7	discoverymethod
+bc0792d8dc	System
+910f04a9c4	one planet or several in the same system
+1bbdb387bc	sy_pnum
+faf40def85	The class edges are ours (code/02_group_candidates.py); other papers place them elsewhere. Mass, density, insolation and the radius valley are also used in the literature, not here.
+df1739e848	5  Sample. Our ten against the 471: every size class and star type is present, the 7 to 15 d period class is empty
+41ff354b2b	Class
+02d563b5a4	471 catalog
+c253230b42	Our 10
+18b4120377	Earth-size
+41a6dcfe5e	Super-Earth
+0f5721c2e5	<b>Sub-Neptune</b>
+13db1dc736	Neptune/Saturn
+44a5bad360	Jupiter-size
+5c71d91d4b	USP (&lt;1 d)
+03a1d24c84	Hot (1-3 d)
+04e6814f7c	Warm (3-7 d)
+050c1fc963	<b>Cool (7-15 d)</b>
+570a9d2e23	Ultra-hot (&gt;2000 K)
+4f26d2d40e	Hot (1200-2000 K)
+4cce4189e0	<b>Warm (500-1200 K)</b>
+e3c31cda58	Temperate (&lt;500 K)
+cdd224c9c3	M dwarf
+499705cfcd	K dwarf
+9d148c63ff	G (Sun-like)
+88e692b42f	F/hotter
+d044ee8aef	Red: a class that holds at least 25 % of the 471 planets while our ten hold at most 40 % of that share. Bars: share of the 471.
+0f832da3a2	5  Sample. Is ten enough? Enough to show the method, not to say anything about a class
+144392c557	Ten planets
+0530b63a90	<b>Enough for</b>
+a7ded5e1ba	Showing that the pipeline runs from 1.2 to 15.6 R<sub>⊕</sub>, periods of 0.28 to 6.1 d, T mag 6.8 to 10.8, all four host-star types and all four TESS cameras.
+22ae4ebddd	<b>Not enough for</b>
+88bafafc62	Statements per class: Earth-size, Neptune/Saturn and Sub-Neptune have one planet each. No planet has a period of 7 to 15 d (139 of 471); our longest is 6.1 d, so the blind search to 15 d is untested above that. Radial-velocity discoveries: 3 of 10, 8 of 471.
+c165057e54	<b>Weak spot</b>
+c99862c8e0	The three smallest, shortest-period planets were searched near the catalog period; K2-141 b searched blind gave 5.68 d, the catalog value is 0.280 d.
+844e9a04ba	Minimum: say on the slide what is covered and what is not. If there is time: add a sub-Neptune with a 7 to 15 d period, e.g. TOI-2134 b (9.23 d, T mag 7.8) or HD 97658 b (9.49 d, T mag 7.0). Not checked: SPOC data, papers.
+4ba2220150	The assignment slip gives the title only, no number of planets.
+51f650199b	6  Light curves. 1 HD 118203 b: raw, detrended and folded
+96c46f2120	Raw PDCSAP and momentum dumps; detrended with red ticks at transits; folded dip with binned data and model.
+774858cbf8	Image obtained
+b9123cfb1b	7 transits folded, duration 4.32 h, 10 momentum dumps
+caff3a45ad	depth at mid-transit 3,418 ppm observed, 3,054 ppm model; scatter 388 ppm per 2 min
+0f5d6e6314	detrending changed the rms by under 20 %: the raw curve is already flat
+e10cb82cf1	6  Light curves. 2 HD 189733 b: raw, detrended and folded
+d6f1539caf	12 transits folded, duration 1.44 h, 4 momentum dumps
+afe8c2fddd	depth at mid-transit 24,834 ppm observed, 23,752 ppm model; scatter 327 ppm per 2 min
+ec26848ea8	detrending cut the rms from 4,945 to 3,593 ppm: stellar variability
+f6f92a21b3	6  Light curves. 3 HD 209458 b: raw, detrended and folded
+74886d495c	8 transits folded, duration 2.16 h, 4 momentum dumps
+6b4d3bb767	depth at mid-transit 15,798 ppm observed, 14,699 ppm model; scatter 334 ppm per 2 min
+8140328896	6  Light curves. 4 WASP-18 b: raw, detrended and folded
+79f90afe4e	97 transits folded, duration 2.16 h, 16 momentum dumps
+12eaab07ad	depth at mid-transit 10,688 ppm observed, 9,716 ppm model; scatter 675 ppm per 2 min
+d60692da27	6  Light curves. 5 WASP-62 b: raw, detrended and folded
+a4a4e9abaf	22 transits folded, duration 3.12 h, 38 momentum dumps
+4226bd97a2	depth at mid-transit 13,619 ppm observed, 12,196 ppm model; scatter 880 ppm per 2 min
+3d9e48d382	6  Light curves. 6 LTT 9779 b: raw, detrended and folded
+a96a324d46	34 transits folded, duration 0.55 h, 12 momentum dumps
+5e890213f5	depth at mid-transit 1,585 ppm observed, 1,932 ppm model; scatter 629 ppm per 2 min
+ea9081c280	6  Light curves. 7 TOI-270 c: raw, detrended and folded
+6d1727f062	11 transits folded, duration 1.44 h, 25 momentum dumps
+1c1a964445	depth at mid-transit 3,762 ppm observed, 3,305 ppm model; scatter 1309 ppm per 2 min
+9786218ab4	6  Light curves. 8 LTT 1445 A b: raw, detrended and folded
+0a7dadcc69	4 transits folded, duration 1.07 h, 8 momentum dumps
+8753a7b63c	depth at mid-transit 2,447 ppm observed, 2,208 ppm model; scatter 1067 ppm per 2 min
+074291010b	detrending cut the rms from 2,636 to 1,238 ppm: stellar variability
+16449c3b6d	6  Light curves. 9 GJ 1132 b: raw, detrended and folded
+2de599cb3a	26 transits folded, duration 0.96 h, 16 momentum dumps
+aa800f3079	depth at mid-transit 2,379 ppm observed, 2,244 ppm model; scatter 1957 ppm per 2 min
+3b105395cc	6  Light curves. 10 K2-141 b: raw, detrended and folded
+5dd94c2915	57 transits folded, duration 0.96 h, 4 momentum dumps
+4f136ccd64	depth at mid-transit 442 ppm observed, 355 ppm model; scatter 1036 ppm per 2 min
+05b3b01d19	detrending cut the rms from 1,786 to 1,235 ppm: stellar variability
+3bb6843d75	7  Plots. Fig 5 type: where our planets sit among the known ones
+997db9fb60	V magnitude against radius; red: ours (π = π Men c).
+5ef2dab1bf	Measured masses; Zeng curves; red: our radii.
+6665173113	brightest hosts: HD 209458 b (V 7.7), HD 189733 b (V 7.7); 33 known planets have V &lt; 8
+751f1d4100	0 = Earth-like, 1 = water: TOI−270 c 1.1; LTT 1445 A b 0.1; GJ 1132 b −0.1; K2−141 b −0.2
+bbd61ebd37	7  Diagnostics. Odd against even transits: three planets pass 3σ, but only by 1 to 17 %
+3e70ce57b2	(odd − even depth) divided by βσ; grey band: ±3; red: outside.
+3ac5b714b2	outside 3σ: HD 209458 b, WASP-18 b, pi Men c
+e907638677	depth differences: HD 209458 b 1.4 %, WASP-18 b 1.1 %, pi Men c 16.4 %
+da3f5dfdfd	π Men c has only 2 odd and 3 even transits; the per-transit scatter (31 ppm) gives about 1.3σ
+c049f173dd	7  Diagnostics. Flux at phase 0.5: WASP-18 b shows its own light, 352 ppm
+426e5768fc	Mean flux deficit in a window of one transit duration centred on phase 0.5, out-of-transit as reference.
+2de91f6076	WASP-18 b: 352 ± 9 ppm (white noise); ×β 2.09 gives ±19
+c356877246	Shporer+2019 (TESS sector 2): secondary eclipse 341 +17 −18 ppm, so the two agree
+2c38860e41	all other planets are below 3σ; GJ 1132 b is 223 ± 72 ppm, not significant after ×β
+b614f51aab	7  Diagnostics. Red noise: averaging helps less than 1/√N, by a factor β of 1.0 to 3.6
+917d612481	Left: rms of the residuals against bin size for each planet; dashed: white noise. Right: β per planet (red: &gt; 1.5).
+cbb5dd95b5	largest β: HD 189733 b 3.62, HD 118203 b 2.91; smallest: LTT 9779 b 1.03
+c1333ad6fa	π Men c β = 1.52, per-point rms 124 ppm: the quietest light curve of the eleven
+26c5bccde5	7  Results. Eight of ten radii within 4 % of the catalog; periods within 0.03 %
+81c1ef7c8b	Measured against catalog radius difference; bars: total 1σ.
+ca442f00eb	|ΔP|/P, log scale.
+2d8f7756e6	7  Results. A difference of 0.3 to 10 % from the catalog, read in units of the error
+14d67d31b5	Circles: ours (1σ). Diamonds: published, from the PDFs. Right: pull.
+79b7117397	How to read it
+f865830397	9 of 10 ratios within 2σ; outside: WASP-18 b, -3.2 % (-2.9σ)
+d50c29f674	K2-141 b is the largest difference, -9.7 %, but its error is 6.1 %: -1.5σ
+58cbc168e0	HD 189733 b: -0.8 % but -2.0σ; with red noise (×3.6) -0.6σ
+d46d263356	Papers scatter around the catalog too; WASP-18 b: two TESS analyses are both below it
+1aa62e00af	Radius and period
+3c8329dd22	radii: 10 of 10 within 2σ (0.1 to 7.3 %)
+fc804ac6b6	periods: 8 of 10; TOI-270 c -4.2σ, WASP-18 b +2.3σ
+6ca3171035	7  Results. The catalog values rarely come from the discovery paper
+34ae992eb6	Discovery paper
+170a28a9db	Period
+4a3756669a	Günther 2019
+93c5a636c9	Only 1 planet (LTT 9779 b) takes a value from its discovery paper. Radius and ratio come from two papers for 4: HD 189733 b, HD 209458 b, WASP-62 b, K2-141 b (bold). The stellar radius comes from the radius paper for all ten.
+a9fa528ae7	8  Authors and us. Ratio R<sub>p</sub>/R<sub>★</sub> against 12 published values
+22d507f2ba	Paper
+483bf2075c	Published
+081bec029f	Ours
+a6500a44f3	Pull (ratio)
+0300a44d41	Pull (R<sub>p</sub>)
+7f6e5a6efa	Verdict
+c9600527f4	agree
+dfbc6454c3	differ
+e10f13ea4c	R differs
+4ec84d3684	8  Authors and us. Where we differ, and why
+65e1d1cea5	HD 189733 b vs Bouchy+2005
+d02da3b6d2	Ratio 0.172 (2005) against our 0.1541. Spitzer 2007 gives 0.1545 and agrees with us (-0.25 %). The 2005 value is the outlier.
+fa976a9ad8	HD 209458 b vs Charbonneau+2000
+b1f1b018af	Radius +11 %: the paper assumes R<sub>★</sub> = 1.1, the archive says 1.19. The ratio differs only +2.2 %.
+a9814778ff	Ratio +1.5 % (nominal 5σ), radius +6.2 % (+1.1σ). Different sectors; cause not found.
+4b89602094	Everything else agrees within 2σ. π Men c agrees only because a lower ratio and a higher stellar radius cancel.
+345fa851f8	8  Authors and us. The checked PDFs: planet names in yellow, published numbers in green or red
+ecdda59aea	Item
+593aa88b86	What was done
+30baa24967	Folder
+c335cdf614	literature/checking/, one annotated copy per PDF that names a project planet; originals in literature/pdf/ untouched
+3526f607bc	Yellow
+12b4ade7dc	every occurrence of the eleven planet names
+d1c22f45ea	Green or red
+1c05961ffe	published period, ratio and radius, with a comment: published value, our value, difference, pull, verdict
+66e12969c2	Count
+9a08ccc1f7	38 PDFs annotated; 44 values marked consistent, 8 marked as deviations
+a5ac6ab5e1	Final check
+e6fef07002	35 of 35 quoted numbers were found verbatim in the PDF text
+f25518cf50	Open a file in literature/checking/ and click a green or red number to read the comment.
+704bdcff9c	9  Literature. 150 verified papers in eleven sub-methods
+aaee9553d8	Left: papers per sub-method. Right: publication year (red: used in this project).
+c9aa97873f	Each entry was checked on arXiv or Crossref (first-author surname and title). Unverifiable candidates were dropped.
+29ca87489f	9  Literature. Every pipeline step has a paper behind it
+dc416e1088	Step
+a39b9d3a47	What we do
+afcd58c32e	Key papers (all verified)
+dd60172a63	9  Literature. A  Mission, catalogs and pipelines
+81fbc897e4	What TESS observes, which stars it observes, and how raw pixels become the light curves we fit.
+414dce4e29	<b>Sub-methods:</b> Mission design and expected yield · Target catalogs (TIC, TOI) · SPOC pipeline: presearch conditioning, data validation · Full-frame image photometry (QLP, eleanor, difference imaging) · Gaia as the distance and radius anchor.
+768e0c1c69	Title
+11a300b50b	17 verified papers in this group; ✓ = used in this project; full list in the appendix.
+0337011fad	9  Literature. B  Detrending and stellar variability
+30ea7b5b08	Stars vary by more than a transit is deep. Each method trades transit depth against residual trend.
+b818c7c032	<b>Sub-methods:</b> Median / Savitzky-Golay filters (used here, via lightkurve) · Spline and self-flat-fielding (K2SFF) · Gaussian processes (celerite, K2SC) · Trend filtering algorithm (TFA) and wotan biweight.
+fca8e21bff	6 verified papers in this group; ✓ = used in this project; full list in the appendix.
+8d75ecef6a	9  Literature. C  Transit search and machine learning
+1d195579a9	Finding a periodic, box-like dip: least squares in a box, a physical shape, or a neural network trained on labelled candidates.
+00f21cfa6c	<b>Sub-methods:</b> Box Least Squares (BLS, used here) · Transit Least Squares (physical shape) · Lomb-Scargle for periodic signals (RV, rotation) · Convolutional networks for triage and vetting · Citizen science (Planet Hunters TESS).
+61d6fc9dd5	16 verified papers in this group; ✓ = used in this project; full list in the appendix.
+a4782d1ff3	9  Literature. D  Transit modelling and inference
+2fe9964010	Turn a dip into R<sub>p</sub>/R<sub>★</sub>, b and a/R<sub>★</sub> with errors that include correlated noise.
+48f1691d92	<b>Sub-methods:</b> Analytic limb-darkened light curves (Mandel-Agol, batman: used here) · Geometry from the light curve (Seager and Mallen-Ornelas, Winn) · Limb-darkening laws and priors (Kipping q<sub>1</sub>,q<sub>2</sub>: used here; Claret for TESS) · MCMC samplers (emcee, affine-invariant: used here) · Packages: EXOFAST, juliet, exoplanet · Red noise and finite exposure time (Pont, Kipping).
+7d3ba48564	19 verified papers in this group; ✓ = used in this project; full list in the appendix.
+014f4cc4c7	9  Literature. E  Vetting and statistical validation
+b725f8ab35	A dip is not a planet until blends and eclipsing binaries are excluded.
+8e534c9230	<b>Sub-methods:</b> Odd-even depth and secondary-eclipse tests · Centroid and background tests · Blend scenarios and false-positive probability (vespa, TRICERATOPS) · False-positive rates of Kepler · Ground-based photometric follow-up.
+c4e99e75c2	9 verified papers in this group; ✓ = used in this project; full list in the appendix.
+052d92d8a6	9  Literature. F  Stellar characterisation
+0b1c168959	The planet radius is only as good as the stellar radius: 1 to 7 % of our error budget.
+8e18a8d69a	<b>Sub-methods:</b> Masses and radii of normal stars · Gaia-based radii (Berger, Fulton and Petigura) · Stellar evolution models (Dartmouth) · M-dwarf scaling relations (Mann) · Asteroseismology.
+2a6ed13408	8 verified papers in this group; ✓ = used in this project; full list in the appendix.
+2ce6b9f693	9  Literature. G  Populations, occurrence and composition
+2a3ad38311	What a radius means once you know many: the radius valley, mass-radius laws, composition curves, occurrence rates.
+a4f8f5087d	<b>Sub-methods:</b> Radius valley and evaporation · Mass-radius relations and composition curves (Zeng: used in our figure) · Probabilistic mass-radius (Chen and Kipping, Wolfgang) · Occurrence rates from Kepler · Core-powered mass loss.
+9569d116ff	20 verified papers in this group; ✓ = used in this project; full list in the appendix.
+ff22895f2c	9  Literature. H  Classic discoveries and science cases
+76e08d20df	From the first exoplanet around a Sun-like star to atmospheres: why a transit radius matters.
+41f7872fc7	<b>Sub-methods:</b> Radial-velocity discovery (51 Peg b) · First transits (HD 209458 b) · Kepler and K2 · TESS first results · Atmospheres and clouds · Habitable zone and TSM metrics.
+0e6da2f472	9  Literature. K  Search history: how exoplanets were found
+b335f95fdc	The path from pulsar timing and Doppler velocities to ground transit surveys, space photometry and atmosphere studies, with the paper behind each step.
+a70a075201	<b>Sub-methods:</b> Doppler and pulsar timing (1992, 1995, ESPRESSO) · Ground transit surveys (HD 209458 b, TrES, HAT, SuperWASP, KELT, MEarth) · Space photometry (CoRoT, Kepler, K2, TESS, CHEOPS, PLATO) · Atmospheres and follow-up (HST, Spitzer, JWST) · Microlensing and direct imaging for context.
+a6b992687c	22 verified papers in this group; ✓ = used in this project; full list in the appendix.
+037a16f23e	9  Literature. The discovery papers behind the planets we compare to
+645246dd48	Discovery or confirmation paper
+ef94d7ed43	10  Data. Every catalog number can be re-queried: 52 of 52 values match today
+4b5e84be0e	Check
+59ee2e0008	Columns compared
+6aff062b1e	period, radius, ratio, stellar radius
+1d45551c17	13 (10 + π Men c + 2 stress tests)
+9e8ea9309e	Equal to the downloaded CSV
+786fea3c28	52 of 52 values (queried live, 16 Nov 2026)
+91e21a5619	The archive keeps changing, so we store the query, the date and the comparison.
+d67854f5f4	Table: pscomppars, one row per planet; file data/catalog_recheck.csv; script code/16_reproduce.py.
+9b5f01c53b	10  Data. The light curves: 21 SPOC files, each listed with its URL and md5
+6ce6c512ea	Files
+9d30972683	Each of the 21 files has a URL and an md5 in data/data_manifest.csv.
+58ede0d115	10  Data. Run the pipeline and expect these numbers
+a7b93d2128	Mode
+4a88d27bba	Catalog
+7afb6295c7	blind
+5b590af68f	guided
+d57f71082d	11  Questions. How do we know the result is trustworthy?
+9ed99e75a9	Benchmark
+0b8c5eb570	HD 118203 b: ratio 0.0553 against the tutorial's 0.0554 and Pepper's 0.05538 (−0.2 %).
+4880fd97b4	Independent papers
+1059e98c44	10 of 12 published ratios and 10 of 12 radii agree within 2σ; periods 10 of 10. The differences are explained or flagged.
+3af2279f9e	Diagnostics
+98bf5f1b6b	Odd-even, phase 0.5 (WASP-18 b: 352 ppm against 341) and red noise β are measured, not assumed.
+8abaf6b921	We cannot know the truth; we check that an independent method agrees with published values, and say where it does not.
+bf13db5a76	11  Questions. Likely questions and short answers
+f0397a26c5	Is float32 versus float64 the cause?
+cb940e465b	No. Rounding 10<sup>-7</sup> against noise 10<sup>-4</sup>; a float32 refit moved the ratio 0.2 %, MCMC noise.
+0db451435e	Why does Rp match for the paper's planet but not its ratio?
+8b479d1d0b	π Men c: our R<sub>★</sub> is 1.17, the paper's 1.10; the offsets cancel.
+6a3805f36a	Why guided mode for three planets?
+6aaac6ff79	Blind BLS locks on aliases for low S/N or short P; the window is a restriction, the period is still fitted.
+a00bef7ae5	Why only the first sectors?
+00f3b29e67	Run time and a clean baseline; more sectors would sharpen P, not R<sub>p</sub>.
+2fd9b87f6b	What is β?
+12f89f9d2b	Ratio of measured to white-noise rms in transit-length bins; 1 means white noise.
+b9ec9c4b8f	Why not use the catalog duration?
+4fab6d941f	Blind mode does not; guided mode uses it only for the BLS duration grid.
+3452d9e1ce	11  Questions. Ten questions the lecturer may ask: 1 to 5
+b1617cf7d1	Short answer and where it is shown
+3f77560240	Why can a dip in brightness give a radius?
+38e091abdb	Depth ≈ (R<sub>p</sub>/R<sub>★</sub>)², R<sub>p</sub> = ratio × R<sub>★</sub>. R<sub>★</sub> comes from the archive, not from us, so its error goes straight into R<sub>p</sub> (section 7).
+1ee082051a	Why trust this period, not P/2 or 2P?
+26459f0563	BLS scans 0.26 to 15 d; 8 of 10 periods agree with the catalog within 2σ. Three planets were searched near the catalog period; K2-141 b searched blind gave 5.68 d (sections 6, 7).
+b308075385	Where do the errors come from; are they complete?
+68ee1e7e95	MCMC, three detrending variants and R<sub>★</sub>. Red noise (β 1.0 to 3.6) is not included; with ×β the HD 189733 b pull falls from -2.0σ to -0.6σ (section 7).
+59fc5a9094	Why does the result differ from NASA?
+97da8533f5	A difference means something only in units of its error. 9 of 10 ratios are within 2σ. Catalog values come from other papers: only 1 planet takes them from its discovery paper (section 7).
+fd65ce2f22	How do you know it is a planet, not a binary star?
+d6d4b1b450	All ten are confirmed planets in the NASA archive; we did no centroid vetting. We ran the odd-even test and the phase-0.5 test (WASP-18 b: 352 ± 9 ppm; Shporer et al. 341) (section 7).
+c6cb822035	Inferred from the group's comments (the nature of the result, why, and what supports it); the lecturer has not confirmed them.
+f8673b8e3d	11  Questions. Ten questions the lecturer may ask: 6 to 10
+735316344b	Do the ratio, the impact parameter and limb darkening degenerate?
+2c918709ee	Limb darkening (q<sub>1</sub>, q<sub>2</sub>) and b are fitted. LTT 9779 b: b = 0.91 and a 13 % error, mostly from detrending, not from MCMC (section 6).
+a3ee982fe9	Which assumptions can be wrong?
+c7b1ec1b34	Circular orbits for all ten (HD 118203 b has e = 0.316, Pepper 2020), R<sub>★</sub> from the archive, only 1 to 4 sectors, and the crowding correction (LTT 1445 A b: CROWDSAP 0.42) (sections 4, 6).
+ff5a88c15e	What does TESS give, and what does it not?
+493137de64	2-min points, 27-d sectors, 21″ pixels, gaps of 1 to 8 d. Period error from 0.6 ppm (WASP-18 b) to 173 ppm (K2-141 b) (section 4).
+904d1a0233	Why these ten planets? Is ten enough?
+befdeea427	They cover every size class and host-star type; the 7 to 15 d period class is empty (29 % of the catalog sample). Enough to show the method, not to say anything about a class (section 5).
+ca512b72c2	What would you do differently?
+3f3febfc99	Use every sector, fit the eccentricity, detrend with Gaussian processes, multiply the errors by β, and read the Methods of each catalog paper (sections 7, 8).
+3eda18208a	12  Conclusions. What we rebuilt, what agrees, what does not
+afc58e332a	Plotted
+3a5c69b168	Five figure types of the template paper, for ten planets; the paper's own planet gives 6.26779 d and 2.03 ± 0.07 R<sub>⊕</sub> against 6.27 and 2.04 ± 0.05.
+ee68d3496b	Agree
+9da62c4af1	10 of 12 published ratios and 10 of 12 radii within 2σ; periods 10 of 10; WASP-18 b phase-0.5 flux 352 against 341 ppm.
+cf9b77061f	Open
+bb3221fce4	WASP-18 b ratio (+1.5 %), the template planet's depth (−6.6 % against the paper), red noise not in the quoted errors.
+60dd1e1762	150 verified papers, 144 PDFs, 38 annotated copies in literature/checking/.
+e4755d61cf	REPRODUCE.md in the project folder lists every command and the expected numbers.
+d75405d6be	B1  Appendix. The paper behind the template: Huang et al. 2018, π Men c
+85a7de6e27	Star
+caec7a4050	π Mensae (HD 39091), G0V, V = 5.67, 18.27 ± 0.02 pc; 1.094 M<sub>☉</sub>, 1.10 R<sub>☉</sub> (their Table 1).
+18e8546994	Planet c
+a72115c365	R = 2.04 ± 0.05 R<sub>⊕</sub>, P = 6.27 d, M = 4.82 ± 0.85 M<sub>⊕</sub> from HARPS and AAT/UCLES velocities.
+493347b946	TESS data
+095a322853	Sector 1 (25 Jul to 22 Aug 2018), camera 4, CCD 2; SPOC 2-min and 30-min full-frame images; 5 transits of about 300 ppm and 3 h.
+8bfc28559d	It is the first small planet found by TESS around a bright star, arXiv:1809.05967.
+9aecd6f4ae	All values on this slide are read from the PDF (abstract, Table 1, Sections 2 and 3).
+9145682583	B2  Appendix. Fig 2 type for π Men c: five transits, ten momentum dumps, one folded dip
+9df3c12edc	Top: raw PDCSAP, dashed lines at momentum dumps. Middle: after Savitzky-Golay detrending, red ticks at predicted transits. Bottom: folded, binned, model.
+7b208ab926	5 transits near BTJD 1325.5, 1331.8, 1338.0, 1344.3, 1350.6
+3e28e32ff0	10 momentum dumps, as in the paper
+d71142a708	rms 135 to 130 ppm after detrending
+0e03cc5ef2	folded dip lasts 3.12 h, mid-transit depth 288 ppm
+045889676e	(R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> = 253 ppm
+89ba9cb12e	B3  Appendix. Fig 4 type for π Men c: each transit fitted alone, depths scatter 31 ppm
+130d326eb6	Five transits with the global model; last panel: posteriors of (R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> per transit, black = all data.
+4c1920416d	per-transit depths 232, 250, 260, 308, 236 ppm
+6e39354b5f	each ±10 ppm from white noise
+ab6fe646a0	real scatter 31 ppm
+102f818ba3	χ<sup>2</sup> = 38 for 4 dof: errors about 3 times too small
+d13e051736	B4  Appendix. Fig 1 type for π Men c: the SPOC aperture covers 96 % of the flux
+6387aab3bb	Summed TESS pixels (log scale), sector 1; red: SPOC photometric aperture.
+3eaad58e2a	stamp 11 × 21 pixels, camera 4, CCD 2
+a3641544cc	aperture of 45 pixels holds 96 % of the summed flux
+6d3e0753a3	one bright star, no second source inside the aperture
+2bbff6246d	Matches the paper: sector 1, camera 4, CCD 2.
+ef875de903	B5  Appendix. BLS on π Men c finds 6.27 d at S/N 59, with weaker aliases at P/2 and 2P
+707a8791bf	Box Least Squares power against trial period; red: best period; grey dashed: P/2 and 2P.
+67996c539e	best period 6.2709 d on the BLS grid, S/N 59.4
+12b863a45b	median power 4.45, 95th percentile 16.81
+ce70484f26	the fit refines it to 6.26778 d
+b03a87e029	A  Appendix. Literature, groups A to A (1/19)
+3b23297e00	Group, year, author
+756ad1db2a	A  Appendix. Literature, groups A to A (2/19)
+14023097bd	A  Appendix. Literature, groups A to C (3/19)
+8e6f427452	A  Appendix. Literature, groups C to C (4/19)
+5b0b630f0c	A  Appendix. Literature, groups C to D (5/19)
+de9a46b858	A  Appendix. Literature, groups D to D (6/19)
+6c9ca8a079	A  Appendix. Literature, groups D to D (7/19)
+627dcd2623	A  Appendix. Literature, groups D to E (8/19)
+4c5021450b	A  Appendix. Literature, groups E to F (9/19)
+4bd17b5d7d	A  Appendix. Literature, groups F to G (10/19)
+de5350f6f9	A  Appendix. Literature, groups G to G (11/19)
+97b161eb95	A  Appendix. Literature, groups G to H (12/19)
+b743651512	A  Appendix. Literature, groups H to H (13/19)
+c33400105d	A  Appendix. Literature, groups H to H (14/19)
+d6fb779a84	A  Appendix. Literature, groups H to I (15/19)
+a6a4cf2919	A  Appendix. Literature, groups I to J (16/19)
+b296795f57	A  Appendix. Literature, groups K to K (17/19)
+7333f0635a	A  Appendix. Literature, groups K to K (18/19)
+85ac940637	A  Appendix. Literature, groups K to K (19/19)
+6f67918c3c	Study deck for the ten planets: figure types taken from one TESS discovery paper, plots for every planet, a comparison with the authors of each discovery paper, a verified literature review by sub-method, and how to retrieve every number.
+e91c71a1d3	This is a study deck, separate from the 25-minute presentation. It answers: what does the paper actually say, can we rebuild it, where do we agree with the authors, and what is the literature behind each step.
+c3be14a52b	Measured is self-computed. Catalog and Published are taken from data. The stellar radius enters the radius, so compare the ratio when you want the pure light-curve result. LTT 9779 b, LTT 1445 A b and K2-141 b were searched in a window around the catalog period.
+3d679c9251	Float precision is not a cause: the SPOC file stores flux as float32 with relative rounding 1e-7, the noise is 1e-4. Sampler noise is real but small. The big ones are the stellar radius and old discovery papers.
+759fb611f6	We rebuild with our own pipeline on the same sector, so the comparison is a test of the method, not a copy of their plots.
+6251d1ab45	Period and radius agree. But the depth is not the same: the paper's Figure 4 histogram peaks near 290 ppm, ours is 252 ppm, a -6.6 percent difference in the ratio. The radius matches only because the archive stellar radius 1.17 is larger than the paper's 1.10. The cause of the depth difference is not identified: candidates are detrending, SPOC data reprocessing and crowding; none tested.
+bf1b31b18f	Layout and drawing style follow the Hadoop timeline of the HUST sample deck (slide 31): lanes by role, dashed lines for ideas, solid lines for dependencies. Every node has a paper in the literature folder and a verbatim quote checked in data/literature/tess_fact_sources.csv. Mayor and Queloz 1995 and Wolszczan 1992 are paywalled and were not downloaded; their entries rest on the title and the Crossref record. HD 209458 b is the first planet seen to transit, found earlier by radial velocity (Charbonneau 2000).
+e313ba9dd3	The archive table pscomppars was queried on 2026-11-21 with TAP. The numbers change as planets are added. Kepler, K2 and TESS together account for 4364 planets; the ground-based transit surveys in the table are far smaller.
+831839b5a2	Launch dates and hardware are quoted from the mission papers with the PDF page of the quote (data/literature/tess_fact_sources.csv). The TESS launch date comes from the NASA mission page. The planet counts are from the archive query on the same day as slide H2.
+3dfc56b795	Discovery method, facility and year are the archive columns discoverymethod, disc_facility and disc_year. By lane: three Doppler discoveries (HD 118203 b, HD 189733 b, HD 209458 b), three ground transit discoveries (WASP-18 b, WASP-62 b, GJ 1132 b) and four from space (K2-141 b, TOI-270 c, LTT 1445 A b, LTT 9779 b). The archive lists GJ 1132 b under the Cerro Tololo facility, where the MEarth-South array stands (Berta-Thompson 2015).
+190e8dcd8e	Everything in the right-hand column is quoted from the instrument paper, Ricker et al. 2015 (literature/text), with the table or section. The pixel scale of 21 arcsec per pixel and the 24 by 96 degree field are also given on the MAST page for TESS. These are design values from before launch; the later slides measure what we can on our own files.
+6ff16e3342	The design numbers are from Ricker et al. 2015, Sec 7.2. The 73 percent is our own division of 30 000 by the area of the sphere, 41 253 square degrees; it is not a number from the paper. The plot comes from the MAST search done in code/03_check_mast.py: stars near the ecliptic poles are seen in many more sectors, because the sectors overlap there.
+e499bd44c7	The red line marks 13.7 days, one spacecraft orbit. Most files show a break near it, and the shorter breaks are cadences flagged by the pipeline. We did not separate the causes of each break. The number of cadences in a transit uses the catalog transit duration (pl_trandur) divided by 120 s.
+1f71a6ff60	Cadence by cycle is from the NASA HEASARC page on TESS data products; the year-to-sector table is from the TESS science page at MIT; the fast cadence and sector 27 as the first extended-mission sector are from the STScI TESS archive manual (pages saved in data/raw/tess_docs/). We use only the 2-minute SPOC light curves.
+4c24449332	The pixel size and the energy fractions are from Ricker et al. 2015, Table 1; 21 arcsec per pixel is also on the STScI TESS page. The pixel scale of our files is read from the WCS stored with the aperture mask. The distance-based sizes use the catalog distance of each star.
+7a3174e764	CROWDSAP and FLFRCSAP are header keywords of the SPOC light curve. We checked on three files that the median of PDCSAP divided by the median of SAP equals CROWDSAP divided by FLFRCSAP; LTT 1445 A b, GJ 1132 b and pi Men c agree to three digits. The depth of LTT 1445 A b therefore depends on the size of a large correction. Winters et al. 2021 describe LTT 1445 as a hierarchical triple M-dwarf system at 6.86 pc.
+7ffcafef8f	Columns come from the FITS headers of the SPOC files (results/tess_planets.csv). The depth over CDPP ratio is a crude indicator and is not the signal-to-noise of the fit: K2-141 b has a depth of 355 ppm against 325 ppm per hour, and it is detected only because 57 transits are folded.
+04235ab32c	All statements in the right-hand box are quoted from Ricker et al. 2015: Section 6 on page 8 (orbit and the nominal path), Section 5 on page 7 (downlink), Table 2 on page 9. The path is described as a nominal scenario before launch; the actual launch was on 18 April 2018. The Kepler's-law period and the Moon's orbit radius (384 400 km = 60 Earth radii) are our own computations with standard constants; twice the TESS period, 27.4 d, is close to the Moon's sidereal period, 27.3 d.
+53ebea2e4e	The launch cost and the contract are quoted from NASA contract release C14-049 of 16 December 2014. The launch date and time are from the MIT News article. The $337 million appears in a Physics World report of 19 April 2018; Sky and Telescope and Wikipedia were seen in a web search with other splits (about $200 million plus $87 million) but we did not verify those pages, so we do not use them. The proposal budgets are from the MIT News history of the mission; the $20 million was a private proposal in 2006 and the $120 million a NASA funding level, both before the 2008 Small Explorer proposal.
+638d077679	Evidence: Government of Viet Nam news of 7 May 2013 (VNREDSat-1: Vega, Guiana Space Center, EUR 55.8 million including about 65 billion dong from Vietnam); VietnamNet of 15 July 2024 (LOTUSat-1 awaiting a Japanese launch vehicle; small-satellite facility planned for December 2025; we did not check later status); Al Jazeera of 11 August 2026 (VinSpace and SpaceX Transporter rideshare, Q2 2027). Reasoning: the delta-v is from the vis-viva equation; the latitude argument uses the equatorial rotation speed 0.465 km/s times cos(latitude). Self-launch would need a launcher, a range and flight heritage; we only found no report of one in one web search, which is not proof.
+cfb980ddb5	The table is built from data/literature/tess_fact_sources.csv by code/26_tess_sources.py, which searches each quoted phrase in the PDF text page by page; a row is written as verified only when the phrase is found. The first citation is Ricker, G. R. et al. 2015, Journal of Astronomical Telescopes, Instruments, and Systems 1(1), 014003, arXiv:1406.0151.
+b7ee8f500c	Web pages are public. Their text was saved on 21 November 2026 and each quoted phrase was searched in the saved copy. Web pages can change; the saved copies keep what we used.
+85598a12e9	These are the columns of the NASA Exoplanet Archive table pscomppars and the group edges we set in code/02_group_candidates.py for the 471 planets in data/candidates_grouped.csv. We chose the ten planets from these groups, not from the discovery method or the system.
+6fd1807b95	Counts come from results/sample_coverage.csv, built by code/24_tess_facts.py from data/candidates_grouped.csv. The four axes are the ones we used to choose the planets. The discovery method and the number of planets per system are on the next slide.
+b7e18c7301	The sample covers every size class and every star type but is thin in each. The empty class is the period class from 7 to 15 days, which holds 29 percent of the catalog sample. The two candidate planets are from the 139 cool-period planets in data/candidates_grouped.csv; we have not checked that their SPOC files exist and have not run them. TOI-2134 b is 2.74 Earth radii, HD 97658 b is 2.12.
+6834dda425	HD 118203 b: blind search, sectors [15, 16]. Same three-panel layout as Figure 2 of the paper.
+3115d0adfa	HD 189733 b: blind search, sectors [41]. Same three-panel layout as Figure 2 of the paper.
+18449619bd	HD 209458 b: blind search, sectors [56]. Same three-panel layout as Figure 2 of the paper.
+48ffbbe699	WASP-18 b: blind search, sectors [103, 104, 105, 106]. Same three-panel layout as Figure 2 of the paper.
+0faa000c55	WASP-62 b: blind search, sectors [1, 2, 3, 4]. Same three-panel layout as Figure 2 of the paper.
+49d92680be	LTT 9779 b: guided search, sectors [2]. Same three-panel layout as Figure 2 of the paper.
+e22de736eb	TOI-270 c: blind search, sectors [3, 4, 5]. Same three-panel layout as Figure 2 of the paper.
+6caf489f79	LTT 1445 A b: guided search, sectors [4]. Same three-panel layout as Figure 2 of the paper.
+c68a7ec5ec	GJ 1132 b: blind search, sectors [9, 10]. Same three-panel layout as Figure 2 of the paper.
+abf8b778ed	K2-141 b: guided search, sectors [42]. Same three-panel layout as Figure 2 of the paper.
+17ed74cedf	Left: the paper's top panel for our planets (the five giants are beyond 6 Earth radii, off the plot). Right: the paper's bottom panel; only the four small planets with measured masses are placed. The position index uses the Zeng tables at the archive default mass, so it depends on that mass.
+3559380aaf	The odd-even test compares depths of alternate transits; an eclipsing binary at twice the period would differ by tens of percent. Differences of 1 percent on the hot Jupiters are far too small for that. The formal significance is inflated because the errors treat the noise as white; we multiply by beta.
+dc50c3affe	WASP-18 b is the hottest planet here, so its day side emits enough to be seen as a dip when it goes behind the star. This is an external check: Shporer et al. measured 341 ppm on different data. The agreement is within 1 sigma.
+fcf75ace0b	Pont, Zucker and Queloz 2006 showed that correlated noise makes transit parameters less precise than white-noise errors suggest. beta is the ratio of the measured to the white-noise rms in bins of about the transit duration. Our quoted errors include detrending and MCMC but not beta.
+a552d1d326	Summary against the catalog default values for the ten selected planets.
+dfa278b73f	A percentage alone says nothing. The same 1 percent is nothing for a planet with a 7 percent error and a lot for a planet with a 0.4 percent error. The pull divides the difference by the combined error of the two values. Nine of ten ratios and all ten radii are within 2 sigma; WASP-18 b is the exception. For WASP-18 b, Shporer et al. (TESS sector 2) are also below the catalog, by 4.6 percent, so the catalog value is the odd one out in the TESS band; we did not find the reason.
+1d8679ea9d	Source: NASA Exoplanet Archive pscomppars, the reference attached to each default value (code/21_catalog_methods.py). A catalog value is therefore not one measurement: different data, wavelength band and stellar radius. A difference matters only when it is larger than the combined error.
+486310e6c6	Published values were read from the PDFs; every number string was found verbatim in the PDF text (35 of 35). Two rows are early ground-based papers and one is an approximate read-off from a figure. 'differ': more than 2 sigma on the ratio; 'R differs': the ratio agrees but the radius does not (different stellar radius).
+1d696e164e	These are the deviations we can state with numbers. For WASP-18 b we do not have an explanation: possible reasons are different sectors, crowding correction or red noise, none tested.
+4e643d649f	The checking folder lets you open each paper and see the planet names and the comparison in place. Red marks are the deviations of the previous slide.
+db2692d355	150 papers verified, 144 PDFs downloaded to literature/pdf, grouped A to K. Not downloaded: the paywalled ones (Mayor and Queloz 1995, Borucki 2010, Hellier 2009, Henry 2000, Stumpe 2014, Jenkins 2002, Gelman and Rubin 1992). Dropped because unverified: McQuillan 2014, Lissauer 2012, Parmentier 2018, Montalto 2020, Cameron 2012, Winters 2019.
+60c5e5c1b1	Each paper is in the verified list; the method column states what the code actually does. The alternatives in the literature (TLS, GP detrending, neural-network vetting) are covered in the group slides.
+0a0092cef3	Group A: 17 verified papers. What TESS observes, which stars it observes, and how raw pixels become the light curves we fit.
+1c9f7f1ed2	Group B: 6 verified papers. Stars vary by more than a transit is deep. Each method trades transit depth against residual trend.
+0b78d1ead5	Group C: 16 verified papers. Finding a periodic, box-like dip: least squares in a box, a physical shape, or a neural network trained on labelled candidates.
+a2b58c53c5	Group D: 19 verified papers. Turn a dip into R<sub>p</sub>/R<sub>&#9733;</sub>, b and a/R<sub>&#9733;</sub> with errors that include correlated noise.
+96f4e831b5	Group E: 9 verified papers. A dip is not a planet until blends and eclipsing binaries are excluded.
+bd9407272d	Group F: 8 verified papers. The planet radius is only as good as the stellar radius: 1 to 7 % of our error budget.
+bc0fa0d536	Group G: 20 verified papers. What a radius means once you know many: the radius valley, mass-radius laws, composition curves, occurrence rates.
+8e524a4dbf	Group H: 19 verified papers. From the first exoplanet around a Sun-like star to atmospheres: why a transit radius matters.
+8983871633	Group K: 22 verified papers. The path from pulsar timing and Doppler velocities to ground transit surveys, space photometry and atmosphere studies, with the paper behind each step.
+975396adaf	These are the papers whose numbers we compare against in section 8, plus the follow-up where the discovery paper is old.
+5003fb4131	The archive can change as new papers are added, so we re-queried it. The downloaded copy and the live table are identical for all the planets used.
+c31a3bcdba	Files come from https://archive.stsci.edu/missions/tess/tid/sSSSS/xxxx/xxxx/xxxx/xxxx/ with the 16-digit TIC number split in four. The MAST API (astroquery) timed out during this work, so the static archive was used; data/data_manifest.csv has the URL and md5 of every file.
+a905b4a066	Run order is in README.md. The random generator inside emcee was not seeded before; in a test two runs of pi Men c gave 2.0302 and 2.0319 Earth radii. After fixing it, two fits on the same data give identical chains.
+a34dc98c2f	Answer to the question from the group. Counts are computed from paper_comparison.csv (12 published rows; one planet has two papers). Ratio differs: HD 189733 b against Bouchy 2005 and WASP-18 b against Shporer 2019. Radius differs: HD 189733 b against Bouchy 2005 and HD 209458 b against Charbonneau 2000.
+a57fd6321d	Prepared answers; each one is backed by a number in this deck.
+7fe18d5f3a	These ten questions are our guess, built from two remarks in the group chat: the lecturer asks about the nature of the result, why things are so, and what supports each claim, and she asks to check whether the published method differs from ours. Each answer uses numbers computed elsewhere in this deck.
+31d4298cb3	Conclusions. The open items are stated as open; no cause was claimed that was not tested.
+9f1946a282	Summary of the paper from its abstract, Table 1 and Section 2. The planet was found with the MIT quick-look pipeline on full-frame images and SPOC on the 2-minute data. The radial velocities confirm the 6.27-day period.
+c2a63df171	This rebuilds the paper's Figure 2. The scatter at BTJD 1348 to 1349 is the pointing-jitter interval the authors also mention. Limb darkening makes the mid-transit depth (288 ppm) larger than the square of the radius ratio (253 ppm).
+3fef1a4218	The narrow coloured posteriors ignore red noise. The real transit-to-transit scatter is 31 ppm, comparable to the width of the histograms in the paper's Figure 4. Transit 4 is the deepest at 308 ppm.
+0e2f7e57b9	The paper's Figure 1 also shows two DSS survey images; we did not fetch them. The aperture is irregular and follows the star's blooming. Because the star is bright, charge bleeds along the columns.
+f314565001	BLS needs at least a few transits to reject the half and double periods; with 5 transits in 27 days the main peak stands clearly above its aliases.
+db100613fc	Full verified list in order of group (A mission, B detrending, C search, D modelling, E vetting, F stars, G populations, H classics, I project planets, J phase curves); notes/literature_review_TESS.md has complete titles and PDF paths.

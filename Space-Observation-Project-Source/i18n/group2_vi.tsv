@@ -1,0 +1,286 @@
+b3df39dafa	Mười hành tinh, một pipeline: từ đường cong ánh sáng công khai đến kích thước hành tinh, chia nhóm theo kích thước, quỹ đạo, sao chủ, khoảng cách và vị trí trên bầu trời
+4f443e626f	<b>Đề tài:</b> Space Observation Project 1, Nhóm 2<br/><b>Giảng viên:</b> TS. Nguyễn Thị Phương<br/>USTH, Thạc sĩ năm 2 ngành Không gian, 25 tháng 11 năm 2026
+95e7a55b90	1  Giới thiệu. Cái gì? Một câu hỏi, ba phép kiểm
+3ef1c09cf3	Từ một đường cong ánh sáng TESS thô, ta khôi phục chu kỳ quỹ đạo và bán kính của một hành tinh chính xác đến đâu, và với loại hành tinh nào thì thất bại?
+170a28a9db	Chu kỳ
+5b77d49934	Cả mười chu kỳ khớp với NASA Exoplanet Archive trong 0.03 % hoặc tốt hơn.
+e5aaeaac2e	Bán kính
+f6b39c14dd	Tám trong mười bán kính khớp trong 4 %; chênh lớn nhất là 7.3 % (K2-141 b). Mọi chênh lệch đều nằm trong 1.4σ.
+3c91233c86	Mười hành tinh từ 1.1 đến 15.7 R⊕ và 0.28 đến 6.1 ngày, cộng hai phép thử sức chịu bị thất bại.
+c466bd31e4	Chúng tôi tự đo; catalog chỉ là đáp án để đối chiếu. Bán kính cần bán kính sao, mà số này không đến từ đường cong ánh sáng.
+eb41af3885	1  Giới thiệu. Vì sao? Một transit cho một tỉ số, và công thức của môn học biến nó thành kích thước
+2dd21fb4e0	Hai transit của một hành tinh đi ngang đĩa sao: khoảng cách cho chu kỳ, độ sâu cho tỉ số bán kính, độ rộng cho hình học.
+6cc6d54fb5	Độ sâu; nên R<sub>p</sub> = R<sub>★</sub> √(ΔL/L).
+9655f5624d	P<sub>transit</sub> = R<sub>★</sub> / a
+de50e3a4ab	Xác suất hình học để quỹ đạo thẳng hàng.
+d1854eb8ee	Thời lượng của một transit đi qua tâm.
+08d6ca857d	2  Phương pháp. Ở đâu? Từ 4 826 hành tinh trong archive đến mười hành tinh
+fb0d5188b1	<span>4 826<br/>có TIC ID</span>
+9703cd3c69	<span>4 573<br/>đủ thông tin</span>
+cb6ac11d5f	<span>482<br/>độ sâu &gt; 500 ppm</span>
+4a8fd07aa3	<span>10 + 2<br/>được chọn</span>
+8cb527cb36	S/N ước tính: độ sâu chia cho một mô hình nhiễu đơn giản trong một giờ, tỉ lệ theo Tmag và số transit mỗi sector.
+9b99f3c95a	Mỗi lần lọc đều giữ lại các hành tinh mà một sector TESS 27 ngày đo được: sao sáng, ít nhất hai transit, dip sâu.
+9db496d410	Nguồn: NASA Exoplanet Archive, bảng pscomppars (TAP), các hành tinh transit có mã TIC; đường cong ánh sáng: TESS SPOC 2 phút PDCSAP từ MAST.
+fb4a67bd45	2  Phương pháp. Cái nào? Sáu trục quyết định các đại diện
+160bbfbc4d	Trục
+ed1846afee	Các lớp
+85a7de6e27	Sao
+6137eda3ce	M &lt; 3900 K · K &lt; 5200 K · G &lt; 6000 K · F hoặc nóng hơn
+423208095d	Khoảng cách
+d01cee5244	CVZ |β| &gt; 78° · Cao 54 đến 78° · Thấp &lt; 54° (vĩ độ hoàng đạo)
+adc3526074	Một hay nhiều hành tinh; do TESS tìm ra hay trước TESS
+c79a3e835a	Quy tắc: mỗi đại diện phải thêm một lớp chưa được phủ, và có dữ liệu SPOC 2 phút.
+3554fc93c0	2  Phương pháp. Cái nào? Mười hành tinh phủ mọi lớp kích thước và quỹ đạo
+c0b7aabc4d	Xám: cả 4 825 hành tinh transit có TIC ID và bán kính. Xanh: 471 hành tinh đo được. Số đỏ: mười hành tinh của chúng tôi.
+9f6b3ed8b7	2  Phương pháp. Cái nào? Mười đại diện và nhóm mà mỗi hành tinh phủ
+e7abd94379	Hành tinh
+499705cfcd	Sao lùn K
+88e692b42f	F/nóng hơn
+cdd224c9c3	Sao lùn M
+0a74d0551d	2  Phương pháp. Thế nào? Công thức của bài hướng dẫn, dựng lại bằng batman và emcee
+6e276790b2	<span>BLS<br/>P, t<sub>0</sub>, độ sâu</span>
+1f0a9f16b1	<span>Khớp transit<br/>batman + emcee</span>
+a533e0646e	<span>× R<sub>★</sub><br/>bán kính</span>
+63f0c81b99	Giống bài hướng dẫn
+5df35c8219	Khớp nhanh cho đường cong ánh sáng TESS: SPOC PDCSAP, bỏ NaN và điểm ngoại lai, BLS, che các transit, khớp mô hình có tối tâm.
+dcf1dfb23a	Chúng tôi thay đổi
+c38dbda495	PyMC3 và exoplanet được thay bằng batman và emcee (cùng mô hình Mandel-Agol). Ba biến thể làm phẳng cho sai số hệ thống.
+c53623d268	Đường cong ánh sáng cho R<sub>p</sub>/R<sub>★</sub>; R<sub>★</sub> lấy từ archive; sai số tổng cộng gồm MCMC, làm phẳng và R<sub>★</sub>.
+103eeaf509	Chế độ tìm: mù = BLS trên 0.26 đến 15 ngày; có hướng dẫn = trong ±3 % chu kỳ catalog, thời lượng tỉ lệ theo thời lượng catalog (phụ lục A10).
+8420f9408b	2  Phương pháp. Thế nào? BLS tìm chu kỳ, phép khớp mô hình tìm tỉ số bán kính
+e1f900ee71	Công suất BLS theo chu kỳ thử, HD 118203 b: P tốt nhất = 6.1351 ngày.
+4381aa1f48	Transit gập pha, trung bình theo bin và mô hình khớp tốt nhất.
+ded6bc6bfc	BLS mù khôi phục chu kỳ catalog của hành tinh chuẩn đến 10<sup>-5</sup> trước khi khớp; phép khớp sau đó cho R<sub>p</sub>/R<sub>★</sub> = 0.0553.
+1a3b1270b1	3  Kết quả. Chuẩn so sánh: HD 118203 b tái tạo bài hướng dẫn
+25825dc109	Hậu nghiệm MCMC của R<sub>p</sub>/R<sub>★</sub> và chu kỳ; đường đỏ: giá trị bài hướng dẫn 0.0554 và chu kỳ catalog 6.13498 ngày.
+54c10672b7	Chênh lệch bán kính là hiệu ứng của bán kính sao: bán kính catalog suy ra R<sub>★</sub> = 2.10 R<sub>☉</sub>, bảng archive ghi 2.04.
+86bede40e0	R<sub>p</sub>/R<sub>★</sub> = 0.0553 ± 0.0014 (bài hướng dẫn 0.0554); P = 6.13498 ngày (catalog 6.13498).
+6a440310b9	3  Kết quả. 1 HD 118203 b. Cùng hành tinh với bài hướng dẫn: R<sub>p</sub>/R<sub>★</sub> trong 0.2 %
+eae153e371	Dữ liệu TESS gập pha, trung bình theo bin và mô hình khớp tốt nhất.
+19b11197d4	<span class="pill old">Cỡ Sao Mộc</span> <span class="pill old">Ấm</span> <span class="pill old">G</span> <span class="pill new">tìm mù</span>
+9550373e8b	Đo được
+4a88d27bba	Catalog
+78b48e7b45	Chu kỳ (ngày)
+9331f7a616	7 transit, sector 15, 16
+3aef3c321a	Bán kính catalog suy ra R<sub>★</sub> = 2.10 R<sub>☉</sub>, không phải 2.04 của bảng: chênh 3.8 % là do ngôi sao, không phải do đường cong ánh sáng.
+17cb0e3efa	3  Kết quả. 2 HD 189733 b. Sao sáng nhất, 12 transit: R<sub>p</sub>/R<sub>★</sub> chính xác đến 0.4 %
+8e9ad71f7e	<span class="pill old">Cỡ Sao Mộc</span> <span class="pill old">Nóng</span> <span class="pill old">Sao lùn K</span> <span class="pill new">tìm mù</span>
+049561a02e	12 transit, sector 41
+64cbd91e47	Tmag 6.8, 20 pc. Một sector là đủ; R<sub>★</sub> (1.3 %) chi phối sai số.
+cd353d30a9	3  Kết quả. 3 HD 209458 b. Hành tinh transit đầu tiên: bán kính trong 1.0 %
+b65185ad65	<span class="pill old">Cỡ Sao Mộc</span> <span class="pill old">Ấm</span> <span class="pill old">F/nóng hơn</span> <span class="pill new">tìm mù</span>
+2d2bf4f93e	8 transit, sector 56
+f03073c324	8 transit trong sector 56; sai số MCMC và làm phẳng dưới 0.4 %.
+5e3a62e873	3  Kết quả. 4 WASP-18 b. Quỹ đạo 22.6 giờ, 97 transit: R<sub>★</sub> giới hạn bán kính
+e1756192cf	<span class="pill old">Cỡ Sao Mộc</span> <span class="pill old">USP</span> <span class="pill old">F/nóng hơn</span> <span class="pill new">tìm mù</span>
+ce9e88c815	97 transit, sector 103, 104, 105, 106
+e0aee936c8	R<sub>p</sub>/R<sub>★</sub> chính xác đến 0.2 %, nhưng R<sub>p</sub> chỉ chính xác đến 4.6 % vì R<sub>★</sub>.
+58747d3134	3  Kết quả. 5 WASP-62 b. Mục tiêu CVZ phía nam: 4 trên 38 sector, bán kính trong 0.1 %
+6044a38aa7	22 transit, sector 1, 2, 3, 4
+181fe3de6f	Vĩ độ hoàng đạo -87°: có 38 sector, chúng tôi dùng 4 sector đầu.
+779658c78d	3  Kết quả. 6 LTT 9779 b. Sa mạc Hải Vương nóng: b = 0.91 làm sai số tăng lên 13 %
+b18cd2355d	<span class="pill old">Hải Vương/Thổ</span> <span class="pill old">USP</span> <span class="pill old">G</span> <span class="pill bor">tìm có hướng dẫn</span>
+128f77e080	34 transit, sector 2
+e5c62961da	Hình học lướt qua rìa làm R<sub>p</sub>/R<sub>★</sub> và b suy biến: bán kính kém chắc chắn nhất trong mười hành tinh.
+72ee286330	3  Kết quả. 7 TOI-270 c. Dưới Hải Vương của một sao lùn M: 2.38 R<sub>⊕</sub> trong 2.3 %
+963f96209d	<span class="pill old">Dưới Hải Vương</span> <span class="pill old">Ấm</span> <span class="pill old">Sao lùn M</span> <span class="pill new">tìm mù</span>
+91dda6e8e8	11 transit, sector 3, 4, 5
+b2edab4943	R<sub>★</sub> = 0.38 R<sub>☉</sub>; 11 transit; một hệ ba hành tinh.
+1efc15bb30	3  Kết quả. 8 LTT 1445 A b. Hệ gần nhất, 4 transit: 1.39 ± 0.12 R<sub>⊕</sub>
+d88238aa41	<span class="pill old">Siêu Trái Đất</span> <span class="pill old">Ấm</span> <span class="pill old">Sao lùn M</span> <span class="pill bor">tìm có hướng dẫn</span>
+d1d17e0d8a	4 transit, sector 4
+800f19490c	6.9 pc. Chỉ 4 transit và R<sub>★</sub> = 0.27 R<sub>☉</sub> (sai số 7 %).
+75acc70e39	3  Kết quả. 9 GJ 1132 b. Hành tinh cỡ Trái Đất từ một dip 2.2 ppt: 1.14 ± 0.05 R<sub>⊕</sub>
+bee6766128	<span class="pill old">Cỡ Trái Đất</span> <span class="pill old">Nóng</span> <span class="pill old">Sao lùn M</span> <span class="pill new">tìm mù</span>
+6cd7def6fe	26 transit, sector 9, 10
+c32f298c4b	R<sub>★</sub> = 0.22 R<sub>☉</sub>; 26 transit; chênh lệch 4.1 % là 1.1σ.
+ab4f255626	3  Kết quả. 10 K2-141 b. Một dip 355 ppm mỗi 6.7 giờ: bán kính thấp 7 %
+4da292460a	<span class="pill old">Siêu Trái Đất</span> <span class="pill old">USP</span> <span class="pill old">Sao lùn K</span> <span class="pill bor">tìm có hướng dẫn</span>
+f616e00c16	57 transit, sector 42
+e63efcb029	BLS S/N chỉ 15: ở rìa khả năng của một sector; chỉ tìm ra bằng tìm có hướng dẫn.
+affcdc5319	3  Kết quả. Bán kính lệch catalog tối đa 7.3 %, chu kỳ lệch 0.03 %
+dcdab21bc9	Chênh lệch bán kính so với catalog; thanh: sai số 1σ tổng.
+485e79c3e5	|ΔP|/P (thang log); nét đứt: 0.01 %.
+7c11b584ef	3  Kết quả. Tóm tắt mười phép đo
+f4d15c9ea5	ΔP (ppm)
+821ab7ac97	R<sub>p</sub> đo được (R<sub>⊕</sub>)
+9535ba571a	R<sub>p</sub> catalog
+5219eb9a71	Pull
+2079f39baf	4  Thảo luận. Bán kính sao và làm phẳng quyết định sai số, không phải nhiễu photon
+7ec6397a03	R<sub>p</sub>/R<sub>★</sub> làm phẳng %
+8f678c614b	4  Thảo luận. Chỗ phương pháp thất bại: ba bài học
+6e80cf7c92	Tìm mù có thể bám vào nhiễu
+a5a531a33e	K2-141 b: BLS mù cho 5.70 ngày thay vì 0.280 ngày. Bản demo trên trình duyệt trả về 2×P cho LTT 1445 A b. Thu hẹp khoảng tìm (5 đến 6 ngày, hoặc 0.26 đến 0.5 ngày) thì cả hai đều đúng.
+f195ad3b48	Sao hoạt động làm hỏng bước làm phẳng
+d085b8668c	AU Mic b (vết đen, bùng nổ): R<sub>p</sub>/R<sub>★</sub> = 0.25 ± 0.11 so với 0.050. DS Tuc A b: sai số hệ thống ±0.12.
+ca7b097b4d	Ít transit giới hạn độ chính xác
+3e7781fe65	AU Mic b chỉ có 3 transit trong một sector, kèm biến thiên thời điểm; LTT 1445 A b chỉ 4. Thêm sector sẽ giúp ích.
+3118105fcb	AU Mic b và DS Tuc A b được báo là thất bại và không nằm trong mười hành tinh.
+bb05606560	4  Thảo luận. Demo trực tiếp: lặp lại phép đo ngay trên trình duyệt
+3383caea60	demo/index.html chạy hoàn toàn trong trình duyệt (JavaScript).
+6762a320c2	1 Chọn một hành tinh. 2 BLS tìm các chu kỳ. 3 Khớp transit. 4 So với NASA archive và với MCMC của chúng tôi.
+cbce3e8a72	K2-141 b: đặt khoảng BLS từ 0.26 đến 0.5 ngày. LTT 1445 A b: 5 đến 6 ngày.
+f3d081b825	Tệp: demo/index.html và notebooks/01_measure_one_planet.ipynb trong thư mục này.
+1a82a8e9ee	5  Kết luận và hướng phát triển
+901ba4f2dc	Điều chúng tôi chỉ ra
+4cec480ca5	Chu kỳ của mười hành tinh (0.28 đến 6.1 ngày) trong 0.03 % và bán kính (1.1 đến 15.7 R<sub>⊕</sub>) trong 4 % với tám trong mười, từ dữ liệu công khai và một pipeline.
+f50950305c	Điều giới hạn nó
+a1ad6577c7	Bán kính sao (tới 7 %), làm phẳng (khoảng 1 %), số transit, và tìm mù ở chu kỳ ngắn hoặc S/N thấp.
+41fe21ec9c	Khớp mật độ sao và độ lệch tâm, tìm TTV, chồng thêm sector, làm phẳng bằng quá trình Gauss cho các sao hoạt động.
+7342d25b42	Bán kính từ một đường cong ánh sáng là một tỉ số nhân với bán kính sao; tỉ số là phần TESS đo tốt nhất.
+a09561c4f5	A1  Phụ lục. Thuật ngữ dùng trong bài nói
+770bce19da	Thuật ngữ
+19cd7d185c	Ý nghĩa
+f5dadc0bce	TESS, sector
+dc4994a303	Vệ tinh khảo sát của NASA; nhìn chằm chằm một trường 24 nhân 96 độ trong khoảng 27 ngày (một sector)
+84deb923cf	Pipeline khoa học của TESS; thông lượng sau khi loại hệ thống sai số (cadence 2 phút)
+81025e205c	Mã trong TESS Input Catalog và cấp sao trong dải TESS của sao
+225dfefe8b	Box Least Squares: tìm các dip dạng hộp tuần hoàn
+8f26cfe4cc	Tỉ số bán kính hành tinh trên sao; tham số va chạm (0 = transit đi qua tâm)
+136bf4a769	Tối tâm
+8dabd4317d	Đĩa sao tối hơn ở rìa; nó làm tròn đáy transit (Kipping q<sub>1</sub>, q<sub>2</sub>)
+c7308ca7f4	Chu kỳ cực ngắn (P &lt; 1 ngày); vùng nhìn liên tục của TESS (|vĩ độ hoàng đạo| &gt; 78°)
+230bbe09ab	(đo được − catalog) chia cho sai số 1σ tổng của chúng tôi
+fb15ab3cc2	A2  Phụ lục. Dữ liệu và mỗi nguồn dùng để làm gì
+6da13addb0	Nguồn
+8c2d42ecd4	Đường cong ánh sáng TESS SPOC 2 phút
+264313b8bf	MAST, lightkurve (thông lượng PDCSAP)
+c07ddcd76e	Các phép đo: 1 đến 4 sector liên tiếp cho mỗi hành tinh
+0282e9c54b	NASA Exoplanet Archive, pscomppars
+8bd0643700	Truy vấn TAP, các hành tinh transit
+a025eb5b35	4 826 hành tinh: chu kỳ, bán kính, R<sub>★</sub>, T<sub>eff</sub>, khoảng cách, tọa độ
+384cdaef92	Mã TIC, Tmag
+a5d8106045	Các cột của pscomppars
+cad83c325f	Đối chiếu chéo với MAST; lọc theo độ sáng
+5ded8247aa	Ghi chú môn học (M1 Exoplanets)
+64822f139e	Ôn bài giảng, phương pháp transit
+27ad619a91	Công thức cho độ sâu, xác suất và thời lượng (A6)
+d4850082f4	Bài hướng dẫn: Khớp nhanh cho đường cong ánh sáng TESS
+b08c133400	exoplanet-case-studies
+b339c6989f	Công thức và giá trị chuẩn cho HD 118203 b
+e040306d1d	A3  Phụ lục. Bản đồ bầu trời của mười hành tinh
+6793bb1a8f	Tọa độ hoàng đạo (Mollweide). Dải hồng: vùng nhìn liên tục; mảng xám là trường Kepler.
+c2e0f8485c	A4  Phụ lục. Khoảng cách và sao chủ
+0cd16e5b2b	Nhiệt độ hiệu dụng của sao chủ theo khoảng cách; nét đứt: ranh giới các lớp phổ và khoảng cách.
+011939831a	A5  Phụ lục. Đường cong ánh sáng và làm phẳng, HD 118203 b
+d280a4efe7	Sector 15 và 16: thông lượng PDCSAP (trên), đường đã làm phẳng (lệch), các transit dự đoán màu đỏ.
+87434a0254	Cửa sổ Savitzky-Golay 1.5 ngày, cắt ngoại lai tại +5σ; chạy lại với các transit được che để bộ lọc không nuốt độ sâu.
+4a4c3812fe	A6  Phụ lục. Công thức môn học kiểm trên các quỹ đạo đã khớp
+5856baf835	a/R<sub>★</sub> (khớp)
+c248115a12	T catalog (giờ)
+cff429d021	A7  Phụ lục. Công thức: mô hình transit và tìm chu kỳ
+b01cff0a96	F(t) = 1 − ΔF( z(t), R<sub>p</sub>/R<sub>★</sub>, u<sub>1</sub>, u<sub>2</sub> ) ;  z = (a/R<sub>★</sub>) √[ sin<sup>2</sup>φ + cos<sup>2</sup>i cos<sup>2</sup>φ ] ,  φ = 2π(t − t<sub>0</sub>)/P
+5dae431ff2	Tối tâm bậc hai Mandel-Agol (batman); b = (a/R<sub>★</sub>) cos i; quỹ đạo tròn.
+714f1d2e03	Tham số hóa của Kipping, q<sub>1</sub>, q<sub>2</sub> phân bố đều trong (0, 1).
+7103249d24	Chu kỳ thử 0.26 đến 15 ngày; thời lượng 0.02 đến 0.25 ngày; các hộp dài hơn 20 % của P bị loại.
+5189bf4f45	σ lấy từ MAD ngoài transit; emcee, 32 walker, 1 500 bước burn-in, 2 500 bước.
+d50c32f000	Cùng mô hình vật lý với bài hướng dẫn (Mandel-Agol, tối tâm); chỉ khác bộ lấy mẫu.
+e4b7e55135	A8  Phụ lục. Công thức: bán kính và ngân sách sai số
+8eac4d9b6e	σ<sub>tỉ số</sub><sup>2</sup> = σ<sub>MCMC</sub><sup>2</sup> + σ<sub>sys</sub><sup>2</sup> ,  σ<sub>sys</sub> = ½ ( max − min ) của R<sub>p</sub>/R<sub>★</sub> qua 3 cách làm phẳng
+8bf6fb512e	σ<sub>Rp</sub> / R<sub>p</sub> = √[ ( σ<sub>tỉ số</sub> / tỉ số )<sup>2</sup> + ( σ<sub>R★</sub> / R<sub>★</sub> )<sup>2</sup> ]
+154174e351	pull = ( R<sub>p,đo</sub> − R<sub>p,cat</sub> ) / σ<sub>Rp</sub> ;  ΔP/P = ( P<sub>đo</sub> − P<sub>cat</sub> ) / P<sub>cat</sub>
+ad14f9acb8	Ví dụ của môn học: độ sâu 0.64 %, R<sub>★</sub> = 0.8 R<sub>☉</sub> cho R<sub>p</sub>/R<sub>★</sub> = 0.08 và R<sub>p</sub> = 0.064 R<sub>☉</sub>.
+aefdf0f8f2	Sai số 7 % của R<sub>★</sub> là sai số 7 % của R<sub>p</sub>, bất kể chất lượng đường cong ánh sáng.
+0c238e8a93	Sai số tỉ số lấy từ hậu nghiệm (phân vị 16 đến 84) và từ ba biến thể làm phẳng; sai số R<sub>★</sub> lấy từ archive.
+77b0af09d9	A9  Phụ lục. Phép thử sức chịu và các thất bại
+9254c4bba0	Trường hợp
+fb449f7183	Thiết lập
+d3f0610632	Kết quả
+7f6e5a6efa	Kết luận
+c97b0cb60a	K2-141 b, tìm mù
+d243ce85dc	P = 5.70 ngày (đúng 0.280 ngày); R<sub>p</sub> = 21 R<sub>⊕</sub>
+bbfe90ea8b	Đã sửa bằng tìm có hướng dẫn
+ec1edfe6af	LTT 1445 A b, demo
+32fe0a9fa8	Khoảng 5 đến 6 ngày cho 5.35878 ngày
+d7c287b196	AU Mic b, có hướng dẫn
+d88c3f6439	Vết đen và bùng nổ; 3 transit; bị loại
+5586fd13e8	DS Tuc A b, có hướng dẫn
+238a11cd0d	Sai số hệ thống của làm phẳng quá lớn; bị loại
+5eff987e70	JSON lần đầu của các thất bại khi tìm mù được giữ trong results_blind_failed/.
+178021dcb4	A10  Phụ lục. Chế độ tìm dùng cho từng hành tinh
+a7b93d2128	Chế độ
+72587e1ed9	Cửa sổ BLS
+7afb6295c7	mù
+0bfb4698c5	0.26 đến 15 ngày, 7 thời lượng
+5b590af68f	có hướng dẫn
+8f04ba54a2	±3 % chu kỳ catalog, thời lượng 0.6 đến 1.5 × T catalog
+64653d9f66	Ricker et al. 2015, sứ mệnh TESS, JATIS 1, 014003
+e7f0c29f26	Jenkins et al. 2016, pipeline SPOC, SPIE 9913
+dfdde35ad3	Lightkurve Collaboration 2018, Lightkurve, ascl:1812.013
+e6f5e8ace1	Kovacs, Zucker và Mazeh 2002, BLS, A&amp;A 391, 369
+cabc5b5243	Mandel và Agol 2002, đường cong ánh sáng transit, ApJ 580, L171
+3bddaa1d76	Kreidberg 2015, batman, PASP 127, 1161
+ef5b4ce4d3	Foreman-Mackey et al. 2013, emcee, PASP 125, 306
+b7f8e2f520	Kipping 2013, prior tối tâm, MNRAS 435, 2152
+9a7adc3b1f	Akeson et al. 2013, NASA Exoplanet Archive, PASP 125, 989
+8f1134e346	exoplanet-case-studies: Quick fits for TESS light curves và Fitting TESS data
+de561cc131	25 phút cho slide 1 đến 26; phụ lục dành cho phần hỏi đáp. Theo đúng báo cáo môn học: giới thiệu (cái gì, vì sao), phương pháp (ở đâu, thế nào), kết quả, thảo luận, kết luận. Nói ngay từ đầu rằng pipeline đã được kiểm chứng trên hành tinh của bài hướng dẫn và các thất bại được trình bày có chủ ý.
+83c8a69dfc	Một câu hỏi, ba phép kiểm: chu kỳ, bán kính, độ phủ. Các con số trên slide này là kết quả cuối, nêu trước để người nghe biết ta đang đi tới đâu.
+8ef6dd33f9	Ba công thức này là công thức của môn học về transit (bài ôn, mục C). Ví dụ trong bài ôn: độ sâu 0.64 %, R sao 0.8 bán kính Mặt Trời cho Rp/R sao 0.08 và Rp 0.064 bán kính Mặt Trời. Pipeline của chúng tôi làm phép khớp này đúng cách, có tối tâm và MCMC, thay vì đọc độ sâu bằng mắt.
+0955f08406	Phễu lọc. Tmag dưới 11 giữ nhiễu thấp, P dưới 15 ngày cho hai transit trở lên trong một sector, và S trên N ước tính trên 12 dùng một mô hình nhiễu đơn giản. Mười cộng hai: mười đại diện và hai hành tinh thử sức chịu.
+b72e72f634	Kích thước, quỹ đạo, sao, khoảng cách, vị trí trên bầu trời và loại hệ. Trục bầu trời quan trọng với TESS: vùng nhìn liên tục gần các cực hoàng đạo được quan sát khoảng một năm, vĩ độ thấp thì một hoặc hai sector.
+1651bef7c0	Đọc hình từ trái sang phải: chu kỳ cực ngắn ở bên trái. Số 4 và 6 là hành tinh khí khổng lồ USP và hành tinh kiểu Hải Vương; số 8 và 9 là các hành tinh nhỏ của sao lùn M. Bản đồ bầu trời và mặt phẳng khoảng cách-sao nằm ở phụ lục (A3, A4).
+c5c9c7c398	Bảng này là bản đồ cho mười slide tiếp theo. Hành tinh 5 là mục tiêu vùng nhìn liên tục phía nam, hành tinh 8 là hệ gần nhất, hành tinh 9 là hành tinh nhỏ nhất.
+7774db251d	Đi qua năm ô. Bài hướng dẫn dùng PyMC3 và exoplanet; chúng tôi dùng batman và emcee vì cài đặt sạch; mô hình vật lý giống nhau và phép chuẩn xác nhận điều đó. Nói rõ về tìm mù và có hướng dẫn: bảy hành tinh tìm mù, ba hành tinh có hướng dẫn.
+3e79d7118e	Trái: BLS trượt một cái hộp trên đường cong gập pha cho mỗi chu kỳ thử. Phải: mô hình transit có tối tâm bậc hai, bảy tham số tự do, 32 walker. Đường cong thô và đã làm phẳng nằm ở phụ lục A5.
+2cae64194e	Bán kính catalog cao hơn của chúng tôi 3.8 phần trăm vì bán kính catalog suy ra bán kính sao 2.10 bán kính Mặt Trời, trong khi bảng tóm tắt ghi 2.04. Vì vậy chúng tôi còn so sánh cả tỉ số.
+9c6b72525a	Nhóm: cỡ Sao Mộc, ấm, G, 92 pc, bầu trời cao. Đo được 12.30 R Trái Đất so với catalog 12.78; chế độ tìm mù. Khoảng một phút.
+91d57f6267	Nhóm: cỡ Sao Mộc, nóng, sao lùn K, 20 pc, bầu trời thấp. Đo được 12.61 R Trái Đất so với catalog 12.67; chế độ tìm mù. Khoảng một phút.
+374725deac	Nhóm: cỡ Sao Mộc, ấm, F/nóng hơn, 48 pc, bầu trời thấp. Đo được 15.74 R Trái Đất so với catalog 15.58; chế độ tìm mù. Khoảng một phút.
+755cfa7888	Nhóm: cỡ Sao Mộc, USP, F/nóng hơn, 123 pc, bầu trời thấp. Đo được 14.18 R Trái Đất so với catalog 13.90; chế độ tìm mù. Khoảng một phút.
+bdb873b463	Nhóm: cỡ Sao Mộc, ấm, F/nóng hơn, 176 pc, bầu trời CVZ. Đo được 14.82 R Trái Đất so với catalog 14.80; chế độ tìm mù. Khoảng một phút.
+3d0758a75e	Nhóm: Hải Vương/Thổ, USP, G, 80 pc, bầu trời thấp. Đo được 4.55 R Trái Đất so với catalog 4.72; chế độ có hướng dẫn. Khoảng một phút.
+baad2d82e3	Nhóm: dưới Hải Vương, ấm, sao lùn M, 22 pc, bầu trời cao. Đo được 2.38 R Trái Đất so với catalog 2.33; chế độ tìm mù. Khoảng một phút.
+49d591d87a	Nhóm: siêu Trái Đất, ấm, sao lùn M, 7 pc, bầu trời thấp. Đo được 1.39 R Trái Đất so với catalog 1.34; chế độ có hướng dẫn. Khoảng một phút.
+6ec5ccf6c5	Nhóm: cỡ Trái Đất, nóng, sao lùn M, 13 pc, bầu trời thấp. Đo được 1.14 R Trái Đất so với catalog 1.19; chế độ tìm mù. Khoảng một phút.
+2c9c640019	Nhóm: siêu Trái Đất, USP, sao lùn K, 62 pc, bầu trời thấp. Đo được 1.40 R Trái Đất so với catalog 1.51; chế độ có hướng dẫn. Khoảng một phút.
+f894948a46	Trái: mọi bán kính đều phù hợp với không trong 1.4 sigma. Các thanh sai số lớn là LTT 9779 b và LTT 1445 A b. Phải: chu kỳ; tệ nhất là K2-141 b với 0.03 phần trăm.
+a9ac46cd96	Pull là chênh lệch chia cho sai số tổng của chúng tôi. Mọi pull nằm giữa trừ 1.4 và cộng 0.8.
+d74de1226d	Sai số hệ thống là nửa khoảng của Rp trên R sao qua ba biến thể làm phẳng. Với sao sáng, sai số MCMC dưới nửa phần trăm; bán kính sao là 1 đến 7 phần trăm. LTT 9779 b và K2-141 b bị giới hạn bởi chính cái dip.
+cb09b3513f	Hãy trung thực ở đây. Chế độ có hướng dẫn không phải gian lận: nó giới hạn cửa sổ tìm, chu kỳ và bán kính vẫn được đo từ dữ liệu, và mỗi slide hành tinh đều nói rõ đã dùng chế độ nào. Bước tiếp cho sao hoạt động: làm phẳng bằng quá trình Gauss, như trong bài hướng dẫn về biến thiên sao.
+92e77681f1	Mở demo/index.html. HD 189733 b: BLS trong vài giây cho 2.21858 ngày. Sau đó K2-141 b với khoảng mặc định để cho thấy thất bại, thu hẹp khoảng để thấy 0.28035 ngày. Bản demo dùng tối tâm cố định, nên bán kính kém chính xác hơn pipeline vài phần trăm.
+74cdeb3d7a	Kết bằng điều cần mang về. Cảm ơn người nghe và mở phần hỏi đáp. Phụ lục có thuật ngữ, dữ liệu, phép kiểm công thức của môn học, công thức, các phép thử sức chịu và tài liệu tham khảo.
+dcad11afdf	Bảng thuật ngữ cho phần hỏi đáp.
+b2c24f16b0	Mọi dữ liệu đều công khai. Giá trị catalog chỉ dùng làm đáp án đối chiếu, trừ R sao mà bán kính cần.
+92eed91377	Hành tinh 5 (WASP-62 b) nằm trong CVZ phía nam; hành tinh 1 ở vùng vĩ độ cao phía bắc; các hành tinh còn lại ở vĩ độ thấp.
+d79ecc8cd2	Từ sao lùn M LTT 1445 A ở 6.9 pc đến sao F WASP-62 ở 176 pc.
+f03348eae4	Ba biến thể làm phẳng (che 2 đến 3 thời lượng, cửa sổ 4 đến 8 thời lượng, cửa sổ tối thiểu 0.75 đến 1.5 ngày) cho sai số hệ thống. Biến thể rộng nhất là kết quả chính vì cửa sổ hẹp ăn mất độ sâu.
+2fb718267b	Giá trị a trên R sao đã khớp cho xác suất transit hình học và thời lượng transit đi qua tâm theo công thức môn học. Chín hành tinh khớp trong 10 %. LTT 9779 b thì không: phép khớp của nó có b = 0.91, nên a/R sao suy biến với b và công thức transit đi qua tâm dự đoán thời lượng lớn hơn khoảng bốn lần.
+2e74a6093f	Slide tham khảo cho các câu hỏi về mô hình.
+f93da6ed10	Sai số cộng theo bình phương; độ bất định của bán kính sao lấy từ archive.
+028011110f	Đây là các số đứng sau slide thất bại.
+7bd2f8970e	Tìm mù cho bảy hành tinh, có hướng dẫn cho LTT 9779 b, LTT 1445 A b và K2-141 b. Ở chế độ có hướng dẫn, chu kỳ, thời điểm, độ sâu và bán kính vẫn được đo từ dữ liệu.
+6a1d85b90f	Tài liệu tham khảo.
+80e13549b4	Độ phủ
+a7e13a608d	877 có Tmag < 11
+b7152342a2	Kích thước
+b6c22d03ac	Quỹ đạo
+b3d97fd6de	Bầu trời
+bc0792d8dc	Hệ
+44a5bad360	Cỡ Sao Mộc
+63e49827e4	Ấm
+b1a5954a48	Cao
+17813a2a4b	Nhiều hành tinh
+8c948d7947	Nóng
+a124947cbd	Thấp
+c1f01af9b4	Một hành tinh
+667d2d7181	USP
+4778281754	CVZ
+13db1dc736	Hải Vương/Thổ
+4c8ea0315c	Dưới Hải Vương
+41a6dcfe5e	Siêu Trái Đất
+18b4120377	Cỡ Trái Đất
+d03291a726	Tải SPOC PDCSAP
+7d4d0b543d	Làm phẳng Savitzky-Golay
+5bacd8ceac	R p /R ★ MCMC %
+8d161f2a21	R p tổng %
+cdde4f20ba	Các bước
+72677028b4	Thử
+bc981983e7	Tiếp theo
+2f81a22de0	Truy cập
+1d4d43cc6f	Dùng
+943cd6cc1e	A11  Phụ lục. Tài liệu tham khảo
+d1e3282ba6	Cỡ Trái Đất &lt; 1.25 · Siêu Trái Đất &lt; 2 · Dưới Hải Vương &lt; 4 · Hải Vương/Thổ &lt; 8 · Cỡ Sao Mộc ≥ 8 R<sub>⊕</sub>
+9b0876b423	USP &lt; 1 ngày · Nóng 1 đến 3 ngày · Ấm 3 đến 7 ngày · Mát 7 đến 15 ngày
+f4e5746d9c	Gần &lt; 50 pc · Giữa 50 đến 150 pc · Xa &gt; 150 pc

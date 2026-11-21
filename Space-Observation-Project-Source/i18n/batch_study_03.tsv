@@ -1,0 +1,107 @@
+t001	Nguồn: Ricker et al. 2015, Mục 6 tr. 8, Mục 5 tr. 7, Bảng 2 tr. 9; hằng số và phép kiểm Kepler: code/28
+t002	4  TESS. Ai phóng và tốn bao nhiêu: SpaceX, khoảng 87 triệu USD riêng cho việc phóng
+t003	Câu hỏi
+t004	Trả lời
+t005	Ai điều hành
+t006	MIT dẫn dắt sứ mệnh; Explorers Program tại NASA Goddard giám sát; Launch Services Program của NASA (Kennedy) quản lý việc phóng
+t007	Thông cáo NASA C14-049
+t008	Ai phóng
+t009	SpaceX, Falcon 9, từ Cape Canaveral AFS ngày 18/4/2018 lúc 6:51 chiều giờ EDT. NASA chọn SpaceX ngày 16/12/2014 (Falcon 9 v1.1, khi đó dự kiến phóng tháng 8/2017)
+t010	Thông cáo NASA; MIT News
+t011	Chi phí phóng
+t012	Khoảng 87 triệu USD cho NASA: dịch vụ phóng, xử lý tàu, tích hợp tải trọng, theo dõi, dữ liệu và đo xa
+t013	20 triệu USD: đề xuất đầu tiên, vốn tư nhân (MIT)
+t014	120 triệu USD: đề xuất gửi NASA (MIT)
+t015	87 triệu USD: riêng việc phóng (NASA)
+t016	337 triệu USD: tổng được báo (Physics World)
+t017	87 triệu USD chỉ là chi phí phóng; 337 triệu USD là tổng số được báo.
+t018	Nguồn: thông cáo NASA C14-049 (16/12/2014); MIT News (4/2018); Physics World (19/4/2018)
+t019	4  TESS. Việt Nam có thể phóng một TESS không? Không bằng tên lửa riêng, nhưng có thể mua một chuyến phóng
+t020	Bằng chứng (có nguồn)
+t021	VNREDSat-1 bay trên tên lửa Vega từ Guiana thuộc Pháp ngày 7/5/2013; cả chương trình tốn 55.8 triệu EUR
+t022	LOTUSat-1 (570 kg) tháng 7/2024 đang ‘chờ tên lửa của Nhật’; cơ sở cho vệ tinh dưới 180 kg dự kiến xong tháng 12/2025
+t023	Tháng 8/2026 VinSpace chọn chuyến rideshare Transporter của SpaceX cho các vệ tinh đầu tiên, vào quý 2/2027
+t024	TESS: 87 triệu USD riêng cho việc phóng
+t025	Lập luận của chúng tôi
+t026	Lên điểm xa 400 000 km từ quỹ đạo tròn 300 km cần Δv = 3.1 km/s ngoài 7.7 km/s sẵn có: cần tên lửa lớn, không phải tên lửa nhỏ (tự tính)
+t027	Vĩ độ không phải rào cản: 8.6° N cho 460 m/s từ sự quay của Trái Đất so với 409 tại Cape Canaveral, +51 m/s, tức 0.7 % tốc độ quỹ đạo (tự tính)
+t028	Chúng tôi không thấy báo cáo nào về tên lửa quỹ đạo hay bãi phóng của Việt Nam (một lần tìm web)
+t029	Thực tế: mua một chuyến phóng, đi nhờ như hành khách phụ (CHEOPS đã làm vậy), hoặc xây kính thiên văn robot mặt đất đo transit (MEarth đã tìm ra GJ 1132 b)
+t030	Nhận định, không phải nguồn: một sứ mệnh cỡ TESS tự phóng là chưa thực tế trong thời gian tới; các phép tính của chúng tôi dùng hằng số chuẩn (code/28_orbit_figure.py).
+t031	Nguồn: tin Cổng thông tin Chính phủ (7/5/2013); VietnamNet (15/7/2024); Al Jazeera (11/8/2026); Benz 2021; code/28
+t032	4  TESS. Mỗi con số thiết kế đến từ đâu: bài về thiết bị, mục và trang PDF
+t033	Điều khẳng định
+t034	Trang PDF
+t035	Quỹ đạo elip quanh Trái Đất
+t036	cận điểm 17 R E, viễn điểm 59 R E
+t037	Chu kỳ và cộng hưởng với Mặt Trăng
+t038	13.7 ngày, 2:1 với quỹ đạo Mặt Trăng
+t039	Phóng và quỹ đạo đầu tiên (kịch bản danh định)
+t040	Cape Canaveral, quỹ đạo đỗ 28.5 độ
+t041	Bay qua Mặt Trăng nâng độ nghiêng so với hoàng đạo
+t042	lên khoảng 40 độ
+t043	Nhịp tải dữ liệu
+t044	mỗi 13.7 ngày ở cận điểm
+t045	24 x 24 độ mỗi camera; 24 x 96 độ = 2300 độ vuông
+t046	Kích thước pixel và PSF
+t047	15 micron = 0.35 phút cung
+t048	Ánh sáng trong 4 x 4 pixel
+t049	90 % trong 4 x 4 pixel = 1.4 phút cung
+t050	Một sector kéo dài hai vòng quỹ đạo
+t051	27.4 ngày, trục ngắm gần ngược hướng Mặt Trời
+t052	Diện tích được quan sát ít nhất 27 ngày
+t053	30 000 độ vuông
+t054	Cadence 2 phút
+t055	60 khung 2 s được cộng lại
+t056	Số trang PDF của arXiv:1406.0151v3. Mỗi đoạn trích đã được kiểm trong data/literature/tess_fact_sources.csv.
+t057	4  TESS. Các trang web đã dùng, lưu ngày 21/11/2026
+t058	Địa chỉ
+t059	Dùng cho
+t060	MIT News, TESS takes off
+t062	Phương tiện, bãi phóng và thời điểm phóng
+t063	Thông cáo hợp đồng NASA C14-049
+t065	Tổng chi phí NASA trả cho việc phóng
+t067	Tổng chi phí sứ mệnh theo báo cáo (nguồn thứ cấp)
+t068	STScI MAST, trang sứ mệnh TESS
+t070	Thang pixel trên trang archive
+t071	NASA HEASARC, sản phẩm dữ liệu TESS
+t073	Cadence ảnh toàn khung theo chu kỳ (cycle)
+t074	Báo điện tử của Chính phủ Việt Nam
+t076	VNREDSat-1 được phóng ở nước ngoài
+t078	LOTUSat-1 chờ tên lửa của Nhật
+t080	Chuyến phóng năm 2027 của Việt Nam là rideshare của SpaceX
+t081	Bản sao trong data/raw/tess_docs/; mỗi cụm trích đã được tìm thấy trong trang đã lưu.
+t082	5  Mẫu. Sáu cách một catalog chia ngoại hành tinh; cách chia của chúng tôi dùng bốn cách đầu
+t083	Trục
+t084	Các lớp
+t085	Bán kính
+t086	dưới 1.25 R<sub>⊕</sub> cỡ Trái Đất; 1.25 đến 2 siêu Trái Đất; 2 đến 4 dưới Sao Hải Vương; 4 đến 8 Sao Hải Vương/Sao Thổ; từ 8 trở lên cỡ Sao Mộc
+t087	<b>Có</b>
+t089	Chu kỳ quỹ đạo
+t090	dưới 1 ngày cực ngắn (USP); 1 đến 3 nóng; 3 đến 7 ấm; 7 đến 15 mát
+t092	Nhiệt độ cân bằng
+t093	trên 2000 K cực nóng; 1200 đến 2000 nóng; 500 đến 1200 ấm; dưới 500 K ôn hòa
+t095	Sao chủ
+t096	sao lùn M (dưới 3900 K); K (dưới 5200); G (dưới 6000); F và nóng hơn
+t098	Phương pháp phát hiện
+t099	transit, vận tốc xuyên tâm, chụp ảnh trực tiếp, thấu kính vi mô, …
+t100	Có ghi nhận, không dùng để chọn
+t102	một hành tinh hoặc nhiều hành tinh trong cùng hệ
+t104	Biên các lớp là do chúng tôi đặt (code/02_group_candidates.py); các bài khác đặt ở chỗ khác. Khối lượng, mật độ, độ nhận bức xạ và thung lũng bán kính cũng được dùng trong tài liệu, nhưng không dùng ở đây.
+t105	5  Mẫu. Mười hành tinh của chúng tôi so với 471: có đủ mọi lớp kích thước và loại sao, lớp chu kỳ 7 đến 15 ngày thì trống
+t106	Lớp
+t107	471 trong catalog
+t108	Sao lùn M
+t109	Sao lùn K
+t110	F/nóng hơn
+t111	Đỏ: lớp chiếm ít nhất 25 % trong 471 hành tinh mà mười hành tinh của chúng tôi chỉ chiếm tối đa 40 % phần đó. Thanh: tỉ lệ trong 471.
+t112	5  Mẫu. Mười hành tinh đã đủ chưa? Đủ để chứng minh phương pháp, chưa đủ để nói gì về một lớp
+t113	Mười hành tinh
+t114	<b>Đủ để</b>
+t115	Chứng tỏ pipeline chạy được từ 1.2 đến 15.6 R<sub>⊕</sub>, chu kỳ 0.28 đến 6.1 ngày, cấp sao T từ 6.8 đến 10.8, cả bốn loại sao chủ và cả bốn camera TESS.
+t116	<b>Chưa đủ để</b>
+t117	Phát biểu theo từng lớp: lớp cỡ Trái Đất, Sao Hải Vương/Sao Thổ và dưới Sao Hải Vương mỗi lớp chỉ có một hành tinh. Không hành tinh nào có chu kỳ 7 đến 15 ngày (139 trên 471); chu kỳ dài nhất của chúng tôi là 6.1 ngày, nên phép tìm mù đến 15 ngày chưa được thử trên mức đó. Phát hiện bằng vận tốc xuyên tâm: 3 trên 10, 8 trên 471.
+t118	<b>Điểm yếu</b>
+t119	Ba hành tinh nhỏ nhất, chu kỳ ngắn nhất được dò quanh chu kỳ catalog; K2-141 b dò mù cho ra 5.68 ngày, giá trị catalog là 0.280 ngày.
+t120	Tối thiểu: nói rõ trên slide cái gì đã phủ và cái gì chưa. Nếu còn thời gian: thêm một hành tinh dưới Sao Hải Vương có chu kỳ 7 đến 15 ngày, ví dụ TOI-2134 b (9.23 ngày, cấp sao T 7.8) hoặc HD 97658 b (9.49 ngày, cấp sao T 7.0). Chưa kiểm: dữ liệu SPOC, bài báo.
+t121	Phiếu đề bài chỉ ghi tiêu đề, không nêu số hành tinh.

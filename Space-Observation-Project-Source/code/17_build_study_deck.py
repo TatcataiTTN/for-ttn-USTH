@@ -116,7 +116,7 @@ S.append(sl("1  Introduction. Where each number comes from: Measured, Catalog, P
             + take(f"Two inputs are not ours: {RS} comes from the archive, and the three guided planets use the catalog period to set the search window."),
             "Measured is self-computed. Catalog and Published are taken from data. The stellar radius enters the radius, so compare the ratio when you want the pure light-curve result. LTT 9779 b, LTT 1445 A b and K2-141 b were searched in a window around the catalog period."))
 
-why = [["Baseline", "TESS gives 1 to 4 sectors (27 to 110 d); catalogs combine years of transits", "Our P is good to 0.0004 d (π Men c); the catalog P to 10<sup>-7</sup> d"],
+why = [["Baseline", "Baseline = time from first to last transit: 27 to 110 d here, years in catalogs", "Our P is good to 0.0004 d (π Men c); the catalog P to 10<sup>-7</sup> d"],
        ["Stellar radius", f"R<sub>p</sub> = ratio &times; {RS}; papers use their own {RS}", "π Men c: 1.10 (paper) against 1.17 (archive)"],
        ["Early papers", "Ground-based 1999 to 2005 discovery light curves", "HD 189733 b ratio 0.172 (2005) against 0.1545 (Spitzer 2007)"],
        ["Float32 or float64", "No effect: flux noise is 1000 times larger than float32 rounding", "Refit with float32 flux: ratio changes 0.2 %, MCMC noise"],
@@ -674,6 +674,26 @@ S.append(sl("T  TESS. Web pages used, saved on 21 November 2026",
             + note("Copies in data/raw/tess_docs/; each quoted phrase was found in the saved page."),
             "Web pages are public. Their text was saved on 21 November 2026 and each quoted phrase was searched in the saved copy. Web pages can change; the saved copies keep what we used."))
 
+# ---- Q  ten questions the lecturer may ask (inferred from the group chat; answers point to the sections that prove them)
+peM = 1e6 * RT.loc[names, "period_err"] / RT.loc[names, "period_d"]
+oc_ = ST["occult"]["WASP-18 b"]
+qrows = [
+    ["Why can a dip in brightness give a radius?", f"Depth &asymp; (R<sub>p</sub>/R<sub>&#9733;</sub>)&sup2;, R<sub>p</sub> = ratio &times; R<sub>&#9733;</sub>. R<sub>&#9733;</sub> comes from the archive, not from us, so its error goes straight into R<sub>p</sub> (section 7)."],
+    ["Why trust this period, not P/2 or 2P?", f"BLS scans 0.26 to 15 d; {DSUM['n_period_within2']} of {DSUM['n_planets']} periods agree with the catalog within 2&sigma;. Three planets were searched near the catalog period; K2-141 b searched blind gave {K2B:.2f} d (sections 6, 7)."],
+    ["Where do the errors come from; are they complete?", f"MCMC, three detrending variants and R<sub>&#9733;</sub>. Red noise (&beta; {DEV.beta.min():.1f} to {DEV.beta.max():.1f}) is not included; with &times;&beta; the HD 189733 b pull falls from {d_('HD 189733 b').ratio_pull:+.1f}&sigma; to {d_('HD 189733 b').ratio_pull_beta:+.1f}&sigma; (section 7)."],
+    ["Why does the result differ from NASA?", f"A difference means something only in units of its error. {DSUM['n_ratio_within2']} of {DSUM['n_planets']} ratios are within 2&sigma;. Catalog values come from other papers: only {DSUM['n_from_discovery_paper']} planet takes them from its discovery paper (section 7)."],
+    ["How do you know it is a planet, not a binary star?", f"All ten are confirmed planets in the NASA archive; we did no centroid vetting. We ran the odd-even test and the phase-0.5 test (WASP-18 b: {oc_['depth_ppm']:.0f} &plusmn; {oc_['err_ppm']:.0f} ppm; Shporer et al. 341) (section 7)."],
+    ["Do the ratio, the impact parameter and limb darkening degenerate?", f"Limb darkening (q<sub>1</sub>, q<sub>2</sub>) and b are fitted. LTT 9779 b: b = {RT.loc['LTT 9779 b', 'b']:.2f} and a {d_('LTT 9779 b').err_ratio_pct:.0f} % error, mostly from detrending, not from MCMC (section 6)."],
+    ["Which assumptions can be wrong?", "Circular orbits for all ten (HD 118203 b has e = 0.316, Pepper 2020), R<sub>&#9733;</sub> from the archive, only 1 to 4 sectors, and the crowding correction (LTT 1445 A b: CROWDSAP 0.42) (sections 4, 6)."],
+    ["What does TESS give, and what does it not?", f"2-min points, 27-d sectors, 21&Prime; pixels, gaps of 1 to 8 d. Period error from {peM.min():.1f} ppm ({peM.idxmin()}) to {peM.max():.0f} ppm ({peM.idxmax()}) (section 4)."],
+    ["Why these ten planets? Is ten enough?", "They cover every size class and host-star type; the 7 to 15 d period class is empty (29 % of the catalog sample). Enough to show the method, not to say anything about a class (section 5)."],
+    ["What would you do differently?", "Use every sector, fit the eccentricity, detrend with Gaussian processes, multiply the errors by &beta;, and read the Methods of each catalog paper (sections 7, 8)."]]
+for lo, hi in ((0, 5), (5, 10)):
+    S.append(sl(f"8  Questions. Ten questions the lecturer may ask: {lo + 1} to {hi}",
+                tblw(["Question", "Short answer and where it is shown"], qrows[lo:hi], [340, 820], "tbl sm")
+                + note("Inferred from the group's comments (the nature of the result, why, and what supports it); the lecturer has not confirmed them."),
+                "These ten questions are our guess, built from two remarks in the group chat: the lecturer asks about the nature of the result, why things are so, and what supports each claim, and she asks to check whether the published method differs from ours. Each answer uses numbers computed elsewhere in this deck."))
+
 ORDER = {"1": 1, "2": 2, "H": 2.3, "T": 2.5, "C": 2.7, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "B": 10, "A": 11}
 DISP = {"1": "1", "2": "2", "H": "3", "T": "4", "C": "5", "3": "6", "4": "7", "5": "8", "6": "9", "7": "10", "8": "11", "9": "12", "B": "B"}    # numbers shown on the slides
 def _key(h):
@@ -699,7 +719,7 @@ def _num(m):
     _n[0] += 1
     return f'<span class="pg">{_n[0]}</span>'
 SL = [SL[0]] + [re.sub(r'<span class="pg">@@PG@@</span>', _num, x) for x in SL[1:]]
-css = (ROOT / "slides" / "deck" / "group2_base.css").read_text(encoding="utf-8") + ".mdeck-slide{min-height:720px}.mdeck-slide .src{position:absolute;left:60px;right:100px;bottom:7px;font-size:20px;line-height:1.2;color:#566074}.mdeck-slide table.tbl.xs{font-size:21px}.mdeck-slide table.tbl.xs td,.mdeck-slide table.tbl.xs th{padding:4px 8px}"
+css = (ROOT / "slides" / "deck" / "group2_base.css").read_text(encoding="utf-8") + ".mdeck-slide{height:720px!important;min-height:720px}.mdeck-slide .src{position:absolute;left:60px;right:100px;bottom:7px;font-size:20px;line-height:1.2;color:#566074}.mdeck-slide table.tbl.xs{font-size:21px}.mdeck-slide table.tbl.xs td,.mdeck-slide table.tbl.xs th{padding:4px 8px}"
 js = (ROOT / "slides" / "deck" / "group2_engine.js").read_text(encoding="utf-8")
 page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
         '<title>Ten exoplanets with TESS, Group 2 study deck</title><style>' + css + '</style></head><body>'

@@ -34,6 +34,9 @@ NODES = [
 LINKS = [("MQ", "HD", "dash"), ("HD", "TR", "dash"), ("HD", "WA", "dash"), ("HD", "HS", "solid"), ("TR", "SP", "solid"),
          ("KP", "K2", "solid"), ("KP", "TE", "dash"), ("TE", "JW", "dash")]
 GR = "#7a8499"
+VI = {"Doppler and timing": "Doppler và đo thời gian", "Ground transit surveys": "Khảo sát transit mặt đất", "Atmospheres, follow-up": "Khí quyển, theo dõi", "Space photometry": "Quang đo từ không gian",
+      "Pulsar planets": "Hành tinh pulsar", "first transits": "transit đầu tiên", "sodium": "natri", "selected": "được chọn", "ESA, selected": "ESA, được chọn"}
+_t = lambda s, lang: VI.get(s, s) if lang == "vi" else s
 # hành tinh của ta: (số, lane, năm, lệch ngang px) theo cột discoverymethod, disc_facility, disc_year của catalog
 OURS = [(3, 0, 1999.0, 0, 0), (1, 0, 2005.0, -17, 0), (2, 0, 2005.0, 17, 0), (4, 1, 2009.0, 0, 0), (5, 1, 2012.0, 0, 0), (9, 1, 2015.0, 0, 0),
         (10, 3, 2018.0, -8, 0), (7, 3, 2019.0, 0, -27), (8, 3, 2019.0, 0, 27), (6, 3, 2020.0, 8, 0)]   # (số, lane, năm, dx, dy)
@@ -47,8 +50,9 @@ def _grid(svg, h_axis):
         svg.append(f'<text x="{x:.1f}" y="{h_axis}" font-size="20" fill="#566074" text-anchor="middle">{yr}</text>')
 
 
-def _lanes(svg, ys, x_end):
+def _lanes(svg, ys, x_end, lang="en"):
     for (name, col), y in zip(LANES, ys):
+        name = _t(name, lang)
         svg.append(f'<line x1="{ML-24}" y1="{y}" x2="{x_end}" y2="{y}" stroke="{col}" stroke-width="3" opacity=".45"/>')
         parts = name.split(" ", 1) if len(name) > 14 else [name]
         words = name.split(); half = len(words) // 2 or 1
@@ -60,13 +64,13 @@ def _lanes(svg, ys, x_end):
             svg.append(f'<text x="{ML-36}" y="{y+7}" font-size="20" font-weight="700" fill="{col}" text-anchor="end">{name}</text>')
 
 
-def exo_timeline_svg():
+def exo_timeline_svg(lang="en"):
     H = 500
     svg = [f'<svg viewBox="0 0 {W} {H}" width="{W}" height="{H}" role="img" aria-label="Timeline of exoplanet discovery in four lines of work" style="font-family:Helvetica,Arial,sans-serif">']
     svg.append('<defs>' + "".join(f'<marker id="ah{c[1:]}" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto"><path d="M0,0 L10,5 L0,10 z" fill="{c}"/></marker>' for c in {GR, *[c for _, c in LANES]}) + '</defs>')
     _grid(svg, 488)
     x_end = X(2026.6)
-    _lanes(svg, LANE_Y, x_end)
+    _lanes(svg, LANE_Y, x_end, lang)
     pos = {n[7]: (X(n[1]), LANE_Y[n[0]]) for n in NODES}
     lane_of = {n[7]: n[0] for n in NODES}
 
@@ -80,6 +84,7 @@ def exo_timeline_svg():
         dash = ' stroke-dasharray="6,5"' if kind == "dash" else ""
         svg.append(f'<line x1="{pa[0]:.1f}" y1="{pa[1]:.1f}" x2="{pb[0]:.1f}" y2="{pb[1]:.1f}" stroke="{col}" stroke-width="{1.6 if kind == "dash" else 2.2}"{dash} marker-end="url(#ah{col[1:]})" opacity=".9"/>')
     for lane, yr, name, sub, key, side, al, nid in NODES:
+        name, sub = _t(name, lang), _t(sub, lang)
         x, y = X(yr), LANE_Y[lane]; col = LANES[lane][1]
         svg.append(f'<circle cx="{x:.1f}" cy="{y}" r="{9 if key else 7}" fill="{col}" stroke="#fff" stroke-width="2"/>')
         anchor = {"l": "start", "m": "middle", "r": "end"}[al]; tx = x + {"l": -8, "m": 0, "r": 8}[al]
@@ -93,7 +98,7 @@ def exo_timeline_svg():
     return "".join(svg)
 
 
-def exo_planets_svg(width=760, height=420):
+def exo_planets_svg(width=760, height=420, lang="en"):
     """Phiên bản gọn: chỉ lane, trục năm và 10 hành tinh của ta (số trong vòng tròn đỏ) đặt theo năm và loại phát hiện trong catalog."""
     Wd, ml = width, 175
     k = (Wd - ml - 24) / (2022 - 1996)
@@ -102,7 +107,7 @@ def exo_planets_svg(width=760, height=420):
     svg = [f'<svg viewBox="0 0 {Wd} {height}" width="{Wd}" height="{height}" role="img" aria-label="Where our ten planets were discovered" style="font-family:Helvetica,Arial,sans-serif">']
     for yr in range(1996, 2023, 4):
         x = xx(yr); svg.append(f'<line x1="{x:.1f}" y1="30" x2="{x:.1f}" y2="{height-60}" stroke="#d5dae6" stroke-width="1"/><text x="{x:.1f}" y="{height-28}" font-size="20" fill="#566074" text-anchor="middle">{yr}</text>')
-    for (name, col), y in [(LANES[i], y) for i, y in zip(used, ys)]:
+    for (name, col), y in [((_t(LANES[i][0], lang), LANES[i][1]), y) for i, y in zip(used, ys)]:
         svg.append(f'<line x1="{ml-24}" y1="{y}" x2="{Wd-10}" y2="{y}" stroke="{col}" stroke-width="3" opacity=".5"/>')
         words = name.split(); half = len(words) // 2
         svg.append(f'<text x="{ml-34}" y="{y-3}" font-size="20" font-weight="700" fill="{col}" text-anchor="end">{" ".join(words[:half])}</text><text x="{ml-34}" y="{y+21}" font-size="20" font-weight="700" fill="{col}" text-anchor="end">{" ".join(words[half:])}</text>')

@@ -1,0 +1,115 @@
+t001	2 787 hành tinh trong archive
+t002	Tàu Kepler sau khi mất hai bánh xe phản lực; các trường nhìn dọc mặt phẳng hoàng đạo
+t003	550 hành tinh
+t004	4 camera, 24° × 96°; quỹ đạo 13.7 ngày
+t005	1 027 hành tinh
+t006	Ricker 2015 tr. 8, tr. 7; trang NASA
+t007	Hành khách phụ trên tên lửa Soyuz-Fregat từ Kourou
+t008	Sứ mệnh nhỏ của ESA
+t009	Khảo sát trường rộng nhiều camera
+t010	Đang chuẩn bị
+t011	Đài quan sát tại L2
+t012	Hồng ngoại; transit của WASP-39 b bằng NIRCam ngày 22 đến 23/7/2022
+t013	Các transit đầu tiên qua khí quyển
+t014	Số hành tinh: NASA Exoplanet Archive theo cơ sở phát hiện. PLATO: được chọn năm 2014 (Rauer); chúng tôi chưa kiểm tra ngày phóng hiện tại.
+t015	Nguồn: năm bài báo sứ mệnh và Ricker 2015 (số trang ở cột cuối); trang NASA Science về TESS
+t016	3  Lịch sử. Mười hành tinh của chúng tôi được phát hiện ở đâu: sáu bằng Doppler hoặc khảo sát mặt đất, bốn bằng sứ mệnh không gian
+t017	Các số là số thứ tự hành tinh trong bộ slide này.
+t018	Hành tinh
+t019	Cơ sở phát hiện
+t020	Năm
+t021	Phương pháp và cơ sở theo ghi nhận của NASA archive. HD 189733 b được ghi là phát hiện bằng Doppler; bài báo 2005 của nó báo cáo transit.
+t022	Nguồn: NASA Exoplanet Archive pscomppars (discoverymethod, disc_facility, disc_year); Berta-Thompson 2015
+t023	4  TESS. Vệ tinh qua chín con số
+t024	Giá trị thiết kế
+t025	Elip, 13.7 ngày, cộng hưởng 2:1 với Mặt Trăng; cách Trái Đất 17 đến 59 bán kính Trái Đất
+t026	4 thấu kính giống nhau, f/1.4, đường kính pupil 10.5 cm; dải sóng 600 đến 1000 nm
+t027	4 CCD mỗi camera, 2048 × 2048 pixel kích thước 15 µm
+t028	Trường nhìn
+t029	24° × 24° mỗi camera; cả bốn là 24° × 96° = 2300 deg²
+t030	Một pixel
+t031	Ánh sáng trong một pixel
+t032	50 % nằm trong một pixel; 90 % nằm trong 4 × 4 pixel (1.4′)
+t033	Một sector
+t034	2 vòng quỹ đạo = 27.4 ngày, rồi các camera quay sang trường kế tiếp; 13 sector mỗi bán cầu
+t035	Khung 2 s; 60 khung được cộng thành một cadence 2 phút cho các sao chọn sẵn; ảnh toàn khung mỗi 30 phút
+t036	Ít nhất 200 000 sao ở cadence 2 phút, I<sub>C</sub> khoảng 4 đến 13
+t037	Giá trị thiết kế từ Ricker et al. 2015. Các slide sau kiểm chúng trên 21 file SPOC của chúng tôi.
+t038	Nguồn: Ricker et al. 2015, Bảng 1 tr. 7, Mục 4.1 tr. 5, Mục 4.2 tr. 6, Mục 6 tr. 8, Mục 7.2 tr. 9
+t039	4  TESS. Nó nhìn đâu: 13 sector mỗi bán cầu, mỗi sector 27.4 ngày
+t040	Xám: 87 hành tinh trong danh sách rút gọn; đỏ: mười hành tinh của chúng tôi.
+t041	Vùng phủ bầu trời (thiết kế)
+t042	bốn camera xếp thành hàng: 24° × 96° = 2300 deg², từ vĩ độ hoàng đạo 6° tới cực
+t043	mỗi sector: 2 vòng quỹ đạo = 27.4 ngày, rồi dịch 27° về phía đông; một bán cầu trong 1 năm, cả bầu trời trong 2 năm
+t044	quan sát ít nhất 27 ngày: 30 000 deg² (73 % mặt cầu, tự tính); trên 80 ngày: 2 800 deg²; trên 300 ngày: 900 deg² gần các cực
+t045	Mười hành tinh của chúng tôi: |vĩ độ| từ 2.5° (K2-141 b, 3 sector) đến 87° (WASP-62 b, 38). Chúng tôi dùng 1 đến 4 sector mỗi hành tinh.
+t046	Nguồn: Ricker et al. 2015, Mục 7.2, tr. 9 đến 11; số sector của mỗi sao từ lần tìm trên MAST của chúng tôi (code/03_check_mast.py)
+t047	4  TESS. Lấy mẫu: một điểm mỗi 2 phút, sector khoảng 27 ngày, khoảng trống 1 đến 8 ngày
+t048	Các cadence tốt (cờ chất lượng 0, thông lượng hữu hạn) trong từng file trong 21 file SPOC của chúng tôi.
+t049	Đo trên các file của chúng tôi
+t050	cả 21 file: cadence 120 s = 60 khung 2 s; thời gian phơi sáng hiệu dụng 95 s (header DEADC 0.792)
+t051	độ dài sector 24.6 đến 28.4 ngày (trung vị 26.6)
+t052	khoảng trống lớn nhất 1.1 đến 7.7 ngày (trung vị 2.2); cadence tốt chiếm 63 đến 96 % khoảng thời gian (trung vị 81)
+t053	một transit kéo dài 0.4 đến 5.6 giờ = 11 đến 169 cadence
+t054	Nguồn: Ricker et al. 2015, Mục 4.3 tr. 7; header của 21 file SPOC của chúng tôi (results/tess_files.csv)
+t055	4  TESS. Sản phẩm dữ liệu: đường cong ánh sáng 2 phút từ đầu; ảnh toàn khung mỗi 30 phút, rồi 10 phút, rồi 200 s
+t056	Sản phẩm
+t057	Cadence
+t058	Có từ
+t059	Dùng ở đây
+t060	Đường cong ánh sáng SPOC, pixel mục tiêu
+t061	Từ sector 1
+t062	<b>Có</b>: cả 21 file (thông lượng PDCSAP)
+t063	Đường cong ánh sáng SPOC nhanh
+t064	Sứ mệnh mở rộng đầu tiên, từ sector 27
+t065	Ảnh toàn khung
+t066	30 phút
+t067	Năm 1 và 2 (sector 1 đến 26)
+t068	10 phút
+t069	Năm 3 và 4 (sector 27 đến 55)
+t070	Từ năm 5 (sector 56 trở đi)
+t071	Các file của chúng tôi
+t072	16 sector: 1, 2, 3, 4, 5, 9, 10, 15, 16, 41, 42, 56, 103, 104, 105, 106. Quan sát đầu tiên 2018-07-25, cuối cùng 2026-07-11: các năm 1, 2, 4, 5 và 8 của sứ mệnh.
+t073	Mốc thời gian
+t074	BTJD = BJD<sub>TDB</sub> − 2 457 000 ngày. Mỗi cadence là tổng của 60 khung; đơn vị thông lượng là e<sup>−</sup>/s.
+t075	Nguồn: NASA HEASARC, sổ tay archive TESS của STScI, Văn phòng khoa học TESS tại MIT (bản sao trong data/raw/tess_docs/, 21/11/2026)
+t076	4  TESS. Độ phân giải: một pixel là 21″ = 0.0058°, và 90 % ánh sáng của một sao rơi trong 1.4′
+t077	Giá trị
+t078	15 µm = 0.35′ = 21″ = 0.0058° (171 pixel mỗi độ)
+t079	WCS trong các file của chúng tôi: 19.1 đến 21.1″
+t080	Một camera
+t081	2 × 2 CCD mỗi CCD 2048 pixel = 4096 pixel = 23.9°
+t082	tự tính; bài báo nêu 24°
+t083	Một nửa ánh sáng của sao
+t084	nằm trong một pixel (21″)
+t085	Ricker et al. 2015, Bảng 1
+t086	90 % ánh sáng
+t087	nằm trong 4 × 4 pixel (84″ = 1.4′)
+t088	ảnh bị lấy mẫu thiếu (undersampled)
+t089	Một pixel trên bầu trời
+t090	21″ × khoảng cách: 140 AU tại LTT 1445 A (6.9 pc) đến 3 710 AU tại WASP-62 (176 pc)
+t091	khoảng cách trong catalog
+t092	Khẩu độ của chúng tôi
+t093	13 đến 31 pixel = bán kính tương đương 41 đến 64″
+t094	đo trên các file của chúng tôi
+t095	Một sao trong khoảng 1.4′ cộng thêm ánh sáng vào khẩu độ; hai sao nằm trong một pixel không phân biệt được.
+t096	Bán kính tương đương là sqrt(N/π) pixel với N pixel của khẩu độ tối ưu.
+t097	Nguồn: Ricker et al. 2015, Bảng 1 tr. 7, Mục 4.1 tr. 5; trang TESS của STScI MAST; WCS trong header file của chúng tôi
+t098	4  TESS. Mười khẩu độ của chúng tôi: LTT 1445 A b chỉ có 42 % ánh sáng đến từ sao mục tiêu
+t099	Các pixel của khẩu độ tối ưu, sector đầu tiên được dùng. CROWDSAP: tỉ lệ thông lượng trong khẩu độ đến từ sao mục tiêu.
+t100	PDCSAP loại phần còn lại (trung vị PDCSAP/SAP = CROWDSAP/FLFRCSAP; LTT 1445 A b: 0.434). Các sao bạn đồng hành cách A 5 đến 7″, nằm trong một pixel.
+t101	Nguồn: header đường cong ánh sáng SPOC (CROWDSAP, FLFRCSAP, mặt nạ khẩu độ); Winters et al. 2021 cho LTT 1445
+t102	4  TESS. Độ chính xác: 67 đến 477 ppm mỗi giờ, và 11 đến 169 điểm mỗi transit
+t103	Cấp sao T
+t104	Sector
+t105	Transit / n
+t106	Độ sâu
+t107	CDPP 1 h: độ chính xác quang đo vi phân kết hợp trên 1 giờ, từ khóa header SPOC (trung vị của các sector đã dùng, ppm). Cam: camera. Sector: đã dùng trên tổng số có. Px / r: số pixel của khẩu độ tối ưu và bán kính tương đương. CROWD: CROWDSAP thấp nhất. Transit / n: thời lượng và số cadence. Độ sâu: (R<sub>p</sub>/R<sub>★</sub>)² tính bằng ppm, từ phép khớp của chúng tôi.
+t108	Nguồn: header đường cong ánh sáng SPOC (CDPP1_0, TIMEDEL); thời lượng transit từ NASA Exoplanet Archive
+t109	4  TESS. Nó bay đi đâu: quỹ đạo 13.7 ngày giữa 17 và 59 bán kính Trái Đất
+t110	Nhìn từ trên xuống, đúng tỉ lệ về khoảng cách (không đúng về độ nghiêng).
+t111	Đường đi và quỹ đạo
+t112	phóng từ Cape Canaveral vào quỹ đạo đỗ (28.5°); hai lần đốt nâng viễn điểm lên 400 000 km; một lần bay qua Mặt Trăng nâng độ nghiêng so với hoàng đạo lên khoảng 40°; quỹ đạo cuối đạt được khoảng 60 ngày sau khi phóng (kịch bản danh định)
+t113	quỹ đạo cuối: 17 đến 59 R<sub>⊕</sub>, 13.7 ngày, 2:1 với Mặt Trăng; định luật Kepler thứ ba với a = 38 R<sub>⊕</sub> cho 13.7 ngày (tự tính)
+t114	dữ liệu: tải xuống mỗi 13.7 ngày ở cận điểm, 4 giờ ở 100 Mb/s; rồi các camera chuyển hướng
+t115	vì sao chọn quỹ đạo này: nằm ngoài các vành đai bức xạ, không bị Trái Đất hay Mặt Trăng che khuất lâu, ổn định hàng thập kỷ mà không cần giữ quỹ đạo

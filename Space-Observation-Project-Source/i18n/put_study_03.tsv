@@ -1,0 +1,6 @@
+9 of 10 ratios within 2σ; outside: WASP-18 b, -3.2 % (-2.9σ)	9/10 tỉ số trong 2σ; ngoài: WASP-18 b, -3.2 % (-2.9σ)
+K2-141 b is the largest difference, -9.7 %, but its error is 6.1 %: -1.5σ	K2-141 b lệch nhất, -9.7 %, nhưng sai số 6.1 %: -1.5σ
+Our ten: |latitude| 2.5° (K2-141 b, 3 sectors) to 87° (WASP-62 b, 38). We used 1 to 4 sectors per planet.	Mười hành tinh: |vĩ độ| 2.5° (K2-141 b, 3 sector) đến 87° (WASP-62 b, 38). Dùng 1 đến 4 sector mỗi hành tinh.
+Source: Ricker et al. 2015, Sec 7.2, pp. 9 to 11; sectors per star from our MAST search (code/03_check_mast.py)	Nguồn: Ricker et al. 2015, Mục 7.2, tr. 9 đến 11; số sector từ lần tìm MAST (code/03_check_mast.py)
+Source: Ricker et al. 2015, Sec 6 p. 8, Sec 5 p. 7, Table 2 p. 9; constants and Kepler check: code/28	Nguồn: Ricker et al. 2015, Mục 6 tr. 8, Mục 5 tr. 7, Bảng 2 tr. 9; hằng số, phép kiểm Kepler: code/28
+Top view, to scale in distance (not in tilt).	Nhìn từ trên xuống, đúng tỉ lệ khoảng cách.

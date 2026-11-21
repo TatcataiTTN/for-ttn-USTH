@@ -1,0 +1,37 @@
+t218	25 phút cho slide 1 đến 26; phụ lục dành cho phần hỏi đáp. Theo đúng báo cáo môn học: giới thiệu (cái gì, vì sao), phương pháp (ở đâu, thế nào), kết quả, thảo luận, kết luận. Nói ngay từ đầu rằng pipeline đã được kiểm chứng trên hành tinh của bài hướng dẫn và các thất bại được trình bày có chủ ý.
+t219	Một câu hỏi, ba phép kiểm: chu kỳ, bán kính, độ phủ. Các con số trên slide này là kết quả cuối, nêu trước để người nghe biết ta đang đi tới đâu.
+t220	Ba công thức này là công thức của môn học về transit (bài ôn, mục C). Ví dụ trong bài ôn: độ sâu 0.64 %, R sao 0.8 bán kính Mặt Trời cho Rp/R sao 0.08 và Rp 0.064 bán kính Mặt Trời. Pipeline của chúng tôi làm phép khớp này đúng cách, có tối tâm và MCMC, thay vì đọc độ sâu bằng mắt.
+t221	Phễu lọc. Tmag dưới 11 giữ nhiễu thấp, P dưới 15 ngày cho hai transit trở lên trong một sector, và S trên N ước tính trên 12 dùng một mô hình nhiễu đơn giản. Mười cộng hai: mười đại diện và hai hành tinh thử sức chịu.
+t222	Kích thước, quỹ đạo, sao, khoảng cách, vị trí trên bầu trời và loại hệ. Trục bầu trời quan trọng với TESS: vùng nhìn liên tục gần các cực hoàng đạo được quan sát khoảng một năm, vĩ độ thấp thì một hoặc hai sector.
+t223	Đọc hình từ trái sang phải: chu kỳ cực ngắn ở bên trái. Số 4 và 6 là hành tinh khí khổng lồ USP và hành tinh kiểu Hải Vương; số 8 và 9 là các hành tinh nhỏ của sao lùn M. Bản đồ bầu trời và mặt phẳng khoảng cách-sao nằm ở phụ lục (A3, A4).
+t224	Bảng này là bản đồ cho mười slide tiếp theo. Hành tinh 5 là mục tiêu vùng nhìn liên tục phía nam, hành tinh 8 là hệ gần nhất, hành tinh 9 là hành tinh nhỏ nhất.
+t225	Đi qua năm ô. Bài hướng dẫn dùng PyMC3 và exoplanet; chúng tôi dùng batman và emcee vì cài đặt sạch; mô hình vật lý giống nhau và phép chuẩn xác nhận điều đó. Nói rõ về tìm mù và có hướng dẫn: bảy hành tinh tìm mù, ba hành tinh có hướng dẫn.
+t226	Trái: BLS trượt một cái hộp trên đường cong gập pha cho mỗi chu kỳ thử. Phải: mô hình transit có tối tâm bậc hai, bảy tham số tự do, 32 walker. Đường cong thô và đã làm phẳng nằm ở phụ lục A5.
+t227	Bán kính catalog cao hơn của chúng tôi 3.8 phần trăm vì bán kính catalog suy ra bán kính sao 2.10 bán kính Mặt Trời, trong khi bảng tóm tắt ghi 2.04. Vì vậy chúng tôi còn so sánh cả tỉ số.
+t228	Nhóm: cỡ Sao Mộc, ấm, G, 92 pc, bầu trời cao. Đo được 12.30 R Trái Đất so với catalog 12.78; chế độ tìm mù. Khoảng một phút.
+t229	Nhóm: cỡ Sao Mộc, nóng, sao lùn K, 20 pc, bầu trời thấp. Đo được 12.61 R Trái Đất so với catalog 12.67; chế độ tìm mù. Khoảng một phút.
+t230	Nhóm: cỡ Sao Mộc, ấm, F/nóng hơn, 48 pc, bầu trời thấp. Đo được 15.74 R Trái Đất so với catalog 15.58; chế độ tìm mù. Khoảng một phút.
+t231	Nhóm: cỡ Sao Mộc, USP, F/nóng hơn, 123 pc, bầu trời thấp. Đo được 14.18 R Trái Đất so với catalog 13.90; chế độ tìm mù. Khoảng một phút.
+t232	Nhóm: cỡ Sao Mộc, ấm, F/nóng hơn, 176 pc, bầu trời CVZ. Đo được 14.82 R Trái Đất so với catalog 14.80; chế độ tìm mù. Khoảng một phút.
+t233	Nhóm: Hải Vương/Thổ, USP, G, 80 pc, bầu trời thấp. Đo được 4.55 R Trái Đất so với catalog 4.72; chế độ có hướng dẫn. Khoảng một phút.
+t234	Nhóm: dưới Hải Vương, ấm, sao lùn M, 22 pc, bầu trời cao. Đo được 2.38 R Trái Đất so với catalog 2.33; chế độ tìm mù. Khoảng một phút.
+t235	Nhóm: siêu Trái Đất, ấm, sao lùn M, 7 pc, bầu trời thấp. Đo được 1.39 R Trái Đất so với catalog 1.34; chế độ có hướng dẫn. Khoảng một phút.
+t236	Nhóm: cỡ Trái Đất, nóng, sao lùn M, 13 pc, bầu trời thấp. Đo được 1.14 R Trái Đất so với catalog 1.19; chế độ tìm mù. Khoảng một phút.
+t237	Nhóm: siêu Trái Đất, USP, sao lùn K, 62 pc, bầu trời thấp. Đo được 1.40 R Trái Đất so với catalog 1.51; chế độ có hướng dẫn. Khoảng một phút.
+t238	Trái: mọi bán kính đều phù hợp với không trong 1.4 sigma. Các thanh sai số lớn là LTT 9779 b và LTT 1445 A b. Phải: chu kỳ; tệ nhất là K2-141 b với 0.03 phần trăm.
+t239	Pull là chênh lệch chia cho sai số tổng của chúng tôi. Mọi pull nằm giữa trừ 1.4 và cộng 0.8.
+t240	Sai số hệ thống là nửa khoảng của Rp trên R sao qua ba biến thể làm phẳng. Với sao sáng, sai số MCMC dưới nửa phần trăm; bán kính sao là 1 đến 7 phần trăm. LTT 9779 b và K2-141 b bị giới hạn bởi chính cái dip.
+t241	Hãy trung thực ở đây. Chế độ có hướng dẫn không phải gian lận: nó giới hạn cửa sổ tìm, chu kỳ và bán kính vẫn được đo từ dữ liệu, và mỗi slide hành tinh đều nói rõ đã dùng chế độ nào. Bước tiếp cho sao hoạt động: làm phẳng bằng quá trình Gauss, như trong bài hướng dẫn về biến thiên sao.
+t242	Mở demo/index.html. HD 189733 b: BLS trong vài giây cho 2.21858 ngày. Sau đó K2-141 b với khoảng mặc định để cho thấy thất bại, thu hẹp khoảng để thấy 0.28035 ngày. Bản demo dùng tối tâm cố định, nên bán kính kém chính xác hơn pipeline vài phần trăm.
+t243	Kết bằng điều cần mang về. Cảm ơn người nghe và mở phần hỏi đáp. Phụ lục có thuật ngữ, dữ liệu, phép kiểm công thức của môn học, công thức, các phép thử sức chịu và tài liệu tham khảo.
+t244	Bảng thuật ngữ cho phần hỏi đáp.
+t245	Mọi dữ liệu đều công khai. Giá trị catalog chỉ dùng làm đáp án đối chiếu, trừ R sao mà bán kính cần.
+t246	Hành tinh 5 (WASP-62 b) nằm trong CVZ phía nam; hành tinh 1 ở vùng vĩ độ cao phía bắc; các hành tinh còn lại ở vĩ độ thấp.
+t247	Từ sao lùn M LTT 1445 A ở 6.9 pc đến sao F WASP-62 ở 176 pc.
+t248	Ba biến thể làm phẳng (che 2 đến 3 thời lượng, cửa sổ 4 đến 8 thời lượng, cửa sổ tối thiểu 0.75 đến 1.5 ngày) cho sai số hệ thống. Biến thể rộng nhất là kết quả chính vì cửa sổ hẹp ăn mất độ sâu.
+t249	Giá trị a trên R sao đã khớp cho xác suất transit hình học và thời lượng transit đi qua tâm theo công thức môn học. Chín hành tinh khớp trong 10 %. LTT 9779 b thì không: phép khớp của nó có b = 0.91, nên a/R sao suy biến với b và công thức transit đi qua tâm dự đoán thời lượng lớn hơn khoảng bốn lần.
+t250	Slide tham khảo cho các câu hỏi về mô hình.
+t251	Sai số cộng theo bình phương; độ bất định của bán kính sao lấy từ archive.
+t252	Đây là các số đứng sau slide thất bại.
+t253	Tìm mù cho bảy hành tinh, có hướng dẫn cho LTT 9779 b, LTT 1445 A b và K2-141 b. Ở chế độ có hướng dẫn, chu kỳ, thời điểm, độ sâu và bán kính vẫn được đo từ dữ liệu.
+t254	Tài liệu tham khảo.
