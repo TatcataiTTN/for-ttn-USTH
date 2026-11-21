@@ -22,7 +22,7 @@ USTH - Space Observation Project/
 │   ├── assets/            logos and slide images (decks refer to ../assets/images/)
 │   ├── demo/              browser demo
 │   ├── Space-Observation-Project-Group-2/        37 slides, the version published on GitHub Pages
-│   └── Space-Observation-Project-Group-2-Study/  64 slides, study deck (local only)
+│   └── Space-Observation-Project-Group-2-Study/  87 slides, study deck (published)
 ├── team/                for the group: answers to the chat (tra_loi_hoi_thoai_lan_2.md), planet split (chia_hanh_tinh.md), nop_bai/ (submission folder + result template)
 ├── archive/             not read by any script: scratch_shots/, results_blind_failed/, unrelated/, ULTIMATE_PROMPT.before_layout.md
 ├── OCR_output/          lecture pages and OCR for the L1-L3 site task (see ULTIMATE_PROMPT.md)
@@ -46,7 +46,7 @@ USTH - Space Observation Project/
 | `scratch_shots/`, `results_blind_failed/` | `archive/` |
 | `Gia hạn Bảo hiểm y tế năm học 2026-2027!.pdf` (not part of the project) | `archive/unrelated/` |
 
-Scripts changed to follow the move: `07`, `09`, `10`, `11`, `17`, `19`, `20` (paths only). Added later the same day: `21`, `22`, `23` and the folder `team/`; `17` and `20` also gained two slides and three lines about them. To undo, move the folders back with the table above and revert those seven paths.
+Scripts changed to follow the move: `07`, `09`, `10`, `11`, `17`, `19`, `20` (paths only). Added later the same day: `21` to `28`, the folder `team/` and `slides/deck/exo_timeline_svg.py`; `17` and `20` also gained the matching slides and lines (study deck: 87 slides; section 3 history, 4 TESS, 5 sample). Published copy: see the README, section Public copy.
 
 Check after the move: scripts 07, 09, 10, 11, 15, 17, 18 and 20 were re-run (11 before its one-sentence note on `archive/results_blind_failed/` was edited; the local copy of the published deck keeps the sentence that is live); 19 of 20 outputs are byte-identical to before (decks, demo data, figures, CSVs, review), and the 20th, `REPRODUCE.md`, differs only in the study-deck path line. `19_annotate_pdfs.py` was not re-run (it rewrites 105 MB): only its output path was tested and it matches the existing file. All relative image and script links in the four HTML pages resolve.
 

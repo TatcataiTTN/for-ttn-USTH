@@ -9,11 +9,11 @@ Folder map and what to share: `LAYOUT.md`. How to get every number back: `REPROD
 |---|---|
 | Presentation deck, 31 slides (25-minute talk) | `slides/deck/index.html` |
 | Deck published on GitHub Pages, 37 slides (local source) | `slides/Space-Observation-Project-Group-2/index.html` |
-| Study deck, 64 slides (ten planets, authors' numbers, literature; local only) | `slides/Space-Observation-Project-Group-2-Study/index.html` |
+| Study deck, 87 slides (history of the search, TESS numbers with sources, ten planets, authors' numbers, literature); live at https://tatcataittn.github.io/for-ttn-USTH/Space-Observation-Project-Group-2-Study/ | `slides/Space-Observation-Project-Group-2-Study/index.html` |
 | Browser demo (works offline via file://) | `slides/demo/index.html` |
 | Speaker script, Vietnamese | `notes/script_vi.md` |
 | Tutorial notebook | `notebooks/01_measure_one_planet.ipynb` |
-| Literature review, 128 papers by sub-method | `notes/literature_review_TESS.md` |
+| Literature review, 150 papers by sub-method (group K: history of the search) | `notes/literature_review_TESS.md` |
 | Answers to the group chat (is a 0.3 to 10 % difference reasonable, which paper each catalog value comes from, what the instructor may ask) | `team/tra_loi_hoi_thoai_lan_2.md` |
 | Proposal to split the ten planets between four people, with commands and expected numbers | `team/chia_hanh_tinh.md` |
 | Where teammates put their work | `team/nop_bai/` |
@@ -40,7 +40,12 @@ Folder map and what to share: `LAYOUT.md`. How to get every number back: `REPROD
 | 19 | `python -I code/19_annotate_pdfs.py` | `literature/checking/` (annotated PDF copies; originals in `literature/pdf/` untouched) |
 | 21 | `code/21_catalog_methods.py` | `data/raw/catalog_methods.csv`, `data/literature/catalog_refs.csv` (paper behind each catalog value) |
 | 22 | `code/22_deviation_vs_catalog.py` | `results/deviation_vs_catalog.csv`, `catalog_sources.csv`, `figures/paper/deviation_vs_catalog.png` |
-| 23 | `code/23_team_notes.py` | `team/*.md`, `team/nop_bai/` |
+| 23 | `code/23_team_notes.py` | `team/*.md`, `team/nop_bai/` (not published) |
+| 24 | `code/24_tess_facts.py` | `results/tess_files.csv`, `tess_planets.csv`, `sample_coverage.csv`, TESS figures |
+| 25 | `code/25_history_literature.py`, `25b_history_by_id.py` (then `14_download_literature.py`) | group K in `data/literature/verified_curated.csv`, PDFs in `literature/pdf/K_Search_history/` |
+| 26 | `code/26_tess_sources.py` | `data/literature/tess_fact_sources.csv` (quote, PDF page and source of each TESS fact) |
+| 27 | `code/27_discoveries_by_year.py` | `data/raw/discoveries_by_*.csv`, `figures/paper/exo_discoveries.png` |
+| 28 | `code/28_orbit_figure.py` | `figures/paper/tess_orbit.png`, `results/tess_orbit_numbers.json` |
 
 Selection: `data/selected.txt` (10 planets, numbering order), `data/stress_tests.txt` (AU Mic b, DS Tuc A b: reported as failures).
 `mode` in each `result.json`: `blind` (BLS over 0.26-15 d) or `guided` (BLS within +-3 % of the catalog period).
