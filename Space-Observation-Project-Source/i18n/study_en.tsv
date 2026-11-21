@@ -145,6 +145,90 @@ de86180503	Discovery facility
 40f72dfe6c	Keck (RV)
 cd9031e58b	Method and facility as the NASA archive records them. HD 189733 b is listed as a Doppler discovery; its 2005 paper reports the transit.
 ffe107f4c3	Source: NASA Exoplanet Archive pscomppars (discoverymethod, disc_facility, disc_year); Berta-Thompson 2015
+52ced07243	3  Methods. TESS alone, TESS with a partner, TESS cannot: every way the archive records a discovery
+bef9ecc8df	TESS alone
+3f5f163d8f	Transit candidates (4 800 planets in the archive were found by transit, by all missions) · phase curves and secondary eclipses (9 by brightness modulation) · part of the false-positive tests · asteroseismology of the host · binaries, flares, novae, variables in full frames
+5a1fd01005	TESS with a partner
+16cd2fcd6a	Mass (radial velocity, 1 204 planets) · confirmation and companions (ground photometry, imaging) · transit timing (29 planets), eclipse timing (17) · atmospheres (JWST, HST) · stellar radius (Gaia) · refined transits (CHEOPS)
+a37dbbf6ce	TESS cannot
+099f7745e7	Radial velocity itself · direct imaging (99) · microlensing (296) · astrometry (8) · pulsar timing (8) · disk kinematics (1) · planets with long periods around Sun-like stars in one sector · mass and spectrum alone
+3463d380c1	Counts: confirmed planets of the NASA Exoplanet Archive by discovery method, 2026-11-21; the verdict is ours, with the evidence on the next three slides.
+0fa5cfe984	3  Methods. What TESS does alone: transits, phase curves, part of the vetting, stars
+88306943fe	Method
+470176376e	What TESS measures
+7ea014de7b	Evidence
+ba79882ca0	In our project
+c5a2452161	Transit photometry
+d9853b239c	dips in the light of one star, 2 min
+a775307c54	SPOC flags threshold-crossing events; Ricker Sec 8.2 expects thousands of planets below Neptune size (p. 12)
+4cf6561117	all ten planets: BLS and fit
+ccb5ec5f28	Phase curve, secondary eclipse
+ff9458dc39	planet's own light over an orbit
+a3b7d48930	Shporer 2019: TESS phase curve of WASP-18 b with transit and secondary eclipse (p. 1)
+4a53696d67	WASP-18 b flux at phase 0.5: 352 ± 9 ppm against 341
+9d6849cff8	False-positive tests
+d05b09db45	secondary eclipse, ellipsoidal modulation, image motion
+1ac6824807	Ricker Sec 8.2: some false positives identifiable with TESS data alone (p. 12)
+0db376a89b	odd-even test done; centroid test not done
+3269da9be6	Asteroseismology
+6318cd9d1c	oscillations of the host star
+33636f7995	Ricker Sec 8.3: p-modes on about 6 000 stars (p. 12)
+f5b7e51a5a	not done; stellar radius is 1 to 7 % of our error
+d56ed01ef1	Stars in full frames
+6f63751354	binaries, novae, flares, variables
+4ed7199b77	not done
+7d0392afe4	Detecting a candidate is not confirming a planet: confirmation needs the partners of the next slide.
+9b5d8c3132	3  Methods. TESS with a partner: mass, confirmation, timing, atmospheres, stellar radius
+ed4855c28d	Need
+9357e0ad06	Partner
+9e593bfbdf	Mass of the planet
+81c2efec98	radial velocity from spectrographs
+f98b453245	Winters 2021: velocities from five spectrographs fix the masses in LTT 1445 (p. 2)
+b391e1065f	mass-radius plot places the 4 small planets with measured masses
+f73ef6093e	Confirmation, false positives
+6cf7cb7a08	ground photometry, spectra, high-resolution imaging
+b77fa90d5b	Ricker Sec 8.2: ground observations check spectra, velocities, colour, companions (p. 12); LTT 1445 A b: TESS and ground telescopes (p. 3)
+386a73e58e	all ten are confirmed planets; we did not vet
+e98902da97	Transit timing
+724d76e178	times of every transit; partner: more years or velocities
+0d587b1a73	Günther 2019: TOI-270's near-resonance gives timing variations (p. 2)
+d077dd7d76	not measured; TOI-270 c period gap untested
+4890e36537	Atmospheres
+f661ab4266	Ricker abstract: ecliptic poles are best for JWST (p. 1); Pass 2023 (HST), Xue 2024 (JWST) in the catalog
+38d76fcc9f	history slide: JWST on WASP-39 b
+8e91b7c85b	Stellar radius and distance
+0a20066ff7	Gaia parallax
+e0b68dab3a	the TIC is built on Gaia DR2 (HEASARC); Stassun 2017: radii from Gaia parallaxes
+f2135756d3	R★ of the archive enters every R<sub>p</sub>
+324f13ec74	Refined transits
+f6669b7b83	CHEOPS, ground
+6f286f10c1	Benz 2021: CHEOPS follows stars already known to host planets (p. 2)
+487f8bcd94	not used
+b984ff6557	TESS supplies the radius and the transit times; the partner supplies what a band-limited camera cannot.
+2b372fd681	3  Methods. What TESS cannot do: velocities, imaging, microlensing, astrometry, long periods
+86845bebad	What it needs
+db6b794b88	Why TESS cannot (evidence)
+e3a30e47a5	Radial velocity
+44982a9017	a spectrograph
+9742b404d5	the payload is four cameras and a data handling unit (p. 5); one band, 600 to 1000 nm
+69ab58741e	HD 118203 b, HD 189733 b, HD 209458 b were found by Doppler first
+0fa56bf5bf	Direct imaging
+7496e4e5a2	a coronagraph, small pixels
+ea12416221	a pixel is 21″; 90 % of a star's light falls in 1.4′; undersampled images (p. 5)
+27777f50c6	Microlensing
+a9723433ff	a dense field watched for a one-off alignment
+748c45eee4	Galactic centre at ecliptic latitude -5.5° (computed); the strips start at 6° (p. 9); crowded fields (our reasoning)
+a9ba6b78a6	Astrometry
+5f3ac4e5e8	positions far below a pixel
+3ff14b76b4	a pixel is 21″; the stellar wobble is far smaller (our reasoning); Gaia does it
+0068d0632c	Pulsar timing, disk kinematics
+f5ce7e9171	radio pulses; millimetre spectra
+8aeb3ba87f	TESS is an optical photometer (our reasoning)
+9e0a3e814e	Long periods, Sun-like stars
+04252e44aa	more than one sector
+0dfc670e33	P<sub>max</sub> about 10 d rules out their habitable zone (p. 3); surveys favour short periods (p. 3)
+4b2556c7a1	our ten: P up to 6.13 d
+cdd0aa5b1c	'Our reasoning' = instrument numbers, not a quotation. A planet that does not cross its star gives no transit at all.
 dee584594b	4  TESS. The satellite in nine numbers
 5d1686693d	Design value
 b6c22d03ac	Orbit
@@ -797,6 +881,10 @@ bf1b31b18f	Layout and drawing style follow the Hadoop timeline of the HUST sampl
 e313ba9dd3	The archive table pscomppars was queried on 2026-11-21 with TAP. The numbers change as planets are added. Kepler, K2 and TESS together account for 4364 planets; the ground-based transit surveys in the table are far smaller.
 831839b5a2	Launch dates and hardware are quoted from the mission papers with the PDF page of the quote (data/literature/tess_fact_sources.csv). The TESS launch date comes from the NASA mission page. The planet counts are from the archive query on the same day as slide H2.
 3dfc56b795	Discovery method, facility and year are the archive columns discoverymethod, disc_facility and disc_year. By lane: three Doppler discoveries (HD 118203 b, HD 189733 b, HD 209458 b), three ground transit discoveries (WASP-18 b, WASP-62 b, GJ 1132 b) and four from space (K2-141 b, TOI-270 c, LTT 1445 A b, LTT 9779 b). The archive lists GJ 1132 b under the Cerro Tololo facility, where the MEarth-South array stands (Berta-Thompson 2015).
+5c397b0148	The eleven methods are the values of the archive column discoverymethod (code/27_discoveries_by_year.py); the counts are from the same query as the discovery chart. The classification is ours: each row of the next slides gives the quote or the computation it rests on, and says which statements are our reasoning.
+e131985448	The first row rests on the SPOC sentence about threshold-crossing events (HEASARC data-handling page, saved) and on Ricker Section 8.2. The phase-curve row cites the TESS paper on WASP-18 b in our literature folder; the 352 ppm is our own measurement (slide on flux at phase 0.5). The page numbers are PDF pages of each paper (tess_fact_sources.csv).
+7c681a1e71	Every row names the quote or paper it rests on, with the PDF page. The last column is the link to our work: the mass-radius figure uses planets whose masses were measured with velocities; none of the ten was vetted by us; the timing and asteroseismology rows are things we did not do.
+352e00cc6d	The Galactic centre latitude was computed with astropy from galactic l = 0, b = 0: ecliptic latitude -5.5 degrees; typical bulge microlensing fields at b = -3 degrees give -6.2 degrees, so the bulge sits right at the edge of the 6-degree boundary; we did not check which sectors touch it. The statements about astrometry and pulsar timing are our reasoning from the pixel scale and from the optical band; we have no source that says TESS cannot do them.
 190e8dcd8e	Everything in the right-hand column is quoted from the instrument paper, Ricker et al. 2015 (literature/text), with the table or section. The pixel scale of 21 arcsec per pixel and the 24 by 96 degree field are also given on the MAST page for TESS. These are design values from before launch; the later slides measure what we can on our own files.
 6ff16e3342	The design numbers are from Ricker et al. 2015, Sec 7.2. The 73 percent is our own division of 30 000 by the area of the sphere, 41 253 square degrees; it is not a number from the paper. The plot comes from the MAST search done in code/03_check_mast.py: stars near the ecliptic poles are seen in many more sectors, because the sectors overlap there.
 e499bd44c7	The red line marks 13.7 days, one spacecraft orbit. Most files show a break near it, and the shorter breaks are cadences flagged by the pipeline. We did not separate the causes of each break. The number of cadences in a transit uses the catalog transit duration (pl_trandur) divided by 120 s.

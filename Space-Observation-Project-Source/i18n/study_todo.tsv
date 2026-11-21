@@ -11,7 +11,6 @@ t010	62cf9fa9aa	pl_eqt
 t011	213ac319d3	st_teff
 t012	7b14b794b7	discoverymethod
 t013	1bbdb387bc	sy_pnum
-t014	4a3756669a	Günther 2019
-t015	54dceb2e73	<span style="font-size:20px;word-break:break-all">curl -O https://archive.stsci.edu/missions/tess/tid/s0041/0000/0002/5636/4928/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits</span>
-t016	dbb145132a	<span style="font-size:20px;word-break:break-all">lk.search_lightcurve("TIC 256364928", mission="TESS", author="SPOC", exptime=120)</span>
-t017	f72f9e3ec4	<span style="font-size:20px;word-break:break-all">mast.stsci.edu, search the TIC number, product type time series</span>
+t014	54dceb2e73	<span style="font-size:20px;word-break:break-all">curl -O https://archive.stsci.edu/missions/tess/tid/s0041/0000/0002/5636/4928/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits</span>
+t015	dbb145132a	<span style="font-size:20px;word-break:break-all">lk.search_lightcurve("TIC 256364928", mission="TESS", author="SPOC", exptime=120)</span>
+t016	f72f9e3ec4	<span style="font-size:20px;word-break:break-all">mast.stsci.edu, search the TIC number, product type time series</span>

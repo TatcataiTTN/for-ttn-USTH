@@ -772,8 +772,48 @@ S.append(sl("7  Data. Techniques from pixels to a light curve: aperture sum, cot
             + take("We fit the light curve as delivered (SPOC); the two last techniques are the way to get light curves where SPOC has none."),
             "Each technique is tied to a paper in literature/pdf (group A): Caldwell 2020 lists calibrated target pixels, SAP flux and PDC flux as SPOC products; Stumpe 2012 is the Kepler version of PDC; Huang 2020 is the MIT Quick Look Pipeline on full-frame images; Feinstein 2019 extracts light curves from full-frame images; Oelkers 2018 uses difference imaging, which mitigates the effects of crowded fields. The two checks in the third column are ours: the pixel sum on pi Men c and the ratio of PDCSAP to SAP on three files."))
 
-ORDER = {"1": 1, "2": 2, "H": 2.3, "T": 2.5, "C": 2.7, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "B": 10, "A": 11}
-DISP = {"1": "1", "2": "2", "H": "3", "T": "4", "C": "5", "3": "6", "4": "7", "5": "8", "6": "9", "7": "10", "8": "11", "9": "12", "B": "B"}    # numbers shown on the slides
+# ---- M  detection methods: what TESS does alone, with partners, or cannot (tess_fact_sources.csv; archive counts from code/27)
+BM = DSY["by_method"]; cnt = lambda k: sp(BM.get(k, 0))
+pgr = lambda i: f"p. {PG(i)}"
+S.append(sl("M  Methods. TESS alone, TESS with a partner, TESS cannot: every way the archive records a discovery",
+            cols(card("TESS alone", f"Transit candidates ({cnt('Transit')} planets in the archive were found by transit, by all missions) &middot; phase curves and secondary eclipses ({cnt('Orbital Brightness Modulation')} by brightness modulation) &middot; part of the false-positive tests &middot; asteroseismology of the host &middot; binaries, flares, novae, variables in full frames", "navy", 430),
+                 card("TESS with a partner", f"Mass (radial velocity, {cnt('Radial Velocity')} planets) &middot; confirmation and companions (ground photometry, imaging) &middot; transit timing ({cnt('Transit Timing Variations')} planets), eclipse timing ({cnt('Eclipse Timing Variations')}) &middot; atmospheres (JWST, HST) &middot; stellar radius (Gaia) &middot; refined transits (CHEOPS)", "orange", 430),
+                 card("TESS cannot", f"Radial velocity itself &middot; direct imaging ({cnt('Imaging')}) &middot; microlensing ({cnt('Microlensing')}) &middot; astrometry ({cnt('Astrometry')}) &middot; pulsar timing ({cnt('Pulsar Timing')}) &middot; disk kinematics ({cnt('Disk Kinematics')}) &middot; planets with long periods around Sun-like stars in one sector &middot; mass and spectrum alone", "navy", 430))
+            + note(f"Counts: confirmed planets of the NASA Exoplanet Archive by discovery method, {DSY['date']}; the verdict is ours, with the evidence on the next three slides."),
+            "The eleven methods are the values of the archive column discoverymethod (code/27_discoveries_by_year.py); the counts are from the same query as the discovery chart. The classification is ours: each row of the next slides gives the quote or the computation it rests on, and says which statements are our reasoning."))
+al = [["Transit photometry", "dips in the light of one star, 2 min", f"SPOC flags threshold-crossing events; Ricker Sec 8.2 expects thousands of planets below Neptune size ({pgr('yield')})", "all ten planets: BLS and fit"],
+      ["Phase curve, secondary eclipse", "planet's own light over an orbit", f"Shporer 2019: TESS phase curve of WASP-18 b with transit and secondary eclipse ({pgr('shporer_pc')})", "WASP-18 b flux at phase 0.5: 352 &plusmn; 9 ppm against 341"],
+      ["False-positive tests", "secondary eclipse, ellipsoidal modulation, image motion", f"Ricker Sec 8.2: some false positives identifiable with TESS data alone ({pgr('fp_tess')})", "odd-even test done; centroid test not done"],
+      ["Asteroseismology", "oscillations of the host star", f"Ricker Sec 8.3: p-modes on about 6 000 stars ({pgr('astero')})", "not done; stellar radius is 1 to 7 % of our error"],
+      ["Stars in full frames", "binaries, novae, flares, variables", f"Ricker Sec 8.4 ({pgr('ffi_other')})", "not done"]]
+S.append(sl("M  Methods. What TESS does alone: transits, phase curves, part of the vetting, stars",
+            tblw(["Method", "What TESS measures", "Evidence", "In our project"], al, [250, 270, 440, 200], "tbl xs")
+            + note("Detecting a candidate is not confirming a planet: confirmation needs the partners of the next slide."),
+            "The first row rests on the SPOC sentence about threshold-crossing events (HEASARC data-handling page, saved) and on Ricker Section 8.2. The phase-curve row cites the TESS paper on WASP-18 b in our literature folder; the 352 ppm is our own measurement (slide on flux at phase 0.5). The page numbers are PDF pages of each paper (tess_fact_sources.csv)."))
+pa = [["Mass of the planet", "radial velocity from spectrographs", f"Winters 2021: velocities from five spectrographs fix the masses in LTT 1445 ({pgr('winters_rv')})", "mass-radius plot places the 4 small planets with measured masses"],
+      ["Confirmation, false positives", "ground photometry, spectra, high-resolution imaging", f"Ricker Sec 8.2: ground observations check spectra, velocities, colour, companions ({pgr('fp_ground')}); LTT 1445 A b: TESS and ground telescopes ({pgr('winters_ground')})", "all ten are confirmed planets; we did not vet"],
+      ["Transit timing", "times of every transit; partner: more years or velocities", f"Günther 2019: TOI-270's near-resonance gives timing variations ({pgr('gunther_ttv')})", "not measured; TOI-270 c period gap untested"],
+      ["Atmospheres", "JWST, HST", f"Ricker abstract: ecliptic poles are best for JWST ({pgr('jwst_poles')}); Pass 2023 (HST), Xue 2024 (JWST) in the catalog", "history slide: JWST on WASP-39 b"],
+      ["Stellar radius and distance", "Gaia parallax", "the TIC is built on Gaia DR2 (HEASARC); Stassun 2017: radii from Gaia parallaxes", "R&#9733; of the archive enters every R<sub>p</sub>"],
+      ["Refined transits", "CHEOPS, ground", f"Benz 2021: CHEOPS follows stars already known to host planets ({pgr('benz_follow')})", "not used"]]
+S.append(sl("M  Methods. TESS with a partner: mass, confirmation, timing, atmospheres, stellar radius",
+            tblw(["Need", "Partner", "Evidence", "In our project"], pa, [210, 270, 480, 200], "tbl xs")
+            + note("TESS supplies the radius and the transit times; the partner supplies what a band-limited camera cannot."),
+            "Every row names the quote or paper it rests on, with the PDF page. The last column is the link to our work: the mass-radius figure uses planets whose masses were measured with velocities; none of the ten was vetted by us; the timing and asteroseismology rows are things we did not do."))
+lat_gc = -5.5
+cn = [["Radial velocity", "a spectrograph", f"the payload is four cameras and a data handling unit ({pgr('payload')}); one band, 600 to 1000 nm", "HD 118203 b, HD 189733 b, HD 209458 b were found by Doppler first"],
+      ["Direct imaging", "a coronagraph, small pixels", f"a pixel is 21&Prime;; 90 % of a star's light falls in 1.4&prime;; undersampled images ({pgr('undersampled')})", "&ndash;"],
+      ["Microlensing", "a dense field watched for a one-off alignment", f"Galactic centre at ecliptic latitude {lat_gc:+.1f}&deg; (computed); the strips start at 6&deg; ({pgr('lat_range')}); crowded fields (our reasoning)", "&ndash;"],
+      ["Astrometry", "positions far below a pixel", "a pixel is 21&Prime;; the stellar wobble is far smaller (our reasoning); Gaia does it", "&ndash;"],
+      ["Pulsar timing, disk kinematics", "radio pulses; millimetre spectra", "TESS is an optical photometer (our reasoning)", "&ndash;"],
+      ["Long periods, Sun-like stars", "more than one sector", f"P<sub>max</sub> about 10 d rules out their habitable zone ({pgr('pmax_hz')}); surveys favour short periods ({pgr('pbias')})", "our ten: P up to 6.13 d"]]
+S.append(sl("M  Methods. What TESS cannot do: velocities, imaging, microlensing, astrometry, long periods",
+            tblw(["Method", "What it needs", "Why TESS cannot (evidence)", "In our project"], cn, [210, 260, 520, 170], "tbl xs")
+            + note("'Our reasoning' = instrument numbers, not a quotation. A planet that does not cross its star gives no transit at all."),
+            "The Galactic centre latitude was computed with astropy from galactic l = 0, b = 0: ecliptic latitude -5.5 degrees; typical bulge microlensing fields at b = -3 degrees give -6.2 degrees, so the bulge sits right at the edge of the 6-degree boundary; we did not check which sectors touch it. The statements about astrometry and pulsar timing are our reasoning from the pixel scale and from the optical band; we have no source that says TESS cannot do them."))
+
+ORDER = {"1": 1, "2": 2, "H": 2.3, "M": 2.4, "T": 2.5, "C": 2.7, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "B": 10, "A": 11}
+DISP = {"1": "1", "2": "2", "H": "3", "M": "3", "T": "4", "C": "5", "3": "6", "4": "7", "5": "8", "6": "9", "7": "10", "8": "11", "9": "12", "B": "B"}    # numbers shown on the slides
 def _key(h):
     t = re.search(r"<h2><span>([^<]+)", h).group(1)
     return ORDER[t[0]]

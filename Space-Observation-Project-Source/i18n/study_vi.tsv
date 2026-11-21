@@ -785,3 +785,92 @@ ed15de08f4	PRIMARY
 29154d06f7	LIGHTCURVE
 38259b6de2	APERTURE
 9233a9af80	Kỹ thuật
+52ced07243	3  Phương pháp. TESS tự làm, TESS cùng đối tác, TESS không làm được: mọi cách archive ghi nhận một phát hiện
+bef9ecc8df	TESS tự làm
+3f5f163d8f	Ứng viên transit (4 800 hành tinh trong archive được tìm bằng transit, bởi mọi sứ mệnh) · đường cong pha và nhật thực thứ cấp (9 hành tinh bằng điều biến độ sáng) · một phần các phép kiểm tra dương tính giả · địa chấn học sao chủ · sao đôi, sao bùng nổ, nova, sao biến quang trong ảnh toàn khung
+5a1fd01005	TESS cùng đối tác
+16cd2fcd6a	Khối lượng (vận tốc xuyên tâm, 1 204 hành tinh) · xác nhận và sao đồng hành (quang đo mặt đất, chụp ảnh) · thời điểm transit (29 hành tinh), thời điểm nhật thực (17) · khí quyển (JWST, HST) · bán kính sao (Gaia) · transit tinh chỉnh (CHEOPS)
+a37dbbf6ce	TESS không làm được
+099f7745e7	Chính vận tốc xuyên tâm · chụp ảnh trực tiếp (99) · thấu kính vi mô (296) · đo vị trí sao (8) · định thời pulsar (8) · động học đĩa (1) · hành tinh chu kỳ dài quanh sao giống Mặt Trời trong một sector · khối lượng và phổ nếu đứng một mình
+3463d380c1	Số liệu: các hành tinh đã xác nhận của NASA Exoplanet Archive theo phương pháp phát hiện, 2026-11-21; phần kết luận là của chúng tôi, bằng chứng nằm ở ba slide kế tiếp.
+0fa5cfe984	3  Phương pháp. TESS tự làm được: transit, đường cong pha, một phần kiểm định, các ngôi sao
+470176376e	TESS đo gì
+ba79882ca0	Trong dự án của chúng tôi
+c5a2452161	Quang đo transit
+d9853b239c	các dip trong ánh sáng của một ngôi sao, 2 phút
+a775307c54	SPOC gắn cờ các sự kiện vượt ngưỡng; Ricker Mục 8.2 kỳ vọng hàng nghìn hành tinh nhỏ hơn Hải Vương (tr. 12)
+4cf6561117	cả mười hành tinh: BLS và khớp mô hình
+ccb5ec5f28	Đường cong pha, nhật thực thứ cấp
+ff9458dc39	ánh sáng của chính hành tinh trong một vòng quỹ đạo
+a3b7d48930	Shporer 2019: đường cong pha TESS của WASP-18 b có transit và nhật thực thứ cấp (tr. 1)
+4a53696d67	thông lượng WASP-18 b ở pha 0.5: 352 ± 9 ppm so với 341
+9d6849cff8	Các phép kiểm tra dương tính giả
+d05b09db45	nhật thực thứ cấp, điều biến hình elip, dịch chuyển ảnh
+1ac6824807	Ricker Mục 8.2: một số dương tính giả nhận ra được chỉ bằng dữ liệu TESS (tr. 12)
+0db376a89b	đã làm phép thử lẻ-chẵn; chưa làm kiểm tra tâm sáng
+6318cd9d1c	dao động của sao chủ
+33636f7995	Ricker Mục 8.3: các p-mode ở khoảng 6 000 ngôi sao (tr. 12)
+f5b7e51a5a	chưa làm; bán kính sao chiếm 1 đến 7 % sai số của chúng tôi
+d56ed01ef1	Các ngôi sao trong ảnh toàn khung
+6f63751354	sao đôi, nova, sao bùng nổ, sao biến quang
+4ed7199b77	chưa làm
+7d0392afe4	Phát hiện một ứng viên chưa phải xác nhận một hành tinh: xác nhận cần các đối tác ở slide kế tiếp.
+9b5d8c3132	3  Phương pháp. TESS cùng đối tác: khối lượng, xác nhận, thời điểm, khí quyển, bán kính sao
+9e593bfbdf	Khối lượng hành tinh
+81c2efec98	vận tốc xuyên tâm từ các máy quang phổ
+f98b453245	Winters 2021: vận tốc từ năm máy quang phổ cho khối lượng LTT 1445 (tr. 2)
+b391e1065f	đồ thị khối lượng-bán kính đặt 4 hành tinh nhỏ có khối lượng đo được
+f73ef6093e	Xác nhận, dương tính giả
+6cf7cb7a08	quang đo mặt đất, quang phổ, ảnh phân giải cao
+b77fa90d5b	Ricker 8.2: mặt đất kiểm tra phổ, vận tốc, màu, sao đồng hành (tr. 12); LTT 1445 A b: TESS và kính mặt đất (tr. 3)
+386a73e58e	cả mười đều là hành tinh đã xác nhận; chúng tôi không tự kiểm định
+e98902da97	Thời điểm transit
+724d76e178	thời điểm mọi transit; đối tác: nhiều năm hơn hoặc vận tốc
+0d587b1a73	Günther 2019: TOI-270 gần cộng hưởng nên có biến thiên thời điểm (tr. 2)
+d077dd7d76	chưa đo; khoảng chênh chu kỳ của TOI-270 c chưa kiểm
+f661ab4266	Ricker: các cực hoàng đạo tốt nhất cho JWST (tr. 1); Pass 2023 (HST), Xue 2024 (JWST)
+38d76fcc9f	slide lịch sử: JWST quan sát WASP-39 b
+8e91b7c85b	Bán kính sao và khoảng cách
+0a20066ff7	thị sai Gaia
+e0b68dab3a	TIC dựng trên Gaia DR2 (HEASARC); Stassun 2017: bán kính từ thị sai Gaia
+f2135756d3	R★ của archive đi vào mọi R<sub>p</sub>
+324f13ec74	Transit tinh chỉnh
+f6669b7b83	CHEOPS, mặt đất
+6f286f10c1	Benz 2021: CHEOPS theo dõi các sao đã biết có hành tinh (tr. 2)
+487f8bcd94	không dùng
+b984ff6557	TESS cho bán kính và thời điểm transit; đối tác cho phần còn lại.
+2b372fd681	3  Phương pháp. TESS không làm được: vận tốc, chụp ảnh, thấu kính vi mô, đo vị trí, chu kỳ dài
+86845bebad	Nó cần gì
+db6b794b88	Vì sao TESS không làm được (bằng chứng)
+e3a30e47a5	Vận tốc xuyên tâm
+44982a9017	một máy quang phổ
+9742b404d5	tải trọng là bốn camera và một bộ xử lý dữ liệu (tr. 5); một dải, 600 đến 1000 nm
+69ab58741e	HD 118203 b, HD 189733 b, HD 209458 b được tìm ra bằng Doppler trước
+0fa56bf5bf	Chụp ảnh trực tiếp
+7496e4e5a2	một coronagraph, pixel nhỏ
+ea12416221	một pixel là 21″; 90 % ánh sáng của một sao rơi trong 1.4′; ảnh bị lấy mẫu thiếu (tr. 5)
+a9723433ff	một trường đông sao được theo dõi để chờ một lần thẳng hàng hiếm
+748c45eee4	Tâm Ngân Hà ở vĩ độ hoàng đạo -5.5° (tự tính); các dải bắt đầu từ 6° (tr. 9); trường đông sao (lập luận của chúng tôi)
+5f3ac4e5e8	vị trí chính xác dưới nhiều lần nhỏ hơn một pixel
+3ff14b76b4	một pixel là 21″; dao động của sao nhỏ hơn nhiều (lập luận của chúng tôi); Gaia làm việc này
+0068d0632c	Định thời pulsar, động học đĩa
+f5ce7e9171	xung vô tuyến; phổ milimét
+8aeb3ba87f	TESS là máy đo độ sáng quang học (lập luận của chúng tôi)
+9e0a3e814e	Chu kỳ dài, sao giống Mặt Trời
+04252e44aa	nhiều hơn một sector
+0dfc670e33	P<sub>max</sub> khoảng 10 ngày loại trừ vùng ở được của chúng (tr. 3); các khảo sát thiên về chu kỳ ngắn (tr. 3)
+4b2556c7a1	mười hành tinh của ta: P tới 6.13 ngày
+cdd0aa5b1c	'Lập luận của chúng tôi' = dựa trên số liệu thiết bị, không phải câu trích. Một hành tinh không đi ngang sao thì không cho transit nào.
+5c397b0148	Mười một phương pháp là các giá trị của cột discoverymethod trong archive (code/27_discoveries_by_year.py); số đếm lấy từ cùng truy vấn với biểu đồ phát hiện. Cách phân loại là của chúng tôi: mỗi dòng ở các slide sau nêu câu trích hoặc phép tính mà nó dựa vào, và nói rõ câu nào là lập luận của chúng tôi.
+e131985448	Dòng đầu dựa trên câu của SPOC về các sự kiện vượt ngưỡng (trang xử lý dữ liệu HEASARC, đã lưu) và trên Ricker Mục 8.2. Dòng đường cong pha trích bài báo TESS về WASP-18 b trong thư mục tài liệu của chúng tôi; 352 ppm là phép đo của chính chúng tôi (slide về thông lượng ở pha 0.5). Số trang là trang PDF của mỗi bài (tess_fact_sources.csv).
+7c681a1e71	Mỗi dòng nêu câu trích hoặc bài báo nó dựa vào, kèm trang PDF. Cột cuối nối với công việc của chúng tôi: hình khối lượng-bán kính dùng các hành tinh có khối lượng đo được; không hành tinh nào trong mười hành tinh được chúng tôi tự kiểm định; các dòng về thời điểm transit và địa chấn học là những việc chúng tôi chưa làm.
+352e00cc6d	Vĩ độ của tâm Ngân Hà được tính bằng astropy từ l = 0, b = 0 theo tọa độ thiên hà: vĩ độ hoàng đạo -5.5 độ; các trường vi thấu kính điển hình ở b = -3 độ cho -6.2 độ, nên vùng phình nằm ngay sát ranh giới 6 độ; chúng tôi chưa kiểm sector nào chạm tới nó. Các phát biểu về đo vị trí sao và định thời pulsar là lập luận của chúng tôi từ thang pixel và dải quang học; chúng tôi không có nguồn nào nói TESS không làm được.
+3269da9be6	Địa chấn học sao
+4890e36537	Khí quyển
+27777f50c6	Thấu kính vi mô
+a9ba6b78a6	Đo vị trí sao
+88306943fe	Phương pháp
+ed4855c28d	Nhu cầu
+9357e0ad06	Đối tác
+7ea014de7b	Bằng chứng
+4a3756669a	Günther 2019
