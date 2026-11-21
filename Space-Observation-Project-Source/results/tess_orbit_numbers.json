@@ -1,0 +1,15 @@
+{
+ "a_RE": 38.0,
+ "ecc": 0.5526315789473685,
+ "period_from_kepler_d": 13.744007965141952,
+ "period_paper_d": 13.7,
+ "moon_RE": 60.26838244459158,
+ "two_periods_d": 27.4,
+ "moon_sidereal_d": 27.32,
+ "dv_leo300_to_apogee400000_kms": 3.1100354275154354,
+ "rot_kms_cape_28p5": 0.4087378390990801,
+ "rot_kms_vn_south_8p6": 0.4598705928249624,
+ "rot_kms_vn_north_23p4": 0.42684767640561966,
+ "rot_gain_ms_vn_south_vs_cape": 51.132753725882274,
+ "circ_leo300_kms": 7.725760232077136
+}

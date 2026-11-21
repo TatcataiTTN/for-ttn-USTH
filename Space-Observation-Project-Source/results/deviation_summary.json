@@ -1,0 +1,32 @@
+{
+ "ratio_abs_min": 0.3135912136852623,
+ "ratio_abs_max": 9.72260300486714,
+ "rp_abs_min": 0.1372264263090992,
+ "rp_abs_max": 7.272427501389895,
+ "n_ratio_within2": 9,
+ "n_ratio_within2_beta": 9,
+ "ratio_outside2_beta": [
+  "WASP-18 b"
+ ],
+ "n_rp_within2": 10,
+ "n_period_within2": 8,
+ "ratio_outside2": [
+  "WASP-18 b"
+ ],
+ "period_outside2": [
+  "WASP-18 b",
+  "TOI-270 c"
+ ],
+ "n_mixed_sources": 4,
+ "mixed": [
+  "HD 189733 b",
+  "HD 209458 b",
+  "WASP-62 b",
+  "K2-141 b"
+ ],
+ "n_from_discovery_paper": 1,
+ "from_discovery_paper": [
+  "LTT 9779 b"
+ ],
+ "n_planets": 10
+}

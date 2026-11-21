@@ -1,0 +1,22 @@
+axis,group,catalog_n,catalog_pct,ours_n,ours_pct
+g_size,Earth-size,14,2.9723991507430996,1,10.0
+g_size,Super-Earth,33,7.006369426751593,2,20.0
+g_size,Sub-Neptune,138,29.29936305732484,1,10.0
+g_size,Neptune/Saturn,46,9.766454352441613,1,10.0
+g_size,Jupiter-size,240,50.955414012738856,5,50.0
+g_period,USP (<1 d),15,3.1847133757961785,3,30.0
+g_period,Hot (1-3 d),98,20.8067940552017,2,20.0
+g_period,Warm (3-7 d),219,46.496815286624205,5,50.0
+g_period,Cool (7-15 d),139,29.51167728237792,0,0.0
+g_teq,Ultra-hot (>2000 K),39,8.280254777070065,2,20.0
+g_teq,Hot (1200-2000 K),195,41.40127388535032,5,50.0
+g_teq,Warm (500-1200 K),223,47.346072186836516,1,10.0
+g_teq,Temperate (<500 K),14,2.9723991507430996,2,20.0
+g_star,M dwarf,47,9.978768577494693,3,30.0
+g_star,K dwarf,101,21.443736730360936,2,20.0
+g_star,G (Sun-like),173,36.73036093418259,2,20.0
+g_star,F/hotter,150,31.84713375796178,3,30.0
+discoverymethod,Transit,463,98.30148619957538,7,70.0
+discoverymethod,Radial Velocity,8,1.6985138004246285,3,30.0
+sy_pnum,more than one planet in the system,127,26.963906581740975,5,50.0
+radius_valley,1.5-2.0 R_earth,22,4.670912951167728,1,10.0

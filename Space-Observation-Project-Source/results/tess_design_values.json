@@ -1,0 +1,149 @@
+{
+ "orbit": {
+  "period_d": 13.7,
+  "perigee_Re": 17,
+  "apogee_Re": 59,
+  "resonance": "2:1 with the Moon",
+  "downlink": "every 13.7 d at perigee",
+  "src": "Ricker+2015 (literature/text/Ricker_2015_*.txt) Sec 6, lines 236, 324, 343"
+ },
+ "cameras": {
+  "n": 4,
+  "fov_each_deg": [
+   24,
+   24
+  ],
+  "fov_total_deg": [
+   24,
+   96
+  ],
+  "fov_total_deg2": 2300,
+  "pupil_cm": 10.5,
+  "f_number": 1.4,
+  "band_nm": [
+   600,
+   1000
+  ],
+  "src": "Ricker+2015 (literature/text/Ricker_2015_*.txt) Table 1, Sec 4.1"
+ },
+ "detector": {
+  "ccds_per_camera": 4,
+  "ccd_px": 2048,
+  "pixel_um": 15,
+  "src": "Ricker+2015 (literature/text/Ricker_2015_*.txt) Sec 4.2, line 280"
+ },
+ "pixel": {
+  "arcmin": 0.35,
+  "arcsec": 21.0,
+  "deg": 0.005833333333333334,
+  "px_per_deg": 171.42857142857142,
+  "mosaic_px": 4096,
+  "mosaic_deg": 23.893333333333334,
+  "ensq50": "50 % of the energy within 1 pixel (0.35 arcmin)",
+  "ensq90": "90 % within 4x4 pixels (1.4 arcmin)",
+  "ensq90_arcsec": 84.0,
+  "src": "Ricker+2015 (literature/text/Ricker_2015_*.txt) Table 1 (lines 300-301); 21 arcsec/pixel also on archive.stsci.edu/missions-and-data/tess"
+ },
+ "sectors": {
+  "length_d": 27.4,
+  "orbits_per_sector": 2,
+  "per_hemisphere": 13,
+  "ecl_lat_from_deg": 6,
+  "shift_deg": 27,
+  "hemisphere_yr": 1,
+  "all_sky_yr": 2,
+  "area_ge27d": 30000,
+  "area_gt80d": 2800,
+  "area_gt300d": 900,
+  "sphere_deg2": 41252.96124941928,
+  "src": "Ricker+2015 (literature/text/Ricker_2015_*.txt) Sec 7.2, lines 383-436"
+ },
+ "sampling": {
+  "frames_s": 2,
+  "frames_per_2min": 60,
+  "targets_2min": 200000,
+  "ffi_primary_min": 30,
+  "noise_floor_ppm_per_hour": 60,
+  "src": "Ricker+2015 (literature/text/Ricker_2015_*.txt) lines 40-41, 318, 522, 598"
+ },
+ "cadence_by_cycle": {
+  "ffi": "30 min (cycles 1-2), 10 min (cycles 3-4), 200 s (cycles 5+)",
+  "lc": "2 min since the primary mission; 20 s since the first extended mission",
+  "src": "heasarc.gsfc.nasa.gov/docs/tess/data-products.html (data/raw/tess_docs/)"
+ },
+ "year_sectors": {
+  "1": "S1-13",
+  "2": "S14-26",
+  "3": "S27-39",
+  "4": "S40-55",
+  "5": "S56-69",
+  "6": "S70-83",
+  "7": "S84-96",
+  "8": "S97-107"
+ },
+ "derived": {
+  "frac_sphere_ge27d": 0.7272205216643038,
+  "cap_deg_2800": 30.202577842164796,
+  "cap_deg_900": 16.987843209798193,
+  "note": "derived here from the areas quoted by Ricker+2015, not quoted by them"
+ },
+ "measured": {
+  "n_files": 21,
+  "timedel_s_set": [
+   120.0
+  ],
+  "span_d": [
+   24.586522025882005,
+   26.590063773942802,
+   28.445871717202863
+  ],
+  "largest_gap_d": [
+   1.1194376880639538,
+   2.204253411985519,
+   7.661284611500378
+  ],
+  "duty_good": [
+   0.6347199306647655,
+   0.8132804033998077,
+   0.9566543433764808
+  ],
+  "deadc_set": [
+   0.792
+  ],
+  "eff_exp_s": [
+   95.04000077339944,
+   95.04000089479976
+  ],
+  "pix_scale_arcsec": [
+   19.085559479520466,
+   21.124415449123706
+  ],
+  "cameras": [
+   1,
+   2,
+   3,
+   4
+  ],
+  "sectors": [
+   1,
+   2,
+   3,
+   4,
+   5,
+   9,
+   10,
+   15,
+   16,
+   41,
+   42,
+   56,
+   103,
+   104,
+   105,
+   106
+  ],
+  "first": "2018-07-25",
+  "last": "2026-07-11",
+  "src": "header of the 21 SPOC files in results/data_manifest.csv"
+ }
+}

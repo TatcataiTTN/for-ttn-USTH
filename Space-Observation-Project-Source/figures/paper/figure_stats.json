@@ -1,0 +1,417 @@
+{
+ "fig2_HD_118203_b": {
+  "name": "HD 118203 b",
+  "n_dumps": 10,
+  "rms_raw_ppm": 731,
+  "rms_flat_ppm": 729,
+  "depth_obs_ppm": 3418,
+  "depth_model_ppm": 3054,
+  "n_transits": 7,
+  "duration_h": 4.32,
+  "scatter_2min_ppm": 388
+ },
+ "fig2_HD_189733_b": {
+  "name": "HD 189733 b",
+  "n_dumps": 4,
+  "rms_raw_ppm": 4945,
+  "rms_flat_ppm": 3593,
+  "depth_obs_ppm": 24834,
+  "depth_model_ppm": 23752,
+  "n_transits": 12,
+  "duration_h": 1.44,
+  "scatter_2min_ppm": 327
+ },
+ "fig2_HD_209458_b": {
+  "name": "HD 209458 b",
+  "n_dumps": 4,
+  "rms_raw_ppm": 2645,
+  "rms_flat_ppm": 2646,
+  "depth_obs_ppm": 15798,
+  "depth_model_ppm": 14699,
+  "n_transits": 8,
+  "duration_h": 2.16,
+  "scatter_2min_ppm": 334
+ },
+ "fig2_WASP_18_b": {
+  "name": "WASP-18 b",
+  "n_dumps": 16,
+  "rms_raw_ppm": 2911,
+  "rms_flat_ppm": 2908,
+  "depth_obs_ppm": 10688,
+  "depth_model_ppm": 9716,
+  "n_transits": 97,
+  "duration_h": 2.16,
+  "scatter_2min_ppm": 675
+ },
+ "fig2_WASP_62_b": {
+  "name": "WASP-62 b",
+  "n_dumps": 38,
+  "rms_raw_ppm": 2434,
+  "rms_flat_ppm": 2392,
+  "depth_obs_ppm": 13619,
+  "depth_model_ppm": 12196,
+  "n_transits": 22,
+  "duration_h": 3.12,
+  "scatter_2min_ppm": 880
+ },
+ "fig2_LTT_9779_b": {
+  "name": "LTT 9779 b",
+  "n_dumps": 12,
+  "rms_raw_ppm": 682,
+  "rms_flat_ppm": 681,
+  "depth_obs_ppm": 1585,
+  "depth_model_ppm": 1932,
+  "n_transits": 34,
+  "duration_h": 0.55,
+  "scatter_2min_ppm": 629
+ },
+ "fig2_TOI_270_c": {
+  "name": "TOI-270 c",
+  "n_dumps": 25,
+  "rms_raw_ppm": 1420,
+  "rms_flat_ppm": 1391,
+  "depth_obs_ppm": 3762,
+  "depth_model_ppm": 3305,
+  "n_transits": 11,
+  "duration_h": 1.44,
+  "scatter_2min_ppm": 1309
+ },
+ "fig2_LTT_1445_A_b": {
+  "name": "LTT 1445 A b",
+  "n_dumps": 8,
+  "rms_raw_ppm": 2636,
+  "rms_flat_ppm": 1238,
+  "depth_obs_ppm": 2447,
+  "depth_model_ppm": 2208,
+  "n_transits": 4,
+  "duration_h": 1.07,
+  "scatter_2min_ppm": 1067
+ },
+ "fig2_GJ_1132_b": {
+  "name": "GJ 1132 b",
+  "n_dumps": 16,
+  "rms_raw_ppm": 2054,
+  "rms_flat_ppm": 2008,
+  "depth_obs_ppm": 2379,
+  "depth_model_ppm": 2244,
+  "n_transits": 26,
+  "duration_h": 0.96,
+  "scatter_2min_ppm": 1957
+ },
+ "fig2_K2_141_b": {
+  "name": "K2-141 b",
+  "n_dumps": 4,
+  "rms_raw_ppm": 1786,
+  "rms_flat_ppm": 1235,
+  "depth_obs_ppm": 442,
+  "depth_model_ppm": 355,
+  "n_transits": 57,
+  "duration_h": 0.96,
+  "scatter_2min_ppm": 1036
+ },
+ "fig2_pi_Men_c": {
+  "name": "pi Men c",
+  "n_dumps": 10,
+  "rms_raw_ppm": 135,
+  "rms_flat_ppm": 130,
+  "depth_obs_ppm": 287,
+  "depth_model_ppm": 253,
+  "n_transits": 5,
+  "duration_h": 3.12,
+  "scatter_2min_ppm": 119
+ },
+ "fig4_pi_Men_c": {
+  "per_transit": [
+   {
+    "transit": 1,
+    "epoch": 0,
+    "depth_ppm": 232,
+    "sd_ppm": 10
+   },
+   {
+    "transit": 2,
+    "epoch": 1,
+    "depth_ppm": 250,
+    "sd_ppm": 9
+   },
+   {
+    "transit": 3,
+    "epoch": 2,
+    "depth_ppm": 260,
+    "sd_ppm": 9
+   },
+   {
+    "transit": 4,
+    "epoch": 3,
+    "depth_ppm": 308,
+    "sd_ppm": 10
+   },
+   {
+    "transit": 5,
+    "epoch": 4,
+    "depth_ppm": 236,
+    "sd_ppm": 9
+   }
+  ],
+  "global_depth_ppm": 252,
+  "global_sd_ppm": 11,
+  "chi2_consistency": 38.38,
+  "dof": 4,
+  "depth_scatter_ppm": 31,
+  "depth_mean_ppm": 257
+ },
+ "fig1_pi_Men_c": {
+  "stamp": [
+   21,
+   11
+  ],
+  "n_aperture_pix": 45,
+  "sector": 1,
+  "camera": 4,
+  "ccd": 2,
+  "frac_flux_in_aperture": 0.961
+ },
+ "fig5a": {
+  "n_planets": 3833,
+  "n_brighter_than_8": 33,
+  "n_brighter_than_8_and_smaller_than_3": 32,
+  "n_brighter_than_6_5": 12,
+  "off_chart": [
+   "HD 118203 b",
+   "HD 189733 b",
+   "HD 209458 b",
+   "WASP-18 b",
+   "WASP-62 b"
+  ]
+ },
+ "fig5b": {
+  "n_planets": 534,
+  "n_precise": 309,
+  "mine": [
+   {
+    "planet": "TOI-270 c",
+    "mass": 6.2,
+    "radius_measured": 2.38
+   },
+   {
+    "planet": "LTT 1445 A b",
+    "mass": 2.73,
+    "radius_measured": 1.39
+   },
+   {
+    "planet": "GJ 1132 b",
+    "mass": 1.83704819,
+    "radius_measured": 1.14
+   },
+   {
+    "planet": "K2-141 b",
+    "mass": 4.97,
+    "radius_measured": 1.4
+   },
+   {
+    "planet": "pi Men c",
+    "mass": 3.63,
+    "radius_measured": 2.03
+   }
+  ]
+ },
+ "oddeven": {
+  "HD 118203 b": {
+   "odd_ppm": 3018,
+   "even_ppm": 3096,
+   "odd_err": 10.4,
+   "even_err": 13.3,
+   "sigma_white": -4.61,
+   "sigma_beta": -1.59,
+   "beta": 2.91
+  },
+  "HD 189733 b": {
+   "odd_ppm": 23830,
+   "even_ppm": 23669,
+   "odd_err": 15.4,
+   "even_err": 14.0,
+   "sigma_white": 7.76,
+   "sigma_beta": 2.15,
+   "beta": 3.62
+  },
+  "HD 209458 b": {
+   "odd_ppm": 14596,
+   "even_ppm": 14804,
+   "odd_err": 13.3,
+   "even_err": 13.3,
+   "sigma_white": -11.05,
+   "sigma_beta": -4.97,
+   "beta": 2.22
+  },
+  "WASP-18 b": {
+   "odd_ppm": 9661,
+   "even_ppm": 9772,
+   "odd_err": 10.8,
+   "even_err": 10.1,
+   "sigma_white": -7.45,
+   "sigma_beta": -3.57,
+   "beta": 2.09
+  },
+  "WASP-62 b": {
+   "odd_ppm": 12118,
+   "even_ppm": 12236,
+   "odd_err": 28.7,
+   "even_err": 23.9,
+   "sigma_white": -3.14,
+   "sigma_beta": -1.92,
+   "beta": 1.64
+  },
+  "LTT 9779 b": {
+   "odd_ppm": 2139,
+   "even_ppm": 2061,
+   "odd_err": 55.1,
+   "even_err": 53.9,
+   "sigma_white": 1.01,
+   "sigma_beta": 0.98,
+   "beta": 1.03
+  },
+  "TOI-270 c": {
+   "odd_ppm": 3406,
+   "even_ppm": 3195,
+   "odd_err": 86.2,
+   "even_err": 77.9,
+   "sigma_white": 1.82,
+   "sigma_beta": 1.14,
+   "beta": 1.6
+  },
+  "LTT 1445 A b": {
+   "odd_ppm": 2169,
+   "even_ppm": 2208,
+   "odd_err": 102.8,
+   "even_err": 103.2,
+   "sigma_white": -0.27,
+   "sigma_beta": -0.11,
+   "beta": 2.53
+  },
+  "GJ 1132 b": {
+   "odd_ppm": 2314,
+   "even_ppm": 2234,
+   "odd_err": 122.5,
+   "even_err": 112.8,
+   "sigma_white": 0.48,
+   "sigma_beta": 0.38,
+   "beta": 1.26
+  },
+  "K2-141 b": {
+   "odd_ppm": 384,
+   "even_ppm": 325,
+   "odd_err": 35.7,
+   "even_err": 34.4,
+   "sigma_white": 1.19,
+   "sigma_beta": 0.54,
+   "beta": 2.23
+  },
+  "pi Men c": {
+   "odd_ppm": 277,
+   "even_ppm": 235,
+   "odd_err": 6.5,
+   "even_err": 5.2,
+   "sigma_white": 5.02,
+   "sigma_beta": 3.29,
+   "beta": 1.52
+  }
+ },
+ "occult": {
+  "HD 118203 b": {
+   "depth_ppm": -35.3,
+   "err_ppm": 13.3
+  },
+  "HD 189733 b": {
+   "depth_ppm": 39.4,
+   "err_ppm": 15.0
+  },
+  "HD 209458 b": {
+   "depth_ppm": 20.8,
+   "err_ppm": 17.2
+  },
+  "WASP-18 b": {
+   "depth_ppm": 351.8,
+   "err_ppm": 9.2
+  },
+  "WASP-62 b": {
+   "depth_ppm": 15.8,
+   "err_ppm": 20.2
+  },
+  "LTT 9779 b": {
+   "depth_ppm": 49.8,
+   "err_ppm": 27.5
+  },
+  "TOI-270 c": {
+   "depth_ppm": -99.0,
+   "err_ppm": 62.5
+  },
+  "LTT 1445 A b": {
+   "depth_ppm": -232.0,
+   "err_ppm": 124.3
+  },
+  "GJ 1132 b": {
+   "depth_ppm": 222.7,
+   "err_ppm": 72.4
+  },
+  "K2-141 b": {
+   "depth_ppm": 35.2,
+   "err_ppm": 31.9
+  },
+  "pi Men c": {
+   "depth_ppm": -12.8,
+   "err_ppm": 6.6
+  }
+ },
+ "rednoise": {
+  "HD 118203 b": {
+   "beta": 2.91,
+   "rms1_ppm": 421
+  },
+  "HD 189733 b": {
+   "beta": 3.62,
+   "rms1_ppm": 337
+  },
+  "HD 209458 b": {
+   "beta": 2.22,
+   "rms1_ppm": 337
+  },
+  "WASP-18 b": {
+   "beta": 2.09,
+   "rms1_ppm": 687
+  },
+  "WASP-62 b": {
+   "beta": 1.64,
+   "rms1_ppm": 889
+  },
+  "LTT 9779 b": {
+   "beta": 1.03,
+   "rms1_ppm": 626
+  },
+  "TOI-270 c": {
+   "beta": 1.6,
+   "rms1_ppm": 1342
+  },
+  "LTT 1445 A b": {
+   "beta": 2.53,
+   "rms1_ppm": 1217
+  },
+  "GJ 1132 b": {
+   "beta": 1.26,
+   "rms1_ppm": 1977
+  },
+  "K2-141 b": {
+   "beta": 2.23,
+   "rms1_ppm": 1159
+  },
+  "pi Men c": {
+   "beta": 1.52,
+   "rms1_ppm": 124
+  }
+ },
+ "bls_pi_Men_c": {
+  "best_period": 6.2709,
+  "snr": 59.4,
+  "median_power": 4.45,
+  "p95_power": 16.81
+ }
+}

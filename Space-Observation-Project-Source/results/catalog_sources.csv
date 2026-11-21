@@ -1,0 +1,11 @@
+planet,discovery_method,disc_year,discovery_paper,period_ref,radius_ref,ratio_ref,rstar_ref,ratio_and_radius_from_different_papers
+HD 118203 b,Radial Velocity,2005,da Silva et al. 2006,Zhang et al. 2024,Zhang et al. 2024,Zhang et al. 2024,Zhang et al. 2024,False
+HD 189733 b,Radial Velocity,2005,Bouchy et al. 2005,Stassun et al. 2017,Stassun et al. 2017,Kokori et al. 2023,Stassun et al. 2017,True
+HD 209458 b,Radial Velocity,1999,Henry et al. 2000,Stassun et al. 2017,Stassun et al. 2017,Kokori et al. 2023,Stassun et al. 2017,True
+WASP-18 b,Transit,2009,Hellier et al. 2009,Cortés-Zuleta et al. 2020,Cortés-Zuleta et al. 2020,Cortés-Zuleta et al. 2020,Cortés-Zuleta et al. 2020,False
+WASP-62 b,Transit,2012,Hellier et al. 2012,Stassun et al. 2017,Stassun et al. 2017,Patel & Espinoza 2022,Stassun et al. 2017,True
+LTT 9779 b,Transit,2020,Jenkins et al. 2020,Jenkins et al. 2020,Jenkins et al. 2020,Jenkins et al. 2020,Jenkins et al. 2020,False
+TOI-270 c,Transit,2019,Günther et al. 2019,Kaye et al. 2022,Kaye et al. 2022,Kaye et al. 2022,Kaye et al. 2022,False
+LTT 1445 A b,Transit,2019,Winters et al. 2019,Pass et al. 2023,Pass et al. 2023,Pass et al. 2023,Pass et al. 2023,False
+GJ 1132 b,Transit,2015,Berta-Thompson et al. 2015,Xue et al. 2024,Xue et al. 2024,Xue et al. 2024,Xue et al. 2024,False
+K2-141 b,Transit,2018,Malavolta et al. 2018,Bonomo et al. 2023,Bonomo et al. 2023,Barragán et al. 2018,Bonomo et al. 2023,True

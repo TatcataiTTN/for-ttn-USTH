@@ -1,0 +1,34 @@
+{
+ "date": "2026-11-21",
+ "total": 6473,
+ "by_method": {
+  "Transit": 4800,
+  "Radial Velocity": 1204,
+  "Microlensing": 296,
+  "Imaging": 99,
+  "Transit Timing Variations": 29,
+  "Eclipse Timing Variations": 17,
+  "Orbital Brightness Modulation": 9,
+  "Astrometry": 8,
+  "Pulsar Timing": 8,
+  "Pulsation Timing Variations": 2,
+  "Disk Kinematics": 1
+ },
+ "facilities": {
+  "Kepler": 2787,
+  "K2": 550,
+  "Transiting Exoplanet Survey Satellite": 1027,
+  "CoRoT": 35,
+  "SuperWASP": 159,
+  "HATNet": 67,
+  "KELT": 21,
+  "MEarth": 2,
+  "OGLE": 114,
+  "La Silla": 311,
+  "Haute-Provence": 69
+ },
+ "years": [
+  1992,
+  2026
+ ]
+}
