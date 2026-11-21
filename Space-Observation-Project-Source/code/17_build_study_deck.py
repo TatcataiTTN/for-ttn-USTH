@@ -694,6 +694,84 @@ for lo, hi in ((0, 5), (5, 10)):
                 + note("Inferred from the group's comments (the nature of the result, why, and what supports it); the lecturer has not confirmed them."),
                 "These ten questions are our guess, built from two remarks in the group chat: the lecturer asks about the nature of the result, why things are so, and what supports each claim, and she asks to check whether the published method differs from ours. Each answer uses numbers computed elsewhere in this deck."))
 
+# ---- D  raw data of TESS: structure, plots, access (code/32_raw_data.py -> results/raw_data_facts.json)
+RAW = json.load(open(ROOT / "results" / "raw_data_facts.json")); RT_ = RAW["tpf"]; QK = RAW["quality"]
+sp = lambda n: f"{n:,}".replace(",", " ")
+hd = [["PRIMARY", "header only: object, sector, camera, CCD, processing version", "no table"],
+      ["LIGHTCURVE", f"one row per 2-min cadence, {RAW['n_cols']} columns", f"{sp(RAW['rows'])} rows"],
+      ["APERTURE", "pixel mask: which pixels are summed (bit 2) and which give the background (bit 4)", f"{RAW['aperture_shape'][1]} &times; {RAW['aperture_shape'][0]} integers"],
+      ["PIXELS (target-pixel file)", "the same cadences, but every cell is an image: RAW_CNTS, FLUX, FLUX_BKG ...", f"{sp(RT_['flux_shape'][0])} rows, {RT_['flux_shape'][2]} &times; {RT_['flux_shape'][1]} pixels each"]]
+hk = RAW["header"]
+S.append(sl("7  Data. A raw TESS file is a FITS file: a header, a table of cadences and a pixel mask",
+            tblw(["Extension", "What it holds", "Size in our example"], hd, [260, 640, 260], "tbl sm")
+            + cols(card("Our example", f"HD 189733 b, sector {hk['SECTOR']}, camera {hk['CAMERA']}, CCD {hk['CCD']}; {RAW['size_mb']} MB; SPOC {hk['PROCVER'][:11]}.", "navy", 130),
+                   card("Time", f"BTJD = BJD<sub>TDB</sub> &minus; 2 457 000 d; cadence {hk['TIMEDEL'] * 86400:.0f} s; {hk['TSTART']:.1f} to {hk['TSTOP']:.1f}.", "orange", 130))
+            + note(f"The target-pixel file (_tp.fits, {RT_['size_mb']} MB for &pi; Men c) is the rawer product."),
+            "FITS is the astronomy file format: a primary header followed by extensions that are tables or images. astropy.io.fits reads them. Extension names and sizes are read from our own files with code/32_raw_data.py. The statement that the pixel files hold one image per time stamp and that light curves come from them is quoted from the STScI TESS archive manual (tess_fact_sources.csv, tpf_def)."))
+grp = [["Time", "TIME, TIMECORR, CADENCENO", "BTJD days, days, integer", "TIME is stored in 64 bits (float64)"],
+       ["Aperture flux", "SAP_FLUX, SAP_FLUX_ERR", "e&minus;/s", "sum of the pixels of the optimal aperture"],
+       ["Background", "SAP_BKG, SAP_BKG_ERR", "e&minus;/s", "background summed over the same pixels"],
+       ["Corrected flux", "PDCSAP_FLUX, PDCSAP_FLUX_ERR", "e&minus;/s", "systematics removed, aperture fraction and crowding corrected"],
+       ["Quality", "QUALITY", "integer bit mask", "0 = good; each bit is one reason to distrust the cadence"],
+       ["Position", "PSF_CENTR1/2, MOM_CENTR1/2 (+ errors), POS_CORR1/2", "pixel", "where the star falls on the CCD, per cadence"]]
+S.append(sl(f"7  Data. The {RAW['n_cols']} columns of the light-curve table, in six groups",
+            tblw(["Group", "Columns", "Unit", "What it is"], grp, [210, 400, 230, 320], "tbl xs")
+            + take("We fit PDCSAP_FLUX where QUALITY is 0; SAP_FLUX is the same photons without the corrections.")
+            + note("Names, units and formats are read from the FITS header. SAP and PDCSAP definitions are quoted from the STScI TESS archive manual; the other descriptions are ours."),
+            "The column list and units come from the header keywords TTYPE, TFORM and TUNIT of the file. The definitions of SAP_FLUX and PDCSAP_FLUX are quoted from the STScI archive manual page saved in data/raw/tess_docs. The descriptions of the quality, background and position columns are our reading of the names and units; the Science Data Products Handbook has the formal definitions and we did not check them."))
+nfl = RAW["n_flagged"]; e8 = QK["8"]["n"]
+S.append(sl(f"7  Data. The raw columns plotted: {sp(RAW['rows'])} cadences, {nfl} of them flagged",
+            fig("raw_lc_columns", 1000, "HD 189733 b, sector 41: flux, background, centroid, QUALITY values.")
+            + obt([f"{sp(QK['0']['n'])} good cadences (QUALITY = 0); {QK['8']['n']} Earth-point (flag 8)",
+                   f"PDCSAP is {100 * (RAW['pdc_over_sap'] - 1):.1f} % above SAP: CROWDSAP {hk['CROWDSAP']:.3f} / FLFRCSAP {hk['FLFRCSAP']:.3f} = {hk['CROWDSAP'] / hk['FLFRCSAP']:.3f}"], "Image obtained"),
+            "The two flux curves have the same shape; the PDCSAP curve is lifted because the pipeline divides by the fraction of the star's flux inside the aperture and removes the light of neighbours, and the transits of HD 189733 b are the vertical dips. The background curve shows the scattered-light pattern of each orbit. The bit names are from lightkurve's TessQualityFlags, which follows the archive manual. We did not study the centroid curve; it is the raw input of the centroid test used in vetting (not done here)."))
+S.append(sl("7  Data. Below the light curve: the pixels. Summing 45 pixels gives SAP_FLUX to 2 parts in 10<sup>7</sup>",
+            fig("raw_tpf_pixels", 1160, "&pi; Men c, sector 1: median frame with the optimal aperture (red), the aperture sum against SAP_FLUX, and their ratio minus one.")
+            + take(f"{sp(RT_['n_compared'])} cadences compared; largest deviation {RT_['sum_over_sap_maxdev']:.1e}, the float32 rounding. The aperture holds {100 - RT_['flux_outside_aperture_pct']:.1f} % of the stamp flux."),
+            "We opened the target-pixel file of pi Men c, summed FLUX over the 45 pixels of the optimal aperture for each cadence and divided by SAP_FLUX of the light-curve file: the ratio is 1 to 2e-7. So the light curve is exactly the pixel sum, and every bias in it (a neighbour inside the aperture, a bad pixel) can be seen in the pixel image. The background column SAP_BKG equals the sum of FLUX_BKG over the same pixels. Only the pi Men c pixel file is stored in this project."))
+code_ = ('from astropy.io import fits\n'
+         'hdul = fits.open("tess2021204101404-s0041-0000000256364928-0212-s_lc.fits")\n'
+         'd = hdul[1].data                      # the LIGHTCURVE table\n'
+         't, flux, q = d["TIME"], d["PDCSAP_FLUX"], d["QUALITY"]\n'
+         'good = (q == 0) & (flux == flux)      # keep QUALITY 0 and drop NaN')
+man = [r for r in csv.DictReader(open(ROOT / "results" / "data_manifest.csv")) if r["planet"] == "HD 189733 b"][0]
+rt = [["1  Direct file", "curl -O " + man["url"].replace("https://", "https://"), "what we used; same tree holds _tp.fits and _dvr.pdf; md5 in data_manifest.csv"],
+      ["2  lightkurve", 'lk.search_lightcurve("TIC 256364928", mission="TESS", author="SPOC", exptime=120)', "tested 21 Nov 2026: sectors 41, 54, 81 found; timed out on 16 Nov"],
+      ["3  MAST portal", "mast.stsci.edu, search the TIC number, product type time series", "not tested here"]]
+S.append(sl("7  Data. How to reach the raw data: a file URL, lightkurve or the MAST portal",
+            tblw(["Route", "Command or address", "Note"], [[a, f'<span style="font-size:20px;word-break:break-all">{b}</span>', c] for a, b, c in rt], [180, 640, 340], "tbl xs")
+            + code(code_)
+            + note("File name: tess&lt;date stamp&gt;-s&lt;sector&gt;-&lt;16-digit TIC&gt;-&lt;pipeline id&gt;-s_lc.fits; the URL folders are the sector and the TIC split in four."),
+            "Route 1 needs no software: the URL pattern is in code/03b_fetch_static.py and the file list with md5 is results/data_manifest.csv. The HEAD request of the example URL returned 200 on 21 November 2026. Route 2 was run the same day and found the sectors 41, 54 and 81 at 120 s for TIC 256364928; on 16 November the MAST API timed out, which is why this project used route 1. Route 3 is the web interface; we did not use it here. The code box was run on the file and gives 19 149 rows, 18 315 good cadences."))
+
+# ---- D2  all data products, the spectral band, the techniques
+dprod = [["Full-frame image (FFI)", "_ffir.fits, _ffic.fits", "30 min, then 10 min, then 200 s", "the whole field of view, every star", "no"],
+         ["Target pixel (TP)", "_tp.fits, _fast-tp.fits", "2 min; 20 s", "cut-out images of chosen stars, raw and calibrated pixels, one image per cadence", f"&pi; Men c only ({RT_['size_mb']} MB)"],
+         ["Light curve (LC)", "_lc.fits, _fast-lc.fits", "2 min; 20 s", "flux series derived from the target pixels: SAP, PDCSAP, background, centroid, quality", f"all {MS['n_files']} files"],
+         ["Cotrending basis vectors", "_cbv.fits", "per CCD", "the systematic trends used to make PDCSAP; not for the 20-s data", "no"],
+         ["Data validation report", "_dvr.pdf", "per sector", "the pipeline's own transit-search report; none for 20-s data", "&pi; Men c (11 MB)"],
+         ["Catalogs", "TIC, CTL, TOI, TCE", "&ndash;", "TIC-8: 1.7 billion point sources; TOI and TCE tables list candidates", "TIC id, T mag"]]
+S.append(sl("7  Data. Every TESS data product: full frames, target pixels, light curves, basis vectors, reports, catalogs",
+            tblw(["Product", "File", "Cadence", "What it is", "Used here"], dprod, [230, 220, 190, 390, 130], "tbl xs")
+            + note("Cadences: 30 min (cycles 1 and 2), 10 min (3 and 4), 200 s (5 on); 20-s products since the first extended mission. Quotes in tess_fact_sources.csv."),
+            "The product list and the sentences about each file type are quoted from the STScI TESS archive manual (page saved in data/raw/tess_docs) and the NASA HEASARC data-products page. Our own holdings: 21 light-curve files for the ten planets, plus the target-pixel file and the data-validation report of pi Men c, which we downloaded with code/03b_fetch_static.py. We did not download any full-frame image."))
+S.append(sl("7  Data. Yes, the raw data are images: CCD pixels in one broad band from 600 to 1000 nm, with no spectrum",
+            cols(fig("ricker_fig1_response", 640, "TESS spectral response (black) against V, R<sub>C</sub>, I<sub>C</sub> and z filters. Ricker et al. 2015, Fig. 1."),
+                 obt(["each pixel adds up all the light of the band: one number per pixel and cadence, no wavelength information",
+                      "colours cannot be measured; the other curves are only for comparison",
+                      f"16 CCDs: 4 cameras &times; 4 CCDs of 2048 &times; 2048 pixels, 21&Prime; per pixel (computed)",
+                      f"flag 8 (Earth point): {QK['8']['n']} cadences in our file have no time stamp and no flux, as the manual says"], "What the data are"), tpl="640px 1fr"),
+            "Quoted from Ricker et al. 2015: the 600 to 1000 nm bandpass (Table 1 and Fig. 1, page 4 of the PDF), four CCDs per camera and four cameras (Sec 4). The figure is Fig. 1 of that paper, shown with its credit. From the STScI manual: cadences flagged Earth point (bit 4, value 8) have NULL time stamps and data; in our HD 189733 b file all 801 such cadences have NaN time and NaN flux. 16 CCDs is our product of 4 and 4."))
+tech = [["Aperture photometry", "add the pixels of an aperture around the star", "SAP_FLUX is the sum of the 45 pixels (checked, section above)", "Caldwell 2020 (SPOC)"],
+        ["Cotrending", "fit and remove the trends shared by many stars", "PDCSAP_FLUX is the result; basis vectors in _cbv.fits", "Stumpe 2012 (PDC, Kepler)"],
+        ["Crowding and aperture correction", "divide by the share of the star's light in the aperture, remove neighbours", "PDCSAP/SAP = CROWDSAP/FLFRCSAP (3 files)", "STScI manual"],
+        ["Full-frame photometry", "build light curves from the 30-min, 10-min or 200-s images", "not used here", "Huang 2020 (QLP); Feinstein 2019 (eleanor)"],
+        ["Difference imaging", "subtract a reference image to cope with crowded fields", "not used here", "Oelkers 2018"]]
+S.append(sl("7  Data. Techniques from pixels to a light curve: aperture sum, cotrending, crowding correction, full-frame and difference imaging",
+            tblw(["Technique", "What it does", "In our data", "Paper"], tech, [250, 380, 330, 200], "tbl xs")
+            + take("We fit the light curve as delivered (SPOC); the two last techniques are the way to get light curves where SPOC has none."),
+            "Each technique is tied to a paper in literature/pdf (group A): Caldwell 2020 lists calibrated target pixels, SAP flux and PDC flux as SPOC products; Stumpe 2012 is the Kepler version of PDC; Huang 2020 is the MIT Quick Look Pipeline on full-frame images; Feinstein 2019 extracts light curves from full-frame images; Oelkers 2018 uses difference imaging, which mitigates the effects of crowded fields. The two checks in the third column are ours: the pixel sum on pi Men c and the ratio of PDCSAP to SAP on three files."))
+
 ORDER = {"1": 1, "2": 2, "H": 2.3, "T": 2.5, "C": 2.7, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "B": 10, "A": 11}
 DISP = {"1": "1", "2": "2", "H": "3", "T": "4", "C": "5", "3": "6", "4": "7", "5": "8", "6": "9", "7": "10", "8": "11", "9": "12", "B": "B"}    # numbers shown on the slides
 def _key(h):

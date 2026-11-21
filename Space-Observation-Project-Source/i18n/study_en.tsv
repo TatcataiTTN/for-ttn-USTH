@@ -4,7 +4,7 @@ ba20d8d422	<b>Project:</b> Space Observation Project 1, Group 2 (study deck)<br/
 87c98cdec4	The template
 9a49097c52	Huang et al. 2018 (TESS discovery of π Men c) shows five figure types. We redraw them for our ten planets from public TESS data.
 6dbbef55ee	The plots
-edac97a215	27 new figures. Each slide says what the image shows, with measured numbers.
+9b3956a462	30 new figures. Each slide says what the image shows, with measured numbers.
 9bd50ed52f	The authors
 5962f9f1be	Our ten planets against their discovery papers: same numbers or not, and why.
 a4a9c5eaa9	The literature
@@ -563,6 +563,123 @@ a7b93d2128	Mode
 4a88d27bba	Catalog
 7afb6295c7	blind
 5b590af68f	guided
+abb9b2e744	10  Data. A raw TESS file is a FITS file: a header, a table of cadences and a pixel mask
+659087d3ca	Extension
+00ba094e48	What it holds
+3a481c9d2d	Size in our example
+ed15de08f4	PRIMARY
+4413a527f2	header only: object, sector, camera, CCD, processing version
+a246f0ce9a	no table
+29154d06f7	LIGHTCURVE
+f20a16850e	one row per 2-min cadence, 20 columns
+932303eca7	19 149 rows
+38259b6de2	APERTURE
+55fa44adbe	pixel mask: which pixels are summed (bit 2) and which give the background (bit 4)
+16b86eddd8	11 × 13 integers
+fa4a30fe16	PIXELS (target-pixel file)
+60d7e072c2	the same cadences, but every cell is an image: RAW_CNTS, FLUX, FLUX_BKG ...
+b0cf995eb1	20 076 rows, 11 × 21 pixels each
+474f5de031	Our example
+030408a0cd	HD 189733 b, sector 41, camera 1, CCD 3; 1.94 MB; SPOC spoc-5.0.42.
+6c82e6dd86	Time
+dfbf43baeb	BTJD = BJD<sub>TDB</sub> − 2 457 000 d; cadence 120 s; 2420.0 to 2446.6.
+6c81347742	The target-pixel file (_tp.fits, 93.4 MB for π Men c) is the rawer product.
+68c4d0d3ce	10  Data. The 20 columns of the light-curve table, in six groups
+171a0606f7	Group
+cf723c59b6	Columns
+f6b935ab33	Unit
+18fa74b4c5	BTJD days, days, integer
+82e4cc3f88	TIME is stored in 64 bits (float64)
+5187387417	Aperture flux
+06c60353cc	sum of the pixels of the optimal aperture
+64dd60fe1a	Background
+9043681e91	background summed over the same pixels
+78035a154c	Corrected flux
+b07c0f0c18	systematics removed, aperture fraction and crowding corrected
+a60f2c7360	Quality
+b508c65b4b	integer bit mask
+41dbe01289	0 = good; each bit is one reason to distrust the cadence
+cf1c85adba	Position
+98acb47fb9	PSF_CENTR1/2, MOM_CENTR1/2 (+ errors), POS_CORR1/2
+03dc8cb268	pixel
+7a19fd7bf0	where the star falls on the CCD, per cadence
+c4d01e1f2c	We fit PDCSAP_FLUX where QUALITY is 0; SAP_FLUX is the same photons without the corrections.
+c0774af958	Names, units and formats are read from the FITS header. SAP and PDCSAP definitions are quoted from the STScI TESS archive manual; the other descriptions are ours.
+bbd1f3b9bd	10  Data. The raw columns plotted: 19 149 cadences, 834 of them flagged
+c475dfe751	HD 189733 b, sector 41: flux, background, centroid, QUALITY values.
+cc82a418c9	18 315 good cadences (QUALITY = 0); 801 Earth-point (flag 8)
+40e1ca21ef	PDCSAP is 3.7 % above SAP: CROWDSAP 0.979 / FLFRCSAP 0.944 = 1.037
+36b7f8dbd6	10  Data. Below the light curve: the pixels. Summing 45 pixels gives SAP_FLUX to 2 parts in 10<sup>7</sup>
+c00d8a0371	π Men c, sector 1: median frame with the optimal aperture (red), the aperture sum against SAP_FLUX, and their ratio minus one.
+edde022c28	19 190 cadences compared; largest deviation 1.8e-07, the float32 rounding. The aperture holds 96.1 % of the stamp flux.
+3550c6cfd1	10  Data. How to reach the raw data: a file URL, lightkurve or the MAST portal
+4999528efe	Route
+09d2686301	Command or address
+2c924e3088	Note
+04beec5864	1  Direct file
+54dceb2e73	<span style="font-size:20px;word-break:break-all">curl -O https://archive.stsci.edu/missions/tess/tid/s0041/0000/0002/5636/4928/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits</span>
+75694e7154	what we used; same tree holds _tp.fits and _dvr.pdf; md5 in data_manifest.csv
+202778a67c	2  lightkurve
+dbb145132a	<span style="font-size:20px;word-break:break-all">lk.search_lightcurve("TIC 256364928", mission="TESS", author="SPOC", exptime=120)</span>
+d4c4581ef3	tested 21 Nov 2026: sectors 41, 54, 81 found; timed out on 16 Nov
+152b23467c	3  MAST portal
+f72f9e3ec4	<span style="font-size:20px;word-break:break-all">mast.stsci.edu, search the TIC number, product type time series</span>
+6cb64464f6	not tested here
+35b7418510	File name: tess&lt;date stamp&gt;-s&lt;sector&gt;-&lt;16-digit TIC&gt;-&lt;pipeline id&gt;-s_lc.fits; the URL folders are the sector and the TIC split in four.
+2b232114c6	10  Data. Every TESS data product: full frames, target pixels, light curves, basis vectors, reports, catalogs
+2c3cafa4db	File
+91210f884d	Full-frame image (FFI)
+d136a7d2cd	_ffir.fits, _ffic.fits
+3227042e63	30 min, then 10 min, then 200 s
+39c8f5cfbd	the whole field of view, every star
+7cd2b58728	Target pixel (TP)
+3113ad108e	_tp.fits, _fast-tp.fits
+5d7a600467	2 min; 20 s
+56226db90a	cut-out images of chosen stars, raw and calibrated pixels, one image per cadence
+9fb6c528ad	π Men c only (93.4 MB)
+1422732329	Light curve (LC)
+11a83fca02	_lc.fits, _fast-lc.fits
+524f662ec9	flux series derived from the target pixels: SAP, PDCSAP, background, centroid, quality
+63d70e0e02	all 21 files
+50255dcbbe	Cotrending basis vectors
+e3776cdaf1	_cbv.fits
+e6e848e343	per CCD
+5d7b9e6588	the systematic trends used to make PDCSAP; not for the 20-s data
+0b73c7404e	Data validation report
+268d2d414d	_dvr.pdf
+9a4f943b60	per sector
+fd3ed3262a	the pipeline's own transit-search report; none for 20-s data
+21639a183c	TIC-8: 1.7 billion point sources; TOI and TCE tables list candidates
+6f30d84e88	TIC id, T mag
+3fa0d97c67	Cadences: 30 min (cycles 1 and 2), 10 min (3 and 4), 200 s (5 on); 20-s products since the first extended mission. Quotes in tess_fact_sources.csv.
+27e5a89b1a	10  Data. Yes, the raw data are images: CCD pixels in one broad band from 600 to 1000 nm, with no spectrum
+76ffca1728	TESS spectral response (black) against V, R<sub>C</sub>, I<sub>C</sub> and z filters. Ricker et al. 2015, Fig. 1.
+b857314a26	What the data are
+d896078010	each pixel adds up all the light of the band: one number per pixel and cadence, no wavelength information
+a2ba1b77d0	colours cannot be measured; the other curves are only for comparison
+5234cb5af0	16 CCDs: 4 cameras × 4 CCDs of 2048 × 2048 pixels, 21″ per pixel (computed)
+721a86e77b	flag 8 (Earth point): 801 cadences in our file have no time stamp and no flux, as the manual says
+f020bac1e3	10  Data. Techniques from pixels to a light curve: aperture sum, cotrending, crowding correction, full-frame and difference imaging
+9233a9af80	Technique
+ca032b5844	What it does
+a3ac1b17ab	In our data
+4c9ee369e3	Aperture photometry
+3ed41af640	add the pixels of an aperture around the star
+96f02c006b	SAP_FLUX is the sum of the 45 pixels (checked, section above)
+d81794840a	Cotrending
+ca767ba5ff	fit and remove the trends shared by many stars
+ec6ebf49b6	PDCSAP_FLUX is the result; basis vectors in _cbv.fits
+de83ce72d3	Crowding and aperture correction
+7597a87f23	divide by the share of the star's light in the aperture, remove neighbours
+f2f2036899	PDCSAP/SAP = CROWDSAP/FLFRCSAP (3 files)
+687b412925	STScI manual
+43e9fc8030	Full-frame photometry
+05aac6a079	build light curves from the 30-min, 10-min or 200-s images
+62013198b1	not used here
+ab6bad0d6e	Huang 2020 (QLP); Feinstein 2019 (eleanor)
+bc5d39e5ae	Difference imaging
+73691c3e7e	subtract a reference image to cope with crowded fields
+326d44166e	We fit the light curve as delivered (SPOC); the two last techniques are the way to get light curves where SPOC has none.
 d57f71082d	11  Questions. How do we know the result is trustworthy?
 9ed99e75a9	Benchmark
 0b8c5eb570	HD 118203 b: ratio 0.0553 against the tutorial's 0.0554 and Pepper's 0.05538 (−0.2 %).
@@ -730,6 +847,14 @@ bc0fa0d536	Group G: 20 verified papers. What a radius means once you know many: 
 5003fb4131	The archive can change as new papers are added, so we re-queried it. The downloaded copy and the live table are identical for all the planets used.
 c31a3bcdba	Files come from https://archive.stsci.edu/missions/tess/tid/sSSSS/xxxx/xxxx/xxxx/xxxx/ with the 16-digit TIC number split in four. The MAST API (astroquery) timed out during this work, so the static archive was used; data/data_manifest.csv has the URL and md5 of every file.
 a905b4a066	Run order is in README.md. The random generator inside emcee was not seeded before; in a test two runs of pi Men c gave 2.0302 and 2.0319 Earth radii. After fixing it, two fits on the same data give identical chains.
+7e4b398a1f	FITS is the astronomy file format: a primary header followed by extensions that are tables or images. astropy.io.fits reads them. Extension names and sizes are read from our own files with code/32_raw_data.py. The statement that the pixel files hold one image per time stamp and that light curves come from them is quoted from the STScI TESS archive manual (tess_fact_sources.csv, tpf_def).
+5a5e99ffae	The column list and units come from the header keywords TTYPE, TFORM and TUNIT of the file. The definitions of SAP_FLUX and PDCSAP_FLUX are quoted from the STScI archive manual page saved in data/raw/tess_docs. The descriptions of the quality, background and position columns are our reading of the names and units; the Science Data Products Handbook has the formal definitions and we did not check them.
+aa558c7aee	The two flux curves have the same shape; the PDCSAP curve is lifted because the pipeline divides by the fraction of the star's flux inside the aperture and removes the light of neighbours, and the transits of HD 189733 b are the vertical dips. The background curve shows the scattered-light pattern of each orbit. The bit names are from lightkurve's TessQualityFlags, which follows the archive manual. We did not study the centroid curve; it is the raw input of the centroid test used in vetting (not done here).
+70e833c2ad	We opened the target-pixel file of pi Men c, summed FLUX over the 45 pixels of the optimal aperture for each cadence and divided by SAP_FLUX of the light-curve file: the ratio is 1 to 2e-7. So the light curve is exactly the pixel sum, and every bias in it (a neighbour inside the aperture, a bad pixel) can be seen in the pixel image. The background column SAP_BKG equals the sum of FLUX_BKG over the same pixels. Only the pi Men c pixel file is stored in this project.
+59d7fbf97c	Route 1 needs no software: the URL pattern is in code/03b_fetch_static.py and the file list with md5 is results/data_manifest.csv. The HEAD request of the example URL returned 200 on 21 November 2026. Route 2 was run the same day and found the sectors 41, 54 and 81 at 120 s for TIC 256364928; on 16 November the MAST API timed out, which is why this project used route 1. Route 3 is the web interface; we did not use it here. The code box was run on the file and gives 19 149 rows, 18 315 good cadences.
+c6d98d203a	The product list and the sentences about each file type are quoted from the STScI TESS archive manual (page saved in data/raw/tess_docs) and the NASA HEASARC data-products page. Our own holdings: 21 light-curve files for the ten planets, plus the target-pixel file and the data-validation report of pi Men c, which we downloaded with code/03b_fetch_static.py. We did not download any full-frame image.
+b89589cda0	Quoted from Ricker et al. 2015: the 600 to 1000 nm bandpass (Table 1 and Fig. 1, page 4 of the PDF), four CCDs per camera and four cameras (Sec 4). The figure is Fig. 1 of that paper, shown with its credit. From the STScI manual: cadences flagged Earth point (bit 4, value 8) have NULL time stamps and data; in our HD 189733 b file all 801 such cadences have NaN time and NaN flux. 16 CCDs is our product of 4 and 4.
+fe01423137	Each technique is tied to a paper in literature/pdf (group A): Caldwell 2020 lists calibrated target pixels, SAP flux and PDC flux as SPOC products; Stumpe 2012 is the Kepler version of PDC; Huang 2020 is the MIT Quick Look Pipeline on full-frame images; Feinstein 2019 extracts light curves from full-frame images; Oelkers 2018 uses difference imaging, which mitigates the effects of crowded fields. The two checks in the third column are ours: the pixel sum on pi Men c and the ratio of PDCSAP to SAP on three files.
 a34dc98c2f	Answer to the question from the group. Counts are computed from paper_comparison.csv (12 published rows; one planet has two papers). Ratio differs: HD 189733 b against Bouchy 2005 and WASP-18 b against Shporer 2019. Radius differs: HD 189733 b against Bouchy 2005 and HD 209458 b against Charbonneau 2000.
 a57fd6321d	Prepared answers; each one is backed by a number in this deck.
 7fe18d5f3a	These ten questions are our guess, built from two remarks in the group chat: the lecturer asks about the nature of the result, why things are so, and what supports each claim, and she asks to check whether the published method differs from ours. Each answer uses numbers computed elsewhere in this deck.

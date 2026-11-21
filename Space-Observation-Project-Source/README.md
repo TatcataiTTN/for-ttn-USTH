@@ -59,3 +59,6 @@ Not published, on purpose: the paper PDFs (`literature/pdf`, `literature/checkin
 ## Vietnamese versions
 `slides/Space-Observation-Project-Group-2-Study-VI/` and `slides/Space-Observation-Project-Group-2-VI/`: the same decks with the slide text and speaker notes in Vietnamese (`code/29_translate_deck.py`, translations in `i18n/`). The PNG figures keep their English labels. `code/30_check_overlap.py` checks that nothing is cut off at the bottom of a slide.
 Live: https://tatcataittn.github.io/for-ttn-USTH/Space-Observation-Project-Group-2-Study-VI/ and https://tatcataittn.github.io/for-ttn-USTH/Space-Observation-Project-Group-2-VI/
+
+## Raw TESS data (added 21 Nov 2026)
+`code/32_raw_data.py`: structure of a SPOC light-curve file and of a target-pixel file, the raw columns plotted, and the check that SAP_FLUX equals the sum of the 45 aperture pixels (`results/raw_data_facts.json`, `figures/paper/raw_*.png`). `code/31_make_pdf.py`: PDF of the four decks in `pdf/`. Study deck: 97 slides, section 10 Data covers file anatomy, columns, plots, pixels, access routes, all data products, the spectral band and the techniques.

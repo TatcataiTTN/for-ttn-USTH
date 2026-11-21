@@ -1,0 +1,294 @@
+{
+ "file": "tess2021204101404-s0041-0000000256364928-0212-s_lc.fits",
+ "size_mb": 1.94,
+ "hdus": [
+  {
+   "name": "PRIMARY",
+   "kind": "PrimaryHDU"
+  },
+  {
+   "name": "LIGHTCURVE",
+   "kind": "BinTableHDU"
+  },
+  {
+   "name": "APERTURE",
+   "kind": "ImageHDU"
+  }
+ ],
+ "rows": 19149,
+ "n_cols": 20,
+ "cols": [
+  {
+   "name": "TIME",
+   "fmt": "D",
+   "unit": "BJD - 2457000, days"
+  },
+  {
+   "name": "TIMECORR",
+   "fmt": "E",
+   "unit": "d"
+  },
+  {
+   "name": "CADENCENO",
+   "fmt": "J",
+   "unit": ""
+  },
+  {
+   "name": "SAP_FLUX",
+   "fmt": "E",
+   "unit": "e-/s"
+  },
+  {
+   "name": "SAP_FLUX_ERR",
+   "fmt": "E",
+   "unit": "e-/s"
+  },
+  {
+   "name": "SAP_BKG",
+   "fmt": "E",
+   "unit": "e-/s"
+  },
+  {
+   "name": "SAP_BKG_ERR",
+   "fmt": "E",
+   "unit": "e-/s"
+  },
+  {
+   "name": "PDCSAP_FLUX",
+   "fmt": "E",
+   "unit": "e-/s"
+  },
+  {
+   "name": "PDCSAP_FLUX_ERR",
+   "fmt": "E",
+   "unit": "e-/s"
+  },
+  {
+   "name": "QUALITY",
+   "fmt": "J",
+   "unit": ""
+  },
+  {
+   "name": "PSF_CENTR1",
+   "fmt": "D",
+   "unit": "pixel"
+  },
+  {
+   "name": "PSF_CENTR1_ERR",
+   "fmt": "E",
+   "unit": "pixel"
+  },
+  {
+   "name": "PSF_CENTR2",
+   "fmt": "D",
+   "unit": "pixel"
+  },
+  {
+   "name": "PSF_CENTR2_ERR",
+   "fmt": "E",
+   "unit": "pixel"
+  },
+  {
+   "name": "MOM_CENTR1",
+   "fmt": "D",
+   "unit": "pixel"
+  },
+  {
+   "name": "MOM_CENTR1_ERR",
+   "fmt": "E",
+   "unit": "pixel"
+  },
+  {
+   "name": "MOM_CENTR2",
+   "fmt": "D",
+   "unit": "pixel"
+  },
+  {
+   "name": "MOM_CENTR2_ERR",
+   "fmt": "E",
+   "unit": "pixel"
+  },
+  {
+   "name": "POS_CORR1",
+   "fmt": "E",
+   "unit": "pixels"
+  },
+  {
+   "name": "POS_CORR2",
+   "fmt": "E",
+   "unit": "pixels"
+  }
+ ],
+ "aperture_shape": [
+  13,
+  11
+ ],
+ "aperture_bits": {
+  "collected(1)": 143,
+  "optimal(2)": 23,
+  "background(4)": 31
+ },
+ "header": {
+  "OBJECT": "TIC 256364928",
+  "TICID": 256364928,
+  "SECTOR": 41,
+  "CAMERA": 1,
+  "CCD": 3,
+  "ORIGIN": "NASA/Ames",
+  "PROCVER": "spoc-5.0.42-20210903",
+  "DATA_REL": 59,
+  "DATE": "2021-09-10",
+  "TSTART": 2419.993273680828,
+  "TSTOP": 2446.583337454771,
+  "TIMEDEL": 0.001388888888888889,
+  "EXPOSURE": 21.059330692296,
+  "CROWDSAP": 0.97860086,
+  "FLFRCSAP": 0.94392949,
+  "PDCVAR": 10.893207972882127,
+  "CDPP1_0": 67.44998169,
+  "BJDREFI": 2457000,
+  "TIMESYS": "TDB"
+ },
+ "n_finite_time": 18348,
+ "n_finite_sap": 18326,
+ "n_finite_pdc": 18322,
+ "n_flagged": 834,
+ "quality": {
+  "0": {
+   "n": 18315,
+   "name": "combination: "
+  },
+  "8": {
+   "n": 801,
+   "name": "Earth point"
+  },
+  "32": {
+   "n": 14,
+   "name": "Desaturation event"
+  },
+  "40": {
+   "n": 1,
+   "name": "combination: Earth point + Desaturation event"
+  },
+  "128": {
+   "n": 4,
+   "name": "Manual exclude"
+  },
+  "160": {
+   "n": 1,
+   "name": "combination: Desaturation event + Manual exclude"
+  },
+  "164": {
+   "n": 6,
+   "name": "combination: Coarse point + Desaturation event + Manual exclude"
+  },
+  "512": {
+   "n": 7,
+   "name": "Impulsive outlier"
+  }
+ },
+ "dtypes": {
+  "TIME": ">f8",
+  "PDCSAP_FLUX": ">f4",
+  "QUALITY": ">i4"
+ },
+ "med_sap": 281594.5625,
+ "med_pdc": 292092.53125,
+ "pdc_over_sap": 1.0372804384317613,
+ "med_bkg": 6488.403564453125,
+ "tpf": {
+  "file": "tess2018206045859-s0001-0000000261136679-0120-s_tp.fits",
+  "size_mb": 93.4,
+  "hdus": [
+   {
+    "name": "PRIMARY",
+    "kind": "PrimaryHDU"
+   },
+   {
+    "name": "PIXELS",
+    "kind": "BinTableHDU"
+   },
+   {
+    "name": "APERTURE",
+    "kind": "ImageHDU"
+   },
+   {
+    "name": "TARGET COSMIC RAY",
+    "kind": "BinTableHDU"
+   }
+  ],
+  "flux_shape": [
+   20076,
+   21,
+   11
+  ],
+  "n_pixels": 231,
+  "n_optimal": 45,
+  "n_bkg": 32,
+  "cols": [
+   {
+    "name": "TIME",
+    "fmt": "D",
+    "unit": "BJD - 2457000, days"
+   },
+   {
+    "name": "TIMECORR",
+    "fmt": "E",
+    "unit": "d"
+   },
+   {
+    "name": "CADENCENO",
+    "fmt": "J",
+    "unit": ""
+   },
+   {
+    "name": "RAW_CNTS",
+    "fmt": "231J",
+    "unit": "count"
+   },
+   {
+    "name": "FLUX",
+    "fmt": "231E",
+    "unit": "e-/s"
+   },
+   {
+    "name": "FLUX_ERR",
+    "fmt": "231E",
+    "unit": "e-/s"
+   },
+   {
+    "name": "FLUX_BKG",
+    "fmt": "231E",
+    "unit": "e-/s"
+   },
+   {
+    "name": "FLUX_BKG_ERR",
+    "fmt": "231E",
+    "unit": "e-/s"
+   },
+   {
+    "name": "QUALITY",
+    "fmt": "J",
+    "unit": ""
+   },
+   {
+    "name": "POS_CORR1",
+    "fmt": "E",
+    "unit": "pixel"
+   },
+   {
+    "name": "POS_CORR2",
+    "fmt": "E",
+    "unit": "pixel"
+   }
+  ],
+  "sum_over_sap_median": 1.0,
+  "sum_over_sap_maxdev": 1.7881393432617188e-07,
+  "n_compared": 19190,
+  "median_bkg_in_aperture": 4827.11328125,
+  "sap_bkg_median": 4827.11279296875,
+  "peak_pixel": 104969.640625,
+  "total_aperture_flux": 1434712.5,
+  "flux_outside_aperture_pct": 3.928938627243042
+ }
+}

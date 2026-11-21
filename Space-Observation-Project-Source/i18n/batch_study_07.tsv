@@ -1,0 +1,109 @@
+t001	30 hình mới. Mỗi slide nói hình cho thấy gì, kèm số đo thật.
+t016	10  Dữ liệu. Một file TESS thô là file FITS: một header, một bảng các cadence và một mặt nạ pixel
+t017	Nó chứa gì
+t018	Kích thước trong ví dụ
+t019	chỉ có header: đối tượng, sector, camera, CCD, phiên bản xử lý
+t020	không có bảng
+t021	mỗi dòng một cadence 2 phút, 20 cột
+t022	19 149 dòng
+t023	mặt nạ pixel: pixel nào được cộng (bit 2) và pixel nào cho nền (bit 4)
+t024	11 × 13 số nguyên
+t025	PIXELS (file target pixel)
+t026	cùng các cadence đó, nhưng mỗi ô là một ảnh: RAW_CNTS, FLUX, FLUX_BKG ...
+t027	20 076 dòng, mỗi dòng 11 × 21 pixel
+t028	Ví dụ của chúng tôi
+t029	HD 189733 b, sector 41, camera 1, CCD 3; 1.94 MB; SPOC spoc-5.0.42.
+t030	BTJD = BJD<sub>TDB</sub> − 2 457 000 ngày; cadence 120 s; từ 2420.0 đến 2446.6.
+t031	File target pixel (_tp.fits, 93.4 MB cho π Men c) là sản phẩm gần dữ liệu gốc hơn.
+t032	10  Dữ liệu. 20 cột của bảng đường cong ánh sáng, chia thành sáu nhóm
+t033	Nhóm
+t034	BTJD ngày, ngày, số nguyên
+t035	TIME được lưu bằng 64 bit (float64)
+t036	Thông lượng khẩu độ
+t037	tổng các pixel của khẩu độ tối ưu
+t038	nền được cộng trên cùng các pixel đó
+t039	Thông lượng đã hiệu chỉnh
+t040	đã loại hệ thống sai số, đã hiệu chỉnh tỉ lệ thông lượng trong khẩu độ và độ nhiễm
+t041	mặt nạ bit số nguyên
+t042	0 = tốt; mỗi bit là một lý do để nghi ngờ cadence
+t043	PSF_CENTR1/2, MOM_CENTR1/2 (+ sai số), POS_CORR1/2
+t044	pixel
+t045	vị trí ngôi sao rơi trên CCD, theo từng cadence
+t046	Chúng tôi khớp PDCSAP_FLUX ở nơi QUALITY bằng 0; SAP_FLUX là cùng các photon đó nhưng chưa hiệu chỉnh.
+t047	Tên, đơn vị và định dạng đọc từ header FITS. Định nghĩa SAP và PDCSAP được trích từ sổ tay archive TESS của STScI; các mô tả khác là của chúng tôi.
+t048	10  Dữ liệu. Các cột thô được vẽ ra: 19 149 cadence, 834 cadence bị gắn cờ
+t049	HD 189733 b, sector 41: thông lượng, nền, tâm sáng, các giá trị QUALITY.
+t050	18 315 cadence tốt (QUALITY = 0); 801 cadence Earth point (cờ 8)
+t051	PDCSAP cao hơn SAP 3.7 %: CROWDSAP 0.979 / FLFRCSAP 0.944 = 1.037
+t052	10  Dữ liệu. Dưới đường cong ánh sáng là các pixel. Cộng 45 pixel cho SAP_FLUX với sai khác 2 phần 10<sup>7</sup>
+t053	π Men c, sector 1: khung trung vị với khẩu độ tối ưu (đỏ), tổng khẩu độ so với SAP_FLUX, và tỉ số trừ một của chúng.
+t054	19 190 cadence được so sánh; độ lệch lớn nhất 1.8e-07, đúng bằng sai số làm tròn float32. Khẩu độ chứa 96.1 % thông lượng của ô ảnh.
+t055	10  Dữ liệu. Cách lấy dữ liệu gốc: URL của file, lightkurve hoặc cổng MAST
+t056	Lệnh hoặc địa chỉ
+t057	1  Lấy thẳng file
+t059	cái chúng tôi đã dùng; cùng cây thư mục có _tp.fits và _dvr.pdf; md5 trong data_manifest.csv
+t060	2  lightkurve
+t062	đã thử ngày 21/11/2026: tìm thấy sector 41, 54, 81; ngày 16/11 bị hết thời gian chờ
+t063	3  Cổng MAST
+t065	chưa thử ở đây
+t066	Tên file: tess&lt;dấu thời gian&gt;-s&lt;sector&gt;-&lt;TIC 16 chữ số&gt;-&lt;mã pipeline&gt;-s_lc.fits; các thư mục trong URL là sector và số TIC chia làm bốn.
+t067	10  Dữ liệu. Mọi sản phẩm dữ liệu TESS: ảnh toàn khung, pixel mục tiêu, đường cong ánh sáng, vector cơ sở, báo cáo, catalog
+t068	File
+t069	Ảnh toàn khung (FFI)
+t070	_ffir.fits, _ffic.fits
+t071	30 phút, rồi 10 phút, rồi 200 s
+t072	toàn bộ trường nhìn, mọi ngôi sao
+t073	Pixel mục tiêu (TP)
+t074	_tp.fits, _fast-tp.fits
+t075	2 phút; 20 s
+t076	ảnh cắt quanh các sao được chọn, pixel thô và đã hiệu chuẩn, mỗi cadence một ảnh
+t077	chỉ π Men c (93.4 MB)
+t078	Đường cong ánh sáng (LC)
+t079	_lc.fits, _fast-lc.fits
+t080	chuỗi thông lượng suy ra từ pixel mục tiêu: SAP, PDCSAP, nền, tâm sáng, chất lượng
+t081	cả 21 file
+t082	Vector cơ sở cotrending
+t083	_cbv.fits
+t084	theo từng CCD
+t085	các xu hướng hệ thống dùng để tạo PDCSAP; không có cho dữ liệu 20 s
+t086	Báo cáo kiểm định dữ liệu
+t087	_dvr.pdf
+t088	theo từng sector
+t089	báo cáo tìm transit của chính pipeline; không có cho dữ liệu 20 s
+t090	TIC-8: 1.7 tỉ nguồn điểm; các bảng TOI và TCE liệt kê các ứng viên
+t091	mã TIC, cấp sao T
+t092	Cadence: 30 phút (chu kỳ 1 và 2), 10 phút (3 và 4), 200 s (từ 5); sản phẩm 20 s có từ sứ mệnh mở rộng đầu tiên. Các đoạn trích nằm trong tess_fact_sources.csv.
+t093	10  Dữ liệu. Đúng, dữ liệu gốc là ảnh: pixel CCD trong một dải rộng 600 đến 1000 nm, không có phổ
+t094	Đáp ứng phổ của TESS (đen) so với các bộ lọc V, R<sub>C</sub>, I<sub>C</sub> và z. Ricker et al. 2015, Hình 1.
+t095	Dữ liệu là gì
+t096	mỗi pixel cộng toàn bộ ánh sáng trong dải: một con số cho mỗi pixel và cadence, không có thông tin bước sóng
+t097	không đo được màu; các đường cong khác chỉ để so sánh
+t098	16 CCD: 4 camera × 4 CCD mỗi CCD 2048 × 2048 pixel, 21″ mỗi pixel (tự tính)
+t099	cờ 8 (Earth point): 801 cadence trong file của chúng tôi không có mốc thời gian và không có thông lượng, đúng như sổ tay nói
+t100	10  Dữ liệu. Kỹ thuật từ pixel đến đường cong ánh sáng: cộng khẩu độ, cotrending, hiệu chỉnh độ nhiễm, quang đo toàn khung và ảnh hiệu
+t101	Nó làm gì
+t102	Trong dữ liệu của chúng tôi
+t103	Quang đo khẩu độ
+t104	cộng các pixel của một khẩu độ quanh ngôi sao
+t105	SAP_FLUX là tổng của 45 pixel (đã kiểm, mục trên)
+t106	khớp và loại các xu hướng chung của nhiều ngôi sao
+t107	PDCSAP_FLUX là kết quả; vector cơ sở nằm trong _cbv.fits
+t108	Hiệu chỉnh độ nhiễm và khẩu độ
+t109	chia cho phần ánh sáng của ngôi sao nằm trong khẩu độ, loại ánh sáng của các sao lân cận
+t110	PDCSAP/SAP = CROWDSAP/FLFRCSAP (3 file)
+t111	Sổ tay STScI
+t112	Quang đo toàn khung
+t113	dựng đường cong ánh sáng từ ảnh 30 phút, 10 phút hoặc 200 s
+t114	không dùng ở đây
+t115	Huang 2020 (QLP); Feinstein 2019 (eleanor)
+t116	Ảnh hiệu (difference imaging)
+t117	trừ một ảnh tham chiếu để xử lý các trường đông sao
+t118	Chúng tôi khớp đường cong ánh sáng như được giao (SPOC); hai kỹ thuật cuối là cách lấy đường cong ánh sáng ở nơi SPOC không có.
+t119	FITS là định dạng file của thiên văn: một header chính theo sau là các phần mở rộng dạng bảng hoặc ảnh. astropy.io.fits đọc được chúng. Tên và kích thước các phần mở rộng đọc từ chính file của chúng tôi bằng code/32_raw_data.py. Câu nói rằng file pixel chứa một ảnh mỗi mốc thời gian và đường cong ánh sáng được làm từ đó được trích từ sổ tay archive TESS của STScI (tess_fact_sources.csv, tpf_def).
+t120	Danh sách cột và đơn vị lấy từ các từ khóa header TTYPE, TFORM và TUNIT của file. Định nghĩa SAP_FLUX và PDCSAP_FLUX được trích từ trang sổ tay archive của STScI đã lưu trong data/raw/tess_docs. Mô tả các cột chất lượng, nền và vị trí là cách chúng tôi hiểu từ tên và đơn vị; Science Data Products Handbook có định nghĩa chính thức và chúng tôi chưa kiểm.
+t121	Hai đường thông lượng có cùng hình dạng; đường PDCSAP được nâng lên vì pipeline chia cho tỉ lệ ánh sáng của ngôi sao nằm trong khẩu độ và loại ánh sáng các sao lân cận, và các transit của HD 189733 b là những dip thẳng đứng. Đường nền cho thấy mẫu ánh sáng tán xạ của từng vòng quỹ đạo. Tên các bit lấy từ TessQualityFlags của lightkurve, theo sổ tay archive. Chúng tôi chưa khảo sát đường tâm sáng; đó là đầu vào thô của phép kiểm định tâm sáng dùng khi kiểm tra ứng viên (chưa làm ở đây).
+t122	Chúng tôi mở file target pixel của pi Men c, cộng FLUX trên 45 pixel của khẩu độ tối ưu cho từng cadence và chia cho SAP_FLUX của file đường cong ánh sáng: tỉ số là 1 với sai khác 2e-7. Vậy đường cong ánh sáng chính là tổng pixel, và mọi sai lệch trong nó (một ngôi sao lân cận trong khẩu độ, một pixel hỏng) đều có thể thấy trên ảnh pixel. Cột nền SAP_BKG bằng tổng FLUX_BKG trên cùng các pixel. Chỉ file pixel của pi Men c được lưu trong dự án này.
+t123	Cách 1 không cần phần mềm: mẫu URL nằm trong code/03b_fetch_static.py và danh sách file kèm md5 nằm trong results/data_manifest.csv. Yêu cầu HEAD tới URL ví dụ trả về 200 ngày 21/11/2026. Cách 2 được chạy cùng ngày và tìm thấy các sector 41, 54 và 81 ở 120 s cho TIC 256364928; ngày 16/11 MAST API hết thời gian chờ, nên dự án này dùng cách 1. Cách 3 là giao diện web; chúng tôi chưa dùng. Khung mã đã được chạy trên file và cho 19 149 dòng, 18 315 cadence tốt.
+t124	Danh sách sản phẩm và các câu về từng loại file được trích từ sổ tay archive TESS của STScI (trang đã lưu trong data/raw/tess_docs) và trang sản phẩm dữ liệu của NASA HEASARC. Những gì chúng tôi có: 21 file đường cong ánh sáng cho mười hành tinh, cộng file target pixel và báo cáo kiểm định dữ liệu của pi Men c, tải bằng code/03b_fetch_static.py. Chúng tôi không tải ảnh toàn khung nào.
+t125	Trích từ Ricker et al. 2015: dải 600 đến 1000 nm (Bảng 1 và Hình 1, trang 4 của PDF), bốn CCD mỗi camera và bốn camera (Mục 4). Hình là Hình 1 của bài đó, kèm ghi công. Từ sổ tay STScI: các cadence gắn cờ Earth point (bit 4, giá trị 8) có mốc thời gian và dữ liệu NULL; trong file HD 189733 b của chúng tôi cả 801 cadence như vậy có thời gian NaN và thông lượng NaN. 16 CCD là tích 4 nhân 4 của chúng tôi.
+t126	Mỗi kỹ thuật gắn với một bài trong literature/pdf (nhóm A): Caldwell 2020 liệt kê pixel mục tiêu đã hiệu chuẩn, thông lượng SAP và thông lượng PDC là sản phẩm của SPOC; Stumpe 2012 là bản Kepler của PDC; Huang 2020 là MIT Quick Look Pipeline trên ảnh toàn khung; Feinstein 2019 lấy đường cong ánh sáng từ ảnh toàn khung; Oelkers 2018 dùng ảnh hiệu, giúp giảm ảnh hưởng của trường đông sao. Hai phép kiểm ở cột thứ ba là của chúng tôi: tổng pixel trên pi Men c và tỉ số PDCSAP trên SAP ở ba file.
