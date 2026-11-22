@@ -4,7 +4,7 @@ ba20d8d422	<b>Project:</b> Space Observation Project 1, Group 2 (study deck)<br/
 87c98cdec4	The template
 9a49097c52	Huang et al. 2018 (TESS discovery of π Men c) shows five figure types. We redraw them for our ten planets from public TESS data.
 6dbbef55ee	The plots
-9b3956a462	30 new figures. Each slide says what the image shows, with measured numbers.
+4b1f6034ae	33 new figures. Each slide says what the image shows, with measured numbers.
 9bd50ed52f	The authors
 5962f9f1be	Our ten planets against their discovery papers: same numbers or not, and why.
 a4a9c5eaa9	The literature
@@ -229,6 +229,252 @@ f5ce7e9171	radio pulses; millimetre spectra
 0dfc670e33	P<sub>max</sub> about 10 d rules out their habitable zone (p. 3); surveys favour short periods (p. 3)
 4b2556c7a1	our ten: P up to 6.13 d
 cdd0aa5b1c	'Our reasoning' = instrument numbers, not a quotation. A planet that does not cross its star gives no transit at all.
+a066bf31b8	3  Methods. Stars in full frames is not a planet method: what it measures, against transit and direct imaging
+ecdda59aea	Item
+8405fc8a29	What is measured
+3f43a2e486	Input data
+8d94070b0c	Finds planets?
+ee41e479b4	one star, 2 min
+6ca7463f9f	the dip in the star's flux when a planet crosses
+e5a239c1e2	image cutouts → 1-D light curve
+aaea219eed	<b>Yes</b>, indirectly
+cef862b514	the planet itself
+444073838e	photons from the planet, the star's light suppressed
+94396cda05	images with a coronagraph, small pixels
+28e572795a	<b>Yes</b>, directly
+c74d79e5d5	star position
+559c1e2306	the wobble of the star's position among reference stars
+d9a0e23ce4	image series, sub-pixel centroids
+1d31ddf0ec	Yes, but not with TESS
+4f7594ff3a	any star in the 24° × 96° field
+63857e22d8	brightness of every star: binaries, novae, flares, variables
+f5190e0efc	full-frame image series
+88e452801c	<b>No</b>: stellar science; it also extends the transit search
+5a949f2ab6	Ricker Sec 8.4 is titled ‘Full Frame Images’ (Ricker p. 13); our row name is a short label for it. ‘Star in frames’ is not a standard term.
+7082d01db0	Source: Ricker 2015 Sec 8.4, pp. 13 and 14; NASA Exoplanet Archive; our measurements
+7fbada8c0b	3  Methods. One image series, three uses: differential photometry, centroiding, and calibration for imaging
+05c78846f8	Differential photometry
+cfd6ce3a13	The flux of the star falls by (R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> when a planet crosses it. TESS: yes; this is all ten of our planets, 23 to 170 points per transit.
+249bbb516c	The (x, y) position of the star moves when a blended star dips, or when a planet pulls the star. TESS uses it as a test (Ricker Sec 8.2: transit-specific image motion). We measured shifts of at most 0.027″.
+23aed4032d	Calibration for imaging
+3d0a338077	A coronagraph hides the star; short unsaturated frames of the star still locate its centre so that its diffraction halo can be subtracted. TESS has no coronagraph.
+685d9328fd	The same frames serve very different methods; what changes is what is measured on them.
+db7f4c7b98	Source: Ricker 2015 Sec 8.2; our centroid test (code/33_checkpoint_facts.py)
+35d7aded09	3  Methods. Indirect against direct: nature, object measured, hardest part, who is found, what it gives
+207ef8d9ab	Star in frames: transit, astrometry
+70447acf43	Physical nature
+d2c0ccc9d0	indirect: the planet changes the star (blocks it, pulls it)
+cb2a0a50dd	direct: photons from the planet itself
+25dc779d47	total flux or centroid of the <b>star</b>
+64350d9277	a point of light of the <b>planet</b>, star suppressed
+ec61084274	Hardest part
+8606062e1a	precision: 60 ppm per hour is the assumed noise floor (Ricker p. 12)
+42335e5b79	contrast: Jupiter at 5.2 AU gives 2.5 × 10<sup>−9</sup>, Earth at 1 AU 5.5 × 10<sup>−10</sup> (A<sub>g</sub> = 0.3, ours)
+896b9e5cc5	Who is found
+fa66cd9ba6	close-in planets: TESS discoveries have median P = 5.7 d, a = 0.06 AU
+6f218bb235	wide young giants: imaged planets have median a = 151 AU
+ec7fb89012	What it gives
+2d821e58b7	R<sub>p</sub>/R<sub>★</sub>, period, inclination; mass only with partners
+6c65b27634	the planet's own spectrum: temperature, composition, clouds
+892c62a471	Archive numbers: confirmed planets, 2026-11-21 (data/raw/pscomppars_imaging_and_tess.csv); 1027 TESS discoveries, 99 imaged planets. Contrasts are computed, not quoted.
+391f4a91d4	Source: Ricker 2015 Sec 8.1; archive TAP query of 2026-11-22; Bowler 2016; our arithmetic
+b52ac5a2d0	3  Methods. One set of cameras, two data products: postage stamps at 2 min, full frames at 30 min, 10 min, 200 s
+dd3b86d1ef	Product
+e3cd27f523	What is kept
+68af11f073	Cadence
+8cd9919445	Used here
+07b6caa6ff	Target pixel files and light curves
+f7c9f673f5	a cutout around each pre-selected star (about 200 000)
+d86a300b13	2 min; 20 s since the first extended mission
+ecdf701097	<b>Yes</b>
+09c0a03de3	Full-frame images
+fe1cf44d4a	the whole field of each camera
+8b8a4d807b	30 min (cycles 1–2), 10 min (3–4), 200 s (5+)
+52edeabd95	Same hardware
+0589844689	Four identical cameras (Ricker p. 5); each is four CCDs forming 4096 × 4096 pixels (Ricker p. 6). Frames of 2 s are summed in groups of 60 into the 2-min cadence (Ricker p. 7). There is no separate imaging camera.
+da9e9ad400	Why full frames matter
+38ea8b0e36	They extend the transit search to any bright star in the field, selected or not (Ricker p. 13); give about 10<sup>6</sup> objects per image and about 20 million over two years (Ricker p. 14); and candidates found there can get 2-min cadence later (Ricker p. 13).
+b4e614e0e7	We did not use them: all ten planets already have 2-min SPOC light curves.
+a557746fab	Source: Ricker 2015 Sec 4.2, 4.3, 8.4 (pp. 6, 7, 13, 14); NASA HEASARC data products page
+6a13fedbae	3  Methods. Tick the methods: what TESS does alone fits all four of its numbers
+e592705ec5	Number that decides
+85a210dfe7	p ≈ 5 % (Ricker); 23–170 points per transit
+b9fad751f6	Secondary eclipse, phase curve
+04c5fceb46	WASP-18 b: 29 orbits in one sector
+d7c3834dfe	False-positive vetting
+c12a0b7e3e	centroid error about 10<sup>−4</sup> pixel, measured
+ec81ff3cc8	Nyquist 4 167 µHz above the Sun's ν<sub>max</sub> 3090
+9433efea0e	about 10<sup>6</sup> objects per image (Ricker)
+b9bd961e18	Click a box to dim a row. The four numbers: field of view 24° × 96°, pixel 21″, cadence 2 min (20 s, 200 s), a 27.4-d sector. The reading is ours; each row has its own slide.
+9293af6148	Source: reading by us from the instrument numbers of Ricker 2015 (Table 1, Sec 3.5, 7.2) and our files
+068b04d3b7	3  Methods. Tick the methods: with a partner, and what TESS cannot do, with the factor that fails
+770c0186a2	Mass: radial velocity
+f3dfae4971	needs a spectrograph; the payload is cameras
+e1122725ea	Confirmation: ground imaging
+3d3a1983b8	21″ pixel; LTT 1445 companions at 5–7″
+2ea502b5cc	Transit timing (TTV)
+114bd922b0	timing measured; mass needs a model
+c7db4df8d2	needs a spectrum; one band only
+76499f44e4	Stellar radius: Gaia
+922a5af5e4	a parallax measurement
+fb80512728	0.1–5.5 mas against a 21″ pixel
+1439ac6276	wobble far below one pixel
+a1070e1ee5	bulge at the 6° edge; crowded; no stare
+fdcba9968a	radio and millimetre; TESS is optical
+49e71e0a6b	27.4-d sector; P<sub>max</sub> about 10 d (Ricker)
+19bf8be583	✓ fits, ✗ does not fit, ~ partly, – not the deciding number. Our reading from the instrument numbers.
+ecc2f5f9d9	3  Methods. Transit photometry and the four numbers: many stars, a coarse pixel, 2-min points, a sector of 27 days
+80d1714176	1  Field of view
+ae630d6bce	<b>Needs:</b> hundreds of thousands of stars: the geometric probability is only about 5 % (Ricker p. 4), at least 500 stars per super-Earth (Ricker p. 4)<br/><b>TESS:</b> 24° × 96° = 2300 deg², at least 200 000 targets
+e3d0dfd573	2  Spatial resolution
+fc0ec9a1d2	<b>Needs:</b> no need to separate planet and star, only to collect the star's light<br/><b>TESS:</b> 21″ pixels; our apertures 13 to 31 pixels; CROWDSAP down to 0.42
+d04dfa8381	3  Temporal resolution
+25de3c8ca2	<b>Needs:</b> a point every few minutes through a dip of hours<br/><b>TESS:</b> 0.8 to 5.7 h transits: 23 to 170 points at 2 min
+a8605d25ce	4  Revisit time
+ff158415e6	<b>Needs:</b> two transits at least, to give a period<br/><b>TESS:</b> 27.4 d sector: 4.5 to 98 transits for P = 6.1 to 0.28 d
+311babbc61	The survey numbers (wide field, coarse pixel) are exactly what a low transit probability asks for.
+bccfb61c62	Source: Ricker 2015 Sec 3.5, Table 1; our fits (results/checkpoint_geometry.csv)
+39aef0867c	3  Methods. Phase curve and secondary eclipse and the four numbers: bright hot hosts, one pixel, 2 min, many orbits
+25e566bd0e	<b>Needs:</b> a rare planet: very hot, giant, close, around a bright star<br/><b>TESS:</b> 2300 deg² gives WASP-18 (T mag 8.8) and a few like it
+0e8e433dd0	<b>Needs:</b> star and planet in the same aperture, the total flux of the system<br/><b>TESS:</b> separation 0.16 mas against a 21″ pixel: always blended, as wanted
+4a75404829	<b>Needs:</b> enough points to bin down to tens of ppm over a 0.94-d orbit<br/><b>TESS:</b> 2 min gives 678 points per orbit; we measured 352 ± 9 ppm at phase 0.5
+48ce2f4446	<b>Needs:</b> many consecutive orbits without a day-night gap<br/><b>TESS:</b> 29 orbits in 27.4 d, uninterrupted except for the downlink gap
+810c5432af	The phase curve uses the coarse pixel as an advantage: nothing is lost outside the aperture.
+8c6ffc4ccb	Source: Ricker 2015 Table 1; Shporer 2019; our fits and phase-0.5 measurement
+ec9e9e7362	3  Methods. False-positive vetting and the four numbers: neighbours, sub-pixel centroids, equal sampling, enough transits
+8e005f1752	<b>Needs:</b> neighbouring stars in the same field to compare against<br/><b>TESS:</b> the stamp holds the target and its neighbours; CROWDSAP tells how many
+d6589a569a	<b>Needs:</b> sub-pixel position of the light centre<br/><b>TESS:</b> centroid error 0.0010 to 0.010″ per planet, measured
+e57b46c011	<b>Needs:</b> the same sampling for odd and even transits<br/><b>TESS:</b> one 2-min cadence for all; odd-even test done on the ten
+3d18c3ccc9	<b>Needs:</b> several transits of each parity<br/><b>TESS:</b> 4 to 84 transits per planet
+4f9c62a671	Vetting uses the pixel grid as information: where the light sits, not what the planet looks like.
+a5ab56e31c	Source: SPOC centroids (MOM_CENTR1, 2) of our files; our fits (results/checkpoint_vetting.csv)
+6da1de096d	3  Methods. Asteroseismology and the four numbers: many bright stars, disc-integrated light, 2 min or 20 s, long stares
+c0a1e79ff1	<b>Needs:</b> many bright stars of every age<br/><b>TESS:</b> p-modes expected on about 6 000 stars (Ricker p. 12)
+b0f5c7aa9d	<b>Needs:</b> only the total light of the star<br/><b>TESS:</b> disc-integrated brightness: the 21″ pixel does no harm
+fe35f8a144	<b>Needs:</b> a Nyquist frequency above ν<sub>max</sub> of the star<br/><b>TESS:</b> 2 min: 4 167 µHz; 20 s: 25 000; 30 min: 278 (too low for Sun-like stars)
+93d050f85d	<b>Needs:</b> long uninterrupted data: frequency resolution = 1/T<br/><b>TESS:</b> 27.4 d: 0.42 µHz; over 300 d near the poles: below 0.039 µHz (Ricker p. 11)
+c467e1577e	The fast cadence is the decisive number here; full frames at 30 min cannot see Sun-like p-modes.
+852b082cb7	Source: Ricker 2015 Sec 7.2, 8.3; Huber 2011 Sec 2; Nyquist and resolution computed
+3d67157db7	3  Methods. Stars in full frames and the four numbers: a million objects per image, coarse pixels in sparse fields, 30 min to 200 s
+e6479f0cd0	<b>Needs:</b> the whole field, no pre-selection<br/><b>TESS:</b> Ricker p. 13: any bright star in 2300 deg²
+a9f89901cd	<b>Needs:</b> separate stars from their neighbours<br/><b>TESS:</b> 21″ works where stars are sparse; limited where crowded (our reasoning)
+9e82e4e584	<b>Needs:</b> events of minutes to weeks: flares, eclipses, novae (our reasoning)<br/><b>TESS:</b> 30 min, then 10 min, then 200 s
+077a83f672	<b>Needs:</b> a continuous record through each event<br/><b>TESS:</b> 27.4 d per sector, 2 years for the whole sky
+b1998b67fe	Full frames trade a longer cadence for coverage of every star, which is what variable-star work wants.
+bb3f6ca358	Source: Ricker 2015 Table 1, Sec 8.4; NASA HEASARC data products page
+ff4844c152	3  Methods. Input data: from an image cube I(x, y, t) to a light curve F(t), with SAP and PDCSAP
+05368f88ac	A: optimal-aperture pixels; B: sky background. Checked on π Men c: the sum of the 45 aperture pixels equals SAP_FLUX.
+004f6e685e	U<sub>j</sub>: cotrending basis vectors; C = CROWDSAP; f = FLFRCSAP. Divide by f only, not by C × f.
+4a7c7aafb4	Check on our files
+8dce170de2	Value
+f1af5ee632	median PDCSAP / median SAP against CROWDSAP / FLFRCSAP, 20 files
+63b5006947	agree within 0.34 %
+5f1d7f4e73	LTT 1445 A b: measured; C / f; the form with C × f in the divisor
+44b9fe3443	Input type: a 3-D image cube (11 × 11 pixels per stamp, or 4096 × 4096 per camera), compressed to a 1-D series; then f(t) = F<sub>PDCSAP</sub> / median.
+8852913c98	Source: STScI TESS archive manual; SPOC headers of our files; code/33_checkpoint_facts.py
+28beabce0d	3  Methods. Transit photometry, step by step: fold, search, fit, then radius, geometry and stellar density
+b1e4a16ad6	φ = ( (t − T<sub>0</sub>) mod P ) / P ;  BLS strength = √[ n<sub>in</sub>n<sub>out</sub> / (n<sub>in</sub> + n<sub>out</sub>) ] ( ⟨f⟩<sub>out</sub> − ⟨f⟩<sub>in</sub> ) / σ
+a98f655674	1. Fold on a trial period; the best (P, T<sub>0</sub>, duration) is the BLS peak. Input: the 1-D series f(t).
+96427688bd	z(t) = (a/R<sub>★</sub>) √[ sin<sup>2</sup>θ + cos<sup>2</sup>i cos<sup>2</sup>θ ] ,  θ = 2π(t − T<sub>0</sub>)/P ;  I(μ) = I<sub>0</sub> [ 1 − u<sub>1</sub>(1 − μ) − u<sub>2</sub>(1 − μ)<sup>2</sup> ]
+d55a4a24aa	2. Mandel-Agol model with quadratic limb darkening, fitted by MCMC (our pipeline).
+45a9b3cc78	δ ≈ (R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> ,  R<sub>p</sub> = R<sub>★</sub> √δ ;  b = (a/R<sub>★</sub>) cos i
+f49bd242ee	3. Radius. Example HD 118203 b: R<sub>p</sub>/R<sub>★</sub> = 0.0553, R<sub>★</sub> = 2.04 R<sub>☉</sub> gives 12.30 R<sub>⊕</sub>.
+f90bec3b93	a/R<sub>★</sub> = √[ (1 + k)<sup>2</sup> − b<sup>2</sup> cos<sup>2</sup>(πT<sub>14</sub>/P) ] / sin(πT<sub>14</sub>/P) ;  ρ<sub>★</sub> = 3π (a/R<sub>★</sub>)<sup>3</sup> / (G P<sup>2</sup>)
+66a38d064c	4. Geometry and density. The form without the cos<sup>2</sup> term is off by up to 2.8 % (LTT 9779 b); the exact form returns b and a/R<sub>★</sub> from our fits to 10<sup>−13</sup>.
+90330b5d16	Source: Mandel and Agol 2002; Winn 2010 form of the duration; checked on our fits (code/33)
+aeb2f87229	3  Methods. Transit numbers of our ten planets: probability, duration, points per transit, transits per sector, density
+f138bb4409	Transits / sector
+0aea5ad63d	ρ<sub>★</sub> fit / catalog (g cm<sup>−3</sup>)
+58db7261a6	R<sub>★</sub>/a = 1/(a/R<sub>★</sub>) of our fit. T<sub>14</sub> from our fit by the exact formula; points = T<sub>14</sub>/120 s; density from the fit and from catalog M<sub>★</sub>/R<sub>★</sub><sup>3</sup> (solar density 1.41).
+fd4d09abad	Source: our fits (results/checkpoint_geometry.csv); catalog M and R from the NASA archive
+302ac76e3f	3  Methods. Phase curve and secondary eclipse, step by step, with WASP-18 b: reflected light, thermal light, day-side temperature
+2db29a0f53	cos α = −sin i cos(2π(t − T<sub>0</sub>)/P) ;  f = 1 − δ<sub>transit</sub> + F<sub>planet</sub> + F<sub>ellip</sub> + F<sub>beam</sub>
+0193a14423	Input: the 1-D series folded on P; α = 0 at the secondary eclipse.
+2c041d63d8	F<sub>refl</sub> = A<sub>g</sub> (R<sub>p</sub>/a)<sup>2</sup> [ sin α + (π − α) cos α ] / π ;  F<sub>therm</sub> = F<sub>night</sub> + (F<sub>day</sub> − F<sub>night</sub>)(1 + cos α)/2
+d3a54f1689	δ<sub>sec</sub> = A<sub>g</sub>(R<sub>p</sub>/a)<sup>2</sup> + k<sup>2</sup> ∫B<sub>λ</sub>(T<sub>day</sub>)W dλ / ∫B<sub>λ</sub>(T<sub>eff</sub>)W dλ
+c09800112b	W: TESS response, here flat from 600 to 1000 nm (ours).
+07a4f847c9	k = 0.0986, a/R<sub>★</sub> = 3.455, T<sub>eff</sub> = 6432 K
+c64d1cf015	(R<sub>p</sub>/a)<sup>2</sup> = 814 ppm
+7b18b985b6	all of 341 ppm reflected would need A<sub>g</sub>
+c2c5090582	0.42, but limit &lt; 0.048 (Shporer p. 1)
+b4777480be	T<sub>day</sub> from 341 ppm (paper) | 352 ppm (ours)
+814a6998d4	Source: Shporer 2019; our flat-band Planck solution (code/33_checkpoint_facts.py)
+9c37208aee	3  Methods. False-positive vetting, step by step: odd-even depth, ellipsoidal and beaming signals, centroid shift
+937e002a3b	Z = | δ<sub>even</sub> − δ<sub>odd</sub> | / √[ σ<sub>even</sub><sup>2</sup> + σ<sub>odd</sub><sup>2</sup> ]
+1b05013bc1	Input: the 1-D series. Z &gt; 3 suggests an eclipsing binary at twice the period. Our result: slide on odd against even.
+a468a1a402	F<sub>ellip</sub> = −A<sub>ellip</sub> cos 4πφ ,  A<sub>ellip</sub> ∝ (M<sub>p</sub>/M<sub>★</sub>)(R<sub>★</sub>/a)<sup>3</sup> sin<sup>2</sup>i ;  F<sub>beam</sub> = A<sub>beam</sub> sin 2πφ
+138b68f99d	Input: the series folded on P. Shporer 2019 measured both for WASP-18 b; we did not.
+860f103056	X<sub>c</sub> = Σ x [I − B] / Σ [I − B] ,  Y<sub>c</sub> likewise ;  ΔR<sub>c</sub> = √[ (X<sub>in</sub> − X<sub>out</sub>)<sup>2</sup> + (Y<sub>in</sub> − Y<sub>out</sub>)<sup>2</sup> ]
+385bc4cb52	Input: the <b>images</b> (flux-weighted centroids of the stamp; SPOC stores them as MOM_CENTR1 and 2). A shift &gt; 3σ points to a blended star.
+b62e60da4b	The centroid test is the one the first version of this deck listed as not done; it is done on the SPOC centroids of the ten planets (next slide).
+ae67b13622	Source: Ricker 2015 Sec 8.2; Shporer 2019 (ellipsoidal, beaming); SPOC centroid columns
+fee4e10b35	3  Methods. Vetting results for our ten: odd-even in sigma, and the centroid shift in 10<sup>−3</sup> pixel and arcseconds
+a2790d1628	Odd-even (σ, with β)
+f8e29dddba	Transits
+32af9b461b	Largest |shift|/error
+f8c9ee17a1	ΔR<sub>c</sub>: mean in-transit minus local out-of-transit centroid (MOM_CENTR1, 2) over the transits used; the last column uses white-noise errors. HD 189733 b (8.8) is the only one over 3; a shift is expected when CROWDSAP is below 1, and we do not interpret it further.
+3c4a1435c5	Source: results/checkpoint_vetting.csv and figures/paper/figure_stats.json (odd-even)
+a9dd345d13	3  Methods. Asteroseismology, step by step: power spectrum, ν<sub>max</sub> and Δν, then stellar radius and mass
+c7813eee4c	P<sub>LS</sub>(ν) = (1/2σ<sup>2</sup>) { [ Σ(f − ⟨f⟩) cos 2πν(t − τ) ]<sup>2</sup> / Σ cos<sup>2</sup> + [ Σ(f − ⟨f⟩) sin 2πν(t − τ) ]<sup>2</sup> / Σ sin<sup>2</sup> }
+63aa2a24db	Lomb-Scargle spectrum of the 1-D series (gaps allowed). Input: 2-min or 20-s series, at least one sector.
+ed1b3e0222	ν<sub>max</sub>: centre of the bell-shaped excess of power; Δν: spacing, from the autocorrelation of the spectrum.
+c6aebe28cb	R<sub>★</sub>/R<sub>☉</sub> = (ν<sub>max</sub>/ν<sub>max,☉</sub>) (Δν/Δν<sub>☉</sub>)<sup>−2</sup> (T<sub>eff</sub>/T<sub>eff,☉</sub>)<sup>1/2</sup> ;  M<sub>★</sub>/M<sub>☉</sub> = (ν<sub>max</sub>/ν<sub>max,☉</sub>)<sup>3</sup> (Δν/Δν<sub>☉</sub>)<sup>−4</sup> (T<sub>eff</sub>/T<sub>eff,☉</sub>)<sup>3/2</sup>
+64c4383acf	Solar references ν<sub>max</sub> = 3090 µHz (Huber p. 2), Δν = 135.1 µHz (Huber p. 2).
+34290f6370	We did not do this; it is the route to a stellar radius that does not depend on Gaia, which would tighten the 1 to 7 % radius error of our ten planets.
+f3c43bf071	Source: Huber 2011 (solar references, scaling relations); Kjeldsen and Bedding 1995
+3d261b6d35	3  Methods. Stars in full frames, step by step: difference imaging, flare energy, variable-star periods
+75de8c86f0	R: a reference image (median of good frames); K: a kernel matching the PSF. What remains in D are sources that changed. Input: <b>image cubes</b> of 4096 × 4096 pixels.
+9a4f4c2cb2	E<sub>flare</sub> = L<sub>★,TESS</sub> ∫ [ F(t) − F<sub>0</sub> ] / F<sub>0</sub> dt
+a0d1ba51b2	L<sub>★,TESS</sub>: luminosity of the star in the TESS band; the integral is the equivalent duration. Input: a 1-D series per star.
+1a00a64654	period of a variable star: peak of P<sub>LS</sub>(ν), or the phase with the least dispersion (PDM)
+955b7a5d5f	Input: a 1-D series per star, from FFI pipelines: QLP (Huang 2020) and eleanor (Feinstein 2019); difference imaging: Oelkers 2018.
+5f791a5c0b	The checkpoint notes wrote the flare energy as 4πd<sup>2</sup>L × integral; the integral is already a time, so E = L × equivalent duration.
+1859270a6d	Source: Huang 2020 (QLP); Feinstein 2019 (eleanor); Oelkers 2018; Alard and Lupton 1998 for the kernel form
+3dfacf9d19	3  Methods. Direct imaging, the geometry: all ten planets lie within 0.03 % of one TESS pixel from their star
+59b10e52bd	θ = a / d. Our ten: 0.12 to 5.5 mas; one pixel is 21″ = 21 000 mas.
+d504a2313f	In one pixel
+967fe1c92a	largest: LTT 1445 A b, 5.5 mas = 0.026 % of a pixel
+972881fe6e	Jupiter at 5.2 AU, star at 10 pc: 0.52″ = 2.5 % of a pixel; HR 8799 b: 68 AU at 39.4 pc = 1.7″ (Marois p. 4)
+297455db83	Source: archive a and distance; Marois p. 4 (2008); Ricker 2015 Table 1
+fc1c84a1e3	3  Methods. Direct imaging, PSF and contrast: the star's halo, the planet's faintness, and no coronagraph
+94a9c08139	50 % of the light in one pixel, 90 % in 4 × 4 pixels = 1.4′ (Ricker p. 7): a planet within 40″ lies in the halo. Diffraction limit of a 10.5 cm lens: 1.9″ at 800 nm, so the wide PSF is by design.
+f75a43db52	Reflected light is A<sub>g</sub>(R<sub>p</sub>/a)<sup>2</sup>: Jupiter at 5.2 AU 2.5 × 10<sup>−9</sup>, Earth at 1 AU 5.5 × 10<sup>−10</sup> (A<sub>g</sub> = 0.3, ours). Our ten hot planets: 7.2 × 10<sup>−7</sup> to 2.7 × 10<sup>−4</sup>, but too close to resolve.
+5d763a861f	No coronagraph
+07e2bbcae5	Payload: four cameras and a data handling unit (Ricker p. 5). JWST uses a coronagraph at 2.7 and 4.44 µm (Gardner p. 47). Imaging is hard: small separation and large contrast together (Marois p. 1).
+ba0647b51f	Two walls at once: the planet is inside one pixel, and it is about a billion times fainter than its star.
+34b8c79074	Source: Ricker 2015 Table 1; Marois 2008; Gardner 2006; contrasts computed (A_g = 0.3 assumed)
+97e0c0a4d9	3  Methods. Direct imaging, the wavelength: TESS sees reflected light at 0.6–1 µm, young giants glow at 2–20 µm
+c87f45e216	Bands of the missions in this deck. Shaded: thermal infrared.
+578d77fe88	Why the infrared
+00d59d981e	a 1000 K, Jupiter-size planet round a Sun-like star: contrast 3.5 × 10<sup>−9</sup> at 0.8 µm, 2.0 × 10<sup>−5</sup> at 2 µm, 3.2 × 10<sup>−4</sup> at 4.4 µm (Planck, ours)
+57efe77cfe	Source: Ricker, Koch, Rauer, Ivezic, Akeson, Gardner (checkpoint_sources.csv); Planck function, our assumptions
+e4f93dac83	3  Methods. Direct imaging, how much resolution is enough: a pixel of 0.005″ to 3.5″ and a mirror of 0.4 to 22 m
+dd6d4aec46	θ needed
+06b9c9af4c	Pixel at most half of θ: 0.005″ to 3.5″, which is 6 to 4 200 times finer than TESS's 21″; and coronagraph plus adaptive optics on top (Marois used AO on Keck and Gemini).
+fcbe15dce9	Source: our arithmetic (theta = a/d, D = 1.22 lambda / theta); Marois 2008 for the use of adaptive optics
+db15c0a9f3	3  Methods. Spatial against temporal resolution: the trade is field of view, not cadence
+b6109da2f7	Fixed pixels: FOV = N × scale<sup>2</sup>
+02869ed763	TESS: 4 × 4096<sup>2</sup> pixels × (21″)<sup>2</sup> = 2 284 deg² (quoted 2300). JWST NIRCam, one module: 0.0012 deg². Ratio 1 835 588. A pixel 10 times finer means 100 times less sky.
+9f243b4560	Cadence on the target
+e82228c49f	Once a telescope stares at one star, it can read fast. A planet is so faint that photons arrive slowly, so the science image needs a long exposure (our reasoning): hours of integration, not a faster frame rate.
+08cbfbff88	What is given up
+7ff52a9e13	A narrow field images one star at a time: the sky survey rate falls by the field ratio, millions of times. Better detectors do not remove the trade: etendue, area times field, is conserved (our reasoning).
+b98bed12db	Instruments with fine pixels give up sky coverage and revisit rate, not the speed of a frame.
+58ff434b7b	Source: Ricker 2015 Table 1; STScI JDox; our arithmetic (FOV = N x scale squared)
+24e929fd5c	3  Methods. Does imaging need TESS? Only for stars and atmospheres, not for planets: the two populations hardly overlap
+770b54649d	TESS discoveries
+22c826a206	Imaged planets
+844099680c	Number in the archive
+8b41c6c8ed	Median semi-major axis
+fad80a1b8d	Median period
+63c477e11d	On the other side of 1 AU
+cde06589e8	2 planets have a &gt; 1 AU
+7e3df15af2	1 planet has a &lt; 1 AU
+d8f08b6f6a	What imaging uses
+3ac8c05f43	Young, nearby stars, for example in moving groups (Bowler p. 3), with positions from catalogs such as Gaia; not a map made by TESS.
+9adcca72ef	Where TESS does help
+a970fe3eee	Atmospheres: the ecliptic poles are the best places for JWST follow-up (Ricker p. 1); the TESS input catalog is built on Gaia DR2.
+0b163e8cce	Source: NASA Exoplanet Archive TAP query of 2026-11-21; Bowler 2016; Ricker 2015 abstract; NASA HEASARC
 dee584594b	4  TESS. The satellite in nine numbers
 5d1686693d	Design value
 b6c22d03ac	Orbit
@@ -273,16 +519,12 @@ d2f6db497b	Good cadences (quality flag 0, finite flux) in each of our 21 SPOC fi
 b006224362	one transit lasts 0.4 to 5.6 h = 11 to 169 cadences
 240b2c6615	Source: Ricker et al. 2015, Sec 4.3 p. 7; headers of our 21 SPOC files (results/tess_files.csv)
 8c3fcbe451	4  TESS. Data products: 2-min light curves from the start; full frames every 30 min, then 10 min, then 200 s
-dd3b86d1ef	Product
-68af11f073	Cadence
 7c62a14244	Available
-8cd9919445	Used here
 d0222e22bc	SPOC light curve, target pixels
 12fc2c560c	From sector 1
 0ce24a663f	<b>Yes</b>: all 21 files (PDCSAP flux)
 3cd0a278cb	SPOC fast light curve
 33693265fb	First extended mission, from sector 27
-09c0a03de3	Full-frame images
 d3ddf7a34d	30 min
 0e640bbe83	Years 1 and 2 (sectors 1 to 26)
 4605ee7759	10 min
@@ -294,7 +536,6 @@ d3ddf7a34d	30 min
 f5b1ab76f7	BTJD = BJD<sub>TDB</sub> − 2 457 000 d. Each cadence is the sum of 60 frames; flux units are e<sup>−</sup>/s.
 740c7b0f07	Source: NASA HEASARC, STScI TESS archive manual, MIT TESS Science Office (copies in data/raw/tess_docs/, 21 Nov 2026)
 02b0c109cf	4  TESS. Resolution: one pixel is 21″ = 0.0058°, and 90 % of a star's light lands within 1.4′
-8dce170de2	Value
 d49f8e1425	15 µm = 0.35′ = 21″ = 0.0058° (171 pixels per degree)
 8d93236a68	WCS in our files: 19.1 to 21.1″
 6ec1ca2cbc	One camera
@@ -425,12 +666,123 @@ ee98c69b3a	Al Jazeera, 11 August 2026
 31ded84042	aljazeera.com/economy/2026/8/11/vietnams-vinspace-announces-deal-wit…
 826d9a514b	Vietnam's 2027 launch is a SpaceX rideshare
 ecae60d74d	Copies in data/raw/tess_docs/; each quoted phrase was found in the saved page.
+b9aea42426	4  TESS. What was launched: one satellite, four cameras, sixteen CCDs, one band
+66e12969c2	Count
+7cc1211689	1, launched 18 April 2018 by SpaceX Falcon 9 from Cape Canaveral
+09af6cd62a	4 identical; each with 7 lens elements, f/1.4, pupil 10.5 cm
+a2b58b6b69	16 (4 per camera); each camera is 4096 × 4096 pixels, the satellite 67.1 million imaging pixels (computed)
+a97be418d8	Wavelength band
+9f3362e218	one band, 600 to 1000 nm: long-pass filter × CCD response
+79b7c66fcb	Data products
+2a3b5a21cb	2 kinds of images (stamps, full frames) and the light curves, cotrending vectors derived from them
+687b412925	STScI manual
+696686e11a	Instruments that are not there
+d6b7cab64e	no spectrograph, no coronagraph
+4734f694f4	‘How many types of satellites?’ One: TESS is not a constellation. The other missions of our project are on the next slide.
+be4419945e	Source: Ricker 2015 Sec 4, 4.2, Table 1; NASA Science TESS page; MIT News
+167e94495f	4  Missions behind our ten planets: 4 found from space (TESS, K2), 6 from the ground
+4eb2549033	Discovered with
+cd12af96fa	ground
+53d366bb66	Transit
+0803df4ff1	space
+e8a6bcf9b1	From the NASA Exoplanet Archive, table pscomppars. All ten are re-measured here with TESS SPOC light curves. Other missions in this deck: Kepler, CHEOPS, Gaia (parallaxes behind the TESS input catalog), JWST and HST (atmospheres).
+e2bdc3a237	Source: NASA Exoplanet Archive pscomppars (disc_facility, discoverymethod, disc_year)
+0f4cade745	4  TESS. The wavelength range against the other missions: one band, 600 to 1000 nm
+06384bdea0	Wavelength coverage; TESS in red. Sources: Ricker, Koch, Rauer, Ivezic, Akeson, Gardner (checkpoint_sources.csv).
+457e4133bd	A single band keeps the camera simple and sensitive to cool red stars; it gives no colour and no spectrum.
+59c2b7b37f	Source: data/literature/checkpoint_sources.csv (verified quotes with PDF pages)
+c701bff0a0	4  TESS. A single pixel is 21″: how it follows from the optics, and how it compares with other missions
+72a7df6b1f	scale = (p / f) × 206 265″ = (15 µm / 147 mm) × 206 265″ = 21.05″
+63da3c804d	f = 10.5 cm × 1.4 = 147 mm; our files: 19.1 to 21.1″; 4096 × 21″ = 23.9°.
+5419732bfa	Pixel scale
+b176f02ad6	Times finer than TESS
+c2c4e6c2c9	PLATO (2014 design)
+999c812f4f	0.031″ and 0.063″
+8eb9630492	677 and 333
+bebf983949	Source: Ricker 2015 Sec 4.1, Table 1; Koch 2010; Rauer 2014; Gaia paper 2016; Ivezic 2019; Akeson 2019; STScI JDox
+73b2d9653c	4  TESS. The aperture grids are images: stamp, mask, sum, and the crowding that dilutes the transit
+36ba3d5f28	A target pixel file: an 11 × 11 image every 2 min. The grid shows which pixels were summed.
+9d49f2ceba	What it is for
+f94fcfbaee	The dark pixels summed give the star's light curve; neighbours in the mask dilute the dip.
+30cb197796	What CROWDSAP says
+c245652687	The share of mask flux from the target: LTT 1445 A b 0.42. Ignoring it shrinks R<sub>p</sub> by √2.38 = 1.54.
+131f70e919	PDCSAP depth / SAP depth (measured)
+88fc8ee873	Source: SPOC headers (CROWDSAP, FLFRCSAP) and light curves of our files; Winters 2021 for LTT 1445
+d17c2dc1c6	4  After TESS. Trade-offs of the next telescopes: field of view, pixel, cadence, revisit time
+1a9c010ef4	24° × 96° = 2300 deg²
+3241137691	120 s, 20 s; full frames 30 min, 10 min, 200 s
+c36e169509	27.4 d per sector; 2 yr for the sky
+2e566826d0	Kepler (reference)
+9eb96a2860	115 deg²
+e400d42194	1765.8 s and 58.9 s
+fab253cc73	one field, continuous
+08340e8b11	2232 deg²
+c79a3904f0	25 s and 2.5 s
+44cd4c0116	long stare; launch: ESA, end of 2026
+c355e95736	0.281 deg²
+6d1e165db5	15 min (bulge survey)
+92184af843	72-day seasons; launched 30 Aug 2026
+597b856da6	9.6 deg²
+5ee9f0bc0b	30 s per visit
+92d3a52529	every 3 d on average
+f8fb1a9b97	a few arcmin² per module
+9d35c8c8c8	set by the observer
+08b5a24214	pointed, no automatic repeat
+fd5fb06f79	PLATO: 26 cameras on the ESA page of 2026, 34 telescopes in the 2014 paper; another ESA item says early 2027, so the date is not settled here.
+3aec2d36b7	Source: Ricker, Koch, Rauer, Akeson, Ivezic; STScI JDox; ESA PLATO page and NASA Roman blog, saved 22 Nov 2026
+ca0cee9fc6	4  After TESS. The rule behind the table: FOV ∝ N × scale², staring against scanning, SNR ∝ D√t
+a29c17ad62	Diagonals: fixed numbers of pixels. TESS, Kepler, PLATO, Roman, Rubin, JWST: pixel scale against field of view.
+36b06e494e	Three rules
+b9cfaf8755	FOV = N × scale<sup>2</sup> gives the quoted fields: TESS 2284 / 2300, Kepler 116 / 115, Roman 0.281 / 0.281, Rubin 9.9 / 9.6 deg²
+f7e65269b3	staring (TESS, PLATO): fast cadence, rare return; scanning (Rubin): frequent return, sparse sampling (our reading)
+a1327e58d7	SNR ∝ D√t: half the mirror needs four times the exposure
+972eb81883	Source: pixel counts and scales of the table, computed; quoted fields in checkpoint_sources.csv
+0a464da12e	4  Sources. What the checkpoint notes got right, and what we corrected, part 1
+16106ca0c0	Claim in the notes
+4b5e84be0e	Check
+36ad0e85e4	‘Stars in full frames’ is a heading of the TESS paper
+eb2d5a1ee7	label shortened by us
+9609eea015	Full frames hold tens of millions of stars
+b099dbe0e5	about 10<sup>6</sup> objects per image, about 20 million in two years (Ricker p. 14)
+7cc73f637d	corrected
+a0499ce2c2	PDCSAP = (flux − (1 − C) mean) / (C × f)
+8356a67286	median PDCSAP/SAP = C/f within 0.34 % on 20 files
+640ce75da9	divide by f only
+b135752c77	a/R<sub>★</sub> = √[(1+k)<sup>2</sup> − b<sup>2</sup>] / sin(πT<sub>14</sub>/P)
+507cebedd5	exact form with cos<sup>2</sup> term; shortcut off by up to 2.8 %
+1f20c10a8e	1 027 planets was a pre-launch forecast
+003d44b5d5	it is the archive count of planets discovered by TESS on 2026-11-21; Ricker expects thousands below Neptune size
+8f7e6e349a	471 is a catalog of planets with masses
+33949f5e79	471 is our shortlist after the cuts T mag &lt; 11, P &lt; 15 d, S/N &gt; 12
+30af83a94c	Each check is a quotation with a PDF page, or a number computed from our files.
+c0b7bf2f06	Source: checks listed in the Check column; data/literature/checkpoint_sources.csv
+31189d04e6	4  Sources. What the checkpoint notes got right, and what we corrected, part 2
+d501ec7665	HR 8799 at 10 pc, planets at 15 to 70 AU
+7d68872477	39.4 pc, planets at 24, 38 and 68 AU (Marois p. 4); separations 0.6 to 1.7″
+4bf913bd97	Centroid precision about 0.2″ (1/100 pixel)
+a9334b7afe	measured error 0.0010 to 0.010″ over several transits
+27251ef8e9	better, ours
+d3fac8f121	TESS avoids the plane that holds the Galactic centre
+447b453295	strips start at 6°; the centre is at −5.5° (computed)
+9a9e192204	at the edge
+62b29b03fd	PLATO: launch end of 2026, 26 cameras
+6138ba79da	ESA page: end of 2026, 26 cameras; 2014 paper: 34 telescopes; other ESA item: 2027
+c47bf6142d	not settled
+a440175f39	Roman expected 2026–2027
+2ae8b96a8e	NASA: launched 30 August 2026, Falcon Heavy, Launch Complex 39A
+7f4b1f7a97	already launched
+3be85a0f0a	TTV listed under TESS alone
+1ff4124749	timing is a TESS product; mass needs a dynamical model, usually with velocities
+f8826d55f2	kept as partner
+dd9cba37c1	Solar ν<sub>max</sub> 3090 µHz, Δν 135.1 µHz
+d35ce8acb0	confirmed
+240ca8ed60	Pixel 21″, 90 % of light in 1.4′, 600 to 1000 nm
+1dc8d45b9a	‘Not settled’ means the sources we hold disagree; check ESA before quoting a launch date.
 9d2d14316d	5  Sample. Six ways a catalog divides exoplanets; our grouping uses the first four
 160bbfbc4d	Axis
 ed1846afee	Classes
 e5aaeaac2e	Radius
 0acb09e240	under 1.25 R<sub>⊕</sub> Earth-size; 1.25 to 2 Super-Earth; 2 to 4 Sub-Neptune; 4 to 8 Neptune/Saturn; 8 and more Jupiter-size
-ecdf701097	<b>Yes</b>
 9eda278b07	pl_rade
 de4bcc6e83	Orbital period
 75cb3ef763	under 1 d ultra-short (USP); 1 to 3 hot; 3 to 7 warm; 7 to 15 cool
@@ -572,7 +924,6 @@ b1f1b018af	Radius +11 %: the paper assumes R<sub>★</sub> = 1.1, the archive sa
 a9814778ff	Ratio +1.5 % (nominal 5σ), radius +6.2 % (+1.1σ). Different sectors; cause not found.
 4b89602094	Everything else agrees within 2σ. π Men c agrees only because a lower ratio and a higher stellar radius cancel.
 345fa851f8	8  Authors and us. The checked PDFs: planet names in yellow, published numbers in green or red
-ecdda59aea	Item
 593aa88b86	What was done
 30baa24967	Folder
 c335cdf614	literature/checking/, one annotated copy per PDF that names a project planet; originals in literature/pdf/ untouched
@@ -580,7 +931,6 @@ c335cdf614	literature/checking/, one annotated copy per PDF that names a project
 12b4ade7dc	every occurrence of the eleven planet names
 d1c22f45ea	Green or red
 1c05961ffe	published period, ratio and radius, with a comment: published value, our value, difference, pull, verdict
-66e12969c2	Count
 9a08ccc1f7	38 PDFs annotated; 44 values marked consistent, 8 marked as deviations
 a5ac6ab5e1	Final check
 e6fef07002	35 of 35 quoted numbers were found verbatim in the PDF text
@@ -631,7 +981,6 @@ a6b992687c	22 verified papers in this group; ✓ = used in this project; full li
 037a16f23e	9  Literature. The discovery papers behind the planets we compare to
 645246dd48	Discovery or confirmation paper
 ef94d7ed43	10  Data. Every catalog number can be re-queried: 52 of 52 values match today
-4b5e84be0e	Check
 59ee2e0008	Columns compared
 6aff062b1e	period, radius, ratio, stellar radius
 1d45551c17	13 (10 + π Men c + 2 stress tests)
@@ -756,7 +1105,6 @@ ec6ebf49b6	PDCSAP_FLUX is the result; basis vectors in _cbv.fits
 de83ce72d3	Crowding and aperture correction
 7597a87f23	divide by the share of the star's light in the aperture, remove neighbours
 f2f2036899	PDCSAP/SAP = CROWDSAP/FLFRCSAP (3 files)
-687b412925	STScI manual
 43e9fc8030	Full-frame photometry
 05aac6a079	build light curves from the 30-min, 10-min or 200-s images
 62013198b1	not used here
@@ -885,6 +1233,31 @@ e313ba9dd3	The archive table pscomppars was queried on 2026-11-21 with TAP. The 
 e131985448	The first row rests on the SPOC sentence about threshold-crossing events (HEASARC data-handling page, saved) and on Ricker Section 8.2. The phase-curve row cites the TESS paper on WASP-18 b in our literature folder; the 352 ppm is our own measurement (slide on flux at phase 0.5). The page numbers are PDF pages of each paper (tess_fact_sources.csv).
 7c681a1e71	Every row names the quote or paper it rests on, with the PDF page. The last column is the link to our work: the mass-radius figure uses planets whose masses were measured with velocities; none of the ten was vetted by us; the timing and asteroseismology rows are things we did not do.
 352e00cc6d	The Galactic centre latitude was computed with astropy from galactic l = 0, b = 0: ecliptic latitude -5.5 degrees; typical bulge microlensing fields at b = -3 degrees give -6.2 degrees, so the bulge sits right at the edge of the 6-degree boundary; we did not check which sectors touch it. The statements about astrometry and pulsar timing are our reasoning from the pixel scale and from the optical band; we have no source that says TESS cannot do them.
+54359cd947	The words star in frames are not a method name. The nearest thing in the TESS paper is Section 8.4, Full Frame Images, which says the full frames also serve supernovae, binaries, novae and flaring stars. The first three rows are methods of detecting planets; the last row is a data product used for stellar science and for extending the transit search to stars nobody selected.
+253880c0cc	This is the content of the first question in the checkpoint notes. The three uses of a frame that contains the star: measure its brightness over time (transit), measure its position over time (centroid or astrometry), and use unsaturated frames to calibrate a coronagraphic image. TESS does the first, uses the second as a test, and cannot do the third because it has no coronagraph.
+965d6de23c	This is the comparison table from the checkpoint notes with every cell checked. The contrast numbers are our own arithmetic: A_g times (R_p over a) squared, with A_g = 0.3. The population numbers come from a TAP query of the NASA Exoplanet Archive.
+0354baaad2	This answers the question whether TESS has a separate camera for the small images. It does not: the same four cameras take every frame. What differs is what is kept and downlinked: cutouts around selected stars at 2 minutes, or the full frames at longer cadence. The notes said tens of millions of stars per image; the TESS paper says about one million objects per 30-minute image and about twenty million over the two years.
+02b6994348	This is the tick list asked for in the checkpoint notes, for the methods TESS can do alone. Each tick means that the design number of TESS is compatible with what the method needs; the next five slides explain each row with the four numbers, using our own ten planets for the examples. You can click the boxes in the browser; the state is not saved.
+9bf44a1b66	The same list for the methods in the other two groups. A cross marks the factor that does not fit. A dash means the four numbers are not what decides: for radial velocity the missing item is a spectrograph, for pulsar timing it is a radio telescope. The reading is ours; it rests on the instrument numbers and on the quotes of the three methods slides before.
+adf27df7ef	The transit probability is about R star over a. In our ten planets it runs from 3.5 to 47 per cent, which is why a survey needs many stars; Ricker quotes 5 per cent and 500 stars per detection. The pixel only has to gather the light of one star; the 21 arcsec pixel costs us the crowding correction. Durations of 0.8 to 5.7 hours are sampled by 23 to 170 points at 2 minutes. A period below 13.7 days gives at least two transits in a sector.
+de420f1127	WASP-18 b has P = 0.941 d, so one sector holds 29 orbits; we used four sectors and 84 transits. The planet lies 0.16 mas from its star, so planet and star always fall in the same pixel, which is what a total-flux measurement wants.
+a8a4c6284e	The pixel is 21 arcsec, yet the centroid test works because a centroid is an average over many electrons: our errors are 0.00005 to 0.00024 pixel in x, a few thousandths of an arcsecond. The odd-even test needs at least a few transits of each parity; our counts run from 4 to 84.
+35c1da0587	The Sun oscillates at &nu;<sub>max</sub> = 3090 &micro;Hz, a period of 5.4 min (Huber 2011, p. 2). The Nyquist frequency of a 2-min cadence is 1/(2 &times; 120 s) = 4 167 &micro;Hz, so it is seen; a 30-min cadence reaches only 278 &micro;Hz.
+4a19d8b0d6	Each 30-min image gives about 10<sup>6</sup> bright objects and about 20 million are covered in two years (Ricker p. 14). The pixel is coarse, so the crowded Galactic plane is the weak point: 90 % of a star's light falls inside 1.4 arcmin (Ricker p. 7). Cadence by cycle is 30 min, 10 min, 200 s (NASA HEASARC).
+11608a090f	Every method of the next slides starts here. The image cube is summed over the aperture to give SAP flux; cotrending removes shared systematics; the crowding term removes the light of neighbours; dividing by the flux fraction restores the light that fell outside the aperture. The checkpoint notes wrote the divisor as CROWDSAP times FLFRCSAP. Our data say otherwise: for LTT 1445 A b the median ratio PDCSAP over SAP is 0.434, equal to C over f, whereas the other form would give 1.03.
+df334e9def	Four steps with the actual inputs. Folding and BLS find the period; the Mandel-Agol model with limb darkening is fitted; the radius follows from the depth and the stellar radius; and the durations T14 and T23 give the impact parameter and a over R star. The checkpoint notes used a shortened expression for a over R star that drops the cosine term; we checked it on our ten fits and it is wrong by up to 2.8 per cent for LTT 9779 b.
+0d44b8be16	All columns are computed from our fits in results/checkpoint_geometry.csv. The density from the transit shape and the density from the catalog mass and radius agree to within a factor of 1.6 for all ten planets; the largest difference is HD 118203 b, whose orbit is eccentric while the formula assumes a circle.
+0f553e8387	Worked example for the phase curve. The depth at phase 0.5 is the sum of reflected and thermal light. If it were all reflected the albedo would have to be 0.42; the TESS paper limits it to below 0.048, so the secondary eclipse is mostly thermal. Solving the Planck integral over a flat 600 to 1000 nm band gives a day-side brightness temperature near 3000 K for both the published and our depth; the band is flat, so this is an approximation of ours.
+bfc36ff3ac	Three tests, three kinds of input. Odd-even uses only the brightness series. Ellipsoidal modulation and Doppler beaming are harmonics of the orbital period and need the folded series. The centroid test is the only one that needs the images: it asks whether the light centre moves in the stamp when the dip happens.
+1df0a2c75c	Computed in code/33_checkpoint_facts.py from the light curves of the sectors we used: for each transit the in-transit centroid minus a straight line fitted to the out-of-transit centroid, then weighted over the transits. All ten shifts are below 0.03 arcsec, which is 0.0013 pixel. The odd-even column is the one of the diagnostics slide.
+b9a21b60eb	The chain is: power spectrum, two global numbers, then two scaling relations. The solar values 3090 and 135.1 microhertz are the reference points of Huber and colleagues. We did not run this on TESS data; the slide gives the steps and the data needed. The note on radius error refers to the stellar radius uncertainty from the archive, which we carry into every planet radius.
+ad7fc1662c	Full-frame work needs methods that do not rely on a fixed aperture. Difference imaging subtracts a reference image so that every constant star vanishes and only changing sources remain. For flares the energy is the star's luminosity in the TESS band times the equivalent duration, the area under the relative flux above the quiet level. Variable-star periods come from a periodogram or from phase dispersion minimisation.
+790adf7cb6	The separation in arcseconds is the semi-major axis in AU divided by the distance in parsec. For our ten planets it is a few milliarcseconds. Even a Jupiter analogue at 5 AU around a star 10 parsecs away is only 2.5 per cent of a pixel from its star. The checkpoint notes put HR 8799 at 10 parsecs; Marois et al. give 39.4 parsecs.
+e147ff7867	Quantitative version of the first part of the answer in the checkpoint notes. The 1.4 arcminute figure is the specified size of the star image, not a diffraction effect: a 10.5 centimetre aperture would diffract light into about 2 arcseconds at 800 nanometres. The contrast values are our own arithmetic with an assumed albedo of 0.3.
+f55878b03f	The band of each mission is quoted from its paper: TESS 600 to 1000 nanometres, Kepler 423 to 897, PLATO 500 to 1000 (2014 design), Rubin 320 to 1050, Roman 0.48 to 2.0 micrometres from its filter table, JWST mirrors 0.6 to 29. The contrast numbers use the Planck function with an assumed temperature of 1000 kelvin and Jupiter and Sun radii; they show why imaging is done in the infrared.
+69cc04605c	Our own arithmetic, in two tables. Left: the separation for a few semi-major axes and distances. Right: the mirror diameter D for which 1.22 lambda over D equals the separation, so the planet lies outside the first diffraction ring. The checkpoint notes quoted a pixel of 0.01 to 0.05 arcseconds and mirrors of 2.4 to 10 metres; both lie inside our grid, which gives pixels of 0.005 to 3.5 arcseconds and mirrors of 0.4 to 22 metres depending on separation and wavelength. These are necessary conditions, not sufficient: contrast also needs a coronagraph and adaptive optics.
+761f4f1827	Answers the question whether high spatial resolution costs temporal resolution. The unavoidable trade is between pixel size and field of view for a given number of pixels. The cadence of a single frame can be fast in every telescope; what changes is how long you must integrate to reach a signal-to-noise ratio, which is long for a faint planet. We computed the field from pixel counts and scales: for TESS it gives 2284 square degrees against the quoted 2300.
+5270bde6d8	The notes asked whether direct-imaging telescopes work from a map made by TESS. Half of that is right: TESS and imaging share the Gaia coordinate frame, and TESS planets are the targets of JWST transmission spectroscopy. But the planets themselves are different populations: in the archive the median TESS planet orbits at 0.06 AU in 5.7 days, the median imaged planet at 151 AU. Only one imaged planet is inside 1 AU and only two TESS planets are outside it.
 190e8dcd8e	Everything in the right-hand column is quoted from the instrument paper, Ricker et al. 2015 (literature/text), with the table or section. The pixel scale of 21 arcsec per pixel and the 24 by 96 degree field are also given on the MAST page for TESS. These are design values from before launch; the later slides measure what we can on our own files.
 6ff16e3342	The design numbers are from Ricker et al. 2015, Sec 7.2. The 73 percent is our own division of 30 000 by the area of the sphere, 41 253 square degrees; it is not a number from the paper. The plot comes from the MAST search done in code/03_check_mast.py: stars near the ecliptic poles are seen in many more sectors, because the sectors overlap there.
 e499bd44c7	The red line marks 13.7 days, one spacecraft orbit. Most files show a break near it, and the shorter breaks are cadences flagged by the pipeline. We did not separate the causes of each break. The number of cadences in a transit uses the catalog transit duration (pl_trandur) divided by 120 s.
@@ -897,6 +1270,15 @@ e499bd44c7	The red line marks 13.7 days, one spacecraft orbit. Most files show a
 638d077679	Evidence: Government of Viet Nam news of 7 May 2013 (VNREDSat-1: Vega, Guiana Space Center, EUR 55.8 million including about 65 billion dong from Vietnam); VietnamNet of 15 July 2024 (LOTUSat-1 awaiting a Japanese launch vehicle; small-satellite facility planned for December 2025; we did not check later status); Al Jazeera of 11 August 2026 (VinSpace and SpaceX Transporter rideshare, Q2 2027). Reasoning: the delta-v is from the vis-viva equation; the latitude argument uses the equatorial rotation speed 0.465 km/s times cos(latitude). Self-launch would need a launcher, a range and flight heritage; we only found no report of one in one web search, which is not proof.
 cfb980ddb5	The table is built from data/literature/tess_fact_sources.csv by code/26_tess_sources.py, which searches each quoted phrase in the PDF text page by page; a row is written as verified only when the phrase is found. The first citation is Ricker, G. R. et al. 2015, Journal of Astronomical Telescopes, Instruments, and Systems 1(1), 014003, arXiv:1406.0151.
 b7ee8f500c	Web pages are public. Their text was saved on 21 November 2026 and each quoted phrase was searched in the saved copy. Web pages can change; the saved copies keep what we used.
+032c703f3c	The payload of TESS is four cameras and a data handling unit. Each camera has four CCDs of 2048 by 2048 imaging pixels, so 16 CCDs and about 67 million imaging pixels in all.
+fa0bb80445	Counted from the discovery facility column of the archive: three planets (LTT 9779 b, TOI-270 c, LTT 1445 A b) were found by TESS itself, K2-141 b by K2, and six from the ground. HD 118203 b, HD 189733 b and HD 209458 b are listed with the radial-velocity method.
+42ce1a1c1b	Every bar is quoted from the paper of its mission with a PDF page in data/literature/checkpoint_sources.csv. PLATO is the 2014 design; CHEOPS is not shown because we could not verify its band in the paper we hold.
+b8abb1bccc	The pixel scale is the physical pixel size divided by the focal length, converted to arcseconds. 50 per cent of a star's light falls in one pixel and 90 per cent in 4 by 4 pixels, which is the 1.4 arcmin of the slide on resolution. The Gaia value is the 10 by 30 micrometre pixel size converted by the paper to 58.9 by 176.8 milliarcseconds.
+b63dc05b64	The answer to the question whether the grids are images. Yes: they are cutouts of the camera images. The figure draws the mask, not the brightness. The mask matters because TESS pixels are large: every star inside it adds light. The ratio of the PDCSAP depth to the SAP depth that we measure on the data follows 1 over CROWDSAP; all ten planets are in results/checkpoint_vetting.csv.
+c84afec1e5	The checkpoint notes said PLATO would launch at the end of 2026 and Roman in 2026 or 2027. The ESA page we saved says end of 2026 on Ariane 6 with 26 cameras; the 2014 paper described 34 telescopes with 2232 square degrees and 15 arcsecond pixels. NASA reports that Roman launched on 30 August 2026 on a Falcon Heavy. JWST, Rubin and Kepler values are from their papers or documentation.
+9b67480f03	The figure places each mission by pixel scale and field of view. The diagonals are lines of constant number of pixels. The computed fields agree with the quoted ones, which confirms the pixel counts and scales of the table. The two other rules are physical: staring gives dense time sampling of a field and rare returns to other fields, scanning does the opposite; and for a faint source the signal-to-noise ratio grows with the mirror diameter and the square root of the exposure.
+6e1fbe5d1d	The notes ended with a request to check the sources. This slide and the next list every claim we could test and the result. Seven corrections to wording or number appear in this half.
+fba78eacce	Second half of the audit. The corrections to the planets of HR 8799 and to the Roman launch matter because they would have appeared as errors on a slide. For PLATO the sources disagree: the saved ESA page says end of 2026, another ESA item says early 2027.
 85598a12e9	These are the columns of the NASA Exoplanet Archive table pscomppars and the group edges we set in code/02_group_candidates.py for the 471 planets in data/candidates_grouped.csv. We chose the ten planets from these groups, not from the discovery method or the system.
 6fd1807b95	Counts come from results/sample_coverage.csv, built by code/24_tess_facts.py from data/candidates_grouped.csv. The four axes are the ones we used to choose the planets. The discovery method and the number of planets per system are on the next slide.
 b7e18c7301	The sample covers every size class and every star type but is thin in each. The empty class is the period class from 7 to 15 days, which holds 29 percent of the catalog sample. The two candidate planets are from the 139 cool-period planets in data/candidates_grouped.csv; we have not checked that their SPOC files exist and have not run them. TOI-2134 b is 2.74 Earth radii, HD 97658 b is 2.12.

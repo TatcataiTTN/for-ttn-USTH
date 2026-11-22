@@ -1,0 +1,47 @@
+id,topic,statement,value,source,location,page,quote,verified
+ffi_title,Data,Sec 8.4 of the TESS paper is titled 'Full Frame Images',8.4 Full Frame Images,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 8.4,13,8.4 Full Frame Images,True
+stamps_200k,Data,200 000 pre-selected stars are read at 2 min,200 000,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 8.4,13,"In addition to monitoring 200,000 pre-selected stars with a 2 min cadence",True
+ffi_any_star,Data,"FFIs extend the transit search to any bright star in the field, selected or not",any star in the field,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 8.4,13,"The FFIs will expand the transit search to any star in the fields of view that is sufficiently bright, regardless of whether it was selected ahead of time",True
+ffi_followup,Data,FFI candidates can be given shorter cadence in an extended mission,2 min later,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 8.4,13,could be selected for shorter-cadence observations during an extended mission,True
+ffi_other2,Data,"FFIs also serve supernovae, GRB afterglows, AGN, asteroids, binaries, novae, flares, variables",time-domain science,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 8.4,14,"near-Earth asteroids, eclipsing and close binaries, novae, flaring stars, and other variable stars",True
+ffi_count,Data,Each 30-min FFI gives about a million bright objects; about 20 million over two years,1e6 per FFI,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 8.4,14,for approximately 106 bright galaxies and stars,True
+ffi_20m,Data,About 20 million bright objects in the two-year survey,20 million,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 8.4,14,approximately 20 million bright objects,True
+ccd_mosaic,Cameras,Four CCDs abutted give 4096 x 4096 pixels per camera,4096 x 4096,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 4.2,6,creating an effective 4096 × 4096 imaging array,True
+camera_build,Cameras,Each camera: seven optical elements and four CCDs,"7 elements, 4 CCDs","Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 4,5,"a lens assembly with seven optical elements, and a detector assembly with four CCDs",True
+transit_prob,Transit,Geometric transit probability about 5 % and occurrence rate about 5 % give a 0.2 % yield,5 % x 5 %,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 3.5,4,the product of the occurrence rate (∼5%) and the geometric transit probability (∼5%),True
+stars_per_det,Transit,At least 500 stars must be monitored for each super-Earth detection,500,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Sec 3.5,4,TESS needs to monitor at least 500 stars for each super-Earth detection,True
+resp_curve,Cameras,TESS response = long-pass filter x detector quantum efficiency,600 to 1000 nm,"Ricker, G. R. et al. 2015, JATIS 1, 014003 (arXiv:1406.0151)",Fig 1,4,defined as the product of the long-pass filter transmission curve and the detector quantum efficiency curve,True
+kepler_plate,Kepler,Kepler plate scale,3.98 arcsec/pixel,"Koch, D. G. et al. 2010, ApJL 713, L79 (Kepler mission design)",Table,16,3.98 arcsec/pixel,True
+kepler_lc,Kepler,Kepler long cadence,1765.80 s,"Koch, D. G. et al. 2010, ApJL 713, L79 (Kepler mission design)",Table,16,1765.80 sec,True
+kepler_sc,Kepler,Kepler short cadence,58.86 s,"Koch, D. G. et al. 2010, ApJL 713, L79 (Kepler mission design)",Table,16,58.86 sec,True
+kepler_band,Kepler,Kepler bandpass,423 to 897 nm,"Koch, D. G. et al. 2010, ApJL 713, L79 (Kepler mission design)",Sec 2,5,423 to 897 nm,True
+kepler_fov,Kepler,Kepler field of view,115 sq. degrees,"Koch, D. G. et al. 2010, ApJL 713, L79 (Kepler mission design)",Table,16,115 sq. degrees,True
+plato_fov,PLATO,PLATO 2.0 (2014 design): field of view,2232 deg2,"Rauer, H. et al. 2014, Exp. Astron. 38, 249 (PLATO 2.0; 2014 design)",Abstract,3,a wide field-of-view (2232 deg2),True
+plato_tel,PLATO,PLATO 2.0 (2014 design): number of telescopes,34,"Rauer, H. et al. 2014, Exp. Astron. 38, 249 (PLATO 2.0; 2014 design)",Abstract,3,34 small aperture telescopes,True
+plato_px,PLATO,PLATO 2.0 (2014 design): pixel scale,15 arcsec/px,"Rauer, H. et al. 2014, Exp. Astron. 38, 249 (PLATO 2.0; 2014 design)",Table,41,15 arcsec/px,True
+plato_band,PLATO,PLATO 2.0 (2014 design): spectral range,500-1000 nm,"Rauer, H. et al. 2014, Exp. Astron. 38, 249 (PLATO 2.0; 2014 design)",Table,41,500-1000 nm,True
+roman_fov,Roman,Roman WFI field of view,0.281 deg2,"Akeson, R. et al. 2019, arXiv:1902.05569 (WFIRST overview)",Abstract,2,0.281 deg2 field of view,True
+roman_px,Roman,Roman WFI pixel scale,0.11 arcsec,"Akeson, R. et al. 2019, arXiv:1902.05569 (WFIRST overview)",Table,13,Pixel scale: 0.11,True
+roman_mass,Roman,Roman is a 2.4 m telescope,2.4 m,"Akeson, R. et al. 2019, arXiv:1902.05569 (WFIRST overview)",Sec 1,2,2.4m telescope,True
+roman_cad,Roman,Bulge microlensing survey: 15-min cadence,15 min,"Akeson, R. et al. 2019, arXiv:1902.05569 (WFIRST overview)",Sec 3,4,minute cadence needed to detect Mars-mass planetary microlensing events,True
+roman_season,Roman,Bulge microlensing survey: seasons of 72 days,72 d,"Akeson, R. et al. 2019, arXiv:1902.05569 (WFIRST overview)",Sec 3,4,seasons each lasting 72 days,True
+rubin_fov,Rubin,Rubin field of view,9.6 deg2,"Ivezic, Z. et al. 2019, ApJ 873, 111 (LSST)",Sec 1,3,9.6 deg2 field of view,True
+rubin_px,Rubin,Rubin pixel size,0.2 arcsec,"Ivezic, Z. et al. 2019, ApJ 873, 111 (LSST)",Sec 3,17,0.2×0.2 arcsec2 pixels,True
+rubin_visit,Rubin,Rubin visit exposure,30 s,"Ivezic, Z. et al. 2019, ApJ 873, 111 (LSST)",Sec 3,12,visit exposure time of 30 seconds,True
+rubin_revisit,Rubin,Rubin mean revisit,3 days,"Ivezic, Z. et al. 2019, ApJ 873, 111 (LSST)",Sec 3,12,A revisit time of 3 days on average,True
+rubin_band,Rubin,Rubin wavelength range,320-1050 nm,"Ivezic, Z. et al. 2019, ApJ 873, 111 (LSST)",Sec 1,4,320-1050 nm,True
+gaia_px,Gaia,Gaia astrometric pixel,58.9 mas x 176.8 mas,"Gaia Collaboration, Prusti, T. et al. 2016, A&A 595, A1",Sec 3,9,58.9 mas × 176.8 mas on the sky,True
+jwst_band,JWST,JWST mirrors give a bandpass of 0.6 to 29 um,0.6 to 29 um,"Gardner, J. P. et al. 2006, Space Sci. Rev. 123, 485 (JWST)",Sec 3,66,"providing a broad spectral bandpass, from 0.6 to 29 µm",True
+jwst_coro,JWST,JWST makes coronagraphic images of nearby stars at 2.7 and 4.44 um,"2.7, 4.44 um","Gardner, J. P. et al. 2006, Space Sci. Rev. 123, 485 (JWST)",Sec 7,47,JWST will make coronagraphic images at 2.7 µm and 4.44 µm of nearby stars,True
+marois_challenge,Imaging,Imaging is hard because of small separation and large contrast,separation + contrast,"Marois, C. et al. 2008, Science 322, 1348 (HR 8799)",p. 1,1,small angular separation and large luminosity contrast,True
+marois_dist,Imaging,HR 8799 lies 39.4 pc from Earth,39.4 pc,"Marois, C. et al. 2008, Science 322, 1348 (HR 8799)",p. 1,4,located 39.4 pc,True
+marois_sep,Imaging,A planet of HR 8799 at 68 AU projected separation,68 AU,"Marois, C. et al. 2008, Science 322, 1348 (HR 8799)",p. 1,4,68 AU projected separation,True
+bowler_young,Imaging,Young stars are the attractive targets for imaging planets,young stars,"Bowler, B. P. 2016, PASP 128, 102001 (imaging extrasolar giant planets)",Sec 2,3,Young stars are therefore attractive targets,True
+huber_sun,Asteroseismology,Solar reference nu_max = 3090 uHz,3090 +- 30 uHz,"Huber, D. et al. 2011, ApJ 743, 143 (testing scaling relations)",Sec 2,2,"νmax,⊙ = 3090 ± 30µHz",True
+huber_dnu,Asteroseismology,Solar reference large separation = 135.1 uHz,135.1 +- 0.1 uHz,"Huber, D. et al. 2011, ApJ 743, 143 (testing scaling relations)",Sec 2,2,135.1 ± 0.1µHz,True
+shporer_albedo,Phase curve,WASP-18 b day side is dominated by thermal emission; albedo limit 0.048 (2 sigma),A_g < 0.048,"Shporer, A. et al. 2019, AJ 157, 178 (WASP-18 b phase curve)",Abstract,1,"dominated by thermal emission, leading to an upper limit on the geometric albedo in the TESS band of 0.048 (2σ)",True
+shporer_341,Phase curve,WASP-18 b secondary eclipse depth,341 +17 -18 ppm,"Shporer, A. et al. 2019, AJ 157, 178 (WASP-18 b phase curve)",Sec 4,9,We measure a secondary eclipse depth of 341+17,True
+jdox_px,JWST,NIRCam pixel scales,0.031 and 0.063 arcsec,"STScI JWST User Documentation, NIRCam detector overview, saved 22 Nov 2026",Detector overview,,"0.6-2.3 µm observations (0.031""/pixel) and two for 2.4-5.0 µm (0.063""/pixel)",True
+esa_cams,PLATO,PLATO uses 26 cameras on more than 200 000 stars,26 cameras,"ESA, 'Planet hunter Plato to fly on Ariane 6', saved 22 Nov 2026",page text,,Plato will use 26 cameras to look at more than 200 000 stars,True
+esa_launch,PLATO,"PLATO launch on Ariane 6, end of 2026 (ESA page; other ESA material says 2027)",end of 2026,"ESA, 'Planet hunter Plato to fly on Ariane 6', saved 22 Nov 2026",page text,,"French Guiana, end of 2026",True
+roman_launch,Roman,"Roman launched on a Falcon Heavy from Launch Complex 39A, 30 Aug 2026",30 Aug 2026,"NASA Roman blog, 'NASA's Roman Space Telescope launches', 30 Aug 2026, saved 22 Nov 2026",blog text,,Launch Complex 39A,True

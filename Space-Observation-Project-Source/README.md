@@ -9,7 +9,7 @@ Folder map and what to share: `LAYOUT.md`. How to get every number back: `REPROD
 |---|---|
 | Presentation deck, 31 slides (25-minute talk) | `slides/deck/index.html` |
 | Deck published on GitHub Pages, 37 slides (local source) | `slides/Space-Observation-Project-Group-2/index.html` |
-| Study deck, 87 slides (history of the search, TESS numbers with sources, ten planets, authors' numbers, literature); live at https://tatcataittn.github.io/for-ttn-USTH/Space-Observation-Project-Group-2-Study/ | `slides/Space-Observation-Project-Group-2-Study/index.html` |
+| Study deck, 135 slides (history of the search, TESS numbers with sources, detection methods with the four TESS numbers and formulas, direct imaging in numbers, missions after TESS, source audit, ten planets, authors' numbers, literature); live at https://tatcataittn.github.io/for-ttn-USTH/Space-Observation-Project-Group-2-Study/ | `slides/Space-Observation-Project-Group-2-Study/index.html` |
 | Browser demo (works offline via file://) | `slides/demo/index.html` |
 | Speaker script, Vietnamese | `notes/script_vi.md` |
 | Tutorial notebook | `notebooks/01_measure_one_planet.ipynb` |
@@ -46,6 +46,10 @@ Folder map and what to share: `LAYOUT.md`. How to get every number back: `REPROD
 | 26 | `code/26_tess_sources.py` | `data/literature/tess_fact_sources.csv` (quote, PDF page and source of each TESS fact) |
 | 27 | `code/27_discoveries_by_year.py` | `data/raw/discoveries_by_*.csv`, `figures/paper/exo_discoveries.png` |
 | 28 | `code/28_orbit_figure.py` | `figures/paper/tess_orbit.png`, `results/tess_orbit_numbers.json` |
+| 33 | `.venv/bin/python code/33_checkpoint_facts.py` | `results/checkpoint_facts.json`, `checkpoint_geometry.csv`, `checkpoint_vetting.csv` (odd-even and centroid shifts), `checkpoint_pdcsap_check.csv`, `figures/paper/ck_*.png` |
+| 34 | `code/34_checkpoint_sources.py` | `data/literature/checkpoint_sources.csv` (46 quotes with PDF page: Kepler, PLATO, Roman, Rubin, Gaia, JWST, Marois, Bowler, Huber, Ricker Sec 8.4) |
+| 35 | `code/35_checkpoint_slides.py` (run by 17) | slides of sections K (methods in detail) and Q (missions, sources) of the study deck |
+| 36 | `code/36_shots.py <index.html> <dir> n ...` | screenshots of chosen slides |
 
 Selection: `data/selected.txt` (10 planets, numbering order), `data/stress_tests.txt` (AU Mic b, DS Tuc A b: reported as failures).
 `mode` in each `result.json`: `blind` (BLS over 0.26-15 d) or `guided` (BLS within +-3 % of the catalog period).

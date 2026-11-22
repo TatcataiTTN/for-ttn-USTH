@@ -1,0 +1,100 @@
+t001	33 hình mới. Mỗi slide nói rõ hình thể hiện gì, kèm các số đo được.
+t002	3  Phương pháp. “Stars in full frames” không phải phương pháp tìm hành tinh: nó đo gì, so với transit và chụp ảnh trực tiếp
+t003	Đại lượng đo
+t004	Dữ liệu đầu vào
+t005	Tìm được hành tinh?
+t006	một ngôi sao, 2 phút
+t007	vết lõm ánh sáng của sao khi hành tinh đi ngang qua
+t008	ảnh cắt nhỏ → đường cong ánh sáng 1 chiều
+t009	<b>Có</b>, gián tiếp
+t010	chính hành tinh
+t011	photon từ chính hành tinh, ánh sáng sao bị triệt tiêu
+t012	ảnh có coronagraph, pixel nhỏ
+t013	<b>Có</b>, trực tiếp
+t014	vị trí của sao
+t015	độ lắc của vị trí sao so với các sao tham chiếu
+t016	chuỗi ảnh, tâm sáng dưới pixel
+t017	Có, nhưng TESS không làm được
+t018	mọi ngôi sao trong trường 24° × 96°
+t019	độ sáng của mọi ngôi sao: sao đôi, nova, sao bùng nổ, sao biến quang
+t020	chuỗi ảnh toàn khung
+t021	<b>Không</b>: khoa học về sao; nó còn mở rộng việc tìm transit
+t022	Mục 8.4 của Ricker có tên ‘Full Frame Images’ (Ricker tr. 13); tên dòng của chúng tôi là cách gọi rút gọn. ‘Star in frames’ không phải thuật ngữ chuẩn.
+t023	Nguồn: Ricker 2015 Mục 8.4, tr. 13 và 14; NASA Exoplanet Archive; số đo của chúng tôi
+t024	3  Phương pháp. Một chuỗi ảnh, ba cách dùng: đo quang vi sai, đo tâm sáng, và hiệu chuẩn cho chụp ảnh
+t025	Đo quang vi sai
+t026	Thông lượng của sao giảm đi (R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> khi hành tinh đi ngang qua. TESS: làm được; đó là cả mười hành tinh của chúng tôi, 23 đến 170 điểm mỗi transit.
+t027	Vị trí (x, y) của sao dịch chuyển khi một sao lẫn trong khẩu độ bị tối đi, hoặc khi hành tinh kéo sao. TESS dùng nó như một phép kiểm tra (Ricker Mục 8.2: chuyển động ảnh đặc trưng cho transit). Chúng tôi đo được độ dịch tối đa 0.027″.
+t028	Hiệu chuẩn cho chụp ảnh
+t029	Coronagraph che sao; các khung ngắn không bão hòa của sao vẫn xác định được tâm sao để trừ quầng nhiễu xạ. TESS không có coronagraph.
+t030	Cùng các khung ảnh phục vụ những phương pháp rất khác nhau; điều thay đổi là đại lượng được đo trên chúng.
+t031	Nguồn: Ricker 2015 Mục 8.2; phép kiểm tra tâm sáng của chúng tôi (code/33_checkpoint_facts.py)
+t032	3  Phương pháp. Gián tiếp và trực tiếp: bản chất, đại lượng đo, khó khăn lớn nhất, ai được tìm thấy, cho biết gì
+t033	Star in frames: transit, đo vị trí sao
+t034	Bản chất vật lý
+t035	gián tiếp: hành tinh tác động lên sao (che, kéo)
+t036	trực tiếp: photon từ chính hành tinh
+t037	tổng thông lượng hoặc tâm sáng của <b>sao</b>
+t038	một điểm sáng của <b>hành tinh</b>, sao bị triệt tiêu
+t039	Khó khăn lớn nhất
+t040	độ chính xác: 60 ppm mỗi giờ là mức nhiễu sàn được giả định (Ricker tr. 12)
+t041	độ tương phản: Sao Mộc ở 5.2 AU cho 2.5 × 10<sup>−9</sup>, Trái Đất ở 1 AU cho 5.5 × 10<sup>−10</sup> (A<sub>g</sub> = 0.3, của chúng tôi)
+t042	Ai được tìm thấy
+t043	hành tinh sát sao: các phát hiện của TESS có P trung vị = 5.7 d, a = 0.06 AU
+t044	hành tinh khí khổng lồ trẻ, ở xa: hành tinh chụp được có a trung vị = 151 AU
+t045	Cho biết gì
+t046	R<sub>p</sub>/R<sub>★</sub>, chu kỳ, độ nghiêng; khối lượng chỉ khi có đối tác
+t047	phổ của chính hành tinh: nhiệt độ, thành phần, mây
+t048	Số liệu archive: các hành tinh đã xác nhận, 2026-11-21 (data/raw/pscomppars_imaging_and_tess.csv); 1027 phát hiện của TESS, 99 hành tinh chụp được. Độ tương phản là số tính, không phải số trích dẫn.
+t049	Nguồn: Ricker 2015 Mục 8.1; truy vấn TAP archive ngày 2026-11-22; Bowler 2016; phép tính của chúng tôi
+t050	3  Phương pháp. Một bộ camera, hai sản phẩm dữ liệu: ảnh cắt nhỏ mỗi 2 phút, ảnh toàn khung mỗi 30 phút, 10 phút, 200 s
+t051	Giữ lại gì
+t052	Tệp pixel đích và đường cong ánh sáng
+t053	một ảnh cắt quanh mỗi ngôi sao chọn trước (khoảng 200 000)
+t054	2 phút; 20 s từ sứ mệnh mở rộng đầu tiên
+t055	toàn bộ trường của mỗi camera
+t056	30 phút (chu kỳ 1–2), 10 phút (3–4), 200 s (5+)
+t057	Cùng một phần cứng
+t058	Bốn camera giống hệt nhau (Ricker tr. 5); mỗi camera gồm bốn CCD tạo thành 4096 × 4096 pixel (Ricker tr. 6). Các khung 2 s được cộng theo nhóm 60 thành chu kỳ lấy mẫu 2 phút (Ricker tr. 7). Không có camera chụp ảnh riêng.
+t059	Vì sao ảnh toàn khung quan trọng
+t060	Chúng mở rộng việc tìm transit tới mọi ngôi sao đủ sáng trong trường, dù có được chọn trước hay không (Ricker tr. 13); cho khoảng 10<sup>6</sup> vật thể mỗi ảnh và khoảng 20 triệu trong hai năm (Ricker tr. 14); và ứng viên tìm thấy ở đó có thể được lấy mẫu 2 phút về sau (Ricker tr. 13).
+t061	Chúng tôi không dùng chúng: cả mười hành tinh đã có đường cong ánh sáng SPOC 2 phút.
+t062	Nguồn: Ricker 2015 Mục 4.2, 4.3, 8.4 (tr. 6, 7, 13, 14); trang dữ liệu NASA HEASARC
+t063	3  Phương pháp. Đánh dấu các phương pháp: những gì TESS tự làm đều khớp với cả bốn con số của nó
+t064	Con số quyết định
+t065	p ≈ 5 % (Ricker); 23–170 điểm mỗi transit
+t066	Nhật thực thứ cấp, đường cong pha
+t067	WASP-18 b: 29 vòng quỹ đạo trong một sector
+t068	Kiểm định dương tính giả
+t069	sai số tâm sáng khoảng 10<sup>−4</sup> pixel, đã đo
+t070	Nyquist 4 167 µHz, cao hơn ν<sub>max</sub> của Mặt Trời là 3090
+t071	khoảng 10<sup>6</sup> vật thể mỗi ảnh (Ricker)
+t072	Bấm vào ô để làm mờ một dòng. Bốn con số: trường nhìn 24° × 96°, pixel 21″, chu kỳ lấy mẫu 2 phút (20 s, 200 s), một sector 27.4 ngày. Cách đọc là của chúng tôi; mỗi dòng có slide riêng.
+t073	Nguồn: cách đọc của chúng tôi từ các số thiết bị của Ricker 2015 (Bảng 1, Mục 3.5, 7.2) và các tệp của chúng tôi
+t074	3  Phương pháp. Đánh dấu các phương pháp: cần đối tác, và những gì TESS không làm được, kèm yếu tố không khớp
+t075	Khối lượng: vận tốc xuyên tâm
+t076	cần máy quang phổ; tải trọng chỉ là camera
+t077	Xác nhận: chụp ảnh từ mặt đất
+t078	pixel 21″; các sao đồng hành của LTT 1445 ở 5–7″
+t079	Thời điểm transit (TTV)
+t080	thời điểm đo được; khối lượng cần một mô hình
+t081	cần một phổ; chỉ có một dải sóng
+t082	Bán kính sao: Gaia
+t083	một phép đo thị sai
+t084	0.1–5.5 mas so với pixel 21″
+t085	độ lắc nhỏ hơn nhiều một pixel
+t086	vùng phình ở ranh giới 6°; đông sao; không nhìn chằm chằm
+t087	vô tuyến và milimét; TESS là thiết bị quang học
+t088	sector 27.4 ngày; P<sub>max</sub> khoảng 10 d (Ricker)
+t089	✓ khớp, ✗ không khớp, ~ một phần, – không phải con số quyết định. Cách đọc của chúng tôi từ các số thiết bị.
+t090	3  Phương pháp. Đo quang transit và bốn con số: nhiều sao, pixel thô, điểm 2 phút, một sector 27 ngày
+t091	1  Trường nhìn
+t092	<b>Cần:</b> hàng trăm nghìn ngôi sao: xác suất hình học chỉ khoảng 5 % (Ricker tr. 4), ít nhất 500 sao cho mỗi siêu Trái Đất (Ricker tr. 4)<br/><b>TESS:</b> 24° × 96° = 2300 deg², ít nhất 200 000 mục tiêu
+t093	2  Độ phân giải không gian
+t094	<b>Cần:</b> không cần tách hành tinh khỏi sao, chỉ cần gom ánh sáng của sao<br/><b>TESS:</b> pixel 21″; khẩu độ của chúng tôi 13 đến 31 pixel; CROWDSAP thấp nhất 0.42
+t095	3  Độ phân giải thời gian
+t096	<b>Cần:</b> một điểm mỗi vài phút xuyên qua một vết lõm kéo dài nhiều giờ<br/><b>TESS:</b> transit 0.8 đến 5.7 h: 23 đến 170 điểm ở chu kỳ 2 phút
+t097	4  Thời gian quay lại
+t098	<b>Cần:</b> ít nhất hai transit để có chu kỳ<br/><b>TESS:</b> sector 27.4 d: 4.5 đến 98 transit cho P = 6.1 đến 0.28 d
+t099	Các con số của khảo sát (trường rộng, pixel thô) đúng là thứ mà xác suất transit thấp đòi hỏi.
+t100	Nguồn: Ricker 2015 Mục 3.5, Bảng 1; các phép khớp của chúng tôi (results/checkpoint_geometry.csv)

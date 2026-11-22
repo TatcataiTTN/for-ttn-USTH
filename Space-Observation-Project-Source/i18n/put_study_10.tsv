@@ -1,0 +1,4 @@
+Jupiter at 5.2 AU, star at 10 pc: 0.52″ = 2.5 % of a pixel; HR 8799 b: 68 AU at 39.4 pc = 1.7″ (Marois p. 4)	Sao Mộc ở 5.2 AU, sao ở 10 pc: 0.52″ = 2.5 % pixel; HR 8799 b: 68 AU ở 39.4 pc = 1.7″ (Marois tr. 4)
+Source: SPOC headers (CROWDSAP, FLFRCSAP) and light curves of our files; Winters 2021 for LTT 1445	Nguồn: header SPOC (CROWDSAP, FLFRCSAP), đường cong ánh sáng của các tệp; Winters 2021
+The share of mask flux from the target: LTT 1445 A b 0.42	Tỉ lệ thông lượng mặt nạ từ sao đích: LTT 1445 A b 0.42. Bỏ qua thì R<sub>p</sub> nhỏ đi √2.38 = 1.54 lần.
+A target pixel file: an 11 × 11 image every 2 min. The grid shows which pixels were summed.	Tệp pixel đích: ảnh 11 × 11 mỗi 2 phút. Lưới cho biết pixel nào được cộng.

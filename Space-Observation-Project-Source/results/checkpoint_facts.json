@@ -1,0 +1,255 @@
+{
+ "geometry_summary": {
+  "theta_mas_min": 0.12073000439605906,
+  "theta_mas_max": 5.546424739674697,
+  "theta_over_pixel_max": 0.00026411546379403317,
+  "contrast_min": 7.246229858342368e-07,
+  "contrast_max": 0.0002677039815858828,
+  "pts_min": 23.033184408614048,
+  "pts_max": 169.76803654446513,
+  "prob_min": 3.514777421269976,
+  "prob_max": 47.226311558078045,
+  "T14_rel_diff_max_pct": 123.37538623606763
+ },
+ "roundtrip": {
+  "n": 10,
+  "b_max_abs": 2.7478019859472624e-15,
+  "a_exact_max_rel_pct": 6.661338147750939e-14,
+  "a_approx_max_rel_pct": 2.777734402015608,
+  "a_approx_planet": "LTT 9779 b"
+ },
+ "analogues": {
+  "jupiter_5au_10pc_arcsec": 0.52,
+  "jupiter_contrast": 2.5338367850917807e-09,
+  "earth_1au_10pc_arcsec": 0.1,
+  "earth_contrast": 5.453229675000001e-10,
+  "hr8799_b_arcsec": 1.7258883248730965,
+  "hr8799_d_arcsec": 0.6091370558375635
+ },
+ "needed_grid": {
+  "1AU_10pc": {
+   "theta": 0.1,
+   "px_needed": 0.05,
+   "times_finer_than_tess": 420.0
+  },
+  "1AU_20pc": {
+   "theta": 0.05,
+   "px_needed": 0.025,
+   "times_finer_than_tess": 840.0
+  },
+  "1AU_50pc": {
+   "theta": 0.02,
+   "px_needed": 0.01,
+   "times_finer_than_tess": 2100.0
+  },
+  "1AU_100pc": {
+   "theta": 0.01,
+   "px_needed": 0.005,
+   "times_finer_than_tess": 4200.0
+  },
+  "5AU_10pc": {
+   "theta": 0.5,
+   "px_needed": 0.25,
+   "times_finer_than_tess": 84.0
+  },
+  "5AU_20pc": {
+   "theta": 0.25,
+   "px_needed": 0.125,
+   "times_finer_than_tess": 168.0
+  },
+  "5AU_50pc": {
+   "theta": 0.1,
+   "px_needed": 0.05,
+   "times_finer_than_tess": 420.0
+  },
+  "5AU_100pc": {
+   "theta": 0.05,
+   "px_needed": 0.025,
+   "times_finer_than_tess": 840.0
+  },
+  "10AU_10pc": {
+   "theta": 1.0,
+   "px_needed": 0.5,
+   "times_finer_than_tess": 42.0
+  },
+  "10AU_20pc": {
+   "theta": 0.5,
+   "px_needed": 0.25,
+   "times_finer_than_tess": 84.0
+  },
+  "10AU_50pc": {
+   "theta": 0.2,
+   "px_needed": 0.1,
+   "times_finer_than_tess": 210.0
+  },
+  "10AU_100pc": {
+   "theta": 0.1,
+   "px_needed": 0.05,
+   "times_finer_than_tess": 420.0
+  },
+  "30AU_10pc": {
+   "theta": 3.0,
+   "px_needed": 1.5,
+   "times_finer_than_tess": 14.0
+  },
+  "30AU_20pc": {
+   "theta": 1.5,
+   "px_needed": 0.75,
+   "times_finer_than_tess": 28.0
+  },
+  "30AU_50pc": {
+   "theta": 0.6,
+   "px_needed": 0.3,
+   "times_finer_than_tess": 70.0
+  },
+  "30AU_100pc": {
+   "theta": 0.3,
+   "px_needed": 0.15,
+   "times_finer_than_tess": 140.0
+  },
+  "70AU_10pc": {
+   "theta": 7.0,
+   "px_needed": 3.5,
+   "times_finer_than_tess": 6.0
+  },
+  "70AU_20pc": {
+   "theta": 3.5,
+   "px_needed": 1.75,
+   "times_finer_than_tess": 12.0
+  },
+  "70AU_50pc": {
+   "theta": 1.4,
+   "px_needed": 0.7,
+   "times_finer_than_tess": 30.000000000000004
+  },
+  "70AU_100pc": {
+   "theta": 0.7,
+   "px_needed": 0.35,
+   "times_finer_than_tess": 60.00000000000001
+  }
+ },
+ "diffraction_arcsec": {
+  "tess_600nm": 1.4379603618285715,
+  "tess_800nm": 1.917280482438095,
+  "tess_1000nm": 2.3966006030476192,
+  "jwst_4p44um": 0.17189156940627692,
+  "jwst_2p7um": 0.1045286570713846,
+  "tess_pixel": 21.0
+ },
+ "jwst_pixel_ratio": {
+  "sw": 677.4193548387096,
+  "lw": 333.3333333333333
+ },
+ "thermal_contrast_1000K": {
+  "0.8um": 3.5197495470913218e-09,
+  "2.0um": 1.9668161794834043e-05,
+  "4.4um": 0.00031798321935180336,
+  "10.0um": 0.0009296859935814137
+ },
+ "phase_wasp18": {
+  "k": 0.09856824634202849,
+  "a_rs": 3.455029392996836,
+  "teff": 6432.0,
+  "rp_over_a": 0.02852891687168311,
+  "Ag_if_all_reflected_341": 0.4189708538709764,
+  "Ag_if_all_reflected_352": 0.432486042705524,
+  "refl_ppm_at_Ag_0p048": 39.06715669782745,
+  "Tday_341": 3002.255131784217,
+  "Tday_352": 3018.246103999627,
+  "Tday_341_Ag0p048": 2942.405458214977
+ },
+ "astero": {
+  "nu_max_sun": 3090.0,
+  "dnu_sun": 135.1,
+  "period_sun_min": 5.393743257820928,
+  "nyquist_uHz": {
+   "20 s": 25000.0,
+   "120 s": 4166.666666666667,
+   "200 s": 2500.0,
+   "600 s": 833.3333333333334,
+   "1800 s": 277.77777777777777
+  },
+  "res_uHz_27d": 0.42241146255744794,
+  "res_uHz_300d": 0.038580246913580245,
+  "res_uHz_356d": 0.032493189427495996,
+  "sun_R": 1.0,
+  "sun_M": 1.0
+ },
+ "tradeoff": [
+  {
+   "name": "TESS",
+   "npix": 67108864,
+   "scale": 21.0,
+   "fov_computed": 2283.565511111111,
+   "fov_quoted": 2300,
+   "cadence": "120 s, 20 s; full frame 1800/600/200 s",
+   "revisit": "continuous 27.4 d per sector"
+  },
+  {
+   "name": "Kepler",
+   "npix": 94617600,
+   "scale": 3.98,
+   "fov_computed": 115.64665362962963,
+   "fov_quoted": 115,
+   "cadence": "1765.8 s, 58.86 s",
+   "revisit": "one field, continuous"
+  },
+  {
+   "name": "PLATO (2014 design)",
+   "npix": null,
+   "scale": 15.0,
+   "fov_computed": null,
+   "fov_quoted": 2232,
+   "cadence": "25 s, 2.5 s",
+   "revisit": "long stare"
+  },
+  {
+   "name": "Roman WFI",
+   "npix": 300811392,
+   "scale": 0.11,
+   "fov_computed": 0.2808501422222222,
+   "fov_quoted": 0.281,
+   "cadence": "15 min (bulge survey)",
+   "revisit": "72-day seasons"
+  },
+  {
+   "name": "Rubin LSST",
+   "npix": 3200000000.0,
+   "scale": 0.2,
+   "fov_computed": 9.876543209876546,
+   "fov_quoted": 9.6,
+   "cadence": "30 s per visit",
+   "revisit": "every 3 d on average"
+  },
+  {
+   "name": "JWST NIRCam (1 module, SW)",
+   "npix": 16777216,
+   "scale": 0.031,
+   "fov_computed": 0.0012440512790123457,
+   "fov_quoted": null,
+   "cadence": "set by the observer",
+   "revisit": "pointed, no repeat"
+  }
+ ],
+ "tess_fov_from_pixels_deg2": 2283.565511111111,
+ "fov_loss_10x_finer": 100.0,
+ "tess_vs_jwst_fov": 1835587.9292403744,
+ "snr_scaling": {
+  "double_D": 2.0,
+  "four_times_exposure": 2.0,
+  "exposure_for_10x_fainter_at_fixed_D_s_ratio": 100.0
+ },
+ "pdcsap_check": {
+  "n_files": 20,
+  "max_abs_rel_diff_pct": 0.3409026337115817,
+  "ltt1445_pdc_over_sap": 0.43374165892601013,
+  "ltt1445_crowd_over_flfr": 0.4335722814263034,
+  "ltt1445_wrong": 1.0328334873701197
+ },
+ "dilution": {
+  "ltt1445_crowdsap": 0.41978914,
+  "depth_boost": 2.382148332851107,
+  "radius_error_if_ignored": 1.5434209836759079,
+  "depth_ratio_measured": 0.43107987788130414
+ }
+}

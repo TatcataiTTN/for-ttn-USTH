@@ -1,0 +1,100 @@
+t101	3  Phương pháp. Đường cong pha và nhật thực thứ cấp cùng bốn con số: sao chủ sáng và nóng, một pixel, 2 phút, nhiều vòng quỹ đạo
+t102	<b>Cần:</b> một hành tinh hiếm: rất nóng, khổng lồ, sát sao, quanh sao sáng<br/><b>TESS:</b> 2300 deg² cho WASP-18 (T mag 8.8) và vài hệ tương tự
+t103	<b>Cần:</b> sao và hành tinh trong cùng khẩu độ, lấy tổng thông lượng của cả hệ<br/><b>TESS:</b> khoảng cách 0.16 mas so với pixel 21″: luôn lẫn vào nhau, đúng như mong muốn
+t104	<b>Cần:</b> đủ điểm để gộp xuống mức vài chục ppm trên một vòng quỹ đạo 0.94 d<br/><b>TESS:</b> 2 phút cho 678 điểm mỗi vòng; chúng tôi đo được 352 ± 9 ppm ở pha 0.5
+t105	<b>Cần:</b> nhiều vòng quỹ đạo liên tiếp, không đứt đoạn ngày-đêm<br/><b>TESS:</b> 29 vòng trong 27.4 d, liên tục trừ khoảng trống khi truyền dữ liệu
+t106	Đường cong pha biến pixel thô thành lợi thế: không mất ánh sáng ra ngoài khẩu độ.
+t107	Nguồn: Ricker 2015 Bảng 1; Shporer 2019; các phép khớp và phép đo pha 0.5 của chúng tôi
+t108	3  Phương pháp. Kiểm định dương tính giả và bốn con số: sao lân cận, tâm sáng dưới pixel, lấy mẫu như nhau, đủ transit
+t109	<b>Cần:</b> các sao lân cận trong cùng trường để so sánh<br/><b>TESS:</b> ảnh cắt chứa sao đích và các sao lân cận; CROWDSAP cho biết có bao nhiêu
+t110	<b>Cần:</b> vị trí tâm sáng dưới mức pixel<br/><b>TESS:</b> sai số tâm sáng 0.0010 đến 0.010″ mỗi hành tinh, đã đo
+t111	<b>Cần:</b> cùng cách lấy mẫu cho transit chẵn và lẻ<br/><b>TESS:</b> một chu kỳ 2 phút cho tất cả; phép kiểm lẻ-chẵn đã làm trên cả mười
+t112	<b>Cần:</b> vài transit cho mỗi loại chẵn/lẻ<br/><b>TESS:</b> 4 đến 84 transit mỗi hành tinh
+t113	Kiểm định dùng lưới pixel như một nguồn thông tin: ánh sáng nằm ở đâu, chứ không phải hành tinh trông thế nào.
+t114	Nguồn: tâm sáng SPOC (MOM_CENTR1, 2) của các tệp của chúng tôi; các phép khớp (results/checkpoint_vetting.csv)
+t115	3  Phương pháp. Địa chấn học sao và bốn con số: nhiều sao sáng, ánh sáng cả đĩa, 2 phút hoặc 20 s, quan sát dài liên tục
+t116	<b>Cần:</b> nhiều sao sáng ở mọi tuổi<br/><b>TESS:</b> dự kiến thấy p-mode trên khoảng 6 000 ngôi sao (Ricker tr. 12)
+t117	<b>Cần:</b> chỉ cần tổng ánh sáng của sao<br/><b>TESS:</b> độ sáng tích phân cả đĩa: pixel 21″ không gây hại
+t118	<b>Cần:</b> tần số Nyquist cao hơn ν<sub>max</sub> của sao<br/><b>TESS:</b> 2 phút: 4 167 µHz; 20 s: 25 000; 30 phút: 278 (quá thấp cho sao giống Mặt Trời)
+t119	<b>Cần:</b> dữ liệu dài, không gián đoạn: độ phân giải tần số = 1/T<br/><b>TESS:</b> 27.4 d: 0.42 µHz; hơn 300 d gần các cực: dưới 0.039 µHz (Ricker tr. 11)
+t120	Chu kỳ lấy mẫu nhanh là con số quyết định ở đây; ảnh toàn khung 30 phút không thấy được p-mode của sao giống Mặt Trời.
+t121	Nguồn: Ricker 2015 Mục 7.2, 8.3; Huber 2011 Mục 2; Nyquist và độ phân giải được tính
+t122	3  Phương pháp. “Stars in full frames” và bốn con số: một triệu vật thể mỗi ảnh, pixel thô ở vùng thưa sao, 30 phút đến 200 s
+t123	<b>Cần:</b> toàn bộ trường, không chọn trước<br/><b>TESS:</b> Ricker tr. 13: mọi ngôi sao đủ sáng trong 2300 deg²
+t124	<b>Cần:</b> tách các sao khỏi láng giềng<br/><b>TESS:</b> 21″ dùng được ở vùng thưa sao; bị hạn chế ở vùng đông (lập luận của chúng tôi)
+t125	<b>Cần:</b> các sự kiện từ vài phút đến vài tuần: bùng nổ, che khuất, nova (lập luận của chúng tôi)<br/><b>TESS:</b> 30 phút, rồi 10 phút, rồi 200 s
+t126	<b>Cần:</b> ghi liên tục xuyên suốt mỗi sự kiện<br/><b>TESS:</b> 27.4 d mỗi sector, 2 năm cho cả bầu trời
+t127	Ảnh toàn khung đổi chu kỳ lấy mẫu dài hơn lấy việc phủ mọi ngôi sao, đúng thứ mà nghiên cứu sao biến quang cần.
+t128	Nguồn: Ricker 2015 Bảng 1, Mục 8.4; trang dữ liệu NASA HEASARC
+t129	3  Phương pháp. Dữ liệu đầu vào: từ khối ảnh I(x, y, t) đến đường cong ánh sáng F(t), với SAP và PDCSAP
+t130	A: các pixel của khẩu độ tối ưu; B: nền trời. Đã kiểm trên π Men c: tổng 45 pixel khẩu độ bằng SAP_FLUX.
+t131	U<sub>j</sub>: các vector cơ sở khử xu hướng; C = CROWDSAP; f = FLFRCSAP. Chia cho f, không chia cho C × f.
+t132	Kiểm tra trên các tệp của chúng tôi
+t133	trung vị PDCSAP / trung vị SAP so với CROWDSAP / FLFRCSAP, 20 tệp
+t134	khớp trong 0.34 %
+t135	LTT 1445 A b: đo được; C / f; dạng có C × f ở mẫu số
+t136	Loại dữ liệu vào: khối ảnh 3 chiều (11 × 11 pixel mỗi ảnh cắt, hoặc 4096 × 4096 mỗi camera), nén thành chuỗi 1 chiều; sau đó f(t) = F<sub>PDCSAP</sub> / trung vị.
+t137	Nguồn: sổ tay lưu trữ TESS của STScI; header SPOC của các tệp của chúng tôi; code/33_checkpoint_facts.py
+t138	3  Phương pháp. Đo quang transit từng bước: gấp pha, tìm kiếm, khớp, rồi bán kính, hình học và mật độ sao
+t139	φ = ( (t − T<sub>0</sub>) mod P ) / P ;  BLS strength = √[ n<sub>in</sub>n<sub>out</sub> / (n<sub>in</sub> + n<sub>out</sub>) ] ( ⟨f⟩<sub>out</sub> − ⟨f⟩<sub>in</sub> ) / σ
+t140	1. Gấp pha theo một chu kỳ thử; bộ (P, T<sub>0</sub>, thời lượng) tốt nhất là đỉnh BLS. Đầu vào: chuỗi 1 chiều f(t).
+t141	z(t) = (a/R<sub>★</sub>) √[ sin<sup>2</sup>θ + cos<sup>2</sup>i cos<sup>2</sup>θ ] ,  θ = 2π(t − T<sub>0</sub>)/P ;  I(μ) = I<sub>0</sub> [ 1 − u<sub>1</sub>(1 − μ) − u<sub>2</sub>(1 − μ)<sup>2</sup> ]
+t142	2. Mô hình Mandel-Agol với tối tâm bậc hai, khớp bằng MCMC (pipeline của chúng tôi).
+t143	δ ≈ (R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> ,  R<sub>p</sub> = R<sub>★</sub> √δ ;  b = (a/R<sub>★</sub>) cos i
+t144	3. Bán kính. Ví dụ HD 118203 b: R<sub>p</sub>/R<sub>★</sub> = 0.0553, R<sub>★</sub> = 2.04 R<sub>☉</sub> cho 12.30 R<sub>⊕</sub>.
+t145	a/R<sub>★</sub> = √[ (1 + k)<sup>2</sup> − b<sup>2</sup> cos<sup>2</sup>(πT<sub>14</sub>/P) ] / sin(πT<sub>14</sub>/P) ;  ρ<sub>★</sub> = 3π (a/R<sub>★</sub>)<sup>3</sup> / (G P<sup>2</sup>)
+t146	4. Hình học và mật độ. Dạng bỏ số hạng cos<sup>2</sup> lệch tới 2.8 % (LTT 9779 b); dạng chính xác trả lại b và a/R<sub>★</sub> từ các phép khớp của chúng tôi với sai khác 10<sup>−13</sup>.
+t147	Nguồn: Mandel và Agol 2002; dạng của thời lượng theo Winn 2010; đã kiểm trên các phép khớp của chúng tôi (code/33)
+t148	3  Phương pháp. Các số transit của mười hành tinh: xác suất, thời lượng, điểm mỗi transit, transit mỗi sector, mật độ
+t149	Transit mỗi sector
+t150	ρ<sub>★</sub> từ phép khớp / catalog (g cm<sup>−3</sup>)
+t151	R<sub>★</sub>/a = 1/(a/R<sub>★</sub>) của phép khớp. T<sub>14</sub> từ phép khớp theo công thức chính xác; số điểm = T<sub>14</sub>/120 s; mật độ từ phép khớp và từ catalog M<sub>★</sub>/R<sub>★</sub><sup>3</sup> (mật độ Mặt Trời 1.41).
+t152	Nguồn: các phép khớp của chúng tôi (results/checkpoint_geometry.csv); M và R trong catalog lấy từ archive của NASA
+t153	3  Phương pháp. Đường cong pha và nhật thực thứ cấp từng bước, với WASP-18 b: ánh sáng phản xạ, ánh sáng nhiệt, nhiệt độ mặt ban ngày
+t154	cos α = −sin i cos(2π(t − T<sub>0</sub>)/P) ;  f = 1 − δ<sub>transit</sub> + F<sub>planet</sub> + F<sub>ellip</sub> + F<sub>beam</sub>
+t155	Đầu vào: chuỗi 1 chiều gấp theo P; α = 0 tại nhật thực thứ cấp.
+t156	F<sub>refl</sub> = A<sub>g</sub> (R<sub>p</sub>/a)<sup>2</sup> [ sin α + (π − α) cos α ] / π ;  F<sub>therm</sub> = F<sub>night</sub> + (F<sub>day</sub> − F<sub>night</sub>)(1 + cos α)/2
+t157	δ<sub>sec</sub> = A<sub>g</sub>(R<sub>p</sub>/a)<sup>2</sup> + k<sup>2</sup> ∫B<sub>λ</sub>(T<sub>day</sub>)W dλ / ∫B<sub>λ</sub>(T<sub>eff</sub>)W dλ
+t158	W: đáp ứng của TESS, ở đây phẳng từ 600 đến 1000 nm (của chúng tôi).
+t159	k = 0.0986, a/R<sub>★</sub> = 3.455, T<sub>eff</sub> = 6432 K
+t160	(R<sub>p</sub>/a)<sup>2</sup> = 814 ppm
+t161	nếu toàn bộ 341 ppm là ánh sáng phản xạ thì cần A<sub>g</sub>
+t162	0.42, nhưng giới hạn của Shporer: &lt; 0.048 (Shporer tr. 1)
+t163	T<sub>day</sub> từ 341 ppm (bài báo) | 352 ppm (của chúng tôi)
+t164	Nguồn: Shporer 2019; nghiệm Planck dải phẳng của chúng tôi (code/33_checkpoint_facts.py)
+t165	3  Phương pháp. Kiểm định dương tính giả từng bước: độ sâu lẻ-chẵn, tín hiệu elip và beaming, dịch tâm sáng
+t166	Z = | δ<sub>even</sub> − δ<sub>odd</sub> | / √[ σ<sub>even</sub><sup>2</sup> + σ<sub>odd</sub><sup>2</sup> ]
+t167	Đầu vào: chuỗi 1 chiều. Z &gt; 3 gợi ý một hệ sao đôi che khuất có chu kỳ gấp đôi. Kết quả của chúng tôi: slide về lẻ so với chẵn.
+t168	F<sub>ellip</sub> = −A<sub>ellip</sub> cos 4πφ ,  A<sub>ellip</sub> ∝ (M<sub>p</sub>/M<sub>★</sub>)(R<sub>★</sub>/a)<sup>3</sup> sin<sup>2</sup>i ;  F<sub>beam</sub> = A<sub>beam</sub> sin 2πφ
+t169	Đầu vào: chuỗi gấp theo P. Shporer 2019 đã đo cả hai cho WASP-18 b; chúng tôi chưa đo.
+t170	X<sub>c</sub> = Σ x [I − B] / Σ [I − B] ,  Y<sub>c</sub> tương tự ;  ΔR<sub>c</sub> = √[ (X<sub>in</sub> − X<sub>out</sub>)<sup>2</sup> + (Y<sub>in</sub> − Y<sub>out</sub>)<sup>2</sup> ]
+t171	Đầu vào: các <b>ảnh</b> (tâm sáng theo thông lượng của ảnh cắt; SPOC lưu là MOM_CENTR1 và 2). Độ dịch &gt; 3σ chỉ ra một sao lẫn trong khẩu độ.
+t172	Phép kiểm tra tâm sáng là phép mà phiên bản đầu của bộ slide này ghi là chưa làm; nó đã được làm trên tâm sáng SPOC của mười hành tinh (slide kế tiếp).
+t173	Nguồn: Ricker 2015 Mục 8.2; Shporer 2019 (elip, beaming); các cột tâm sáng của SPOC
+t174	3  Phương pháp. Kết quả kiểm định của mười hành tinh: lẻ-chẵn tính bằng sigma, và độ dịch tâm sáng tính bằng 10<sup>−3</sup> pixel và giây cung
+t175	Lẻ-chẵn (σ, có β)
+t176	Số transit
+t177	|Độ dịch|/sai số lớn nhất
+t178	ΔR<sub>c</sub>: tâm sáng trung bình trong transit trừ tâm sáng ngoài transit tại chỗ (MOM_CENTR1, 2) trên các transit đã dùng; cột cuối dùng sai số nhiễu trắng. HD 189733 b (8.8) là hành tinh duy nhất vượt 3; độ dịch được kỳ vọng khi CROWDSAP nhỏ hơn 1, và chúng tôi không diễn giải thêm.
+t179	Nguồn: results/checkpoint_vetting.csv và figures/paper/figure_stats.json (lẻ-chẵn)
+t180	3  Phương pháp. Địa chấn học sao từng bước: phổ công suất, ν<sub>max</sub> và Δν, rồi bán kính và khối lượng sao
+t181	P<sub>LS</sub>(ν) = (1/2σ<sup>2</sup>) { [ Σ(f − ⟨f⟩) cos 2πν(t − τ) ]<sup>2</sup> / Σ cos<sup>2</sup> + [ Σ(f − ⟨f⟩) sin 2πν(t − τ) ]<sup>2</sup> / Σ sin<sup>2</sup> }
+t182	Phổ Lomb-Scargle của chuỗi 1 chiều (cho phép có khoảng trống). Đầu vào: chuỗi 2 phút hoặc 20 s, ít nhất một sector.
+t183	ν<sub>max</sub>: tâm của vùng dư công suất hình chuông; Δν: khoảng cách giữa các đỉnh, lấy từ tự tương quan của phổ.
+t184	R<sub>★</sub>/R<sub>☉</sub> = (ν<sub>max</sub>/ν<sub>max,☉</sub>) (Δν/Δν<sub>☉</sub>)<sup>−2</sup> (T<sub>eff</sub>/T<sub>eff,☉</sub>)<sup>1/2</sup> ;  M<sub>★</sub>/M<sub>☉</sub> = (ν<sub>max</sub>/ν<sub>max,☉</sub>)<sup>3</sup> (Δν/Δν<sub>☉</sub>)<sup>−4</sup> (T<sub>eff</sub>/T<sub>eff,☉</sub>)<sup>3/2</sup>
+t185	Giá trị tham chiếu của Mặt Trời: ν<sub>max</sub> = 3090 µHz (Huber tr. 2), Δν = 135.1 µHz (Huber tr. 2).
+t186	Chúng tôi chưa làm; đây là đường tới bán kính sao không phụ thuộc Gaia, sẽ thu hẹp sai số bán kính 1 đến 7 % của mười hành tinh.
+t187	Nguồn: Huber 2011 (giá trị Mặt Trời, hệ thức tỉ lệ); Kjeldsen và Bedding 1995
+t188	3  Phương pháp. “Stars in full frames” từng bước: trừ ảnh vi sai, năng lượng bùng nổ, chu kỳ sao biến quang
+t189	R: ảnh tham chiếu (trung vị của các khung tốt); K: nhân làm khớp PSF. Phần còn lại trong D là các nguồn đã thay đổi. Đầu vào: <b>khối ảnh</b> 4096 × 4096 pixel.
+t190	E<sub>flare</sub> = L<sub>★,TESS</sub> ∫ [ F(t) − F<sub>0</sub> ] / F<sub>0</sub> dt
+t191	L<sub>★,TESS</sub>: độ trưng của sao trong dải TESS; tích phân là thời lượng tương đương. Đầu vào: chuỗi 1 chiều cho mỗi sao.
+t192	chu kỳ của sao biến quang: đỉnh của P<sub>LS</sub>(ν), hoặc pha có độ phân tán nhỏ nhất (PDM)
+t193	Đầu vào: chuỗi 1 chiều cho mỗi sao, từ các pipeline FFI: QLP (Huang 2020) và eleanor (Feinstein 2019); trừ ảnh vi sai: Oelkers 2018.
+t194	Ghi chú checkpoint viết năng lượng bùng nổ là 4πd<sup>2</sup>L × tích phân; tích phân đã là một khoảng thời gian, nên E = L × thời lượng tương đương.
+t195	Nguồn: Huang 2020 (QLP); Feinstein 2019 (eleanor); Oelkers 2018; Alard và Lupton 1998 cho dạng của nhân
+t196	3  Phương pháp. Chụp ảnh trực tiếp, hình học: cả mười hành tinh nằm trong 0.03 % của một pixel TESS tính từ sao của chúng
+t197	θ = a / d. Mười hành tinh của chúng tôi: 0.12 đến 5.5 mas; một pixel là 21″ = 21 000 mas.
+t198	Trong một pixel
+t199	lớn nhất: LTT 1445 A b, 5.5 mas = 0.026 % của một pixel
+t200	Sao Mộc ở 5.2 AU, sao cách 10 pc: 0.52″ = 2.5 % của một pixel; HR 8799 b: 68 AU ở 39.4 pc = 1.7″ (Marois tr. 4)

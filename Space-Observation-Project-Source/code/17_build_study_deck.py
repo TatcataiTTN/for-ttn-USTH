@@ -812,8 +812,9 @@ S.append(sl("M  Methods. What TESS cannot do: velocities, imaging, microlensing,
             + note("'Our reasoning' = instrument numbers, not a quotation. A planet that does not cross its star gives no transit at all."),
             "The Galactic centre latitude was computed with astropy from galactic l = 0, b = 0: ecliptic latitude -5.5 degrees; typical bulge microlensing fields at b = -3 degrees give -6.2 degrees, so the bulge sits right at the edge of the 6-degree boundary; we did not check which sectors touch it. The statements about astrometry and pulsar timing are our reasoning from the pixel scale and from the optical band; we have no source that says TESS cannot do them."))
 
-ORDER = {"1": 1, "2": 2, "H": 2.3, "M": 2.4, "T": 2.5, "C": 2.7, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "B": 10, "A": 11}
-DISP = {"1": "1", "2": "2", "H": "3", "M": "3", "T": "4", "C": "5", "3": "6", "4": "7", "5": "8", "6": "9", "7": "10", "8": "11", "9": "12", "B": "B"}    # numbers shown on the slides
+exec(compile(open(ROOT / "code" / "35_checkpoint_slides.py", encoding="utf-8").read(), "35_checkpoint_slides.py", "exec"))
+ORDER = {"1": 1, "2": 2, "H": 2.3, "M": 2.4, "K": 2.43, "T": 2.5, "Q": 2.55, "C": 2.7, "3": 3, "4": 4, "5": 5, "6": 6, "7": 7, "8": 8, "9": 9, "B": 10, "A": 11}
+DISP = {"1": "1", "2": "2", "H": "3", "M": "3", "K": "3", "Q": "4", "T": "4", "C": "5", "3": "6", "4": "7", "5": "8", "6": "9", "7": "10", "8": "11", "9": "12", "B": "B"}    # numbers shown on the slides
 def _key(h):
     t = re.search(r"<h2><span>([^<]+)", h).group(1)
     return ORDER[t[0]]
@@ -838,6 +839,7 @@ def _num(m):
     return f'<span class="pg">{_n[0]}</span>'
 SL = [SL[0]] + [re.sub(r'<span class="pg">@@PG@@</span>', _num, x) for x in SL[1:]]
 css = (ROOT / "slides" / "deck" / "group2_base.css").read_text(encoding="utf-8") + ".mdeck-slide{height:720px!important;min-height:720px}.mdeck-slide .src{position:absolute;left:60px;right:100px;bottom:7px;font-size:20px;line-height:1.2;color:#566074}.mdeck-slide table.tbl.xs{font-size:21px}.mdeck-slide table.tbl.xs td,.mdeck-slide table.tbl.xs th{padding:4px 8px}"
+css += CK_CSS
 js = (ROOT / "slides" / "deck" / "group2_engine.js").read_text(encoding="utf-8")
 page = ('<!doctype html><html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">'
         '<title>Ten exoplanets with TESS, Group 2 study deck</title><style>' + css + '</style></head><body>'

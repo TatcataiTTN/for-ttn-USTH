@@ -874,3 +874,402 @@ ed4855c28d	Nhu cầu
 9357e0ad06	Đối tác
 7ea014de7b	Bằng chứng
 4a3756669a	Günther 2019
+4b1f6034ae	33 hình mới. Mỗi slide nói rõ hình thể hiện gì, kèm các số đo được.
+a066bf31b8	3  Phương pháp. “Stars in full frames” không phải phương pháp tìm hành tinh: nó đo gì, so với transit và chụp ảnh trực tiếp
+8405fc8a29	Đại lượng đo
+3f43a2e486	Dữ liệu đầu vào
+8d94070b0c	Tìm được hành tinh?
+ee41e479b4	một ngôi sao, 2 phút
+6ca7463f9f	vết lõm ánh sáng của sao khi hành tinh đi ngang qua
+e5a239c1e2	ảnh cắt nhỏ → đường cong ánh sáng 1 chiều
+aaea219eed	<b>Có</b>, gián tiếp
+cef862b514	chính hành tinh
+444073838e	photon từ chính hành tinh, ánh sáng sao bị triệt tiêu
+94396cda05	ảnh có coronagraph, pixel nhỏ
+28e572795a	<b>Có</b>, trực tiếp
+c74d79e5d5	vị trí của sao
+559c1e2306	độ lắc của vị trí sao so với các sao tham chiếu
+d9a0e23ce4	chuỗi ảnh, tâm sáng dưới pixel
+1d31ddf0ec	Có, nhưng TESS không làm được
+4f7594ff3a	mọi ngôi sao trong trường 24° × 96°
+63857e22d8	độ sáng của mọi ngôi sao: sao đôi, nova, sao bùng nổ, sao biến quang
+f5190e0efc	chuỗi ảnh toàn khung
+88e452801c	<b>Không</b>: khoa học về sao; nó còn mở rộng việc tìm transit
+5a949f2ab6	Mục 8.4 của Ricker có tên ‘Full Frame Images’ (Ricker tr. 13); tên dòng của chúng tôi là cách gọi rút gọn. ‘Star in frames’ không phải thuật ngữ chuẩn.
+7082d01db0	Nguồn: Ricker 2015 Mục 8.4, tr. 13 và 14; NASA Exoplanet Archive; số đo của chúng tôi
+7fbada8c0b	3  Phương pháp. Một chuỗi ảnh, ba cách dùng: đo quang vi sai, đo tâm sáng, và hiệu chuẩn cho chụp ảnh
+05c78846f8	Đo quang vi sai
+cfd6ce3a13	Thông lượng của sao giảm đi (R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> khi hành tinh đi ngang qua. TESS: làm được; đó là cả mười hành tinh của chúng tôi, 23 đến 170 điểm mỗi transit.
+249bbb516c	Vị trí (x, y) của sao dịch chuyển khi một sao lẫn trong khẩu độ bị tối đi, hoặc khi hành tinh kéo sao. TESS dùng nó như một phép kiểm tra (Ricker Mục 8.2: chuyển động ảnh đặc trưng cho transit). Chúng tôi đo được độ dịch tối đa 0.027″.
+23aed4032d	Hiệu chuẩn cho chụp ảnh
+3d0a338077	Coronagraph che sao; các khung ngắn không bão hòa của sao vẫn xác định được tâm sao để trừ quầng nhiễu xạ. TESS không có coronagraph.
+685d9328fd	Cùng các khung ảnh phục vụ những phương pháp rất khác nhau; điều thay đổi là đại lượng được đo trên chúng.
+db7f4c7b98	Nguồn: Ricker 2015 Mục 8.2; phép kiểm tra tâm sáng của chúng tôi (code/33_checkpoint_facts.py)
+35d7aded09	3  Phương pháp. Gián tiếp và trực tiếp: bản chất, đại lượng đo, khó khăn lớn nhất, ai được tìm thấy, cho biết gì
+207ef8d9ab	Star in frames: transit, đo vị trí sao
+70447acf43	Bản chất vật lý
+d2c0ccc9d0	gián tiếp: hành tinh tác động lên sao (che, kéo)
+cb2a0a50dd	trực tiếp: photon từ chính hành tinh
+25dc779d47	tổng thông lượng hoặc tâm sáng của <b>sao</b>
+64350d9277	một điểm sáng của <b>hành tinh</b>, sao bị triệt tiêu
+ec61084274	Khó khăn lớn nhất
+8606062e1a	độ chính xác: 60 ppm mỗi giờ là mức nhiễu sàn được giả định (Ricker tr. 12)
+42335e5b79	độ tương phản: Sao Mộc ở 5.2 AU cho 2.5 × 10<sup>−9</sup>, Trái Đất ở 1 AU cho 5.5 × 10<sup>−10</sup> (A<sub>g</sub> = 0.3, của chúng tôi)
+896b9e5cc5	Ai được tìm thấy
+fa66cd9ba6	hành tinh sát sao: các phát hiện của TESS có P trung vị = 5.7 d, a = 0.06 AU
+6f218bb235	hành tinh khí khổng lồ trẻ, ở xa: hành tinh chụp được có a trung vị = 151 AU
+ec7fb89012	Cho biết gì
+2d821e58b7	R<sub>p</sub>/R<sub>★</sub>, chu kỳ, độ nghiêng; khối lượng chỉ khi có đối tác
+6c65b27634	phổ của chính hành tinh: nhiệt độ, thành phần, mây
+892c62a471	Số liệu archive: các hành tinh đã xác nhận, 2026-11-21 (data/raw/pscomppars_imaging_and_tess.csv); 1027 phát hiện của TESS, 99 hành tinh chụp được. Độ tương phản là số tính, không phải số trích dẫn.
+391f4a91d4	Nguồn: Ricker 2015 Mục 8.1; truy vấn TAP archive ngày 2026-11-22; Bowler 2016; phép tính của chúng tôi
+b52ac5a2d0	3  Phương pháp. Một bộ camera, hai sản phẩm dữ liệu: ảnh cắt nhỏ mỗi 2 phút, ảnh toàn khung mỗi 30 phút, 10 phút, 200 s
+e3cd27f523	Giữ lại gì
+07b6caa6ff	Tệp pixel đích và đường cong ánh sáng
+f7c9f673f5	một ảnh cắt quanh mỗi ngôi sao chọn trước (khoảng 200 000)
+d86a300b13	2 phút; 20 s từ sứ mệnh mở rộng đầu tiên
+fe1cf44d4a	toàn bộ trường của mỗi camera
+8b8a4d807b	30 phút (chu kỳ 1–2), 10 phút (3–4), 200 s (5+)
+52edeabd95	Cùng một phần cứng
+0589844689	Bốn camera giống hệt nhau (Ricker tr. 5); mỗi camera gồm bốn CCD tạo thành 4096 × 4096 pixel (Ricker tr. 6). Các khung 2 s được cộng theo nhóm 60 thành chu kỳ lấy mẫu 2 phút (Ricker tr. 7). Không có camera chụp ảnh riêng.
+da9e9ad400	Vì sao ảnh toàn khung quan trọng
+38ea8b0e36	Chúng mở rộng việc tìm transit tới mọi ngôi sao đủ sáng trong trường, dù có được chọn trước hay không (Ricker tr. 13); cho khoảng 10<sup>6</sup> vật thể mỗi ảnh và khoảng 20 triệu trong hai năm (Ricker tr. 14); và ứng viên tìm thấy ở đó có thể được lấy mẫu 2 phút về sau (Ricker tr. 13).
+b4e614e0e7	Chúng tôi không dùng chúng: cả mười hành tinh đã có đường cong ánh sáng SPOC 2 phút.
+a557746fab	Nguồn: Ricker 2015 Mục 4.2, 4.3, 8.4 (tr. 6, 7, 13, 14); trang dữ liệu NASA HEASARC
+6a13fedbae	3  Phương pháp. Đánh dấu các phương pháp: những gì TESS tự làm đều khớp với cả bốn con số của nó
+e592705ec5	Con số quyết định
+85a210dfe7	p ≈ 5 % (Ricker); 23–170 điểm mỗi transit
+b9fad751f6	Nhật thực thứ cấp, đường cong pha
+04c5fceb46	WASP-18 b: 29 vòng quỹ đạo trong một sector
+d7c3834dfe	Kiểm định dương tính giả
+c12a0b7e3e	sai số tâm sáng khoảng 10<sup>−4</sup> pixel, đã đo
+ec81ff3cc8	Nyquist 4 167 µHz, cao hơn ν<sub>max</sub> của Mặt Trời là 3090
+9433efea0e	khoảng 10<sup>6</sup> vật thể mỗi ảnh (Ricker)
+b9bd961e18	Bấm vào ô để làm mờ một dòng. Bốn con số: trường nhìn 24° × 96°, pixel 21″, chu kỳ lấy mẫu 2 phút (20 s, 200 s), một sector 27.4 ngày. Cách đọc là của chúng tôi; mỗi dòng có slide riêng.
+9293af6148	Nguồn: cách đọc của chúng tôi từ các số thiết bị của Ricker 2015 (Bảng 1, Mục 3.5, 7.2) và các tệp của chúng tôi
+068b04d3b7	3  Phương pháp. Đánh dấu các phương pháp: cần đối tác, và những gì TESS không làm được, kèm yếu tố không khớp
+770c0186a2	Khối lượng: vận tốc xuyên tâm
+f3dfae4971	cần máy quang phổ; tải trọng chỉ là camera
+e1122725ea	Xác nhận: chụp ảnh từ mặt đất
+3d3a1983b8	pixel 21″; các sao đồng hành của LTT 1445 ở 5–7″
+2ea502b5cc	Thời điểm transit (TTV)
+114bd922b0	thời điểm đo được; khối lượng cần một mô hình
+c7db4df8d2	cần một phổ; chỉ có một dải sóng
+76499f44e4	Bán kính sao: Gaia
+922a5af5e4	một phép đo thị sai
+fb80512728	0.1–5.5 mas so với pixel 21″
+1439ac6276	độ lắc nhỏ hơn nhiều một pixel
+a1070e1ee5	vùng phình ở ranh giới 6°; đông sao; không nhìn chằm chằm
+fdcba9968a	vô tuyến và milimét; TESS là thiết bị quang học
+49e71e0a6b	sector 27.4 ngày; P<sub>max</sub> khoảng 10 d (Ricker)
+19bf8be583	✓ khớp, ✗ không khớp, ~ một phần, – không phải con số quyết định. Cách đọc của chúng tôi từ các số thiết bị.
+ecc2f5f9d9	3  Phương pháp. Đo quang transit và bốn con số: nhiều sao, pixel thô, điểm 2 phút, một sector 27 ngày
+80d1714176	1  Trường nhìn
+ae630d6bce	<b>Cần:</b> hàng trăm nghìn ngôi sao: xác suất hình học chỉ khoảng 5 % (Ricker tr. 4), ít nhất 500 sao cho mỗi siêu Trái Đất (Ricker tr. 4)<br/><b>TESS:</b> 24° × 96° = 2300 deg², ít nhất 200 000 mục tiêu
+e3d0dfd573	2  Độ phân giải không gian
+fc0ec9a1d2	<b>Cần:</b> không cần tách hành tinh khỏi sao, chỉ cần gom ánh sáng của sao<br/><b>TESS:</b> pixel 21″; khẩu độ của chúng tôi 13 đến 31 pixel; CROWDSAP thấp nhất 0.42
+d04dfa8381	3  Độ phân giải thời gian
+25de3c8ca2	<b>Cần:</b> một điểm mỗi vài phút xuyên qua một vết lõm kéo dài nhiều giờ<br/><b>TESS:</b> transit 0.8 đến 5.7 h: 23 đến 170 điểm ở chu kỳ 2 phút
+a8605d25ce	4  Thời gian quay lại
+ff158415e6	<b>Cần:</b> ít nhất hai transit để có chu kỳ<br/><b>TESS:</b> sector 27.4 d: 4.5 đến 98 transit cho P = 6.1 đến 0.28 d
+311babbc61	Các con số của khảo sát (trường rộng, pixel thô) đúng là thứ mà xác suất transit thấp đòi hỏi.
+bccfb61c62	Nguồn: Ricker 2015 Mục 3.5, Bảng 1; các phép khớp của chúng tôi (results/checkpoint_geometry.csv)
+39aef0867c	3  Phương pháp. Đường cong pha và nhật thực thứ cấp cùng bốn con số: sao chủ sáng và nóng, một pixel, 2 phút, nhiều vòng quỹ đạo
+25e566bd0e	<b>Cần:</b> một hành tinh hiếm: rất nóng, khổng lồ, sát sao, quanh sao sáng<br/><b>TESS:</b> 2300 deg² cho WASP-18 (T mag 8.8) và vài hệ tương tự
+0e8e433dd0	<b>Cần:</b> sao và hành tinh trong cùng khẩu độ, lấy tổng thông lượng của cả hệ<br/><b>TESS:</b> khoảng cách 0.16 mas so với pixel 21″: luôn lẫn vào nhau, đúng như mong muốn
+4a75404829	<b>Cần:</b> đủ điểm để gộp xuống mức vài chục ppm trên một vòng quỹ đạo 0.94 d<br/><b>TESS:</b> 2 phút cho 678 điểm mỗi vòng; chúng tôi đo được 352 ± 9 ppm ở pha 0.5
+48ce2f4446	<b>Cần:</b> nhiều vòng quỹ đạo liên tiếp, không đứt đoạn ngày-đêm<br/><b>TESS:</b> 29 vòng trong 27.4 d, liên tục trừ khoảng trống khi truyền dữ liệu
+810c5432af	Đường cong pha biến pixel thô thành lợi thế: không mất ánh sáng ra ngoài khẩu độ.
+8c6ffc4ccb	Nguồn: Ricker 2015 Bảng 1; Shporer 2019; các phép khớp và phép đo pha 0.5 của chúng tôi
+ec9e9e7362	3  Phương pháp. Kiểm định dương tính giả và bốn con số: sao lân cận, tâm sáng dưới pixel, lấy mẫu như nhau, đủ transit
+8e005f1752	<b>Cần:</b> các sao lân cận trong cùng trường để so sánh<br/><b>TESS:</b> ảnh cắt chứa sao đích và các sao lân cận; CROWDSAP cho biết có bao nhiêu
+d6589a569a	<b>Cần:</b> vị trí tâm sáng dưới mức pixel<br/><b>TESS:</b> sai số tâm sáng 0.0010 đến 0.010″ mỗi hành tinh, đã đo
+e57b46c011	<b>Cần:</b> cùng cách lấy mẫu cho transit chẵn và lẻ<br/><b>TESS:</b> một chu kỳ 2 phút cho tất cả; phép kiểm lẻ-chẵn đã làm trên cả mười
+3d18c3ccc9	<b>Cần:</b> vài transit cho mỗi loại chẵn/lẻ<br/><b>TESS:</b> 4 đến 84 transit mỗi hành tinh
+4f9c62a671	Kiểm định dùng lưới pixel như một nguồn thông tin: ánh sáng nằm ở đâu, chứ không phải hành tinh trông thế nào.
+a5ab56e31c	Nguồn: tâm sáng SPOC (MOM_CENTR1, 2) của các tệp của chúng tôi; các phép khớp (results/checkpoint_vetting.csv)
+6da1de096d	3  Phương pháp. Địa chấn học sao và bốn con số: nhiều sao sáng, ánh sáng cả đĩa, 2 phút hoặc 20 s, quan sát dài liên tục
+c0a1e79ff1	<b>Cần:</b> nhiều sao sáng ở mọi tuổi<br/><b>TESS:</b> dự kiến thấy p-mode trên khoảng 6 000 ngôi sao (Ricker tr. 12)
+b0f5c7aa9d	<b>Cần:</b> chỉ cần tổng ánh sáng của sao<br/><b>TESS:</b> độ sáng tích phân cả đĩa: pixel 21″ không gây hại
+fe35f8a144	<b>Cần:</b> tần số Nyquist cao hơn ν<sub>max</sub> của sao<br/><b>TESS:</b> 2 phút: 4 167 µHz; 20 s: 25 000; 30 phút: 278 (quá thấp cho sao giống Mặt Trời)
+93d050f85d	<b>Cần:</b> dữ liệu dài, không gián đoạn: độ phân giải tần số = 1/T<br/><b>TESS:</b> 27.4 d: 0.42 µHz; hơn 300 d gần các cực: dưới 0.039 µHz (Ricker tr. 11)
+c467e1577e	Chu kỳ lấy mẫu nhanh là con số quyết định ở đây; ảnh toàn khung 30 phút không thấy được p-mode của sao giống Mặt Trời.
+852b082cb7	Nguồn: Ricker 2015 Mục 7.2, 8.3; Huber 2011 Mục 2; Nyquist và độ phân giải được tính
+3d67157db7	3  Phương pháp. “Stars in full frames” và bốn con số: một triệu vật thể mỗi ảnh, pixel thô ở vùng thưa sao, 30 phút đến 200 s
+e6479f0cd0	<b>Cần:</b> toàn bộ trường, không chọn trước<br/><b>TESS:</b> Ricker tr. 13: mọi ngôi sao đủ sáng trong 2300 deg²
+a9f89901cd	<b>Cần:</b> tách các sao khỏi láng giềng<br/><b>TESS:</b> 21″ dùng được ở vùng thưa sao; bị hạn chế ở vùng đông (lập luận của chúng tôi)
+9e82e4e584	<b>Cần:</b> các sự kiện từ vài phút đến vài tuần: bùng nổ, che khuất, nova (lập luận của chúng tôi)<br/><b>TESS:</b> 30 phút, rồi 10 phút, rồi 200 s
+077a83f672	<b>Cần:</b> ghi liên tục xuyên suốt mỗi sự kiện<br/><b>TESS:</b> 27.4 d mỗi sector, 2 năm cho cả bầu trời
+b1998b67fe	Ảnh toàn khung đổi chu kỳ lấy mẫu dài hơn lấy việc phủ mọi ngôi sao, đúng thứ mà nghiên cứu sao biến quang cần.
+bb3f6ca358	Nguồn: Ricker 2015 Bảng 1, Mục 8.4; trang dữ liệu NASA HEASARC
+ff4844c152	3  Phương pháp. Dữ liệu đầu vào: từ khối ảnh I(x, y, t) đến đường cong ánh sáng F(t), với SAP và PDCSAP
+05368f88ac	A: các pixel của khẩu độ tối ưu; B: nền trời. Đã kiểm trên π Men c: tổng 45 pixel khẩu độ bằng SAP_FLUX.
+004f6e685e	U<sub>j</sub>: các vector cơ sở khử xu hướng; C = CROWDSAP; f = FLFRCSAP. Chia cho f, không chia cho C × f.
+4a7c7aafb4	Kiểm tra trên các tệp của chúng tôi
+f1af5ee632	trung vị PDCSAP / trung vị SAP so với CROWDSAP / FLFRCSAP, 20 tệp
+63b5006947	khớp trong 0.34 %
+5f1d7f4e73	LTT 1445 A b: đo được; C / f; dạng có C × f ở mẫu số
+44b9fe3443	Loại dữ liệu vào: khối ảnh 3 chiều (11 × 11 pixel mỗi ảnh cắt, hoặc 4096 × 4096 mỗi camera), nén thành chuỗi 1 chiều; sau đó f(t) = F<sub>PDCSAP</sub> / trung vị.
+8852913c98	Nguồn: sổ tay lưu trữ TESS của STScI; header SPOC của các tệp của chúng tôi; code/33_checkpoint_facts.py
+28beabce0d	3  Phương pháp. Đo quang transit từng bước: gấp pha, tìm kiếm, khớp, rồi bán kính, hình học và mật độ sao
+b1e4a16ad6	φ = ( (t − T<sub>0</sub>) mod P ) / P ;  BLS strength = √[ n<sub>in</sub>n<sub>out</sub> / (n<sub>in</sub> + n<sub>out</sub>) ] ( ⟨f⟩<sub>out</sub> − ⟨f⟩<sub>in</sub> ) / σ
+a98f655674	1. Gấp pha theo một chu kỳ thử; bộ (P, T<sub>0</sub>, thời lượng) tốt nhất là đỉnh BLS. Đầu vào: chuỗi 1 chiều f(t).
+96427688bd	z(t) = (a/R<sub>★</sub>) √[ sin<sup>2</sup>θ + cos<sup>2</sup>i cos<sup>2</sup>θ ] ,  θ = 2π(t − T<sub>0</sub>)/P ;  I(μ) = I<sub>0</sub> [ 1 − u<sub>1</sub>(1 − μ) − u<sub>2</sub>(1 − μ)<sup>2</sup> ]
+d55a4a24aa	2. Mô hình Mandel-Agol với tối tâm bậc hai, khớp bằng MCMC (pipeline của chúng tôi).
+45a9b3cc78	δ ≈ (R<sub>p</sub>/R<sub>★</sub>)<sup>2</sup> ,  R<sub>p</sub> = R<sub>★</sub> √δ ;  b = (a/R<sub>★</sub>) cos i
+f49bd242ee	3. Bán kính. Ví dụ HD 118203 b: R<sub>p</sub>/R<sub>★</sub> = 0.0553, R<sub>★</sub> = 2.04 R<sub>☉</sub> cho 12.30 R<sub>⊕</sub>.
+f90bec3b93	a/R<sub>★</sub> = √[ (1 + k)<sup>2</sup> − b<sup>2</sup> cos<sup>2</sup>(πT<sub>14</sub>/P) ] / sin(πT<sub>14</sub>/P) ;  ρ<sub>★</sub> = 3π (a/R<sub>★</sub>)<sup>3</sup> / (G P<sup>2</sup>)
+66a38d064c	4. Hình học và mật độ. Dạng bỏ số hạng cos<sup>2</sup> lệch tới 2.8 % (LTT 9779 b); dạng chính xác trả lại b và a/R<sub>★</sub> từ các phép khớp của chúng tôi với sai khác 10<sup>−13</sup>.
+90330b5d16	Nguồn: Mandel và Agol 2002; dạng của thời lượng theo Winn 2010; đã kiểm trên các phép khớp của chúng tôi (code/33)
+aeb2f87229	3  Phương pháp. Các số transit của mười hành tinh: xác suất, thời lượng, điểm mỗi transit, transit mỗi sector, mật độ
+f138bb4409	Transit mỗi sector
+0aea5ad63d	ρ<sub>★</sub> từ phép khớp / catalog (g cm<sup>−3</sup>)
+58db7261a6	R<sub>★</sub>/a = 1/(a/R<sub>★</sub>) của phép khớp. T<sub>14</sub> từ phép khớp theo công thức chính xác; số điểm = T<sub>14</sub>/120 s; mật độ từ phép khớp và từ catalog M<sub>★</sub>/R<sub>★</sub><sup>3</sup> (mật độ Mặt Trời 1.41).
+fd4d09abad	Nguồn: các phép khớp của chúng tôi (results/checkpoint_geometry.csv); M và R trong catalog lấy từ archive của NASA
+302ac76e3f	3  Phương pháp. Đường cong pha và nhật thực thứ cấp từng bước, với WASP-18 b: ánh sáng phản xạ, ánh sáng nhiệt, nhiệt độ mặt ban ngày
+2db29a0f53	cos α = −sin i cos(2π(t − T<sub>0</sub>)/P) ;  f = 1 − δ<sub>transit</sub> + F<sub>planet</sub> + F<sub>ellip</sub> + F<sub>beam</sub>
+0193a14423	Đầu vào: chuỗi 1 chiều gấp theo P; α = 0 tại nhật thực thứ cấp.
+2c041d63d8	F<sub>refl</sub> = A<sub>g</sub> (R<sub>p</sub>/a)<sup>2</sup> [ sin α + (π − α) cos α ] / π ;  F<sub>therm</sub> = F<sub>night</sub> + (F<sub>day</sub> − F<sub>night</sub>)(1 + cos α)/2
+d3a54f1689	δ<sub>sec</sub> = A<sub>g</sub>(R<sub>p</sub>/a)<sup>2</sup> + k<sup>2</sup> ∫B<sub>λ</sub>(T<sub>day</sub>)W dλ / ∫B<sub>λ</sub>(T<sub>eff</sub>)W dλ
+c09800112b	W: đáp ứng của TESS, ở đây phẳng từ 600 đến 1000 nm (của chúng tôi).
+07a4f847c9	k = 0.0986, a/R<sub>★</sub> = 3.455, T<sub>eff</sub> = 6432 K
+c64d1cf015	(R<sub>p</sub>/a)<sup>2</sup> = 814 ppm
+7b18b985b6	nếu toàn bộ 341 ppm là ánh sáng phản xạ thì cần A<sub>g</sub>
+c2c5090582	0.42, nhưng giới hạn của Shporer: &lt; 0.048 (Shporer tr. 1)
+b4777480be	T<sub>day</sub> từ 341 ppm (bài báo) | 352 ppm (của chúng tôi)
+814a6998d4	Nguồn: Shporer 2019; nghiệm Planck dải phẳng của chúng tôi (code/33_checkpoint_facts.py)
+9c37208aee	3  Phương pháp. Kiểm định dương tính giả từng bước: độ sâu lẻ-chẵn, tín hiệu elip và beaming, dịch tâm sáng
+937e002a3b	Z = | δ<sub>even</sub> − δ<sub>odd</sub> | / √[ σ<sub>even</sub><sup>2</sup> + σ<sub>odd</sub><sup>2</sup> ]
+1b05013bc1	Đầu vào: chuỗi 1 chiều. Z &gt; 3 gợi ý một hệ sao đôi che khuất có chu kỳ gấp đôi. Kết quả của chúng tôi: slide về lẻ so với chẵn.
+a468a1a402	F<sub>ellip</sub> = −A<sub>ellip</sub> cos 4πφ ,  A<sub>ellip</sub> ∝ (M<sub>p</sub>/M<sub>★</sub>)(R<sub>★</sub>/a)<sup>3</sup> sin<sup>2</sup>i ;  F<sub>beam</sub> = A<sub>beam</sub> sin 2πφ
+138b68f99d	Đầu vào: chuỗi gấp theo P. Shporer 2019 đã đo cả hai cho WASP-18 b; chúng tôi chưa đo.
+860f103056	X<sub>c</sub> = Σ x [I − B] / Σ [I − B] ,  Y<sub>c</sub> tương tự ;  ΔR<sub>c</sub> = √[ (X<sub>in</sub> − X<sub>out</sub>)<sup>2</sup> + (Y<sub>in</sub> − Y<sub>out</sub>)<sup>2</sup> ]
+385bc4cb52	Đầu vào: các <b>ảnh</b> (tâm sáng theo thông lượng của ảnh cắt; SPOC lưu là MOM_CENTR1 và 2). Độ dịch &gt; 3σ chỉ ra một sao lẫn trong khẩu độ.
+b62e60da4b	Phép kiểm tra tâm sáng là phép mà phiên bản đầu của bộ slide này ghi là chưa làm; nó đã được làm trên tâm sáng SPOC của mười hành tinh (slide kế tiếp).
+ae67b13622	Nguồn: Ricker 2015 Mục 8.2; Shporer 2019 (elip, beaming); các cột tâm sáng của SPOC
+fee4e10b35	3  Phương pháp. Kết quả kiểm định của mười hành tinh: lẻ-chẵn tính bằng sigma, và độ dịch tâm sáng tính bằng 10<sup>−3</sup> pixel và giây cung
+a2790d1628	Lẻ-chẵn (σ, có β)
+f8e29dddba	Số transit
+32af9b461b	|Độ dịch|/sai số lớn nhất
+f8c9ee17a1	ΔR<sub>c</sub>: tâm sáng trung bình trong transit trừ tâm sáng ngoài transit tại chỗ (MOM_CENTR1, 2) trên các transit đã dùng; cột cuối dùng sai số nhiễu trắng. HD 189733 b (8.8) là hành tinh duy nhất vượt 3; độ dịch được kỳ vọng khi CROWDSAP nhỏ hơn 1, và chúng tôi không diễn giải thêm.
+3c4a1435c5	Nguồn: results/checkpoint_vetting.csv và figures/paper/figure_stats.json (lẻ-chẵn)
+a9dd345d13	3  Phương pháp. Địa chấn học sao từng bước: phổ công suất, ν<sub>max</sub> và Δν, rồi bán kính và khối lượng sao
+c7813eee4c	P<sub>LS</sub>(ν) = (1/2σ<sup>2</sup>) { [ Σ(f − ⟨f⟩) cos 2πν(t − τ) ]<sup>2</sup> / Σ cos<sup>2</sup> + [ Σ(f − ⟨f⟩) sin 2πν(t − τ) ]<sup>2</sup> / Σ sin<sup>2</sup> }
+63aa2a24db	Phổ Lomb-Scargle của chuỗi 1 chiều (cho phép có khoảng trống). Đầu vào: chuỗi 2 phút hoặc 20 s, ít nhất một sector.
+ed1b3e0222	ν<sub>max</sub>: tâm của vùng dư công suất hình chuông; Δν: khoảng cách giữa các đỉnh, lấy từ tự tương quan của phổ.
+c6aebe28cb	R<sub>★</sub>/R<sub>☉</sub> = (ν<sub>max</sub>/ν<sub>max,☉</sub>) (Δν/Δν<sub>☉</sub>)<sup>−2</sup> (T<sub>eff</sub>/T<sub>eff,☉</sub>)<sup>1/2</sup> ;  M<sub>★</sub>/M<sub>☉</sub> = (ν<sub>max</sub>/ν<sub>max,☉</sub>)<sup>3</sup> (Δν/Δν<sub>☉</sub>)<sup>−4</sup> (T<sub>eff</sub>/T<sub>eff,☉</sub>)<sup>3/2</sup>
+64c4383acf	Giá trị tham chiếu của Mặt Trời: ν<sub>max</sub> = 3090 µHz (Huber tr. 2), Δν = 135.1 µHz (Huber tr. 2).
+34290f6370	Chúng tôi chưa làm; đây là đường tới bán kính sao không phụ thuộc Gaia, sẽ thu hẹp sai số bán kính 1 đến 7 % của mười hành tinh.
+f3c43bf071	Nguồn: Huber 2011 (giá trị Mặt Trời, hệ thức tỉ lệ); Kjeldsen và Bedding 1995
+3d261b6d35	3  Phương pháp. “Stars in full frames” từng bước: trừ ảnh vi sai, năng lượng bùng nổ, chu kỳ sao biến quang
+75de8c86f0	R: ảnh tham chiếu (trung vị của các khung tốt); K: nhân làm khớp PSF. Phần còn lại trong D là các nguồn đã thay đổi. Đầu vào: <b>khối ảnh</b> 4096 × 4096 pixel.
+9a4f4c2cb2	E<sub>flare</sub> = L<sub>★,TESS</sub> ∫ [ F(t) − F<sub>0</sub> ] / F<sub>0</sub> dt
+a0d1ba51b2	L<sub>★,TESS</sub>: độ trưng của sao trong dải TESS; tích phân là thời lượng tương đương. Đầu vào: chuỗi 1 chiều cho mỗi sao.
+1a00a64654	chu kỳ của sao biến quang: đỉnh của P<sub>LS</sub>(ν), hoặc pha có độ phân tán nhỏ nhất (PDM)
+955b7a5d5f	Đầu vào: chuỗi 1 chiều cho mỗi sao, từ các pipeline FFI: QLP (Huang 2020) và eleanor (Feinstein 2019); trừ ảnh vi sai: Oelkers 2018.
+5f791a5c0b	Ghi chú checkpoint viết năng lượng bùng nổ là 4πd<sup>2</sup>L × tích phân; tích phân đã là một khoảng thời gian, nên E = L × thời lượng tương đương.
+1859270a6d	Nguồn: Huang 2020 (QLP); Feinstein 2019 (eleanor); Oelkers 2018; Alard và Lupton 1998 cho dạng của nhân
+3dfacf9d19	3  Phương pháp. Chụp ảnh trực tiếp, hình học: cả mười hành tinh nằm trong 0.03 % của một pixel TESS tính từ sao của chúng
+59b10e52bd	θ = a / d. Mười hành tinh của chúng tôi: 0.12 đến 5.5 mas; một pixel là 21″ = 21 000 mas.
+d504a2313f	Trong một pixel
+967fe1c92a	lớn nhất: LTT 1445 A b, 5.5 mas = 0.026 % của một pixel
+972881fe6e	Sao Mộc ở 5.2 AU, sao ở 10 pc: 0.52″ = 2.5 % pixel; HR 8799 b: 68 AU ở 39.4 pc = 1.7″ (Marois tr. 4)
+297455db83	Nguồn: a và khoảng cách trong archive; Marois tr. 4 (2008); Ricker 2015 Bảng 1
+fc1c84a1e3	3  Phương pháp. Chụp ảnh trực tiếp, PSF và độ tương phản: quầng sáng của sao, độ mờ của hành tinh, và không có coronagraph
+94a9c08139	50 % ánh sáng nằm trong một pixel, 90 % trong 4 × 4 pixel = 1.4′ (Ricker tr. 7): một hành tinh trong vòng 40″ nằm trong quầng sáng của sao. Giới hạn nhiễu xạ của thấu kính 10.5 cm: 1.9″ ở 800 nm, nên PSF rộng là do thiết kế.
+f75a43db52	Ánh sáng phản xạ là A<sub>g</sub>(R<sub>p</sub>/a)<sup>2</sup>: Sao Mộc ở 5.2 AU cho 2.5 × 10<sup>−9</sup>, Trái Đất ở 1 AU cho 5.5 × 10<sup>−10</sup> (A<sub>g</sub> = 0.3, của chúng tôi). Mười hành tinh nóng của chúng tôi: 7.2 × 10<sup>−7</sup> đến 2.7 × 10<sup>−4</sup>, nhưng quá sát để tách ra.
+5d763a861f	Không có coronagraph
+07e2bbcae5	Tải trọng: bốn camera và một bộ xử lý dữ liệu (Ricker tr. 5). JWST dùng coronagraph ở 2.7 và 4.44 µm (Gardner tr. 47). Chụp ảnh khó vì khoảng cách nhỏ và độ tương phản lớn cùng lúc (Marois tr. 1).
+ba0647b51f	Hai bức tường cùng lúc: hành tinh nằm trong một pixel, và nó mờ hơn sao khoảng một tỉ lần.
+34b8c79074	Nguồn: Ricker 2015 Bảng 1; Marois 2008; Gardner 2006; độ tương phản được tính (giả định A_g = 0.3)
+97e0c0a4d9	3  Phương pháp. Chụp ảnh trực tiếp, bước sóng: TESS thấy ánh sáng phản xạ ở 0.6–1 µm, hành tinh khí khổng lồ trẻ phát sáng ở 2–20 µm
+c87f45e216	Dải sóng của các sứ mệnh trong bộ slide này. Vùng tô: hồng ngoại nhiệt.
+578d77fe88	Vì sao dùng hồng ngoại
+00d59d981e	hành tinh 1000 K cỡ Sao Mộc quanh sao giống Mặt Trời: độ tương phản 3.5 × 10<sup>−9</sup> ở 0.8 µm, 2.0 × 10<sup>−5</sup> ở 2 µm, 3.2 × 10<sup>−4</sup> ở 4.4 µm (Planck, của chúng tôi)
+57efe77cfe	Nguồn: Ricker, Koch, Rauer, Ivezic, Akeson, Gardner (checkpoint_sources.csv); hàm Planck, giả định của chúng tôi
+e4f93dac83	3  Phương pháp. Chụp ảnh trực tiếp, bao nhiêu độ phân giải là đủ: pixel 0.005″ đến 3.5″ và gương 0.4 đến 22 m
+dd6d4aec46	θ cần thiết
+06b9c9af4c	Pixel tối đa bằng nửa θ: 0.005″ đến 3.5″, mịn hơn 21″ của TESS từ 6 đến 4 200 lần; cộng thêm coronagraph và quang học thích nghi (Marois dùng AO trên Keck và Gemini).
+fcbe15dce9	Nguồn: phép tính của chúng tôi (theta = a/d, D = 1.22 lambda / theta); Marois 2008 cho việc dùng quang học thích nghi
+db15c0a9f3	3  Phương pháp. Độ phân giải không gian so với thời gian: đánh đổi nằm ở trường nhìn, không ở chu kỳ lấy mẫu
+b6109da2f7	Pixel cố định: FOV = N × scale<sup>2</sup>
+02869ed763	TESS: 4 × 4096<sup>2</sup> pixel × (21″)<sup>2</sup> = 2 284 deg² (số trích dẫn 2300). JWST NIRCam, một module: 0.0012 deg². Tỉ số 1 835 588. Pixel mịn hơn 10 lần nghĩa là bầu trời hẹp đi 100 lần.
+9f243b4560	Chu kỳ lấy mẫu trên mục tiêu
+e82228c49f	Khi kính đã nhìn chằm chằm một ngôi sao, nó có thể đọc nhanh. Hành tinh mờ đến mức photon đến chậm, nên ảnh khoa học cần phơi sáng lâu (lập luận của chúng tôi): hàng giờ tích lũy, không phải tốc độ khung nhanh hơn.
+08cbfbff88	Cái giá phải trả
+7ff52a9e13	Một trường hẹp chụp từng sao một: tốc độ khảo sát bầu trời giảm theo tỉ số trường, hàng triệu lần. Máy dò tốt hơn không xóa được sự đánh đổi này: etendue, diện tích nhân trường, được bảo toàn (lập luận của chúng tôi).
+b98bed12db	Thiết bị có pixel mịn từ bỏ độ phủ bầu trời và tốc độ quay lại, không phải tốc độ của một khung.
+58ff434b7b	Nguồn: Ricker 2015 Bảng 1; STScI JDox; phép tính của chúng tôi (FOV = N x scale bình phương)
+24e929fd5c	3  Phương pháp. Chụp ảnh trực tiếp có cần TESS không? Chỉ cho các ngôi sao và khí quyển, không cho hành tinh: hai quần thể hầu như không chồng nhau
+770b54649d	Phát hiện của TESS
+22c826a206	Hành tinh chụp được ảnh
+844099680c	Số lượng trong archive
+8b41c6c8ed	Bán trục lớn trung vị
+fad80a1b8d	Chu kỳ trung vị
+63c477e11d	Ở phía bên kia ranh giới 1 AU
+cde06589e8	2 hành tinh có a &gt; 1 AU
+7e3df15af2	1 hành tinh có a &lt; 1 AU
+d8f08b6f6a	Chụp ảnh dùng gì
+3ac8c05f43	Các sao trẻ, ở gần, chẳng hạn trong các nhóm chuyển động chung (Bowler tr. 3), với vị trí từ các catalog như Gaia; không phải một bản đồ do TESS làm ra.
+9adcca72ef	TESS giúp được ở đâu
+a970fe3eee	Khí quyển: các cực hoàng đạo là nơi tốt nhất cho quan sát tiếp theo bằng JWST (Ricker tr. 1); catalog đầu vào của TESS được dựng trên Gaia DR2.
+0b163e8cce	Nguồn: truy vấn TAP NASA Exoplanet Archive ngày 2026-11-21; Bowler 2016; tóm tắt của Ricker 2015; NASA HEASARC
+ed0520e2d7	www.nasa.gov/news-release/nasa-awards-launch-services-contract-for-t…
+3b364e96fe	physicsworld.com/a/nasa-launches-tess-exoplanet-mission/
+571df51324	archive.stsci.edu/missions-and-data/tess
+2efa347552	heasarc.gsfc.nasa.gov/docs/tess/data-products.html
+a129512056	en.baochinhphu.vn/vns-first-remote-sensing-satellite-launched-111166…
+214a07f246	vietnamnet.vn/en/vietnam-prepares-for-lotusat-1-satellite-launch-wit…
+31ded84042	aljazeera.com/economy/2026/8/11/vietnams-vinspace-announces-deal-wit…
+b9aea42426	4  TESS. Đã phóng gì: một vệ tinh, bốn camera, mười sáu CCD, một dải sóng
+7cc1211689	1 vệ tinh, phóng ngày 18 tháng 4 năm 2018 bằng SpaceX Falcon 9 từ Cape Canaveral
+09af6cd62a	4 camera giống hệt nhau; mỗi camera có 7 thấu kính, f/1.4, đồng tử 10.5 cm
+a2b58b6b69	16 (4 mỗi camera); mỗi camera là 4096 × 4096 pixel, cả vệ tinh 67.1 triệu pixel ảnh (tính)
+a97be418d8	Dải sóng
+9f3362e218	một dải, 600 đến 1000 nm: bộ lọc thông dài × đáp ứng của CCD
+79b7c66fcb	Sản phẩm dữ liệu
+2a3b5a21cb	2 loại ảnh (ảnh cắt nhỏ, ảnh toàn khung) và các đường cong ánh sáng, vector khử xu hướng suy ra từ chúng
+696686e11a	Những thiết bị không có
+d6b7cab64e	không có máy quang phổ, không có coronagraph
+4734f694f4	‘Có bao nhiêu loại vệ tinh?’ Một: TESS không phải chòm vệ tinh. Các sứ mệnh khác của dự án nằm ở slide kế tiếp.
+be4419945e	Nguồn: Ricker 2015 Mục 4, 4.2, Bảng 1; trang NASA Science về TESS; MIT News
+167e94495f	4  Các sứ mệnh đằng sau mười hành tinh của chúng tôi: 4 tìm thấy từ không gian (TESS, K2), 6 từ mặt đất
+4eb2549033	Phát hiện bằng
+cd12af96fa	mặt đất
+53d366bb66	Transit
+0803df4ff1	không gian
+e8a6bcf9b1	Từ NASA Exoplanet Archive, bảng pscomppars. Cả mười hành tinh được đo lại ở đây bằng đường cong ánh sáng SPOC của TESS. Các sứ mệnh khác trong bộ slide này: Kepler, CHEOPS, Gaia (thị sai làm nền cho catalog đầu vào của TESS), JWST và HST (khí quyển).
+e2bdc3a237	Nguồn: NASA Exoplanet Archive pscomppars (disc_facility, discoverymethod, disc_year)
+0f4cade745	4  TESS. Dải sóng so với các sứ mệnh khác: một dải, 600 đến 1000 nm
+06384bdea0	Độ phủ bước sóng; TESS màu đỏ. Nguồn: Ricker, Koch, Rauer, Ivezic, Akeson, Gardner (checkpoint_sources.csv).
+457e4133bd	Một dải duy nhất giữ camera đơn giản và nhạy với sao đỏ lạnh; nó không cho màu và không cho phổ.
+59c2b7b37f	Nguồn: data/literature/checkpoint_sources.csv (các đoạn trích đã kiểm, kèm trang PDF)
+c701bff0a0	4  TESS. Một pixel là 21″: nó suy ra từ quang học thế nào, và so với các sứ mệnh khác ra sao
+72a7df6b1f	scale = (p / f) × 206 265″ = (15 µm / 147 mm) × 206 265″ = 21.05″
+63da3c804d	f = 10.5 cm × 1.4 = 147 mm; các tệp của chúng tôi: 19.1 đến 21.1″; 4096 × 21″ = 23.9°.
+5419732bfa	Kích thước pixel
+b176f02ad6	Mịn hơn TESS bao nhiêu lần
+c2c4e6c2c9	PLATO (thiết kế 2014)
+999c812f4f	0.031″ và 0.063″
+8eb9630492	677 và 333
+bebf983949	Nguồn: Ricker 2015 Mục 4.1, Bảng 1; Koch 2010; Rauer 2014; bài báo Gaia 2016; Ivezic 2019; Akeson 2019; STScI JDox
+73b2d9653c	4  TESS. Lưới khẩu độ là ảnh: ảnh cắt, mặt nạ, phép cộng, và độ đông đúc làm loãng transit
+36ba3d5f28	Tệp pixel đích: ảnh 11 × 11 mỗi 2 phút. Lưới cho biết pixel nào được cộng.
+9d49f2ceba	Dùng để làm gì
+f94fcfbaee	Cộng các pixel đậm cho đường cong ánh sáng của sao; sao láng giềng trong mặt nạ làm vết lõm nông đi.
+30cb197796	CROWDSAP cho biết gì
+c245652687	Tỉ lệ thông lượng mặt nạ từ sao đích: LTT 1445 A b 0.42. Bỏ qua thì R<sub>p</sub> nhỏ đi √2.38 = 1.54 lần.
+131f70e919	Độ sâu PDCSAP / độ sâu SAP (đo được)
+88fc8ee873	Nguồn: header SPOC (CROWDSAP, FLFRCSAP), đường cong ánh sáng của các tệp; Winters 2021
+d17c2dc1c6	4  Sau TESS. Đánh đổi của các kính tiếp theo: trường nhìn, pixel, chu kỳ lấy mẫu, thời gian quay lại
+1a9c010ef4	24° × 96° = 2300 deg²
+3241137691	120 s, 20 s; ảnh toàn khung 30 phút, 10 phút, 200 s
+c36e169509	27.4 d mỗi sector; 2 năm cho cả bầu trời
+2e566826d0	Kepler (tham chiếu)
+9eb96a2860	115 deg²
+e400d42194	1765.8 s và 58.9 s
+fab253cc73	một trường, liên tục
+08340e8b11	2232 deg²
+c79a3904f0	25 s và 2.5 s
+44cd4c0116	quan sát dài; phóng: ESA, cuối 2026
+c355e95736	0.281 deg²
+6d1e165db5	15 phút (khảo sát vùng phình)
+92184af843	mùa 72 ngày; đã phóng 30/8/2026
+597b856da6	9.6 deg²
+5ee9f0bc0b	30 s mỗi lượt quan sát
+92d3a52529	trung bình 3 d một lần
+f8fb1a9b97	vài arcmin² mỗi module
+9d35c8c8c8	do người quan sát đặt
+08b5a24214	chỉ ngắm theo lịch, không tự lặp lại
+fd5fb06f79	PLATO: 26 camera trên trang ESA năm 2026, 34 kính trong bài báo 2014; một mục khác của ESA nói đầu 2027, nên ngày phóng chưa chắc chắn ở đây.
+3aec2d36b7	Nguồn: Ricker, Koch, Rauer, Akeson, Ivezic; STScI JDox; trang ESA về PLATO và blog NASA về Roman, lưu ngày 22/11/2026
+ca0cee9fc6	4  Sau TESS. Quy luật sau bảng: FOV ∝ N × scale², nhìn chằm chằm và quét, SNR ∝ D√t
+a29c17ad62	Đường chéo: số pixel không đổi. TESS, Kepler, PLATO, Roman, Rubin, JWST: kích thước pixel so với trường nhìn.
+36b06e494e	Ba quy luật
+b9cfaf8755	FOV = N × scale<sup>2</sup> cho đúng các trường đã trích dẫn: TESS 2284 / 2300, Kepler 116 / 115, Roman 0.281 / 0.281, Rubin 9.9 / 9.6 deg²
+f7e65269b3	nhìn chằm chằm (TESS, PLATO): lấy mẫu nhanh, quay lại hiếm; quét (Rubin): quay lại thường xuyên, lấy mẫu thưa (cách đọc của chúng tôi)
+a1327e58d7	SNR ∝ D√t: gương nhỏ một nửa cần phơi sáng gấp bốn lần
+972eb81883	Nguồn: số pixel và kích thước của bảng, được tính; các trường đã trích dẫn nằm trong checkpoint_sources.csv
+0a464da12e	4  Nguồn. Ghi chú checkpoint đúng ở đâu và chúng tôi đã sửa gì, phần 1
+16106ca0c0	Điều khẳng định trong ghi chú
+36ad0e85e4	‘Stars in full frames’ là một đề mục của bài báo TESS
+eb2d5a1ee7	nhãn do chúng tôi rút gọn
+9609eea015	Ảnh toàn khung chứa hàng chục triệu ngôi sao
+b099dbe0e5	khoảng 10<sup>6</sup> vật thể mỗi ảnh, khoảng 20 triệu trong hai năm (Ricker tr. 14)
+7cc73f637d	đã sửa
+a0499ce2c2	PDCSAP = (thông lượng − (1 − C) trung bình) / (C × f)
+8356a67286	trung vị PDCSAP/SAP = C/f trong 0.34 % trên 20 tệp
+640ce75da9	chỉ chia cho f
+b135752c77	a/R<sub>★</sub> = √[(1+k)<sup>2</sup> − b<sup>2</sup>] / sin(πT<sub>14</sub>/P)
+507cebedd5	dạng chính xác có số hạng cos<sup>2</sup>; dạng rút gọn lệch tới 2.8 %
+1f20c10a8e	1 027 hành tinh là dự báo trước khi phóng
+003d44b5d5	đó là số hành tinh do TESS phát hiện trong archive ngày 2026-11-21; Ricker kỳ vọng hàng nghìn hành tinh nhỏ hơn Hải Vương
+8f7e6e349a	471 là catalog các hành tinh đã đo khối lượng
+33949f5e79	471 là danh sách rút gọn của chúng tôi sau các ngưỡng T mag &lt; 11, P &lt; 15 d, S/N &gt; 12
+30af83a94c	Mỗi phép kiểm là một đoạn trích có trang PDF, hoặc một con số tính từ các tệp của chúng tôi.
+c0b7bf2f06	Nguồn: các phép kiểm ghi ở cột Kiểm tra; data/literature/checkpoint_sources.csv
+31189d04e6	4  Nguồn. Ghi chú checkpoint đúng ở đâu và chúng tôi đã sửa gì, phần 2
+d501ec7665	HR 8799 ở 10 pc, các hành tinh ở 15 đến 70 AU
+7d68872477	39.4 pc, các hành tinh ở 24, 38 và 68 AU (Marois tr. 4); khoảng cách góc 0.6 đến 1.7″
+4bf913bd97	Độ chính xác tâm sáng khoảng 0.2″ (1/100 pixel)
+a9334b7afe	sai số đo được 0.0010 đến 0.010″ trên nhiều transit
+27251ef8e9	tốt hơn, của chúng tôi
+d3fac8f121	TESS tránh mặt phẳng chứa tâm Ngân Hà
+447b453295	các dải bắt đầu từ 6°; tâm Ngân Hà ở −5.5° (tính)
+9a9e192204	ở ngay ranh giới
+62b29b03fd	PLATO: phóng cuối 2026, 26 camera
+6138ba79da	Trang ESA: cuối 2026, 26 camera; bài báo 2014: 34 kính; một mục khác của ESA: 2027
+c47bf6142d	chưa chắc chắn
+a440175f39	Roman dự kiến 2026–2027
+2ae8b96a8e	NASA: đã phóng ngày 30 tháng 8 năm 2026, Falcon Heavy, Launch Complex 39A
+7f4b1f7a97	đã phóng rồi
+3be85a0f0a	TTV được xếp vào TESS tự làm
+1ff4124749	thời điểm transit là sản phẩm của TESS; khối lượng cần mô hình động lực học, thường kèm vận tốc
+f8826d55f2	giữ ở nhóm đối tác
+dd9cba37c1	ν<sub>max</sub> Mặt Trời 3090 µHz, Δν 135.1 µHz
+d35ce8acb0	đã xác nhận
+240ca8ed60	Pixel 21″, 90 % ánh sáng trong 1.4′, 600 đến 1000 nm
+1dc8d45b9a	‘Chưa chắc chắn’ nghĩa là các nguồn chúng tôi có mâu thuẫn nhau; hãy kiểm lại với ESA trước khi nêu ngày phóng.
+9eda278b07	pl_rade
+285bfe381c	pl_orbper
+62cf9fa9aa	pl_eqt
+213ac319d3	st_teff
+7b14b794b7	discoverymethod
+1bbdb387bc	sy_pnum
+54dceb2e73	<span style="font-size:20px;word-break:break-all">curl -O https://archive.stsci.edu/missions/tess/tid/s0041/0000/0002/5636/4928/tess2021204101404-s0041-0000000256364928-0212-s_lc.fits</span>
+dbb145132a	<span style="font-size:20px;word-break:break-all">lk.search_lightcurve("TIC 256364928", mission="TESS", author="SPOC", exptime=120)</span>
+f72f9e3ec4	<span style="font-size:20px;word-break:break-all">mast.stsci.edu, search the TIC number, product type time series</span>
+54359cd947	Cụm từ “star in frames” không phải tên của một phương pháp. Thứ gần nhất trong bài báo TESS là Mục 8.4, Full Frame Images, nói rằng ảnh toàn khung còn phục vụ siêu tân tinh, sao đôi, nova và sao bùng nổ. Ba dòng đầu là các phương pháp tìm hành tinh; dòng cuối là một sản phẩm dữ liệu dùng cho khoa học về sao và để mở rộng việc tìm transit sang những sao không ai chọn trước.
+253880c0cc	Đây là nội dung của câu hỏi đầu tiên trong ghi chú checkpoint. Ba cách dùng một khung ảnh có chứa sao: đo độ sáng của nó theo thời gian (transit), đo vị trí của nó theo thời gian (tâm sáng hoặc đo vị trí sao), và dùng các khung không bão hòa để hiệu chuẩn ảnh coronagraph. TESS làm cách thứ nhất, dùng cách thứ hai như một phép kiểm tra, và không làm được cách thứ ba vì không có coronagraph.
+965d6de23c	Đây là bảng so sánh trong ghi chú checkpoint, với mọi ô đã được kiểm. Các số về độ tương phản là phép tính của chúng tôi: A_g nhân (R_p trên a) bình phương, với A_g = 0.3. Các số về quần thể lấy từ một truy vấn TAP của NASA Exoplanet Archive.
+0354baaad2	Slide này trả lời câu hỏi TESS có camera riêng cho các ảnh nhỏ không. Không: cùng bốn camera chụp mọi khung. Khác nhau ở chỗ cái gì được giữ lại và gửi về: ảnh cắt quanh các sao chọn trước mỗi 2 phút, hoặc ảnh toàn khung với chu kỳ dài hơn. Ghi chú nói hàng chục triệu sao mỗi ảnh; bài báo TESS nói khoảng một triệu vật thể mỗi ảnh 30 phút và khoảng hai mươi triệu trong hai năm.
+02b6994348	Đây là danh sách đánh dấu mà ghi chú checkpoint yêu cầu, cho các phương pháp TESS tự làm được. Mỗi dấu tick nghĩa là con số thiết kế của TESS tương thích với điều phương pháp cần; năm slide kế tiếp giải thích từng dòng bằng bốn con số, dùng mười hành tinh của chúng tôi làm ví dụ. Bạn có thể bấm các ô trong trình duyệt; trạng thái không được lưu.
+9bf44a1b66	Cùng danh sách ấy cho các phương pháp ở hai nhóm còn lại. Dấu chéo đánh dấu yếu tố không khớp. Dấu gạch nghĩa là bốn con số này không phải thứ quyết định: với vận tốc xuyên tâm, thứ thiếu là máy quang phổ, với định thời pulsar là kính vô tuyến. Cách đọc là của chúng tôi; nó dựa trên các số thiết bị và trên các đoạn trích của ba slide phương pháp trước đó.
+adf27df7ef	Xác suất transit xấp xỉ R sao chia a. Với mười hành tinh của chúng tôi nó chạy từ 3.5 đến 47 phần trăm, nên khảo sát cần nhiều sao; Ricker nêu 5 phần trăm và 500 sao cho mỗi lần phát hiện. Pixel chỉ cần gom ánh sáng của một sao; pixel 21 giây cung khiến chúng tôi phải hiệu chỉnh độ đông đúc. Thời lượng 0.8 đến 5.7 giờ được lấy mẫu bằng 23 đến 170 điểm ở chu kỳ 2 phút. Chu kỳ dưới 13.7 ngày cho ít nhất hai transit trong một sector.
+de420f1127	WASP-18 b có P = 0.941 d, nên một sector chứa 29 vòng quỹ đạo; chúng tôi dùng bốn sector và 84 transit. Hành tinh cách sao 0.16 mas, nên hành tinh và sao luôn rơi vào cùng một pixel, đúng thứ mà phép đo tổng thông lượng cần.
+a8a4c6284e	Pixel là 21 giây cung, vậy mà phép kiểm tâm sáng vẫn dùng được vì tâm sáng là trung bình trên rất nhiều electron: sai số của chúng tôi là 0.00005 đến 0.00024 pixel theo x, vài phần nghìn giây cung. Phép kiểm lẻ-chẵn cần ít nhất vài transit cho mỗi loại; số transit của chúng tôi từ 4 đến 84.
+35c1da0587	Mặt Trời dao động ở &nu;<sub>max</sub> = 3090 &micro;Hz, chu kỳ 5.4 phút (Huber 2011, tr. 2). Tần số Nyquist của chu kỳ lấy mẫu 2 phút là 1/(2 &times; 120 s) = 4 167 &micro;Hz, nên thấy được; chu kỳ 30 phút chỉ tới 278 &micro;Hz.
+4a19d8b0d6	Mỗi ảnh 30 phút cho khoảng 10<sup>6</sup> vật thể sáng và khoảng 20 triệu vật thể được phủ trong hai năm (Ricker tr. 14). Pixel thô, nên mặt phẳng Ngân Hà đông đúc là điểm yếu: 90 % ánh sáng của một sao rơi trong 1.4 phút cung (Ricker tr. 7). Chu kỳ lấy mẫu theo chu kỳ sứ mệnh là 30 phút, 10 phút, 200 s (NASA HEASARC).
+11608a090f	Mọi phương pháp ở các slide sau đều bắt đầu từ đây. Khối ảnh được cộng trên khẩu độ để cho thông lượng SAP; khử xu hướng loại bỏ các sai số hệ thống chung; số hạng đông đúc loại ánh sáng của sao láng giềng; chia cho phần thông lượng khẩu độ khôi phục ánh sáng rơi ngoài khẩu độ. Ghi chú checkpoint viết mẫu số là CROWDSAP nhân FLFRCSAP. Dữ liệu của chúng tôi cho thấy khác: với LTT 1445 A b, tỉ số trung vị PDCSAP trên SAP là 0.434, bằng C trên f, trong khi dạng kia cho 1.03.
+df334e9def	Bốn bước với đầu vào thật. Gấp pha và BLS tìm chu kỳ; mô hình Mandel-Agol với tối tâm được khớp; bán kính suy ra từ độ sâu và bán kính sao; và các thời lượng T14 và T23 cho tham số va chạm và a trên R sao. Ghi chú checkpoint dùng một biểu thức rút gọn cho a trên R sao bỏ số hạng cosin; chúng tôi kiểm trên mười phép khớp và nó sai tới 2.8 phần trăm với LTT 9779 b.
+0d44b8be16	Mọi cột được tính từ các phép khớp của chúng tôi trong results/checkpoint_geometry.csv. Mật độ từ hình dạng transit và mật độ từ khối lượng và bán kính trong catalog khớp nhau trong hệ số 1.6 với cả mười hành tinh; chênh lệch lớn nhất là HD 118203 b, có quỹ đạo lệch tâm trong khi công thức giả định quỹ đạo tròn.
+0f553e8387	Ví dụ minh họa cho đường cong pha. Độ sâu ở pha 0.5 là tổng của ánh sáng phản xạ và ánh sáng nhiệt. Nếu toàn bộ là phản xạ thì suất phản chiếu phải bằng 0.42; bài báo TESS giới hạn nó dưới 0.048, nên nhật thực thứ cấp chủ yếu là nhiệt. Giải tích phân Planck trên dải phẳng 600 đến 1000 nm cho nhiệt độ sáng mặt ban ngày gần 3000 K cho cả độ sâu đã công bố và độ sâu của chúng tôi; dải là phẳng, nên đây là một phép gần đúng của chúng tôi.
+bfc36ff3ac	Ba phép kiểm, ba loại dữ liệu vào. Lẻ-chẵn chỉ dùng chuỗi độ sáng. Biến điệu elip và hiệu ứng beaming Doppler là các họa âm của chu kỳ quỹ đạo và cần chuỗi đã gấp pha. Phép kiểm tâm sáng là phép duy nhất cần các ảnh: nó hỏi tâm sáng có dịch chuyển trong ảnh cắt khi vết lõm xảy ra hay không.
+1df0a2c75c	Được tính trong code/33_checkpoint_facts.py từ đường cong ánh sáng của các sector chúng tôi đã dùng: với mỗi transit lấy tâm sáng trong transit trừ một đường thẳng khớp với tâm sáng ngoài transit, rồi lấy trung bình có trọng số trên các transit. Cả mười độ dịch đều dưới 0.03 giây cung, tức 0.0013 pixel. Cột lẻ-chẵn là cột của slide chẩn đoán.
+b9a21b60eb	Chuỗi tính toán là: phổ công suất, hai con số toàn cục, rồi hai hệ thức tỉ lệ. Giá trị Mặt Trời 3090 và 135.1 microhertz là các điểm tham chiếu của Huber và cộng sự. Chúng tôi chưa chạy việc này trên dữ liệu TESS; slide cho các bước và dữ liệu cần có. Ghi chú về sai số bán kính nói đến độ bất định bán kính sao trong archive, mà chúng tôi mang vào mọi bán kính hành tinh.
+ad7fc1662c	Công việc với ảnh toàn khung cần các phương pháp không dựa vào khẩu độ cố định. Trừ ảnh vi sai trừ một ảnh tham chiếu để mọi sao không đổi biến mất và chỉ còn các nguồn thay đổi. Với sao bùng nổ, năng lượng là độ trưng của sao trong dải TESS nhân thời lượng tương đương, diện tích dưới thông lượng tương đối so với mức yên tĩnh. Chu kỳ sao biến quang lấy từ chu kỳ đồ hoặc từ cực tiểu hóa độ phân tán pha.
+790adf7cb6	Khoảng cách góc tính bằng giây cung là bán trục lớn tính bằng AU chia cho khoảng cách tính bằng parsec. Với mười hành tinh của chúng tôi nó chỉ vài miliarc giây. Ngay cả một hành tinh giống Sao Mộc ở 5 AU quanh sao cách 10 parsec cũng chỉ cách sao 2.5 phần trăm của một pixel. Ghi chú checkpoint đặt HR 8799 ở 10 parsec; Marois và cộng sự cho 39.4 parsec.
+e147ff7867	Phiên bản định lượng của phần đầu câu trả lời trong ghi chú checkpoint. Con số 1.4 phút cung là kích thước quy định của ảnh sao, không phải hiệu ứng nhiễu xạ: khẩu độ 10.5 centimet chỉ làm nhiễu xạ ánh sáng thành khoảng 2 giây cung ở 800 nanomet. Các giá trị độ tương phản là phép tính của chúng tôi với suất phản chiếu giả định 0.3.
+f55878b03f	Dải sóng của mỗi sứ mệnh được trích từ bài báo của nó: TESS 600 đến 1000 nanomet, Kepler 423 đến 897, PLATO 500 đến 1000 (thiết kế 2014), Rubin 320 đến 1050, Roman 0.48 đến 2.0 micromet từ bảng bộ lọc, gương JWST 0.6 đến 29. Các số về độ tương phản dùng hàm Planck với nhiệt độ giả định 1000 kelvin và bán kính Sao Mộc và Mặt Trời; chúng cho thấy vì sao chụp ảnh được làm ở hồng ngoại.
+69cc04605c	Phép tính riêng của chúng tôi, trong hai bảng. Bên trái: khoảng cách góc cho một vài bán trục lớn và khoảng cách. Bên phải: đường kính gương D để 1.22 lambda trên D bằng khoảng cách góc, tức hành tinh nằm ngoài vòng nhiễu xạ đầu tiên. Ghi chú checkpoint nêu pixel 0.01 đến 0.05 giây cung và gương 2.4 đến 10 mét; cả hai nằm trong lưới của chúng tôi, lưới cho pixel 0.005 đến 3.5 giây cung và gương 0.4 đến 22 mét tùy khoảng cách góc và bước sóng. Đây là điều kiện cần, không phải đủ: độ tương phản còn cần coronagraph và quang học thích nghi.
+761f4f1827	Trả lời câu hỏi độ phân giải không gian cao có làm giảm độ phân giải thời gian không. Sự đánh đổi không tránh được là giữa kích thước pixel và trường nhìn với một số pixel cho trước. Chu kỳ lấy mẫu của một khung có thể nhanh ở mọi kính; thay đổi là thời gian phải tích lũy để đạt tỉ số tín hiệu trên nhiễu, rất dài với một hành tinh mờ. Chúng tôi tính trường từ số pixel và kích thước: với TESS ra 2284 độ vuông, so với 2300 đã trích dẫn.
+5270bde6d8	Ghi chú hỏi các kính chụp ảnh trực tiếp có làm việc từ một bản đồ do TESS tạo ra không. Một nửa đúng: TESS và chụp ảnh dùng chung hệ tọa độ Gaia, và các hành tinh của TESS là mục tiêu của quang phổ truyền qua bằng JWST. Nhưng bản thân các hành tinh là những quần thể khác nhau: trong archive hành tinh TESS trung vị quay ở 0.06 AU trong 5.7 ngày, hành tinh chụp được trung vị ở 151 AU. Chỉ một hành tinh chụp được nằm trong 1 AU và chỉ hai hành tinh TESS nằm ngoài nó.
+032c703f3c	Tải trọng của TESS là bốn camera và một bộ xử lý dữ liệu. Mỗi camera có bốn CCD với 2048 nhân 2048 pixel ảnh, tức 16 CCD và khoảng 67 triệu pixel ảnh tất cả.
+fa0bb80445	Đếm từ cột cơ sở phát hiện của archive: ba hành tinh (LTT 9779 b, TOI-270 c, LTT 1445 A b) do chính TESS tìm ra, K2-141 b do K2, và sáu hành tinh từ mặt đất. HD 118203 b, HD 189733 b và HD 209458 b được ghi với phương pháp vận tốc xuyên tâm.
+42ce1a1c1b	Mỗi thanh được trích từ bài báo của sứ mệnh tương ứng, kèm trang PDF, trong data/literature/checkpoint_sources.csv. PLATO là thiết kế 2014; CHEOPS không có ở đây vì chúng tôi không kiểm được dải sóng của nó trong bài báo chúng tôi có.
+b8abb1bccc	Kích thước pixel là kích thước vật lý của pixel chia cho tiêu cự, đổi sang giây cung. 50 phần trăm ánh sáng của một sao rơi trong một pixel và 90 phần trăm trong 4 nhân 4 pixel, tức 1.4 phút cung của slide về độ phân giải. Giá trị của Gaia là pixel 10 nhân 30 micromet được bài báo đổi thành 58.9 nhân 176.8 miliarc giây.
+b63dc05b64	Câu trả lời cho câu hỏi các lưới ấy có phải ảnh không. Có: chúng là các ảnh cắt từ ảnh của camera. Hình vẽ mặt nạ, không vẽ độ sáng. Mặt nạ quan trọng vì pixel của TESS lớn: mọi sao trong đó đều thêm ánh sáng. Tỉ số độ sâu PDCSAP trên độ sâu SAP mà chúng tôi đo trên dữ liệu đi theo 1 trên CROWDSAP; cả mười hành tinh nằm trong results/checkpoint_vetting.csv.
+c84afec1e5	Ghi chú checkpoint nói PLATO sẽ phóng cuối năm 2026 và Roman năm 2026 hoặc 2027. Trang ESA chúng tôi đã lưu nói cuối 2026 trên Ariane 6 với 26 camera; bài báo 2014 mô tả 34 kính với 2232 độ vuông và pixel 15 giây cung. NASA cho biết Roman đã phóng ngày 30 tháng 8 năm 2026 trên Falcon Heavy. Các giá trị của JWST, Rubin và Kepler lấy từ bài báo hoặc tài liệu của chúng.
+9b67480f03	Hình đặt mỗi sứ mệnh theo kích thước pixel và trường nhìn. Các đường chéo là đường của số pixel không đổi. Các trường tính được khớp với các trường đã trích dẫn, xác nhận số pixel và kích thước trong bảng. Hai quy luật còn lại là vật lý: nhìn chằm chằm cho lấy mẫu thời gian dày đặc của một trường và hiếm khi quay lại các trường khác, quét thì ngược lại; và với nguồn mờ, tỉ số tín hiệu trên nhiễu tăng theo đường kính gương và căn bậc hai của thời gian phơi sáng.
+6e1fbe5d1d	Ghi chú kết thúc bằng yêu cầu kiểm lại các nguồn. Slide này và slide kế tiếp liệt kê mọi điều khẳng định chúng tôi kiểm được cùng kết quả. Bảy chỗ sửa về cách diễn đạt hoặc con số nằm ở nửa này.
+fba78eacce	Nửa sau của phần kiểm nguồn. Các chỗ sửa về các hành tinh của HR 8799 và về việc phóng Roman quan trọng vì chúng sẽ xuất hiện như lỗi trên slide. Với PLATO các nguồn mâu thuẫn nhau: trang ESA đã lưu nói cuối 2026, một mục khác của ESA nói đầu 2027.

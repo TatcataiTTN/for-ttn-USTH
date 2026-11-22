@@ -1,0 +1,100 @@
+t201	Nguồn: a và khoảng cách trong archive; Marois tr. 4 (2008); Ricker 2015 Bảng 1
+t202	3  Phương pháp. Chụp ảnh trực tiếp, PSF và độ tương phản: quầng sáng của sao, độ mờ của hành tinh, và không có coronagraph
+t203	50 % ánh sáng nằm trong một pixel, 90 % trong 4 × 4 pixel = 1.4′ (Ricker tr. 7): một hành tinh trong vòng 40″ nằm trong quầng sáng của sao. Giới hạn nhiễu xạ của thấu kính 10.5 cm: 1.9″ ở 800 nm, nên PSF rộng là do thiết kế.
+t204	Ánh sáng phản xạ là A<sub>g</sub>(R<sub>p</sub>/a)<sup>2</sup>: Sao Mộc ở 5.2 AU cho 2.5 × 10<sup>−9</sup>, Trái Đất ở 1 AU cho 5.5 × 10<sup>−10</sup> (A<sub>g</sub> = 0.3, của chúng tôi). Mười hành tinh nóng của chúng tôi: 7.2 × 10<sup>−7</sup> đến 2.7 × 10<sup>−4</sup>, nhưng quá sát để tách ra.
+t205	Không có coronagraph
+t206	Tải trọng: bốn camera và một bộ xử lý dữ liệu (Ricker tr. 5). JWST dùng coronagraph ở 2.7 và 4.44 µm (Gardner tr. 47). Chụp ảnh khó vì khoảng cách nhỏ và độ tương phản lớn cùng lúc (Marois tr. 1).
+t207	Hai bức tường cùng lúc: hành tinh nằm trong một pixel, và nó mờ hơn sao khoảng một tỉ lần.
+t208	Nguồn: Ricker 2015 Bảng 1; Marois 2008; Gardner 2006; độ tương phản được tính (giả định A_g = 0.3)
+t209	3  Phương pháp. Chụp ảnh trực tiếp, bước sóng: TESS thấy ánh sáng phản xạ ở 0.6–1 µm, hành tinh khí khổng lồ trẻ phát sáng ở 2–20 µm
+t210	Dải sóng của các sứ mệnh trong bộ slide này. Vùng tô: hồng ngoại nhiệt.
+t211	Vì sao dùng hồng ngoại
+t212	hành tinh 1000 K cỡ Sao Mộc quanh sao giống Mặt Trời: độ tương phản 3.5 × 10<sup>−9</sup> ở 0.8 µm, 2.0 × 10<sup>−5</sup> ở 2 µm, 3.2 × 10<sup>−4</sup> ở 4.4 µm (Planck, của chúng tôi)
+t213	Nguồn: Ricker, Koch, Rauer, Ivezic, Akeson, Gardner (checkpoint_sources.csv); hàm Planck, giả định của chúng tôi
+t214	3  Phương pháp. Chụp ảnh trực tiếp, bao nhiêu độ phân giải là đủ: pixel 0.005″ đến 3.5″ và gương 0.4 đến 22 m
+t215	θ cần thiết
+t216	Pixel tối đa bằng nửa θ: 0.005″ đến 3.5″, mịn hơn 21″ của TESS từ 6 đến 4 200 lần; cộng thêm coronagraph và quang học thích nghi (Marois dùng AO trên Keck và Gemini).
+t217	Nguồn: phép tính của chúng tôi (theta = a/d, D = 1.22 lambda / theta); Marois 2008 cho việc dùng quang học thích nghi
+t218	3  Phương pháp. Độ phân giải không gian so với thời gian: đánh đổi nằm ở trường nhìn, không ở chu kỳ lấy mẫu
+t219	Pixel cố định: FOV = N × scale<sup>2</sup>
+t220	TESS: 4 × 4096<sup>2</sup> pixel × (21″)<sup>2</sup> = 2 284 deg² (số trích dẫn 2300). JWST NIRCam, một module: 0.0012 deg². Tỉ số 1 835 588. Pixel mịn hơn 10 lần nghĩa là bầu trời hẹp đi 100 lần.
+t221	Chu kỳ lấy mẫu trên mục tiêu
+t222	Khi kính đã nhìn chằm chằm một ngôi sao, nó có thể đọc nhanh. Hành tinh mờ đến mức photon đến chậm, nên ảnh khoa học cần phơi sáng lâu (lập luận của chúng tôi): hàng giờ tích lũy, không phải tốc độ khung nhanh hơn.
+t223	Cái giá phải trả
+t224	Một trường hẹp chụp từng sao một: tốc độ khảo sát bầu trời giảm theo tỉ số trường, hàng triệu lần. Máy dò tốt hơn không xóa được sự đánh đổi này: etendue, diện tích nhân trường, được bảo toàn (lập luận của chúng tôi).
+t225	Thiết bị có pixel mịn từ bỏ độ phủ bầu trời và tốc độ quay lại, không phải tốc độ của một khung.
+t226	Nguồn: Ricker 2015 Bảng 1; STScI JDox; phép tính của chúng tôi (FOV = N x scale bình phương)
+t227	3  Phương pháp. Chụp ảnh trực tiếp có cần TESS không? Chỉ cho các ngôi sao và khí quyển, không cho hành tinh: hai quần thể hầu như không chồng nhau
+t228	Phát hiện của TESS
+t229	Hành tinh chụp được ảnh
+t230	Số lượng trong archive
+t231	Bán trục lớn trung vị
+t232	Chu kỳ trung vị
+t233	Ở phía bên kia ranh giới 1 AU
+t234	2 hành tinh có a &gt; 1 AU
+t235	1 hành tinh có a &lt; 1 AU
+t236	Chụp ảnh dùng gì
+t237	Các sao trẻ, ở gần, chẳng hạn trong các nhóm chuyển động chung (Bowler tr. 3), với vị trí từ các catalog như Gaia; không phải một bản đồ do TESS làm ra.
+t238	TESS giúp được ở đâu
+t239	Khí quyển: các cực hoàng đạo là nơi tốt nhất cho quan sát tiếp theo bằng JWST (Ricker tr. 1); catalog đầu vào của TESS được dựng trên Gaia DR2.
+t240	Nguồn: truy vấn TAP NASA Exoplanet Archive ngày 2026-11-21; Bowler 2016; tóm tắt của Ricker 2015; NASA HEASARC
+t241	www.nasa.gov/news-release/nasa-awards-launch-services-contract-for-t…
+t242	physicsworld.com/a/nasa-launches-tess-exoplanet-mission/
+t243	archive.stsci.edu/missions-and-data/tess
+t244	heasarc.gsfc.nasa.gov/docs/tess/data-products.html
+t245	en.baochinhphu.vn/vns-first-remote-sensing-satellite-launched-111166…
+t246	vietnamnet.vn/en/vietnam-prepares-for-lotusat-1-satellite-launch-wit…
+t247	aljazeera.com/economy/2026/8/11/vietnams-vinspace-announces-deal-wit…
+t248	4  TESS. Đã phóng gì: một vệ tinh, bốn camera, mười sáu CCD, một dải sóng
+t249	1 vệ tinh, phóng ngày 18 tháng 4 năm 2018 bằng SpaceX Falcon 9 từ Cape Canaveral
+t250	4 camera giống hệt nhau; mỗi camera có 7 thấu kính, f/1.4, đồng tử 10.5 cm
+t251	16 (4 mỗi camera); mỗi camera là 4096 × 4096 pixel, cả vệ tinh 67.1 triệu pixel ảnh (tính)
+t252	Dải sóng
+t253	một dải, 600 đến 1000 nm: bộ lọc thông dài × đáp ứng của CCD
+t254	Sản phẩm dữ liệu
+t255	2 loại ảnh (ảnh cắt nhỏ, ảnh toàn khung) và các đường cong ánh sáng, vector khử xu hướng suy ra từ chúng
+t256	Những thiết bị không có
+t257	không có máy quang phổ, không có coronagraph
+t258	‘Có bao nhiêu loại vệ tinh?’ Một: TESS không phải chòm vệ tinh. Các sứ mệnh khác của dự án nằm ở slide kế tiếp.
+t259	Nguồn: Ricker 2015 Mục 4, 4.2, Bảng 1; trang NASA Science về TESS; MIT News
+t260	4  Các sứ mệnh đằng sau mười hành tinh của chúng tôi: 4 tìm thấy từ không gian (TESS, K2), 6 từ mặt đất
+t261	Phát hiện bằng
+t262	mặt đất
+t263	Transit
+t264	không gian
+t265	Từ NASA Exoplanet Archive, bảng pscomppars. Cả mười hành tinh được đo lại ở đây bằng đường cong ánh sáng SPOC của TESS. Các sứ mệnh khác trong bộ slide này: Kepler, CHEOPS, Gaia (thị sai làm nền cho catalog đầu vào của TESS), JWST và HST (khí quyển).
+t266	Nguồn: NASA Exoplanet Archive pscomppars (disc_facility, discoverymethod, disc_year)
+t267	4  TESS. Dải sóng so với các sứ mệnh khác: một dải, 600 đến 1000 nm
+t268	Độ phủ bước sóng; TESS màu đỏ. Nguồn: Ricker, Koch, Rauer, Ivezic, Akeson, Gardner (checkpoint_sources.csv).
+t269	Một dải duy nhất giữ camera đơn giản và nhạy với sao đỏ lạnh; nó không cho màu và không cho phổ.
+t270	Nguồn: data/literature/checkpoint_sources.csv (các đoạn trích đã kiểm, kèm trang PDF)
+t271	4  TESS. Một pixel là 21″: nó suy ra từ quang học thế nào, và so với các sứ mệnh khác ra sao
+t272	scale = (p / f) × 206 265″ = (15 µm / 147 mm) × 206 265″ = 21.05″
+t273	f = 10.5 cm × 1.4 = 147 mm; các tệp của chúng tôi: 19.1 đến 21.1″; 4096 × 21″ = 23.9°.
+t274	Kích thước pixel
+t275	Mịn hơn TESS bao nhiêu lần
+t276	PLATO (thiết kế 2014)
+t277	0.031″ và 0.063″
+t278	677 và 333
+t279	Nguồn: Ricker 2015 Mục 4.1, Bảng 1; Koch 2010; Rauer 2014; bài báo Gaia 2016; Ivezic 2019; Akeson 2019; STScI JDox
+t280	4  TESS. Lưới khẩu độ là ảnh: ảnh cắt, mặt nạ, phép cộng, và độ đông đúc làm loãng transit
+t281	Một tệp pixel đích: ảnh 11 × 11 mỗi 2 phút. Lưới cho biết những pixel nào được cộng.
+t282	Dùng để làm gì
+t283	Cộng các pixel đậm cho đường cong ánh sáng của sao; sao láng giềng trong mặt nạ làm vết lõm nông đi.
+t284	CROWDSAP cho biết gì
+t285	Tỉ lệ thông lượng trong mặt nạ đến từ sao đích: LTT 1445 A b 0.42. Bỏ qua nó thì R<sub>p</sub> bị thu nhỏ √2.38 = 1.54 lần.
+t286	Độ sâu PDCSAP / độ sâu SAP (đo được)
+t287	Nguồn: header SPOC (CROWDSAP, FLFRCSAP) và đường cong ánh sáng của các tệp của chúng tôi; Winters 2021 cho LTT 1445
+t288	4  Sau TESS. Đánh đổi của các kính tiếp theo: trường nhìn, pixel, chu kỳ lấy mẫu, thời gian quay lại
+t289	24° × 96° = 2300 deg²
+t290	120 s, 20 s; ảnh toàn khung 30 phút, 10 phút, 200 s
+t291	27.4 d mỗi sector; 2 năm cho cả bầu trời
+t292	Kepler (tham chiếu)
+t293	115 deg²
+t294	1765.8 s và 58.9 s
+t295	một trường, liên tục
+t296	2232 deg²
+t297	25 s và 2.5 s
+t298	quan sát dài; phóng: ESA, cuối 2026
+t299	0.281 deg²
+t300	15 phút (khảo sát vùng phình)
