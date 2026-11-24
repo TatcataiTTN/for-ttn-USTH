@@ -1,0 +1,423 @@
+{
+ "em": [
+  {
+   "band": "radio",
+   "lam_m": 1000.0,
+   "nu_Hz": 299792.458,
+   "E_eV": 1.2398419843320026e-09,
+   "T_wien_K": 2.897771955e-06,
+   "slide_axis_Hz": 10000.0
+  },
+  {
+   "band": "microwave",
+   "lam_m": 0.01,
+   "nu_Hz": 29979245800.0,
+   "E_eV": 0.0001239841984332003,
+   "T_wien_K": 0.2897771955,
+   "slide_axis_Hz": 100000000.0
+  },
+  {
+   "band": "infrared",
+   "lam_m": 1e-05,
+   "nu_Hz": 29979245799999.996,
+   "E_eV": 0.12398419843320024,
+   "T_wien_K": 289.7771955,
+   "slide_axis_Hz": 1000000000000.0
+  },
+  {
+   "band": "visible",
+   "lam_m": 5e-07,
+   "nu_Hz": 599584916000000.0,
+   "E_eV": 2.479683968664005,
+   "T_wien_K": 5795.54391,
+   "slide_axis_Hz": 1000000000000000.0
+  },
+  {
+   "band": "ultraviolet",
+   "lam_m": 1e-08,
+   "nu_Hz": 2.99792458e+16,
+   "E_eV": 123.98419843320028,
+   "T_wien_K": 289777.1955,
+   "slide_axis_Hz": 1e+16
+  },
+  {
+   "band": "X-ray",
+   "lam_m": 1e-10,
+   "nu_Hz": 2.99792458e+18,
+   "E_eV": 12398.419843320027,
+   "T_wien_K": 28977719.55,
+   "slide_axis_Hz": 1e+18
+  },
+  {
+   "band": "gamma",
+   "lam_m": 1e-12,
+   "nu_Hz": 2.99792458e+20,
+   "E_eV": 1239841.984332003,
+   "T_wien_K": 2897771955.0,
+   "slide_axis_Hz": 1e+20
+  }
+ ],
+ "l1p3": {
+  "xray_nm": 1,
+  "uv_nm": 10,
+  "vis_nm": 500,
+  "ir_um": 10,
+  "mm": 1,
+  "radio_cm": 10,
+  "nu_vis_Hz": 599584916000000.0
+ },
+ "jeans_table": [
+  {
+   "mu": 2.0,
+   "n": 1000.0,
+   "rho": 3.32107813784e-21,
+   "tff_slide_s": 67167253676839.414,
+   "tff_slide_Myr": 2.129859642213325,
+   "tff_full_s": 36451731769345.805,
+   "tff_full_Myr": 1.1558768318539385,
+   "tff_full_numeric_Myr": 1.155876341260006,
+   "T30": {
+    "cs_kms": 0.3531528552074179,
+    "LJ_rig_cm": 4.2043150217800765e+18,
+    "LJ_rig_pc": 1.3625257048884707,
+    "LJ_slide_pc": 0.7687228100141394,
+    "LJ_rig_AU": 281041.1005255088,
+    "MJ_rig_halfsphere_Msun": 64.9896834032538,
+    "MJ_rig_sphereR_Msun": 519.9174672260305,
+    "MJ_slide_sphereR_Msun": 93.37048168172848,
+    "MJ_slide_halfsphere_Msun": 11.67131021021606
+   },
+   "T50": {
+    "cs_kms": 0.45591837562797627,
+    "LJ_rig_cm": 5.427747353854637e+18,
+    "LJ_rig_pc": 1.7590131212708562,
+    "LJ_slide_pc": 0.9924168803448434,
+    "LJ_rig_AU": 362822.5006450334,
+    "MJ_rig_halfsphere_Msun": 139.835534164497,
+    "MJ_rig_sphereR_Msun": 1118.684273315976,
+    "MJ_slide_sphereR_Msun": 200.90128921149946,
+    "MJ_slide_halfsphere_Msun": 25.112661151437432
+   },
+   "T100": {
+    "cs_kms": 0.6447659501481952,
+    "LJ_rig_cm": 7.675993920955906e+18,
+    "LJ_rig_pc": 2.4876202124934745,
+    "LJ_slide_pc": 1.4034894117116745,
+    "LJ_rig_AU": 513108.50114632724,
+    "MJ_rig_halfsphere_Msun": 395.5146178342359,
+    "MJ_rig_sphereR_Msun": 3164.116942673887,
+    "MJ_slide_sphereR_Msun": 568.2346558022841,
+    "MJ_slide_halfsphere_Msun": 71.02933197528552
+   }
+  },
+  {
+   "mu": 2.0,
+   "n": 10000.0,
+   "rho": 3.32107813784e-20,
+   "tff_slide_s": 21240150579713.17,
+   "tff_slide_Myr": 0.6735207565865414,
+   "tff_full_s": 11527049704865.225,
+   "tff_full_Myr": 0.36552034832779123,
+   "tff_full_numeric_Myr": 0.36552019318053136,
+   "T30": {
+    "cs_kms": 0.3531528552074179,
+    "LJ_rig_cm": 1.329521146968547e+18,
+    "LJ_rig_pc": 0.4308684597973985,
+    "LJ_slide_pc": 0.24309149689695742,
+    "LJ_rig_AU": 88872.99937809524,
+    "MJ_rig_halfsphere_Msun": 20.551542396752527,
+    "MJ_rig_sphereR_Msun": 164.41233917402022,
+    "MJ_slide_sphereR_Msun": 29.526338834129067,
+    "MJ_slide_halfsphere_Msun": 3.6907923542661334
+   },
+   "T50": {
+    "cs_kms": 0.45591837562797627,
+    "LJ_rig_cm": 1.7164044202132557e+18,
+    "LJ_rig_pc": 0.5562487897337882,
+    "LJ_slide_pc": 0.3138297730288494,
+    "LJ_rig_AU": 114734.54883962167,
+    "MJ_rig_halfsphere_Msun": 44.21987857861013,
+    "MJ_rig_sphereR_Msun": 353.759028628881,
+    "MJ_slide_sphereR_Msun": 63.53056587725516,
+    "MJ_slide_halfsphere_Msun": 7.941320734656895
+   },
+   "T100": {
+    "cs_kms": 0.6447659501481952,
+    "LJ_rig_cm": 2.427362409582715e+18,
+    "LJ_rig_pc": 0.7866545824951432,
+    "LJ_slide_pc": 0.44382232129386895,
+    "LJ_rig_AU": 162259.1550417512,
+    "MJ_rig_halfsphere_Msun": 125.07270402472385,
+    "MJ_rig_sphereR_Msun": 1000.5816321977908,
+    "MJ_slide_sphereR_Msun": 179.69157577770318,
+    "MJ_slide_halfsphere_Msun": 22.461446972212897
+   }
+  },
+  {
+   "mu": 2.33,
+   "n": 1000.0,
+   "rho": 3.8690560305836e-21,
+   "tff_slide_s": 62229258857312.32,
+   "tff_slide_Myr": 1.9732768536692136,
+   "tff_full_s": 33771877334536.79,
+   "tff_full_Myr": 1.0708992051793755,
+   "tff_full_numeric_Myr": 1.0708987506509355,
+   "T30": {
+    "cs_kms": 0.32718980217110255,
+    "LJ_rig_cm": 3.608854095948564e+18,
+    "LJ_rig_pc": 1.1695499612776572,
+    "LJ_slide_pc": 0.659847905591536,
+    "LJ_rig_AU": 241236.99615923504,
+    "MJ_rig_halfsphere_Msun": 47.88423688279676,
+    "MJ_rig_sphereR_Msun": 383.0738950623741,
+    "MJ_slide_sphereR_Msun": 68.79513837552983,
+    "MJ_slide_halfsphere_Msun": 8.599392296941229
+   },
+   "T50": {
+    "cs_kms": 0.42240021828585983,
+    "LJ_rig_cm": 4.659010604167071e+18,
+    "LJ_rig_pc": 1.509882507528632,
+    "LJ_slide_pc": 0.851859983128621,
+    "LJ_rig_AU": 311435.6228712733,
+    "MJ_rig_halfsphere_Msun": 103.03047332940159,
+    "MJ_rig_sphereR_Msun": 824.2437866352127,
+    "MJ_slide_sphereR_Msun": 148.0235695713677,
+    "MJ_slide_halfsphere_Msun": 18.50294619642096
+   },
+   "T100": {
+    "cs_kms": 0.5973641174492188,
+    "LJ_rig_cm": 6.588835983653139e+18,
+    "LJ_rig_pc": 2.1352963197368884,
+    "LJ_slide_pc": 1.2047119413834118,
+    "LJ_rig_AU": 440436.48167066724,
+    "MJ_rig_halfsphere_Msun": 291.4141854403183,
+    "MJ_rig_sphereR_Msun": 2331.3134835225464,
+    "MJ_slide_sphereR_Msun": 418.673879277411,
+    "MJ_slide_halfsphere_Msun": 52.334234909676375
+   }
+  },
+  {
+   "mu": 2.33,
+   "n": 10000.0,
+   "rho": 3.8690560305836e-20,
+   "tff_slide_s": 19678619509331.402,
+   "tff_slide_Myr": 0.6240049311685503,
+   "tff_full_s": 10679605323695.252,
+   "tff_full_Myr": 0.3386480632830813,
+   "tff_full_numeric_Myr": 0.3386479195433251,
+   "T30": {
+    "cs_kms": 0.32718980217110255,
+    "LJ_rig_cm": 1.1412198686425297e+18,
+    "LJ_rig_pc": 0.3698441714999129,
+    "LJ_slide_pc": 0.2086622290961008,
+    "LJ_rig_AU": 76285.8363760474,
+    "MJ_rig_halfsphere_Msun": 15.142325256867892,
+    "MJ_rig_sphereR_Msun": 121.13860205494314,
+    "MJ_slide_sphereR_Msun": 21.754932921313028,
+    "MJ_slide_halfsphere_Msun": 2.7193666151641285
+   },
+   "T50": {
+    "cs_kms": 0.42240021828585983,
+    "LJ_rig_cm": 1.473308515204511e+18,
+    "LJ_rig_pc": 0.47746677230368073,
+    "LJ_slide_pc": 0.26938177942390507,
+    "LJ_rig_AU": 98484.59127864518,
+    "MJ_rig_halfsphere_Msun": 32.581096412614045,
+    "MJ_rig_sphereR_Msun": 260.64877130091236,
+    "MJ_slide_sphereR_Msun": 46.80916272339157,
+    "MJ_slide_halfsphere_Msun": 5.851145340423947
+   },
+   "T100": {
+    "cs_kms": 0.5973641174492188,
+    "LJ_rig_cm": 2.0835728837619868e+18,
+    "LJ_rig_pc": 0.6752399849743718,
+    "LJ_slide_pc": 0.3809633659174841,
+    "LJ_rig_AU": 139278.24467103105,
+    "MJ_rig_halfsphere_Msun": 92.15325684740836,
+    "MJ_rig_sphereR_Msun": 737.2260547792669,
+    "MJ_slide_sphereR_Msun": 132.396305533499,
+    "MJ_slide_halfsphere_Msun": 16.549538191687375
+   }
+  }
+ ],
+ "ex_tff_range_Myr": {
+  "slide": [
+   0.6240049311685503,
+   2.129859642213325
+  ],
+  "full": [
+   0.3386480632830813,
+   1.1558768318539385
+  ]
+ },
+ "ex_jeans_range": {
+  "cs_kms": [
+   0.32718980217110255,
+   0.45591837562797627
+  ],
+  "LJ_rig_pc": [
+   0.3698441714999129,
+   1.7590131212708562
+  ],
+  "MJ_rig_halfsphere": [
+   15.142325256867892,
+   139.835534164497
+  ],
+  "MJ_rig_sphereR": [
+   121.13860205494314,
+   1118.684273315976
+  ],
+  "LJ_slide_pc": [
+   0.2086622290961008,
+   0.9924168803448434
+  ],
+  "MJ_slide_sphereR": [
+   21.754932921313028,
+   200.90128921149946
+  ]
+ },
+ "G": {
+  "codata_cgs": 6.674299999999999e-08,
+  "slide_cgs": 6.673e-08,
+  "tff_ratio": 1.0000974027192653
+ },
+ "cloud_M100000": {
+  "rho_gcm3": 1.3288398198826037e-22,
+  "n_H2": 34.34532375283705,
+  "tff_Myr": 5.778495626989632
+ },
+ "cloud_M1000000": {
+  "rho_gcm3": 1.328839819882604e-21,
+  "n_H2": 343.45323752837055,
+  "tff_Myr": 1.8273207630609982
+ },
+ "sizes": {
+  "AU_cm": 14959787070000.0,
+  "pc_cm": 3.0856775814913674e+18,
+  "ly_cm": 9.4607304725808e+17,
+  "pc_AU": 206264.80624709636,
+  "pc_ly": 3.2615637771674337,
+  "dark_cloud_pc": 0.969627362219072,
+  "core_pc": 0.0484813681109536,
+  "cloud_150ly_pc": 45.99020906783258
+ },
+ "spinup": {
+  "example_radius_ratio": 10,
+  "omega_ratio": 100,
+  "note": "Illustration: L = I omega, I ~ M r^2, so omega2 = omega1 (r1/r2)^2"
+ },
+ "decay": [
+  {
+   "n_half_lives": 0,
+   "t_Gyr": 0.0,
+   "parent": 1.0,
+   "daughter": 0.0
+  },
+  {
+   "n_half_lives": 1,
+   "t_Gyr": 1.25,
+   "parent": 0.5,
+   "daughter": 0.5
+  },
+  {
+   "n_half_lives": 2,
+   "t_Gyr": 2.5,
+   "parent": 0.25,
+   "daughter": 0.75
+  },
+  {
+   "n_half_lives": 3,
+   "t_Gyr": 3.75,
+   "parent": 0.125,
+   "daughter": 0.875
+  },
+  {
+   "n_half_lives": 4,
+   "t_Gyr": 5.0,
+   "parent": 0.0625,
+   "daughter": 0.9375
+  },
+  {
+   "n_half_lives": 5,
+   "t_Gyr": 6.25,
+   "parent": 0.03125,
+   "daughter": 0.96875
+  }
+ ],
+ "ages": [
+  {
+   "DP": 0.25,
+   "t_Gyr": 0.40241011860920295,
+   "parent_frac": 0.8
+  },
+  {
+   "DP": 0.5,
+   "t_Gyr": 0.7312031259014452,
+   "parent_frac": 0.6666666666666666
+  },
+  {
+   "DP": 1.0,
+   "t_Gyr": 1.25,
+   "parent_frac": 0.5
+  },
+  {
+   "DP": 2.0,
+   "t_Gyr": 1.981203125901445,
+   "parent_frac": 0.3333333333333333
+  },
+  {
+   "DP": 3.0,
+   "t_Gyr": 2.5,
+   "parent_frac": 0.25
+  },
+  {
+   "DP": 7.0,
+   "t_Gyr": 3.75,
+   "parent_frac": 0.125
+  }
+ ],
+ "meteorite_age": {
+  "Gyr": 4.6,
+  "half_lives_of_K40": 3.6799999999999997,
+  "parent_left": 0.07802065930635076,
+  "DP": 11.81711804143395
+ },
+ "time_ratios": {
+  "solar_age_over_universe": [
+   0.3538461538461538,
+   0.32857142857142857
+  ],
+  "disk_life_Myr": 10,
+  "core_accretion_Myr": [
+   3,
+   10
+  ],
+  "gas_collapse_Myr": 0.1,
+  "jupiter_orbits": null
+ },
+ "frost": {
+  "note": "temperatures on L3 p17: 2000 K, 300 K, 50 K (labels do not align with substances; reading kept qualitative)"
+ },
+ "wien": [
+  {
+   "T_K": 2000,
+   "lam_um": 1.4488859775
+  },
+  {
+   "T_K": 300,
+   "lam_um": 9.659239849999999
+  },
+  {
+   "T_K": 100,
+   "lam_um": 28.97771955
+  },
+  {
+   "T_K": 50,
+   "lam_um": 57.9554391
+  },
+  {
+   "T_K": 30,
+   "lam_um": 96.5923985
+  }
+ ]
+}

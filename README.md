@@ -13,6 +13,12 @@ sensing, scattering regimes, aerosol altitude), Part C satellite case studies an
 Every number is recomputed in Python (`Atmospheric-Remote-Sensing/notebooks/verify_numbers.ipynb`) and the
 JavaScript calculators are checked against it (`tests/test_calc.js`). See `Atmospheric-Remote-Sensing/README.md`.
 
+## Space-Observation-Project/self-study-chi-Phuong — self-study site for the three lectures (USTH)
+
+Live: **https://tatcataittn.github.io/for-ttn-USTH/Space-Observation-Project/self-study-chi-Phuong/**
+
+Bilingual (EN | VI) study notes from the three lecture decks of Space Observation (L1 Multiwavelength Astronomy, L2 Star Formation, L3 Formation of the Solar System): the Big 12 with a self-test, three lessons with slide page numbers, formula sheet and six calculators, 91 questions with explanations, a mock exam, 12 written problems with full solutions and 73 captioned slide pages. Numbers are computed by two independent methods (`build/verify_numbers.py`) and the calculators are tested against them (`tests/test_calc.js`). No sample exam was available; see the "Sources and limits" page and `Space-Observation-Project/self-study-chi-Phuong/README.md`.
+
 ## Ocean-Optics — self-study and exam-practice system (USTH)
 
 Live: **https://tatcataittn.github.io/for-ttn-USTH/Ocean-Optics/**
