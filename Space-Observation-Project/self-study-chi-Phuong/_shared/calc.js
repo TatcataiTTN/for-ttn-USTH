@@ -28,6 +28,25 @@
   function parentFrac(t, th) { return Math.pow(2, -t / th); }
   function ageFromDP(DP, th) { return th * Math.log2(1 + DP); }
   function spin(w1, r1, r2) { return w1 * (r1 / r2) * (r1 / r2); }
-  var api = { K: K, rho: rho, tffSlide: tffSlide, tffFull: tffFull, cs: cs, LJ: LJ, MJ: MJ, freq: freq, energyEV: energyEV, wienT: wienT, band: band, parentFrac: parentFrac, ageFromDP: ageFromDP, spin: spin };
+  function teq(d_au) { return 278.3 / Math.sqrt(d_au); }
+  function rhoForTff(t_Myr) { return 3 * Math.PI / (32 * K.G * Math.pow(t_Myr * K.Myr, 2)); }
+  /* solve(type, p): the accepted values of every answer field of the practice problems (data/problems.json); tests/test_calc.js compares them with Python */
+  function solve(type, p) {
+    var mu, r, c, L, Ls;
+    switch (type) {
+      case 'tff': r = rho(p.n, p.mu); return [[tffSlide(r) / K.Myr, tffFull(r) / K.Myr]];
+      case 'jeans': r = rho(p.n, p.mu); c = cs(p.T, p.mu); L = LJ(p.T, p.mu, p.n, 'rig'); Ls = LJ(p.T, p.mu, p.n, 'slide');
+        return [[c / 1e5], [L / K.pc, Ls / K.pc], [MJ(p.T, p.mu, p.n, 'rig', 'half') / K.Msun, MJ(p.T, p.mu, p.n, 'rig', 'full') / K.Msun, MJ(p.T, p.mu, p.n, 'slide', 'full') / K.Msun]];
+      case 'tffinv': var ts = p.t * K.Myr; return [[3 * Math.PI / (32 * K.G * ts * ts) / (2.33 * K.mH), 1 / (K.G * ts * ts) / (2.33 * K.mH)]];
+      case 'spin': return [[spin(1, p.R1, p.R2)]];
+      case 'age': return [[ageFromDP(p.DP, p.Th)]];
+      case 'frac': return [[100 * parentFrac(p.t, p.Th)]];
+      case 'light': if (p.kind === 'lam') return [[freq(p.v)], [energyEV(p.v)]]; var lam = K.h * K.c / (p.v * K.eV) / 100; return [[lam], [freq(lam)]];
+      case 'teq': return [[teq(p.d)]];
+      case 'scale': mu = 2.33; return [[MJ(p.T2, mu, p.n2, 'rig', 'half') / MJ(p.T1, mu, p.n1, 'rig', 'half')]];
+    }
+    throw new Error('unknown type ' + type);
+  }
+  var api = { solve: solve, teq: teq, rhoForTff: rhoForTff, K: K, rho: rho, tffSlide: tffSlide, tffFull: tffFull, cs: cs, LJ: LJ, MJ: MJ, freq: freq, energyEV: energyEV, wienT: wienT, band: band, parentFrac: parentFrac, ageFromDP: ageFromDP, spin: spin };
   if (typeof module !== 'undefined' && module.exports) module.exports = api; else root.CALC = api;
 })(typeof window !== 'undefined' ? window : globalThis);

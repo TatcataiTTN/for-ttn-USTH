@@ -17,7 +17,7 @@ G = C.G * 1e3                      # cgs: cm3 g-1 s-2   (6.674e-8)
 G_SLIDE = 6.673e-8
 K_B = C.k * 1e7                    # erg/K
 M_H = C.m_u * 1e3                  # g (1 u, used as m_H; the 0.8 % difference is below the other uncertainties)
-PC, AU, LY, MSUN, YR, MYR = C.parsec * 100, C.au * 100, C.light_year * 100, 1.98847e33, C.year, C.year * 1e6
+PC, AU, LY, MSUN, YR, MYR = C.parsec * 100, C.au * 100, C.light_year * 100, 1.98847e33, C.Julian_year, C.Julian_year * 1e6
 out, bad = {}, []
 
 
@@ -148,6 +148,50 @@ out["time_ratios"] = dict(solar_age_over_universe=(4.6 / 13.0, 4.6 / 14.0), disk
 out["frost"] = dict(note="temperatures on L3 p17: 2000 K, 300 K, 50 K (labels do not align with substances; reading kept qualitative)")
 # Planck: wavelength of peak emission (Wien) for the temperatures on the slide, a link between L1 and L3
 out["wien"] = [dict(T_K=T, lam_um=2.897771955e-3 / T * 1e6) for T in (2000, 300, 100, 50, 30)]
+
+
+# ---------------------------------------------------------------- extras for the formula pages
+from scipy.optimize import minimize_scalar
+SIGMA = C.sigma; HC_EVNM = C.h * C.c / C.e * 1e9          # eV nm
+def planck(lam, T): return 1.0 / (lam ** 5 * (math.exp(C.h * C.c / (lam * C.k * T)) - 1.0))
+def wien_num(T):                                          # way 2: maximise the Planck function numerically
+    r = minimize_scalar(lambda x: -planck(x * 1e-6, T), bounds=(1e-3 / T * 1e3, 2e4 / T), method="bounded", options=dict(xatol=1e-12)); return r.x * 1e-6
+wien = []
+for lab, T in (("Sun", 5772.0), ("Earth surface", 288.0), ("dense cloud", 10.0), ("CMB", 2.7255), ("hot gas in a cluster", 1e7), ("X-ray gas", 1e6)):
+    a = C.value("Wien wavelength displacement law constant") / T; b = wien_num(T); chk("wien " + lab, a, b, 2e-3)
+    wien.append(dict(label=lab, T_K=T, lam_m=a, lam_num_m=b))
+out["wien_examples"] = wien; out["wien_b_umK"] = C.value("Wien wavelength displacement law constant") * 1e6
+out["hc_eVnm"] = HC_EVNM; out["h_eVs"] = C.h / C.e; out["me_c2_keV"] = C.m_e * C.c ** 2 / C.e / 1e3
+def teq_formula(d_au, L=1.0): return 278.3 * L ** 0.25 / math.sqrt(d_au)            # way 1: textbook coefficient
+def teq_num(d_au, L=1.0):                                                           # way 2: balance L_sun pi R^2 / (4 pi d^2) = 4 pi R^2 sigma T^4 ... solved by root finding
+    Lsun = 3.828e26; d = d_au * C.au
+    f = lambda T: 4 * math.pi * d ** 2 * 0 + (L * Lsun / (16 * math.pi * SIGMA * d ** 2)) ** 0.25 - T
+    return brentq(f, 1.0, 1e4)
+teq = []
+for d in (1.0, 3.0, 5.2, 30.0):
+    a, b = teq_formula(d), teq_num(d); chk("Teq %g" % d, a, b, 2e-3); teq.append(dict(d_au=d, T_K=a))
+out["Teq"] = teq; out["Teq_coeff_K"] = teq_num(1.0)
+# decay constants
+th = 1.25; lam_d = math.log(2) / th
+out["decay_const"] = dict(T_half=th, lam_per_Gyr=lam_d, tau_Gyr=1 / lam_d, tau_over_T=1 / math.log(2))
+# practice items (answers by the same two-method functions)
+def tff_both(n, mu): r = rho_of(n, mu); return tff_slide(r) / MYR, tff_full_a(r) / MYR, tff_full_b(r) / MYR
+def jeans_all(n, mu, T):
+    r = rho_of(n, mu); c = cs_a(T, mu); chk("cs pr", c, cs_b(T, mu)); L = LJ_rig_a_ = LJ_rigorous_a(c, r); chk("LJ pr", L, LJ_rigorous_b(c, r))
+    return dict(rho=r, cs_kms=c / 1e5, LJ_pc=L / PC, LJ_AU=L / AU, LJslide_pc=LJ_slide(c, r) / PC, MJ_half=mass_sphere(L / 2, r) / MSUN, MJ_full=mass_sphere(L, r) / MSUN)
+pr = {}
+pr["tff_1e5"] = dict(n=1e5, mu=2.33, vals=tff_both(1e5, 2.33))
+pr["jeans_core"] = dict(n=1e5, mu=2.33, T=10.0, vals=jeans_all(1e5, 2.33, 10.0))
+pr["jeans_diffuse"] = dict(n=1e2, mu=2.33, T=100.0, vals=jeans_all(1e2, 2.33, 100.0))
+pr["spin_core"] = dict(r1_AU=1e4, r2_AU=100.0, factor=(1e4 / 100.0) ** 2, factor_to_1AU=(1e4 / 1.0) ** 2)
+rho_1Myr = 3 * math.pi / (32 * G * (1 * MYR) ** 2)       # density that gives t_ff(full) = 1 Myr
+chk("tff inverse", tff_full_a(rho_1Myr) / MYR, 1.0)
+pr["tff_inverse"] = dict(t_Myr=1.0, rho=rho_1Myr, n_mu233=rho_1Myr / (2.33 * M_H))
+pr["age_DP05"] = dict(DP=0.5, t_Gyr=age_a(0.5, T_HALF_SLIDE)); chk("age 0.5", age_a(0.5, 1.25), age_b(0.5, 1.25))
+pr["age_DP15"] = dict(DP=15.0, t_Gyr=age_a(15.0, T_HALF_SLIDE)); chk("age 15", age_a(15.0, 1.25), age_b(15.0, 1.25))
+pr["teq_dist150"] = dict(T_K=150.0, d_au=(278.3 / 150.0) ** 2)
+chk("teq inverse", teq_formula((278.3 / 150.0) ** 2), 150.0)
+out["practice"] = pr
 
 json.dump(out, open(ROOT / "data" / "verified.json", "w"), indent=1, default=float)
 if bad:

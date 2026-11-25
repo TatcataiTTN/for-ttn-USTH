@@ -47,3 +47,29 @@ details.w ol{padding-left:1.3em}details.w .ans{background:var(--okbg);border-rad
 .katex-display{overflow-x:auto;overflow-y:hidden;max-width:100%}.card p{max-width:100%;overflow-x:auto}
 @media (max-width:640px){html{font-size:16px}h1{font-size:1.5rem}header.top{position:static}header.top .wrap{gap:6px}nav{order:3;width:100%;flex-wrap:nowrap;overflow-x:auto;padding-bottom:2px}nav a{white-space:nowrap;padding:5px 8px;font-size:.85rem}.tools{margin-left:auto}}
 @media print{header.top,.tools,.bar,footer{display:none}.exp{display:block}}
+
+.eqbig{border:2px solid var(--blue);border-radius:14px;padding:12px 14px;margin:18px 0;background:var(--bg)}
+.eqlab{font-weight:800;color:var(--blue);font-size:1.02rem}.eqgist{margin:4px 0 8px;color:var(--mute)}
+.eqstage{background:var(--card);border:1px solid var(--line);border-radius:10px;padding:10px 12px;overflow-x:auto;overflow-y:hidden}
+.eqstage .kx{font-size:1.25rem;margin:6px 0;min-width:0}.eqstage .katex-display{margin:.3em 0}
+.ks{transition:opacity .2s}.ks.dim{opacity:.22}.ks.on{background:rgba(255,196,0,.30);box-shadow:0 0 0 4px rgba(255,196,0,.45);border-radius:5px}.ks{cursor:pointer}
+.eqbar{display:flex;gap:8px;flex-wrap:wrap;margin:10px 0}
+.eqinfo{border:2px solid var(--red);border-radius:10px;padding:8px 12px;background:var(--card);margin:8px 0}.eqinfo p{margin:.3em 0}.eqinfo .eqinfo-h{font-size:1.05rem}
+table.eqleg{font-size:.9rem}table.eqleg tr.lr{cursor:pointer}table.eqleg tr.lr:hover td,table.eqleg tr.sel td{background:var(--chip)}table.eqleg td.tm{width:4.5em;text-align:center}
+.eqmore{display:grid;gap:10px;grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:8px}.eqmore .card{margin:0}.eqmore h4{margin:.1em 0 .3em;font-size:.95rem;color:var(--red)}.eqmore ol,.eqmore ul{padding-left:1.2em;margin:.2em 0}
+.sviewer{border:1px solid var(--line);border-radius:12px;padding:10px;background:var(--card);outline:none}.sviewer:focus{box-shadow:0 0 0 3px var(--blue)}.sviewer img{width:100%;max-width:900px;display:block;margin:6px auto;border:1px solid var(--line);border-radius:8px;cursor:zoom-in}.sviewer .sv-bar{display:flex;gap:8px;align-items:center;flex-wrap:wrap}.sv-cap{font-size:.88rem;color:var(--mute);margin-top:2px}
+details.ex{background:var(--card);border:1px solid var(--line);border-radius:12px;margin:10px 0;padding:10px 14px}details.ex>summary{cursor:pointer;font-weight:700}
+.shortans{background:var(--okbg);border:1px solid var(--ok);border-radius:8px;padding:6px 10px;margin-top:8px}.qverb{border-left:4px solid var(--blue);padding:4px 12px;margin:6px 0;font-weight:600}
+.minislide{max-width:260px;float:right;margin:0 0 6px 12px}.minislide img{max-width:100%;border:1px solid var(--line);border-radius:6px;cursor:zoom-in}
+.crumbs{font-size:.88rem;color:var(--mute);margin:0 0 6px}.guide{background:var(--chip);border-radius:12px;padding:10px 14px;margin:10px 0}
+.toc a{display:inline-block;margin:2px 8px 2px 0}
+@media (max-width:640px){.minislide{float:none;margin:6px 0}}
+
+details.w.ex details,.shortans,details.w .ans{overflow:hidden}
+
+.tq{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:10px 0}label.tf{display:inline-block;margin:6px 14px 6px 0}label.tf input{width:9em;padding:6px 8px;border-radius:8px;border:1px solid var(--line);background:var(--bg);color:var(--fg);font-size:1rem}
+.tfm{font-weight:800;font-size:1.1rem}.okm{color:var(--ok)}.badm{color:var(--bad)}
+.exp-row{display:grid;gap:14px;grid-template-columns:repeat(auto-fit,minmax(340px,1fr))}.xcard{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:12px 14px;margin:12px 0}.xcard canvas{width:100%;display:block;border:1px solid var(--line);border-radius:8px;background:var(--card)}
+.xcard label{display:inline-block;margin:6px 14px 6px 0;font-size:.92rem}.xcard input[type=range]{width:220px;max-width:70vw;vertical-align:middle}.xout{font-family:ui-monospace,Menlo,Consolas,monospace;font-size:.85rem;margin-top:6px;background:var(--bg);border:1px solid var(--line);border-radius:8px;padding:6px 10px}
+.bar label{max-width:100%}.bar select{max-width:100%;min-width:0}
+@media (max-width:640px){.bar label{display:block;width:100%}.bar select{width:100%}}

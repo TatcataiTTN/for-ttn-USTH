@@ -17,7 +17,7 @@ JavaScript calculators are checked against it (`tests/test_calc.js`). See `Atmos
 
 Live: **https://tatcataittn.github.io/for-ttn-USTH/Space-Observation-Project/self-study-chi-Phuong/**
 
-Bilingual (EN | VI) study notes from the three lecture decks of Space Observation (L1 Multiwavelength Astronomy, L2 Star Formation, L3 Formation of the Solar System): the Big 12 with a self-test, three lessons with slide page numbers, formula sheet and six calculators, 91 questions with explanations, a mock exam, 12 written problems with full solutions and 73 captioned slide pages. Numbers are computed by two independent methods (`build/verify_numbers.py`) and the calculators are tested against them (`tests/test_calc.js`). No sample exam was available; see the "Sources and limits" page and `Space-Observation-Project/self-study-chi-Phuong/README.md`.
+Bilingual (EN | VI) study notes from the three lecture decks of Space Observation (L1 Multiwavelength Astronomy, L2 Star Formation, L3 Formation of the Solar System): the Big 12 with a self-test, three lessons with slide page numbers, formula sheet and six calculators, 91 questions with explanations, 14 formulas explained symbol by symbol with five interactive plots, every exercise of the lecturer's slides to redo with a short answer, a trainer of 126 similar problems, a mock exam, 12 essays with full solutions and 73 captioned slide pages. Numbers are computed by two independent methods (`build/verify_numbers.py`, `build/gen_problems.py`) and the calculators are tested against them (`tests/test_calc.js`, 389 comparisons). No sample exam was available; see the "Sources and limits" page and `Space-Observation-Project/self-study-chi-Phuong/README.md`.
 
 ## Ocean-Optics — self-study and exam-practice system (USTH)
 

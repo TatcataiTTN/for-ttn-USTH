@@ -1,0 +1,5674 @@
+{
+"types": [
+{
+"id": "tff",
+"en": "Free-fall time",
+"vi": "Thời gian rơi tự do",
+"lec": "L2"
+},
+{
+"id": "jeans",
+"en": "Jeans length and mass",
+"vi": "Độ dài và khối lượng Jeans",
+"lec": "L2"
+},
+{
+"id": "tffinv",
+"en": "Density from a collapse time",
+"vi": "Mật độ từ thời gian sụp đổ",
+"lec": "L2"
+},
+{
+"id": "scale",
+"en": "Scaling of the Jeans mass",
+"vi": "Quy luật tỉ lệ của khối lượng Jeans",
+"lec": "L2"
+},
+{
+"id": "spin",
+"en": "Spin-up",
+"vi": "Quay nhanh dần",
+"lec": "L2"
+},
+{
+"id": "age",
+"en": "Age from daughter/parent",
+"vi": "Tuổi từ tỉ lệ con/mẹ",
+"lec": "L3"
+},
+{
+"id": "frac",
+"en": "Fraction left",
+"vi": "Phần còn lại",
+"lec": "L3"
+},
+{
+"id": "teq",
+"en": "Temperature and distance",
+"vi": "Nhiệt độ và khoảng cách",
+"lec": "L3"
+},
+{
+"id": "light",
+"en": "Wavelength, frequency, energy",
+"vi": "Bước sóng, tần số, năng lượng",
+"lec": "L1"
+}
+],
+"problems": [
+{
+"id": "tff1",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 100 molecules per cm³ (μ = 2.33). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 100 phân tử trên cm³ (μ = 2,33). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 100.0,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+6.235778230705568,
+3.384162713164262
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 100 × 2.33 × 1.661×10⁻²⁴ = 3.87×10⁻²² g/cm³.",
+"ρ = n μ m_H = 100 × 2,33 × 1,661×10⁻²⁴ = 3,87×10⁻²² g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 1.97×10¹⁴ s = 6.24 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 1,97×10¹⁴ s = 6,24 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 3.38 Myr.",
+"Dạng chính xác: × 0,543 = 3,38 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff2",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 300 molecules per cm³ (μ = 2). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 300 phân tử trên cm³ (μ = 2,0). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 300.0,
+"mu": 2.0
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+3.885912317421345,
+2.108888270992133
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 300 × 2 × 1.661×10⁻²⁴ = 9.96×10⁻²² g/cm³.",
+"ρ = n μ m_H = 300 × 2,0 × 1,661×10⁻²⁴ = 9,96×10⁻²² g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 1.23×10¹⁴ s = 3.89 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 1,23×10¹⁴ s = 3,89 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 2.11 Myr.",
+"Dạng chính xác: × 0,543 = 2,11 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff3",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 10³ molecules per cm³ (μ = 2.33). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 10³ phân tử trên cm³ (μ = 2,33). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 1000.0,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+1.9719262192724516,
+1.0701662146214157
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 10³ × 2.33 × 1.661×10⁻²⁴ = 3.87×10⁻²¹ g/cm³.",
+"ρ = n μ m_H = 10³ × 2,33 × 1,661×10⁻²⁴ = 3,87×10⁻²¹ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 6.22×10¹³ s = 1.97 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 6,22×10¹³ s = 1,97 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 1.07 Myr.",
+"Dạng chính xác: × 0,543 = 1,07 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff4",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 3×10³ molecules per cm³ (μ = 2). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 3×10³ phân tử trên cm³ (μ = 2,0). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 3000.0,
+"mu": 2.0
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+1.2288333710754658,
+0.6668890267149541
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 3×10³ × 2 × 1.661×10⁻²⁴ = 9.96×10⁻²¹ g/cm³.",
+"ρ = n μ m_H = 3×10³ × 2,0 × 1,661×10⁻²⁴ = 9,96×10⁻²¹ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 3.88×10¹³ s = 1.23 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 3,88×10¹³ s = 1,23 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.667 Myr.",
+"Dạng chính xác: × 0,543 = 0,667 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff5",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 10⁴ molecules per cm³ (μ = 2). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 10⁴ phân tử trên cm³ (μ = 2,0). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 10000.0,
+"mu": 2.0
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+0.6730597567531489,
+0.3652701632844457
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 10⁴ × 2 × 1.661×10⁻²⁴ = 3.32×10⁻²⁰ g/cm³.",
+"ρ = n μ m_H = 10⁴ × 2,0 × 1,661×10⁻²⁴ = 3,32×10⁻²⁰ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 2.12×10¹³ s = 0.673 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 2,12×10¹³ s = 0,673 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.365 Myr.",
+"Dạng chính xác: × 0,543 = 0,365 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff6",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 3×10⁴ molecules per cm³ (μ = 2.33). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 3×10⁴ phân tử trên cm³ (μ = 2,33). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 30000.0,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+0.3600228240104667,
+0.19538472534268808
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 3×10⁴ × 2.33 × 1.661×10⁻²⁴ = 1.16×10⁻¹⁹ g/cm³.",
+"ρ = n μ m_H = 3×10⁴ × 2,33 × 1,661×10⁻²⁴ = 1,16×10⁻¹⁹ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 1.14×10¹³ s = 0.36 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 1,14×10¹³ s = 0,36 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.195 Myr.",
+"Dạng chính xác: × 0,543 = 0,195 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff7",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 10⁵ molecules per cm³ (μ = 2.33). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 10⁵ phân tử trên cm³ (μ = 2,33). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 100000.0,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+0.19719262192724518,
+0.10701662146214157
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 10⁵ × 2.33 × 1.661×10⁻²⁴ = 3.87×10⁻¹⁹ g/cm³.",
+"ρ = n μ m_H = 10⁵ × 2,33 × 1,661×10⁻²⁴ = 3,87×10⁻¹⁹ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 6.22×10¹² s = 0.197 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 6,22×10¹² s = 0,197 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.107 Myr.",
+"Dạng chính xác: × 0,543 = 0,107 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff8",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 3×10⁵ molecules per cm³ (μ = 2). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 3×10⁵ phân tử trên cm³ (μ = 2,0). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 300000.0,
+"mu": 2.0
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+0.12288333710754656,
+0.06668890267149541
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 3×10⁵ × 2 × 1.661×10⁻²⁴ = 9.96×10⁻¹⁹ g/cm³.",
+"ρ = n μ m_H = 3×10⁵ × 2,0 × 1,661×10⁻²⁴ = 9,96×10⁻¹⁹ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 3.88×10¹² s = 0.123 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 3,88×10¹² s = 0,123 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.0667 Myr.",
+"Dạng chính xác: × 0,543 = 0,0667 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff9",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 10⁶ molecules per cm³ (μ = 2.33). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 10⁶ phân tử trên cm³ (μ = 2,33). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 1000000.0,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+0.062357782307055666,
+0.03384162713164262
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 10⁶ × 2.33 × 1.661×10⁻²⁴ = 3.87×10⁻¹⁸ g/cm³.",
+"ρ = n μ m_H = 10⁶ × 2,33 × 1,661×10⁻²⁴ = 3,87×10⁻¹⁸ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 1.97×10¹² s = 0.0624 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 1,97×10¹² s = 0,0624 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.0338 Myr.",
+"Dạng chính xác: × 0,543 = 0,0338 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff10",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 10⁷ molecules per cm³ (μ = 2). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 10⁷ phân tử trên cm³ (μ = 2,0). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 10000000.0,
+"mu": 2.0
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+0.021284018327388462,
+0.01155085677280459
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 10⁷ × 2 × 1.661×10⁻²⁴ = 3.32×10⁻¹⁷ g/cm³.",
+"ρ = n μ m_H = 10⁷ × 2,0 × 1,661×10⁻²⁴ = 3,32×10⁻¹⁷ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 6.72×10¹¹ s = 0.0213 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 6,72×10¹¹ s = 0,0213 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.0116 Myr.",
+"Dạng chính xác: × 0,543 = 0,0116 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff11",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 500 molecules per cm³ (μ = 2.33). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 500 phân tử trên cm³ (μ = 2,33). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 500.0,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+2.7887248032942025,
+1.5134435747110826
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 500 × 2.33 × 1.661×10⁻²⁴ = 1.93×10⁻²¹ g/cm³.",
+"ρ = n μ m_H = 500 × 2,33 × 1,661×10⁻²⁴ = 1,93×10⁻²¹ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 8.8×10¹³ s = 2.79 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 8,8×10¹³ s = 2,79 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 1.51 Myr.",
+"Dạng chính xác: × 0,543 = 1,51 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff12",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 2×10⁴ molecules per cm³ (μ = 2). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 2×10⁴ phân tử trên cm³ (μ = 2,0). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 20000.0,
+"mu": 2.0
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+0.47592511814391975,
+0.25828500942354904
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 2×10⁴ × 2 × 1.661×10⁻²⁴ = 6.64×10⁻²⁰ g/cm³.",
+"ρ = n μ m_H = 2×10⁴ × 2,0 × 1,661×10⁻²⁴ = 6,64×10⁻²⁰ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 1.5×10¹³ s = 0.476 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 1,5×10¹³ s = 0,476 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.258 Myr.",
+"Dạng chính xác: × 0,543 = 0,258 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff13",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 5×10⁴ molecules per cm³ (μ = 2.33). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 5×10⁴ phân tử trên cm³ (μ = 2,33). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 50000.0,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+0.27887248032942025,
+0.15134435747110822
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 5×10⁴ × 2.33 × 1.661×10⁻²⁴ = 1.93×10⁻¹⁹ g/cm³.",
+"ρ = n μ m_H = 5×10⁴ × 2,33 × 1,661×10⁻²⁴ = 1,93×10⁻¹⁹ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 8.8×10¹² s = 0.279 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 8,8×10¹² s = 0,279 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.151 Myr.",
+"Dạng chính xác: × 0,543 = 0,151 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "tff14",
+"type": "tff",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A molecular cloud has a mean density of 2×10⁵ molecules per cm³ (μ = 2.33). Find its free-fall time, in Myr (give the slide form 1/√(Gρ) or the exact form).",
+"Một đám mây phân tử có mật độ trung bình 2×10⁵ phân tử trên cm³ (μ = 2,33). Tìm thời gian rơi tự do, theo triệu năm (cho dạng slide 1/√(Gρ) hoặc dạng chính xác)."
+],
+"params": {
+"n": 200000.0,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"free-fall time",
+"thời gian rơi tự do"
+],
+"unit": "Myr",
+"accept": [
+0.13943624016471012,
+0.07567217873555411
+]
+}
+],
+"steps": [
+[
+"ρ = n μ m_H = 2×10⁵ × 2.33 × 1.661×10⁻²⁴ = 7.74×10⁻¹⁹ g/cm³.",
+"ρ = n μ m_H = 2×10⁵ × 2,33 × 1,661×10⁻²⁴ = 7,74×10⁻¹⁹ g/cm³,"
+],
+[
+"Slide form: t_ff = 1/√(Gρ) = 4.4×10¹² s = 0.139 Myr.",
+"Dạng slide: t_ff = 1/√(Gρ) = 4,4×10¹² s = 0,139 triệu năm,"
+],
+[
+"Exact form: × 0.543 = 0.0757 Myr.",
+"Dạng chính xác: × 0,543 = 0,0757 triệu năm,"
+]
+],
+"level": 1
+},
+{
+"id": "jeans1",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10³ cm⁻³, T = 30 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10³ cm⁻³, T = 30 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 1000.0,
+"T": 30,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.32718980217110255
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+1.1695499612776572,
+0.659847905591536
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+47.88423688279676,
+383.0738950623741,
+68.79513837552983
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻²¹ g/cm³; c_s = √(kT/(μ m_H)) = 0.327 km/s.",
+"ρ = 3,87×10⁻²¹ g/cm³; c_s = √(kT/(μ m_H)) = 0,327 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 3.61×10¹⁸ cm = 1.17 pc = 2.41×10⁵ AU (slide-style c_s/√(Gρ): 0.66 pc).",
+"λ_J = c_s √(π/(Gρ)) = 3,61×10¹⁸ cm = 1,17 pc = 2,41×10⁵ AU (kiểu slide c_s/√(Gρ): 0,66 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 47.9 M☉; r = λ_J → 383 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 47,9 M☉; r = λ_J → 383 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans2",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10⁴ cm⁻³, T = 30 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10⁴ cm⁻³, T = 30 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 10000.0,
+"T": 30,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.32718980217110255
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+0.3698441714999129,
+0.2086622290961008
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+15.142325256867892,
+121.13860205494314,
+21.754932921313028
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0.327 km/s.",
+"ρ = 3,87×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0,327 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 1.14×10¹⁸ cm = 0.37 pc = 7.63×10⁴ AU (slide-style c_s/√(Gρ): 0.209 pc).",
+"λ_J = c_s √(π/(Gρ)) = 1,14×10¹⁸ cm = 0,37 pc = 7,63×10⁴ AU (kiểu slide c_s/√(Gρ): 0,209 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 15.1 M☉; r = λ_J → 121 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 15,1 M☉; r = λ_J → 121 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans3",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10³ cm⁻³, T = 50 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10³ cm⁻³, T = 50 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 1000.0,
+"T": 50,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.42240021828585983
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+1.509882507528632,
+0.851859983128621
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+103.03047332940159,
+824.2437866352127,
+148.0235695713677
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻²¹ g/cm³; c_s = √(kT/(μ m_H)) = 0.422 km/s.",
+"ρ = 3,87×10⁻²¹ g/cm³; c_s = √(kT/(μ m_H)) = 0,422 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 4.66×10¹⁸ cm = 1.51 pc = 3.11×10⁵ AU (slide-style c_s/√(Gρ): 0.852 pc).",
+"λ_J = c_s √(π/(Gρ)) = 4,66×10¹⁸ cm = 1,51 pc = 3,11×10⁵ AU (kiểu slide c_s/√(Gρ): 0,852 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 103 M☉; r = λ_J → 824 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 103 M☉; r = λ_J → 824 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans4",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10⁴ cm⁻³, T = 50 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10⁴ cm⁻³, T = 50 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 10000.0,
+"T": 50,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.42240021828585983
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+0.47746677230368073,
+0.26938177942390507
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+32.581096412614045,
+260.64877130091236,
+46.80916272339157
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0.422 km/s.",
+"ρ = 3,87×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0,422 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 1.47×10¹⁸ cm = 0.477 pc = 9.85×10⁴ AU (slide-style c_s/√(Gρ): 0.269 pc).",
+"λ_J = c_s √(π/(Gρ)) = 1,47×10¹⁸ cm = 0,477 pc = 9,85×10⁴ AU (kiểu slide c_s/√(Gρ): 0,269 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 32.6 M☉; r = λ_J → 261 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 32,6 M☉; r = λ_J → 261 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans5",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 100 cm⁻³, T = 100 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 100 cm⁻³, T = 100 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 100.0,
+"T": 100,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.5973641174492188
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+6.752399849743718,
+3.809633659174841
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+921.5325684740835,
+7372.260547792668,
+1323.9630553349905
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻²² g/cm³; c_s = √(kT/(μ m_H)) = 0.597 km/s.",
+"ρ = 3,87×10⁻²² g/cm³; c_s = √(kT/(μ m_H)) = 0,597 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 2.08×10¹⁹ cm = 6.75 pc = 1.39×10⁶ AU (slide-style c_s/√(Gρ): 3.81 pc).",
+"λ_J = c_s √(π/(Gρ)) = 2,08×10¹⁹ cm = 6,75 pc = 1,39×10⁶ AU (kiểu slide c_s/√(Gρ): 3,81 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 922 M☉; r = λ_J → 7.37×10³ M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 922 M☉; r = λ_J → 7,37×10³ M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans6",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10³ cm⁻³, T = 100 K, μ = 2. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10³ cm⁻³, T = 100 K, μ = 2,0. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 1000.0,
+"T": 100,
+"mu": 2.0
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.6447659501481952
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+2.4876202124934745,
+1.4034894117116745
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+395.5146178342359,
+3164.116942673887,
+568.2346558022841
+]
+}
+],
+"steps": [
+[
+"ρ = 3.32×10⁻²¹ g/cm³; c_s = √(kT/(μ m_H)) = 0.645 km/s.",
+"ρ = 3,32×10⁻²¹ g/cm³; c_s = √(kT/(μ m_H)) = 0,645 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 7.68×10¹⁸ cm = 2.49 pc = 5.13×10⁵ AU (slide-style c_s/√(Gρ): 1.4 pc).",
+"λ_J = c_s √(π/(Gρ)) = 7,68×10¹⁸ cm = 2,49 pc = 5,13×10⁵ AU (kiểu slide c_s/√(Gρ): 1,4 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 396 M☉; r = λ_J → 3.16×10³ M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 396 M☉; r = λ_J → 3,16×10³ M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans7",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10⁵ cm⁻³, T = 10 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10⁵ cm⁻³, T = 10 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 100000.0,
+"T": 10,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.18890312035958645
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+0.06752399849743719,
+0.038096336591748416
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+0.921532568474084,
+7.372260547792672,
+1.3239630553349904
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻¹⁹ g/cm³; c_s = √(kT/(μ m_H)) = 0.189 km/s.",
+"ρ = 3,87×10⁻¹⁹ g/cm³; c_s = √(kT/(μ m_H)) = 0,189 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 2.08×10¹⁷ cm = 0.0675 pc = 1.39×10⁴ AU (slide-style c_s/√(Gρ): 0.0381 pc).",
+"λ_J = c_s √(π/(Gρ)) = 2,08×10¹⁷ cm = 0,0675 pc = 1,39×10⁴ AU (kiểu slide c_s/√(Gρ): 0,0381 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 0.922 M☉; r = λ_J → 7.37 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 0,922 M☉; r = λ_J → 7,37 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans8",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10⁴ cm⁻³, T = 20 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10⁴ cm⁻³, T = 20 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 10000.0,
+"T": 20,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.26714935478712426
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+0.30197650150572636,
+0.1703719966257242
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+8.242437866352121,
+65.93950293081697,
+11.841885565709408
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0.267 km/s.",
+"ρ = 3,87×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0,267 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 9.32×10¹⁷ cm = 0.302 pc = 6.23×10⁴ AU (slide-style c_s/√(Gρ): 0.17 pc).",
+"λ_J = c_s √(π/(Gρ)) = 9,32×10¹⁷ cm = 0,302 pc = 6,23×10⁴ AU (kiểu slide c_s/√(Gρ): 0,17 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 8.24 M☉; r = λ_J → 65.9 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 8,24 M☉; r = λ_J → 65,9 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans9",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10⁶ cm⁻³, T = 10 K, μ = 2. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10⁶ cm⁻³, T = 10 K, μ = 2,0. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 1000000.0,
+"T": 10,
+"mu": 2.0
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.20389289601908767
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+0.02487620212493475,
+0.01403489411711675
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+0.395514617834236,
+3.164116942673888,
+0.5682346558022847
+]
+}
+],
+"steps": [
+[
+"ρ = 3.32×10⁻¹⁸ g/cm³; c_s = √(kT/(μ m_H)) = 0.204 km/s.",
+"ρ = 3,32×10⁻¹⁸ g/cm³; c_s = √(kT/(μ m_H)) = 0,204 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 7.68×10¹⁶ cm = 0.0249 pc = 5.13×10³ AU (slide-style c_s/√(Gρ): 0.014 pc).",
+"λ_J = c_s √(π/(Gρ)) = 7,68×10¹⁶ cm = 0,0249 pc = 5,13×10³ AU (kiểu slide c_s/√(Gρ): 0,014 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 0.396 M☉; r = λ_J → 3.16 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 0,396 M☉; r = λ_J → 3,16 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans10",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10⁵ cm⁻³, T = 20 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10⁵ cm⁻³, T = 20 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 100000.0,
+"T": 20,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.26714935478712426
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+0.09549335446073615,
+0.053876355884781006
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+2.6064877130091237,
+20.85190170407299,
+3.7447330178713263
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻¹⁹ g/cm³; c_s = √(kT/(μ m_H)) = 0.267 km/s.",
+"ρ = 3,87×10⁻¹⁹ g/cm³; c_s = √(kT/(μ m_H)) = 0,267 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 2.95×10¹⁷ cm = 0.0955 pc = 1.97×10⁴ AU (slide-style c_s/√(Gρ): 0.0539 pc).",
+"λ_J = c_s √(π/(Gρ)) = 2,95×10¹⁷ cm = 0,0955 pc = 1,97×10⁴ AU (kiểu slide c_s/√(Gρ): 0,0539 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 2.61 M☉; r = λ_J → 20.9 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 2,61 M☉; r = λ_J → 20,9 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans11",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 5×10³ cm⁻³, T = 40 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 5×10³ cm⁻³, T = 40 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 5000.0,
+"T": 40,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.3778062407191729
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+0.6039530030114528,
+0.3407439932514484
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+32.9697514654085,
+263.758011723268,
+47.36754226283766
+]
+}
+],
+"steps": [
+[
+"ρ = 1.93×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0.378 km/s.",
+"ρ = 1,93×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0,378 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 1.86×10¹⁸ cm = 0.604 pc = 1.25×10⁵ AU (slide-style c_s/√(Gρ): 0.341 pc).",
+"λ_J = c_s √(π/(Gρ)) = 1,86×10¹⁸ cm = 0,604 pc = 1,25×10⁵ AU (kiểu slide c_s/√(Gρ): 0,341 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 33 M☉; r = λ_J → 264 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 33 M☉; r = λ_J → 264 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans12",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 2×10⁴ cm⁻³, T = 15 K, μ = 2. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 2×10⁴ cm⁻³, T = 15 K, μ = 2,0. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 20000.0,
+"T": 15,
+"mu": 2.0
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.24971677871255615
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+0.21543422989869926,
+0.12154574844847874
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+5.137885599188132,
+41.103084793505055,
+7.381584708532272
+]
+}
+],
+"steps": [
+[
+"ρ = 6.64×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0.25 km/s.",
+"ρ = 6,64×10⁻²⁰ g/cm³; c_s = √(kT/(μ m_H)) = 0,25 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 6.65×10¹⁷ cm = 0.215 pc = 4.44×10⁴ AU (slide-style c_s/√(Gρ): 0.122 pc).",
+"λ_J = c_s √(π/(Gρ)) = 6,65×10¹⁷ cm = 0,215 pc = 4,44×10⁴ AU (kiểu slide c_s/√(Gρ): 0,122 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 5.14 M☉; r = λ_J → 41.1 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 5,14 M☉; r = λ_J → 41,1 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans13",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 100 cm⁻³, T = 50 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 100 cm⁻³, T = 50 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 100.0,
+"T": 50,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.42240021828585983
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+4.774667723036808,
+2.6938177942390507
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+325.8109641261406,
+2606.487713009125,
+468.0916272339159
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻²² g/cm³; c_s = √(kT/(μ m_H)) = 0.422 km/s.",
+"ρ = 3,87×10⁻²² g/cm³; c_s = √(kT/(μ m_H)) = 0,422 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 1.47×10¹⁹ cm = 4.77 pc = 9.85×10⁵ AU (slide-style c_s/√(Gρ): 2.69 pc).",
+"λ_J = c_s √(π/(Gρ)) = 1,47×10¹⁹ cm = 4,77 pc = 9,85×10⁵ AU (kiểu slide c_s/√(Gρ): 2,69 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 326 M☉; r = λ_J → 2.61×10³ M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 326 M☉; r = λ_J → 2,61×10³ M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "jeans14",
+"type": "jeans",
+"lec": "L2",
+"eq": "jl",
+"q": [
+"Calculate the sound speed, the Jeans length and the Jeans mass of a cloud with n = 10³ cm⁻³, T = 10 K, μ = 2.33. (Say which sphere radius you use for the mass.)",
+"Tính tốc độ âm, độ dài Jeans và khối lượng Jeans của một đám mây có n = 10³ cm⁻³, T = 10 K, μ = 2,33. (Nêu bán kính cầu dùng cho khối lượng.)"
+],
+"params": {
+"n": 1000.0,
+"T": 10,
+"mu": 2.33
+},
+"fields": [
+{
+"k": "cs",
+"label": [
+"sound speed",
+"tốc độ âm"
+],
+"unit": "km/s",
+"accept": [
+0.18890312035958645
+]
+},
+{
+"k": "lj",
+"label": [
+"Jeans length",
+"độ dài Jeans"
+],
+"unit": "pc",
+"accept": [
+0.675239984974372,
+0.3809633659174841
+]
+},
+{
+"k": "mj",
+"label": [
+"Jeans mass",
+"khối lượng Jeans"
+],
+"unit": "M☉",
+"accept": [
+9.215325684740844,
+73.72260547792675,
+13.239630553349897
+]
+}
+],
+"steps": [
+[
+"ρ = 3.87×10⁻²¹ g/cm³; c_s = √(kT/(μ m_H)) = 0.189 km/s.",
+"ρ = 3,87×10⁻²¹ g/cm³; c_s = √(kT/(μ m_H)) = 0,189 km/s,"
+],
+[
+"λ_J = c_s √(π/(Gρ)) = 2.08×10¹⁸ cm = 0.675 pc = 1.39×10⁵ AU (slide-style c_s/√(Gρ): 0.381 pc).",
+"λ_J = c_s √(π/(Gρ)) = 2,08×10¹⁸ cm = 0,675 pc = 1,39×10⁵ AU (kiểu slide c_s/√(Gρ): 0,381 pc),"
+],
+[
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 9.22 M☉; r = λ_J → 73.7 M☉.",
+"M_J = (4π/3) ρ r³: r = λ_J/2 → 9,22 M☉; r = λ_J → 73,7 M☉,"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv1",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 0.05 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 0,05 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 0.05
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+458102.2907668519,
+1555397.2057016578
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 0.05 Myr = 1.58×10¹² s → ρ = 1.77×10⁻¹⁸ g/cm³ (exact).",
+"t = 0,05 triệu năm = 1,58×10¹² s → ρ = 1,77×10⁻¹⁸ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 4.58×10⁵ cm⁻³ (exact); 1.56×10⁶ cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 4,58×10⁵ cm⁻³ (chính xác); 1,56×10⁶ cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv2",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 0.1 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 0,1 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 0.1
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+114525.57269171298,
+388849.30142541445
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 0.1 Myr = 3.16×10¹² s → ρ = 4.43×10⁻¹⁹ g/cm³ (exact).",
+"t = 0,1 triệu năm = 3,16×10¹² s → ρ = 4,43×10⁻¹⁹ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 1.15×10⁵ cm⁻³ (exact); 3.89×10⁵ cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 1,15×10⁵ cm⁻³ (chính xác); 3,89×10⁵ cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv3",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 0.2 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 0,2 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 0.2
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+28631.393172928245,
+97212.32535635361
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 0.2 Myr = 6.31×10¹² s → ρ = 1.11×10⁻¹⁹ g/cm³ (exact).",
+"t = 0,2 triệu năm = 6,31×10¹² s → ρ = 1,11×10⁻¹⁹ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 2.86×10⁴ cm⁻³ (exact); 9.72×10⁴ cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 2,86×10⁴ cm⁻³ (chính xác); 9,72×10⁴ cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv4",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 0.3 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 0,3 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 0.3
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+12725.063632412553,
+43205.477936157164
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 0.3 Myr = 9.47×10¹² s → ρ = 4.92×10⁻²⁰ g/cm³ (exact).",
+"t = 0,3 triệu năm = 9,47×10¹² s → ρ = 4,92×10⁻²⁰ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 1.27×10⁴ cm⁻³ (exact); 4.32×10⁴ cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 1,27×10⁴ cm⁻³ (chính xác); 4,32×10⁴ cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv5",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 0.5 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 0,5 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 0.5
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+4581.022907668519,
+15553.97205701658
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 0.5 Myr = 1.58×10¹³ s → ρ = 1.77×10⁻²⁰ g/cm³ (exact).",
+"t = 0,5 triệu năm = 1,58×10¹³ s → ρ = 1,77×10⁻²⁰ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 4.58×10³ cm⁻³ (exact); 1.56×10⁴ cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 4,58×10³ cm⁻³ (chính xác); 1,56×10⁴ cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv6",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 0.8 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 0,8 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 0.8
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+1789.4620733080153,
+6075.770334772101
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 0.8 Myr = 2.52×10¹³ s → ρ = 6.92×10⁻²¹ g/cm³ (exact).",
+"t = 0,8 triệu năm = 2,52×10¹³ s → ρ = 6,92×10⁻²¹ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 1.79×10³ cm⁻³ (exact); 6.08×10³ cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 1,79×10³ cm⁻³ (chính xác); 6,08×10³ cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv7",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 1 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 1,0 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 1.0
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+1145.2557269171298,
+3888.493014254145
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 1 Myr = 3.16×10¹³ s → ρ = 4.43×10⁻²¹ g/cm³ (exact).",
+"t = 1 triệu năm = 3,16×10¹³ s → ρ = 4,43×10⁻²¹ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 1.15×10³ cm⁻³ (exact); 3.89×10³ cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 1,15×10³ cm⁻³ (chính xác); 3,89×10³ cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv8",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 1.5 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 1,5 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 1.5
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+509.0025452965022,
+1728.2191174462866
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 1.5 Myr = 4.73×10¹³ s → ρ = 1.97×10⁻²¹ g/cm³ (exact).",
+"t = 1,5 triệu năm = 4,73×10¹³ s → ρ = 1,97×10⁻²¹ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 509 cm⁻³ (exact); 1.73×10³ cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 509 cm⁻³ (chính xác); 1,73×10³ cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv9",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 2 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 2,0 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 2.0
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+286.31393172928244,
+972.1232535635362
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 2 Myr = 6.31×10¹³ s → ρ = 1.11×10⁻²¹ g/cm³ (exact).",
+"t = 2 triệu năm = 6,31×10¹³ s → ρ = 1,11×10⁻²¹ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 286 cm⁻³ (exact); 972 cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 286 cm⁻³ (chính xác); 972 cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv10",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 3 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 3,0 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 3.0
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+127.25063632412555,
+432.05477936157166
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 3 Myr = 9.47×10¹³ s → ρ = 4.92×10⁻²² g/cm³ (exact).",
+"t = 3 triệu năm = 9,47×10¹³ s → ρ = 4,92×10⁻²² g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 127 cm⁻³ (exact); 432 cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 127 cm⁻³ (chính xác); 432 cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv11",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 4 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 4,0 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 4.0
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+71.57848293232061,
+243.03081339088405
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 4 Myr = 1.26×10¹⁴ s → ρ = 2.77×10⁻²² g/cm³ (exact).",
+"t = 4 triệu năm = 1,26×10¹⁴ s → ρ = 2,77×10⁻²² g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 71.6 cm⁻³ (exact); 243 cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 71,6 cm⁻³ (chính xác); 243 cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv12",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 5 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 5,0 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 5.0
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+45.8102290766852,
+155.53972057016583
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 5 Myr = 1.58×10¹⁴ s → ρ = 1.77×10⁻²² g/cm³ (exact).",
+"t = 5 triệu năm = 1,58×10¹⁴ s → ρ = 1,77×10⁻²² g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 45.8 cm⁻³ (exact); 156 cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 45,8 cm⁻³ (chính xác); 156 cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv13",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 8 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 8,0 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 8.0
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+17.894620733080153,
+60.75770334772101
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 8 Myr = 2.52×10¹⁴ s → ρ = 6.92×10⁻²³ g/cm³ (exact).",
+"t = 8 triệu năm = 2,52×10¹⁴ s → ρ = 6,92×10⁻²³ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 17.9 cm⁻³ (exact); 60.8 cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 17,9 cm⁻³ (chính xác); 60,8 cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "tffinv14",
+"type": "tffinv",
+"lec": "L2",
+"eq": "tff",
+"q": [
+"A cloud must collapse in 10 Myr. What number density n (cm⁻³, μ = 2.33) does it need? (Exact form, or the slide form 1/√(Gρ).)",
+"Một đám mây phải sụp đổ trong 10,0 triệu năm. Nó cần mật độ số hạt n (cm⁻³, μ = 2,33) bằng bao nhiêu? (Dạng chính xác, hoặc dạng slide 1/√(Gρ).)"
+],
+"params": {
+"t": 10.0
+},
+"fields": [
+{
+"k": "n",
+"label": [
+"number density",
+"mật độ số hạt"
+],
+"unit": "cm⁻³",
+"accept": [
+11.4525572691713,
+38.88493014254146
+]
+}
+],
+"steps": [
+[
+"Invert the formula: ρ = 3π/(32 G t²) (exact) or ρ = 1/(G t²) (slide).",
+"Đảo công thức: ρ = 3π/(32 G t²) (chính xác) hoặc ρ = 1/(G t²) (slide)."
+],
+[
+"t = 10 Myr = 3.16×10¹⁴ s → ρ = 4.43×10⁻²³ g/cm³ (exact).",
+"t = 10 triệu năm = 3,16×10¹⁴ s → ρ = 4,43×10⁻²³ g/cm³ (chính xác),"
+],
+[
+"n = ρ/(μ m_H) = 11.5 cm⁻³ (exact); 38.9 cm⁻³ (slide form).",
+"n = ρ/(μ m_H) = 11,5 cm⁻³ (chính xác); 38,9 cm⁻³ (dạng slide),"
+]
+],
+"level": 2
+},
+{
+"id": "spin1",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 10⁴ AU to 10³ AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 10⁴ AU còn 10³ AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 10000.0,
+"R2": 1000.0
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+100.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(10⁴/10³)² = 100.",
+"(10⁴/10³)² = 100,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin2",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 10⁴ AU to 100 AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 10⁴ AU còn 100 AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 10000.0,
+"R2": 100
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+10000.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(10⁴/100)² = 1×10⁴.",
+"(10⁴/100)² = 1×10⁴,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin3",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 5×10³ AU to 500 AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 5×10³ AU còn 500 AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 5000.0,
+"R2": 500
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+100.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(5×10³/500)² = 100.",
+"(5×10³/500)² = 100,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin4",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 10⁴ AU to 10 AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 10⁴ AU còn 10 AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 10000.0,
+"R2": 10
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+1000000.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(10⁴/10)² = 1×10⁶.",
+"(10⁴/10)² = 1×10⁶,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin5",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 2×10⁴ AU to 200 AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 2×10⁴ AU còn 200 AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 20000.0,
+"R2": 200
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+10000.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(2×10⁴/200)² = 1×10⁴.",
+"(2×10⁴/200)² = 1×10⁴,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin6",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 10⁴ AU to 1 AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 10⁴ AU còn 1 AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 10000.0,
+"R2": 1
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+100000000.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(10⁴/1)² = 1×10⁸.",
+"(10⁴/1)² = 1×10⁸,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin7",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 3×10³ AU to 300 AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 3×10³ AU còn 300 AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 3000.0,
+"R2": 300
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+100.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(3×10³/300)² = 100.",
+"(3×10³/300)² = 100,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin8",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 10⁴ AU to 2×10³ AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 10⁴ AU còn 2×10³ AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 10000.0,
+"R2": 2000.0
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+25.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(10⁴/2×10³)² = 25.",
+"(10⁴/2×10³)² = 25,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin9",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 10⁵ AU to 10⁴ AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 10⁵ AU còn 10⁴ AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 100000.0,
+"R2": 10000.0
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+100.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(10⁵/10⁴)² = 100.",
+"(10⁵/10⁴)² = 100,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin10",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 10⁴ AU to 50 AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 10⁴ AU còn 50 AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 10000.0,
+"R2": 50
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+40000.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(10⁴/50)² = 4×10⁴.",
+"(10⁴/50)² = 4×10⁴,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin11",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 8×10³ AU to 80 AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 8×10³ AU còn 80 AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 8000.0,
+"R2": 80
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+10000.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(8×10³/80)² = 1×10⁴.",
+"(8×10³/80)² = 1×10⁴,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin12",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 10⁴ AU to 5×10³ AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 10⁴ AU còn 5×10³ AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 10000.0,
+"R2": 5000.0
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+4.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(10⁴/5×10³)² = 4.",
+"(10⁴/5×10³)² = 4,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin13",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 2×10³ AU to 20 AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 2×10³ AU còn 20 AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 2000.0,
+"R2": 20
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+10000.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(2×10³/20)² = 1×10⁴.",
+"(2×10³/20)² = 1×10⁴,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "spin14",
+"type": "spin",
+"lec": "L2",
+"eq": "spin",
+"q": [
+"A rotating core shrinks from 10⁵ AU to 10³ AU. By what factor does its spin rate increase if angular momentum is conserved?",
+"Một lõi quay co lại từ 10⁵ AU còn 10³ AU. Tốc độ quay tăng bao nhiêu lần nếu mômen động lượng được bảo toàn?"
+],
+"params": {
+"R1": 100000.0,
+"R2": 1000.0
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"factor",
+"hệ số"
+],
+"unit": "×",
+"accept": [
+10000.0
+]
+}
+],
+"steps": [
+[
+"I ω = const, I ∝ R², so ω₂/ω₁ = (R₁/R₂)².",
+"I ω = hằng số, I ∝ R², nên ω₂/ω₁ = (R₁/R₂)²."
+],
+[
+"(10⁵/10³)² = 1×10⁴.",
+"(10⁵/10³)² = 1×10⁴,"
+],
+[
+"Real cores shed angular momentum (disk, jets), so the real factor is smaller.",
+"Lõi thật mất mômen động lượng (đĩa, jet), nên hệ số thật nhỏ hơn."
+]
+],
+"level": 1
+},
+{
+"id": "age1",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 0.25 daughter atoms for every parent atom. The isotope has a half-life of 1.25 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 0,25 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 1,25 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 1.25,
+"DP": 0.25
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+0.40241011860920295
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 1.25 × log₂(1.25) = 1.25 × 0.322 = 0.402 Gyr (0.322 half-lives).",
+"t = 1,25 × log₂(1,25) = 1,25 × 0,322 = 0,402 tỉ năm (0,322 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age2",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 0.5 daughter atoms for every parent atom. The isotope has a half-life of 1.25 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 0,5 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 1,25 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 1.25,
+"DP": 0.5
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+0.7312031259014452
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 1.25 × log₂(1.5) = 1.25 × 0.585 = 0.731 Gyr (0.585 half-lives).",
+"t = 1,25 × log₂(1,5) = 1,25 × 0,585 = 0,731 tỉ năm (0,585 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age3",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 1 daughter atoms for every parent atom. The isotope has a half-life of 1.25 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 1 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 1,25 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 1.25,
+"DP": 1
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+1.25
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 1.25 × log₂(2) = 1.25 × 1 = 1.25 Gyr (1 half-lives).",
+"t = 1,25 × log₂(2) = 1,25 × 1 = 1,25 tỉ năm (1 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age4",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 2 daughter atoms for every parent atom. The isotope has a half-life of 1.25 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 2 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 1,25 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 1.25,
+"DP": 2
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+1.981203125901445
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 1.25 × log₂(3) = 1.25 × 1.58 = 1.98 Gyr (1.58 half-lives).",
+"t = 1,25 × log₂(3) = 1,25 × 1,58 = 1,98 tỉ năm (1,58 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age5",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 3 daughter atoms for every parent atom. The isotope has a half-life of 1.25 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 3 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 1,25 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 1.25,
+"DP": 3
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+2.5
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 1.25 × log₂(4) = 1.25 × 2 = 2.5 Gyr (2 half-lives).",
+"t = 1,25 × log₂(4) = 1,25 × 2 = 2,5 tỉ năm (2 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age6",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 5 daughter atoms for every parent atom. The isotope has a half-life of 1.25 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 5 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 1,25 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 1.25,
+"DP": 5
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+3.231203125901445
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 1.25 × log₂(6) = 1.25 × 2.58 = 3.23 Gyr (2.58 half-lives).",
+"t = 1,25 × log₂(6) = 1,25 × 2,58 = 3,23 tỉ năm (2,58 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age7",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 7 daughter atoms for every parent atom. The isotope has a half-life of 1.25 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 7 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 1,25 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 1.25,
+"DP": 7
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+3.75
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 1.25 × log₂(8) = 1.25 × 3 = 3.75 Gyr (3 half-lives).",
+"t = 1,25 × log₂(8) = 1,25 × 3 = 3,75 tỉ năm (3 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age8",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 11.8 daughter atoms for every parent atom. The isotope has a half-life of 1.25 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 11,8 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 1,25 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 1.25,
+"DP": 11.8
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+4.597589881390797
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 1.25 × log₂(12.8) = 1.25 × 3.68 = 4.6 Gyr (3.68 half-lives).",
+"t = 1,25 × log₂(12,8) = 1,25 × 3,68 = 4,6 tỉ năm (3,68 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age9",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 1 daughter atoms for every parent atom. The isotope has a half-life of 0.7 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 1,0 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 0,7 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 0.7,
+"DP": 1.0
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+0.7
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 0.7 × log₂(2) = 0.7 × 1 = 0.7 Gyr (1 half-lives).",
+"t = 0,7 × log₂(2) = 0,7 × 1 = 0,7 tỉ năm (1 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age10",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 3 daughter atoms for every parent atom. The isotope has a half-life of 0.7 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 3 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 0,7 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 0.7,
+"DP": 3
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+1.4
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 0.7 × log₂(4) = 0.7 × 2 = 1.4 Gyr (2 half-lives).",
+"t = 0,7 × log₂(4) = 0,7 × 2 = 1,4 tỉ năm (2 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age11",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 0.5 daughter atoms for every parent atom. The isotope has a half-life of 4.47 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 0,5 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 4,47 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 4.47,
+"DP": 0.5
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+2.614782378223568
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 4.47 × log₂(1.5) = 4.47 × 0.585 = 2.61 Gyr (0.585 half-lives).",
+"t = 4,47 × log₂(1,5) = 4,47 × 0,585 = 2,61 tỉ năm (0,585 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age12",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 1 daughter atoms for every parent atom. The isotope has a half-life of 4.47 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 1,0 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 4,47 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 4.47,
+"DP": 1.0
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+4.47
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 4.47 × log₂(2) = 4.47 × 1 = 4.47 Gyr (1 half-lives).",
+"t = 4,47 × log₂(2) = 4,47 × 1 = 4,47 tỉ năm (1 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age13",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 0.2 daughter atoms for every parent atom. The isotope has a half-life of 14 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 0,2 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 14,0 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 14.0,
+"DP": 0.2
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+3.6824816816731127
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 14 × log₂(1.2) = 14 × 0.263 = 3.68 Gyr (0.263 half-lives).",
+"t = 14 × log₂(1,2) = 14 × 0,263 = 3,68 tỉ năm (0,263 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "age14",
+"type": "age",
+"lec": "L3",
+"eq": "age",
+"q": [
+"A rock has 7 daughter atoms for every parent atom. The isotope has a half-life of 10 Gyr. How old is the rock (Gyr)? (No daughter at the start.)",
+"Một đá có 7 nguyên tử con cho mỗi nguyên tử mẹ. Đồng vị có chu kỳ bán rã 10,0 tỉ năm. Đá bao nhiêu tuổi (tỉ năm)? (Ban đầu không có nguyên tử con.)"
+],
+"params": {
+"Th": 10.0,
+"DP": 7
+},
+"fields": [
+{
+"k": "t",
+"label": [
+"age",
+"tuổi"
+],
+"unit": "Gyr",
+"accept": [
+30.0
+]
+}
+],
+"steps": [
+[
+"D/P = 2^{t/T½} − 1, so t = T½ log₂(1 + D/P).",
+"D/P = 2^{t/T½} − 1, nên t = T½ log₂(1 + D/P)."
+],
+[
+"t = 10 × log₂(8) = 10 × 3 = 30 Gyr (3 half-lives).",
+"t = 10 × log₂(8) = 10 × 3 = 30 tỉ năm (3 chu kỳ bán rã),"
+]
+],
+"level": 1
+},
+{
+"id": "frac1",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 1.25 Gyr. What percentage of the parent atoms is left after 0.5 Gyr?",
+"Một đồng vị có chu kỳ bán rã 1,25 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 0,5 tỉ năm?"
+],
+"params": {
+"Th": 1.25,
+"t": 0.5
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+75.7858283255199
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 0.5/1.25 = 0.4; 2^(−0.4) = 0.758 → 75.8 %.",
+"t/T½ = 0,5/1,25 = 0,4; 2^(−0,4) = 0,758 → 75,8 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac2",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 1.25 Gyr. What percentage of the parent atoms is left after 1 Gyr?",
+"Một đồng vị có chu kỳ bán rã 1,25 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 1 tỉ năm?"
+],
+"params": {
+"Th": 1.25,
+"t": 1
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+57.43491774985174
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 1/1.25 = 0.8; 2^(−0.8) = 0.574 → 57.4 %.",
+"t/T½ = 1/1,25 = 0,8; 2^(−0,8) = 0,574 → 57,4 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac3",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 1.25 Gyr. What percentage of the parent atoms is left after 2 Gyr?",
+"Một đồng vị có chu kỳ bán rã 1,25 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 2 tỉ năm?"
+],
+"params": {
+"Th": 1.25,
+"t": 2
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+32.98769776932235
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 2/1.25 = 1.6; 2^(−1.6) = 0.33 → 33 %.",
+"t/T½ = 2/1,25 = 1,6; 2^(−1,6) = 0,33 → 33 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac4",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 1.25 Gyr. What percentage of the parent atoms is left after 3.75 Gyr?",
+"Một đồng vị có chu kỳ bán rã 1,25 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 3,75 tỉ năm?"
+],
+"params": {
+"Th": 1.25,
+"t": 3.75
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+12.5
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 3.75/1.25 = 3; 2^(−3) = 0.125 → 12.5 %.",
+"t/T½ = 3,75/1,25 = 3; 2^(−3) = 0,125 → 12,5 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac5",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 1.25 Gyr. What percentage of the parent atoms is left after 4.6 Gyr?",
+"Một đồng vị có chu kỳ bán rã 1,25 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 4,6 tỉ năm?"
+],
+"params": {
+"Th": 1.25,
+"t": 4.6
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+7.8020659306350755
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 4.6/1.25 = 3.68; 2^(−3.68) = 0.078 → 7.8 %.",
+"t/T½ = 4,6/1,25 = 3,68; 2^(−3,68) = 0,078 → 7,8 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac6",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 1.25 Gyr. What percentage of the parent atoms is left after 6 Gyr?",
+"Một đồng vị có chu kỳ bán rã 1,25 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 6 tỉ năm?"
+],
+"params": {
+"Th": 1.25,
+"t": 6
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+3.5896823593657348
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 6/1.25 = 4.8; 2^(−4.8) = 0.0359 → 3.59 %.",
+"t/T½ = 6/1,25 = 4,8; 2^(−4,8) = 0,0359 → 3,59 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac7",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 1.25 Gyr. What percentage of the parent atoms is left after 10 Gyr?",
+"Một đồng vị có chu kỳ bán rã 1,25 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 10 tỉ năm?"
+],
+"params": {
+"Th": 1.25,
+"t": 10
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+0.390625
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 10/1.25 = 8; 2^(−8) = 0.00391 → 0.391 %.",
+"t/T½ = 10/1,25 = 8; 2^(−8) = 0,00391 → 0,391 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac8",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 0.7 Gyr. What percentage of the parent atoms is left after 2 Gyr?",
+"Một đồng vị có chu kỳ bán rã 0,7 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 2 tỉ năm?"
+],
+"params": {
+"Th": 0.7,
+"t": 2
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+13.801118920922653
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 2/0.7 = 2.86; 2^(−2.86) = 0.138 → 13.8 %.",
+"t/T½ = 2/0,7 = 2,86; 2^(−2,86) = 0,138 → 13,8 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac9",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 0.7 Gyr. What percentage of the parent atoms is left after 3.5 Gyr?",
+"Một đồng vị có chu kỳ bán rã 0,7 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 3,5 tỉ năm?"
+],
+"params": {
+"Th": 0.7,
+"t": 3.5
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+3.125
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 3.5/0.7 = 5; 2^(−5) = 0.0312 → 3.12 %.",
+"t/T½ = 3,5/0,7 = 5; 2^(−5) = 0,0312 → 3,12 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac10",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 4.47 Gyr. What percentage of the parent atoms is left after 4.6 Gyr?",
+"Một đồng vị có chu kỳ bán rã 4,47 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 4,6 tỉ năm?"
+],
+"params": {
+"Th": 4.47,
+"t": 4.6
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+49.00215920721152
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 4.6/4.47 = 1.03; 2^(−1.03) = 0.49 → 49 %.",
+"t/T½ = 4,6/4,47 = 1,03; 2^(−1,03) = 0,49 → 49 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac11",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 4.47 Gyr. What percentage of the parent atoms is left after 9 Gyr?",
+"Một đồng vị có chu kỳ bán rã 4,47 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 9 tỉ năm?"
+],
+"params": {
+"Th": 4.47,
+"t": 9
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+24.768478979610595
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 9/4.47 = 2.01; 2^(−2.01) = 0.248 → 24.8 %.",
+"t/T½ = 9/4,47 = 2,01; 2^(−2,01) = 0,248 → 24,8 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac12",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 14 Gyr. What percentage of the parent atoms is left after 4.6 Gyr?",
+"Một đồng vị có chu kỳ bán rã 14,0 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 4,6 tỉ năm?"
+],
+"params": {
+"Th": 14.0,
+"t": 4.6
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+79.63246222887324
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 4.6/14 = 0.329; 2^(−0.329) = 0.796 → 79.6 %.",
+"t/T½ = 4,6/14 = 0,329; 2^(−0,329) = 0,796 → 79,6 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac13",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 5 Gyr. What percentage of the parent atoms is left after 12.5 Gyr?",
+"Một đồng vị có chu kỳ bán rã 5,0 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 12,5 tỉ năm?"
+],
+"params": {
+"Th": 5.0,
+"t": 12.5
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+17.67766952966369
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 12.5/5 = 2.5; 2^(−2.5) = 0.177 → 17.7 %.",
+"t/T½ = 12,5/5 = 2,5; 2^(−2,5) = 0,177 → 17,7 %,"
+]
+],
+"level": 1
+},
+{
+"id": "frac14",
+"type": "frac",
+"lec": "L3",
+"eq": "dec",
+"q": [
+"An isotope has a half-life of 1.25 Gyr. What percentage of the parent atoms is left after 0.1 Gyr?",
+"Một đồng vị có chu kỳ bán rã 1,25 tỉ năm. Còn lại bao nhiêu phần trăm nguyên tử mẹ sau 0,1 tỉ năm?"
+],
+"params": {
+"Th": 1.25,
+"t": 0.1
+},
+"fields": [
+{
+"k": "f",
+"label": [
+"fraction left",
+"phần còn lại"
+],
+"unit": "%",
+"accept": [
+94.60576467255959
+]
+}
+],
+"steps": [
+[
+"N/N₀ = 2^{−t/T½}.",
+"N/N₀ = 2^{−t/T½}."
+],
+[
+"t/T½ = 0.1/1.25 = 0.08; 2^(−0.08) = 0.946 → 94.6 %.",
+"t/T½ = 0,1/1,25 = 0,08; 2^(−0,08) = 0,946 → 94,6 %,"
+]
+],
+"level": 1
+},
+{
+"id": "light1",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 21 cm. Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 21 cm. Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 0.21
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+1427583133.3333335
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+5.904009449200014e-06
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 0.21 = 1.43×10⁹ Hz.",
+"ν = c/λ = 2,998×10⁸ / 0,21 = 1,43×10⁹ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 2.1×10⁸ nm = 5.9×10⁻⁶ eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 2,1×10⁸ nm = 5,9×10⁻⁶ eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light2",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 656 nm (Hα, L1 p22). Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 656 nm (Hα, L1 p22). Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 6.56e-07
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+457000698170731.7
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+1.8900030248963455
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 6.56×10⁻⁷ = 4.57×10¹⁴ Hz.",
+"ν = c/λ = 2,998×10⁸ / 6,56×10⁻⁷ = 4,57×10¹⁴ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 656 nm = 1.89 eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 656 nm = 1,89 eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light3",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 500 nm. Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 500 nm. Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 5e-07
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+599584916000000.0
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+2.479683968664005
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 5×10⁻⁷ = 6×10¹⁴ Hz.",
+"ν = c/λ = 2,998×10⁸ / 5×10⁻⁷ = 6×10¹⁴ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 500 nm = 2.48 eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 500 nm = 2,48 eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light4",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 10 µm. Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 10 µm. Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 1e-05
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+29979245799999.996
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+0.12398419843320024
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 1×10⁻⁵ = 3×10¹³ Hz.",
+"ν = c/λ = 2,998×10⁸ / 1×10⁻⁵ = 3×10¹³ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 1×10⁴ nm = 0.124 eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 1×10⁴ nm = 0,124 eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light5",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 8 µm (L1 p9). Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 8 µm (L1 p9). Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 8e-06
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+37474057250000.0
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+0.15498024804150032
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 8×10⁻⁶ = 3.75×10¹³ Hz.",
+"ν = c/λ = 2,998×10⁸ / 8×10⁻⁶ = 3,75×10¹³ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 8×10³ nm = 0.155 eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 8×10³ nm = 0,155 eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light6",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 250 µm (Herschel, L1 p9). Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 250 µm (Herschel, L1 p9). Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 0.00025
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+1199169832000.0
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+0.0049593679373280105
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 2.5×10⁻⁴ = 1.2×10¹² Hz.",
+"ν = c/λ = 2,998×10⁸ / 2,5×10⁻⁴ = 1,2×10¹² Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 2.5×10⁵ nm = 0.00496 eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 2,5×10⁵ nm = 0,00496 eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light7",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 1.25 mm (IRAM, L2 p3). Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 1.25 mm (IRAM, L2 p3). Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 0.00125
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+239833966400.0
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+0.0009918735874656023
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 0.00125 = 2.4×10¹¹ Hz.",
+"ν = c/λ = 2,998×10⁸ / 0,00125 = 2,4×10¹¹ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 1.25×10⁶ nm = 9.92×10⁻⁴ eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 1,25×10⁶ nm = 9,92×10⁻⁴ eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light8",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 1.3 mm (EHT, L1 p23). Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 1.3 mm (EHT, L1 p23). Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 0.0013
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+230609583076.9231
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+0.0009537246033323099
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 0.0013 = 2.31×10¹¹ Hz.",
+"ν = c/λ = 2,998×10⁸ / 0,0013 = 2,31×10¹¹ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 1.3×10⁶ nm = 9.54×10⁻⁴ eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 1,3×10⁶ nm = 9,54×10⁻⁴ eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light9",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 1 nm (X-ray, L1 p3). Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 1 nm (X-ray, L1 p3). Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 1e-09
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+2.99792458e+17
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+1239.8419843320028
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 1×10⁻⁹ = 3×10¹⁷ Hz.",
+"ν = c/λ = 2,998×10⁸ / 1×10⁻⁹ = 3×10¹⁷ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 1 nm = 1.24×10³ eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 1 nm = 1,24×10³ eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light10",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 0.1 nm. Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 0.1 nm. Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 1e-10
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+2.99792458e+18
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+12398.419843320027
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 1×10⁻¹⁰ = 3×10¹⁸ Hz.",
+"ν = c/λ = 2,998×10⁸ / 1×10⁻¹⁰ = 3×10¹⁸ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 0.1 nm = 1.24×10⁴ eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 0,1 nm = 1,24×10⁴ eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light11",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 10⁻¹² m (gamma, L1 p2). Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 10⁻¹² m (gamma, L1 p2). Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 1e-12
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+2.99792458e+20
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+1239841.984332003
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 1×10⁻¹² = 3×10²⁰ Hz.",
+"ν = c/λ = 2,998×10⁸ / 1×10⁻¹² = 3×10²⁰ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 0.001 nm = 1.24×10⁶ eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 0,001 nm = 1,24×10⁶ eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light12",
+"type": "light",
+"lec": "L1",
+"eq": "c",
+"q": [
+"A source is observed at 10³ m (radio, L1 p2). Find the frequency (Hz) and the photon energy (eV).",
+"Một nguồn được quan sát ở 10³ m (radio, L1 p2). Tìm tần số (Hz) và năng lượng photon (eV)."
+],
+"params": {
+"kind": "lam",
+"v": 1000.0
+},
+"fields": [
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+299792.458
+]
+},
+{
+"k": "E",
+"label": [
+"photon energy",
+"năng lượng photon"
+],
+"unit": "eV",
+"accept": [
+1.2398419843320026e-09
+]
+}
+],
+"steps": [
+[
+"ν = c/λ = 2.998×10⁸ / 1×10³ = 3×10⁵ Hz.",
+"ν = c/λ = 2,998×10⁸ / 1×10³ = 3×10⁵ Hz,"
+],
+[
+"E = h ν = hc/λ = 1239.8 eV nm / 1×10¹² nm = 1.24×10⁻⁹ eV.",
+"E = h ν = hc/λ = 1239,8 eV nm / 1×10¹² nm = 1,24×10⁻⁹ eV,"
+]
+],
+"level": 1
+},
+{
+"id": "light13",
+"type": "light",
+"lec": "L1",
+"eq": "E",
+"q": [
+"A gamma-ray photon has an energy of 511 keV (L1 p22). Find its wavelength (m) and frequency (Hz).",
+"Một photon gamma có năng lượng 511 keV (L1 p22). Tìm bước sóng (m) và tần số (Hz)."
+],
+"params": {
+"kind": "E",
+"v": 511000.0
+},
+"fields": [
+{
+"k": "lam",
+"label": [
+"wavelength",
+"bước sóng"
+],
+"unit": "m",
+"accept": [
+2.4263052530958956e-12
+]
+},
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+1.2355925027053932e+20
+]
+}
+],
+"steps": [
+[
+"λ = hc/E = 1239.8 eV nm / 5.11×10⁵ eV = 0.00243 nm = 2.43×10⁻¹² m.",
+"λ = hc/E = 1239,8 eV nm / 5,11×10⁵ eV = 0,00243 nm = 2,43×10⁻¹² m,"
+],
+[
+"ν = c/λ = 1.24×10²⁰ Hz.",
+"ν = c/λ = 1,24×10²⁰ Hz,"
+]
+],
+"level": 1
+},
+{
+"id": "light14",
+"type": "light",
+"lec": "L1",
+"eq": "E",
+"q": [
+"A gamma-ray photon has an energy of 1.809 MeV (L1 p22). Find its wavelength (m) and frequency (Hz).",
+"Một photon gamma có năng lượng 1.809 MeV (L1 p22). Tìm bước sóng (m) và tần số (Hz)."
+],
+"params": {
+"kind": "E",
+"v": 1809000.0
+},
+"fields": [
+{
+"k": "lam",
+"label": [
+"wavelength",
+"bước sóng"
+],
+"unit": "m",
+"accept": [
+6.853742312504161e-13
+]
+},
+{
+"k": "nu",
+"label": [
+"frequency",
+"tần số"
+],
+"unit": "Hz",
+"accept": [
+4.3741425389316165e+20
+]
+}
+],
+"steps": [
+[
+"λ = hc/E = 1239.8 eV nm / 1.81×10⁶ eV = 6.85×10⁻⁴ nm = 6.85×10⁻¹³ m.",
+"λ = hc/E = 1239,8 eV nm / 1,81×10⁶ eV = 6,85×10⁻⁴ nm = 6,85×10⁻¹³ m,"
+],
+[
+"ν = c/λ = 4.37×10²⁰ Hz.",
+"ν = c/λ = 4,37×10²⁰ Hz,"
+]
+],
+"level": 1
+},
+{
+"id": "teq1",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at Mercury, 0.39 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại Thủy tinh, 0,39 AU (K)."
+],
+"params": {
+"d": 0.39
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+445.68454543364595
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √0.39 = 446 K.",
+"T = 278,3 / √0,39 = 446 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq2",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at Venus, 0.72 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại Kim tinh, 0,72 AU (K)."
+],
+"params": {
+"d": 0.72
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+328.0149439239991
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √0.72 = 328 K.",
+"T = 278,3 / √0,72 = 328 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq3",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at 1 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại 1 AU (K)."
+],
+"params": {
+"d": 1.0
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+278.3299094150219
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √1 = 278 K.",
+"T = 278,3 / √1 = 278 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq4",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at Mars, 1.52 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại Hỏa tinh, 1,52 AU (K)."
+],
+"params": {
+"d": 1.52
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+225.75536724250628
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √1.52 = 226 K.",
+"T = 278,3 / √1,52 = 226 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq5",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at 2.7 AU (asteroid belt) (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại 2,7 AU (vành đai tiểu hành tinh) (K)."
+],
+"params": {
+"d": 2.7
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+169.38618868330778
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √2.7 = 169 K.",
+"T = 278,3 / √2,7 = 169 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq6",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at 3.4 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại 3,4 AU (K)."
+],
+"params": {
+"d": 3.4
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+150.9455866850645
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √3.4 = 151 K.",
+"T = 278,3 / √3,4 = 151 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq7",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at Jupiter, 5.2 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại Mộc tinh, 5,2 AU (K)."
+],
+"params": {
+"d": 5.2
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+122.05573953272199
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √5.2 = 122 K.",
+"T = 278,3 / √5,2 = 122 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq8",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at Saturn, 9.6 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại Thổ tinh, 9,6 AU (K)."
+],
+"params": {
+"d": 9.6
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+89.83059199298323
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √9.6 = 89.8 K.",
+"T = 278,3 / √9,6 = 89,8 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq9",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at Uranus, 19.2 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại Thiên Vương tinh, 19,2 AU (K)."
+],
+"params": {
+"d": 19.2
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+63.51982075624042
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √19.2 = 63.5 K.",
+"T = 278,3 / √19,2 = 63,5 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq10",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at Neptune, 30 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại Hải Vương tinh, 30 AU (K)."
+],
+"params": {
+"d": 30.0
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+50.815856604992334
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √30 = 50.8 K.",
+"T = 278,3 / √30 = 50,8 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq11",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at 40 AU (Kuiper belt) (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại 40 AU (vành đai Kuiper) (K)."
+],
+"params": {
+"d": 40.0
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+44.00782273499062
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √40 = 44 K.",
+"T = 278,3 / √40 = 44 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq12",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at 10 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại 10 AU (K)."
+],
+"params": {
+"d": 10.0
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+88.01564546998124
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √10 = 88 K.",
+"T = 278,3 / √10 = 88 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq13",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at 2 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại 2 AU (K)."
+],
+"params": {
+"d": 2.0
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+196.80896635439947
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √2 = 197 K.",
+"T = 278,3 / √2 = 197 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "teq14",
+"type": "teq",
+"lec": "L3",
+"eq": "teq",
+"q": [
+"Using the blackbody equilibrium temperature of a dark body heated by the Sun (no albedo, no greenhouse), find T at 50 AU (K).",
+"Dùng nhiệt độ cân bằng vật đen của một vật tối được Mặt Trời nung (không albedo, không hiệu ứng nhà kính), tìm T tại 50 AU (K)."
+],
+"params": {
+"d": 50.0
+},
+"fields": [
+{
+"k": "T",
+"label": [
+"temperature",
+"nhiệt độ"
+],
+"unit": "K",
+"accept": [
+39.36179327087989
+]
+}
+],
+"steps": [
+[
+"T = (L☉/(16 π σ d²))^¼ = 278.3 K (d/AU)^(−1/2).",
+"T = (L☉/(16 π σ d²))^¼ = 278,3 K (d/AU)^(−1/2)."
+],
+[
+"T = 278.3 / √50 = 39.4 K.",
+"T = 278,3 / √50 = 39,4 K,"
+],
+[
+"A trend, not the temperature of the young disk.",
+"Chỉ là xu hướng, không phải nhiệt độ của đĩa trẻ."
+]
+],
+"level": 1
+},
+{
+"id": "scale1",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10³ cm⁻³ and T = 30 K is M₁. What is the ratio M₂/M₁ for n = 10⁴ cm⁻³ and T = 30 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10³ cm⁻³ và T = 30 K là M₁. Tỉ số M₂/M₁ với n = 10⁴ cm⁻³ và T = 30 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 1000.0,
+"T1": 30,
+"n2": 10000.0,
+"T2": 30
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+0.31622776601683794
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (30/30)^1.5 × (10⁴/10³)^−0.5 = 1 × 0.316 = 0.316.",
+"M₂/M₁ = (30/30)^1,5 × (10⁴/10³)^−0,5 = 1 × 0,316 = 0,316,"
+]
+],
+"level": 2
+},
+{
+"id": "scale2",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10⁴ cm⁻³ and T = 30 K is M₁. What is the ratio M₂/M₁ for n = 10⁴ cm⁻³ and T = 50 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10⁴ cm⁻³ và T = 30 K là M₁. Tỉ số M₂/M₁ với n = 10⁴ cm⁻³ và T = 50 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 10000.0,
+"T1": 30,
+"n2": 10000.0,
+"T2": 50
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+2.151657414559676
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (50/30)^1.5 × (10⁴/10⁴)^−0.5 = 2.15 × 1 = 2.15.",
+"M₂/M₁ = (50/30)^1,5 × (10⁴/10⁴)^−0,5 = 2,15 × 1 = 2,15,"
+]
+],
+"level": 2
+},
+{
+"id": "scale3",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10³ cm⁻³ and T = 30 K is M₁. What is the ratio M₂/M₁ for n = 10³ cm⁻³ and T = 50 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10³ cm⁻³ và T = 30 K là M₁. Tỉ số M₂/M₁ với n = 10³ cm⁻³ và T = 50 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 1000.0,
+"T1": 30,
+"n2": 1000.0,
+"T2": 50
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+2.151657414559676
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (50/30)^1.5 × (10³/10³)^−0.5 = 2.15 × 1 = 2.15.",
+"M₂/M₁ = (50/30)^1,5 × (10³/10³)^−0,5 = 2,15 × 1 = 2,15,"
+]
+],
+"level": 2
+},
+{
+"id": "scale4",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10⁴ cm⁻³ and T = 10 K is M₁. What is the ratio M₂/M₁ for n = 10⁴ cm⁻³ and T = 40 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10⁴ cm⁻³ và T = 10 K là M₁. Tỉ số M₂/M₁ với n = 10⁴ cm⁻³ và T = 40 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 10000.0,
+"T1": 10,
+"n2": 10000.0,
+"T2": 40
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+8.0
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (40/10)^1.5 × (10⁴/10⁴)^−0.5 = 8 × 1 = 8.",
+"M₂/M₁ = (40/10)^1,5 × (10⁴/10⁴)^−0,5 = 8 × 1 = 8,"
+]
+],
+"level": 2
+},
+{
+"id": "scale5",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10³ cm⁻³ and T = 100 K is M₁. What is the ratio M₂/M₁ for n = 10⁵ cm⁻³ and T = 10 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10³ cm⁻³ và T = 100 K là M₁. Tỉ số M₂/M₁ với n = 10⁵ cm⁻³ và T = 10 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 1000.0,
+"T1": 100,
+"n2": 100000.0,
+"T2": 10
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+0.00316227766016838
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (10/100)^1.5 × (10⁵/10³)^−0.5 = 0.0316 × 0.1 = 0.00316.",
+"M₂/M₁ = (10/100)^1,5 × (10⁵/10³)^−0,5 = 0,0316 × 0,1 = 0,00316,"
+]
+],
+"level": 2
+},
+{
+"id": "scale6",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10⁴ cm⁻³ and T = 20 K is M₁. What is the ratio M₂/M₁ for n = 10⁶ cm⁻³ and T = 20 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10⁴ cm⁻³ và T = 20 K là M₁. Tỉ số M₂/M₁ với n = 10⁶ cm⁻³ và T = 20 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 10000.0,
+"T1": 20,
+"n2": 1000000.0,
+"T2": 20
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+0.1
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (20/20)^1.5 × (10⁶/10⁴)^−0.5 = 1 × 0.1 = 0.1.",
+"M₂/M₁ = (20/20)^1,5 × (10⁶/10⁴)^−0,5 = 1 × 0,1 = 0,1,"
+]
+],
+"level": 2
+},
+{
+"id": "scale7",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 100 cm⁻³ and T = 100 K is M₁. What is the ratio M₂/M₁ for n = 10⁴ cm⁻³ and T = 10 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 100 cm⁻³ và T = 100 K là M₁. Tỉ số M₂/M₁ với n = 10⁴ cm⁻³ và T = 10 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 100.0,
+"T1": 100,
+"n2": 10000.0,
+"T2": 10
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+0.00316227766016838
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (10/100)^1.5 × (10⁴/100)^−0.5 = 0.0316 × 0.1 = 0.00316.",
+"M₂/M₁ = (10/100)^1,5 × (10⁴/100)^−0,5 = 0,0316 × 0,1 = 0,00316,"
+]
+],
+"level": 2
+},
+{
+"id": "scale8",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10³ cm⁻³ and T = 30 K is M₁. What is the ratio M₂/M₁ for n = 100 cm⁻³ and T = 30 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10³ cm⁻³ và T = 30 K là M₁. Tỉ số M₂/M₁ với n = 100 cm⁻³ và T = 30 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 1000.0,
+"T1": 30,
+"n2": 100.0,
+"T2": 30
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+3.162277660168379
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (30/30)^1.5 × (100/10³)^−0.5 = 1 × 3.16 = 3.16.",
+"M₂/M₁ = (30/30)^1,5 × (100/10³)^−0,5 = 1 × 3,16 = 3,16,"
+]
+],
+"level": 2
+},
+{
+"id": "scale9",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10⁴ cm⁻³ and T = 50 K is M₁. What is the ratio M₂/M₁ for n = 10⁴ cm⁻³ and T = 12.5 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10⁴ cm⁻³ và T = 50 K là M₁. Tỉ số M₂/M₁ với n = 10⁴ cm⁻³ và T = 12.5 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 10000.0,
+"T1": 50,
+"n2": 10000.0,
+"T2": 12.5
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+0.125
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (12.5/50)^1.5 × (10⁴/10⁴)^−0.5 = 0.125 × 1 = 0.125.",
+"M₂/M₁ = (12,5/50)^1,5 × (10⁴/10⁴)^−0,5 = 0,125 × 1 = 0,125,"
+]
+],
+"level": 2
+},
+{
+"id": "scale10",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10⁵ cm⁻³ and T = 10 K is M₁. What is the ratio M₂/M₁ for n = 10³ cm⁻³ and T = 10 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10⁵ cm⁻³ và T = 10 K là M₁. Tỉ số M₂/M₁ với n = 10³ cm⁻³ và T = 10 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 100000.0,
+"T1": 10,
+"n2": 1000.0,
+"T2": 10
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+10.0
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (10/10)^1.5 × (10³/10⁵)^−0.5 = 1 × 10 = 10.",
+"M₂/M₁ = (10/10)^1,5 × (10³/10⁵)^−0,5 = 1 × 10 = 10,"
+]
+],
+"level": 2
+},
+{
+"id": "scale11",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10³ cm⁻³ and T = 10 K is M₁. What is the ratio M₂/M₁ for n = 10³ cm⁻³ and T = 90 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10³ cm⁻³ và T = 10 K là M₁. Tỉ số M₂/M₁ với n = 10³ cm⁻³ và T = 90 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 1000.0,
+"T1": 10,
+"n2": 1000.0,
+"T2": 90
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+27.0
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (90/10)^1.5 × (10³/10³)^−0.5 = 27 × 1 = 27.",
+"M₂/M₁ = (90/10)^1,5 × (10³/10³)^−0,5 = 27 × 1 = 27,"
+]
+],
+"level": 2
+},
+{
+"id": "scale12",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10⁴ cm⁻³ and T = 30 K is M₁. What is the ratio M₂/M₁ for n = 100 cm⁻³ and T = 300 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10⁴ cm⁻³ và T = 30 K là M₁. Tỉ số M₂/M₁ với n = 100 cm⁻³ và T = 300 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 10000.0,
+"T1": 30,
+"n2": 100.0,
+"T2": 300
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+316.2277660168379
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (300/30)^1.5 × (100/10⁴)^−0.5 = 31.6 × 10 = 316.",
+"M₂/M₁ = (300/30)^1,5 × (100/10⁴)^−0,5 = 31,6 × 10 = 316,"
+]
+],
+"level": 2
+},
+{
+"id": "scale13",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10⁶ cm⁻³ and T = 10 K is M₁. What is the ratio M₂/M₁ for n = 10⁴ cm⁻³ and T = 10 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10⁶ cm⁻³ và T = 10 K là M₁. Tỉ số M₂/M₁ với n = 10⁴ cm⁻³ và T = 10 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 1000000.0,
+"T1": 10,
+"n2": 10000.0,
+"T2": 10
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+10.0
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (10/10)^1.5 × (10⁴/10⁶)^−0.5 = 1 × 10 = 10.",
+"M₂/M₁ = (10/10)^1,5 × (10⁴/10⁶)^−0,5 = 1 × 10 = 10,"
+]
+],
+"level": 2
+},
+{
+"id": "scale14",
+"type": "scale",
+"lec": "L2",
+"eq": "scal",
+"q": [
+"The Jeans mass of a cloud with n = 10³ cm⁻³ and T = 50 K is M₁. What is the ratio M₂/M₁ for n = 10³ cm⁻³ and T = 30 K? (Same μ.)",
+"Khối lượng Jeans của một đám mây có n = 10³ cm⁻³ và T = 50 K là M₁. Tỉ số M₂/M₁ với n = 10³ cm⁻³ và T = 30 K là bao nhiêu? (Cùng μ.)"
+],
+"params": {
+"n1": 1000.0,
+"T1": 50,
+"n2": 1000.0,
+"T2": 30
+},
+"fields": [
+{
+"k": "r",
+"label": [
+"mass ratio",
+"tỉ số khối lượng"
+],
+"unit": "×",
+"accept": [
+0.46475800154489
+]
+}
+],
+"steps": [
+[
+"M_J ∝ T^{3/2} ρ^{−1/2}, and ρ ∝ n.",
+"M_J ∝ T^{3/2} ρ^{−1/2}, và ρ ∝ n."
+],
+[
+"M₂/M₁ = (30/50)^1.5 × (10³/10³)^−0.5 = 0.465 × 1 = 0.465.",
+"M₂/M₁ = (30/50)^1,5 × (10³/10³)^−0,5 = 0,465 × 1 = 0,465,"
+]
+],
+"level": 2
+}
+]
+}

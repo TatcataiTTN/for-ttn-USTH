@@ -26,5 +26,19 @@ for (const b of V.em) {
 for (const d of V.decay) eq('parent ' + d.n_half_lives, C.parentFrac(d.t_Gyr, 1.25), d.parent, 1e-9);
 for (const a of V.ages) eq('age D/P=' + a.DP, C.ageFromDP(a.DP, 1.25), a.t_Gyr, 1e-9);
 eq('spin', C.spin(1, 10, 1), V.spinup.omega_ratio, 1e-12);
+// extras: Wien examples, equilibrium temperature, practice answers recomputed in JS
+for (const w of V.wien_examples) { eq('wien ' + w.label, C.K.wien * 1e-2 / w.T_K, w.lam_m, 1e-3); }
+for (const t of V.Teq) eq('Teq ' + t.d_au, C.teq(t.d_au), t.T_K, 1e-3);
+const P = V.practice;
+{ const r = C.rho(1e5, 2.33), v = P.tff_1e5.vals; eq('pr tff slide', C.tffSlide(r) / C.K.Myr, v[0]); eq('pr tff full', C.tffFull(r) / C.K.Myr, v[1]); }
+for (const k of ['jeans_core', 'jeans_diffuse']) { const p = P[k], v = p.vals; eq(k + ' cs', C.cs(p.T, p.mu) / 1e5, v.cs_kms); eq(k + ' LJ', C.LJ(p.T, p.mu, p.n, 'rig') / C.K.pc, v.LJ_pc); eq(k + ' MJ half', C.MJ(p.T, p.mu, p.n, 'rig', 'half') / C.K.Msun, v.MJ_half); eq(k + ' MJ full', C.MJ(p.T, p.mu, p.n, 'rig', 'full') / C.K.Msun, v.MJ_full); }
+eq('pr tff inverse', C.rhoForTff(1.0), P.tff_inverse.rho, 1e-3);
+eq('pr age 0.5', C.ageFromDP(0.5, 1.25), P.age_DP05.t_Gyr, 1e-9); eq('pr age 15', C.ageFromDP(15, 1.25), P.age_DP15.t_Gyr, 1e-9);
+eq('pr teq 150', C.teq(P.teq_dist150.d_au), 150, 1e-3);
+eq('pr spin', C.spin(1, 1e4, 100), P.spin_core.factor, 1e-12);
+eq('decay lambda', Math.log(2) / 1.25, V.decay_const.lam_per_Gyr, 1e-9);
+// practice problem bank (data/problems.json, 126 problems): JavaScript recomputes every accepted answer
+const PB = JSON.parse(fs.readFileSync(path.join(__dirname, '..', 'data', 'problems.json'), 'utf8'));
+for (const pr of PB.problems) { const js = C.solve(pr.type, pr.params); pr.fields.forEach((f, i) => f.accept.forEach((a, j) => eq(`problem ${pr.id} ${f.k}[${j}]`, js[i][j], a, 3e-3))); }
 console.log(fails.length ? 'FAILS:\n' + fails.join('\n') : 'FAILS: none', `(${n} comparisons)`);
 process.exit(fails.length ? 1 : 0);
